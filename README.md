@@ -33,7 +33,7 @@ pip install -e ".[test]"
 pytest
 ```
 
-Python 3.9+ and numpy.
+Python 3.10+ and numpy.
 
 ## Quick start
 
