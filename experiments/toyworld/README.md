@@ -1,6 +1,6 @@
 # Olvasó v0 in a toy world (`endolexis.toyworld`)
 
-Experiments 1-10 of November 2026: a simulated body with three outer and three inner channels, an Olvasó that
+Experiments 1-11 of November 2026: a simulated body with three outer and three inner channels, an Olvasó that
 starts from anonymous, shuffled numbers, and an observer that alone holds the key. Two papers report them:
 
 - *Endolexis v0: Olvasó in a toy world* (experiments 1-5),
@@ -12,7 +12,7 @@ Every script below runs from a clone without installing (`python experiments/toy
 `pip install -e .`. Each takes about one to five minutes on a laptop and writes its results as JSON beside itself;
 the JSON files committed here are the runs the papers report.
 
-Experiments 8-10 came after the papers and are not in version 0.2.0. The exact state the papers describe is archived as version 0.2.0: [doi:10.5281/zenodo.23856387](https://doi.org/10.5281/zenodo.23856387).
+Experiments 8-11 came after the papers and are not in version 0.2.0. The exact state the papers describe is archived as version 0.2.0: [doi:10.5281/zenodo.23856387](https://doi.org/10.5281/zenodo.23856387).
 
 This toy is separate from the stage engine in `endolexis` (the 21 stages of *Olvasó: an entity that reads itself*):
 it is a smaller, independent reader, built to test single ideas in a world whose hidden truth is known.
@@ -346,3 +346,32 @@ every mind alike. Same life as experiment 9 otherwise (charger from day 20, seal
   levels, phasic ones report changes.
 - **The cost is superstition** (noise read 2.8% → 7.2%, one life 17%): random wanderings also have felt
   changes, and doubt does not yet watch the change dimensions closely enough. The next thing to fix.
+
+## Experiment 11: where the superstition came from (`experiments/toyworld/careful_merging.py`, 5 lives × 40 days)
+
+Experiment 10's cost (noise read 2.8% → 7.2%) did not come through the change dimensions: noise was read
+through its *change* in only 0.6-1% of moments. It came through noise's *level*, and from housekeeping's
+merges: with merging switched off, the worst life fell from 16% to 1.5%. Two flaws: words were merged when
+their meanings agreed *on average* (the near-zero change dimensions made a disagreement easy to hide), and a
+merged word kept its old trust although its pooled meaning was new. `housekeeping(careful=True)` fixes
+both: agreement on every dimension, and a merged meaning starts out doubted. The third option retires
+words but never merges them (`merge_dist=0`). Same life as experiment 10.
+
+| Mind | Housekeeping | Pure noise read | Charging read through a charger word | Charger warmth read | Activity warmth read |
+|---|---|---|---|---|---|
+| Levels | retire + merge (exp. 9-10) | 2.8% | 12% | 32% | 43% |
+| Levels | retire + careful merge | 2.3% | 12% | 29% | 52% |
+| Levels | retire only | 2.9% | 9% | 23% | 44% |
+| Levels + change | retire + merge (exp. 10) | 7.2% (1-17) | 24% | 64% | 52% |
+| Levels + change | retire + careful merge | 5.6% (1-19) | 26% | 47% | 49% |
+| **Levels + change** | **retire only** | **2.3% (1-5)** | **25%** | **49%** | **49%** |
+
+- **Merging was the source of the superstition.** Even careful merges can pool two partial meanings into a
+  confident wrong one; one life stayed at 19%. Retiring alone removes it: noise is read as rarely as by the
+  level-only mind, in every life (at most 5%).
+- **The gain of feeling change stays:** charging is read through its own word twice as often as by a
+  level-only mind, and charger warmth half again as often.
+- **What it costs:** charger warmth is read less than with merging (49% against 64%), and for the first time a
+  little of it (3%) is misread through activity words.
+- The best mind so far feels levels and changes, forgets with doubt, and lets sleep retire words it no longer
+  meets, but never merge them.

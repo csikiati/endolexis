@@ -101,6 +101,7 @@ reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 | 8. A richer night | A varied night is harder to read and slightly more dream-like; real night causes are read correctly |
 | 9. Housekeeping in sleep | Retiring infancy words makes room to learn something new late in life, at no cost |
 | 10. Sensory adaptation | Feeling levels and changes reads a charger twice as well; feeling only change loses what persists |
+| 11. Where the superstition came from | Merging words in sleep bred it; retiring without merging keeps the gain of feeling change, without the superstition |
 
 ```python
 from endolexis.toyworld import live_a_life

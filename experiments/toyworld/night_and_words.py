@@ -120,7 +120,8 @@ def night_life(seed, night, trickle):
 
 
 # --- experiment 9 ----------------------------------------------------------------
-def words_life(seed, housekeeping, days=40, charger_from=20, mind=None, charger_strength=1.0):
+def words_life(seed, housekeeping, days=40, charger_from=20, mind=None, charger_strength=1.0,
+               careful=False, merge=True):
     world = ToyWorld(seed=seed, charger_from=charger_from, charger_strength=charger_strength)
     col = Collector(len(SENSED), len(FELT), seed=seed)
     olv = Olvaso(len(SENSED), len(FELT), threshold=20.0, seed=seed, **(mind or BEST))
@@ -140,7 +141,7 @@ def words_life(seed, housekeeping, days=40, charger_from=20, mind=None, charger_
                 olv.threshold = 250.0
             alive_at[day] = int(olv.alive.sum())
         if tick == LID_OPEN and housekeeping and day >= 1:
-            a, m = olv.housekeeping()
+            a, m = olv.housekeeping(careful=careful, **({} if merge else {'merge_dist': 0}))
             retired += a
             merged += m
         if day >= 1 and LID_CLOSE <= tick < LID_OPEN:

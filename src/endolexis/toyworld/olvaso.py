@@ -136,10 +136,13 @@ class Olvaso:
         self.alive[w] = False
 
     # --- housekeeping in sleep --------------------------------------------------
-    def housekeeping(self, retire_after=5000, keep_uses=200, merge_dist=1.5, merge_agree=0.3):
+    def housekeeping(self, retire_after=5000, keep_uses=200, merge_dist=1.5, merge_agree=0.3,
+                     careful=False):
         """Done while asleep. Retires words not met for `retire_after` moments that were never used
         much (infancy words, passing coincidences), freeing their places for new words. Merges two
         words that look nearly the same and mean the same where both know a meaning.
+        careful=True: a merge needs agreement on every dimension, not on average, and the merged
+        meaning starts out doubted, so it must settle again before it may read.
         Returns (retired, merged)."""
         n = self.n_words
         old = self.alive[:n] & (self.t - self.word_last_seen[:n] > retire_after) \
@@ -159,10 +162,16 @@ class Olvaso:
                 if i in gone or j in gone:
                     continue
                 both = (self.cnt[i] >= self.min_count) & (self.cnt[j] >= self.min_count)
-                if both.any() and np.abs(self.mean[i] - self.mean[j])[both].mean() > merge_agree:
-                    continue                      # they look alike but mean different things
+                if both.any():
+                    diff = np.abs(self.mean[i] - self.mean[j])[both]
+                    if (diff.max() if careful else diff.mean()) > merge_agree:
+                        continue                  # they look alike but mean different things
                 keep, drop = (i, j) if self.word_uses[i] >= self.word_uses[j] else (j, i)
                 self._merge(keep, drop)
+                if careful:                       # a new, untested meaning: trust must be earned
+                    self.dn[keep] = 0
+                    self.dmean[keep] = self.mean[keep]
+                    self.dvar[keep] = 0
                 gone.add(drop)
                 merged += 1
         dead = set(int(w) for w in retired)
