@@ -1,0 +1,710 @@
+{
+  "seasons": {
+    "never forgets": {
+      "lives": [
+        {
+          "summer": {
+            "warm_via_activity": 0.13010590015128592,
+            "drift_read": 0.001
+          },
+          "winter": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.15416666666666667
+          },
+          "back_later": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.02875
+          },
+          "drift_read": 0.018623188405797103
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.6497093023255814,
+            "drift_read": 0.0
+          },
+          "winter": {
+            "warm_via_activity": 0.05,
+            "drift_read": 0.02625
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.04672897196261682,
+            "drift_read": 0.01
+          },
+          "back_later": {
+            "warm_via_activity": 0.02394106813996317,
+            "drift_read": 0.035416666666666666
+          },
+          "drift_read": 0.04463768115942029
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.6705882352941176,
+            "drift_read": 0.01633333333333333
+          },
+          "winter": {
+            "warm_via_activity": 0.10840438489646773,
+            "drift_read": 0.036458333333333336
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.053811659192825115,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.09313725490196079,
+            "drift_read": 0.02666666666666667
+          },
+          "drift_read": 0.023768115942028985
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.6561514195583596,
+            "drift_read": 0.0
+          },
+          "winter": {
+            "warm_via_activity": 0.09832402234636871,
+            "drift_read": 0.0008333333333333334
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.13725490196078433,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.16143497757847533,
+            "drift_read": 0.0
+          },
+          "drift_read": 0.0005072463768115942
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.4349775784753363,
+            "drift_read": 0.007333333333333333
+          },
+          "winter": {
+            "warm_via_activity": 0.3822314049586777,
+            "drift_read": 0.014583333333333334
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.07633587786259542,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.003663003663003663,
+            "drift_read": 0.0
+          },
+          "drift_read": 0.006666666666666667
+        }
+      ],
+      "mean": {
+        "summer": {
+          "warm_via_activity": 0.5083064871609362,
+          "drift_read": 0.004933333333333333
+        },
+        "winter": {
+          "warm_via_activity": 0.12779196244030283,
+          "drift_read": 0.015625000000000003
+        },
+        "back_first_2_days": {
+          "warm_via_activity": 0.06282628219576433,
+          "drift_read": 0.03283333333333334
+        },
+        "back_later": {
+          "warm_via_activity": 0.05643526085668058,
+          "drift_read": 0.018166666666666668
+        },
+        "drift_read": 0.018840579710144932
+      }
+    },
+    "forgets + doubt": {
+      "lives": [
+        {
+          "summer": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "winter": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.020416666666666666
+          },
+          "drift_read": 0.0035507246376811595
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.6322674418604651,
+            "drift_read": 0.0
+          },
+          "winter": {
+            "warm_via_activity": 0.031451612903225803,
+            "drift_read": 0.02625
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "drift_read": 0.0227536231884058
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.6431372549019608,
+            "drift_read": 0.007
+          },
+          "winter": {
+            "warm_via_activity": 0.07186358099878197,
+            "drift_read": 0.036458333333333336
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.008968609865470852,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.08169934640522876,
+            "drift_read": 0.02666666666666667
+          },
+          "drift_read": 0.021739130434782608
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.582018927444795,
+            "drift_read": 0.0
+          },
+          "winter": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.08669656203288491,
+            "drift_read": 0.019583333333333335
+          },
+          "drift_read": 0.0034057971014492755
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.4304932735426009,
+            "drift_read": 0.0
+          },
+          "winter": {
+            "warm_via_activity": 0.375,
+            "drift_read": 0.014583333333333334
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.08396946564885496,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "drift_read": 0.005072463768115942
+        }
+      ],
+      "mean": {
+        "summer": {
+          "warm_via_activity": 0.4575833795499643,
+          "drift_read": 0.0014
+        },
+        "winter": {
+          "warm_via_activity": 0.09566303878040155,
+          "drift_read": 0.015458333333333334
+        },
+        "back_first_2_days": {
+          "warm_via_activity": 0.018587615102865163,
+          "drift_read": 0.0
+        },
+        "back_later": {
+          "warm_via_activity": 0.03367918168762273,
+          "drift_read": 0.013333333333333336
+        },
+        "drift_read": 0.011304347826086955
+      }
+    },
+    "+ consolidation": {
+      "lives": [
+        {
+          "summer": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "winter": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0033333333333333335
+          },
+          "drift_read": 0.0005797101449275362
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.6337209302325582,
+            "drift_read": 0.036333333333333336
+          },
+          "winter": {
+            "warm_via_activity": 0.3556451612903226,
+            "drift_read": 0.08708333333333333
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.5607476635514018,
+            "drift_read": 0.05
+          },
+          "back_later": {
+            "warm_via_activity": 0.5911602209944752,
+            "drift_read": 0.23375
+          },
+          "drift_read": 0.09681159420289855
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.6490196078431373,
+            "drift_read": 0.007
+          },
+          "winter": {
+            "warm_via_activity": 0.3873325213154689,
+            "drift_read": 0.036458333333333336
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.6995515695067265,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.6633986928104575,
+            "drift_read": 0.02666666666666667
+          },
+          "drift_read": 0.021739130434782608
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.6182965299684543,
+            "drift_read": 0.025
+          },
+          "winter": {
+            "warm_via_activity": 0.45363128491620114,
+            "drift_read": 0.021875
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.7132352941176471,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.6875934230194319,
+            "drift_read": 0.05875
+          },
+          "drift_read": 0.03949275362318841
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.44170403587443946,
+            "drift_read": 0.0
+          },
+          "winter": {
+            "warm_via_activity": 0.4080578512396694,
+            "drift_read": 0.07854166666666666
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.3893129770992366,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.2673992673992674,
+            "drift_read": 0.0
+          },
+          "drift_read": 0.027318840579710145
+        }
+      ],
+      "mean": {
+        "summer": {
+          "warm_via_activity": 0.4685482207837179,
+          "drift_read": 0.013666666666666666
+        },
+        "winter": {
+          "warm_via_activity": 0.3209333637523324,
+          "drift_read": 0.04479166666666666
+        },
+        "back_first_2_days": {
+          "warm_via_activity": 0.4725695008550024,
+          "drift_read": 0.01
+        },
+        "back_later": {
+          "warm_via_activity": 0.44191032084472637,
+          "drift_read": 0.0645
+        },
+        "drift_read": 0.03718840579710145
+      }
+    },
+    "+ consolidation + pruning": {
+      "lives": [
+        {
+          "summer": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "winter": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.0,
+            "drift_read": 0.0033333333333333335
+          },
+          "drift_read": 0.0005797101449275362
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.6351744186046512,
+            "drift_read": 0.36333333333333334
+          },
+          "winter": {
+            "warm_via_activity": 0.3935483870967742,
+            "drift_read": 0.44708333333333333
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.5825545171339563,
+            "drift_read": 0.4508333333333333
+          },
+          "back_later": {
+            "warm_via_activity": 0.6077348066298343,
+            "drift_read": 0.3433333333333333
+          },
+          "drift_read": 0.3865217391304348
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.6058823529411764,
+            "drift_read": 0.007
+          },
+          "winter": {
+            "warm_via_activity": 0.4104750304506699,
+            "drift_read": 0.033541666666666664
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.672645739910314,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.6764705882352942,
+            "drift_read": 0.0275
+          },
+          "drift_read": 0.020869565217391306
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.6466876971608833,
+            "drift_read": 0.025333333333333333
+          },
+          "winter": {
+            "warm_via_activity": 0.488268156424581,
+            "drift_read": 0.021666666666666667
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.7450980392156863,
+            "drift_read": 0.0
+          },
+          "back_later": {
+            "warm_via_activity": 0.7414050822122571,
+            "drift_read": 0.05708333333333333
+          },
+          "drift_read": 0.03905797101449275
+        },
+        {
+          "summer": {
+            "warm_via_activity": 0.515695067264574,
+            "drift_read": 0.0
+          },
+          "winter": {
+            "warm_via_activity": 0.42768595041322316,
+            "drift_read": 0.14270833333333333
+          },
+          "back_first_2_days": {
+            "warm_via_activity": 0.3969465648854962,
+            "drift_read": 0.025833333333333333
+          },
+          "back_later": {
+            "warm_via_activity": 0.31135531135531136,
+            "drift_read": 0.07916666666666666
+          },
+          "drift_read": 0.06565217391304348
+        }
+      ],
+      "mean": {
+        "summer": {
+          "warm_via_activity": 0.48068790719425697,
+          "drift_read": 0.07913333333333333
+        },
+        "winter": {
+          "warm_via_activity": 0.34399550487704966,
+          "drift_read": 0.12899999999999998
+        },
+        "back_first_2_days": {
+          "warm_via_activity": 0.4794489722290905,
+          "drift_read": 0.09533333333333333
+        },
+        "back_later": {
+          "warm_via_activity": 0.46739315768653944,
+          "drift_read": 0.10208333333333335
+        },
+        "drift_read": 0.10253623188405799
+      }
+    }
+  },
+  "dreams": {
+    "sealed": {
+      "lives": [
+        {
+          "night_read": 0.0,
+          "wrong_world": 0.0,
+          "switch_rate": 0.0,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.010395010395010396,
+          "warm_via_activity_after": 0.1262135922330097
+        },
+        {
+          "night_read": 0.0,
+          "wrong_world": 0.0,
+          "switch_rate": 0.0,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.5354223433242506,
+          "warm_via_activity_after": 0.5195530726256983
+        },
+        {
+          "night_read": 0.0,
+          "wrong_world": 0.0,
+          "switch_rate": 0.0,
+          "drift_read_before": 0.024333333333333332,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.26865671641791045,
+          "warm_via_activity_after": 0.45787545787545786
+        },
+        {
+          "night_read": 0.0,
+          "wrong_world": 0.0,
+          "switch_rate": 0.0,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.24403669724770644,
+          "warm_via_activity_after": 0.26885245901639343
+        },
+        {
+          "night_read": 0.0,
+          "wrong_world": 0.0,
+          "switch_rate": 0.0,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.6108695652173913,
+          "warm_via_activity_after": 0.5980861244019139
+        }
+      ],
+      "mean": {
+        "night_read": 0.0,
+        "wrong_world": 0.0,
+        "switch_rate": 0.0,
+        "drift_read_before": 0.004866666666666667,
+        "drift_read_after": 0.0,
+        "warm_via_activity_before": 0.3338760665204538,
+        "warm_via_activity_after": 0.3941161412304946
+      }
+    },
+    "trickle": {
+      "lives": [
+        {
+          "night_read": 0.5496078431372549,
+          "wrong_world": 0.0,
+          "switch_rate": 0.08072072072072072,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.010395010395010396,
+          "warm_via_activity_after": 0.1262135922330097
+        },
+        {
+          "night_read": 0.542843137254902,
+          "wrong_world": 0.004153873938956113,
+          "switch_rate": 0.06312108943687891,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.5354223433242506,
+          "warm_via_activity_after": 0.5195530726256983
+        },
+        {
+          "night_read": 0.5273529411764706,
+          "wrong_world": 0.0,
+          "switch_rate": 0.12403972269065018,
+          "drift_read_before": 0.024333333333333332,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.26865671641791045,
+          "warm_via_activity_after": 0.45787545787545786
+        },
+        {
+          "night_read": 0.27156862745098037,
+          "wrong_world": 0.02888086642599278,
+          "switch_rate": 0.12114455592716462,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.24403669724770644,
+          "warm_via_activity_after": 0.26229508196721313
+        },
+        {
+          "night_read": 0.49676470588235294,
+          "wrong_world": 0.004736530491415038,
+          "switch_rate": 0.0004010427110487267,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.6108695652173913,
+          "warm_via_activity_after": 0.6028708133971292
+        }
+      ],
+      "mean": {
+        "night_read": 0.47762745098039205,
+        "wrong_world": 0.007554254171272787,
+        "switch_rate": 0.07788542629729263,
+        "drift_read_before": 0.004866666666666667,
+        "drift_read_after": 0.0,
+        "warm_via_activity_before": 0.3338760665204538,
+        "warm_via_activity_after": 0.39376160361970164
+      }
+    },
+    "dream": {
+      "lives": [
+        {
+          "night_read": 0.020980392156862746,
+          "wrong_world": 0.3411214953271028,
+          "switch_rate": 0.0049504950495049506,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.010395010395010396,
+          "warm_via_activity_after": 0.1262135922330097
+        },
+        {
+          "night_read": 0.05950980392156863,
+          "wrong_world": 0.21087314662273476,
+          "switch_rate": 0.0034542314335060447,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.5354223433242506,
+          "warm_via_activity_after": 0.5195530726256983
+        },
+        {
+          "night_read": 0.02235294117647059,
+          "wrong_world": 0.5745614035087719,
+          "switch_rate": 0.0,
+          "drift_read_before": 0.024333333333333332,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.26865671641791045,
+          "warm_via_activity_after": 0.45787545787545786
+        },
+        {
+          "night_read": 0.00784313725490196,
+          "wrong_world": 0.2875,
+          "switch_rate": 0.0,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.24403669724770644,
+          "warm_via_activity_after": 0.26885245901639343
+        },
+        {
+          "night_read": 0.028529411764705883,
+          "wrong_world": 0.22336769759450173,
+          "switch_rate": 0.0,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.6108695652173913,
+          "warm_via_activity_after": 0.5980861244019139
+        }
+      ],
+      "mean": {
+        "night_read": 0.02784313725490196,
+        "wrong_world": 0.3274847486106223,
+        "switch_rate": 0.001680945296602199,
+        "drift_read_before": 0.004866666666666667,
+        "drift_read_after": 0.0,
+        "warm_via_activity_before": 0.3338760665204538,
+        "warm_via_activity_after": 0.3941161412304946
+      }
+    },
+    "dream+learning": {
+      "lives": [
+        {
+          "night_read": 0.01911764705882353,
+          "wrong_world": 0.37435897435897436,
+          "switch_rate": 0.005494505494505495,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.010395010395010396,
+          "warm_via_activity_after": 0.08980582524271845
+        },
+        {
+          "night_read": 0.05843137254901961,
+          "wrong_world": 0.21644295302013422,
+          "switch_rate": 0.0017825311942959,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.5354223433242506,
+          "warm_via_activity_after": 0.505586592178771
+        },
+        {
+          "night_read": 0.02245098039215686,
+          "wrong_world": 0.5720524017467249,
+          "switch_rate": 0.0,
+          "drift_read_before": 0.024333333333333332,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.26865671641791045,
+          "warm_via_activity_after": 0.45054945054945056
+        },
+        {
+          "night_read": 0.0075490196078431375,
+          "wrong_world": 0.2987012987012987,
+          "switch_rate": 0.0,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.24403669724770644,
+          "warm_via_activity_after": 0.26557377049180325
+        },
+        {
+          "night_read": 0.02803921568627451,
+          "wrong_world": 0.23076923076923078,
+          "switch_rate": 0.0,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.6108695652173913,
+          "warm_via_activity_after": 0.6028708133971292
+        }
+      ],
+      "mean": {
+        "night_read": 0.02711764705882353,
+        "wrong_world": 0.3384649717192726,
+        "switch_rate": 0.001455407337760279,
+        "drift_read_before": 0.004866666666666667,
+        "drift_read_after": 0.0,
+        "warm_via_activity_before": 0.3338760665204538,
+        "warm_via_activity_after": 0.3828772903719745
+      }
+    }
+  }
+}

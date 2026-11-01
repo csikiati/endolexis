@@ -12,5 +12,5 @@ through what reaches it from outside.
 from .rng import ORng
 from .engine import Olvaso, Entity, OL, reset, body_look, word_code, voice_code, hear_idx, HNAMES, XNAMES
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __all__ = ["ORng", "Olvaso", "Entity", "OL", "reset", "body_look", "word_code", "voice_code", "hear_idx", "HNAMES", "XNAMES"]

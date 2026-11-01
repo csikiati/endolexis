@@ -83,6 +83,25 @@ python -m endolexis.lab.dream      # dreaming as reading with a closed gate
 python -m endolexis.lab.awaken     # the report is written at waking
 ```
 
+## Olvasó v0 in a toy world (`endolexis.toyworld`, new in 0.2.0)
+
+A second, smaller reader, built in November 2026 to test single ideas in a world whose hidden truth is known: a
+simulated body with three outer and three inner channels, an Olvasó that starts from anonymous, shuffled numbers,
+and an observer that alone holds the key. Seven experiments, with every script and the stored results of the
+reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
+
+| Experiments | Finding, in one line |
+|---|---|
+| 1. Temperaments | It finds a hidden, delayed link and never reads noise; only acting reveals agency, only patience reads the slow body |
+| 2-4. Growing up, forgetting, doubt | A restless childhood scars until meanings can fade; fading needs a slow doubt to avoid superstition |
+| 5. The dream test | Sealed sleep reads nothing; a sealed night is written at waking, from the morning's cues |
+| 6-7. Response to "Language Models Need Sleep" | Nightly consolidation keeps an old world; pruning breeds superstition; dreams from memory are read through the wrong world |
+
+```python
+from endolexis.toyworld import live_a_life
+print(live_a_life(seed=2, days=30, memory=300, doubt_memory=3000, doubt_limit=0.1))
+```
+
 ## The published numbers, reproduced exactly
 
 The engine is a line-by-line port of the JavaScript engine that produced every published result (included in
@@ -123,4 +142,8 @@ been tested with people yet. Many stages report walls and negative results; they
 ## Licence and citation
 
 MIT. If you use this, please cite: Attila Csiki, *Reading Ourselves: An External Dictionary for Internal States*,
-and *Olvasó: an entity that reads itself*, readingourselves.com.
+and *Olvasó: an entity that reads itself*, readingourselves.com. For the toy-world experiments, cite this software
+(see `CITATION.cff`; GitHub's "Cite this repository" button gives the formats) at version 0.2.0.
+
+The toy-world code, experiments and papers were developed with AI assistance (Claude, Anthropic); the author is
+responsible for their content.

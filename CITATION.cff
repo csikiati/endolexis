@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+title: "endolexis: Olvasó, an entity that reads itself through its outside"
+type: software
+authors:
+  - family-names: Csiki
+    given-names: Attila
+version: 0.2.0
+date-released: 2026-11-01
+license: MIT
+repository-code: "https://github.com/csikiati/endolexis"
+url: "https://readingourselves.com"
+keywords:
+  - consciousness
+  - interoception
+  - self-model
+  - continual learning
+  - sleep
+  - artificial life
+abstract: >-
+  Engine and experiments of the Endolexis theory: the outside world is the dictionary with which a mind
+  reads its own inside. Includes the stage engine of "Olvasó: an entity that reads itself" and, from
+  version 0.2.0, endolexis.toyworld, a toy-world Olvasó with experiments on temperament, forgetting and
+  doubt, sealed sleep and dream recall, and a response to "Language Models Need Sleep" (consolidation and
+  dreaming).

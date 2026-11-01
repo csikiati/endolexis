@@ -1,0 +1,236 @@
+{
+  "dreams": {
+    "dream 30%": {
+      "lives": [
+        {
+          "night_read": 0.1497058823529412,
+          "wrong_world": 0.27111984282907664,
+          "switch_rate": 0.02403846153846154,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.010395010395010396,
+          "warm_via_activity_after": 0.1262135922330097
+        },
+        {
+          "night_read": 0.2606862745098039,
+          "wrong_world": 0.22339225272658894,
+          "switch_rate": 0.03862830114308238,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.5354223433242506,
+          "warm_via_activity_after": 0.5195530726256983
+        },
+        {
+          "night_read": 0.17745098039215687,
+          "wrong_world": 0.31988950276243094,
+          "switch_rate": 0.044,
+          "drift_read_before": 0.024333333333333332,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.26865671641791045,
+          "warm_via_activity_after": 0.45787545787545786
+        },
+        {
+          "night_read": 0.07990196078431372,
+          "wrong_world": 0.36073619631901843,
+          "switch_rate": 0.007947019867549669,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.24403669724770644,
+          "warm_via_activity_after": 0.25245901639344265
+        },
+        {
+          "night_read": 0.11872549019607843,
+          "wrong_world": 0.46160198183319573,
+          "switch_rate": 0.03401969561324977,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.6108695652173913,
+          "warm_via_activity_after": 0.5980861244019139
+        }
+      ],
+      "mean": {
+        "night_read": 0.15729411764705883,
+        "wrong_world": 0.3273479552940622,
+        "switch_rate": 0.02972669563246867,
+        "drift_read_before": 0.004866666666666667,
+        "drift_read_after": 0.0,
+        "warm_via_activity_before": 0.3338760665204538,
+        "warm_via_activity_after": 0.3908374527059045
+      }
+    },
+    "dream 30% + learning": {
+      "lives": [
+        {
+          "night_read": 0.153921568627451,
+          "wrong_world": 0.31528662420382164,
+          "switch_rate": 0.02452316076294278,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.010395010395010396,
+          "warm_via_activity_after": 0.024271844660194174
+        },
+        {
+          "night_read": 0.26098039215686275,
+          "wrong_world": 0.2160030052592036,
+          "switch_rate": 0.037750688163586316,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.5354223433242506,
+          "warm_via_activity_after": 0.5614525139664804
+        },
+        {
+          "night_read": 0.17588235294117646,
+          "wrong_world": 0.3216276477146042,
+          "switch_rate": 0.04161849710982659,
+          "drift_read_before": 0.024333333333333332,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.26865671641791045,
+          "warm_via_activity_after": 0.30036630036630035
+        },
+        {
+          "night_read": 0.0696078431372549,
+          "wrong_world": 0.4070422535211268,
+          "switch_rate": 0.0091324200913242,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.24403669724770644,
+          "warm_via_activity_after": 0.1901639344262295
+        },
+        {
+          "night_read": 0.12627450980392158,
+          "wrong_world": 0.4805900621118012,
+          "switch_rate": 0.04794520547945205,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.6108695652173913,
+          "warm_via_activity_after": 0.7129186602870813
+        }
+      ],
+      "mean": {
+        "night_read": 0.15733333333333333,
+        "wrong_world": 0.34810991856211154,
+        "switch_rate": 0.03219399432142639,
+        "drift_read_before": 0.004866666666666667,
+        "drift_read_after": 0.0,
+        "warm_via_activity_before": 0.3338760665204538,
+        "warm_via_activity_after": 0.35783465074125714
+      }
+    },
+    "no doubt: dream 30%": {
+      "lives": [
+        {
+          "night_read": 0.23029411764705882,
+          "wrong_world": 0.2848020434227331,
+          "switch_rate": 0.0824847250509165,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.5883575883575883,
+          "warm_via_activity_after": 0.6092233009708737
+        },
+        {
+          "night_read": 0.28411764705882353,
+          "wrong_world": 0.41821946169772256,
+          "switch_rate": 0.04449307075127644,
+          "drift_read_before": 0.021333333333333333,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.5613079019073569,
+          "warm_via_activity_after": 0.5027932960893855
+        },
+        {
+          "night_read": 0.3546078431372549,
+          "wrong_world": 0.5443737904340614,
+          "switch_rate": 0.07678832116788321,
+          "drift_read_before": 0.058333333333333334,
+          "drift_read_after": 0.2195,
+          "warm_via_activity_before": 0.3694029850746269,
+          "warm_via_activity_after": 0.5311355311355311
+        },
+        {
+          "night_read": 0.09666666666666666,
+          "wrong_world": 0.4026369168356998,
+          "switch_rate": 0.017421602787456445,
+          "drift_read_before": 0.17966666666666667,
+          "drift_read_after": 0.4685,
+          "warm_via_activity_before": 0.48073394495412847,
+          "warm_via_activity_after": 0.42295081967213116
+        },
+        {
+          "night_read": 0.16647058823529412,
+          "wrong_world": 0.4293286219081272,
+          "switch_rate": 0.02711426726920594,
+          "drift_read_before": 0.20666666666666667,
+          "drift_read_after": 0.5005,
+          "warm_via_activity_before": 0.5478260869565217,
+          "warm_via_activity_after": 0.5789473684210527
+        }
+      ],
+      "mean": {
+        "night_read": 0.2264313725490196,
+        "wrong_world": 0.4158721668596688,
+        "switch_rate": 0.0496603974053477,
+        "drift_read_before": 0.09319999999999999,
+        "drift_read_after": 0.23769999999999997,
+        "warm_via_activity_before": 0.5095257014500445,
+        "warm_via_activity_after": 0.5290100632577948
+      }
+    },
+    "no doubt: dream 30% + learning": {
+      "lives": [
+        {
+          "night_read": 0.25941176470588234,
+          "wrong_world": 0.2656840513983371,
+          "switch_rate": 0.14089499335400973,
+          "drift_read_before": 0.0,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.5883575883575883,
+          "warm_via_activity_after": 0.5121359223300971
+        },
+        {
+          "night_read": 0.281078431372549,
+          "wrong_world": 0.4328566445762121,
+          "switch_rate": 0.04625799172621286,
+          "drift_read_before": 0.021333333333333333,
+          "drift_read_after": 0.0,
+          "warm_via_activity_before": 0.5613079019073569,
+          "warm_via_activity_after": 0.6145251396648045
+        },
+        {
+          "night_read": 0.42470588235294116,
+          "wrong_world": 0.42128347183748843,
+          "switch_rate": 0.12116082224909311,
+          "drift_read_before": 0.058333333333333334,
+          "drift_read_after": 0.2505,
+          "warm_via_activity_before": 0.3694029850746269,
+          "warm_via_activity_after": 0.4175824175824176
+        },
+        {
+          "night_read": 0.11450980392156863,
+          "wrong_world": 0.4375,
+          "switch_rate": 0.02332979851537646,
+          "drift_read_before": 0.17966666666666667,
+          "drift_read_after": 0.469,
+          "warm_via_activity_before": 0.48073394495412847,
+          "warm_via_activity_after": 0.4786885245901639
+        },
+        {
+          "night_read": 0.1681372549019608,
+          "wrong_world": 0.4192419825072886,
+          "switch_rate": 0.0319693094629156,
+          "drift_read_before": 0.20666666666666667,
+          "drift_read_after": 0.5015,
+          "warm_via_activity_before": 0.5478260869565217,
+          "warm_via_activity_after": 0.6267942583732058
+        }
+      ],
+      "mean": {
+        "night_read": 0.24956862745098043,
+        "wrong_world": 0.39531323006386526,
+        "switch_rate": 0.07272258306152155,
+        "drift_read_before": 0.09319999999999999,
+        "drift_read_after": 0.24420000000000003,
+        "warm_via_activity_before": 0.5095257014500445,
+        "warm_via_activity_after": 0.5299452525081378
+      }
+    }
+  }
+}

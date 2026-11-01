@@ -1,0 +1,226 @@
+{
+  "restless": {
+    "lives": [
+      {
+        "read_warmth": 0.8626296296296296,
+        "read_drift": 0.03451851851851852,
+        "read_charge": 0.15418518518518518,
+        "warm_moments_read": 0.3360493827160494,
+        "warm_read_via_activity_word": 0.11976487876561352,
+        "chance_activity_word": 0.13365560926821138,
+        "self_caused_words": 19,
+        "actions": 2796,
+        "words": 200,
+        "final_threshold": 20.0,
+        "overall_read": 0.35044444444444445
+      },
+      {
+        "read_drift": 0.02451851851851852,
+        "read_warmth": 0.9938518518518519,
+        "read_charge": 0.18874074074074074,
+        "warm_moments_read": 0.980246913580247,
+        "warm_read_via_activity_word": 0.6909319899244333,
+        "chance_activity_word": 0.13732288714785798,
+        "self_caused_words": 16,
+        "actions": 2576,
+        "words": 200,
+        "final_threshold": 20.0,
+        "overall_read": 0.4023703703703704
+      },
+      {
+        "read_warmth": 0.972,
+        "read_charge": 0.12074074074074075,
+        "read_drift": 0.005222222222222222,
+        "warm_moments_read": 0.8639506172839506,
+        "warm_read_via_activity_word": 0.6876250357244927,
+        "chance_activity_word": 0.12068678113018837,
+        "self_caused_words": 21,
+        "actions": 2732,
+        "words": 103,
+        "final_threshold": 20.0,
+        "overall_read": 0.3659876543209877
+      }
+    ],
+    "mean": {
+      "read_warmth": 0.9428271604938271,
+      "read_drift": 0.021419753086419756,
+      "read_charge": 0.15455555555555556,
+      "warm_moments_read": 0.7267489711934156,
+      "warm_read_via_activity_word": 0.4994406348048465,
+      "chance_activity_word": 0.13055509251541925,
+      "self_caused_words": 18.666666666666668,
+      "actions": 2701.3333333333335,
+      "words": 167.66666666666666,
+      "final_threshold": 20.0,
+      "overall_read": 0.37293415637860083
+    }
+  },
+  "middle": {
+    "lives": [
+      {
+        "read_warmth": 0.8738888888888889,
+        "read_drift": 0.0,
+        "read_charge": 0.1444814814814815,
+        "warm_moments_read": 0.3869135802469136,
+        "warm_read_via_activity_word": 0.4409700063816209,
+        "chance_activity_word": 0.13475579263210535,
+        "self_caused_words": 0,
+        "actions": 448,
+        "words": 200,
+        "final_threshold": 100.0,
+        "overall_read": 0.3394567901234568
+      },
+      {
+        "read_drift": 0.023666666666666666,
+        "read_warmth": 0.991037037037037,
+        "read_charge": 0.13344444444444445,
+        "warm_moments_read": 0.9614814814814815,
+        "warm_read_via_activity_word": 0.704417051874679,
+        "chance_activity_word": 0.13702283713952326,
+        "self_caused_words": 0,
+        "actions": 406,
+        "words": 200,
+        "final_threshold": 100.0,
+        "overall_read": 0.38271604938271603
+      },
+      {
+        "read_warmth": 0.9687777777777777,
+        "read_charge": 0.10074074074074074,
+        "read_drift": 0.011,
+        "warm_moments_read": 0.8508641975308642,
+        "warm_read_via_activity_word": 0.6648287869994196,
+        "chance_activity_word": 0.12042007001166861,
+        "self_caused_words": 0,
+        "actions": 434,
+        "words": 99,
+        "final_threshold": 100.0,
+        "overall_read": 0.36017283950617285
+      }
+    ],
+    "mean": {
+      "read_warmth": 0.944567901234568,
+      "read_drift": 0.011555555555555555,
+      "read_charge": 0.1262222222222222,
+      "warm_moments_read": 0.7330864197530863,
+      "warm_read_via_activity_word": 0.6034052817519066,
+      "chance_activity_word": 0.13073289992776574,
+      "self_caused_words": 0.0,
+      "actions": 429.3333333333333,
+      "words": 166.33333333333334,
+      "final_threshold": 100.0,
+      "overall_read": 0.3607818930041152
+    }
+  },
+  "patient": {
+    "lives": [
+      {
+        "read_warmth": 0.83,
+        "read_drift": 0.0,
+        "read_charge": 0.5871111111111111,
+        "warm_moments_read": 0.23851851851851852,
+        "warm_read_via_activity_word": 0.06935817805383022,
+        "chance_activity_word": 0.13348891481913652,
+        "self_caused_words": 0,
+        "actions": 27,
+        "words": 200,
+        "final_threshold": 250.0,
+        "overall_read": 0.4723703703703704
+      },
+      {
+        "read_drift": 0.04214814814814815,
+        "read_warmth": 0.9904074074074074,
+        "read_charge": 0.6806296296296296,
+        "warm_moments_read": 0.9688888888888889,
+        "warm_read_via_activity_word": 0.7079510703363915,
+        "chance_activity_word": 0.1367561260210035,
+        "self_caused_words": 0,
+        "actions": 16,
+        "words": 200,
+        "final_threshold": 250.0,
+        "overall_read": 0.5710617283950618
+      },
+      {
+        "read_warmth": 0.9618148148148148,
+        "read_charge": 0.096,
+        "read_drift": 0.0005555555555555556,
+        "warm_moments_read": 0.8491358024691358,
+        "warm_read_via_activity_word": 0.6490258796161675,
+        "chance_activity_word": 0.1207534589098183,
+        "self_caused_words": 0,
+        "actions": 18,
+        "words": 95,
+        "final_threshold": 250.0,
+        "overall_read": 0.3527901234567901
+      }
+    ],
+    "mean": {
+      "read_warmth": 0.9274074074074073,
+      "read_drift": 0.014234567901234568,
+      "read_charge": 0.45458024691358023,
+      "warm_moments_read": 0.685514403292181,
+      "warm_read_via_activity_word": 0.47544504266879645,
+      "chance_activity_word": 0.1303328332499861,
+      "self_caused_words": 0.0,
+      "actions": 20.333333333333332,
+      "words": 165.0,
+      "final_threshold": 250.0,
+      "overall_read": 0.46540740740740744
+    }
+  },
+  "learning": {
+    "lives": [
+      {
+        "read_warmth": 0.8729629629629629,
+        "read_drift": 0.0,
+        "read_charge": 0.06607407407407408,
+        "warm_moments_read": 0.33111111111111113,
+        "warm_read_via_activity_word": 0.45041014168530946,
+        "chance_activity_word": 0.13482247041173528,
+        "self_caused_words": 0,
+        "actions": 70,
+        "words": 200,
+        "final_threshold": 221.4,
+        "overall_read": 0.31301234567901237
+      },
+      {
+        "read_drift": 0.026925925925925926,
+        "read_warmth": 0.9884814814814815,
+        "read_charge": 0.20222222222222222,
+        "warm_moments_read": 0.9464197530864198,
+        "warm_read_via_activity_word": 0.6968432037568484,
+        "chance_activity_word": 0.13725620936822805,
+        "self_caused_words": 0,
+        "actions": 28,
+        "words": 200,
+        "final_threshold": 211.6,
+        "overall_read": 0.40587654320987654
+      },
+      {
+        "read_warmth": 0.9679629629629629,
+        "read_charge": 0.13755555555555554,
+        "read_drift": 0.0004814814814814815,
+        "warm_moments_read": 0.8274074074074074,
+        "warm_read_via_activity_word": 0.6427931960608774,
+        "chance_activity_word": 0.12225370895149192,
+        "self_caused_words": 0,
+        "actions": 23,
+        "words": 93,
+        "final_threshold": 307.2,
+        "overall_read": 0.36866666666666664
+      }
+    ],
+    "mean": {
+      "read_warmth": 0.9431358024691358,
+      "read_drift": 0.009135802469135803,
+      "read_charge": 0.13528395061728396,
+      "warm_moments_read": 0.7016460905349794,
+      "warm_read_via_activity_word": 0.5966821805010117,
+      "chance_activity_word": 0.13144412957715176,
+      "self_caused_words": 0.0,
+      "actions": 40.333333333333336,
+      "words": 164.33333333333334,
+      "final_threshold": 246.73333333333335,
+      "overall_read": 0.3625185185185185
+    }
+  }
+}
