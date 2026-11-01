@@ -69,3 +69,14 @@ def test_new_world_options_are_off_by_default():
         sa, fa, _ = a.step()
         sb, fb, _ = b.step()
     assert np.allclose(sa, sb) and np.allclose(fa, fb)
+
+
+def test_adaptation_feels_change_and_disregards_steadiness():
+    olv = Olvaso(len(SENSED), len(FELT), seed=1, adapt=50, adapt_mode="both")
+    assert olv.nf == 2 * len(FELT)
+    steady = np.zeros(len(FELT))
+    for _ in range(300):
+        felt = olv._feel(steady + np.random.default_rng(0).normal(0, 0.01, len(FELT)))
+    assert np.allclose(felt[:3], 0, atol=0.1)          # levels stay
+    jump = olv._feel(steady + 3.0)
+    assert np.all(np.abs(jump[3:]) > 1)                # a sudden change is felt strongly

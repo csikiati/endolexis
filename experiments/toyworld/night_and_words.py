@@ -120,10 +120,10 @@ def night_life(seed, night, trickle):
 
 
 # --- experiment 9 ----------------------------------------------------------------
-def words_life(seed, housekeeping, days=40, charger_from=20):
-    world = ToyWorld(seed=seed, charger_from=charger_from)
+def words_life(seed, housekeeping, days=40, charger_from=20, mind=None, charger_strength=1.0):
+    world = ToyWorld(seed=seed, charger_from=charger_from, charger_strength=charger_strength)
     col = Collector(len(SENSED), len(FELT), seed=seed)
-    olv = Olvaso(len(SENSED), len(FELT), threshold=20.0, seed=seed, **BEST)
+    olv = Olvaso(len(SENSED), len(FELT), threshold=20.0, seed=seed, **(mind or BEST))
     notes = Words(olv.max_words)
     ac = list(col.felt_perm).index(FELT.index("charge"))
     ad = list(col.felt_perm).index(FELT.index("drift"))
@@ -150,7 +150,8 @@ def words_life(seed, housekeeping, days=40, charger_from=20):
         b, r, truth = awake(world, col, olv, b, notes, t)
         if truth["activity"]:
             last_act = t
-        rows.append((day, truth["charging"], r[ac], r[ad] >= 0, truth["warmth"] > 0.3, r[aw], t - last_act < 80))
+        rd = lambda a: r[a] if r[a] >= 0 or len(r) == 3 else r[a + 3]   # level, else its felt change
+        rows.append((day, truth["charging"], rd(ac), rd(ad) >= 0, truth["warmth"] > 0.3, rd(aw), t - last_act < 80))
     charger_word = (notes.share(notes.chg) > 0.5) & (notes.occ >= 10)
     new_charger_words = int((charger_word & (notes.born >= charger_from * DAY)).sum())
     active = notes.share(notes.act) > 0.1

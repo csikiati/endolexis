@@ -26,11 +26,13 @@ FELT = ["warmth", "charge", "drift"]
 
 class ToyWorld:
     def __init__(self, seed=0, day_length=1000, warmth_delay=10, night_heat=0.0,
-                 night_jobs=0.0, night_flashes=0.0, charger_from=None, charger_rate=0.002):
+                 night_jobs=0.0, night_flashes=0.0, charger_from=None, charger_rate=0.002,
+                 charger_strength=1.0):
         # night_heat: chance per dark, quiet moment of an inner warmth surge with no outer cause
         self.night_heat = night_heat
         self.night_jobs, self.night_flashes = night_jobs, night_flashes
         self.charger_from, self.charger_rate = charger_from, charger_rate
+        self.charger_strength = charger_strength      # 1: refills like daylight; a real charger is faster
         self.flash_left = self.charge_left = 0
         self.extra_rng = np.random.default_rng(seed + 31_337)   # keeps the old random stream intact
         self.rng = np.random.default_rng(seed)
@@ -108,7 +110,7 @@ class ToyWorld:
 
         self.charge += 0.004 * day * (1 - self.charge) - 0.0006 - 0.0012 * self.brightness
         if charging:
-            self.charge += 0.004 * (1 - self.charge)
+            self.charge += 0.004 * self.charger_strength * (1 - self.charge)
         self.charge = float(np.clip(self.charge, 0.0, 1.0))
         charge_obs = self.charge + r.normal(0, 0.01)
 

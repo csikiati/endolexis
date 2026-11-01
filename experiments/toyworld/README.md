@@ -1,6 +1,6 @@
 # Olvasó v0 in a toy world (`endolexis.toyworld`)
 
-Experiments 1-9 of November 2026: a simulated body with three outer and three inner channels, an Olvasó that
+Experiments 1-10 of November 2026: a simulated body with three outer and three inner channels, an Olvasó that
 starts from anonymous, shuffled numbers, and an observer that alone holds the key. Two papers report them:
 
 - *Endolexis v0: Olvasó in a toy world* (experiments 1-5),
@@ -12,7 +12,7 @@ Every script below runs from a clone without installing (`python experiments/toy
 `pip install -e .`. Each takes about one to five minutes on a laptop and writes its results as JSON beside itself;
 the JSON files committed here are the runs the papers report.
 
-Experiments 8 and 9 came after the papers and are not in version 0.2.0. The exact state the papers describe is archived as version 0.2.0: [doi:10.5281/zenodo.23856387](https://doi.org/10.5281/zenodo.23856387).
+Experiments 8-10 came after the papers and are not in version 0.2.0. The exact state the papers describe is archived as version 0.2.0: [doi:10.5281/zenodo.23856387](https://doi.org/10.5281/zenodo.23856387).
 
 This toy is separate from the stage engine in `endolexis` (the 21 stages of *Olvasó: an entity that reads itself*):
 it is a smaller, independent reader, built to test single ideas in a world whose hidden truth is known.
@@ -316,3 +316,33 @@ look nearly the same and mean the same. From day 20 a charger appears. Measures 
 - Olvasó reads inner *levels*: the charger's main effect, charge rising, is a change, and no word
   learned to read it (charge while charging read through a charger word: 5-6%). A reader of changes is
   an open problem for the laptop, whose battery is mostly about direction.
+
+## Experiment 10: sensory adaptation (`experiments/toyworld/adaptation.py`, 5 lives × 40 days)
+
+Olvasó reads inner *levels*, so in experiment 9 the charger's main effect, charge rising, went unread:
+the level while charging can be anything. A mind senses change better than a steady value, and in time
+disregards what stays the same. With `Olvaso(adapt=τ)`, each inner state is felt against its own recent
+baseline, which catches up with time constant τ (moments). A felt change counts only while it is larger
+than one typical change (`salience=1.0`); a habituated state is *disregarded*: neither read nor unread.
+Without that rule, any word could trivially "read" a state that is not changing, and pure noise was read
+in 42-58% of moments.
+
+In experiment 9's world, the charger refilled no faster than daylight, so as a change it did not stand
+out. A real charger fills several times faster than a battery drains: here `charger_strength=3`, for
+every mind alike. Same life as experiment 9 otherwise (charger from day 20, sealed nights, housekeeping).
+
+| Mind | Charging read through a charger word | Charger warmth read | Activity warmth read through activity words | Pure noise read |
+|---|---|---|---|---|
+| Levels (as before) | 12% (0-26) | 32% | 43% | 2.8% |
+| Change only, τ = 100 | 2% | 5% | 30% | 0.3% |
+| Change only, τ = 300 | 4% | 21% | 27% | 0.3% |
+| Change only, τ = 1000 | 9% | 26% | 24% | 0.2% |
+| **Levels + change, τ = 300** | **24% (15-30)** | **62%** | **52%** | 7.2% (1-17) |
+
+- **Change is felt better, but not alone.** A mind that feels only change is the most sceptical yet
+  (noise almost never read) but loses what persists: warmth that stays is part of what activity means.
+- **Feeling both reads the most.** Charging through its own word doubles and is read in every life;
+  charger warmth doubles; activity warmth improves too. Bodies work this way: tonic receptors report
+  levels, phasic ones report changes.
+- **The cost is superstition** (noise read 2.8% → 7.2%, one life 17%): random wanderings also have felt
+  changes, and doubt does not yet watch the change dimensions closely enough. The next thing to fix.

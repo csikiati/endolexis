@@ -100,6 +100,7 @@ reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 | 6-7. Response to "Language Models Need Sleep" | Nightly consolidation keeps an old world; pruning breeds superstition; dreams from memory are read through the wrong world |
 | 8. A richer night | A varied night is harder to read and slightly more dream-like; real night causes are read correctly |
 | 9. Housekeeping in sleep | Retiring infancy words makes room to learn something new late in life, at no cost |
+| 10. Sensory adaptation | Feeling levels and changes reads a charger twice as well; feeling only change loses what persists |
 
 ```python
 from endolexis.toyworld import live_a_life

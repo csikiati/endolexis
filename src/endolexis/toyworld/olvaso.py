@@ -38,12 +38,26 @@ class Olvaso:
     def __init__(self, n_sensed, n_felt, threshold=100.0, learn_threshold=False, seed=0,
                  window=6, radius=3.0, max_words=200, max_lag=60,
                  consistency=0.35, fit=0.35, min_count=8, min_episodes=4, episode_gap=200,
-                 memory=None, doubt_memory=None, doubt_limit=0.05, doubt_min=30):
+                 memory=None, doubt_memory=None, doubt_limit=0.05, doubt_min=30,
+                 adapt=None, adapt_mode="replace", salience=1.0):
         # memory: None = meanings are lifetime averages (never forget); a number N = each meaning
         # rests on roughly its last N experiences, so old experience slowly fades
         # doubt_memory: a slow memory (about N experiences) of how much each meaning has WANDERED.
         # A meaning may read only while its wandering stays below doubt_limit.
+        # adapt: sensory adaptation (habituation). Each inner state is felt against its own recent
+        # baseline, which catches up with a time constant of `adapt` moments: a change is felt
+        # strongly, a steady value fades to nothing. adapt_mode "replace" feels only the adapted
+        # states; "both" feels the levels and the adapted states side by side.
+        # salience: a felt change is noticed only while it is larger than this many typical changes;
+        # a habituated (steady) state is disregarded, neither read nor counted as unread.
         self.memory = memory
+        self.adapt, self.adapt_mode, self.salience = adapt, adapt_mode, salience
+        self.n_seen = 0
+        self.nf_in = n_felt
+        if adapt is not None and adapt_mode == "both":
+            n_felt = 2 * n_felt
+        self.base = None
+        self.anorm = RunningNorm(self.nf_in)
         self.lt_mean = None
         self.doubt_memory, self.doubt_limit, self.doubt_min = doubt_memory, doubt_limit, doubt_min
         self.rng = np.random.default_rng(seed + 20_000)
@@ -53,7 +67,7 @@ class Olvaso:
         self.min_count, self.min_episodes, self.episode_gap = min_count, min_episodes, episode_gap
 
         self.snorm = RunningNorm(n_sensed)
-        self.fnorm = RunningNorm(n_felt)
+        self.fnorm = RunningNorm(self.nf_in)
         self.sbuf = []
         self.centroids = np.zeros((max_words, window * n_sensed))
         self.n_words = 0
@@ -178,7 +192,7 @@ class Olvaso:
         readings[d] = word index that read felt dimension d, or -1 if unread."""
         self.snorm.update(sensed)
         self.fnorm.update(felt)
-        s_z, f_z = self.snorm.z(sensed), self.fnorm.z(felt)
+        s_z, f_z = self.snorm.z(sensed), self._feel(self.fnorm.z(felt))
 
         w = self._word(s_z)
         if w is not None:
@@ -201,7 +215,7 @@ class Olvaso:
         memory, as if sensed. `learn` lets meanings learn from whatever the night brings (dreams
         included). Time still passes: each moment without a word pushes an empty slot into the
         delay line."""
-        f_z = self.fnorm.z(felt)
+        f_z = self._feel(self.fnorm.z(felt), learn=False)
         w = self._word(self.snorm.z(sensed)) if sensed is not None else None
         if dream_word is not None:
             w = int(dream_word)
@@ -213,6 +227,21 @@ class Olvaso:
             self._learn_profiles(f_z)
         self.t += 1
         return readings, f_z
+
+    def _feel(self, f_z, learn=True):
+        """What the inner states feel like: levels, or changes against an adapting baseline."""
+        if self.adapt is None:
+            return f_z
+        if self.base is None:
+            self.base = f_z.copy()
+        dev = f_z - self.base
+        self.base += (f_z - self.base) / self.adapt      # the baseline catches up: steadiness fades
+        if learn:
+            self.n_seen += 1
+            if self.n_seen > 2 * self.adapt:              # the size of a typical change, once settled
+                self.anorm.update(dev)
+        a = self.anorm.z(dev) if self.anorm.n > 1 else np.zeros_like(dev)
+        return np.concatenate([f_z, a]) if self.adapt_mode == "both" else a
 
     # --- long-term memory, filled by consolidation during sleep ---------------
     def enable_long_term(self, slots=3):
@@ -294,6 +323,10 @@ class Olvaso:
         best_err = err[best, np.arange(self.nf)]
         ok = best_err < self.fit
         readings[ok] = words[best[ok]]
+        if self.adapt is not None:                       # habituated states are disregarded
+            first = self.nf_in if self.adapt_mode == "both" else 0
+            quiet = np.abs(f_z[first:]) < self.salience
+            readings[first:][quiet] = -2
         return readings
 
     def _learn_profiles(self, f_z):
@@ -321,7 +354,7 @@ class Olvaso:
             self.dvar[words, lags] = (1 - a) * (self.dvar[words, lags] + a * dd * dd)
 
     def _pressure_and_act(self, readings):
-        unread = int(np.sum(readings < 0))
+        unread = int(np.sum(readings == -1))            # -2: disregarded, nothing asks to be read
         self.read_log.append(1 - unread / self.nf)
         if len(self.read_log) > 100:
             self.read_log.pop(0)
