@@ -150,13 +150,14 @@ Code: MIT. Papers: CC BY 4.0. Please cite the paper you build on, and the softwa
 
 | Work | DOI |
 |---|---|
-| Csiki, A. (2026). *Reading Ourselves: An External Dictionary for Internal States*. Preprint, Zenodo. | [10.5281/zenodo.23857769](https://doi.org/10.5281/zenodo.23857769) |
-| Csiki, A. (2026). *Olvasó: an entity that reads itself*. Preprint, Zenodo. | [10.5281/zenodo.23857949](https://doi.org/10.5281/zenodo.23857949) |
-| Csiki, A. (2026). *Endolexis v0: Olvasó in a toy world*. Preprint, Zenodo. | [10.5281/zenodo.23858276](https://doi.org/10.5281/zenodo.23858276) |
-| Csiki, A. (2026). *Do readers need sleep? A response to "Language Models Need Sleep"*. Preprint, Zenodo. | [10.5281/zenodo.23858382](https://doi.org/10.5281/zenodo.23858382) |
+| Csiki, A. (2026). *Reading Ourselves: An External Dictionary for Internal States*. Preprint, Zenodo. | [10.5281/zenodo.23857768](https://doi.org/10.5281/zenodo.23857768) |
+| Csiki, A. (2026). *Olvasó: an entity that reads itself*. Preprint, Zenodo. | [10.5281/zenodo.23857948](https://doi.org/10.5281/zenodo.23857948) |
+| Csiki, A. (2026). *Endolexis v0: Olvasó in a toy world*. Preprint, Zenodo. | [10.5281/zenodo.23858275](https://doi.org/10.5281/zenodo.23858275) |
+| Csiki, A. (2026). *Do readers need sleep? A response to "Language Models Need Sleep"*. Preprint, Zenodo. | [10.5281/zenodo.23858381](https://doi.org/10.5281/zenodo.23858381) |
 | Csiki, A. (2026). *endolexis* (Version 0.2.0) [Software]. Zenodo. | [10.5281/zenodo.23856387](https://doi.org/10.5281/zenodo.23856387) |
 
-Each paper's record holds its English and Hungarian versions. `CITATION.cff` holds the same references; GitHub's
+Each paper's record holds its English and Hungarian versions. The paper DOIs above cite all versions of a
+paper and resolve to the latest; the software DOI cites exactly version 0.2.0. `CITATION.cff` holds the same references; GitHub's
 "Cite this repository" button gives other formats.
 
 The toy-world code, experiments and the last two papers were developed with AI assistance (Claude, Anthropic); the
