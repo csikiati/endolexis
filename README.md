@@ -1,5 +1,7 @@
 # endolexis
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23856387.svg)](https://doi.org/10.5281/zenodo.23856387)
+
 **Olvasó: an entity that reads itself through its outside.** The engine and the experiments of the Endolexis theory, in Python.
 
 > *Endolexis*: the outside world is the dictionary with which a mind reads its own inside.
@@ -143,7 +145,12 @@ been tested with people yet. Many stages report walls and negative results; they
 
 MIT. If you use this, please cite: Attila Csiki, *Reading Ourselves: An External Dictionary for Internal States*,
 and *Olvasó: an entity that reads itself*, readingourselves.com. For the toy-world experiments, cite this software
-(see `CITATION.cff`; GitHub's "Cite this repository" button gives the formats) at version 0.2.0.
+at version 0.2.0:
+
+> Csiki, A. (2026). *endolexis: Olvasó, an entity that reads itself through its outside* (Version 0.2.0) [Software].
+> Zenodo. https://doi.org/10.5281/zenodo.23856387
+
+`CITATION.cff` holds the same reference; GitHub's "Cite this repository" button gives other formats.
 
 The toy-world code, experiments and papers were developed with AI assistance (Claude, Anthropic); the author is
 responsible for their content.

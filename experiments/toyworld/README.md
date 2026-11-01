@@ -11,6 +11,8 @@ Every script below runs from a clone without installing (`python experiments/toy
 `pip install -e .`. Each takes about one to five minutes on a laptop and writes its results as JSON beside itself;
 the JSON files committed here are the runs the papers report.
 
+The exact state the papers describe is archived as version 0.2.0: [doi:10.5281/zenodo.23856387](https://doi.org/10.5281/zenodo.23856387).
+
 This toy is separate from the stage engine in `endolexis` (the 21 stages of *Olvasó: an entity that reads itself*):
 it is a smaller, independent reader, built to test single ideas in a world whose hidden truth is known.
 
