@@ -3,9 +3,10 @@
 Experiments 1-7 of November 2026: a simulated body with three outer and three inner channels, an Olvasó that
 starts from anonymous, shuffled numbers, and an observer that alone holds the key. Two papers report them:
 
-- *Endolexis v0: Olvasó in a toy world* (experiments 1-5)
+- *Endolexis v0: Olvasó in a toy world* (experiments 1-5),
+  [doi:10.5281/zenodo.23858276](https://doi.org/10.5281/zenodo.23858276)
 - *Do readers need sleep? A response to "Language Models Need Sleep"* (experiments 6-7; Behrouz et al.,
-  [arXiv 2606.03979](https://arxiv.org/abs/2606.03979))
+  [arXiv 2606.03979](https://arxiv.org/abs/2606.03979)), [doi:10.5281/zenodo.23858382](https://doi.org/10.5281/zenodo.23858382)
 
 Every script below runs from a clone without installing (`python experiments/toyworld/<script>.py`), or after
 `pip install -e .`. Each takes about one to five minutes on a laptop and writes its results as JSON beside itself;

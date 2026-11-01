@@ -143,14 +143,18 @@ been tested with people yet. Many stages report walls and negative results; they
 
 ## Licence and citation
 
-MIT. If you use this, please cite: Attila Csiki, *Reading Ourselves: An External Dictionary for Internal States*,
-and *Olvasó: an entity that reads itself*, readingourselves.com. For the toy-world experiments, cite this software
-at version 0.2.0:
+Code: MIT. Papers: CC BY 4.0. Please cite the paper you build on, and the software at the version you used:
 
-> Csiki, A. (2026). *endolexis: Olvasó, an entity that reads itself through its outside* (Version 0.2.0) [Software].
-> Zenodo. https://doi.org/10.5281/zenodo.23856387
+| Work | DOI |
+|---|---|
+| Csiki, A. (2026). *Reading Ourselves: An External Dictionary for Internal States*. Preprint, Zenodo. | [10.5281/zenodo.23857769](https://doi.org/10.5281/zenodo.23857769) |
+| Csiki, A. (2026). *Olvasó: an entity that reads itself*. Preprint, Zenodo. | [10.5281/zenodo.23857949](https://doi.org/10.5281/zenodo.23857949) |
+| Csiki, A. (2026). *Endolexis v0: Olvasó in a toy world*. Preprint, Zenodo. | [10.5281/zenodo.23858276](https://doi.org/10.5281/zenodo.23858276) |
+| Csiki, A. (2026). *Do readers need sleep? A response to "Language Models Need Sleep"*. Preprint, Zenodo. | [10.5281/zenodo.23858382](https://doi.org/10.5281/zenodo.23858382) |
+| Csiki, A. (2026). *endolexis* (Version 0.2.0) [Software]. Zenodo. | [10.5281/zenodo.23856387](https://doi.org/10.5281/zenodo.23856387) |
 
-`CITATION.cff` holds the same reference; GitHub's "Cite this repository" button gives other formats.
+Each paper's record holds its English and Hungarian versions. `CITATION.cff` holds the same references; GitHub's
+"Cite this repository" button gives other formats.
 
-The toy-world code, experiments and papers were developed with AI assistance (Claude, Anthropic); the author is
-responsible for their content.
+The toy-world code, experiments and the last two papers were developed with AI assistance (Claude, Anthropic); the
+author is responsible for their content.
