@@ -1,0 +1,192 @@
+{
+  "words": {
+    "no housekeeping": {
+      "lives": [
+        {
+          "words_alive_day20": 200,
+          "words_alive_day39": 200,
+          "retired": 0,
+          "merged": 0,
+          "charger_words": 0,
+          "new_charger_words": 0,
+          "charging_charge_read": 0.09249183895538629,
+          "charging_read_via_charger_word": 0.0,
+          "charging_warmth_read": 0.017676767676767676,
+          "charging_warmth_via_charger_word": 0.0,
+          "charging_warmth_via_activity_word": 0.0,
+          "warm_via_activity_late": 0.2706809229037704,
+          "drift_read": 0.03418918918918919
+        },
+        {
+          "words_alive_day20": 200,
+          "words_alive_day39": 200,
+          "retired": 0,
+          "merged": 0,
+          "charger_words": 1,
+          "new_charger_words": 0,
+          "charging_charge_read": 0.10218253968253968,
+          "charging_read_via_charger_word": 0.0,
+          "charging_warmth_read": 0.010460251046025104,
+          "charging_warmth_via_charger_word": 0.0,
+          "charging_warmth_via_activity_word": 0.0,
+          "warm_via_activity_late": 0.531435349940688,
+          "drift_read": 0.025765765765765766
+        },
+        {
+          "words_alive_day20": 96,
+          "words_alive_day39": 104,
+          "retired": 0,
+          "merged": 0,
+          "charger_words": 1,
+          "new_charger_words": 1,
+          "charging_charge_read": 0.20076726342711,
+          "charging_read_via_charger_word": 0.0,
+          "charging_warmth_read": 0.005628517823639775,
+          "charging_warmth_via_charger_word": 0.0,
+          "charging_warmth_via_activity_word": 0.0,
+          "warm_via_activity_late": 0.5287548855388051,
+          "drift_read": 0.010450450450450451
+        },
+        {
+          "words_alive_day20": 178,
+          "words_alive_day39": 187,
+          "retired": 0,
+          "merged": 0,
+          "charger_words": 2,
+          "new_charger_words": 1,
+          "charging_charge_read": 0.08781362007168458,
+          "charging_read_via_charger_word": 0.0,
+          "charging_warmth_read": 0.002902757619738752,
+          "charging_warmth_via_charger_word": 0.0,
+          "charging_warmth_via_activity_word": 0.0,
+          "warm_via_activity_late": 0.5960179833012202,
+          "drift_read": 0.030585585585585585
+        },
+        {
+          "words_alive_day20": 97,
+          "words_alive_day39": 117,
+          "retired": 0,
+          "merged": 0,
+          "charger_words": 4,
+          "new_charger_words": 4,
+          "charging_charge_read": 0.2360655737704918,
+          "charging_read_via_charger_word": 0.2360655737704918,
+          "charging_warmth_read": 0.7703435804701627,
+          "charging_warmth_via_charger_word": 0.7703435804701627,
+          "charging_warmth_via_activity_word": 0.0,
+          "warm_via_activity_late": 0.4171455938697318,
+          "drift_read": 0.006666666666666667
+        }
+      ],
+      "mean": {
+        "words_alive_day20": 154.2,
+        "words_alive_day39": 161.6,
+        "retired": 0.0,
+        "merged": 0.0,
+        "charger_words": 1.6,
+        "new_charger_words": 1.2,
+        "charging_charge_read": 0.14386416718144246,
+        "charging_read_via_charger_word": 0.04721311475409836,
+        "charging_warmth_read": 0.1614023749272668,
+        "charging_warmth_via_charger_word": 0.15406871609403255,
+        "charging_warmth_via_activity_word": 0.0,
+        "warm_via_activity_late": 0.4688069471108431,
+        "drift_read": 0.02153153153153153
+      }
+    },
+    "housekeeping": {
+      "lives": [
+        {
+          "words_alive_day20": 43,
+          "words_alive_day39": 33,
+          "retired": 237,
+          "merged": 1,
+          "charger_words": 3,
+          "new_charger_words": 3,
+          "charging_charge_read": 0.1425462459194777,
+          "charging_read_via_charger_word": 0.01088139281828074,
+          "charging_warmth_read": 0.20454545454545456,
+          "charging_warmth_via_charger_word": 0.19444444444444445,
+          "charging_warmth_via_activity_word": 0.0,
+          "warm_via_activity_late": 0.4350028137310073,
+          "drift_read": 0.03504504504504505
+        },
+        {
+          "words_alive_day20": 38,
+          "words_alive_day39": 43,
+          "retired": 219,
+          "merged": 5,
+          "charger_words": 7,
+          "new_charger_words": 7,
+          "charging_charge_read": 0.054563492063492064,
+          "charging_read_via_charger_word": 0.0,
+          "charging_warmth_read": 0.20920502092050208,
+          "charging_warmth_via_charger_word": 0.200836820083682,
+          "charging_warmth_via_activity_word": 0.0,
+          "warm_via_activity_late": 0.3386714116251483,
+          "drift_read": 0.04540540540540541
+        },
+        {
+          "words_alive_day20": 33,
+          "words_alive_day39": 35,
+          "retired": 96,
+          "merged": 5,
+          "charger_words": 2,
+          "new_charger_words": 2,
+          "charging_charge_read": 0.21355498721227623,
+          "charging_read_via_charger_word": 0.21355498721227623,
+          "charging_warmth_read": 0.4878048780487805,
+          "charging_warmth_via_charger_word": 0.48592870544090055,
+          "charging_warmth_via_activity_word": 0.0,
+          "warm_via_activity_late": 0.49860413176996093,
+          "drift_read": 0.0062612612612612615
+        },
+        {
+          "words_alive_day20": 38,
+          "words_alive_day39": 43,
+          "retired": 187,
+          "merged": 4,
+          "charger_words": 4,
+          "new_charger_words": 4,
+          "charging_charge_read": 0.03136200716845878,
+          "charging_read_via_charger_word": 0.017025089605734768,
+          "charging_warmth_read": 0.03483309143686502,
+          "charging_warmth_via_charger_word": 0.03193033381712627,
+          "charging_warmth_via_activity_word": 0.0,
+          "warm_via_activity_late": 0.6101477199743096,
+          "drift_read": 0.027297297297297296
+        },
+        {
+          "words_alive_day20": 29,
+          "words_alive_day39": 30,
+          "retired": 100,
+          "merged": 2,
+          "charger_words": 5,
+          "new_charger_words": 5,
+          "charging_charge_read": 0.1453551912568306,
+          "charging_read_via_charger_word": 0.07540983606557378,
+          "charging_warmth_read": 0.6781193490054249,
+          "charging_warmth_via_charger_word": 0.6455696202531646,
+          "charging_warmth_via_activity_word": 0.0,
+          "warm_via_activity_late": 0.3510536398467433,
+          "drift_read": 0.0
+        }
+      ],
+      "mean": {
+        "words_alive_day20": 36.2,
+        "words_alive_day39": 36.8,
+        "retired": 167.8,
+        "merged": 3.4,
+        "charger_words": 4.2,
+        "new_charger_words": 4.2,
+        "charging_charge_read": 0.11747638472410707,
+        "charging_read_via_charger_word": 0.0633742611403731,
+        "charging_warmth_read": 0.32290155879140536,
+        "charging_warmth_via_charger_word": 0.3117419848078636,
+        "charging_warmth_via_activity_word": 0.0,
+        "warm_via_activity_late": 0.4466959433894339,
+        "drift_read": 0.022801801801801806
+      }
+    }
+  }
+}

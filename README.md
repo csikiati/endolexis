@@ -98,6 +98,8 @@ reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 | 2-4. Growing up, forgetting, doubt | A restless childhood scars until meanings can fade; fading needs a slow doubt to avoid superstition |
 | 5. The dream test | Sealed sleep reads nothing; a sealed night is written at waking, from the morning's cues |
 | 6-7. Response to "Language Models Need Sleep" | Nightly consolidation keeps an old world; pruning breeds superstition; dreams from memory are read through the wrong world |
+| 8. A richer night | A varied night is harder to read and slightly more dream-like; real night causes are read correctly |
+| 9. Housekeeping in sleep | Retiring infancy words makes room to learn something new late in life, at no cost |
 
 ```python
 from endolexis.toyworld import live_a_life

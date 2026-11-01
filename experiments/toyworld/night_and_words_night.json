@@ -1,0 +1,352 @@
+{
+  "night": {
+    "plain night, sealed": {
+      "lives": [
+        {
+          "read": 0.0,
+          "wrong_world": null,
+          "switch_rate": null,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.0,
+          "wrong_world": null,
+          "switch_rate": null,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.0,
+          "wrong_world": null,
+          "switch_rate": null,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.0,
+          "wrong_world": null,
+          "switch_rate": null,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.0,
+          "wrong_world": null,
+          "switch_rate": null,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        }
+      ],
+      "mean": {
+        "read": 0.0,
+        "wrong_world": null,
+        "switch_rate": null,
+        "job_warmth_read": null,
+        "job_warmth_read_via_activity": null,
+        "surge_read": 0.0,
+        "surge_read_busy_word": null
+      }
+    },
+    "plain night, trickle 5%": {
+      "lives": [
+        {
+          "read": 0.5563725490196079,
+          "wrong_world": 0.0,
+          "switch_rate": 0.07947255880256593,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.5102941176470588,
+          "wrong_world": 0.00038424591738712776,
+          "switch_rate": 0.06816857642260633,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.5377450980392157,
+          "wrong_world": 0.0,
+          "switch_rate": 0.10712973171628078,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.26215686274509803,
+          "wrong_world": 0.0033657442034405387,
+          "switch_rate": 0.12833206397562832,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.5393137254901961,
+          "wrong_world": 0.0,
+          "switch_rate": 0.00018436578171091445,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        }
+      ],
+      "mean": {
+        "read": 0.48117647058823537,
+        "wrong_world": 0.0007499980241655333,
+        "switch_rate": 0.07665745933975845,
+        "job_warmth_read": null,
+        "job_warmth_read_via_activity": null,
+        "surge_read": 0.0,
+        "surge_read_busy_word": null
+      }
+    },
+    "plain night, trickle 20%": {
+      "lives": [
+        {
+          "read": 0.6361764705882353,
+          "wrong_world": 0.0006164278008938204,
+          "switch_rate": 0.1716937354988399,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.6237254901960785,
+          "wrong_world": 0.019019176359635334,
+          "switch_rate": 0.15816084689524412,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.6218627450980392,
+          "wrong_world": 0.002049503389563298,
+          "switch_rate": 0.15908009516256938,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.3726470588235294,
+          "wrong_world": 0.026045777426992895,
+          "switch_rate": 0.1668499175371083,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.6065686274509804,
+          "wrong_world": 0.007919831905608535,
+          "switch_rate": 0.003578981617048967,
+          "job_warmth_read": null,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        }
+      ],
+      "mean": {
+        "read": 0.5721960784313725,
+        "wrong_world": 0.011130143376538776,
+        "switch_rate": 0.13187271534216213,
+        "job_warmth_read": null,
+        "job_warmth_read_via_activity": null,
+        "surge_read": 0.0,
+        "surge_read_busy_word": null
+      }
+    },
+    "rich night, sealed": {
+      "lives": [
+        {
+          "read": 0.0,
+          "wrong_world": null,
+          "switch_rate": null,
+          "job_warmth_read": 0.0,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.0,
+          "wrong_world": null,
+          "switch_rate": null,
+          "job_warmth_read": 0.0,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.0,
+          "wrong_world": null,
+          "switch_rate": null,
+          "job_warmth_read": 0.0,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.0,
+          "wrong_world": null,
+          "switch_rate": null,
+          "job_warmth_read": 0.0,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.0,
+          "wrong_world": null,
+          "switch_rate": null,
+          "job_warmth_read": 0.0,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        }
+      ],
+      "mean": {
+        "read": 0.0,
+        "wrong_world": null,
+        "switch_rate": null,
+        "job_warmth_read": 0.0,
+        "job_warmth_read_via_activity": null,
+        "surge_read": 0.0,
+        "surge_read_busy_word": null
+      }
+    },
+    "rich night, trickle 5%": {
+      "lives": [
+        {
+          "read": 0.17,
+          "wrong_world": 0.05074971164936563,
+          "switch_rate": 0.04990980156343957,
+          "job_warmth_read": 0.07862407862407862,
+          "job_warmth_read_via_activity": 0.78125,
+          "surge_read": 0.006060606060606061,
+          "surge_read_busy_word": 0.0
+        },
+        {
+          "read": 0.22294117647058823,
+          "wrong_world": 0.006596306068601583,
+          "switch_rate": 0.03727272727272727,
+          "job_warmth_read": 0.06282722513089005,
+          "job_warmth_read_via_activity": 1.0,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.18098039215686273,
+          "wrong_world": 0.0,
+          "switch_rate": 0.02654867256637168,
+          "job_warmth_read": 0.0,
+          "job_warmth_read_via_activity": null,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.16215686274509805,
+          "wrong_world": 0.13784764207980654,
+          "switch_rate": 0.0076481835564053535,
+          "job_warmth_read": 0.21818181818181817,
+          "job_warmth_read_via_activity": 0.875,
+          "surge_read": 0.05555555555555555,
+          "surge_read_busy_word": 0.0
+        },
+        {
+          "read": 0.27205882352941174,
+          "wrong_world": 0.05297297297297297,
+          "switch_rate": 0.006711409395973154,
+          "job_warmth_read": 0.09523809523809523,
+          "job_warmth_read_via_activity": 0.6875,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        }
+      ],
+      "mean": {
+        "read": 0.20162745098039214,
+        "wrong_world": 0.04963332655414935,
+        "switch_rate": 0.025618158870983405,
+        "job_warmth_read": 0.09097424343497643,
+        "job_warmth_read_via_activity": 0.8359375,
+        "surge_read": 0.012323232323232323,
+        "surge_read_busy_word": 0.0
+      }
+    },
+    "rich night, trickle 20%": {
+      "lives": [
+        {
+          "read": 0.28284313725490196,
+          "wrong_world": 0.22980935875216638,
+          "switch_rate": 0.13154121863799284,
+          "job_warmth_read": 0.49385749385749383,
+          "job_warmth_read_via_activity": 0.5174129353233831,
+          "surge_read": 0.006060606060606061,
+          "surge_read_busy_word": 0.0
+        },
+        {
+          "read": 0.3919607843137255,
+          "wrong_world": 0.02001000500250125,
+          "switch_rate": 0.12702138758476786,
+          "job_warmth_read": 0.5549738219895288,
+          "job_warmth_read_via_activity": 1.0,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.2726470588235294,
+          "wrong_world": 0.0,
+          "switch_rate": 0.02601685599120557,
+          "job_warmth_read": 0.1660377358490566,
+          "job_warmth_read_via_activity": 1.0,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.27176470588235296,
+          "wrong_world": 0.14826839826839827,
+          "switch_rate": 0.042782738095238096,
+          "job_warmth_read": 0.5151515151515151,
+          "job_warmth_read_via_activity": 0.7294117647058823,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        },
+        {
+          "read": 0.5511764705882353,
+          "wrong_world": 0.11988616150836001,
+          "switch_rate": 0.07434876989869754,
+          "job_warmth_read": 0.44047619047619047,
+          "job_warmth_read_via_activity": 0.509009009009009,
+          "surge_read": 0.0,
+          "surge_read_busy_word": null
+        }
+      ],
+      "mean": {
+        "read": 0.354078431372549,
+        "wrong_world": 0.10359478470628518,
+        "switch_rate": 0.08034219404158038,
+        "job_warmth_read": 0.434099351464757,
+        "job_warmth_read_via_activity": 0.7511667418076549,
+        "surge_read": 0.0012121212121212121,
+        "surge_read_busy_word": 0.0
+      }
+    }
+  }
+}

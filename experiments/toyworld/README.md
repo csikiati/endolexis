@@ -1,6 +1,6 @@
 # Olvasó v0 in a toy world (`endolexis.toyworld`)
 
-Experiments 1-7 of November 2026: a simulated body with three outer and three inner channels, an Olvasó that
+Experiments 1-9 of November 2026: a simulated body with three outer and three inner channels, an Olvasó that
 starts from anonymous, shuffled numbers, and an observer that alone holds the key. Two papers report them:
 
 - *Endolexis v0: Olvasó in a toy world* (experiments 1-5),
@@ -12,7 +12,7 @@ Every script below runs from a clone without installing (`python experiments/toy
 `pip install -e .`. Each takes about one to five minutes on a laptop and writes its results as JSON beside itself;
 the JSON files committed here are the runs the papers report.
 
-The exact state the papers describe is archived as version 0.2.0: [doi:10.5281/zenodo.23856387](https://doi.org/10.5281/zenodo.23856387).
+Experiments 8 and 9 came after the papers and are not in version 0.2.0. The exact state the papers describe is archived as version 0.2.0: [doi:10.5281/zenodo.23856387](https://doi.org/10.5281/zenodo.23856387).
 
 This toy is separate from the stage engine in `endolexis` (the 21 stages of *Olvasó: an entity that reads itself*):
 it is a smaller, independent reader, built to test single ideas in a world whose hidden truth is known.
@@ -255,3 +255,64 @@ cf. random expert activation); dream + learning (meanings learn from the dream p
   filtering of dreams by usefulness may matter more for a model trained on its dreams at scale.
 - **The larger risk is forgetting without doubt:** in that mind superstition rose from 9% to 24% across the
   nights whether or not it learned from its dreams.
+
+## Experiments 8 and 9: toward the laptop body (`experiments/toyworld/night_and_words.py`)
+
+Both are framed for Olvasó's planned body, a secondhand laptop. New world options, all off by default
+so experiments 1-7 are unchanged bit for bit: `night_jobs` (scheduled jobs in the dark: activity and fan
+sound, which warm the body), `night_flashes` (a hall light, no inner effect) and `charger_from` (from that
+day, a charger: a light flicker never sensed before, charge rising fast, and a warming battery).
+
+### Experiment 8: a richer night (5 lives per condition)
+
+The best mind lives 20 days with its lid open at night, so it can learn the night's own words, then
+sleeps 10 nights. A plain night has only causeless inner warmth surges; a rich night adds night jobs and
+flashes. Deep-night measures (after the first 60 moments of sleep):
+
+| Night | Sleep | Inner states read | Readings through wrong-world words | Reading word switches | Night-job warmth read (via activity words) | Causeless surges read |
+|---|---|---|---|---|---|---|
+| Plain | sealed | 0% | – | – | – | 0% |
+| Plain | trickle 5% | 48% | 0.1% | 8% | – | 0% |
+| Plain | trickle 20% | 57% | 1% | 13% | – | 0% |
+| Rich | sealed | 0% | – | – | 0% | 0% |
+| Rich | trickle 5% | 20% | **5%** | 3% | 9% (84%) | 1% |
+| Rich | trickle 20% | 35% | **10%** | 8% | 43% (75%) | 0% |
+
+A *wrong-world* reading uses a word of daylight in the dark, or a word of activity in a quiet moment.
+
+- **A varied night is harder to read.** Fragments of a rich night are ambiguous: about half as many inner
+  states are read as from a plain night's fragments.
+- **It is somewhat more dream-like, not much.** Up to one reading in ten goes through the wrong world,
+  against at most 1 in 100 in a plain night, but readings do not shift more. Replaying its own words
+  (experiment 7) gave a third. In this toy, dream-like content comes mainly from memory, while a trickle
+  of the real outside keeps reading anchored.
+- **Real night causes are read correctly.** Warmth from a night job is read mostly through activity words
+  (75-84%), more often the more of the night gets through.
+- **Causeless surges stay unread,** and never through a busy word.
+
+### Experiment 9: housekeeping in sleep, and something new in later life (5 lives × 40 days)
+
+The vocabulary does not fill with near-duplicates: it fills in the first few hundred moments of life with
+infancy words, about 90% of them used fewer than 20 times. With `Olvaso.housekeeping()`, run at each
+waking, sleep retires words not met for 5 days that were used fewer than 200 times, and merges words that
+look nearly the same and mean the same. From day 20 a charger appears. Measures from day 25:
+
+| | No housekeeping | Housekeeping |
+|---|---|---|
+| Words alive at day 20 | 154 (96-200) | 36 |
+| Words retired / merged per life | 0 / 0 | 168 / 3.4 |
+| New charger words formed | 1.2 | 4.2 |
+| Battery warmth while charging read through a charger word | 15% | **31%** |
+| ...per life | 0, 0, 0, 0, 77% | 19, 20, 49, 3, 65% |
+| ...misread as activity warmth | 0% | 0% |
+| Activity warmth read through activity words | 47% | 45% |
+| Pure noise read | 2.2% | 2.3% |
+
+- **Sleep makes room for the new.** Retiring infancy words let the charger get words of its own, and its
+  warmth was read twice as often (in 4 of 5 lives, from almost never).
+- **No new cost:** noise stays unread, activity warmth is read as before.
+- **What it cannot name, it leaves unread.** Without its own word, charger warmth was never mistaken for
+  activity warmth.
+- Olvasó reads inner *levels*: the charger's main effect, charge rising, is a change, and no word
+  learned to read it (charge while charging read through a charger word: 5-6%). A reader of changes is
+  an open problem for the laptop, whose battery is mostly about direction.

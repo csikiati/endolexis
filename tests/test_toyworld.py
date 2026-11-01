@@ -44,3 +44,28 @@ def test_consolidation_keeps_versions():
         b, _ = olv.live(*col.anonymise(s, f))
     assert olv.consolidate() > 0
     assert olv.lt_used.any()
+
+
+def test_housekeeping_frees_room_for_new_words():
+    world, col = ToyWorld(seed=2), Collector(len(SENSED), len(FELT), seed=2)
+    olv = Olvaso(len(SENSED), len(FELT), seed=2)
+    b = None
+    for _ in range(8000):
+        s, f, _ = world.step(b)
+        b, _ = olv.live(*col.anonymise(s, f))
+    before = int(olv.alive.sum())
+    retired, merged = olv.housekeeping()
+    assert retired > 0 and int(olv.alive.sum()) == before - retired - merged
+    assert all(h < 0 or olv.alive[h] for h in olv.history)
+    for _ in range(2000):                     # life goes on, and new words can be born
+        s, f, _ = world.step(b)
+        b, _ = olv.live(*col.anonymise(s, f))
+    assert int(olv.alive.sum()) > before - retired - merged
+
+
+def test_new_world_options_are_off_by_default():
+    a, b = ToyWorld(seed=5), ToyWorld(seed=5, night_jobs=0.0, night_flashes=0.0)
+    for _ in range(3000):
+        sa, fa, _ = a.step()
+        sb, fb, _ = b.step()
+    assert np.allclose(sa, sb) and np.allclose(fa, fb)

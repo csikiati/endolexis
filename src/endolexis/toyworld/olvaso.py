@@ -65,6 +65,8 @@ class Olvaso:
         self.dn = np.zeros((max_words, L, n_felt))     # doubt: updates seen
         self.dmean = np.zeros((max_words, L, n_felt))  # doubt: slow average of the meaning
         self.dvar = np.zeros((max_words, L, n_felt))   # doubt: how much the meaning wanders
+        self.alive = np.zeros(max_words, dtype=bool)
+        self.word_uses = np.zeros(max_words, dtype=int)
         self.word_last_seen = np.full(max_words, -10**9)
         self.word_episodes = np.zeros(max_words, dtype=int)
         self.history = []  # most recent word first, up to L entries
@@ -86,18 +88,89 @@ class Olvaso:
             return None
         v = np.concatenate(self.sbuf)
         if self.n_words == 0:
-            self.centroids[0] = v
-            self.n_words = 1
-            return 0
+            return self._new_word(v)
         d = np.linalg.norm(self.centroids[:self.n_words] - v, axis=1)
+        d[~self.alive[:self.n_words]] = np.inf
         w = int(np.argmin(d))
-        if d[w] > self.radius and self.n_words < self.max_words:
+        if d[w] > self.radius and (self.n_words < self.max_words or not self.alive.all()):
+            return self._new_word(v)
+        self.centroids[w] += 0.02 * (v - self.centroids[w])
+        self.word_uses[w] += 1
+        return w
+
+    def _new_word(self, v):
+        """A word is born: in the next unused slot, or in a slot freed by housekeeping."""
+        if self.n_words < self.max_words:
             w = self.n_words
-            self.centroids[w] = v
             self.n_words += 1
         else:
-            self.centroids[w] += 0.02 * (v - self.centroids[w])
+            w = int(np.argmin(self.alive))
+            self._clear(w)
+        self.centroids[w] = v
+        self.alive[w] = True
+        self.word_uses[w] = 1
         return w
+
+    def _clear(self, w):
+        for a in (self.cnt, self.mean, self.m2, self.dn, self.dmean, self.dvar):
+            a[w] = 0
+        if self.lt_mean is not None:
+            self.lt_used[w] = False
+        self.word_episodes[w] = 0
+        self.word_last_seen[w] = -10**9
+        self.word_uses[w] = 0
+        self.alive[w] = False
+
+    # --- housekeeping in sleep --------------------------------------------------
+    def housekeeping(self, retire_after=5000, keep_uses=200, merge_dist=1.5, merge_agree=0.3):
+        """Done while asleep. Retires words not met for `retire_after` moments that were never used
+        much (infancy words, passing coincidences), freeing their places for new words. Merges two
+        words that look nearly the same and mean the same where both know a meaning.
+        Returns (retired, merged)."""
+        n = self.n_words
+        old = self.alive[:n] & (self.t - self.word_last_seen[:n] > retire_after) \
+            & (self.word_uses[:n] < keep_uses)
+        retired = np.nonzero(old)[0]
+        for w in retired:
+            self._clear(int(w))
+        merged = 0
+        live = np.nonzero(self.alive[:n])[0]
+        if len(live) > 1:
+            C = self.centroids[live]
+            D = np.linalg.norm(C[:, None] - C[None], axis=-1)
+            np.fill_diagonal(D, np.inf)
+            gone = set()
+            for a, b in zip(*np.nonzero(np.triu(D < merge_dist))):
+                i, j = int(live[a]), int(live[b])
+                if i in gone or j in gone:
+                    continue
+                both = (self.cnt[i] >= self.min_count) & (self.cnt[j] >= self.min_count)
+                if both.any() and np.abs(self.mean[i] - self.mean[j])[both].mean() > merge_agree:
+                    continue                      # they look alike but mean different things
+                keep, drop = (i, j) if self.word_uses[i] >= self.word_uses[j] else (j, i)
+                self._merge(keep, drop)
+                gone.add(drop)
+                merged += 1
+        dead = set(int(w) for w in retired)
+        self.history = [(-1 if h in dead or (h >= 0 and not self.alive[h]) else h) for h in self.history]
+        return len(retired), merged
+
+    def _merge(self, keep, drop):
+        nk, nd = self.cnt[keep], self.cnt[drop]
+        n = nk + nd
+        safe = np.maximum(n, 1)
+        delta = self.mean[drop] - self.mean[keep]
+        self.mean[keep] = (nk * self.mean[keep] + nd * self.mean[drop]) / safe
+        self.m2[keep] = self.m2[keep] + self.m2[drop] + delta ** 2 * nk * nd / safe
+        self.cnt[keep] = n
+        uk, ud = self.word_uses[keep], self.word_uses[drop]
+        self.centroids[keep] = (uk * self.centroids[keep] + ud * self.centroids[drop]) / max(uk + ud, 1)
+        self.word_uses[keep] = uk + ud
+        self.word_episodes[keep] = max(self.word_episodes[keep], self.word_episodes[drop])
+        self.word_last_seen[keep] = max(self.word_last_seen[keep], self.word_last_seen[drop])
+        self.dn[keep] = np.minimum(self.dn[keep], self.dn[drop])   # a merged meaning must settle anew
+        self.history = [keep if h == drop else h for h in self.history]
+        self._clear(drop)
 
     # --- one moment of life -----------------------------------------------
     def live(self, sensed, felt):
