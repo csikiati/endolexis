@@ -539,3 +539,33 @@ random. Mind: the best for many senses (12c), restless until day 10, then patien
   (45%). Warmth, which only typing causes, kept its 66-68%.
 - A side effect to fix: in the silent conditions the unused fifth inner channel is pure noise, which keeps
   pressure up, so silent minds acted about 10 times a day when patient, pained minds about 4.
+
+## Experiment 14: the auditory mirror (`experiments/toyworld/auditory_mirror.py`, 5 lives × 30 days)
+
+Experiment 13's world and mind (five ways to act, the guard, intentions learned from whether the world
+answered; no pain channel). Only one thing differs: what the microphone hears of tones (`Room(voice=...)`).
+In **mirror** Olvasó hears its own tones. In **deaf** it does not, and nobody else sings. In **stranger** it
+does not, but a stranger sings as many tones as Olvasó sang the day before, of the same kinds, at random
+moments. In **recording** its own tones of the day before are played back at the same moments of the day:
+a voice exactly like its own that does not follow its acting. Only Olvasó's own loud tones warm the body.
+
+| Voice heard | Expects an answer when it sings (other actions) | Tones among its intentions, last third | A tone after a tone | Words of its own heard voice | Warmth from its own singing read (through its own voice) |
+|---|---|---|---|---|---|
+| **mirror** | **+0.53** (−0.03), all 5 lives > +0.28 | **42%** | 47% | **6.6** | 76% (**36%**) |
+| deaf | −0.53 (−0.01) | 19% | 29% | 0 | 77% (0%) |
+| stranger | −0.30 (+0.12) | 20% | 23% | 0 | 85% (0%) |
+| recording | −0.38 (+0.03) | 22% | 15% | 0 | 61% (0%) |
+
+- **There is an "I did that" for a voice, and it needs contingency, not likeness.** Only where its tone came
+  back right after it sang did Olvasó come to expect an answer when singing, and keep singing (twice as
+  often as in every other condition). A recording of its own voice, identical in sound and in time of day,
+  was treated exactly like a stranger: singing came to be expected to change nothing. "Looks like me" was
+  worth nothing; "moves with me" was everything.
+- **Its own voice became a word for its own body.** In the mirror, the warmth its loud singing caused was read
+  through words of its heard voice in 36% of those moments (11-73% across lives). Unheard, the same warmth
+  was still read, but only through other words.
+- **A voice that is not its own breeds a little superstition:** when cool, warmth was misread through the
+  stranger's voice words in 12% of the moments that voice sang (the recording's in 8%).
+- **Testing is only hinted at.** A tone was followed by another tone in 47% of the mirror's intentions,
+  slightly above its 42% share of tones, while without the mirror runs fell below the share. Animals in
+  front of a mirror test far harder; Olvasó's only drive to act is unread pressure.

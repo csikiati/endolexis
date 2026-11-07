@@ -29,7 +29,17 @@ request passes a guard first (the spine: the hand that will not go into the fire
   note       - writes a note to its sandbox (5 moments of disk clicks, a burst of load); refused
                while the body is busy
 A refused request changes nothing outside. With pain=True it is felt as a fifth inner state, pain,
-that fades within moments; without, the refusal is silent.
+that fades within moments; without, the refusal is silent. pain_channel=False drops the fifth
+inner state altogether (otherwise a silent body still has it, as pure noise).
+
+voice (experiment 14, the auditory mirror) decides what the microphone hears of tones:
+  mirror    - Olvaso hears its own tones (the default)
+  deaf      - its own tones are not heard, and nobody else plays any
+  stranger  - its own tones are not heard; a stranger plays as many tones as Olvaso played the
+              day before, of the same kinds, at random moments
+  recording - its own tones are not heard; its own tones of the day before are played back,
+              at the same moments of the day
+Only Olvaso's own loud tones warm the body, whatever is heard.
 """
 import numpy as np
 
@@ -41,9 +51,14 @@ SIZE, FS, NSAMP = 16, 8000, 2048
 
 
 class Room:
-    def __init__(self, seed=0, day_length=1000, warmth_delay=10, load_delay=5, hands=False, pain=False):
+    def __init__(self, seed=0, day_length=1000, warmth_delay=10, load_delay=5, hands=False, pain=False,
+                 pain_channel=True, voice="mirror"):
         self.rng = np.random.default_rng(seed)
-        self.hands, self.pain_on = hands, pain
+        self.hands, self.pain_on, self.pain_channel, self.voice = hands, pain, pain_channel, voice
+        self.played = {}                 # moment -> (freq, amp) of Olvaso's own executed tones
+        self.other_left, self.other_freq, self.other_amp = 0, 440.0, 0.0
+        self.stranger_at = {}
+        self.voice_rng = np.random.default_rng(seed + 777_000)
         self.hand_rng = np.random.default_rng(seed + 4242)    # keeps the old random stream intact
         self.tone_left = self.paint_left = self.note_left = 0
         self.tone_freq, self.tone_amp, self.paint_col = 440.0, 0.0, PAINTS[0]
@@ -175,8 +190,10 @@ class Room:
             k = np.arange(NSAMP) / FS + beat_at
             kick = np.where((k % 0.5) < 0.08, np.sin(2 * np.pi * 60 * k) * np.exp(-(k % 0.5) / 0.03), 0)
             s += 0.3 * m + 0.4 * kick
-        if self.tone_left > 0:                                                      # its own voice
+        if self.tone_left > 0 and self.voice == "mirror":                         # its own voice
             s += self.tone_amp * np.sin(2 * np.pi * self.tone_freq * tt)
+        if self.other_left > 0:                                                     # another voice
+            s += self.other_amp * np.sin(2 * np.pi * self.other_freq * tt)
         if self.note_left > 0:                                                      # the disk at work
             for i in self.hand_rng.integers(0, NSAMP - 20, 6):
                 s[i:i + 20] += 0.15 * np.sign(np.sin(np.arange(20)))
@@ -206,6 +223,7 @@ class Room:
                 elif kind in ("tone_soft", "tone_loud"):
                     self.tone_left, self.tone_freq = 20, float(param)
                     self.tone_amp = 0.5 if kind == "tone_loud" else 0.12
+                    self.played[self.t] = (self.tone_freq, self.tone_amp)
                 elif kind == "paint":
                     self.paint_left, self.paint_col = 30, PAINTS[int(param)]
                 elif kind == "note":
@@ -231,12 +249,33 @@ class Room:
             self.load += 0.04
         self.pain *= 0.85
 
+    def _other_voice(self):
+        """The stranger or the recording, for the auditory mirror."""
+        D = self.day_length
+        if self.voice == "stranger" and self.t % D == 0:
+            prev = [v for t, v in self.played.items() if self.t - D <= t < self.t]
+            starts = self.voice_rng.integers(self.t, self.t + D - 20, len(prev))
+            self.stranger_at = dict(zip(starts.tolist(), prev))
+        start = None
+        if self.voice == "recording":
+            start = self.played.get(self.t - D)
+        elif self.voice == "stranger":
+            start = self.stranger_at.get(self.t)
+        if start is not None:
+            self.other_left, (self.other_freq, self.other_amp) = 20, start
+        elif self.other_left > 0:
+            self.other_left -= 1
+        for t in [t for t in self.played if t < self.t - 2 * D]:
+            del self.played[t]
+
     def step(self, brightness=None, act=None):
         if brightness is not None:
             self.brightness = float(np.clip(brightness, 0.0, 1.0))
         refused = executed = False
         if self.hands:
             refused, executed = self._hands(act)
+            if self.voice != "mirror":
+                self._other_voice()
         r = self.rng
         day = self.daylight()
         typing, talking, mouse, music = self._people(day)
@@ -262,7 +301,11 @@ class Room:
                  "mouse": mouse, "music": music, "fan": fan, "brightness": self.brightness,
                  "warmth": self.warmth, "charge": self.charge, "load": self.load}
         if self.hands:
-            felt = np.r_[felt, self.pain + self.hand_rng.normal(0, 0.03)]
+            if self.pain_channel:
+                felt = np.r_[felt, self.pain + self.hand_rng.normal(0, 0.03)]
+            own_tone = self.tone_left > 0
+            truth.update(own_tone=own_tone, own_loud=own_tone and self.tone_amp > 0.3,
+                         heard_own=own_tone and self.voice == "mirror", other_tone=self.other_left > 0)
             truth.update(request=act, refused=refused, executed=executed, pain=self.pain,
                          own=bool(self.tone_left or self.paint_left or self.note_left))
         self.t += 1

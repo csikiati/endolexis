@@ -133,3 +133,21 @@ def test_room_without_hands_is_unchanged():
         ra, fa, _ = a.step(None)
         rb, fb, _ = b.step(None)
     assert np.allclose(ra["sound"], rb["sound"]) and np.allclose(fa, fb) and len(fa) == 4
+
+
+def test_voice_modes_hear_own_or_other_tones():
+    from endolexis.toyworld.room import Room
+    heard = {}
+    for v in ("mirror", "deaf", "stranger", "recording"):
+        room = Room(seed=1, hands=True, pain_channel=False, voice=v)
+        own = other = 0
+        for t in range(2500):
+            raw, felt, truth = room.step(act=("tone_soft", 300.0) if t % 100 == 5 else None)
+            own += truth["heard_own"]
+            other += truth["other_tone"]
+        assert len(felt) == 4
+        heard[v] = (own, other)
+    assert heard["mirror"][0] > 0 and heard["mirror"][1] == 0
+    assert heard["deaf"] == (0, 0)
+    assert heard["stranger"][0] == 0 and heard["stranger"][1] > 0
+    assert heard["recording"][0] == 0 and heard["recording"][1] > 0
