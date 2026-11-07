@@ -498,3 +498,44 @@ Two rules against the superstition of many senses, and a clean test of a mixed v
   did not tame it. A layer where all the senses meet finds more meanings, true and false alike.
 - The best mind for many senses: a vocabulary per processor, levels and changes, forgetting with doubt, and
   readings that must fit both now and over the last days.
+
+## Experiment 13: wanting, and the hand that won't go into the fire (`experiments/toyworld/wanting.py`, 5 lives × 30 days)
+
+Toy world v1 gets hands (`Room(hands=True)`): besides screen brightness, Olvasó can play a soft or a loud
+tone, paint its window red, green or blue, or write a note to its sandbox (disk clicks, a burst of load).
+Each request passes the body's **guard**, the spine, which refuses a loud tone while the body is hot,
+painting or full brightness while the battery is low, and a note while the body is busy. Olvasó never
+learns that a guard exists: a refused request changes nothing outside. With `pain=True` the refusal is
+also felt, as a fifth inner state that fades within moments.
+
+When unread pressure crosses the threshold, Olvasó forms an intention (`hands.ActingReaders`): a kind of
+action, with a random detail. Which kind depends on how it feels: each kind has a small linear expectation
+over the anonymous felt levels, learned by the delta rule from what followed earlier intentions. It learns
+from one of two things that are its own: **answer** (did the sensed world change more than usual in the
+next 3 moments?) or **read** (did reading improve over the next 50, Olvasó v0's test). Or it chooses at
+random. Mind: the best for many senses (12c), restless until day 10, then patient.
+
+| Intentions | Refused, days 1-9 | Refused, last third | Loud tone when hot / cool | Note when busy / idle | Paint when low / charged |
+|---|---|---|---|---|---|
+| random, silent | 30% | 26% (21-30) | 19% / 21% | 20% / 18% | 25% / 20% |
+| random, pain | 30% | 28% | 23% / 22% | 16% / 20% | 22% / 20% |
+| **answer, silent** | 22% | **12% (9-15)** | **11% / 36%** | **9% / 38%** | **8% / 15%** |
+| answer, pain | 21% | 15% (10-23) | 8% / 33% | 17% / 18% | 20% / 28% |
+| read, silent | 30% | 22% (11-32) | 16% / 20% | 16% / 20% | 21% / 18% |
+| read, pain | 31% | 20% (6-29) | 11% / 18% | 8% / 17% | 23% / 32% |
+
+- **It learns the fire without being told, and without pain.** Learning from whether the world answered, it
+  stopped forming the intentions the body would refuse, in the states where they would be refused: a loud
+  tone a third as often when hot as when cool, a note a quarter as often when busy. Refusals halved, in every
+  life. A refusal teaches by its silence: nothing outside changed.
+- **"Did reading improve" is a weak teacher of the hands.** It learned a little, and unevenly.
+- **Pain added nothing here, and was never read** (1% of painful moments). That is not a flaw of the test but
+  a finding: a refused intention leaves no trace outside, so no outer word ever comes before the pain, and a
+  reader of the inner through the outer cannot read it. Pain of a refused intention could become readable
+  only if Olvasó sensed its own intentions (an efference copy, the "proprioception" switch of the plan).
+- **Agency was kept:** 15-30 "I did that" words per life (more where it acted more).
+- **Acting has a price for reading.** Its own paint and notes also load the body, so music is no longer the
+  load's only cause: the load was read in 3-12% of loaded moments (24% without hands), the charge in 23-34%
+  (45%). Warmth, which only typing causes, kept its 66-68%.
+- A side effect to fix: in the silent conditions the unused fifth inner channel is pure noise, which keeps
+  pressure up, so silent minds acted about 10 times a day when patient, pained minds about 4.

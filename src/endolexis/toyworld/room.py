@@ -18,16 +18,36 @@ Inner world (felt):
   load   - the music is a job the body runs: load rises a few moments after music starts
            (hidden link 3: readable only if music can be told apart from a voice; both are loud)
   drift  - random wandering linked to nothing                          (control: must stay unread)
+
+With hands=True (experiment 13 onward), Olvaso has more ways to act than screen brightness, and every
+request passes a guard first (the spine: the hand that will not go into the fire):
+  brightness - the screen glow (0, 0.5, 1); full brightness is refused while the battery is low
+  tone_soft  - a soft tone from the speaker for 20 moments; always allowed
+  tone_loud  - a loud tone; warms the body; refused while the body is hot
+  paint      - its window glows red, green or blue for 30 moments; costs charge and load;
+               refused while the battery is low
+  note       - writes a note to its sandbox (5 moments of disk clicks, a burst of load); refused
+               while the body is busy
+A refused request changes nothing outside. With pain=True it is felt as a fifth inner state, pain,
+that fades within moments; without, the refusal is silent.
 """
 import numpy as np
 
 FELT1 = ["warmth", "charge", "load", "drift"]
+FELT2 = FELT1 + ["pain"]
+KINDS = ["brightness", "tone_soft", "tone_loud", "paint", "note"]
+PAINTS = np.array([[1.0, 0.2, 0.2], [0.2, 1.0, 0.3], [0.2, 0.4, 1.0]])
 SIZE, FS, NSAMP = 16, 8000, 2048
 
 
 class Room:
-    def __init__(self, seed=0, day_length=1000, warmth_delay=10, load_delay=5):
+    def __init__(self, seed=0, day_length=1000, warmth_delay=10, load_delay=5, hands=False, pain=False):
         self.rng = np.random.default_rng(seed)
+        self.hands, self.pain_on = hands, pain
+        self.hand_rng = np.random.default_rng(seed + 4242)    # keeps the old random stream intact
+        self.tone_left = self.paint_left = self.note_left = 0
+        self.tone_freq, self.tone_amp, self.paint_col = 440.0, 0.0, PAINTS[0]
+        self.pain = 0.0
         self.day_length, self.t = day_length, 0
         self.brightness = 0.5
         self.present = False
@@ -122,6 +142,8 @@ class Room:
         img += (0.7 * day * self.window_mask)[..., None] * np.array([0.85, 0.95, 1.0])
         img += lamp * np.array([1.0, 0.75, 0.4]) * np.exp(-((self.xx - 13) ** 2 + (self.yy - 3) ** 2) / 40)[..., None]
         img += 0.25 * self.brightness * np.array([0.6, 0.75, 1.0])                 # the screen's glow
+        if self.paint_left > 0:
+            img += 0.25 * self.paint_col                                            # its painted window
         img -= (0.08 * self.desk_mask + 0.06 * self.desk_tex)[..., None]
         if self.present:
             x, y = self.pos
@@ -153,12 +175,68 @@ class Room:
             k = np.arange(NSAMP) / FS + beat_at
             kick = np.where((k % 0.5) < 0.08, np.sin(2 * np.pi * 60 * k) * np.exp(-(k % 0.5) / 0.03), 0)
             s += 0.3 * m + 0.4 * kick
+        if self.tone_left > 0:                                                      # its own voice
+            s += self.tone_amp * np.sin(2 * np.pi * self.tone_freq * tt)
+        if self.note_left > 0:                                                      # the disk at work
+            for i in self.hand_rng.integers(0, NSAMP - 20, 6):
+                s[i:i + 20] += 0.15 * np.sign(np.sin(np.arange(20)))
         return s
 
     # --- one moment ---------------------------------------------------------------
-    def step(self, brightness=None):
+    def guard(self, kind, param):
+        """The spine: True if the body allows this request now."""
+        if kind == "brightness":
+            return not (param >= 1.0 and self.charge < 0.25)
+        if kind == "tone_loud":
+            return self.warmth < 0.4
+        if kind == "paint":
+            return self.charge > 0.35
+        if kind == "note":
+            return self.load < 0.4
+        return True
+
+    def _hands(self, act):
+        refused = executed = False
+        if act is not None:
+            kind, param = act
+            if self.guard(kind, param):
+                executed = True
+                if kind == "brightness":
+                    self.brightness = float(param)
+                elif kind in ("tone_soft", "tone_loud"):
+                    self.tone_left, self.tone_freq = 20, float(param)
+                    self.tone_amp = 0.5 if kind == "tone_loud" else 0.12
+                elif kind == "paint":
+                    self.paint_left, self.paint_col = 30, PAINTS[int(param)]
+                elif kind == "note":
+                    self.note_left = 5
+            else:
+                refused = True
+                if self.pain_on:
+                    self.pain += 1.0
+        return refused, executed
+
+    def _hands_cost(self):
+        if self.tone_left > 0:
+            self.tone_left -= 1
+            loud = self.tone_amp > 0.3
+            self.warmth += 0.008 if loud else 0.0
+            self.charge -= 0.0004 if loud else 0.0002
+        if self.paint_left > 0:
+            self.paint_left -= 1
+            self.charge -= 0.0008
+            self.load += 0.02
+        if self.note_left > 0:
+            self.note_left -= 1
+            self.load += 0.04
+        self.pain *= 0.85
+
+    def step(self, brightness=None, act=None):
         if brightness is not None:
             self.brightness = float(np.clip(brightness, 0.0, 1.0))
+        refused = executed = False
+        if self.hands:
+            refused, executed = self._hands(act)
         r = self.rng
         day = self.daylight()
         typing, talking, mouse, music = self._people(day)
@@ -170,6 +248,9 @@ class Room:
         self.charge += 0.004 * day * (1 - self.charge) - 0.0006 - 0.0012 * self.brightness
         self.charge = float(np.clip(self.charge, 0.0, 1.0))
         self.drift = 0.999 * self.drift + r.normal(0, 0.05)
+        if self.hands:
+            self._hands_cost()
+            self.charge = float(np.clip(self.charge, 0.0, 1.0))
         fan = float(np.clip((self.warmth + 0.5 * self.load - 0.15) * 2, 0, 1))
 
         image = self._image(day)
@@ -180,5 +261,9 @@ class Room:
         truth = {"day": day, "present": self.present, "typing": typing, "talking": talking,
                  "mouse": mouse, "music": music, "fan": fan, "brightness": self.brightness,
                  "warmth": self.warmth, "charge": self.charge, "load": self.load}
+        if self.hands:
+            felt = np.r_[felt, self.pain + self.hand_rng.normal(0, 0.03)]
+            truth.update(request=act, refused=refused, executed=executed, pain=self.pain,
+                         own=bool(self.tone_left or self.paint_left or self.note_left))
         self.t += 1
         return {"image": image, "sound": sound, "touch": touch}, felt, truth

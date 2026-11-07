@@ -104,6 +104,7 @@ reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 | 11. Where the superstition came from | Merging words in sleep bred it; retiring without merging keeps the gain of feeling change, without the superstition |
 | 12. Many processors, one reader | Toy world v1: a room seen, heard and touched through 22 processor outputs. Richer senses read what loudness could not; a vocabulary per processor beats one shared vocabulary; more senses bring more superstition |
 | 12b-c. Habituation, age, and careful reading | Hearing steady sounds once only moves the dial; age teaches the load but not to doubt noise; requiring a meaning to fit now and over past days halves the superstition; a mixed vocabulary finds more meanings, true and false |
+| 13. Wanting, and the guard | With five ways to act and a guard that refuses what the body can't afford, Olvasó learns from whether the world answered to stop forming the refused intentions, in the states where they'd be refused, without pain; the pain of a refused intention is never read, as no outer word precedes it |
 
 ```python
 from endolexis.toyworld import live_a_life

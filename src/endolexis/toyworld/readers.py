@@ -59,7 +59,8 @@ class ManyReaders:
         self.rng = np.random.default_rng(seed + 20_000)
         self.t = 0
 
-    def live(self, inputs, felt):
+    def read(self, inputs, felt):
+        """One moment for every vocabulary; returns the shared readings."""
         R, E = [], []
         for p, x in zip(self.parts, inputs):
             _, r = p.live(x, felt)
@@ -77,7 +78,15 @@ class ManyReaders:
         readings[~hit & (R == -2).any(axis=0)] = -2
         unread = int(np.sum(readings == -1))
         self.pressure = 0.99 * self.pressure + unread
-        if self.pressure > self.threshold and self.parts[0].fnorm.n > 200:
+        return readings
+
+    def urge(self):
+        """True when unread pressure has grown past the threshold: it is time to act."""
+        return self.pressure > self.threshold and self.parts[0].fnorm.n > 200
+
+    def live(self, inputs, felt):
+        readings = self.read(inputs, felt)
+        if self.urge():
             self.brightness = float(self.rng.choice([b for b in (0.0, 0.5, 1.0) if b != self.brightness]))
             self.pressure = 0.0
         self.t += 1

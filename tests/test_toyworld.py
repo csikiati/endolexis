@@ -110,3 +110,26 @@ def test_many_readers_with_one_vocabulary_is_olvaso():
         _, r1 = one.live([sa], fa)
         _, r2 = ref.live(sa, fa)
         assert np.array_equal(r1, r2)
+
+
+def test_guard_refuses_the_fire_and_pain_is_felt():
+    from endolexis.toyworld.room import Room
+    room = Room(seed=1, hands=True, pain=True)
+    room.warmth = 0.9                                     # a hot body
+    _, felt, truth = room.step(act=("tone_loud", 300.0))
+    assert truth["refused"] and not truth["executed"] and felt[-1] > 0.5
+    _, felt, truth = room.step(act=("tone_soft", 300.0))
+    assert truth["executed"] and not truth["refused"] and truth["own"]
+    quiet = Room(seed=1, hands=True, pain=False)
+    quiet.warmth = 0.9
+    _, felt, truth = quiet.step(act=("tone_loud", 300.0))
+    assert truth["refused"] and abs(felt[-1]) < 0.2         # a silent refusal
+
+
+def test_room_without_hands_is_unchanged():
+    from endolexis.toyworld.room import Room
+    a, b = Room(seed=6), Room(seed=6, hands=False, pain=True)
+    for _ in range(500):
+        ra, fa, _ = a.step(None)
+        rb, fb, _ = b.step(None)
+    assert np.allclose(ra["sound"], rb["sound"]) and np.allclose(fa, fb) and len(fa) == 4
