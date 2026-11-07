@@ -151,3 +151,21 @@ def test_voice_modes_hear_own_or_other_tones():
     assert heard["deaf"] == (0, 0)
     assert heard["stranger"][0] == 0 and heard["stranger"][1] > 0
     assert heard["recording"][0] == 0 and heard["recording"][1] > 0
+
+
+def test_window_modes_show_own_or_other_paintings():
+    from endolexis.toyworld.room import Room
+    seen = {}
+    for w in ("mirror", "blind", "stranger", "recording"):
+        room = Room(seed=1, hands=True, pain_channel=False, voice="deaf", window=w)
+        own = other = 0
+        for t in range(2500):
+            room.charge = 0.9
+            raw, felt, truth = room.step(act=("paint", 1) if t % 100 == 5 else None)
+            own += truth["seen_own"]
+            other += truth["other_paint"]
+        seen[w] = (own, other)
+    assert seen["mirror"][0] > 0 and seen["mirror"][1] == 0
+    assert seen["blind"] == (0, 0)
+    assert seen["stranger"][0] == 0 and seen["stranger"][1] > 0
+    assert seen["recording"][0] == 0 and seen["recording"][1] > 0

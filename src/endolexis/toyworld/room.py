@@ -40,6 +40,16 @@ voice (experiment 14, the auditory mirror) decides what the microphone hears of 
   recording - its own tones are not heard; its own tones of the day before are played back,
               at the same moments of the day
 Only Olvaso's own loud tones warm the body, whatever is heard.
+
+window (experiment 15, the mirror test) decides what the camera sees of painting. With window=None
+(experiments 13-14) its painted window simply tints the room. Otherwise the room is not tinted, and
+the camera may see a painted window in a mirror on the wall (6×6 of its 16×16 picture, top right):
+  mirror    - it sees its own painted window
+  blind     - it does not, and nobody else paints
+  stranger  - it does not; a stranger paints as often as Olvaso painted the day before, in the same
+              colours, at random moments
+  recording - it does not; its own paintings of the day before are shown again, at the same moments
+Only Olvaso's own painting costs charge and load, whatever is seen.
 """
 import numpy as np
 
@@ -52,13 +62,18 @@ SIZE, FS, NSAMP = 16, 8000, 2048
 
 class Room:
     def __init__(self, seed=0, day_length=1000, warmth_delay=10, load_delay=5, hands=False, pain=False,
-                 pain_channel=True, voice="mirror"):
+                 pain_channel=True, voice="mirror", window=None):
         self.rng = np.random.default_rng(seed)
         self.hands, self.pain_on, self.pain_channel, self.voice = hands, pain, pain_channel, voice
         self.played = {}                 # moment -> (freq, amp) of Olvaso's own executed tones
         self.other_left, self.other_freq, self.other_amp = 0, 440.0, 0.0
         self.stranger_at = {}
         self.voice_rng = np.random.default_rng(seed + 777_000)
+        self.window = window
+        self.painted = {}                # moment -> colour index of Olvaso's own executed paintings
+        self.other_paint_left, self.other_paint_col = 0, PAINTS[0]
+        self.painter_at = {}
+        self.window_rng = np.random.default_rng(seed + 888_000)
         self.hand_rng = np.random.default_rng(seed + 4242)    # keeps the old random stream intact
         self.tone_left = self.paint_left = self.note_left = 0
         self.tone_freq, self.tone_amp, self.paint_col = 440.0, 0.0, PAINTS[0]
@@ -157,8 +172,16 @@ class Room:
         img += (0.7 * day * self.window_mask)[..., None] * np.array([0.85, 0.95, 1.0])
         img += lamp * np.array([1.0, 0.75, 0.4]) * np.exp(-((self.xx - 13) ** 2 + (self.yy - 3) ** 2) / 40)[..., None]
         img += 0.25 * self.brightness * np.array([0.6, 0.75, 1.0])                 # the screen's glow
-        if self.paint_left > 0:
+        if self.window is None and self.paint_left > 0:
             img += 0.25 * self.paint_col                                            # its painted window
+        if self.window is not None:                                                 # the mirror on the wall
+            seen = None
+            if self.window == "mirror" and self.paint_left > 0:
+                seen = self.paint_col
+            elif self.other_paint_left > 0:
+                seen = self.other_paint_col
+            if seen is not None:
+                img[0:6, 10:16] += 0.8 * seen
         img -= (0.08 * self.desk_mask + 0.06 * self.desk_tex)[..., None]
         if self.present:
             x, y = self.pos
@@ -226,6 +249,7 @@ class Room:
                     self.played[self.t] = (self.tone_freq, self.tone_amp)
                 elif kind == "paint":
                     self.paint_left, self.paint_col = 30, PAINTS[int(param)]
+                    self.painted[self.t] = int(param)
                 elif kind == "note":
                     self.note_left = 5
             else:
@@ -268,6 +292,25 @@ class Room:
         for t in [t for t in self.played if t < self.t - 2 * D]:
             del self.played[t]
 
+    def _other_painter(self):
+        """The stranger or the recording, for the mirror test."""
+        D = self.day_length
+        if self.window == "stranger" and self.t % D == 0:
+            prev = [v for t, v in self.painted.items() if self.t - D <= t < self.t]
+            starts = self.window_rng.integers(self.t, self.t + D - 30, len(prev))
+            self.painter_at = dict(zip(starts.tolist(), prev))
+        start = None
+        if self.window == "recording":
+            start = self.painted.get(self.t - D)
+        elif self.window == "stranger":
+            start = self.painter_at.get(self.t)
+        if start is not None:
+            self.other_paint_left, self.other_paint_col = 30, PAINTS[start]
+        elif self.other_paint_left > 0:
+            self.other_paint_left -= 1
+        for t in [t for t in self.painted if t < self.t - 2 * D]:
+            del self.painted[t]
+
     def step(self, brightness=None, act=None):
         if brightness is not None:
             self.brightness = float(np.clip(brightness, 0.0, 1.0))
@@ -276,6 +319,8 @@ class Room:
             refused, executed = self._hands(act)
             if self.voice != "mirror":
                 self._other_voice()
+            if self.window in ("stranger", "recording"):
+                self._other_painter()
         r = self.rng
         day = self.daylight()
         typing, talking, mouse, music = self._people(day)
@@ -305,7 +350,10 @@ class Room:
                 felt = np.r_[felt, self.pain + self.hand_rng.normal(0, 0.03)]
             own_tone = self.tone_left > 0
             truth.update(own_tone=own_tone, own_loud=own_tone and self.tone_amp > 0.3,
-                         heard_own=own_tone and self.voice == "mirror", other_tone=self.other_left > 0)
+                         heard_own=own_tone and self.voice == "mirror", other_tone=self.other_left > 0,
+                         own_paint=self.paint_left > 0,
+                         seen_own=self.paint_left > 0 and self.window == "mirror",
+                         other_paint=self.other_paint_left > 0)
             truth.update(request=act, refused=refused, executed=executed, pain=self.pain,
                          own=bool(self.tone_left or self.paint_left or self.note_left))
         self.t += 1

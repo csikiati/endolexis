@@ -106,6 +106,7 @@ reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 | 12b-c. Habituation, age, and careful reading | Hearing steady sounds once only moves the dial; age teaches the load but not to doubt noise; requiring a meaning to fit now and over past days halves the superstition; a mixed vocabulary finds more meanings, true and false |
 | 13. Wanting, and the guard | With five ways to act and a guard that refuses what the body can't afford, Olvasó learns from whether the world answered to stop forming the refused intentions, in the states where they'd be refused, without pain; the pain of a refused intention is never read, as no outer word precedes it |
 | 14. The auditory mirror | Only a voice that follows its acting becomes its own: Olvasó expects an answer when it sings and sings twice as often, and reads the warmth of its own singing through its heard voice; a recording of its own voice is treated like a stranger |
+| 15. The mirror test | The same for sight: only a mirrored window that follows its painting makes Olvasó expect an answer, paint more (19% → 44% of intentions) and paint in runs; a recording of its own paintings is treated like a stranger |
 
 ```python
 from endolexis.toyworld import live_a_life

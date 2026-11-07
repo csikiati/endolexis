@@ -23,8 +23,16 @@ DETAILS = {"brightness": (0.0, 0.5, 1.0), "tone_soft": (300.0, 900.0), "tone_lou
 
 
 class ActingReaders(ManyReaders):
-    def __init__(self, sizes, n_felt, learn=None, lr=0.05, temp=0.5, answer_after=3, judge_after=50, **kw):
+    def __init__(self, sizes, n_felt, learn=None, lr=0.05, temp=0.5, answer_after=3, judge_after=50,
+                 answer_by="all", **kw):
+        # answer_by: "all" - the answer is how much all senses together changed; "sense" - it is the
+        # largest change of any one sense (each judged against its own usual change), so that an
+        # answer seen by the eyes alone counts as much as one heard
         super().__init__(sizes, n_felt, **kw)
+        self.answer_by = answer_by
+        self.bounds = np.cumsum([0] + [p.ns for p in self.parts])
+        k = len(self.parts)
+        self.sense_mu, self.sense_m2 = np.zeros(k), np.zeros(k)
         self.learn, self.lr, self.temp = learn, lr, temp
         self.answer_after, self.judge_after = answer_after, judge_after
         self.n_in = self.parts[0].nf_in
@@ -34,6 +42,7 @@ class ActingReaders(ManyReaders):
         self.change_mu, self.change_m2, self.change_n = 0.0, 0.0, 0
         self.read_log = []
         self.requests = []          # (t, kind)
+        self.signals = []           # (kind index, what followed), for the observer
 
     def _sensed_z(self, inputs):
         return np.concatenate([p.snorm.z(np.asarray(x, float)) for p, x in zip(self.parts, inputs)])
@@ -52,6 +61,10 @@ class ActingReaders(ManyReaders):
             d = change - self.change_mu
             self.change_mu += d / self.change_n
             self.change_m2 += d * (change - self.change_mu)
+            per = self._per_sense(np.abs(s_z - self.s_hist[0]))
+            ds = per - self.sense_mu
+            self.sense_mu += ds / self.change_n
+            self.sense_m2 += ds * (per - self.sense_mu)
         self.read_log.append(float(np.mean(readings >= 0)))
         if len(self.read_log) > 100:
             self.read_log.pop(0)
@@ -76,16 +89,24 @@ class ActingReaders(ManyReaders):
         self.t += 1
         return request, readings
 
+    def _per_sense(self, a):
+        return np.array([a[i:j].mean() for i, j in zip(self.bounds[:-1], self.bounds[1:])])
+
     def _settle(self, s_z):
         """Learn from intentions whose aftermath has now been seen."""
         while self.pending and self.pending[0][0] <= self.t:
             _, k, x, s_before, read_before = self.pending.pop(0)
-            if self.learn == "answer":
+            if self.learn == "answer" and self.answer_by == "sense":
+                sd = np.sqrt(self.sense_m2 / max(self.change_n - 1, 1)) + 1e-9
+                z = (self._per_sense(np.abs(s_z - s_before)) - self.sense_mu) / sd
+                signal = float(np.clip(z.max(), -2, 3))
+            elif self.learn == "answer":
                 sd = np.sqrt(self.change_m2 / max(self.change_n - 1, 1)) + 1e-9
                 signal = float(np.clip((np.mean(np.abs(s_z - s_before)) - self.change_mu) / sd, -2, 3))
             elif self.learn == "read":
                 signal = 10 * (float(np.mean(self.read_log[-50:])) - read_before)
             else:
                 continue
+            self.signals.append((k, signal))
             xb = np.r_[x, 1.0]
             self.W[k] += self.lr * (signal - self.W[k] @ xb) * xb

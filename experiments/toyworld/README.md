@@ -569,3 +569,33 @@ a voice exactly like its own that does not follow its acting. Only Olvasó's own
 - **Testing is only hinted at.** A tone was followed by another tone in 47% of the mirror's intentions,
   slightly above its 42% share of tones, while without the mirror runs fell below the share. Animals in
   front of a mirror test far harder; Olvasó's only drive to act is unread pressure.
+
+## Experiment 15: the mirror test (`experiments/toyworld/mirror_test.py`, 5 lives × 30 days)
+
+Experiment 14 for sight. Same world and mind, its tones unheard (`voice="deaf"`), and the room is no longer
+tinted by its painting: instead the camera may see a painted window in a mirror on the wall (a 6×6 patch of
+its 16×16 picture, `Room(window=...)`). **mirror**: its own painted window; **blind**: nothing, and nobody else
+paints; **stranger**: a stranger paints as often as Olvasó painted the day before, in the same colours, at
+random moments; **recording**: its own paintings of the day before are shown again at the same moments. Only
+its own painting costs the body (charge, and load). One change to the mind: an answer seen by one sense
+counts as much as one heard (`ActingReaders(answer_by="sense")`); judged over all 22 senses together, a
+patch of colour was too small a change to count as an answer.
+
+| Window seen | Expects an answer when it paints (other actions) | Painting among its intentions, days 1-9 → last third | A painting after a painting | Words of its own seen window |
+|---|---|---|---|---|
+| **mirror** | **+0.43** (+0.35); 4 of 5 lives > +0.34 | 19% → **44%** | **49%** | 4.6 |
+| blind | +0.02 (+0.39) | 15% → 13% | 5% | 0 |
+| stranger | +0.02 (+0.39) | 13% → 10% | 5% | 0 |
+| recording | +0.06 (+0.29) | 15% → 18% | 27% | 0 |
+
+- **Experiment 14's prediction holds for sight.** Only where the window followed its acting did Olvasó come to
+  expect an answer when it painted, and painting grew from a fifth to almost half of its intentions. A
+  recording of its own paintings, the same colours at the same moments of the day, was treated like the
+  stranger and like nothing at all. Self-recognition here is contingency, not likeness.
+- **This time it tests.** In the mirror, painting came in runs (a painting after a painting 49% of the time),
+  a little above its share; without the mirror, almost never (5%). The recording gave some runs (27%),
+  more than its share, perhaps because a window that glows at the same time each day is half a rhythm.
+- **Its seen window rarely became a word for its body.** The load its own painting causes was read in 68-86%
+  of those moments in every condition, but through the words of its own seen window in only 6%. Unlike the
+  voice (experiment 14: 36%), the window's words were few and the load has other causes (music, notes).
+- **Little superstition from a stranger's window** (load misread when idle: under 1%).
