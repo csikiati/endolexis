@@ -80,3 +80,33 @@ def test_adaptation_feels_change_and_disregards_steadiness():
     assert np.allclose(felt[:3], 0, atol=0.1)          # levels stay
     jump = olv._feel(steady + 3.0)
     assert np.all(np.abs(jump[3:]) > 1)                # a sudden change is felt strongly
+
+
+def test_room_processors_report_perception_not_names():
+    from endolexis.toyworld.room import Room, FELT1
+    from endolexis.toyworld.processors import Processors, GROUPS
+    room, proc = Room(seed=3), Processors()
+    seen = {"talking": [], "music": []}
+    for _ in range(4000):
+        raw, felt, truth = room.step(None)
+        ends = proc(raw)
+        assert {g: len(v) for g, v in ends.items()} == {g: len(n) for g, n in GROUPS.items()}
+        assert len(felt) == len(FELT1) and all(np.isfinite(v).all() for v in ends.values())
+        for k in seen:
+            if truth[k] and not truth["typing"]:
+                seen[k].append(ends["hearing"][GROUPS["hearing"].index("pulsing")])
+    assert seen["talking"] and seen["music"]
+    assert np.mean(seen["talking"]) > 3 * np.mean(seen["music"])   # a voice pulses, music is steady
+
+
+def test_many_readers_with_one_vocabulary_is_olvaso():
+    from endolexis.toyworld.readers import ManyReaders
+    world, col = ToyWorld(seed=4), Collector(len(SENSED), len(FELT), seed=4)
+    one = ManyReaders([len(SENSED)], len(FELT), threshold=np.inf, seed=4)
+    ref = Olvaso(len(SENSED), len(FELT), threshold=np.inf, seed=4)
+    for _ in range(3000):
+        s, f, _ = world.step(0.5)
+        sa, fa = col.anonymise(s, f)
+        _, r1 = one.live([sa], fa)
+        _, r2 = ref.live(sa, fa)
+        assert np.array_equal(r1, r2)

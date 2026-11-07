@@ -375,3 +375,49 @@ words but never merges them (`merge_dist=0`). Same life as experiment 10.
   little of it (3%) is misread through activity words.
 - The best mind so far feels levels and changes, forgets with doubt, and lets sleep retire words it no longer
   meets, but never merge them.
+
+## Experiment 12: many processors, one reader (`experiments/toyworld/many_senses.py`, 5 lives × 30 days)
+
+The first step toward the symbiote (E.L.E.M.E.R.): Olvasó no longer gets raw channels but the end products
+of **processor entities**, fixed feature extractors that report perception, never names. Toy world v1
+(`endolexis.toyworld.room.Room`) is a room seen through a 16×16 colour camera, heard through a microphone
+(synthesised sound: fan hum, key clicks, a pulsing voice, music with a beat) and touched through keys and a
+mouse. `endolexis.toyworld.processors` turns it into 22 numbers: vision 11 (brightness, colour balance,
+contrast, left-right and top-bottom balance, motion and where it went, edges), hearing 9 (loudness, three
+band shares, centroid, flatness, pitch strength, onsets, pulsing), touch 2 (keys, mouse). Each processor's
+numbers are shuffled and rescaled anew in every life (`readers.GroupCollector`). The body feels warmth
+(about 10 moments after typing), charge (daylight, minus screen brightness), **load** (a few moments after
+music starts) and drift (nothing). Music and a voice are both loud: loudness alone cannot tell which came
+before the load.
+
+The mind is the best one so far (levels + change, forgetting + doubt, restless then patient, housekeeping
+that retires but never merges). `readers.ManyReaders` gives it one vocabulary per processor when asked: each
+forms its own words and learns its own meanings, and every inner state is read through whichever
+vocabulary's word fits best. 200 word places in every condition.
+
+| Senses | Vocabularies | Warmth read (via typing words; chance) | Load read (via music words / voice words) | Charge read, last third | Pure noise read |
+|---|---|---|---|---|---|
+| v0: light, loudness, keys | one | 76% (64%; 13%) | 0% | 16% | 3.1% |
+| all 22 | one, v0 word radius | 39% (36%; 13%) | 26% (23% / 1%) | 62% | 15.4% |
+| all 22 | one, radius grown with the senses | 40% (37%; 13%) | 23% (23% / 0%) | 44% | 10.0% |
+| all 22 | **one per processor** (100, 80, 20 words) | **70% (68%; 8%)** | 24% (23% / 0%) | 55% | 9.1% |
+| all 22 | one per processor, stricter doubt (0.05) | 68% (66%; 8%) | 22% (21% / 0%) | 36% | 5.7% |
+| all 22 | one per processor, looser doubt (0.2) | 70% (69%; 8%) | 36% (35% / 0%) | 57% | 16.2% |
+
+- **Richer senses open new meanings.** With only loudness the load was never read; with hearing's timbre and
+  rhythm it was read through music words and almost never through a voice. Charge, read through daylight's
+  colour and the window's light, rose from 16% to 44-62%.
+- **One shared vocabulary drowns what one sense carries.** Typing is a small thing in a 22-number moment: in a
+  joint vocabulary warmth was read half as often as with three senses. A vocabulary per processor gave it
+  back (70%), now with words that are much more specific (68% through typing words, 9× chance). The
+  human layout, separate sensory areas, did best.
+- **More senses, more superstition.** Noise was read in 3% of moments with three senses, 9-15% with 22: more
+  words, more chances for a coincidence to look like a meaning, and with many vocabularies the best of
+  several chance fits wins. Doubt is only a dial: stricter doubt halves the superstition but costs a third of
+  the charge reading; looser doubt reads more load and believes more noise.
+- **The load is read erratically:** 93% in one life, 5-10% in the others. Steady music forms one long word
+  that is heard at every moment of an episode, so its meaning is pulled low (the start of the music) and high
+  (its middle) again and again; doubt sees it wander and rarely lets it read.
+- Next: let a word that just goes on count as one hearing, not hundreds (habituation on the sensed side,
+  as experiment 10 did for the felt side), and make a reading beat the other vocabularies' chance fits, not
+  only fit.

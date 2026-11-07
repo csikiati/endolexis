@@ -310,6 +310,7 @@ class Olvaso:
 
     def _read(self, f_z):
         readings = np.full(self.nf, -1)
+        self.last_err = np.full(self.nf, np.inf)
         words, lags = self._candidates()
         if words is None or self.fnorm.n < 200:
             return readings
@@ -332,6 +333,7 @@ class Olvaso:
         best_err = err[best, np.arange(self.nf)]
         ok = best_err < self.fit
         readings[ok] = words[best[ok]]
+        self.last_err = best_err                         # how well each reading fits (for many readers)
         if self.adapt is not None:                       # habituated states are disregarded
             first = self.nf_in if self.adapt_mode == "both" else 0
             quiet = np.abs(f_z[first:]) < self.salience

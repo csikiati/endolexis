@@ -1,8 +1,12 @@
-"""endolexis.toyworld: Olvasó v0 in a simulated toy body (experiments 1-7, November 2026)."""
+"""endolexis.toyworld: Olvasó v0 in a simulated toy body (experiments 1-11), and toy world v1, a room
+seen, heard and touched through processor entities (experiment 12 onward). November 2026."""
 from .world import ToyWorld, SENSED, FELT
 from .collector import Collector
 from .olvaso import Olvaso
 from .observer import Observer
+from .room import Room, FELT1
+from .processors import Processors, GROUPS
+from .readers import GroupCollector, ManyReaders
 
 
 def live_a_life(seed=0, days=30, day_length=1000, threshold=100.0, learn_threshold=False,
