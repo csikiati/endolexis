@@ -39,7 +39,7 @@ class Olvaso:
                  window=6, radius=3.0, max_words=200, max_lag=60,
                  consistency=0.35, fit=0.35, min_count=8, min_episodes=4, episode_gap=200,
                  memory=None, doubt_memory=None, doubt_limit=0.05, doubt_min=30,
-                 adapt=None, adapt_mode="replace", salience=1.0):
+                 adapt=None, adapt_mode="replace", salience=1.0, onsets=False, rehear=None):
         # memory: None = meanings are lifetime averages (never forget); a number N = each meaning
         # rests on roughly its last N experiences, so old experience slowly fades
         # doubt_memory: a slow memory (about N experiences) of how much each meaning has WANDERED.
@@ -50,6 +50,12 @@ class Olvaso:
         # states; "both" feels the levels and the adapted states side by side.
         # salience: a felt change is noticed only while it is larger than this many typical changes;
         # a habituated (steady) state is disregarded, neither read nor counted as unread.
+        # onsets: habituation on the sensed side. A word that simply goes on is heard once, when it
+        # begins: its continuation leaves an empty place in the delay line, so its meanings are
+        # learned from its onset onward, not from hundreds of near-identical moments.
+        # rehear: with onsets, a word that goes on is heard again every `rehear` moments.
+        self.onsets, self.rehear = onsets, rehear
+        self.prev_word, self.run = -1, 0
         self.memory = memory
         self.adapt, self.adapt_mode, self.salience = adapt, adapt_mode, salience
         self.n_seen = 0
@@ -204,11 +210,18 @@ class Olvaso:
         s_z, f_z = self.snorm.z(sensed), self._feel(self.fnorm.z(felt))
 
         w = self._word(s_z)
+        self.sensed_word = -1 if w is None else w
         if w is not None:
             if self.t - self.word_last_seen[w] > self.episode_gap:
                 self.word_episodes[w] += 1
             self.word_last_seen[w] = self.t
-            self.history.insert(0, w)
+            heard = w
+            if self.onsets:
+                self.run = self.run + 1 if w == self.prev_word else 0
+                self.prev_word = w
+                if self.run > 0 and not (self.rehear and self.run % self.rehear == 0):
+                    heard = -1                            # it just goes on: nothing new is heard
+            self.history.insert(0, heard)
             if len(self.history) > self.max_lag + 1:
                 self.history.pop()
 

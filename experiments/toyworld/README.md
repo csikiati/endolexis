@@ -421,3 +421,41 @@ vocabulary's word fits best. 200 word places in every condition.
 - Next: let a word that just goes on count as one hearing, not hundreds (habituation on the sensed side,
   as experiment 10 did for the felt side), and make a reading beat the other vocabularies' chance fits, not
   only fit.
+
+### Experiment 12b: hearing a steady sound once, and living longer (same script)
+
+Two guesses from experiment 12, tested on the per-processor mind (5 lives each).
+
+**Guess 1: steady words breed the superstition and blur the load.** With `Olvaso(onsets=True)` a word that
+simply goes on is heard once, at its onset (habituation on the sensed side); `rehear=N` hears it again every
+N moments. The guess was wrong, or rather, it only moved the dial:
+
+| Per-processor mind | Warmth read | Load read | Charge read | Pure noise read |
+|---|---|---|---|---|
+| words heard at every moment (exp. 12) | 70% | 24% | 55% | 9.1% |
+| onsets | 60% | 6% | 23% | 4.4% |
+| onsets, heard again every 30 | 59% | 11% | 33% | 5.3% |
+| onsets, doubt judging from 8 hearings | 66% | 12% | 26% | 9.8% |
+| onsets, heard again every 10, doubt from 8 | 66% | 24% | 36% | 8.5% |
+| onsets, separate vocabularies + a mixed one | 43% | 4% | 21% | 3.8% |
+
+Heard only at onsets, a rare word gathers too few hearings for doubt (which waits for 30) ever to trust it,
+so everything read less, noise included. Letting doubt judge sooner brought the superstition straight back.
+
+**Guess 2: it is youth.** Lives of 90 days instead of 30 (`--long`, `many_senses_90days.json`):
+
+| Mind, 90 days | Warmth read (via typing words) | Load read (via music words) | Charge read, last third | Noise read, last third |
+|---|---|---|---|---|
+| v0 senses | 90% (63%) | 0% | 14% | 0.3% |
+| per processor | 81% (76%) | **46% (42%)** | 45% | 5.9% (1-14) |
+
+- **Experience teaches the load.** Given three times the life, music words read it nearly twice as often, and
+  still never a voice word.
+- **Experience does not cure the superstition of many senses.** With three senses it fades to almost nothing;
+  with 22 it stays near 6%. A diagnostic run (two lives) shows its shape: noise is read through slow,
+  single-sense meanings with a mediocre fit, exactly like the charge. Real fast causes are often confirmed
+  by a second sense (warmth read by two or three vocabularies at once in 59-78% of its readings, the load
+  in 33-38%), noise rarely (9-16%), but neither is the charge (0-7%). To a reader that has lived a few dozen
+  days, a slow random wandering and a slow true cause look alike.
+- Next (12c): read like a careful statistician. The more vocabularies offer a fit, the better the best one
+  must be, and a slow meaning must hold over many separate days, not many moments.

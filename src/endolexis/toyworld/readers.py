@@ -76,8 +76,9 @@ class ManyReaders:
         return self.brightness, readings
 
     def words_now(self):
-        """The word each vocabulary heard this moment, in shared numbering (-1: none)."""
-        return [int(o + p.history[0]) if p.history and p.history[0] >= 0 else -1
+        """The word each vocabulary sensed this moment, in shared numbering (-1: none). With onsets,
+        a word that goes on is still sensed, though not heard anew."""
+        return [int(o + p.sensed_word) if getattr(p, "sensed_word", -1) >= 0 else -1
                 for o, p in zip(self.offsets, self.parts)]
 
     def word_uses(self):

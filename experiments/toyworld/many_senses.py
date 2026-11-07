@@ -46,6 +46,23 @@ CONDITIONS = {
     "rich, per processor": dict(vocabs=[["vision"], ["hearing"], ["touch"]], words=[100, 80, 20],
                                 radius=[radius_for(11), radius_for(9), radius_for(2)]),
 }
+# experiment 12b: a word that just goes on is heard once, at its onset (habituation on the sensed side)
+_ON = dict(onsets=True)
+CONDITIONS["v0 senses, onsets"] = dict(CONDITIONS["v0 senses"], mind=_ON)
+CONDITIONS["rich, one vocabulary, scaled, onsets"] = dict(CONDITIONS["rich, one vocabulary, scaled"], mind=_ON)
+CONDITIONS["rich, per processor, onsets"] = dict(CONDITIONS["rich, per processor"], mind=_ON)
+CONDITIONS["rich, per processor, onsets, rehear 30"] = dict(CONDITIONS["rich, per processor"],
+                                                           mind=dict(onsets=True, rehear=30))
+# with onsets a word gives one sample per hearing, not hundreds: doubt's 30-sample minimum is then
+# out of reach for rare words, so let doubt start judging as soon as a meaning may read (8 samples)
+CONDITIONS["rich, per processor, onsets, doubt from 8"] = dict(CONDITIONS["rich, per processor"],
+                                                              mind=dict(onsets=True, doubt_min=8))
+CONDITIONS["rich, per processor, onsets, rehear 10, doubt from 8"] = dict(
+    CONDITIONS["rich, per processor"], mind=dict(onsets=True, rehear=10, doubt_min=8))
+# ...and a shared, mixed vocabulary beside the separate ones (an association area; cf. synesthesia)
+CONDITIONS["rich, per processor + mixed, onsets"] = dict(
+    vocabs=[["vision"], ["hearing"], ["touch"], ["vision", "hearing", "touch"]], words=[70, 55, 15, 60],
+    radius=[radius_for(11), radius_for(9), radius_for(2), radius_for(22)], mind=_ON)
 # follow-up: is the doubt limit tuned for three senses the wrong one for 22?
 for _lim in (0.05, 0.2):
     CONDITIONS[f"rich, per processor, doubt limit {_lim}"] = dict(CONDITIONS["rich, per processor"],
@@ -118,8 +135,9 @@ def one_life(seed, cond, days=30):
         "load_via_music_words": mean(loaded, lambda x: x[6] >= 0 and music_w[x[6]]),
         "load_via_voice_words": mean(loaded, lambda x: x[6] >= 0 and voice_w[x[6]]),
         "music_words_chance": float(occ[music_w].sum() / all_occ) if all_occ else None,
-        "charge_read_last_third": mean([x for x in R if x[0] >= 20], lambda x: x[7] >= 0),
+        "charge_read_last_third": mean([x for x in R if x[0] >= days * 2 // 3], lambda x: x[7] >= 0),
         "drift_read": mean(R, lambda x: x[8] >= 0),
+        "drift_read_last_third": mean([x for x in R if x[0] >= days * 2 // 3], lambda x: x[8] >= 0),
         "words_alive": int(olv.alive().sum()),
         "words_used_20": int((uses >= 20).sum()),
         "music_words": int(music_w.sum()), "voice_words": int(voice_w.sum()), "typing_words": int(typing_w.sum()),
@@ -156,5 +174,8 @@ def _report(out, cond, lives, seeds, fmt):
 if __name__ == "__main__":
     if "--quick" in sys.argv:
         main((2,), days=8)
+    elif "--long" in sys.argv:                  # does superstition fall with experience? 90 days
+        out = main(days=90, conds=["v0 senses", "rich, per processor"])
+        Path(__file__).with_name("many_senses_90days.json").write_text(json.dumps(out, indent=2))
     else:
         main(conds=[c for c in CONDITIONS if c in sys.argv[1:]] or None)
