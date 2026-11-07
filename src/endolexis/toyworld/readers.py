@@ -39,7 +39,11 @@ class GroupCollector:
 
 
 class ManyReaders:
-    def __init__(self, sizes, n_felt, threshold=100.0, seed=0, max_words=200, radius=3.0, **kw):
+    def __init__(self, sizes, n_felt, threshold=100.0, seed=0, max_words=200, radius=3.0,
+                 compete=False, **kw):
+        # compete: when several vocabularies offer a fitting word, the winner must fit that many
+        # times better (the more chances a coincidence had, the less a good fit means)
+        self.compete = compete
         k = len(sizes)
         max_words = list(max_words) if np.ndim(max_words) else [max_words] * k
         radius = list(radius) if np.ndim(radius) else [radius] * k
@@ -65,6 +69,10 @@ class ManyReaders:
         best = E.argmin(axis=0)
         cols = np.arange(self.nf)
         hit = np.isfinite(E[best, cols])
+        if self.compete:
+            fit = self.parts[0].fit
+            offering = np.maximum(np.isfinite(E).sum(axis=0), 1)
+            hit &= E[best, cols] < fit / offering
         readings = np.where(hit, self.offsets[best] + R[best, cols], -1)
         readings[~hit & (R == -2).any(axis=0)] = -2
         unread = int(np.sum(readings == -1))

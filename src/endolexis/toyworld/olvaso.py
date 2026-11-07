@@ -39,7 +39,8 @@ class Olvaso:
                  window=6, radius=3.0, max_words=200, max_lag=60,
                  consistency=0.35, fit=0.35, min_count=8, min_episodes=4, episode_gap=200,
                  memory=None, doubt_memory=None, doubt_limit=0.05, doubt_min=30,
-                 adapt=None, adapt_mode="replace", salience=1.0, onsets=False, rehear=None):
+                 adapt=None, adapt_mode="replace", salience=1.0, onsets=False, rehear=None,
+                 slow_fit=False):
         # memory: None = meanings are lifetime averages (never forget); a number N = each meaning
         # rests on roughly its last N experiences, so old experience slowly fades
         # doubt_memory: a slow memory (about N experiences) of how much each meaning has WANDERED.
@@ -55,6 +56,9 @@ class Olvaso:
         # learned from its onset onward, not from hundreds of near-identical moments.
         # rehear: with onsets, a word that goes on is heard again every `rehear` moments.
         self.onsets, self.rehear = onsets, rehear
+        # slow_fit: a meaning may read only if it fits the present both as it stands now and as it
+        # stood over the last days (the doubt memory's slow average): it must have held before.
+        self.slow_fit = slow_fit
         self.prev_word, self.run = -1, 0
         self.memory = memory
         self.adapt, self.adapt_mode, self.salience = adapt, adapt_mode, salience
@@ -336,6 +340,8 @@ class Olvaso:
             eligible &= (self.dn[words, lags] >= self.doubt_min) & \
                         (self.dvar[words, lags] < self.doubt_limit)
         err = (mu - f_z[None, :]) ** 2
+        if self.slow_fit and self.doubt_memory is not None:
+            eligible &= (self.dmean[words, lags] - f_z[None, :]) ** 2 < self.fit
         err = np.where(eligible, err, np.inf)
         if getattr(self, "lt_mean", None) is not None:
             lt_ok = self.lt_used[words, lags] & (self.lt_var[words, lags] < self.consistency)

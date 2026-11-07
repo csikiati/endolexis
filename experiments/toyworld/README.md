@@ -459,3 +459,42 @@ so everything read less, noise included. Letting doubt judge sooner brought the 
   days, a slow random wandering and a slow true cause look alike.
 - Next (12c): read like a careful statistician. The more vocabularies offer a fit, the better the best one
   must be, and a slow meaning must hold over many separate days, not many moments.
+
+### Experiment 12c: reading like a careful statistician (same script)
+
+Two rules against the superstition of many senses, and a clean test of a mixed vocabulary (5 lives each):
+
+- `Olvaso(slow_fit=True)`: a meaning may read only if it fits the present both as it stands now and as it stood
+  over the last days (the slow average its doubt already keeps). A true cause has held before; a wandering
+  that the fast memory happened to follow has not.
+- `ManyReaders(compete=True)`: when several vocabularies offer a fitting word, the winner must fit that many
+  times better.
+
+| Mind, 30 days | Warmth read | Load read | Charge read, last third | Noise read (last third) |
+|---|---|---|---|---|
+| v0 senses | 76% | 0% | 16% | 3.1% (1.1%) |
+| v0 senses, slow fit | 73% | 0% | 9% | 2.1% (0.9%) |
+| one vocabulary, scaled | 40% | 23% | 44% | 10.0% (6.0%) |
+| one vocabulary, scaled, slow fit | 35% | 17% | 37% | 9.2% (3.7%) |
+| per processor (exp. 12) | 70% | 24% | 55% | 9.1% (5.5%) |
+| per processor, compete | 69% | 24% | 43% | 9.3% (5.6%) |
+| **per processor, slow fit** | **68%** | **24%** | **45%** | **7.6% (2.5%)** |
+| per processor, slow fit, compete | 68% | 24% | 41% | 7.3% (3.3%) |
+| per processor + mixed | 66% | 35% | 48% | 17.8% (11.1%) |
+| per processor + mixed, slow fit | 65% | 25% | 53% | 13.9% (10.2%) |
+
+| Mind, 90 days | Warmth read | Load read | Charge read, last third | Noise read, last third |
+|---|---|---|---|---|
+| per processor | 81% | 46% | 45% | 5.9% (1-14) |
+| **per processor, slow fit** | **79%** | **45%** | **37%** | **2.0% (0-5)** |
+
+- **"It must have held before" works.** The slow fit halved the superstition of a grown mind (5.5% → 2.5% at
+  30 days, 5.9% → 2.0% at 90), kept every fast meaning (warmth, load), and cost part of the slowest one: the
+  charge, whose own meaning shifts with the seasons of a life, lost about a sixth of its readings.
+- **Competition did almost nothing.** Noise was usually offered by only one vocabulary, so there was nothing
+  to compete with: the superstition is not a many-chances effect but a slow-wandering one.
+- **A mixed vocabulary beside the separate ones (the synesthesia test) is a real trade.** It read the load half
+  again as often (35% against 24%), but it doubled the superstition (11% in the last third), and the slow fit
+  did not tame it. A layer where all the senses meet finds more meanings, true and false alike.
+- The best mind for many senses: a vocabulary per processor, levels and changes, forgetting with doubt, and
+  readings that must fit both now and over the last days.

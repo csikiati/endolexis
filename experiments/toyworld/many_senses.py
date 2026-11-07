@@ -63,6 +63,18 @@ CONDITIONS["rich, per processor, onsets, rehear 10, doubt from 8"] = dict(
 CONDITIONS["rich, per processor + mixed, onsets"] = dict(
     vocabs=[["vision"], ["hearing"], ["touch"], ["vision", "hearing", "touch"]], words=[70, 55, 15, 60],
     radius=[radius_for(11), radius_for(9), radius_for(2), radius_for(22)], mind=_ON)
+# experiment 12c: read like a careful statistician
+_SLOW = dict(slow_fit=True)
+_PP = CONDITIONS["rich, per processor"]
+_MIXED = dict(vocabs=[["vision"], ["hearing"], ["touch"], ["vision", "hearing", "touch"]], words=[70, 55, 15, 60],
+              radius=[radius_for(11), radius_for(9), radius_for(2), radius_for(22)])
+CONDITIONS["v0 senses, slow fit"] = dict(CONDITIONS["v0 senses"], mind=_SLOW)
+CONDITIONS["rich, one vocabulary, scaled, slow fit"] = dict(CONDITIONS["rich, one vocabulary, scaled"], mind=_SLOW)
+CONDITIONS["rich, per processor, compete"] = dict(_PP, compete=True)
+CONDITIONS["rich, per processor, slow fit"] = dict(_PP, mind=_SLOW)
+CONDITIONS["rich, per processor, slow fit, compete"] = dict(_PP, mind=_SLOW, compete=True)
+CONDITIONS["rich, per processor + mixed"] = dict(_MIXED)
+CONDITIONS["rich, per processor + mixed, slow fit"] = dict(_MIXED, mind=_SLOW)
 # follow-up: is the doubt limit tuned for three senses the wrong one for 22?
 for _lim in (0.05, 0.2):
     CONDITIONS[f"rich, per processor, doubt limit {_lim}"] = dict(CONDITIONS["rich, per processor"],
@@ -85,7 +97,7 @@ def one_life(seed, cond, days=30):
     sizes = [3 if v == ["v0"] else sum(SIZES[g] for g in v) for v in c["vocabs"]]
     col = GroupCollector(sizes, len(FELT1), seed=seed)
     olv = ManyReaders(sizes, len(FELT1), threshold=20.0, seed=seed, max_words=c["words"],
-                      radius=c["radius"], **{**MIND, **c.get("mind", {})})
+                      radius=c["radius"], compete=c.get("compete", False), **{**MIND, **c.get("mind", {})})
     nfin = len(FELT1)
     at = {name: col.felt_index(i) for i, name in enumerate(FELT1)}
     n = olv.total_words
@@ -160,7 +172,7 @@ def main(seeds=(1, 2, 3, 4, 5), days=30, conds=None):
     if days == 30 and len(seeds) == 5:
         path = Path(__file__).with_name("many_senses_results.json")
         old = json.loads(path.read_text()) if path.exists() else {}
-        path.write_text(json.dumps({**old, **out}, indent=2))
+        path.write_text(json.dumps({**old, **{k: v for k, v in out.items()}}, indent=2))
     return out
 
 
@@ -175,7 +187,9 @@ if __name__ == "__main__":
     if "--quick" in sys.argv:
         main((2,), days=8)
     elif "--long" in sys.argv:                  # does superstition fall with experience? 90 days
-        out = main(days=90, conds=["v0 senses", "rich, per processor"])
-        Path(__file__).with_name("many_senses_90days.json").write_text(json.dumps(out, indent=2))
+        out = main(days=90, conds=[c for c in CONDITIONS if c in sys.argv[1:]] or ["v0 senses", "rich, per processor"])
+        path = Path(__file__).with_name("many_senses_90days.json")
+        old = json.loads(path.read_text()) if path.exists() else {}
+        path.write_text(json.dumps({**old, **out}, indent=2))
     else:
         main(conds=[c for c in CONDITIONS if c in sys.argv[1:]] or None)

@@ -103,6 +103,7 @@ reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 | 10. Sensory adaptation | Feeling levels and changes reads a charger twice as well; feeling only change loses what persists |
 | 11. Where the superstition came from | Merging words in sleep bred it; retiring without merging keeps the gain of feeling change, without the superstition |
 | 12. Many processors, one reader | Toy world v1: a room seen, heard and touched through 22 processor outputs. Richer senses read what loudness could not; a vocabulary per processor beats one shared vocabulary; more senses bring more superstition |
+| 12b-c. Habituation, age, and careful reading | Hearing steady sounds once only moves the dial; age teaches the load but not to doubt noise; requiring a meaning to fit now and over past days halves the superstition; a mixed vocabulary finds more meanings, true and false |
 
 ```python
 from endolexis.toyworld import live_a_life
