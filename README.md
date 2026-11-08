@@ -89,7 +89,8 @@ python -m endolexis.lab.awaken     # the report is written at waking
 
 A second, smaller reader, built in November 2026 to test single ideas in a world whose hidden truth is known: a
 simulated body with three outer and three inner channels, an Olvasó that starts from anonymous, shuffled numbers,
-and an observer that alone holds the key. Seven experiments, with every script and the stored results of the
+and an observer that alone holds the key. Version 0.3.0 adds toy world v1, the symbiote: a room seen, heard and
+touched through processor entities, with hands, a guard and mirrors. Fifteen experiments, with every script and the stored results of the
 reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 
 | Experiments | Finding, in one line |
@@ -161,10 +162,11 @@ Code: MIT. Papers: CC BY 4.0. Please cite the paper you build on, and the softwa
 | Csiki, A. (2026). *Endolexis v0: Olvasó in a toy world*. Preprint, Zenodo. | [10.5281/zenodo.23858275](https://doi.org/10.5281/zenodo.23858275) |
 | Csiki, A. (2026). *Do readers need sleep? A response to "Language Models Need Sleep"*. Preprint, Zenodo. | [10.5281/zenodo.23858381](https://doi.org/10.5281/zenodo.23858381) |
 | Csiki, A. (2026). *The symbiote in a toy world: Olvasó among processors* (experiments 12–15). Preprint, Zenodo. | [10.5281/zenodo.24051218](https://doi.org/10.5281/zenodo.24051218) |
-| Csiki, A. (2026). *endolexis* (Version 0.2.0) [Software]. Zenodo. | [10.5281/zenodo.23856387](https://doi.org/10.5281/zenodo.23856387) |
+| Csiki, A. (2026). *endolexis* (Version 0.3.0, experiments 1–15) [Software]. Zenodo. | DOI assigned at release |
+| Csiki, A. (2026). *endolexis* (Version 0.2.0, experiments 1–7) [Software]. Zenodo. | [10.5281/zenodo.23856387](https://doi.org/10.5281/zenodo.23856387) |
 
 Each paper's record holds its English and Hungarian versions. The paper DOIs above cite all versions of a
-paper and resolve to the latest; the software DOI cites exactly version 0.2.0. `CITATION.cff` holds the same references; GitHub's
+paper and resolve to the latest; each software DOI cites exactly one version. `CITATION.cff` holds the same references; GitHub's
 "Cite this repository" button gives other formats.
 
 The toy-world code, experiments and the last two papers were developed with AI assistance (Claude, Anthropic); the

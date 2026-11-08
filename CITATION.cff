@@ -5,13 +5,12 @@ type: software
 authors:
   - family-names: Csiki
     given-names: Attila
-version: 0.2.0
-doi: 10.5281/zenodo.23856387
+version: 0.3.0
 identifiers:
   - type: doi
     value: 10.5281/zenodo.23856387
-    description: "Version 0.2.0 archived on Zenodo"
-date-released: 2026-11-01
+    description: "The previous version, 0.2.0, archived on Zenodo"
+date-released: 2026-11-08
 license: MIT
 repository-code: "https://github.com/csikiati/endolexis"
 url: "https://readingourselves.com"
@@ -21,13 +20,17 @@ keywords:
   - self-model
   - continual learning
   - sleep
+  - self-recognition
+  - mirror test
   - artificial life
 abstract: >-
   Engine and experiments of the Endolexis theory: the outside world is the dictionary with which a mind
   reads its own inside. Includes the stage engine of "Olvasó: an entity that reads itself" and, from
   version 0.2.0, endolexis.toyworld, a toy-world Olvasó with experiments on temperament, forgetting and
   doubt, sealed sleep and dream recall, and a response to "Language Models Need Sleep" (consolidation and
-  dreaming).
+  dreaming). Version 0.3.0 adds toy world v1, the symbiote: a room seen, heard and touched through processor
+  entities, a vocabulary per processor, actions through a guard, and the auditory and visual mirror tests
+  (experiments 12-15).
 references:
   - type: article
     title: 'Reading Ourselves: An External Dictionary for Internal States'

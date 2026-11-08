@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "endolexis"
-version = "0.2.0"
+version = "0.3.0"
 description = "Olvasó: an entity that reads itself through its outside. Engine and experiments of the Endolexis theory."
 readme = "README.md"
 requires-python = ">=3.10"
