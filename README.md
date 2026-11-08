@@ -55,6 +55,8 @@ print(e.mirror["own"], "<", e.mirror["you"], ": its own marks surprise it less t
 
 `examples/quickstart.py` goes on to raise pairs that learn to care (stage 10).
 
+Every module, class, function and parameter, with how to call them: [docs/API.md](docs/API.md).
+
 ## The experiments
 
 ```
