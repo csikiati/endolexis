@@ -17,6 +17,8 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.readingourselves.elemer.body.Eyes
 import com.readingourselves.elemer.body.Hands
 import com.readingourselves.elemer.body.Skin
@@ -62,6 +64,12 @@ class MainActivity : ComponentActivity() {
         button("New life") { confirmNewLife() }
         button("About") { showAbout() }
         root.addView(bar)
+        // Android 15 draws apps edge to edge, under the status and navigation bars: keep clear of them
+        ViewCompat.setOnApplyWindowInsetsListener(root) { v, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout())
+            v.setPadding(bars.left, bars.top, bars.right, bars.bottom)
+            WindowInsetsCompat.CONSUMED
+        }
         setContentView(root)
     }
 
