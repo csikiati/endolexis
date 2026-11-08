@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Three processor rings around the reader, and the spiral in: the E.L.E.M.E.R. design, in dark brown and amber -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <path android:strokeColor="#3B2A1E" android:strokeWidth="2.2" android:fillColor="#00000000"
+        android:pathData="M54,26 a28,28 0 1,1 -0.01,0 Z" />
+    <path android:strokeColor="#3B2A1E" android:strokeWidth="2.2" android:fillColor="#00000000"
+        android:pathData="M54,34 a20,20 0 1,1 -0.01,0 Z" />
+    <path android:strokeColor="#3B2A1E" android:strokeWidth="2.2" android:fillColor="#00000000"
+        android:pathData="M54,42 a12,12 0 1,1 -0.01,0 Z" />
+    <path android:strokeColor="#B8741A" android:strokeWidth="2" android:fillColor="#00000000" android:strokeLineCap="round"
+        android:pathData="M86,40 C80,30 66,30 60,40 C56,47 60,52 54,54" />
+    <path android:fillColor="#B8741A" android:pathData="M54,49 a5,5 0 1,1 -0.01,0 Z" />
+    <path android:fillColor="#3B2A1E" android:pathData="M80,46 l4,0 l0,4 l-4,0 Z" />
+    <path android:fillColor="#3B2A1E" android:pathData="M30,60 l4,0 l0,4 l-4,0 Z" />
+    <path android:fillColor="#3B2A1E" android:pathData="M56,72 l4,0 l0,4 l-4,0 Z" />
+</vector>
