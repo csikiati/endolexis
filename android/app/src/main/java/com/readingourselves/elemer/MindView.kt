@@ -47,6 +47,14 @@ class MindView(ctx: Context, private val life: Life) : View(ctx) {
     }
 
     private var canvas: Canvas? = null
+    private var needHeight = (1100 * resources.displayMetrics.density).toInt()
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        // in a ScrollView the height is unspecified: take what the last drawing needed
+        val h = if (MeasureSpec.getMode(heightMeasureSpec) == MeasureSpec.EXACTLY)
+            maxOf(MeasureSpec.getSize(heightMeasureSpec), needHeight) else needHeight
+        setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec), h)
+    }
 
     override fun onDraw(c: Canvas) {
         canvas = c
@@ -153,7 +161,7 @@ class MindView(ctx: Context, private val life: Life) : View(ctx) {
         for (k in 0 until 5) {
             y += 22 * dp
             text(labels[k], m, y, 13f)
-            val cx = W - m - 110 * dp
+            val cx = W - m - 132 * dp
             val e = sn.expects[k].coerceIn(-1.0, 1.0).toFloat()
             p.style = Paint.Style.FILL; p.color = faint
             c.drawRect(cx, y - 9 * dp, cx + 60 * dp, y - 5 * dp, p)
@@ -169,7 +177,7 @@ class MindView(ctx: Context, private val life: Life) : View(ctx) {
         for (line in sn.log.take(6)) { y += 18 * dp; text(line, m, y, 11f, ink, mono) }
         if (!sn.hearing) { y += 22 * dp; text("it hears nothing (no microphone)", m, y, 11f, amber) }
         val need = (y + m).toInt()
-        if (abs(minimumHeight - need) > 4) post { minimumHeight = need; requestLayout() }
+        if (abs(needHeight - need) > 4) { needHeight = need; post { requestLayout() } }
     }
 
     private fun tag(w: Int, x: Float, y: Float) {
