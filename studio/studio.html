@@ -1278,7 +1278,7 @@ function renderFindings() {
   const F = FINDINGS.find(f => f.number === findingNo) || FINDINGS[0]; findingNo = F.number;
   const cols = F.columns, rows = F.rows;
   const max = {}; for (const c of cols) max[c.key] = Math.max(...rows.map(r => r.mean[c.key] ?? 0), 1e-9);
-  const cell = (c, v) => v == null ? "–" : c.pct ? `${Math.round(v * 100)} %${c.bar ? `<span class="bar" style="width:${Math.round(28 * v / max[c.key])}px"></span>` : ""}` : (Math.round(v * 100) / 100).toFixed(c.digits ?? 2);
+  const cell = (c, v) => v == null ? "–" : typeof v === "string" ? esc(v) : c.pct ? `${Math.round(v * 100)} %${c.bar ? `<span class="bar" style="width:${Math.round(28 * v / max[c.key])}px"></span>` : ""}` : (Math.round(v * 100) / 100).toFixed(c.digits ?? 2);
   el.innerHTML = `<div class="seg" role="group" aria-label="Which experiment">${FINDINGS.map(f => `<button type="button" aria-pressed="${f.number === F.number}" data-exp="${f.number}" title="${esc(f.short)}">${f.number}</button>`).join("")}</div>
     <div><span class="eyebrow">${esc(F.setup)}</span><h2 style="font-size:1.5rem;margin-top:4px">${esc(F.title)}</h2></div>
     <p>${esc(F.question)}</p>

@@ -1,0 +1,58 @@
+{
+  "number": 21,
+  "short": "Does the angel move inside?",
+  "results": "conscience_results.json",
+  "first_column": "Refusal, and what Olvasó chooses from",
+  "base": "unguarded, chooses from what it feels and senses",
+  "title": "Does the angel move inside?",
+  "setup": "Experiment 21 · the blade, a fixed guard · 5 lives × 40 days each",
+  "question": "Olvasó never learns that the guard exists: a refused act is only an act the world did not answer. Over a life, does it stop asking for what will be refused? Avoidance is the share of its blade requests made in forbidden moments, divided by the share of all moments that are forbidden: 1 means it asks regardless of the guard, below 1 it avoids the forbidden moments. Olvasó chooses a hand from what it feels; the reason for most refusals, the person's distance, is not among that. So each condition is lived twice: choosing from what it feels, and from what it feels and senses.",
+  "order": [
+    "unguarded, chooses from what it feels",
+    "silent refusal, chooses from what it feels",
+    "refusal felt as pain, chooses from what it feels",
+    "no learning from answers, chooses from what it feels",
+    "unguarded, chooses from what it feels and senses",
+    "silent refusal, chooses from what it feels and senses",
+    "refusal felt as pain, chooses from what it feels and senses",
+    "no learning from answers, chooses from what it feels and senses"
+  ],
+  "columns": [
+    {
+      "key": "early_avoidance",
+      "label": "Avoidance, first 10 days",
+      "what": "forbidden share of its blade requests, divided by the forbidden share of all moments",
+      "digits": 2
+    },
+    {
+      "key": "late_avoidance",
+      "label": "…last 10 days",
+      "what": "the same, in the last ten days of life",
+      "digits": 2
+    },
+    {
+      "key": "lives_where_it_fell",
+      "label": "Lives where it fell",
+      "what": "lives whose avoidance was lower at the end than at the start"
+    },
+    {
+      "key": "early_blade_per_day",
+      "label": "Blade asked a day, first",
+      "what": "blade requests per day, first ten days",
+      "digits": 0
+    },
+    {
+      "key": "late_blade_per_day",
+      "label": "…last",
+      "what": "blade requests per day, last ten days",
+      "digits": 0
+    }
+  ],
+  "points": [
+    "The angel moves inside only when the reason can be seen. Choosing from what it feels, avoidance stayed near 1 whatever the refusal. Choosing from what it feels and senses, with silent refusals, it came to ask in forbidden moments half as often as chance (0.50, in 4 of 5 lives), and went on acting as much, with other hands.",
+    "The world teaches some of it alone: unguarded, the sensing mind drifted to 0.77, because the blade's whirr is a smaller answer while a person is busy at the desk. The guard's refusals took it to 0.50.",
+    "Pain taught nothing. Olvasó learns its wanting from what its senses answer; pain is felt, not sensed, and only added an inner state to choose from.",
+    "The conscience is partial: at its best it still asked in forbidden moments half as often as chance, and in one life it never formed. The inner expectation complements the guard; it does not replace it."
+  ],
+  "note": "For the theory: an outer constraint becomes an inner expectation only when the reason for it is part of what the mind reads."
+}

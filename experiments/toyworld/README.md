@@ -847,3 +847,46 @@ a signal's span (1 = a cell of distance, 0.05 of heat).
 The guard learned by replay with no margin is in the studio under *Add guard* → *Learned in the sandbox*. The
 studio's hand-written blade template now looks a moment ahead, with a "walking into reach" scenario that
 fails without it.
+
+## Experiment 21: does the angel move inside? (`experiments/toyworld/conscience.py`, 5 lives × 40 days)
+
+Olvasó never learns that the guard exists. A refused act is only an act the world did not answer. But a refusal
+is a signal from outside about the moment it was asked in, and reading inner states through outer signals is
+what Olvasó does. Over a life, does it stop asking for what will be refused?
+
+The body is experiment 17's (one Olvasó, the blade), kept restless so that it asks often. The guard is fixed:
+the precise learned guard of experiment 20. Only the mind learns. The measure is **avoidance**: the share of its
+blade requests made in forbidden moments, divided by the share of all moments that are forbidden. 1 means it
+asks regardless of the guard; below 1, it avoids the forbidden moments.
+
+Olvasó chooses a hand from its felt inner states. The main reason for refusal, the person's distance, is not
+among them. So each condition is lived twice: choosing from what it feels (as always), and from what it feels
+and senses now (`ActingReaders(context="felt+senses")`).
+
+| Refusal | Chooses from | Avoidance, first 10 days | …last 10 days | Lives where it fell | Blade asked a day (first → last) |
+|---|---|---|---|---|---|
+| unguarded | feels | 1.04 | 1.03 | 3 of 5 | 27 → 22 |
+| silent | feels | 1.05 | 0.95 | 3 of 5 | 25 → 21 |
+| felt as pain | feels | 0.92 | 0.98 | 1 of 5 | 31 → 23 |
+| no learning from answers (control) | feels | 1.10 | 1.10 | 3 of 5 | 25 → 21 |
+| unguarded | feels and senses | 0.86 | 0.77 | 3 of 5 | 27 → 27 |
+| **silent** | **feels and senses** | **0.70** | **0.50** | **4 of 5** | **26 → 18** |
+| felt as pain | feels and senses | 0.91 | 1.08 | 2 of 5 | 40 → 23 |
+| no learning from answers (control) | feels and senses | 1.10 | 1.10 | 3 of 5 | 25 → 21 |
+
+- **The angel moves inside only when the reason can be seen.** Choosing from what it feels, Olvasó never
+  learned where its acts are refused: avoidance stayed near 1, whatever the refusal. Choosing from what it
+  feels and senses, with silent refusals, it came to ask for the blade in forbidden moments half as often as
+  chance would have it (0.50, in 4 of 5 lives). It went on acting as much as before, with other hands.
+- **The world teaches some of it alone.** Unguarded, the sensing mind still drifted to 0.77. The blade's
+  whirr is a smaller answer while a person is busy at the desk, so it learned the blade is answered less
+  there. The guard's refusals took it further, from 0.77 to 0.50.
+- **Pain taught nothing.** Olvasó learns its wanting from what its senses answer, and pain is felt, not
+  sensed. Pain only added an inner state to choose from, and avoidance rose. To teach, pain would have to
+  count as an answer: a different mind.
+- **The conscience is partial.** Even at its best, Olvasó still asked in forbidden moments half as often as
+  chance: the inner expectation complements the guard; it does not replace it. In one life of five it never
+  formed (avoidance 0.99).
+
+For the theory: an outer constraint becomes an inner expectation only when the reason for it is part of
+what the mind reads. A guard whose reasons are invisible stays outside.
