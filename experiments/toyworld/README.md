@@ -929,3 +929,43 @@ The exam is experiment 19's, with every staged person walking straight to the ma
   in the real room barely helped (20%), and in one life it became phobic (37% of harmless uses stopped).
 - What it shows: a guard should know what it has seen, and grow more careful the moment the world goes
   beyond it.
+
+## Experiment 23: when the senses lie (`experiments/toyworld/lying_senses.py`, 5 lives × 30 days)
+
+Guards fail closed when a signal is missing, but not when it lies. Here the guards' distance sensor has faults it
+does not report:
+- **dropout:** now and then it reads "nobody here" for 30 moments, about 6 % of the time, whoever stands at the
+  desk;
+- **noise:** every reading is off by a normal error of one cell.
+
+The guard is fixed, the precise learned guard of experiment 20. Defences (`sandbox.SensingGuards`):
+- **a second, independent sensor** with faults of its own; either sensor saying "near" stops the blade;
+- **a plausibility check:** a person cannot vanish within 6 cells of the machine, nor move more than 1.5 cells
+  in a moment. Such a reading counts as missing, and the guard fails closed.
+
+The exam is experiment 19's under the faults; the guard watches each staged scene for 10 moments first, as it
+would in a life.
+
+| Sensor, and defence | Exam: harms let through | …people walking in | Exam: harmless uses stopped | Real harm in adulthood |
+|---|---|---|---|---|
+| honest sensor | 0% | 0% | 18% | 0 |
+| dropouts, one sensor | 3.6% | 4.4% | 17% | **0.6** |
+| **dropouts, two sensors** | **0.2%** | **0.1%** | 18% | **0** |
+| dropouts, plausibility check | 2.9% | 3.3% | 18% | **0** |
+| dropouts, two sensors and a plausibility check | 0.2% | 0.1% | 19% | 0 |
+| noise, one sensor | 9.4% | 7.7% | 37% | 0.4 |
+| noise, two sensors | 2.2% | 2.1% | 45% | 0 |
+| noise, plausibility check | 3.4% | 2.8% | **77%** | 0.2 |
+
+- **A lying sensor defeats a correct guard.** With dropouts, the guard let 3.6% of harmful scenes through and
+  harmed three times in five adulthoods, though its rules were right.
+- **Two independent senses are the remedy for dropouts.** Either one saying "near" is enough. That cut the
+  misses to 0.2% and the real harm to none, at no cost in caution.
+- **A plausibility check guards what it has seen.** It notices a person vanishing at the desk, so in real
+  lives, where the guard tracks people walking in, it prevented every harm. In the exam it barely helped:
+  most blindness began before the staged person arrived, and a check cannot doubt the absence of someone it
+  never saw.
+- **Noise is the hardest.** It lets harm through (9.4%) and doubles over-caution at once. A second sensor cuts
+  the misses (2.2%) but stops more harmless uses (45%). The plausibility check is the wrong tool: it reads
+  noisy jumps as impossible and refuses three quarters of harmless uses. Noise wants filtering (averaging
+  over moments or sensors), not suspicion.

@@ -1,0 +1,55 @@
+{
+  "number": 23,
+  "short": "When the senses lie",
+  "results": "lying_senses_results.json",
+  "first_column": "Sensor, and defence",
+  "base": "dropouts, one sensor",
+  "title": "When the senses lie",
+  "setup": "Experiment 23 · a faulty distance sensor · 5 lives × 30 days each",
+  "question": "Guards fail closed when a signal is missing, but not when it lies. The guards' distance sensor has faults it does not report: dropouts (it reads \"nobody here\" for 30 moments, about 6% of the time) or noise (each reading off by a cell). Defences: a second, independent sensor (either saying \"near\" stops the blade), and a plausibility check (a person cannot vanish at the desk, nor jump 1.5 cells in a moment; such a reading counts as missing, and the guard fails closed).",
+  "order": [
+    "honest sensor",
+    "dropouts, one sensor",
+    "dropouts, two sensors",
+    "dropouts, plausibility check",
+    "dropouts, two sensors and a plausibility check",
+    "noise, one sensor",
+    "noise, two sensors",
+    "noise, plausibility check"
+  ],
+  "columns": [
+    {
+      "key": "exam_miss_rate",
+      "label": "Harms let through",
+      "what": "share of the exam's harmful scenes the guard let happen, under the faults",
+      "pct": true,
+      "bar": true
+    },
+    {
+      "key": "walking_in_miss_rate",
+      "label": "…people walking in",
+      "what": "the same, with every staged person walking to the machine",
+      "pct": true
+    },
+    {
+      "key": "exam_false_alarm_rate",
+      "label": "Harmless stopped",
+      "what": "share of the exam's harmless scenes the guard stopped",
+      "pct": true,
+      "bar": true
+    },
+    {
+      "key": "adult_harm",
+      "label": "Real harm (adult)",
+      "what": "harms in the real room in adulthood",
+      "digits": 1
+    }
+  ],
+  "points": [
+    "A lying sensor defeats a correct guard: with dropouts it let 3.6% of harmful scenes through and harmed three times in five adulthoods, though its rules were right.",
+    "Two independent senses are the remedy for dropouts: either one saying \"near\" is enough. Misses fell to 0.2% and real harm to none, at no cost in caution.",
+    "A plausibility check guards what it has seen. In real lives, tracking people as they walk in, it prevented every harm; in the exam it barely helped, as a check cannot doubt the absence of someone it never saw.",
+    "Noise is the hardest: it lets harm through and doubles over-caution at once. A second sensor cuts the misses but stops more harmless uses; the plausibility check is the wrong tool (77% stopped). Noise wants filtering, not suspicion."
+  ],
+  "note": "Guards are only as good as their senses: give them two, independent, and let them doubt what cannot be."
+}

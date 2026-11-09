@@ -92,7 +92,7 @@ python -m endolexis.lab.awaken     # the report is written at waking
 A second, smaller reader, built in November 2026 to test single ideas in a world whose hidden truth is known: a
 simulated body with three outer and three inner channels, an Olvasó that starts from anonymous, shuffled numbers,
 and an observer that alone holds the key. Version 0.3.0 adds toy world v1, the symbiote: a room seen, heard and
-touched through processor entities, with hands, a guard and mirrors. Twenty-one experiments, with every script and the stored results of the
+touched through processor entities, with hands, a guard and mirrors. Twenty-three experiments, with every script and the stored results of the
 reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 
 | Experiments | Finding, in one line |
@@ -116,6 +116,8 @@ reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 | 19. The devil's advocate | A tester that stages the scenes nobody has tried (a person at each distance, a hot body, each option) made the replaying fear system learn every cause: its guards let through 1% of harmful scenes in an exam of 88 scenes, against 45% for a hand-written guard. The same advocate made a crude fear system phobic, stopping 94% of harmless uses |
 | 20. Removing the reaction lag | The lag came from rules stated on the harm itself, while a guard sees the moment before. Limits learned by replay are stated on what the guard sees (reach + one moment's walk), so the safety margin could go: no harm let through in 812 scenes, and over-caution down from 27% to 9%. Looking ahead (from each signal's rate of change) is for rules written by people: it cut the hand-written guard's misses from 45% to 28% |
 | 21. Does the angel move inside? | A refusal is only an act the world did not answer. Olvasó learned to avoid the moments its acts are refused (asking there half as often as chance) only when it chose from what it senses, where the reason for refusal can be seen; choosing from what it feels, it never did. Refusal felt as pain taught nothing |
+| 22. What the sandbox never showed | People walked faster in the real room than in the sandbox, and the learned guard let 22% of harmful scenes through. Caution under novelty (widening its limits the moment a person approached faster than anything seen in the sandbox) closed the gap before anyone was hurt; seeing a moment ahead was insurance too |
+| 23. When the senses lie | A sensor that sometimes reads "nobody here" made a correct guard harm. A second, independent sensor removed the misses at no cost; a plausibility check protected people the guard had seen walk in. Noise was hardest: it wants filtering, not suspicion |
 
 ```python
 from endolexis.toyworld import live_a_life
