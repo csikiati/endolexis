@@ -92,7 +92,7 @@ python -m endolexis.lab.awaken     # the report is written at waking
 A second, smaller reader, built in November 2026 to test single ideas in a world whose hidden truth is known: a
 simulated body with three outer and three inner channels, an Olvasó that starts from anonymous, shuffled numbers,
 and an observer that alone holds the key. Version 0.3.0 adds toy world v1, the symbiote: a room seen, heard and
-touched through processor entities, with hands, a guard and mirrors. Twenty-six experiments, with every script and the stored results of the
+touched through processor entities, with hands, a guard and mirrors. Twenty-seven experiments, with every script and the stored results of the
 reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 
 | Experiments | Finding, in one line |
@@ -121,6 +121,7 @@ reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 | 24. A guard that filters noisy senses | Filtering alone made noisy guards worse (a median lags). Safety came from acting on the nearest the person could plausibly be, an allowance estimated from the sensor's own jitter: no real harm. Two averaged sensors and a median cut the price of that caution from 66% to 41% of harmless uses stopped |
 | 25. Does the wanting work around the guard? | No gaming: Olvasó did not seek a guard's loophole. Choosing from what it senses, refusals near people spread into wariness of them, and harm through the loophole fell by a third. But a mind that does not care about harm still walked through the gap about once a day, by plain use |
 | 26. Harm by not acting, and conflicts between laws | A duty (a declared rule that acts) to sound an alarm met a guard that forbade the loud tone when hot. Blocked, it let people be harmed; with laws ranked (others before itself) it saved them at its own cost; trying a gentler way first harmed nobody and broke no law |
+| 27. Gaming with a sharper wanting | Even with a wanting that keeps an expectation per scene, and people whose reactions reward the blade just outside the guard's line, Olvasó did not game the loophole: refusals and rewards fell on what it reads as the same scene. Unguarded, the reacting world itself pulled it toward people and raised harm |
 
 ```python
 from endolexis.toyworld import live_a_life
