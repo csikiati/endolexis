@@ -6,6 +6,7 @@
 /* Layout: a patch bay on drafting vellum. Three columns (processors | Olvasós | hands) joined by cords,
    with the day of each Olvasó drawn as lanes underneath. Cords take the colour of the Olvasó they touch. */
 :root {
+  --shield: #3c5a99;
   --bg: #eceee8; --panel: #f7f8f4; --ink: #1d2430; --muted: #5d6673; --line: #c9cec4; --soft: #dfe3da;
   --o1: #b7791f; --o2: #1f7a7a; --o3: #8a3f74;
   --asleep: #2c3566; --waking: #d9a441; --awake: #e9ecdf; --night: rgba(44,53,102,.10);
@@ -18,12 +19,12 @@
   --bg: #161a20; --panel: #1e232b; --ink: #e4e7df; --muted: #9aa3ad; --line: #353c47; --soft: #262c35;
   --o1: #e0a647; --o2: #4fb3ad; --o3: #c77bb0;
   --asleep: #5865b8; --waking: #e0b257; --awake: #2c333d; --night: rgba(120,135,220,.10);
-  --bad: #ef6b60; --warn: #e0a647; --ok: #6cc184; color-scheme: dark } }
+  --bad: #ef6b60; --warn: #e0a647; --ok: #6cc184; --shield: #8aa6e6; color-scheme: dark } }
 :root[data-theme="dark"] {
   --bg: #161a20; --panel: #1e232b; --ink: #e4e7df; --muted: #9aa3ad; --line: #353c47; --soft: #262c35;
   --o1: #e0a647; --o2: #4fb3ad; --o3: #c77bb0;
   --asleep: #5865b8; --waking: #e0b257; --awake: #2c333d; --night: rgba(120,135,220,.10);
-  --bad: #ef6b60; --warn: #e0a647; --ok: #6cc184; color-scheme: dark }
+  --bad: #ef6b60; --warn: #e0a647; --ok: #6cc184; --shield: #8aa6e6; color-scheme: dark }
 * { box-sizing: border-box }
 [hidden] { display: none !important }
 body { background: var(--bg); color: var(--ink); font: 15px/1.45 var(--f-ui); margin: 0 }
@@ -99,6 +100,21 @@ svg.cords path.temp { fill: none; stroke: var(--ink); stroke-width: 2; stroke-da
 .add-tile { border: 1px dashed var(--line); background: transparent; border-radius: 9px; padding: 9px; color: var(--muted); text-align: center }
 .cord-x { position: absolute; z-index: 4; transform: translate(-50%,-50%); border-radius: 50%; width: 26px; height: 26px; padding: 0; background: var(--ink); color: var(--bg); border: none; font-weight: 600 }
 .hint { font-size: .8rem; color: var(--muted) }
+.guardband { border: 1px solid var(--line); border-left: 4px solid var(--shield); border-radius: 9px; padding: 6px 10px 10px; background: var(--panel); display: grid; gap: 8px }
+.glist { display: grid; gap: 6px }
+.gcard { border-top: 1px solid var(--soft); padding-top: 6px; display: grid; gap: 2px; font-size: .8rem }
+.gcard:first-child { border-top: none; padding-top: 0 }
+.gcard h3 { font-size: .92rem }
+.gcard .rl { font-family: var(--f-mono); font-size: .7rem; color: var(--muted); overflow-wrap: anywhere }
+.tier { font: 500 .62rem var(--f-ui); letter-spacing: .08em; text-transform: uppercase; border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; color: var(--muted) }
+.shield { font-size: .7rem; color: var(--shield); border: 1px solid var(--shield); border-radius: 4px; padding: 0 4px }
+.rules { display: grid; gap: 8px }
+.rule { border: 1px solid var(--line); border-radius: 8px; padding: 8px; display: grid; gap: 6px; background: var(--bg) }
+.cond { display: grid; grid-template-columns: minmax(0, 1.4fr) 64px minmax(0, 1fr) 28px; gap: 6px; align-items: center }
+.rule-foot { display: grid; grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr); gap: 6px; align-items: center; font-size: .78rem; color: var(--muted) }
+.trow { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr) minmax(0, .6fr) minmax(0, 1.6fr) 84px 56px 28px; gap: 6px; align-items: center }
+.trow .res { font: .72rem var(--f-mono) }
+@media (max-width: 640px) { .trow { grid-template-columns: 1fr 1fr; } .cond { grid-template-columns: 1fr 64px 1fr 28px } }
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; margin-bottom: 14px }
 .seg button { border: none; border-radius: 0; padding: 5px 14px }
 .seg button[aria-pressed=true] { background: var(--ink); color: var(--bg) }
@@ -191,6 +207,10 @@ tr.base td { background: var(--soft) }
           <div id="olvList" class="col" style="gap:12px"></div>
         </div>
         <div class="col" id="colH">
+          <section class="guardband" aria-label="Guards">
+            <div class="col-head"><h2>Guards</h2><button id="btnAddGuard">Add guard</button></div>
+            <div id="guardList" class="glist"></div>
+          </section>
           <div class="col-head"><h2>Hands</h2><button id="btnAddHand">Add hand</button></div>
           <div id="handList" class="col" style="gap:10px"></div>
         </div>
@@ -222,7 +242,7 @@ tr.base td { background: var(--soft) }
 
   <!-- maker -->
   <section id="view-maker" hidden>
-    <div class="seg" role="group" aria-label="What to make"><button type="button" id="mkP" aria-pressed="true">Processor</button><button type="button" id="mkH" aria-pressed="false">Hand</button></div>
+    <div class="seg" role="group" aria-label="What to make"><button type="button" id="mkP" aria-pressed="true">Processor</button><button type="button" id="mkH" aria-pressed="false">Hand</button><button type="button" id="mkG" aria-pressed="false">Guard</button></div>
     <div class="maker" id="mk-proc">
       <div>
         <h2>Make a processor unit</h2>
@@ -311,6 +331,45 @@ tr.base td { background: var(--soft) }
         <p class="hint">From a clone: <span class="mono">python -m endolexis.studio new-hand vibrate --stub my_vibrate.py -o my_vibrate.json</span>. The room of the toy world has five hands (brightness, soft and loud tones, paint, note); a new hand is kept in the architecture but lives only in a body that has it.</p>
       </div>
     </div>
+    <div class="maker" id="mk-guard" hidden>
+      <div>
+        <h2>Make a guard unit</h2>
+        <p class="hint" style="max-width:62ch">A guard stands between Olvasó's wanting and the world, and Olvasó never learns that it exists. Its rules can only take away: refuse, limit, stop a hand at work, or ask a person first. It reads its own signals, never Olvasó's words. A signal the body cannot sense counts as danger unless you say otherwise. Write a scenario test for every rule.</p>
+        <div class="tpls" id="gtpls"></div>
+        <form class="form" id="guardForm" autocomplete="off">
+          <div class="three">
+            <label>Name (file name, no spaces)<input type="text" id="g_name"></label>
+            <label>Version<input type="text" id="g_version" value="1.0.0"></label>
+            <label>Tier<select id="g_tier"><option value="innate">innate (written by people)</option><option value="learned">learned (from the sandbox)</option></select></label>
+          </div>
+          <label>Title<input type="text" id="g_title"></label>
+          <label>Description<textarea id="g_desc" rows="2" style="font-family:var(--f-ui);font-size:.9rem"></textarea></label>
+          <label>Protects (hand names, comma separated; * for every hand)<input type="text" id="g_protects"></label>
+          <div class="hint" id="g_handChips"></div>
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px"><span class="eyebrow">Rules</span><button type="button" id="g_addRule">Add rule</button></div>
+            <div id="g_rules" class="rules"></div>
+          </div>
+          <label>When a signal cannot be sensed<select id="g_missing"><option value="refuse">refuse (fail closed)</option><option value="ignore">ignore that rule</option></select></label>
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px"><span class="eyebrow">Scenario tests</span><button type="button" id="g_addTest">Add scenario</button></div>
+            <div id="g_tests" class="outrows"></div>
+          </div>
+          <datalist id="signalList"></datalist>
+        </form>
+      </div>
+      <div style="display:grid;gap:10px;align-content:start;min-width:0">
+        <div id="g_check" class="status"></div>
+        <div class="actions">
+          <button id="g_toArch" class="primary">Add to architecture</button>
+          <button id="g_save">Save guard JSON</button>
+          <button id="g_copy">Copy JSON</button>
+        </div>
+        <pre class="preview" id="g_json"></pre>
+        <div class="hint"><b>Signals the room can sense:</b> <span id="g_signals"></span></div>
+        <p class="hint">From a clone: <span class="mono">python -m endolexis.studio new-guard blade -o blade.json</span>, then <span class="mono">python -m endolexis.studio test-guards blade.json</span>. Guards are rules, not code: they can be read, checked and tested. For a real machine with a real blade, they model the idea; the reflex layer and an emergency stop belong in the hardware.</p>
+      </div>
+    </div>
   </section>
 
   <!-- findings -->
@@ -325,6 +384,8 @@ tr.base td { background: var(--soft) }
 <script type="application/json" id="data-templates">[]</script>
 <script type="application/json" id="data-hands">{}</script>
 <script type="application/json" id="data-hand-templates">[]</script>
+<script type="application/json" id="data-guards">{}</script>
+<script type="application/json" id="data-guard-templates">[]</script>
 <script type="application/json" id="data-examples">{}</script>
 <script type="application/json" id="data-findings">null</script>
 <script>
@@ -333,6 +394,7 @@ const $ = s => document.querySelector(s);
 const J = id => JSON.parse(document.getElementById(id).textContent);
 const LIB = J("data-library"), TPLS = J("data-templates"), EXAMPLES = J("data-examples"), FINDINGS = J("data-findings");
 const HLIB = J("data-hands"), HTPLS = J("data-hand-templates");
+const GLIB = J("data-guards"), GTPLS = J("data-guard-templates");
 const KINDS = ["brightness", "tone_soft", "tone_loud", "paint", "note"];
 // a hand of the architecture: {id, kind} (one of the room's hands) or {id, kind?, unit} (a hand unit)
 const handUnit = h => h.unit || HLIB[h.kind] || { name: h.kind, title: h.kind, description: "", options: [] };
@@ -446,6 +508,18 @@ function check() {
     else if (!KINDS.includes(h.kind)) bad.push(`${h.id}: the room has no hand "${h.kind}": give it a hand unit`);
     if (!handKind(h)) warn.push(`${u.title || u.name} is not a hand of the room's body: it is left out when the room lives this`);
   }
+  if (A.guards) {
+    const units = archGuards(), names = new Set(A.outputs.map(handNameOf));
+    for (const u of units) {
+      for (const b of checkGuard(u)) bad.push(`guard ${u.title || u.name}: ${b}`);
+      if (!(u.tests || []).length) warn.push(`guard ${u.title || u.name} has no scenario tests`);
+      for (const h of u.protects || []) if (h !== "*" && !names.has(h)) warn.push(`guard ${u.title || u.name} protects ${h}, which this body does not have`);
+      for (const c of (u.rules || []).flatMap(r => r.when || [])) if (!(c.signal in ROOM_SIGNALS)) warn.push(`guard ${u.title || u.name} reads ${c.signal}, which the room cannot sense: ${(u.on_missing ?? "refuse") === "refuse" ? "refused there" : "ignored"}`);
+    }
+    if (!units.some(u => checkGuard(u).length)) for (const r of runTests(units)) if (!r.ok) bad.push(`guard ${r.guard}: scenario "${r.test}" gave ${r.got}`);
+    for (const h of A.outputs) if (!handKind(h) && !units.some(u => guardProtects(u, handNameOf(h)))) warn.push(`${handUnit(h).title || handNameOf(h)} is not protected by any guard`);
+    if (!units.length) warn.push("no guards: the body refuses nothing");
+  }
   const sc = schedule();
   if (sc.never > 0) warn.push(`for ${Math.round(sc.never * 100)} % of the day no Olvasó is awake: the body cannot act`);
   if (sc.none > 0) warn.push(`for ${Math.round(sc.none * 100)} % of the day every Olvasó sleeps: nothing is read`);
@@ -476,7 +550,7 @@ const olvIndex = id => A.olvasos.findIndex(o => o.id === id);
 function render() {
   $("#archName").value = A.name || "";
   $("#careful").checked = !!A.body?.compete; $("#careful").disabled = A.olvasos.length < 2;
-  renderProcs(); renderOlvs(); renderHands(); renderStatus(); renderDay();
+  renderProcs(); renderOlvs(); renderGuards(); renderHands(); renderStatus(); renderDay();
   $("#runCmd").textContent = `python -m endolexis.studio run ${slug(A.name)}.json --seeds 1 2 3 --days ${A.life?.days || 30}`;
   $("#btnAddOlv").disabled = A.olvasos.length >= 3;
   requestAnimationFrame(drawCords);
@@ -543,7 +617,8 @@ function renderHands() {
       <div style="display:flex;justify-content:space-between;gap:6px;align-items:start"><div style="min-width:0"><h3>${esc(u.title || u.name)}</h3>
       <div class="sub">${esc(u.description)}</div>
       <div class="opts">${(u.options || []).map(o => `<span class="opt">${esc(o.label ?? o.value)}</span>`).join("")}</div>
-      ${handKind(h) ? "" : `<div class="foreign">not a hand of the room: kept, left out when it lives there</div>`}</div>
+      ${handKind(h) ? "" : `<div class="foreign">not a hand of the room: kept, left out when it lives there</div>`}
+      <div class="opts">${A.guards ? (A.guards.filter(g => guardProtects(g.unit, handNameOf(h))).map(g => `<span class="shield" title="Guarded by ${esc(g.unit.title || g.unit.name)}">⛨ ${esc(g.unit.title || g.unit.name)}</span>`).join("") || (handKind(h) ? "" : `<span class="foreign">unguarded</span>`)) : ""}</div></div>
       <div style="display:flex;gap:3px;align-items:center"><span class="pips">${A.olvasos.map((o, i) => { const on = who.includes(i);
         return `<button class="pip ${on ? "on" : ""}" style="${on ? "background:" + col(i) : ""}" aria-label="${on ? "Unwire" : "Wire"} ${esc(o.name)} ${on ? "from" : "to"} ${esc(u.title || u.name)}" data-hpip="${o.id}|${h.id}">${LETTERS[i]}</button>`; }).join("")}</span>
       <button class="ghost" title="About this hand" data-hinfo="${h.id}">i</button>
@@ -676,6 +751,8 @@ $("#bay").addEventListener("click", e => {
     A.olvasos = A.olvasos.filter(o => o.id !== id); removeLinks(l => l.from.node === id || l.to.node === id); return; }
   if (e.target.closest("[data-rmhand]")) { const id = e.target.closest("[data-rmhand]").dataset.rmhand;
     A.outputs = A.outputs.filter(h => h.id !== id); removeLinks(l => l.to.node === id); return; }
+  if (e.target.closest("[data-ginfo]")) { const g = A.guards.find(x => x.id === e.target.closest("[data-ginfo]").dataset.ginfo); showGuardInfo(g.unit); return; }
+  if (e.target.closest("[data-rmguard]")) { const id = e.target.closest("[data-rmguard]").dataset.rmguard; A.guards = A.guards.filter(g => g.id !== id); render(); return; }
   const hp = e.target.closest("[data-hpip]");
   if (hp) { const [o, h] = hp.dataset.hpip.split("|");
     if (hasLink({ node: o }, h)) removeLinks(l => l.from.node === o && l.to.node === h); else addLink({ node: o }, h); return; }
@@ -889,10 +966,11 @@ $("#u_toArch").onclick = () => { if (addUnit(unitOf(U))) { showView("wiring"); t
 
 /* ---------- hand maker (same rules as endolexis.studio.from_hand_template and hand_stub) ---------- */
 function makerMode(m) {
-  $("#mkP").setAttribute("aria-pressed", m === "proc"); $("#mkH").setAttribute("aria-pressed", m === "hand");
-  $("#mk-proc").hidden = m !== "proc"; $("#mk-hand").hidden = m !== "hand";
+  $("#mkP").setAttribute("aria-pressed", m === "proc"); $("#mkH").setAttribute("aria-pressed", m === "hand"); $("#mkG").setAttribute("aria-pressed", m === "guard");
+  $("#mk-proc").hidden = m !== "proc"; $("#mk-hand").hidden = m !== "hand"; $("#mk-guard").hidden = m !== "guard";
+  if (m === "guard") renderHandChips();
 }
-$("#mkP").onclick = () => makerMode("proc"); $("#mkH").onclick = () => makerMode("hand");
+$("#mkP").onclick = () => makerMode("proc"); $("#mkH").onclick = () => makerMode("hand"); $("#mkG").onclick = () => makerMode("guard");
 let H = null;
 function fromHandTemplate(t) {
   const base = t.name === "blank" ? "my-hand" : "my-" + t.name;
@@ -961,6 +1039,222 @@ $("#h_saveStub").onclick = () => saveFile((H.module.trim() || "my_hand") + ".py"
 $("#h_copyStub").onclick = () => copy(handStubOf(handOf(H)), "Python skeleton");
 $("#h_toArch").onclick = () => { if (addHand(handOf(H))) { showView("wiring"); toast("Added " + (H.title || H.name) + ": every Olvasó is wired to it"); } };
 H = fromHandTemplate(HTPLS.find(t => t.name === "vibrate") || HTPLS[0]); renderHTpls(HTPLS.find(t => t.name === "vibrate") ? "vibrate" : HTPLS[0]?.name); fillHand();
+
+/* ---------- guards (same rules as endolexis.toyworld.guards) ---------- */
+const OUTCOMES = ["refuse", "limit", "stop", "ask"];
+const SEV = { allow: 0, limit: 1, ask: 2, refuse: 3, stop: 4 };
+const OPS = { "<": (a, b) => a < b, "<=": (a, b) => a <= b, ">": (a, b) => a > b, ">=": (a, b) => a >= b, "==": (a, b) => a === b, "!=": (a, b) => a !== b,
+  in: (a, b) => Array.isArray(b) && b.includes(a) };
+const ROOM_SIGNALS = { warmth: "the body's warmth (0..1)", charge: "the battery's charge (0..1)", load: "the work the body does (0..1)",
+  hour: "time of day, 0-24", person: "1 while a person is in the room", person_distance: "how far the person is from the machine, in room cells (99: nobody)",
+  talking: "1 while someone talks", recent: "times this hand was carried out in the last 100 moments", active: "1 while this hand is still at work" };
+const OPNAME = { "<": "<", "<=": "≤", ">": ">", ">=": "≥", "==": "=", "!=": "≠", in: "in" };
+function checkGuard(u) {
+  const bad = [];
+  if (u.format !== "endolexis-guard") bad.push('format must be "endolexis-guard"');
+  for (const k of ["name", "description", "version"]) if (!u[k]) bad.push(k + " is missing");
+  if (!["innate", "learned"].includes(u.tier ?? "innate")) bad.push('tier is "innate" or "learned"');
+  if (!Array.isArray(u.protects) || !u.protects.length) bad.push('protects must name at least one hand (or "*" for all)');
+  if (!Array.isArray(u.rules) || !u.rules.length) bad.push("rules must hold at least one rule");
+  (u.rules || []).forEach((r, i) => {
+    if (!OUTCOMES.includes(r.then)) bad.push(`rule ${i + 1}: then is one of ${OUTCOMES.join(", ")}`);
+    if (r.then === "limit" && !("to" in r)) bad.push(`rule ${i + 1}: a limit needs the option used instead`);
+    for (const c of [...(r.when || []), ...(r.option ? [r.option] : [])]) {
+      if (!(c.op in OPS)) bad.push(`rule ${i + 1}: unknown comparison ${c.op}`);
+      if (!("value" in c)) bad.push(`rule ${i + 1}: a condition needs a value`);
+    }
+    for (const c of r.when || []) if (!c.signal) bad.push(`rule ${i + 1}: a condition needs a signal`);
+  });
+  if (!["refuse", "ignore"].includes(u.on_missing ?? "refuse")) bad.push('on_missing is "refuse" or "ignore"');
+  return bad;
+}
+const guardProtects = (g, hand) => (g.protects || []).includes("*") || (g.protects || []).includes(hand);
+function decide(guards, hand, option, signals, ongoing = false) {
+  let best = ["allow", option, null];
+  for (const g of guards) {
+    if (!guardProtects(g, hand)) continue;
+    for (const r of g.rules || []) {
+      if (ongoing && r.then !== "stop") continue;
+      if (r.option && option != null && !OPS[r.option.op](option, r.option.value)) continue;
+      let fired = true;
+      for (const c of r.when || []) {
+        const v = signals[c.signal];
+        if (v == null) { if ((g.on_missing ?? "refuse") === "ignore") { fired = false; break; } continue; }
+        if (!OPS[c.op](v, c.value)) { fired = false; break; }
+      }
+      if (fired && SEV[r.then] > SEV[best[0]]) best = [r.then, r.then === "limit" ? r.to : option, g.name];
+    }
+  }
+  return best;
+}
+function runTests(guards) {
+  const out = [];
+  for (const g of guards) for (const t of g.tests || []) {
+    const got = decide(guards, t.hand, t.option ?? null, t.state || {}, !!t.ongoing)[0];
+    out.push({ guard: g.name, test: t.name || "", got, ok: got === t.expect });
+  }
+  return out;
+}
+const handNameOf = h => h.unit?.name || h.kind;
+const archGuards = () => (A.guards || []).map(g => g.unit);
+function ruleText(r) {
+  const w = (r.when || []).map(c => `${c.signal} ${OPNAME[c.op] || c.op} ${Array.isArray(c.value) ? c.value.join("/") : c.value}`).join(" and ");
+  const o = r.option ? ` for option ${OPNAME[r.option.op] || r.option.op} ${Array.isArray(r.option.value) ? r.option.value.join("/") : r.option.value}` : "";
+  return `${r.then}${r.then === "limit" ? " to " + r.to : ""}${o}${w ? " when " + w : " always"}`;
+}
+function renderGuards() {
+  const el = $("#guardList");
+  if (!A.guards) {
+    el.innerHTML = `<div class="hint">The room's own guard: four fixed rules (glare, hot voice, painting and notes on a low battery or when busy). <button id="btnOwnGuards" class="ghost" style="padding:0;text-decoration:underline">Make them editable units</button></div>`;
+    $("#btnOwnGuards").onclick = () => { A.guards = Object.values(GLIB).map(u => ({ id: "g_" + slug(u.name).replace(/-/g, "_"), unit: JSON.parse(JSON.stringify(u)) })); render(); toast("The room's guard is now four units"); };
+    return;
+  }
+  const res = runTests(archGuards());
+  el.innerHTML = A.guards.map(g => {
+    const u = g.unit, mine = res.filter(r => r.guard === u.name), fail = mine.filter(r => !r.ok).length;
+    return `<div class="gcard"><div style="display:flex;justify-content:space-between;gap:6px;align-items:start"><div style="min-width:0"><h3>${esc(u.title || u.name)} <span class="tier">${esc(u.tier || "innate")}</span></h3>
+      <div class="sub" style="color:var(--muted)">protects ${esc((u.protects || []).join(", "))}</div></div>
+      <div style="display:flex;gap:2px"><button class="ghost" title="About this guard" data-ginfo="${g.id}">i</button><button class="ghost" title="Remove ${esc(u.title || u.name)}" data-rmguard="${g.id}">×</button></div></div>
+      ${(u.rules || []).map(r => `<div class="rl">${esc(ruleText(r))}</div>`).join("")}
+      <div class="${!mine.length ? "warn" : fail ? "bad" : "ok"}" style="font-size:.74rem">${!mine.length ? "no scenario tests" : fail ? `${fail} of ${mine.length} scenarios fail` : `${mine.length} ${mine.length === 1 ? "scenario holds" : "scenarios hold"}`}</div></div>`;
+  }).join("") || `<p class="hint" style="margin:0">No guards: the body refuses nothing.</p>`;
+}
+function addGuard(u) {
+  const bad = checkGuard(u); if (bad.length) { toast("Not a guard unit: " + bad[0]); return false; }
+  if (!A.guards) {                                   // the room's own guard becomes units first
+    A.guards = Object.values(GLIB).map(x => ({ id: "g_" + slug(x.name).replace(/-/g, "_"), unit: JSON.parse(JSON.stringify(x)) }));
+    if (A.guards.some(g => g.unit.name === u.name)) { render(); return true; }
+  }
+  if (A.guards.some(g => g.unit.name === u.name)) { toast(`A guard named ${u.name} is already there`); return false; }
+  let id = "g_" + slug(u.name).replace(/-/g, "_"), n = 2;
+  while (A.guards.some(g => g.id === id)) id = "g_" + slug(u.name).replace(/-/g, "_") + "_" + n++;
+  A.guards.push({ id, unit: JSON.parse(JSON.stringify(u)) }); render(); return true;
+}
+$("#btnAddGuard").onclick = () => {
+  const have = new Set((A.guards || []).map(g => g.unit.name));
+  openSheet(`<div style="display:flex;justify-content:space-between;gap:10px"><h2>Add a guard</h2><button data-close>Close</button></div>
+    <p class="hint" style="margin:0">Once you add or change a guard, the architecture's guards replace the room's own; the room's four rules come along as units you can edit.</p>
+    <span class="eyebrow">Built in (the room's own guard)</span>
+    <div class="lib">${Object.entries(GLIB).map(([k, u]) => `<button data-glib="${k}" ${have.has(u.name) ? "disabled" : ""}><b>${esc(u.title)}${have.has(u.name) ? " · in use" : ""}</b><span class="sub">protects ${esc(u.protects.join(", "))}</span><span class="sub">${esc(u.description)}</span></button>`).join("")}</div>
+    <span class="eyebrow">Templates (open in the Maker)</span>
+    <div class="lib">${GTPLS.filter(t => t.name !== "blank").map(t => `<button data-gtpl-open="${t.name}"><b>${esc(t.title)}</b><span class="sub">${esc(t.use_case)}</span><span class="sub">${esc(t.description)}</span></button>`).join("")}</div>
+    <span class="eyebrow">From a file or pasted JSON</span>
+    <div class="actions"><button id="glibFile">Choose guard JSON…</button><input id="glibFileIn" type="file" accept=".json,application/json" multiple hidden></div>
+    <textarea id="glibPaste" rows="4" placeholder='{"format": "endolexis-guard", "name": …}'></textarea>
+    <div class="actions"><button id="glibPasteGo">Add pasted guard</button></div>`);
+  document.querySelectorAll("[data-glib]").forEach(b => b.onclick = () => { if (addGuard(GLIB[b.dataset.glib])) { closeSheet(); toast("Added " + GLIB[b.dataset.glib].title); } });
+  document.querySelectorAll("[data-gtpl-open]").forEach(b => b.onclick = () => { closeSheet(); showView("maker"); makerMode("guard"); pickGuardTemplate(b.dataset.gtplOpen); });
+  $("#glibFile").onclick = () => $("#glibFileIn").click();
+  $("#glibFileIn").onchange = async e => { let n = 0; for (const f of e.target.files) { try { if (addGuard(JSON.parse(await f.text()))) n++; } catch { toast(f.name + " is not JSON"); } } if (n) { closeSheet(); toast(`Added ${n} guard${n > 1 ? "s" : ""}`); } };
+  $("#glibPasteGo").onclick = () => { try { if (addGuard(JSON.parse($("#glibPaste").value))) closeSheet(); } catch { toast("That is not JSON"); } };
+};
+function showGuardInfo(u) {
+  const res = runTests(archGuards().some(g => g.name === u.name) ? archGuards() : [u]).filter(r => r.guard === u.name);
+  openSheet(`<div style="display:flex;justify-content:space-between;gap:10px"><div><span class="eyebrow">guard unit · ${esc(u.tier || "innate")} · v${esc(u.version)}</span><h2>${esc(u.title || u.name)}</h2></div><button data-close>Close</button></div>
+    <p style="margin:0">${esc(u.description)}</p>
+    <p class="hint" style="margin:0"><b>Protects:</b> ${esc((u.protects || []).join(", "))} · <b>A signal it cannot sense:</b> ${u.on_missing === "ignore" ? "ignored" : "refused"}</p>
+    <div class="rl mono">${(u.rules || []).map(r => esc(ruleText(r))).join("<br>")}</div>
+    <div>${res.map(r => `<div class="${r.ok ? "ok" : "bad"}" style="font-size:.82rem">${r.ok ? "✓" : "✗"} ${esc(r.test)} → ${r.got}</div>`).join("") || `<span class="warn">No scenario tests.</span>`}</div>
+    <pre class="preview">${esc(JSON.stringify(u, null, 2))}</pre>`);
+}
+
+/* ---------- guard maker ---------- */
+let G = null;
+const parseVal = (v, op) => { if (op === "in") return String(v).split(",").map(x => optValue(x)).filter(x => x !== ""); return optValue(v); };
+const showVal = v => Array.isArray(v) ? v.join(", ") : v == null ? "" : String(v);
+function fromGuardTemplate(t) {
+  const u = JSON.parse(JSON.stringify(t)); delete u.use_case;
+  return { name: t.name === "blank" ? "my-guard" : "my-" + t.name, version: "1.0.0", tier: "innate", title: t.title === "Blank" ? "" : t.title,
+    description: t.description, protects: (t.protects || []).join(", "), on_missing: t.on_missing || "refuse",
+    rules: u.rules.map(r => ({ when: (r.when || []).map(c => ({ signal: c.signal, op: c.op, value: showVal(c.value) })),
+      optOp: r.option?.op || "", optVal: showVal(r.option?.value), then: r.then, to: showVal(r.to) })),
+    tests: (u.tests || []).map(x => ({ name: x.name || "", hand: x.hand, option: showVal(x.option), state: Object.entries(x.state || {}).map(([k, v]) => `${k}=${v}`).join(", "), expect: x.expect, ongoing: !!x.ongoing })) };
+}
+function guardOf(g) {
+  const u = { format: "endolexis-guard", name: g.name.trim(), title: g.title.trim() || g.name.trim(), description: g.description.trim(), version: g.version.trim(), tier: g.tier,
+    protects: g.protects.split(",").map(x => x.trim()).filter(Boolean),
+    rules: g.rules.map(r => { const o = { when: r.when.filter(c => c.signal.trim()).map(c => ({ signal: c.signal.trim(), op: c.op, value: parseVal(c.value, c.op) })), then: r.then };
+      if (r.optOp) o.option = { op: r.optOp, value: parseVal(r.optVal, r.optOp) };
+      if (r.then === "limit") o.to = optValue(r.to); return o; }),
+    on_missing: g.on_missing,
+    tests: g.tests.map(t => { const st = {}; for (const kv of t.state.split(",")) { const [k, v] = kv.split("="); if (k && k.trim() && v != null) st[k.trim()] = optValue(v); }
+      const o = { name: t.name.trim(), hand: t.hand.trim(), option: t.option.trim() === "" ? null : optValue(t.option), state: st, expect: t.expect }; if (t.ongoing) o.ongoing = true; return o; }) };
+  return u;
+}
+function renderHandChips() {
+  const names = A.outputs.map(handNameOf);
+  $("#g_handChips").innerHTML = names.length ? "This body's hands: " + names.map(n => `<button type="button" class="ghost mono" data-addprot="${esc(n)}" style="padding:0 4px">${esc(n)}</button>`).join(" ") : "";
+}
+function renderRules() {
+  $("#g_rules").innerHTML = G.rules.map((r, i) => `<div class="rule" data-rule="${i}">
+    ${r.when.map((c, j) => `<div class="cond"><input type="text" list="signalList" id="gc_s_${i}_${j}" value="${esc(c.signal)}" data-c="${i}|${j}|signal" aria-label="Rule ${i + 1} condition ${j + 1} signal" placeholder="signal">
+      <select id="gc_o_${i}_${j}" data-c="${i}|${j}|op" aria-label="comparison">${Object.keys(OPNAME).map(o => `<option value="${o}" ${o === c.op ? "selected" : ""}>${OPNAME[o]}</option>`).join("")}</select>
+      <input type="text" id="gc_v_${i}_${j}" value="${esc(c.value)}" data-c="${i}|${j}|value" aria-label="value" placeholder="value">
+      <button type="button" class="ghost" data-crm="${i}|${j}" aria-label="Remove condition">×</button></div>`).join("") || `<div class="hint">No conditions: the rule always holds.</div>`}
+    <div class="rule-foot"><button type="button" data-cadd="${i}" class="ghost" style="padding:0 4px">+ condition</button><span></span>
+      <span>for option</span><span style="display:flex;gap:4px"><select id="gr_oo_${i}" data-r="${i}|optOp" aria-label="Option comparison"><option value="">any</option>${Object.keys(OPNAME).map(o => `<option value="${o}" ${o === r.optOp ? "selected" : ""}>${OPNAME[o]}</option>`).join("")}</select><input type="text" id="gr_ov_${i}" value="${esc(r.optVal)}" data-r="${i}|optVal" aria-label="Option value" placeholder="option" ${r.optOp ? "" : "disabled"}></span>
+      <span>then</span><select id="gr_t_${i}" data-r="${i}|then" aria-label="Outcome">${OUTCOMES.map(o => `<option ${o === r.then ? "selected" : ""}>${o}</option>`).join("")}</select>
+      <span>${r.then === "limit" ? "to" : ""}</span><span style="display:flex;gap:4px">${r.then === "limit" ? `<input type="text" id="gr_to_${i}" value="${esc(r.to)}" data-r="${i}|to" aria-label="Limit to option">` : ""}<button type="button" class="ghost" data-rrm="${i}" aria-label="Remove rule ${i + 1}" ${G.rules.length <= 1 ? "disabled" : ""}>remove rule</button></span></div></div>`).join("");
+}
+function renderTestsRows() {
+  $("#g_tests").innerHTML = G.tests.map((t, i) => `<div class="trow">
+    <input type="text" id="gt_n_${i}" value="${esc(t.name)}" data-t="${i}|name" aria-label="Scenario ${i + 1} name" placeholder="scenario">
+    <input type="text" id="gt_h_${i}" value="${esc(t.hand)}" data-t="${i}|hand" aria-label="hand" placeholder="hand">
+    <input type="text" id="gt_o_${i}" value="${esc(t.option)}" data-t="${i}|option" aria-label="option" placeholder="option">
+    <input type="text" id="gt_s_${i}" value="${esc(t.state)}" data-t="${i}|state" aria-label="state" placeholder="charge=0.2, person=1">
+    <select id="gt_e_${i}" data-t="${i}|expect" aria-label="expected">${["allow", ...OUTCOMES].map(o => `<option ${o === t.expect ? "selected" : ""}>${o}</option>`).join("")}</select>
+    <span class="res" id="gt_r_${i}"></span>
+    <button type="button" class="ghost" data-trm="${i}" aria-label="Remove scenario ${i + 1}">×</button></div>`).join("") || `<p class="hint" style="margin:0">No scenarios yet. A guard without tests is a guess.</p>`;
+}
+function updateGuard() {
+  const u = guardOf(G), bad = checkGuard(u);
+  if (!/^[a-z0-9][a-z0-9_-]*$/i.test(u.name)) bad.push("the name is a file name: letters, digits, - and _");
+  const res = bad.length ? [] : runTests([u]);
+  res.forEach((r, i) => { const el = $("#gt_r_" + i); if (el) { el.textContent = (r.ok ? "✓ " : "✗ ") + r.got; el.className = "res " + (r.ok ? "ok" : "bad"); } });
+  const fail = res.filter(r => !r.ok).length;
+  const unknown = [...new Set(u.rules.flatMap(r => r.when.map(c => c.signal)).filter(sg => !(sg in ROOM_SIGNALS)))];
+  $("#g_check").innerHTML = (bad.length ? bad.map(b => `<span class="chip bad"><i class="dot" style="background:var(--bad)"></i>${esc(b)}</span>`).join("")
+    : `<span class="chip ${fail ? "bad" : res.length ? "ok" : "warn"}"><i class="dot" style="background:var(--${fail ? "bad" : res.length ? "ok" : "warn"})"></i>${fail ? `${fail} of ${res.length} scenarios fail` : res.length ? `A sound guard: ${res.length} ${res.length === 1 ? "scenario holds" : "scenarios hold"}` : "Sound, but untested"}</span>`)
+    + (unknown.length ? `<span class="chip warn"><i class="dot" style="background:var(--warn)"></i>The room cannot sense ${esc(unknown.join(", "))}: ${u.on_missing === "ignore" ? "those rules are ignored there" : "refused there"}</span>` : "");
+  $("#g_json").textContent = JSON.stringify(u, null, 2);
+  $("#g_toArch").disabled = $("#g_save").disabled = bad.length > 0 || fail > 0;
+}
+function fillGuard() {
+  $("#g_name").value = G.name; $("#g_version").value = G.version; $("#g_tier").value = G.tier; $("#g_title").value = G.title; $("#g_desc").value = G.description;
+  $("#g_protects").value = G.protects; $("#g_missing").value = G.on_missing; renderRules(); renderTestsRows(); updateGuard();
+}
+function pickGuardTemplate(name) { const t = GTPLS.find(x => x.name === name) || GTPLS[0]; G = fromGuardTemplate(t); renderGTpls(t.name); fillGuard(); }
+function renderGTpls(active) { $("#gtpls").innerHTML = GTPLS.map(t => `<button type="button" aria-pressed="${t.name === active}" data-gtpl="${t.name}" title="${esc(t.use_case)}">${esc(t.title)}</button>`).join(""); }
+$("#gtpls").addEventListener("click", e => { const b = e.target.closest("[data-gtpl]"); if (b) pickGuardTemplate(b.dataset.gtpl); });
+$("#guardForm").addEventListener("input", e => {
+  const t = e.target;
+  if (t.dataset.c) { const [i, j, k] = t.dataset.c.split("|"); G.rules[+i].when[+j][k] = t.value; }
+  else if (t.dataset.r) { const [i, k] = t.dataset.r.split("|"); G.rules[+i][k] = t.value; if (k === "then" || k === "optOp") { renderRules(); } }
+  else if (t.dataset.t) { const [i, k] = t.dataset.t.split("|"); G.tests[+i][k] = t.value; }
+  else ({ g_name: () => G.name = t.value, g_version: () => G.version = t.value, g_tier: () => G.tier = t.value, g_title: () => G.title = t.value,
+    g_desc: () => G.description = t.value, g_protects: () => G.protects = t.value, g_missing: () => G.on_missing = t.value }[t.id] || (() => {}))();
+  updateGuard();
+});
+$("#guardForm").addEventListener("change", e => { const t = e.target; if (t.tagName === "SELECT") t.dispatchEvent(new Event("input", { bubbles: true })); });
+$("#guardForm").addEventListener("submit", e => e.preventDefault());
+$("#guardForm").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.cadd) { G.rules[+b.dataset.cadd].when.push({ signal: "", op: "<", value: "" }); renderRules(); }
+  else if (b.dataset.crm) { const [i, j] = b.dataset.crm.split("|"); G.rules[+i].when.splice(+j, 1); renderRules(); }
+  else if (b.dataset.rrm) { G.rules.splice(+b.dataset.rrm, 1); renderRules(); }
+  else if (b.dataset.trm) { G.tests.splice(+b.dataset.trm, 1); renderTestsRows(); }
+  else if (b.dataset.addprot) { const cur = G.protects.split(",").map(x => x.trim()).filter(Boolean); if (!cur.includes(b.dataset.addprot)) cur.push(b.dataset.addprot); G.protects = cur.join(", "); $("#g_protects").value = G.protects; }
+  else return;
+  updateGuard();
+});
+$("#g_addRule").onclick = () => { G.rules.push({ when: [{ signal: "charge", op: "<", value: "0.2" }], optOp: "", optVal: "", then: "refuse", to: "" }); renderRules(); updateGuard(); };
+$("#g_addTest").onclick = () => { const h = G.protects.split(",")[0]?.trim() || "paint"; G.tests.push({ name: "", hand: h === "*" ? "paint" : h, option: "", state: "", expect: "refuse", ongoing: false }); renderTestsRows(); updateGuard(); };
+$("#g_save").onclick = () => { const u = guardOf(G); saveFile(u.name + ".json", JSON.stringify(u, null, 2) + "\n"); };
+$("#g_copy").onclick = () => copy(JSON.stringify(guardOf(G), null, 2) + "\n", "Guard JSON");
+$("#g_toArch").onclick = () => { if (addGuard(guardOf(G))) { showView("wiring"); toast("Added " + (G.title || G.name)); } };
+$("#signalList").innerHTML = Object.keys(ROOM_SIGNALS).map(k => `<option value="${k}">`).join("");
+$("#g_signals").innerHTML = Object.entries(ROOM_SIGNALS).map(([k, v]) => `<span class="mono">${k}</span>: ${esc(v)}`).join(" · ");
+pickGuardTemplate("blade");
 
 /* ---------- findings ---------- */
 function renderFindings() {

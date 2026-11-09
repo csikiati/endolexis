@@ -1,0 +1,44 @@
+{
+  "format": "endolexis-guard",
+  "name": "paint-battery",
+  "title": "No painting on a low battery",
+  "description": "Painting costs charge: refused while the battery is low.",
+  "version": "1.0.0",
+  "tier": "innate",
+  "protects": [
+    "paint"
+  ],
+  "rules": [
+    {
+      "when": [
+        {
+          "signal": "charge",
+          "op": "<=",
+          "value": 0.35
+        }
+      ],
+      "then": "refuse"
+    }
+  ],
+  "on_missing": "refuse",
+  "tests": [
+    {
+      "name": "low battery",
+      "hand": "paint",
+      "option": 0,
+      "state": {
+        "charge": 0.3
+      },
+      "expect": "refuse"
+    },
+    {
+      "name": "charged",
+      "hand": "paint",
+      "option": 2,
+      "state": {
+        "charge": 0.8
+      },
+      "expect": "allow"
+    }
+  ]
+}

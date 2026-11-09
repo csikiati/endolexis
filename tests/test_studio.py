@@ -129,7 +129,74 @@ def test_web_studio_is_built_from_the_package():
     assert block("data-templates") == templates(), "run python studio/build.py"
     assert block("data-hands") == hands(), "run python studio/build.py"
     assert block("data-hand-templates") == hand_templates(), "run python studio/build.py"
+    from endolexis.studio import guard_templates as gt, guards as gl
+    assert block("data-guards") == gl() and block("data-guard-templates") == gt(), "run python studio/build.py"
     examples = block("data-examples")
     for f in EXAMPLES.glob("*.json"):
         a = load(f)
         assert examples[a["name"]] == a, "run python studio/build.py"
+
+
+# --- guards -------------------------------------------------------------------------------------
+
+from endolexis.studio import from_guard_template, guard_templates, guards  # noqa: E402
+from endolexis.toyworld.guards import RoomGuards, check_guard, decide, run_tests  # noqa: E402
+from endolexis.toyworld.room import Room  # noqa: E402
+
+
+def test_guard_units_and_templates_hold_their_scenarios():
+    for u in list(guards().values()) + [from_guard_template(t) for t in guard_templates() if t["name"] != "blank"]:
+        assert check_guard(u) == [], u["name"]
+        assert u["tests"] and all(ok for *_, ok in run_tests([u])), u["name"]
+
+
+def test_guards_only_take_away():
+    blade = from_guard_template({t["name"]: t for t in guard_templates()}["blade"])
+    assert decide([blade], "blade", "fast", {"person_distance": 5}) [:2] == ("limit", "slow")
+    assert decide([blade], "blade", "fast", {"person_distance": 2})[0] == "stop"
+    assert decide([blade], "paint", 0, {"person_distance": 0})[0] == "allow"        # not its hand
+    assert decide([blade], "blade", "fast", {})[0] == "stop"                        # cannot sense: fails closed
+    blade["on_missing"] = "ignore"
+    assert decide([blade], "blade", "fast", {})[0] == "allow"
+
+
+def test_the_room_guard_as_units_lives_the_same_life():
+    arch = load(EXAMPLES / "three-take-turns.json")
+    own = live(arch, seed=4, days=3, childhood_days=1)
+    arch["guards"] = [{"id": k, "unit": u} for k, u in guards().items()]
+    assert check(arch) == ([], [])
+    as_units = live(arch, seed=4, days=3, childhood_days=1)
+    counts = as_units.pop("guards")
+    assert as_units == own and sum(c["refuse"] for c in counts.values()) > 0
+
+
+def test_a_stop_rule_cuts_a_hand_at_work():
+    room = Room(seed=1, hands=True)
+    g = {"format": "endolexis-guard", "name": "shy", "description": "x", "version": "1", "protects": ["paint"],
+         "rules": [{"when": [{"signal": "person", "op": "==", "value": 1}], "then": "stop"}]}
+    rg = RoomGuards([g], {"paint": "paint"})
+    room.charge = 0.9
+    sent, out, _ = rg.request(room, ("paint", 1))
+    room.step(act=sent)
+    assert room.paint_left > 0
+    room.present = True
+    rg.watch(room)
+    assert room.paint_left == 0 and rg.counts["shy"]["stop"] == 1
+
+
+def test_a_failing_scenario_stops_the_life():
+    arch = load(EXAMPLES / "one-never-sleeps.json")
+    u = dict(guards()["paint-battery"])
+    u["rules"] = [{"when": [{"signal": "charge", "op": "<", "value": 0.1}], "then": "refuse"}]   # too weak for its tests
+    arch["guards"] = [{"id": "g", "unit": u}]
+    bad, _ = check(arch)
+    assert any("scenario 'low battery' gave allow" in b for b in bad)
+    with pytest.raises(ValueError):
+        build(arch)
+
+
+def test_guard_command_line(tmp_path, capsys):
+    out = tmp_path / "blade.json"
+    assert cli(["new-guard", "blade", "-o", str(out)]) == 0
+    assert cli(["test-guards", str(out)]) == 0
+    assert "4 of 4 scenarios hold" in capsys.readouterr().out

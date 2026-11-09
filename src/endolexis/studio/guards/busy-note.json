@@ -1,0 +1,44 @@
+{
+  "format": "endolexis-guard",
+  "name": "busy-note",
+  "title": "No notes when busy",
+  "description": "Writing a note is a burst of work: refused while the body is busy.",
+  "version": "1.0.0",
+  "tier": "innate",
+  "protects": [
+    "note"
+  ],
+  "rules": [
+    {
+      "when": [
+        {
+          "signal": "load",
+          "op": ">=",
+          "value": 0.4
+        }
+      ],
+      "then": "refuse"
+    }
+  ],
+  "on_missing": "refuse",
+  "tests": [
+    {
+      "name": "busy",
+      "hand": "note",
+      "option": 0,
+      "state": {
+        "load": 0.6
+      },
+      "expect": "refuse"
+    },
+    {
+      "name": "idle",
+      "hand": "note",
+      "option": 0,
+      "state": {
+        "load": 0.1
+      },
+      "expect": "allow"
+    }
+  ]
+}

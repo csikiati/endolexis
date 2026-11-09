@@ -3,7 +3,7 @@
 A web page for drawing **architectures**: which processor outputs feed which Olvasó (one, two or three), which
 hands each Olvasó may use, and when each one sleeps. The architecture is saved as JSON and lived by the Python
 package in the toy world's room (`endolexis.studio`). A second page makes new **processor units** and **hand
-units** from use-case templates.
+units** from use-case templates, and **guards**: declared rules between Olvasó's wanting and the world.
 
 Open `studio/index.html` in a browser (no server, no install). It is one self-contained file.
 
@@ -21,6 +21,10 @@ Open `studio/index.html` in a browser (no server, no install). It is one self-co
   hand card shows its options. Its A/B/C pips let each Olvasó use it, or not. A new hand is wired to every
   Olvasó. A hand the room's body does not have (a vibration motor, a smart bulb…) is kept in the
   architecture, marked, and left out when the room lives it.
+- **Guards.** The band above the hands. By default the room's own guard holds, four fixed rules. *Make them
+  editable units* turns them into guard units, and *Add guard* adds more: built in, from a template, a file or
+  pasted JSON. Each guard card shows its rules and whether its scenario tests hold. Each hand shows the guards
+  protecting it, and a hand of a new kind without any guard is flagged as unguarded.
 - **Olvasós.** Up to three. Each has three sliders, all fractions of a day (0-100 %):
   - *Sleeps*: how much of the day it is asleep (lid closed, nothing sensed, no acting).
   - *Waking*: how long it takes, after sleep, to come round (it senses, learns and reads, but does not
@@ -34,12 +38,17 @@ Open `studio/index.html` in a browser (no server, no install). It is one self-co
   - *One asleep, one waking, one awake* sets three Olvasós to a third each, staggered.
 - **Save JSON** / **Open JSON…** / **Open an example…** The examples are the architectures of experiment 16.
 
-**Maker.** Choose *Processor* or *Hand*, pick a use case, then adjust the unit's fields:
+**Maker.** Choose *Processor*, *Hand* or *Guard*, pick a use case, then adjust the unit's fields:
 
 - **Processor:** name, version and description; the outside source of its information, what arrives from
   it, and how many numbers come in; the outputs, each with a name and how it is computed.
 - **Hand:** name, version and description; what it acts on and what it does there; the options it may
   choose among (a value and a label each); its guard (when the body refuses it); its effects.
+- **Guard:** name, version, tier and description; the hands it protects; its rules (conditions on signals,
+  an optional condition on the option, and what then happens); what to do with a signal the body cannot
+  sense; its scenario tests, each checked as you type. A guard with a failing scenario cannot be added.
+  The templates are: blade near a person, hot body, moving near people, privacy, not too often, quiet
+  hours, ask first, battery reserve.
 
 The maker shows the unit's JSON and a Python skeleton. You can save either one, or add the unit to the
 architecture being drawn.
@@ -52,7 +61,8 @@ architecture being drawn.
 |---|---|---|
 | processor unit | `"format": "endolexis-processor"` | `name`, `title`, `description`, `version`, `source` (`kind`, `detail`, `raw`: the key in the world's raw senses), `inputs`, `outputs`, `output_names`, and `implementation`: `{"builtin": "vision", "outputs": [6, 7, 8]}` or `{"python": "module:function"}` |
 | hand unit | `"format": "endolexis-hand"` | `name`, `title`, `description`, `version`, `target` (`kind`, `detail`: what it acts on), `options` (`[{"value", "label"}]`: what Olvasó may choose among), `guard` (when the body refuses it), `effects`, and `implementation`: `{"builtin": "paint"}` (one of the room's hands) or `{"python": "module:act"}` |
-| architecture | `"format": "endolexis-architecture"` | `processors` (`id`, `unit`), `olvasos` (`id`, `name`, `sleep`, `waking`, `phase`, optionally `shift`), `outputs` (`id`, and `kind`: one of the room's hands, and/or `unit`: a hand unit), `links` (`{"from": {"node", "port"}, "to": {"node"}}` for a processor output; `{"from": {"node"}, "to": {"node"}}` for a hand) |
+| guard unit | `"format": "endolexis-guard"` | `name`, `title`, `description`, `version`, `tier` (`innate`; `learned` for guards a sandbox will produce), `protects` (hand names, or `"*"`), `rules` (`{"when": [{"signal", "op", "value"}], "option": {"op", "value"}, "then": "refuse" \| "limit" \| "stop" \| "ask", "to"}`), `on_missing` (`refuse`, the default, or `ignore`), `tests` (`{"name", "hand", "option", "state": {signal: value}, "expect", "ongoing"}`) |
+| architecture | `"format": "endolexis-architecture"` | `processors` (`id`, `unit`), `olvasos` (`id`, `name`, `sleep`, `waking`, `phase`, optionally `shift`), `outputs` (`id`, and `kind`: one of the room's hands, and/or `unit`: a hand unit), optionally `guards` (`id`, `unit`; when present, these replace the room's own guard), `links` (`{"from": {"node", "port"}, "to": {"node"}}` for a processor output; `{"from": {"node"}, "to": {"node"}}` for a hand) |
 
 Built-in units are in `src/endolexis/studio/processors/`: the whole eye, ear and touch, and their stages
 (retina, motion, form; cochlea, timbre, rhythm). The room's hands are in `src/endolexis/studio/hands/`. The
@@ -71,7 +81,34 @@ python -m endolexis.studio new-processor accelerometer --name my-accel -o my-acc
 python -m endolexis.studio hands
 python -m endolexis.studio hand-templates
 python -m endolexis.studio new-hand vibrate --name buzz -o buzz.json --stub buzz.py
+python -m endolexis.studio guards
+python -m endolexis.studio guard-templates
+python -m endolexis.studio new-guard blade -o blade.json
+python -m endolexis.studio test-guards blade.json my-other-guard.json
 ```
+
+## Guards
+
+A guard stands between Olvasó's wanting and the world. Olvasó never learns that it exists, only what follows.
+Guards are built so that they hold even when everything else is wrong:
+
+- **They only take away.** A rule can refuse, limit (carry the act out with a gentler option), stop (refuse,
+  and cut short a hand already at work when the rule comes true) or ask (a person must agree; in the room
+  there is nobody to ask, so it is refused). There is no rule that allows, so adding guards can only make
+  the body more careful.
+- **They read their own signals, never Olvasó's words.** In the room: `warmth`, `charge`, `load`, `hour`,
+  `person`, `person_distance`, `talking`, `recent` (how often this hand was used lately), `active` (the hand
+  is still at work).
+- **They fail closed.** A signal the body cannot sense counts as danger, unless the guard says `ignore`.
+- **They are rules, not code**, so they can be read, checked and tested. Every guard carries scenario tests.
+  `check` runs all of them, together, before a life is lived, and a failing scenario stops it.
+
+The room's own guard, as the four built-in units, lives exactly the same life as the room's fixed guard (a
+test checks this).
+
+The *learned* tier is for guards a sandbox will produce: a body lives a childhood in a simulated room, harm is
+judged from outside, and each harm becomes a rule with its scenario (the next experiment). For a real machine
+with a real blade, these guards model the idea. The reflex layer and an emergency stop belong in the hardware.
 
 A unit with a Python implementation is called with the room's raw senses (`raw["image"]`, `raw["sound"]`,
 `raw["touch"]`) and returns its `outputs` numbers. Templates for other sources (accelerometer, weather,

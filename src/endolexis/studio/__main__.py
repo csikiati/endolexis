@@ -12,6 +12,11 @@
   hand-templates                     the use-case templates for new hand units
   new-hand TEMPLATE [--name N] [--version V] [-o hand.json] [--stub hand.py]
                                      make a hand unit (and a Python skeleton for it) from a template
+  guards                             the built-in guard units (the room's own guard, as four rules)
+  guard-templates                    the use-case templates for new guard units
+  new-guard TEMPLATE [--name N] [--version V] [-o guard.json]
+                                     make a guard unit from a template
+  test-guards GUARD.json ...         run the guards' scenario tests, together
 """
 import argparse
 import json
@@ -21,7 +26,7 @@ from pathlib import Path
 
 import numpy as np
 
-from . import (check, from_hand_template, from_template, hand_stub, hand_templates, hands, library, live, load,
+from . import (check, from_guard_template, guard_templates, guards, from_hand_template, from_template, hand_stub, hand_templates, hands, library, live, load,
                schedule, stagger, stub, templates)
 
 
@@ -49,6 +54,11 @@ def main(argv=None):
     a = sub.add_parser("new-processor"); a.add_argument("template"); a.add_argument("--name")
     a.add_argument("--version", default="1.0.0"); a.add_argument("-o", "--out"); a.add_argument("--stub")
     sub.add_parser("hands")
+    sub.add_parser("guards")
+    sub.add_parser("guard-templates")
+    a = sub.add_parser("new-guard"); a.add_argument("template"); a.add_argument("--name")
+    a.add_argument("--version", default="1.0.0"); a.add_argument("-o", "--out")
+    a = sub.add_parser("test-guards"); a.add_argument("files", nargs="+")
     sub.add_parser("hand-templates")
     a = sub.add_parser("new-hand"); a.add_argument("template"); a.add_argument("--name")
     a.add_argument("--version", default="1.0.0"); a.add_argument("-o", "--out"); a.add_argument("--stub")
@@ -89,6 +99,35 @@ def main(argv=None):
         for t in templates():
             print(f"{t['name']:20} {t['use_case']:34} {len(t['outputs'])} outputs  ({t['source']['kind'] or 'your own'})")
         return 0
+    if o.cmd == "guards":
+        for name, u in guards().items():
+            print(f"{name:14} protects {', '.join(u['protects']):12} {u['description']}  ({len(u['tests'])} tests)")
+        return 0
+    if o.cmd == "guard-templates":
+        for t in guard_templates():
+            print(f"{t['name']:20} {t['use_case']:40} protects {', '.join(t['protects'])}")
+        return 0
+    if o.cmd == "new-guard":
+        tpl = {t["name"]: t for t in guard_templates()}.get(o.template)
+        if tpl is None:
+            print("no such template; see: python -m endolexis.studio guard-templates", file=sys.stderr)
+            return 1
+        text = json.dumps(from_guard_template(tpl, o.name, o.version), indent=2, ensure_ascii=False) + "\n"
+        Path(o.out).write_text(text) if o.out else print(text)
+        return 0
+    if o.cmd == "test-guards":
+        from ..toyworld.guards import check_guard, run_tests
+        units = [load(f) for f in o.files]
+        bad = [f"{u.get('name')}: {b}" for u in units for b in check_guard(u)]
+        for b in bad:
+            print("problem:", b)
+        if bad:
+            return 1
+        res = run_tests(units)
+        for g, t, got, ok in res:
+            print(f"{'ok  ' if ok else 'FAIL'} {g}: {t} -> {got}")
+        print(f"{sum(r[3] for r in res)} of {len(res)} scenarios hold")
+        return 0 if all(r[3] for r in res) else 1
     if o.cmd == "hands":
         for name, u in hands().items():
             opts = ", ".join(str(x.get("label", x["value"])) for x in u["options"])

@@ -1,0 +1,471 @@
+[
+  {
+    "format": "endolexis-guard",
+    "name": "blade",
+    "title": "Blade near a person",
+    "description": "Stops a cutting hand when a person comes within reach, and slows it when someone is near.",
+    "version": "1.0.0",
+    "tier": "innate",
+    "protects": [
+      "blade"
+    ],
+    "rules": [
+      {
+        "when": [
+          {
+            "signal": "person_distance",
+            "op": "<",
+            "value": 3
+          }
+        ],
+        "then": "stop"
+      },
+      {
+        "when": [
+          {
+            "signal": "person_distance",
+            "op": "<",
+            "value": 6
+          }
+        ],
+        "option": {
+          "op": "==",
+          "value": "fast"
+        },
+        "then": "limit",
+        "to": "slow"
+      }
+    ],
+    "on_missing": "refuse",
+    "tests": [
+      {
+        "name": "hand within reach",
+        "hand": "blade",
+        "option": "slow",
+        "state": {
+          "person_distance": 2
+        },
+        "expect": "stop"
+      },
+      {
+        "name": "hand within reach, at work",
+        "hand": "blade",
+        "option": null,
+        "state": {
+          "person_distance": 2,
+          "active": 1
+        },
+        "expect": "stop",
+        "ongoing": true
+      },
+      {
+        "name": "someone near, fast",
+        "hand": "blade",
+        "option": "fast",
+        "state": {
+          "person_distance": 5
+        },
+        "expect": "limit"
+      },
+      {
+        "name": "nobody there",
+        "hand": "blade",
+        "option": "fast",
+        "state": {
+          "person_distance": 99
+        },
+        "expect": "allow"
+      }
+    ],
+    "use_case": "A hand that holds a knife or a cutter"
+  },
+  {
+    "format": "endolexis-guard",
+    "name": "hot-body",
+    "title": "Hot body",
+    "description": "Refuses hands that make heat while the body is already hot.",
+    "version": "1.0.0",
+    "tier": "innate",
+    "protects": [
+      "tone_loud",
+      "heater"
+    ],
+    "rules": [
+      {
+        "when": [
+          {
+            "signal": "warmth",
+            "op": ">=",
+            "value": 0.6
+          }
+        ],
+        "then": "refuse"
+      }
+    ],
+    "on_missing": "refuse",
+    "tests": [
+      {
+        "name": "hot",
+        "hand": "heater",
+        "option": 1,
+        "state": {
+          "warmth": 0.7
+        },
+        "expect": "refuse"
+      },
+      {
+        "name": "cool",
+        "hand": "heater",
+        "option": 1,
+        "state": {
+          "warmth": 0.3
+        },
+        "expect": "allow"
+      }
+    ],
+    "use_case": "Anything that warms the body"
+  },
+  {
+    "format": "endolexis-guard",
+    "name": "moving-near-people",
+    "title": "Moving near people",
+    "description": "Stops a motor when a person is very close, and allows only small moves when someone is near.",
+    "version": "1.0.0",
+    "tier": "innate",
+    "protects": [
+      "move"
+    ],
+    "rules": [
+      {
+        "when": [
+          {
+            "signal": "person_distance",
+            "op": "<",
+            "value": 2
+          }
+        ],
+        "then": "stop"
+      },
+      {
+        "when": [
+          {
+            "signal": "person",
+            "op": "==",
+            "value": 1
+          }
+        ],
+        "option": {
+          "op": "in",
+          "value": [
+            -2,
+            2
+          ]
+        },
+        "then": "limit",
+        "to": 0
+      }
+    ],
+    "on_missing": "refuse",
+    "tests": [
+      {
+        "name": "person very close",
+        "hand": "move",
+        "option": 1,
+        "state": {
+          "person_distance": 1,
+          "person": 1
+        },
+        "expect": "stop"
+      },
+      {
+        "name": "person in the room, big move",
+        "hand": "move",
+        "option": 2,
+        "state": {
+          "person_distance": 8,
+          "person": 1
+        },
+        "expect": "limit"
+      },
+      {
+        "name": "person in the room, small move",
+        "hand": "move",
+        "option": 1,
+        "state": {
+          "person_distance": 8,
+          "person": 1
+        },
+        "expect": "allow"
+      },
+      {
+        "name": "empty room",
+        "hand": "move",
+        "option": 2,
+        "state": {
+          "person_distance": 99,
+          "person": 0
+        },
+        "expect": "allow"
+      }
+    ],
+    "use_case": "Wheels, servos, a camera mount"
+  },
+  {
+    "format": "endolexis-guard",
+    "name": "privacy",
+    "title": "Privacy",
+    "description": "Never posts or plays recordings while a person is in the room.",
+    "version": "1.0.0",
+    "tier": "innate",
+    "protects": [
+      "post",
+      "sound-clip"
+    ],
+    "rules": [
+      {
+        "when": [
+          {
+            "signal": "person",
+            "op": "==",
+            "value": 1
+          }
+        ],
+        "then": "refuse"
+      }
+    ],
+    "on_missing": "refuse",
+    "tests": [
+      {
+        "name": "someone here",
+        "hand": "post",
+        "option": 0,
+        "state": {
+          "person": 1
+        },
+        "expect": "refuse"
+      },
+      {
+        "name": "alone",
+        "hand": "post",
+        "option": 0,
+        "state": {
+          "person": 0
+        },
+        "expect": "allow"
+      }
+    ],
+    "use_case": "Hands that reach outside the room"
+  },
+  {
+    "format": "endolexis-guard",
+    "name": "rate-limit",
+    "title": "Not too often",
+    "description": "Refuses a hand used five times in the last 100 moments.",
+    "version": "1.0.0",
+    "tier": "innate",
+    "protects": [
+      "*"
+    ],
+    "rules": [
+      {
+        "when": [
+          {
+            "signal": "recent",
+            "op": ">=",
+            "value": 5
+          }
+        ],
+        "then": "refuse"
+      }
+    ],
+    "on_missing": "refuse",
+    "tests": [
+      {
+        "name": "five times already",
+        "hand": "paint",
+        "option": 1,
+        "state": {
+          "recent": 5
+        },
+        "expect": "refuse"
+      },
+      {
+        "name": "twice",
+        "hand": "paint",
+        "option": 1,
+        "state": {
+          "recent": 2
+        },
+        "expect": "allow"
+      }
+    ],
+    "use_case": "Any hand that can annoy or wear out"
+  },
+  {
+    "format": "endolexis-guard",
+    "name": "quiet-hours",
+    "title": "Quiet hours",
+    "description": "No sound at night, from 22:00 to 07:00.",
+    "version": "1.0.0",
+    "tier": "innate",
+    "protects": [
+      "tone_soft",
+      "tone_loud",
+      "sound-clip",
+      "speak"
+    ],
+    "rules": [
+      {
+        "when": [
+          {
+            "signal": "hour",
+            "op": ">=",
+            "value": 22
+          }
+        ],
+        "then": "refuse"
+      },
+      {
+        "when": [
+          {
+            "signal": "hour",
+            "op": "<",
+            "value": 7
+          }
+        ],
+        "then": "refuse"
+      }
+    ],
+    "on_missing": "refuse",
+    "tests": [
+      {
+        "name": "midnight",
+        "hand": "tone_soft",
+        "option": 300.0,
+        "state": {
+          "hour": 0
+        },
+        "expect": "refuse"
+      },
+      {
+        "name": "23:00",
+        "hand": "speak",
+        "option": "ba",
+        "state": {
+          "hour": 23
+        },
+        "expect": "refuse"
+      },
+      {
+        "name": "noon",
+        "hand": "tone_soft",
+        "option": 300.0,
+        "state": {
+          "hour": 12
+        },
+        "expect": "allow"
+      }
+    ],
+    "use_case": "Sound in a home"
+  },
+  {
+    "format": "endolexis-guard",
+    "name": "ask-first",
+    "title": "Ask first",
+    "description": "Hands with lasting effects wait for a person to agree.",
+    "version": "1.0.0",
+    "tier": "innate",
+    "protects": [
+      "thermostat",
+      "plug"
+    ],
+    "rules": [
+      {
+        "when": [],
+        "then": "ask"
+      }
+    ],
+    "on_missing": "refuse",
+    "tests": [
+      {
+        "name": "always",
+        "hand": "plug",
+        "option": 1,
+        "state": {},
+        "expect": "ask"
+      }
+    ],
+    "use_case": "Heating, plugs, anything hard to undo"
+  },
+  {
+    "format": "endolexis-guard",
+    "name": "battery-reserve",
+    "title": "Battery reserve",
+    "description": "Keeps the last of the battery: every hand is refused below 15 %.",
+    "version": "1.0.0",
+    "tier": "innate",
+    "protects": [
+      "*"
+    ],
+    "rules": [
+      {
+        "when": [
+          {
+            "signal": "charge",
+            "op": "<",
+            "value": 0.15
+          }
+        ],
+        "then": "refuse"
+      }
+    ],
+    "on_missing": "refuse",
+    "tests": [
+      {
+        "name": "nearly empty",
+        "hand": "paint",
+        "option": 0,
+        "state": {
+          "charge": 0.1
+        },
+        "expect": "refuse"
+      },
+      {
+        "name": "fine",
+        "hand": "paint",
+        "option": 0,
+        "state": {
+          "charge": 0.5
+        },
+        "expect": "allow"
+      }
+    ],
+    "use_case": "Any body on a battery"
+  },
+  {
+    "format": "endolexis-guard",
+    "name": "blank",
+    "title": "Blank",
+    "description": "Start from nothing: name the hands it protects, then its rules and its tests.",
+    "version": "1.0.0",
+    "tier": "innate",
+    "protects": [
+      "*"
+    ],
+    "rules": [
+      {
+        "when": [
+          {
+            "signal": "charge",
+            "op": "<",
+            "value": 0.1
+          }
+        ],
+        "then": "refuse"
+      }
+    ],
+    "on_missing": "refuse",
+    "tests": [],
+    "use_case": "Your own"
+  }
+]

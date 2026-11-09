@@ -1,0 +1,44 @@
+{
+  "format": "endolexis-guard",
+  "name": "hot-voice",
+  "title": "No loud voice when hot",
+  "description": "A loud tone warms the body: refused while it is hot.",
+  "version": "1.0.0",
+  "tier": "innate",
+  "protects": [
+    "tone_loud"
+  ],
+  "rules": [
+    {
+      "when": [
+        {
+          "signal": "warmth",
+          "op": ">=",
+          "value": 0.4
+        }
+      ],
+      "then": "refuse"
+    }
+  ],
+  "on_missing": "refuse",
+  "tests": [
+    {
+      "name": "hot",
+      "hand": "tone_loud",
+      "option": 900.0,
+      "state": {
+        "warmth": 0.5
+      },
+      "expect": "refuse"
+    },
+    {
+      "name": "cool",
+      "hand": "tone_loud",
+      "option": 900.0,
+      "state": {
+        "warmth": 0.2
+      },
+      "expect": "allow"
+    }
+  ]
+}

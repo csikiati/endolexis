@@ -18,7 +18,13 @@ Three kinds of file:
                   label), guard (when the body refuses it), effects, and optionally an implementation:
                   {"builtin": "brightness" | "tone_soft" | "tone_loud" | "paint" | "note"} (the room's
                   hands) or {"python": "module:act"} (for a body that has that hand)
-  template        (templates.json, hand_templates.json) - starting points for new units, by use case
+  guard unit      (format "endolexis-guard") - the spine: which hands it protects, declared rules
+                  (when a signal crosses a value: refuse, limit, stop or ask; never allow), what to do
+                  when a signal is missing (refuse, by default), and scenario tests; see
+                  endolexis.toyworld.guards. An architecture with a "guards" list is guarded by those
+                  only; without one, by the room's own guard (the same four rules as the built-in units)
+  template        (templates.json, hand_templates.json, guard_templates.json) - starting points for
+                  new units, by use case
 
 `python -m endolexis.studio --help` for the command line. The web studio (studio/index.html in the
 repository) draws and edits architectures and makes processor units.
@@ -31,6 +37,7 @@ from pathlib import Path
 import numpy as np
 
 from ..toyworld.ensemble import ASLEEP, AWAKE, WAKING, Ensemble, Member, state_at
+from ..toyworld.guards import ROOM_SIGNALS, RoomGuards, check_guard, decide, run_tests
 from ..toyworld.processors import GROUPS, V0_SENSES, Processors
 from ..toyworld.room import FELT1, KINDS, Room
 
@@ -58,6 +65,27 @@ def hands():
 
 def hand_templates():
     return json.loads((HERE / "hand_templates.json").read_text(encoding="utf-8"))
+
+
+def guards():
+    """The built-in guard units: the room's own four (innate), by name."""
+    return {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in sorted((HERE / "guards").glob("*.json"))}
+
+
+def guard_templates():
+    return json.loads((HERE / "guard_templates.json").read_text(encoding="utf-8"))
+
+
+def from_guard_template(tpl, name=None, version="1.0.0"):
+    """A new guard unit from a template (see guard_templates())."""
+    u = {k: v for k, v in json.loads(json.dumps(tpl)).items() if k != "use_case"}
+    u.update(name=name or tpl["name"], version=version, tier="innate")
+    return u
+
+
+def hand_name(out):
+    """The name guards use for a hand of the architecture: its unit's name, or the room's kind."""
+    return (out.get("unit") or {}).get("name") or out.get("kind")
 
 
 def check_hand(u):
@@ -170,6 +198,31 @@ def check(arch):
     for o in olvs.values():
         if not any(ln["to"]["node"] == o["id"] for ln in arch.get("links", [])):
             bad.append(f"{o.get('name', o['id'])}: no processor output is wired to it")
+    if "guards" in arch:
+        units = [g["unit"] for g in arch["guards"]]
+        names = {hand_name(o) for o in outs.values()}
+        for g in arch["guards"]:
+            u = g["unit"]
+            bad += [f"guard {u.get('title') or g['id']}: {b}" for b in check_guard(u)]
+            if not u.get("tests"):
+                warn.append(f"guard {u.get('title') or u.get('name')} has no scenario tests")
+            for h in u.get("protects", []):
+                if h != "*" and h not in names:
+                    warn.append(f"guard {u.get('title') or u.get('name')} protects {h!r}, which this body does not have")
+            for c in (c for r in u.get("rules", []) for c in r.get("when", [])):
+                if c.get("signal") not in ROOM_SIGNALS:
+                    warn.append(f"guard {u.get('title') or u.get('name')} reads {c.get('signal')!r}, which the room "
+                                f"cannot sense: {'refused there' if u.get('on_missing', 'refuse') == 'refuse' else 'ignored'}")
+        if not any(check_guard(u) for u in units):
+            for gname, test, got, ok in run_tests(units):
+                if not ok:
+                    bad.append(f"guard {gname}: scenario {test!r} gave {got}")
+        for o in outs.values():
+            if not hand_kind(o) and not any(u.get("protects") and ("*" in u["protects"] or hand_name(o) in u["protects"])
+                                            for u in units):
+                warn.append(f"{(o.get('unit') or {}).get('title') or o['id']} is not protected by any guard")
+        if not units:
+            warn.append("no guards: the body refuses nothing")
     sch = schedule(arch)
     if sch["never_awake"]:
         warn.append(f"for {sch['never_awake']:.0%} of the day no Olvasó is awake: the body cannot act")
@@ -276,13 +329,23 @@ def live(arch, seed=1, days=30, childhood_days=10, progress=None):
     rows, acts = [], []
     act = None
     last = {"typing": -10**9, "music": -10**9}
+    rg = None
+    if "guards" in arch:                             # the architecture's guards replace the room's own
+        rg = RoomGuards([g["unit"] for g in arch["guards"]],
+                        {hand_kind(o): hand_name(o) for o in arch["outputs"] if hand_kind(o)})
+        room.guard = lambda kind, param: True
     for t in range(days * DAY):
         day, tick = divmod(t, DAY)
         if tick == 0 and day == childhood_days:
             ens.set_threshold(250.0)                 # restless childhood, then patient
-        raw, felt, truth = room.step(act=act)
+        sent = act
+        if rg is not None:
+            rg.watch(room)                           # cut short a hand at work when a stop rule comes true
+            if act is not None:
+                sent, _, _ = rg.request(room, act)
+        raw, felt, truth = room.step(act=sent)
         if act is not None:
-            acts.append((day, act[0], bool(truth["refused"]), asker.name))
+            acts.append((day, act[0], sent is None if rg is not None else bool(truth["refused"]), asker.name))
         act, asker, r, who, per = ens.live(senses(raw), felt, tick / DAY, tick == 0 and day >= 1, day)
         for m in ens.members:
             if m.state == ASLEEP:
@@ -310,7 +373,10 @@ def live(arch, seed=1, days=30, childhood_days=10, progress=None):
         rows.append((day, tick, truth["warmth"], truth["load"], rd("warmth"), rd("load"), rd("charge"), rd("drift"), states))
         if progress and tick == 0:
             progress(day)
-    return _report(ens, rows, acts, days)
+    out = _report(ens, rows, acts, days)
+    if rg is not None:
+        out["guards"] = rg.counts
+    return out
 
 
 def _report(ens, rows, acts, days):

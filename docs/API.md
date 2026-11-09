@@ -491,6 +491,15 @@ The format, the web studio and the command line are described in [`studio/README
 | `hand_stub(unit)` | A Python skeleton for a hand (`guard(body)`, `act(option, body)`) |
 | `check_hand(unit)` | Problems with a hand unit |
 | `hand_kind(output)` | Which of the room's hands an architecture output is, or `None` (then the room leaves it out) |
+| `guards()` | The built-in guard units: the room's own guard as four rules (`glare`, `hot-voice`, `paint-battery`, `busy-note`) |
+| `guard_templates()` | Use-case templates for guards (blade near a person, moving near people, privacy, quiet hours, …) |
+| `from_guard_template(tpl, name=None, version="1.0.0")` | A new guard unit from a template |
+
+`endolexis.toyworld.guards`: `check_guard(unit)`; `decide(guards, hand, option, signals, ongoing=False)` →
+`(outcome, option, guard, why)`, the most severe of `allow` < `limit` < `ask` < `refuse` < `stop`;
+`run_tests(guards)` → `[(guard, scenario, got, ok)]`; `ROOM_SIGNALS`; `RoomGuards(guards, names)` with
+`request(room, act)` and `watch(room)` (stops hands at work). An architecture with `guards` is guarded by
+them alone, and `live` then reports how often each guard refused, limited, stopped or asked.
 | `load(path)` | Read an architecture (or any JSON) |
 | `check(arch)` | `(problems, warnings)` |
 | `schedule(arch, steps=1000)` | Shares of the day with nobody awake, nobody reading, two asleep, the ideal; Olvasós not asleep on average |

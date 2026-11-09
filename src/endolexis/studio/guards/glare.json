@@ -1,0 +1,57 @@
+{
+  "format": "endolexis-guard",
+  "name": "glare",
+  "title": "Glare on a low battery",
+  "description": "Full brightness drains the battery: refused while the charge is low.",
+  "version": "1.0.0",
+  "tier": "innate",
+  "protects": [
+    "brightness"
+  ],
+  "rules": [
+    {
+      "when": [
+        {
+          "signal": "charge",
+          "op": "<",
+          "value": 0.25
+        }
+      ],
+      "option": {
+        "op": ">=",
+        "value": 1.0
+      },
+      "then": "refuse"
+    }
+  ],
+  "on_missing": "refuse",
+  "tests": [
+    {
+      "name": "low battery, full",
+      "hand": "brightness",
+      "option": 1.0,
+      "state": {
+        "charge": 0.2
+      },
+      "expect": "refuse"
+    },
+    {
+      "name": "low battery, half",
+      "hand": "brightness",
+      "option": 0.5,
+      "state": {
+        "charge": 0.2
+      },
+      "expect": "allow"
+    },
+    {
+      "name": "charged, full",
+      "hand": "brightness",
+      "option": 1.0,
+      "state": {
+        "charge": 0.6
+      },
+      "expect": "allow"
+    }
+  ]
+}
