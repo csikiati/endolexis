@@ -9,7 +9,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(ROOT / "src"))
-from endolexis.studio import library, templates  # noqa: E402
+from endolexis.studio import hand_templates, hands, library, templates  # noqa: E402
 
 COLUMNS = [
     dict(key="linked_read", label="States read", pct=True, bar=True, what="moments in which warmth, charge and load are read (mean of the three), from day 5"),
@@ -58,6 +58,7 @@ def main():
     order = ["three, take turns", "one, never sleeps", "one, sleeps nights", "two, take turns"]
     examples = {k: examples[k] for k in order if k in examples} | examples
     for block, value in (("data-library", library()), ("data-templates", templates()),
+                         ("data-hands", hands()), ("data-hand-templates", hand_templates()),
                          ("data-examples", examples), ("data-findings", findings())):
         html = embed(html, block, value)
     p = HERE / "index.html"

@@ -8,6 +8,10 @@
   templates                          the use-case templates for new processor units
   new-processor TEMPLATE [--name N] [--version V] [-o unit.json] [--stub unit.py]
                                      make a processor unit (and a Python skeleton for it) from a template
+  hands                              the built-in hand units (the room's hands)
+  hand-templates                     the use-case templates for new hand units
+  new-hand TEMPLATE [--name N] [--version V] [-o hand.json] [--stub hand.py]
+                                     make a hand unit (and a Python skeleton for it) from a template
 """
 import argparse
 import json
@@ -17,7 +21,8 @@ from pathlib import Path
 
 import numpy as np
 
-from . import check, from_template, library, live, load, schedule, stagger, stub, templates
+from . import (check, from_hand_template, from_template, hand_stub, hand_templates, hands, library, live, load,
+               schedule, stagger, stub, templates)
 
 
 def _live(args):
@@ -42,6 +47,10 @@ def main(argv=None):
     sub.add_parser("units")
     sub.add_parser("templates")
     a = sub.add_parser("new-processor"); a.add_argument("template"); a.add_argument("--name")
+    a.add_argument("--version", default="1.0.0"); a.add_argument("-o", "--out"); a.add_argument("--stub")
+    sub.add_parser("hands")
+    sub.add_parser("hand-templates")
+    a = sub.add_parser("new-hand"); a.add_argument("template"); a.add_argument("--name")
     a.add_argument("--version", default="1.0.0"); a.add_argument("-o", "--out"); a.add_argument("--stub")
     o = ap.parse_args(argv)
 
@@ -79,6 +88,27 @@ def main(argv=None):
     if o.cmd == "templates":
         for t in templates():
             print(f"{t['name']:20} {t['use_case']:34} {len(t['outputs'])} outputs  ({t['source']['kind'] or 'your own'})")
+        return 0
+    if o.cmd == "hands":
+        for name, u in hands().items():
+            opts = ", ".join(str(x.get("label", x["value"])) for x in u["options"])
+            print(f"{name:11} {u['target']['kind']:8} {u['description']}  [{opts}]  guard: {u['guard']}")
+        return 0
+    if o.cmd == "hand-templates":
+        for t in hand_templates():
+            print(f"{t['name']:12} {t['use_case']:36} {len(t['options'])} options  ({t['target']['kind'] or 'your own'})")
+        return 0
+    if o.cmd == "new-hand":
+        tpl = {t["name"]: t for t in hand_templates()}.get(o.template)
+        if tpl is None:
+            print("no such template; see: python -m endolexis.studio hand-templates", file=sys.stderr)
+            return 1
+        unit = from_hand_template(tpl, o.name, o.version)
+        if o.stub:
+            unit["implementation"] = {"python": f"{Path(o.stub).stem}:act"}
+            Path(o.stub).write_text(hand_stub(unit))
+        text = json.dumps(unit, indent=2, ensure_ascii=False) + "\n"
+        Path(o.out).write_text(text) if o.out else print(text)
         return 0
     if o.cmd == "new-processor":
         tpl = {t["name"]: t for t in templates()}.get(o.template)

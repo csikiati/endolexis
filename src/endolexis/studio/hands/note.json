@@ -1,0 +1,22 @@
+{
+  "format": "endolexis-hand",
+  "name": "note",
+  "title": "Note",
+  "description": "Writes a note to its sandbox.",
+  "version": "1.0.0",
+  "target": {
+    "kind": "disk",
+    "detail": "a line in its own sandbox: 5 moments of disk clicks"
+  },
+  "options": [
+    {
+      "value": 0,
+      "label": "a note"
+    }
+  ],
+  "guard": "refused while the body is busy (load 0.4 or more)",
+  "effects": "a burst of load",
+  "implementation": {
+    "builtin": "note"
+  }
+}

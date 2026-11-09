@@ -1,0 +1,242 @@
+[
+  {
+    "name": "vibrate",
+    "title": "Vibrate",
+    "use_case": "A phone in a pocket",
+    "description": "Buzzes the phone's motor briefly.",
+    "target": {
+      "kind": "vibration motor",
+      "detail": "a short buzz"
+    },
+    "options": [
+      {
+        "value": 150,
+        "label": "short"
+      },
+      {
+        "value": 600,
+        "label": "long"
+      }
+    ],
+    "guard": "refused while the battery is low",
+    "effects": "felt by the accelerometer; costs a little charge"
+  },
+  {
+    "name": "speak",
+    "title": "Speak",
+    "use_case": "A voice of its own",
+    "description": "Says one of a few sounds through text to speech. Never words it understands: only sounds it can choose.",
+    "target": {
+      "kind": "speaker",
+      "detail": "a spoken syllable"
+    },
+    "options": [
+      {
+        "value": "ba",
+        "label": "ba"
+      },
+      {
+        "value": "mo",
+        "label": "mo"
+      },
+      {
+        "value": "ti",
+        "label": "ti"
+      }
+    ],
+    "guard": "refused while the body is hot",
+    "effects": "heard by its own microphone"
+  },
+  {
+    "name": "light",
+    "title": "Light colour",
+    "use_case": "A room with a smart bulb",
+    "description": "Sets a smart bulb's colour for a while.",
+    "target": {
+      "kind": "smart bulb",
+      "detail": "the room's lamp"
+    },
+    "options": [
+      {
+        "value": "warm",
+        "label": "warm white"
+      },
+      {
+        "value": "cold",
+        "label": "cold white"
+      },
+      {
+        "value": "red",
+        "label": "red"
+      },
+      {
+        "value": "off",
+        "label": "off"
+      }
+    ],
+    "guard": "refused at night if someone sleeps",
+    "effects": "seen by the camera; the room's light changes"
+  },
+  {
+    "name": "move",
+    "title": "Move",
+    "use_case": "A robot or a motorised camera",
+    "description": "Turns a motor a little left or right, or stops it.",
+    "target": {
+      "kind": "motor or servo",
+      "detail": "a small turn of a wheel or a camera mount"
+    },
+    "options": [
+      {
+        "value": -1,
+        "label": "left"
+      },
+      {
+        "value": 0,
+        "label": "stop"
+      },
+      {
+        "value": 1,
+        "label": "right"
+      }
+    ],
+    "guard": "refused when the motor is hot or blocked",
+    "effects": "the picture moves; the accelerometer feels it; costs charge"
+  },
+  {
+    "name": "notify",
+    "title": "Notify",
+    "use_case": "A companion on a phone or desktop",
+    "description": "Shows a short notification to the person.",
+    "target": {
+      "kind": "notifications",
+      "detail": "a notice with one of a few fixed texts"
+    },
+    "options": [
+      {
+        "value": 0,
+        "label": "a chime"
+      },
+      {
+        "value": 1,
+        "label": "a dot"
+      }
+    ],
+    "guard": "refused more than once in ten minutes",
+    "effects": "the person may answer: touch, sound"
+  },
+  {
+    "name": "thermostat",
+    "title": "Thermostat",
+    "use_case": "A house as a body",
+    "description": "Asks the heating to go a little warmer or cooler.",
+    "target": {
+      "kind": "thermostat",
+      "detail": "the target temperature, by half a degree"
+    },
+    "options": [
+      {
+        "value": -0.5,
+        "label": "cooler"
+      },
+      {
+        "value": 0.5,
+        "label": "warmer"
+      }
+    ],
+    "guard": "refused outside 18-24 °C",
+    "effects": "the house's warmth changes slowly"
+  },
+  {
+    "name": "plug",
+    "title": "Smart plug",
+    "use_case": "A home's machines",
+    "description": "Switches a smart plug on or off (a fan, a lamp, a radio).",
+    "target": {
+      "kind": "smart plug",
+      "detail": "one plug"
+    },
+    "options": [
+      {
+        "value": 0,
+        "label": "off"
+      },
+      {
+        "value": 1,
+        "label": "on"
+      }
+    ],
+    "guard": "refused more often than once a minute",
+    "effects": "whatever is plugged in starts or stops"
+  },
+  {
+    "name": "sound-clip",
+    "title": "Sound clip",
+    "use_case": "A voice from recordings",
+    "description": "Plays one of a few short recorded sounds.",
+    "target": {
+      "kind": "speaker",
+      "detail": "a short recording"
+    },
+    "options": [
+      {
+        "value": 0,
+        "label": "clip 1"
+      },
+      {
+        "value": 1,
+        "label": "clip 2"
+      },
+      {
+        "value": 2,
+        "label": "clip 3"
+      }
+    ],
+    "guard": "refused while someone is talking",
+    "effects": "heard by its own microphone"
+  },
+  {
+    "name": "post",
+    "title": "Post a message",
+    "use_case": "A body in a chat",
+    "description": "Posts one of a few fixed signs into a chat channel.",
+    "target": {
+      "kind": "chat channel",
+      "detail": "a fixed sign, never free text"
+    },
+    "options": [
+      {
+        "value": 0,
+        "label": "·"
+      },
+      {
+        "value": 1,
+        "label": "··"
+      },
+      {
+        "value": 2,
+        "label": "···"
+      }
+    ],
+    "guard": "refused more than once an hour",
+    "effects": "others may answer in the channel"
+  },
+  {
+    "name": "blank",
+    "title": "Blank",
+    "use_case": "Your own",
+    "description": "Start from nothing: say what it does, where it acts and what it may choose among.",
+    "target": {
+      "kind": "",
+      "detail": ""
+    },
+    "options": [
+      {
+        "value": 0,
+        "label": "option 1"
+      }
+    ],
+    "guard": "",
+    "effects": ""
+  }
+]

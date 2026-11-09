@@ -1,0 +1,26 @@
+{
+  "format": "endolexis-hand",
+  "name": "tone_soft",
+  "title": "Soft tone",
+  "description": "Sings a soft tone from the speaker for 20 moments.",
+  "version": "1.0.0",
+  "target": {
+    "kind": "speaker",
+    "detail": "a quiet sine tone, 300 or 900 Hz"
+  },
+  "options": [
+    {
+      "value": 300.0,
+      "label": "300 Hz"
+    },
+    {
+      "value": 900.0,
+      "label": "900 Hz"
+    }
+  ],
+  "guard": "never refused",
+  "effects": "it hears itself, more or less, depending on the voice of the room",
+  "implementation": {
+    "builtin": "tone_soft"
+  }
+}

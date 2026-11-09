@@ -1,0 +1,26 @@
+{
+  "format": "endolexis-hand",
+  "name": "tone_loud",
+  "title": "Loud tone",
+  "description": "Sings a loud tone from the speaker for 20 moments.",
+  "version": "1.0.0",
+  "target": {
+    "kind": "speaker",
+    "detail": "a loud sine tone, 300 or 900 Hz"
+  },
+  "options": [
+    {
+      "value": 300.0,
+      "label": "300 Hz"
+    },
+    {
+      "value": 900.0,
+      "label": "900 Hz"
+    }
+  ],
+  "guard": "refused while the body is hot (warmth 0.4 or more)",
+  "effects": "warms the body",
+  "implementation": {
+    "builtin": "tone_loud"
+  }
+}

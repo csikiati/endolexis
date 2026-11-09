@@ -1,0 +1,30 @@
+{
+  "format": "endolexis-hand",
+  "name": "paint",
+  "title": "Paint",
+  "description": "Its window on the screen glows red, green or blue for 30 moments.",
+  "version": "1.0.0",
+  "target": {
+    "kind": "screen",
+    "detail": "its own window, seen by the camera only in a mirror"
+  },
+  "options": [
+    {
+      "value": 0,
+      "label": "red"
+    },
+    {
+      "value": 1,
+      "label": "green"
+    },
+    {
+      "value": 2,
+      "label": "blue"
+    }
+  ],
+  "guard": "refused while the battery is low (charge 0.35 or less)",
+  "effects": "costs charge and load",
+  "implementation": {
+    "builtin": "paint"
+  }
+}

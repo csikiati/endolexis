@@ -1,0 +1,30 @@
+{
+  "format": "endolexis-hand",
+  "name": "brightness",
+  "title": "Brightness",
+  "description": "Dims or lights the screen.",
+  "version": "1.0.0",
+  "target": {
+    "kind": "screen",
+    "detail": "the screen's glow, kept until it is changed"
+  },
+  "options": [
+    {
+      "value": 0.0,
+      "label": "dark"
+    },
+    {
+      "value": 0.5,
+      "label": "half"
+    },
+    {
+      "value": 1.0,
+      "label": "full"
+    }
+  ],
+  "guard": "full brightness is refused while the battery is low (charge below 0.25)",
+  "effects": "the room's light changes; full brightness drains charge",
+  "implementation": {
+    "builtin": "brightness"
+  }
+}

@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from endolexis.studio import (build, check, check_unit, from_template, library, live, load, schedule,
-                              stagger, stub, templates)
+from endolexis.studio import (build, check, check_hand, check_unit, from_hand_template, from_template, hand_stub,
+                              hand_templates, hands, library, live, load, schedule, stagger, stub, templates)
 from endolexis.studio.__main__ import main as cli
 from endolexis.toyworld.ensemble import ASLEEP, AWAKE, WAKING, state_at
 
@@ -22,6 +22,35 @@ def test_library_and_templates_are_sound():
         u = from_template(t)
         assert check_unit(u) == [], t["name"]
         compile(stub(u), t["name"], "exec")
+
+
+def test_hands_and_hand_templates_are_sound():
+    from endolexis.toyworld.hands import DETAILS
+    from endolexis.toyworld.room import KINDS
+    lib = hands()
+    assert sorted(lib) == sorted(KINDS)
+    for k, u in lib.items():
+        assert check_hand(u) == [] and u["implementation"] == {"builtin": k}
+        assert [o["value"] for o in u["options"]] == list(DETAILS[k])
+    for t in hand_templates():
+        u = from_hand_template(t)
+        if t["name"] != "blank":                             # the blank one is filled in by its maker
+            assert check_hand(u) == [], t["name"]
+        compile(hand_stub(u), t["name"], "exec")
+
+
+def test_a_hand_the_room_does_not_have_is_kept_and_left_out():
+    arch = load(EXAMPLES / "one-never-sleeps.json")
+    vib = from_hand_template({t["name"]: t for t in hand_templates()}["vibrate"])
+    arch["outputs"] = [{"id": "h_paint", "kind": "paint", "unit": hands()["paint"]}, {"id": "h_vibrate", "unit": vib}]
+    arch["links"] = [ln for ln in arch["links"] if ln["from"]["node"] != "o1"]
+    arch["links"] += [{"from": {"node": "o1"}, "to": {"node": h}} for h in ("h_paint", "h_vibrate")]
+    bad, warn = check(arch)
+    assert bad == [] and any("Vibrate" in w and "left out" in w for w in warn)
+    ens, _ = build(arch)
+    assert ens.members[0].mind.kinds == [3]                  # paint only
+    arch["outputs"][1]["unit"] = {"format": "endolexis-hand", "name": "x"}
+    assert any("target is missing" in b for b in check(arch)[0])
 
 
 def test_state_at_wraps_around_midnight():
@@ -85,6 +114,9 @@ def test_command_line(tmp_path, capsys):
     assert u["name"] == "my-accel" and u["implementation"] == {"python": "my_accel:process"}
     assert cli(["check", str(EXAMPLES / "three-take-turns.json")]) == 0
     assert "100%" in capsys.readouterr().out
+    assert cli(["new-hand", "light", "--name", "lamp", "-o", str(tmp_path / "lamp.json"), "--stub", str(tmp_path / "lamp.py")]) == 0
+    h = json.loads((tmp_path / "lamp.json").read_text())
+    assert h["name"] == "lamp" and h["implementation"] == {"python": "lamp:act"} and check_hand(h) == []
 
 
 def test_web_studio_is_built_from_the_package():
@@ -95,6 +127,8 @@ def test_web_studio_is_built_from_the_package():
         return json.loads(m.group(1).replace("<\\/", "</"))
     assert block("data-library") == library(), "run python studio/build.py"
     assert block("data-templates") == templates(), "run python studio/build.py"
+    assert block("data-hands") == hands(), "run python studio/build.py"
+    assert block("data-hand-templates") == hand_templates(), "run python studio/build.py"
     examples = block("data-examples")
     for f in EXAMPLES.glob("*.json"):
         a = load(f)

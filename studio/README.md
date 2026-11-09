@@ -2,8 +2,8 @@
 
 A web page for drawing **architectures**: which processor outputs feed which Olvasó (one, two or three), which
 hands each Olvasó may use, and when each one sleeps. The architecture is saved as JSON and lived by the Python
-package in the toy world's room (`endolexis.studio`). A second page makes new **processor units** from
-use-case templates.
+package in the toy world's room (`endolexis.studio`). A second page makes new **processor units** and **hand
+units** from use-case templates.
 
 Open `studio/index.html` in a browser (no server, no install). It is one self-contained file.
 
@@ -17,6 +17,10 @@ Open `studio/index.html` in a browser (no server, no install). It is one self-co
   processor's header wire or unwire all of its outputs at once.
 - **Processors.** *Add processor* offers the built-in units, a unit JSON file, or pasted JSON. Remove one with
   its ×; its cords go with it.
+- **Hands.** *Add hand* offers the room's five built-in hands, a hand unit JSON file, or pasted JSON. Each
+  hand card shows its options. Its A/B/C pips let each Olvasó use it, or not. A new hand is wired to every
+  Olvasó. A hand the room's body does not have (a vibration motor, a smart bulb…) is kept in the
+  architecture, marked, and left out when the room lives it.
 - **Olvasós.** Up to three. Each has three sliders, all fractions of a day (0-100 %):
   - *Sleeps*: how much of the day it is asleep (lid closed, nothing sensed, no acting).
   - *Waking*: how long it takes, after sleep, to come round (it senses, learns and reads, but does not
@@ -30,14 +34,15 @@ Open `studio/index.html` in a browser (no server, no install). It is one self-co
   - *One asleep, one waking, one awake* sets three Olvasós to a third each, staggered.
 - **Save JSON** / **Open JSON…** / **Open an example…** The examples are the architectures of experiment 16.
 
-**Processor maker.** Pick a use case, then adjust the unit's fields:
+**Maker.** Choose *Processor* or *Hand*, pick a use case, then adjust the unit's fields:
 
-- name, version and description;
-- the outside source of its information, what arrives from it, and how many numbers come in;
-- the outputs, each with a name and how it is computed.
+- **Processor:** name, version and description; the outside source of its information, what arrives from
+  it, and how many numbers come in; the outputs, each with a name and how it is computed.
+- **Hand:** name, version and description; what it acts on and what it does there; the options it may
+  choose among (a value and a label each); its guard (when the body refuses it); its effects.
 
-It shows the unit's JSON and a Python skeleton. You can save either one, or add the unit to the architecture
-being drawn.
+The maker shows the unit's JSON and a Python skeleton. You can save either one, or add the unit to the
+architecture being drawn.
 
 **Experiment 16** shows the results of living the example architectures.
 
@@ -46,11 +51,13 @@ being drawn.
 | File | Format | What |
 |---|---|---|
 | processor unit | `"format": "endolexis-processor"` | `name`, `title`, `description`, `version`, `source` (`kind`, `detail`, `raw`: the key in the world's raw senses), `inputs`, `outputs`, `output_names`, and `implementation`: `{"builtin": "vision", "outputs": [6, 7, 8]}` or `{"python": "module:function"}` |
-| architecture | `"format": "endolexis-architecture"` | `processors` (`id`, `unit`), `olvasos` (`id`, `name`, `sleep`, `waking`, `phase`, optionally `shift`), `outputs` (`id`, `kind`: one of the body's hands), `links` (`{"from": {"node", "port"}, "to": {"node"}}` for a processor output; `{"from": {"node"}, "to": {"node"}}` for a hand) |
+| hand unit | `"format": "endolexis-hand"` | `name`, `title`, `description`, `version`, `target` (`kind`, `detail`: what it acts on), `options` (`[{"value", "label"}]`: what Olvasó may choose among), `guard` (when the body refuses it), `effects`, and `implementation`: `{"builtin": "paint"}` (one of the room's hands) or `{"python": "module:act"}` |
+| architecture | `"format": "endolexis-architecture"` | `processors` (`id`, `unit`), `olvasos` (`id`, `name`, `sleep`, `waking`, `phase`, optionally `shift`), `outputs` (`id`, and `kind`: one of the room's hands, and/or `unit`: a hand unit), `links` (`{"from": {"node", "port"}, "to": {"node"}}` for a processor output; `{"from": {"node"}, "to": {"node"}}` for a hand) |
 
 Built-in units are in `src/endolexis/studio/processors/`: the whole eye, ear and touch, and their stages
-(retina, motion, form; cochlea, timbre, rhythm). The use-case templates are in
-`src/endolexis/studio/templates.json`.
+(retina, motion, form; cochlea, timbre, rhythm). The room's hands are in `src/endolexis/studio/hands/`. The
+use-case templates are in `src/endolexis/studio/templates.json` and `hand_templates.json`: vibrate, speak,
+light colour, move, notify, thermostat, smart plug, sound clip, post a message.
 
 ## The command line
 
@@ -61,6 +68,9 @@ python -m endolexis.studio stagger my-architecture.json
 python -m endolexis.studio units
 python -m endolexis.studio templates
 python -m endolexis.studio new-processor accelerometer --name my-accel -o my-accel.json --stub my_accel.py
+python -m endolexis.studio hands
+python -m endolexis.studio hand-templates
+python -m endolexis.studio new-hand vibrate --name buzz -o buzz.json --stub buzz.py
 ```
 
 A unit with a Python implementation is called with the room's raw senses (`raw["image"]`, `raw["sound"]`,

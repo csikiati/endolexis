@@ -99,6 +99,12 @@ svg.cords path.temp { fill: none; stroke: var(--ink); stroke-width: 2; stroke-da
 .add-tile { border: 1px dashed var(--line); background: transparent; border-radius: 9px; padding: 9px; color: var(--muted); text-align: center }
 .cord-x { position: absolute; z-index: 4; transform: translate(-50%,-50%); border-radius: 50%; width: 26px; height: 26px; padding: 0; background: var(--ink); color: var(--bg); border: none; font-weight: 600 }
 .hint { font-size: .8rem; color: var(--muted) }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; margin-bottom: 14px }
+.seg button { border: none; border-radius: 0; padding: 5px 14px }
+.seg button[aria-pressed=true] { background: var(--ink); color: var(--bg) }
+.opts { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px }
+.opt { font: .7rem var(--f-mono); border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; color: var(--muted) }
+.foreign { font-size: .72rem; color: var(--warn) }
 .careful { display: flex; gap: 7px; align-items: start; font-size: .78rem; color: var(--muted); margin-top: -4px }
 .careful input { margin-top: 2px; accent-color: var(--ink) }
 
@@ -165,7 +171,7 @@ tr.base td { background: var(--soft) }
 
   <nav class="tabs" role="tablist">
     <button role="tab" id="tab-wiring" aria-selected="true" data-view="wiring">Wiring and sleep</button>
-    <button role="tab" id="tab-maker" aria-selected="false" data-view="maker">Processor maker</button>
+    <button role="tab" id="tab-maker" aria-selected="false" data-view="maker">Maker</button>
     <button role="tab" id="tab-findings" aria-selected="false" data-view="findings">Experiment 16</button>
   </nav>
 
@@ -190,7 +196,7 @@ tr.base td { background: var(--soft) }
         </div>
       </div>
     </div>
-    <p class="hint">Drag from a socket to a card to lay a cord, or tap a socket and then the card. Tap a cord to select it, then × or Delete to remove it. The lettered pips beside each output wire it to an Olvasó, or unwire it.</p>
+    <p class="hint">Drag from a socket to a card to lay a cord, or tap a socket and then the card. Tap a cord to select it, then × or Delete to remove it. The lettered pips beside each output, and on each hand, wire it to an Olvasó, or unwire it.</p>
 
     <div class="day">
       <div style="display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;justify-content:space-between">
@@ -216,7 +222,8 @@ tr.base td { background: var(--soft) }
 
   <!-- maker -->
   <section id="view-maker" hidden>
-    <div class="maker">
+    <div class="seg" role="group" aria-label="What to make"><button type="button" id="mkP" aria-pressed="true">Processor</button><button type="button" id="mkH" aria-pressed="false">Hand</button></div>
+    <div class="maker" id="mk-proc">
       <div>
         <h2>Make a processor unit</h2>
         <p class="hint" style="max-width:62ch">A processor is clockwork between an outside source and Olvasó: it turns what comes in into a few numbers and never learns or names anything. Start from a use case, then adjust.</p>
@@ -260,6 +267,50 @@ tr.base td { background: var(--soft) }
         <p class="hint">From a clone: <span class="mono">python -m endolexis.studio new-processor accelerometer --stub my_accel.py -o my_accel.json</span> does the same from the command line. The room of the toy world gives <span class="mono">image</span>, <span class="mono">sound</span> and <span class="mono">touch</span>; other sources need a world or a body that provides them.</p>
       </div>
     </div>
+    <div class="maker" id="mk-hand" hidden>
+      <div>
+        <h2>Make a hand unit</h2>
+        <p class="hint" style="max-width:62ch">A hand is a way to act on the outside. Olvasó chooses among its options and never learns what the hand does, only what follows. The body's guard may refuse it, and Olvasó never learns that the guard exists. Start from a use case, then adjust.</p>
+        <div class="tpls" id="htpls"></div>
+        <form class="form" id="handForm" autocomplete="off">
+          <div class="two">
+            <label>Name (file name, no spaces)<input type="text" id="h_name"></label>
+            <label>Version<input type="text" id="h_version" value="1.0.0"></label>
+          </div>
+          <label>Title<input type="text" id="h_title"></label>
+          <label>Description<textarea id="h_desc" rows="2" style="font-family:var(--f-ui);font-size:.9rem"></textarea></label>
+          <div class="two">
+            <label>Acts on<input type="text" id="h_tkind" placeholder="speaker, motor, smart bulb…"></label>
+            <label>What it does there<input type="text" id="h_tdetail"></label>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px"><span class="eyebrow">Options it may choose among</span><button type="button" id="h_addOpt">Add option</button></div>
+            <div class="outrows" id="h_opts"></div>
+          </div>
+          <label>Guard: when the body refuses it<input type="text" id="h_guard" placeholder="refused while the battery is low"></label>
+          <label>Effects: what follows outside or inside<input type="text" id="h_effects"></label>
+          <label>Implementation
+            <select id="h_impl">
+              <option value="python">Python function (module:act)</option>
+              <option value="none">None yet (describe only)</option>
+            </select>
+          </label>
+          <label id="h_modWrap">Python module<input type="text" id="h_module" placeholder="my_hand"></label>
+        </form>
+      </div>
+      <div style="display:grid;gap:10px;align-content:start;min-width:0">
+        <div id="h_check" class="status"></div>
+        <div class="actions">
+          <button id="h_toArch" class="primary">Add to architecture</button>
+          <button id="h_save">Save hand JSON</button>
+          <button id="h_copy">Copy JSON</button>
+        </div>
+        <pre class="preview" id="h_json"></pre>
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><h3>Python skeleton</h3><div class="actions"><button id="h_saveStub">Save</button><button id="h_copyStub">Copy</button></div></div>
+        <pre class="preview" id="h_stub"></pre>
+        <p class="hint">From a clone: <span class="mono">python -m endolexis.studio new-hand vibrate --stub my_vibrate.py -o my_vibrate.json</span>. The room of the toy world has five hands (brightness, soft and loud tones, paint, note); a new hand is kept in the architecture but lives only in a body that has it.</p>
+      </div>
+    </div>
   </section>
 
   <!-- findings -->
@@ -272,6 +323,8 @@ tr.base td { background: var(--soft) }
 
 <script type="application/json" id="data-library">{}</script>
 <script type="application/json" id="data-templates">[]</script>
+<script type="application/json" id="data-hands">{}</script>
+<script type="application/json" id="data-hand-templates">[]</script>
 <script type="application/json" id="data-examples">{}</script>
 <script type="application/json" id="data-findings">null</script>
 <script>
@@ -279,10 +332,11 @@ tr.base td { background: var(--soft) }
 const $ = s => document.querySelector(s);
 const J = id => JSON.parse(document.getElementById(id).textContent);
 const LIB = J("data-library"), TPLS = J("data-templates"), EXAMPLES = J("data-examples"), FINDINGS = J("data-findings");
+const HLIB = J("data-hands"), HTPLS = J("data-hand-templates");
 const KINDS = ["brightness", "tone_soft", "tone_loud", "paint", "note"];
-const HANDS = { brightness: "dims or lights the screen", tone_soft: "sings a soft tone", tone_loud: "sings a loud tone",
-  paint: "paints its window red, green or blue", note: "writes a note to its sandbox" };
-const HAND_TITLE = { brightness: "Brightness", tone_soft: "Soft tone", tone_loud: "Loud tone", paint: "Paint", note: "Note" };
+// a hand of the architecture: {id, kind} (one of the room's hands) or {id, kind?, unit} (a hand unit)
+const handUnit = h => h.unit || HLIB[h.kind] || { name: h.kind, title: h.kind, description: "", options: [] };
+const handKind = h => { const k = h.kind || h.unit?.implementation?.builtin; return KINDS.includes(k) ? k : null; };
 const LETTERS = ["A", "B", "C"];
 const col = i => `var(--o${i + 1})`;
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -351,6 +405,15 @@ const clock = f => { const h = (6 + f * 24) % 24; const hh = Math.floor(h + 1e-9
 const hours = f => { const h = f * 24; return (Math.round(h * 10) / 10) + " h"; };
 
 /* ---------- checks: same rules as endolexis.studio.check ---------- */
+function checkHand(u) {
+  const bad = [];
+  if (u.format !== "endolexis-hand") bad.push('format must be "endolexis-hand"');
+  for (const k of ["name", "description", "version"]) if (!u[k]) bad.push(k + " is missing");
+  if (!u.target?.kind) bad.push("target is missing (what it acts on)");
+  if (!Array.isArray(u.options) || !u.options.length) bad.push("options must list at least one thing it may choose");
+  else if (u.options.some(o => !o || typeof o !== "object" || !("value" in o))) bad.push("each option needs a value (and a label)");
+  return bad;
+}
 function checkUnit(u) {
   const bad = [];
   if (u.format !== "endolexis-processor") bad.push('format must be "endolexis-processor"');
@@ -376,6 +439,12 @@ function check() {
     const imp = p.unit.implementation || {};
     if (!imp.builtin && !imp.python) warn.push(`${p.unit.title || p.unit.name} has no implementation yet: describe-only, the runner cannot live it`);
     if (!A.links.some(l => l.from.node === p.id)) warn.push(`${p.unit.title || p.unit.name} is not wired to any Olvasó`);
+  }
+  for (const h of A.outputs) {
+    const u = handUnit(h);
+    if (h.unit) for (const b of checkHand(h.unit)) bad.push(`${u.title || u.name}: ${b}`);
+    else if (!KINDS.includes(h.kind)) bad.push(`${h.id}: the room has no hand "${h.kind}": give it a hand unit`);
+    if (!handKind(h)) warn.push(`${u.title || u.name} is not a hand of the room's body: it is left out when the room lives this`);
   }
   const sc = schedule();
   if (sc.never > 0) warn.push(`for ${Math.round(sc.never * 100)} % of the day no Olvasó is awake: the body cannot act`);
@@ -410,7 +479,6 @@ function render() {
   renderProcs(); renderOlvs(); renderHands(); renderStatus(); renderDay();
   $("#runCmd").textContent = `python -m endolexis.studio run ${slug(A.name)}.json --seeds 1 2 3 --days ${A.life?.days || 30}`;
   $("#btnAddOlv").disabled = A.olvasos.length >= 3;
-  $("#btnAddHand").disabled = A.outputs.length >= KINDS.length;
   requestAnimationFrame(drawCords);
 }
 function renderProcs() {
@@ -468,14 +536,19 @@ function renderOlvs() {
 }
 function renderHands() {
   $("#handList").innerHTML = A.outputs.map(h => {
+    const u = handUnit(h);
     const who = A.links.filter(l => l.to.node === h.id).map(l => olvIndex(l.from.node)).filter(i => i >= 0);
     return `<article class="card hand" data-target="${h.id}">
       <span class="socket in" aria-hidden="true"></span>
-      <div style="display:flex;justify-content:space-between;gap:6px;align-items:start"><div><h3>${HAND_TITLE[h.kind] || esc(h.kind)}</h3>
-      <div class="sub">${HANDS[h.kind] || "not a hand of this body"}</div></div>
-      <div style="display:flex;gap:3px;align-items:center">${who.map(i => `<i class="dot" style="background:${col(i)}" title="${esc(A.olvasos[i].name)}"></i>`).join("")}
-      <button class="ghost" title="Remove this hand" data-rmhand="${h.id}">×</button></div></div></article>`;
-  }).join("");
+      <div style="display:flex;justify-content:space-between;gap:6px;align-items:start"><div style="min-width:0"><h3>${esc(u.title || u.name)}</h3>
+      <div class="sub">${esc(u.description)}</div>
+      <div class="opts">${(u.options || []).map(o => `<span class="opt">${esc(o.label ?? o.value)}</span>`).join("")}</div>
+      ${handKind(h) ? "" : `<div class="foreign">not a hand of the room: kept, left out when it lives there</div>`}</div>
+      <div style="display:flex;gap:3px;align-items:center"><span class="pips">${A.olvasos.map((o, i) => { const on = who.includes(i);
+        return `<button class="pip ${on ? "on" : ""}" style="${on ? "background:" + col(i) : ""}" aria-label="${on ? "Unwire" : "Wire"} ${esc(o.name)} ${on ? "from" : "to"} ${esc(u.title || u.name)}" data-hpip="${o.id}|${h.id}">${LETTERS[i]}</button>`; }).join("")}</span>
+      <button class="ghost" title="About this hand" data-hinfo="${h.id}">i</button>
+      <button class="ghost" title="Remove ${esc(u.title || u.name)}" data-rmhand="${h.id}">×</button></div></div></article>`;
+  }).join("") || `<p class="hint">No hands: the Olvasós can read, but not act.</p>`;
 }
 function renderStatus() {
   const { bad, warn, sc } = check();
@@ -603,6 +676,10 @@ $("#bay").addEventListener("click", e => {
     A.olvasos = A.olvasos.filter(o => o.id !== id); removeLinks(l => l.from.node === id || l.to.node === id); return; }
   if (e.target.closest("[data-rmhand]")) { const id = e.target.closest("[data-rmhand]").dataset.rmhand;
     A.outputs = A.outputs.filter(h => h.id !== id); removeLinks(l => l.to.node === id); return; }
+  const hp = e.target.closest("[data-hpip]");
+  if (hp) { const [o, h] = hp.dataset.hpip.split("|");
+    if (hasLink({ node: o }, h)) removeLinks(l => l.from.node === o && l.to.node === h); else addLink({ node: o }, h); return; }
+  if (e.target.closest("[data-hinfo]")) { const h = A.outputs.find(x => x.id === e.target.closest("[data-hinfo]").dataset.hinfo); showHandInfo(handUnit(h)); return; }
   if (e.target.closest("[data-info]")) { const p = A.processors.find(x => x.id === e.target.closest("[data-info]").dataset.info); showInfo(p.unit); return; }
   const t = e.target.closest("[data-target]");
   if (armed && t && !e.target.closest("input,button")) { const f = armed; armed = null; addLink(f, t.dataset.target); return; }
@@ -636,6 +713,12 @@ new ResizeObserver(() => drawCords()).observe($("#bay"));
 function openSheet(html) { const s = $("#sheet"); s.innerHTML = `<div class="sheet-in" role="dialog" aria-modal="true">${html}</div>`; s.hidden = false; }
 function closeSheet() { $("#sheet").hidden = true; $("#sheet").innerHTML = ""; }
 $("#sheet").addEventListener("click", e => { if (e.target.id === "sheet" || e.target.closest("[data-close]")) closeSheet(); });
+function showHandInfo(u) {
+  openSheet(`<div style="display:flex;justify-content:space-between;gap:10px"><div><span class="eyebrow">hand unit · v${esc(u.version)}</span><h2>${esc(u.title || u.name)}</h2></div><button data-close>Close</button></div>
+    <p style="margin:0">${esc(u.description)}</p>
+    <p class="hint" style="margin:0"><b>Acts on:</b> ${esc(u.target?.kind)}: ${esc(u.target?.detail)}<br><b>Options:</b> ${(u.options || []).map(o => esc(o.label ?? o.value)).join(", ")}<br><b>Guard:</b> ${esc(u.guard || "never refused")} · <b>Effects:</b> ${esc(u.effects || "–")}<br><b>Implementation:</b> ${esc(JSON.stringify(u.implementation || "none"))}</p>
+    <pre class="preview">${esc(JSON.stringify(u, null, 2))}</pre>`);
+}
 function showInfo(u) {
   openSheet(`<div style="display:flex;justify-content:space-between;gap:10px"><div><span class="eyebrow">processor unit · v${esc(u.version)}</span><h2>${esc(u.title || u.name)}</h2></div><button data-close>Close</button></div>
     <p style="margin:0">${esc(u.description)}</p>
@@ -668,12 +751,31 @@ $("#btnAddOlv").onclick = () => {
   for (const h of A.outputs) A.links.push({ from: { node: id }, to: { node: h.id } });
   render();
 };
+function addHand(u) {
+  const bad = checkHand(u); if (bad.length) { toast("Not a hand unit: " + bad[0]); return false; }
+  const k = KINDS.includes(u.implementation?.builtin) ? u.implementation.builtin : null;
+  if (k && A.outputs.some(h => handKind(h) === k)) { toast(`The body already has this hand (${u.title || u.name})`); return false; }
+  let id = "h_" + slug(u.name).replace(/-/g, "_"), n = 2;
+  while (A.outputs.some(h => h.id === id)) id = "h_" + slug(u.name).replace(/-/g, "_") + "_" + n++;
+  const h = { id, unit: JSON.parse(JSON.stringify(u)) }; if (k) h.kind = k;
+  A.outputs.push(h);
+  for (const o of A.olvasos) A.links.push({ from: { node: o.id }, to: { node: id } });   // every Olvasó may use it; unwire with a tap
+  render(); return true;
+}
 $("#btnAddHand").onclick = () => {
-  const missing = KINDS.filter(k => !A.outputs.some(h => h.kind === k));
   openSheet(`<div style="display:flex;justify-content:space-between;gap:10px"><h2>Add a hand</h2><button data-close>Close</button></div>
-    <p class="hint" style="margin:0">The room's body has five hands; every request passes its guard.</p>
-    <div class="lib">${missing.map(k => `<button data-hand="${k}"><b>${HAND_TITLE[k]}</b><span class="sub">${HANDS[k]}</span></button>`).join("")}</div>`);
-  document.querySelectorAll("[data-hand]").forEach(b => b.onclick = () => { A.outputs.push({ id: "h_" + b.dataset.hand, kind: b.dataset.hand }); A.outputs.sort((a, c) => KINDS.indexOf(a.kind) - KINDS.indexOf(c.kind)); closeSheet(); render(); });
+    <span class="eyebrow">Built in (the room's body has these)</span>
+    <div class="lib">${Object.entries(HLIB).map(([k, u]) => { const has = A.outputs.some(h => handKind(h) === k);
+      return `<button data-hlib="${k}" ${has ? "disabled" : ""}><b>${esc(u.title)}${has ? " · in use" : ""}</b><span class="sub">${esc(u.target.kind)} · ${u.options.length} ${u.options.length === 1 ? "option" : "options"}</span><span class="sub">${esc(u.description)}</span><span class="sub">Guard: ${esc(u.guard)}.</span></button>`; }).join("")}</div>
+    <span class="eyebrow">From a file or pasted JSON</span>
+    <div class="actions"><button id="hlibFile">Choose hand JSON…</button><input id="hlibFileIn" type="file" accept=".json,application/json" multiple hidden></div>
+    <textarea id="hlibPaste" rows="5" placeholder='{"format": "endolexis-hand", "name": …}'></textarea>
+    <div class="actions"><button id="hlibPasteGo">Add pasted hand</button><button id="hlibMake" class="ghost">or make one in the Maker</button></div>`);
+  document.querySelectorAll("[data-hlib]").forEach(b => b.onclick = () => { if (addHand(HLIB[b.dataset.hlib])) { closeSheet(); toast("Added " + HLIB[b.dataset.hlib].title); } });
+  $("#hlibFile").onclick = () => $("#hlibFileIn").click();
+  $("#hlibFileIn").onchange = async e => { let n = 0; for (const f of e.target.files) { try { if (addHand(JSON.parse(await f.text()))) n++; } catch { toast(f.name + " is not JSON"); } } if (n) { closeSheet(); toast(`Added ${n} hand${n > 1 ? "s" : ""}`); } };
+  $("#hlibPasteGo").onclick = () => { try { if (addHand(JSON.parse($("#hlibPaste").value))) closeSheet(); } catch { toast("That is not JSON"); } };
+  $("#hlibMake").onclick = () => { closeSheet(); showView("maker"); makerMode("hand"); };
 };
 $("#dayPickIn").addEventListener("input", e => { viewDay = +e.target.value; renderDay(); A.olvasos.forEach(o => { const c = document.querySelector(`[data-target="${o.id}"] .lane-mini`); if (c) c.innerHTML = laneMini(o); }); });
 $("#careful").addEventListener("change", e => { if (e.target.checked) A.body = { ...(A.body || {}), compete: true }; else if (A.body) delete A.body.compete; });
@@ -784,6 +886,81 @@ $("#u_copy").onclick = () => copy(JSON.stringify(unitOf(U), null, 2) + "\n", "Un
 $("#u_saveStub").onclick = () => saveFile((U.module.trim() || "my_processor") + ".py", stubOf(unitOf(U)));
 $("#u_copyStub").onclick = () => copy(stubOf(unitOf(U)), "Python skeleton");
 $("#u_toArch").onclick = () => { if (addUnit(unitOf(U))) { showView("wiring"); toast("Added " + (U.title || U.name) + ": wire its outputs"); } };
+
+/* ---------- hand maker (same rules as endolexis.studio.from_hand_template and hand_stub) ---------- */
+function makerMode(m) {
+  $("#mkP").setAttribute("aria-pressed", m === "proc"); $("#mkH").setAttribute("aria-pressed", m === "hand");
+  $("#mk-proc").hidden = m !== "proc"; $("#mk-hand").hidden = m !== "hand";
+}
+$("#mkP").onclick = () => makerMode("proc"); $("#mkH").onclick = () => makerMode("hand");
+let H = null;
+function fromHandTemplate(t) {
+  const base = t.name === "blank" ? "my-hand" : "my-" + t.name;
+  return { name: base, title: t.title === "Blank" ? "" : t.title, version: "1.0.0", description: t.description,
+    target: { ...t.target }, opts: t.options.map(o => ({ value: String(o.value), label: o.label })), guard: t.guard, effects: t.effects,
+    impl: "python", module: base.replace(/-/g, "_") };
+}
+const optValue = v => { const t = String(v).trim(); return t !== "" && !isNaN(+t) ? +t : t; };
+function handOf(h) {
+  const out = { format: "endolexis-hand", name: h.name.trim(), title: h.title.trim() || h.name.trim(), description: h.description.trim(),
+    version: h.version.trim(), target: { kind: h.target.kind.trim(), detail: h.target.detail.trim() },
+    options: h.opts.map(o => ({ value: optValue(o.value), label: o.label.trim() })), guard: h.guard.trim(), effects: h.effects.trim() };
+  if (h.impl === "python") out.implementation = { python: (h.module.trim() || "my_hand") + ":act" };
+  return out;
+}
+function handStubOf(u) {
+  const Q = '"'.repeat(3);
+  return [`${Q}${u.title} ${u.version}: ${u.description}`, `Acts on: ${u.target.kind} - ${u.target.detail}`, `Refused: ${u.guard || "never"}`, "",
+    `Olvasó never learns what this hand does: only what follows.${Q}`, "", "",
+    "def guard(body):", `    ${Q}True if the body allows this hand now (it never learns that this exists).${Q}`, "    return True", "", "",
+    "def act(option, body):", `    ${Q}Carry out the hand with one of its options:`,
+    ...u.options.map(o => `    #   ${typeof o.value === "string" ? "'" + o.value + "'" : o.value}: ${o.label}`), `    ${Q}`, "    raise NotImplementedError", ""].join("\n");
+}
+function fillHand() {
+  $("#h_name").value = H.name; $("#h_version").value = H.version; $("#h_title").value = H.title; $("#h_desc").value = H.description;
+  $("#h_tkind").value = H.target.kind; $("#h_tdetail").value = H.target.detail; $("#h_guard").value = H.guard; $("#h_effects").value = H.effects;
+  $("#h_impl").value = H.impl; $("#h_module").value = H.module; renderOpts(); updateHand();
+}
+function renderOpts() {
+  $("#h_opts").innerHTML = H.opts.map((o, i) => `<div class="outrow"><span class="n">${i}</span>
+    <input type="text" id="ho_v_${i}" value="${esc(o.value)}" data-ov="${i}" aria-label="Option ${i} value" placeholder="value">
+    <input type="text" id="ho_l_${i}" value="${esc(o.label)}" data-ol="${i}" aria-label="Option ${i} label" placeholder="label">
+    <button type="button" class="ghost" data-hrm="${i}" aria-label="Remove option ${i}" ${H.opts.length <= 1 ? "disabled" : ""}>×</button></div>`).join("");
+}
+function updateHand() {
+  const u = handOf(H), bad = checkHand(u);
+  if (u.options.some(o => o.value === "")) bad.push("every option needs a value");
+  if (!/^[a-z0-9][a-z0-9_-]*$/i.test(u.name)) bad.push("the name is a file name: letters, digits, - and _");
+  $("#h_check").innerHTML = bad.length ? bad.map(b => `<span class="chip bad"><i class="dot" style="background:var(--bad)"></i>${esc(b)}</span>`).join("")
+    : `<span class="chip ok"><i class="dot" style="background:var(--ok)"></i>A sound hand unit: ${u.options.length} ${u.options.length === 1 ? "option" : "options"}</span>`;
+  $("#h_json").textContent = JSON.stringify(u, null, 2);
+  $("#h_stub").textContent = handStubOf(u);
+  $("#h_modWrap").hidden = H.impl !== "python";
+  $("#h_toArch").disabled = $("#h_save").disabled = bad.length > 0;
+}
+function renderHTpls(active) {
+  $("#htpls").innerHTML = HTPLS.map(t => `<button type="button" aria-pressed="${t.name === active}" data-htpl="${t.name}" title="${esc(t.use_case)}">${esc(t.title)}</button>`).join("");
+}
+$("#htpls").addEventListener("click", e => { const b = e.target.closest("[data-htpl]"); if (!b) return; const t = HTPLS.find(x => x.name === b.dataset.htpl); H = fromHandTemplate(t); renderHTpls(t.name); fillHand(); });
+$("#handForm").addEventListener("input", e => {
+  const t = e.target;
+  if (t.dataset.ov !== undefined) H.opts[+t.dataset.ov].value = t.value;
+  else if (t.dataset.ol !== undefined) H.opts[+t.dataset.ol].label = t.value;
+  else ({ h_name: () => H.name = t.value, h_version: () => H.version = t.value, h_title: () => H.title = t.value, h_desc: () => H.description = t.value,
+    h_tkind: () => H.target.kind = t.value, h_tdetail: () => H.target.detail = t.value, h_guard: () => H.guard = t.value, h_effects: () => H.effects = t.value,
+    h_impl: () => H.impl = t.value, h_module: () => H.module = t.value }[t.id] || (() => {}))();
+  updateHand();
+});
+$("#handForm").addEventListener("change", e => { if (e.target.id === "h_impl") { H.impl = e.target.value; updateHand(); } });
+$("#handForm").addEventListener("submit", e => e.preventDefault());
+$("#h_addOpt").onclick = () => { H.opts.push({ value: String(H.opts.length), label: "option " + (H.opts.length + 1) }); renderOpts(); updateHand(); };
+$("#h_opts").addEventListener("click", e => { const b = e.target.closest("[data-hrm]"); if (!b) return; H.opts.splice(+b.dataset.hrm, 1); renderOpts(); updateHand(); });
+$("#h_save").onclick = () => { const u = handOf(H); saveFile(u.name + ".json", JSON.stringify(u, null, 2) + "\n"); };
+$("#h_copy").onclick = () => copy(JSON.stringify(handOf(H), null, 2) + "\n", "Hand JSON");
+$("#h_saveStub").onclick = () => saveFile((H.module.trim() || "my_hand") + ".py", handStubOf(handOf(H)));
+$("#h_copyStub").onclick = () => copy(handStubOf(handOf(H)), "Python skeleton");
+$("#h_toArch").onclick = () => { if (addHand(handOf(H))) { showView("wiring"); toast("Added " + (H.title || H.name) + ": every Olvasó is wired to it"); } };
+H = fromHandTemplate(HTPLS.find(t => t.name === "vibrate") || HTPLS[0]); renderHTpls(HTPLS.find(t => t.name === "vibrate") ? "vibrate" : HTPLS[0]?.name); fillHand();
 
 /* ---------- findings ---------- */
 function renderFindings() {

@@ -13,7 +13,12 @@ Three kinds of file:
                   starts each day), the body's hands, the links between them (a processor output to an
                   Olvasó, an Olvasó to a hand), and optionally body: {"compete": true}, a careful body
                   (when several Olvasós read a state, the best must fit that many times better)
-  template        (templates.json) - starting points for new processor units, by use case
+  hand unit       (format "endolexis-hand") - one hand: name, title, description, version, target (the
+                  outside thing it acts on), options (what it may choose among, each a value and a
+                  label), guard (when the body refuses it), effects, and optionally an implementation:
+                  {"builtin": "brightness" | "tone_soft" | "tone_loud" | "paint" | "note"} (the room's
+                  hands) or {"python": "module:act"} (for a body that has that hand)
+  template        (templates.json, hand_templates.json) - starting points for new units, by use case
 
 `python -m endolexis.studio --help` for the command line. The web studio (studio/index.html in the
 repository) draws and edits architectures and makes processor units.
@@ -44,6 +49,60 @@ def library():
 
 def templates():
     return json.loads((HERE / "templates.json").read_text(encoding="utf-8"))
+
+
+def hands():
+    """The built-in hand units (the room's five hands), by name."""
+    return {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in sorted((HERE / "hands").glob("*.json"))}
+
+
+def hand_templates():
+    return json.loads((HERE / "hand_templates.json").read_text(encoding="utf-8"))
+
+
+def check_hand(u):
+    """Problems with a hand unit (an empty list when it is fine)."""
+    bad = []
+    if u.get("format") != "endolexis-hand":
+        bad.append('format must be "endolexis-hand"')
+    for k in ("name", "description", "version"):
+        if not u.get(k):
+            bad.append(f"{k} is missing")
+    if not (u.get("target") or {}).get("kind"):
+        bad.append("target is missing (what it acts on)")
+    opts = u.get("options")
+    if not isinstance(opts, list) or not opts:
+        bad.append("options must list at least one thing it may choose")
+    elif any(not isinstance(o, dict) or "value" not in o for o in opts):
+        bad.append("each option needs a value (and a label)")
+    return bad
+
+
+def hand_kind(out):
+    """Which of the room's hands an architecture output is, or None if the room has no such hand."""
+    k = out.get("kind") or ((out.get("unit") or {}).get("implementation") or {}).get("builtin")
+    return k if k in KINDS else None
+
+
+def from_hand_template(tpl, name=None, version="1.0.0"):
+    """A new hand unit from a template (see hand_templates())."""
+    return {"format": "endolexis-hand", "name": name or tpl["name"], "title": tpl["title"],
+            "description": tpl["description"], "version": version, "target": tpl["target"],
+            "options": tpl["options"], "guard": tpl["guard"], "effects": tpl["effects"]}
+
+
+def hand_stub(unit):
+    """A Python skeleton carrying out a hand, for {"python": "module:act"}."""
+    t = unit.get("target") or {}
+    opts = "\n".join(f"    #   {o['value']!r}: {o.get('label', '')}" for o in unit.get("options", []))
+    return "\n".join([
+        f'"""{unit.get("title") or unit["name"]} {unit.get("version", "")}: {unit.get("description", "")}',
+        f'Acts on: {t.get("kind", "")} - {t.get("detail", "")}', f'Refused: {unit.get("guard") or "never"}', '',
+        'Olvasó never learns what this hand does: only what follows."""', '', '',
+        'def guard(body):', '    """True if the body allows this hand now (it never learns that this exists)."""',
+        '    return True', '', '',
+        'def act(option, body):', '    """Carry out the hand with one of its options:', opts, '    """',
+        '    raise NotImplementedError', ''])
 
 
 def check_unit(u):
@@ -81,8 +140,14 @@ def check(arch):
     for p in procs.values():
         bad += [f"processor {p['id']}: {b}" for b in check_unit(p["unit"])]
     for o in outs.values():
-        if o.get("kind") not in KINDS:
-            bad.append(f"output {o['id']}: the body has no hand {o.get('kind')!r} (it has {', '.join(KINDS)})")
+        if o.get("unit"):
+            bad += [f"hand {o['id']}: {b}" for b in check_hand(o["unit"])]
+        elif o.get("kind") not in KINDS:
+            bad.append(f"hand {o['id']}: the room has no hand {o.get('kind')!r} (it has {', '.join(KINDS)}); "
+                       f"give it a hand unit")
+        if (o.get("unit") or o.get("kind") in KINDS) and hand_kind(o) is None:
+            warn.append(f"{(o.get('unit') or {}).get('title') or o['id']}: the room's body has no such hand, "
+                        f"so in the room it is left out (it lives in a body that has it)")
     for o in olvs.values():
         s, w = float(o.get("sleep", 0)), float(o.get("waking", 0))
         if not 0 <= float(o.get("shift", 0)) < 1:
@@ -189,8 +254,8 @@ def build(arch, seed=1):
                             if ln["from"]["node"] == pid and ln["to"]["node"] == o["id"]})
             if ports:
                 wiring.append((pid, ports))
-        kinds = sorted({KINDS.index(outs[ln["to"]["node"]]["kind"]) for ln in arch["links"]
-                        if ln["from"]["node"] == o["id"]})
+        kinds = sorted({KINDS.index(hand_kind(outs[ln["to"]["node"]])) for ln in arch["links"]
+                        if ln["from"]["node"] == o["id"] and hand_kind(outs[ln["to"]["node"]])})
         members.append(Member(o.get("name", o["id"]), wiring, kinds, len(FELT1), seed=seed + 1000 * i,
                               sleep=o.get("sleep", 0), waking=o.get("waking", 0), phase=o.get("phase", 0),
                               threshold=o.get("threshold", 20.0), learn=o.get("learn", "answer"),

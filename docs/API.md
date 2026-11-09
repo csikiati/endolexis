@@ -485,6 +485,12 @@ The format, the web studio and the command line are described in [`studio/README
 | `from_template(tpl, name=None, version="1.0.0")` | A new processor unit from a template |
 | `stub(unit)` | A Python skeleton implementing a unit (`def process(raw): ... return [...]`) |
 | `check_unit(unit)` | Problems with a processor unit (`[]` when sound) |
+| `hands()` | The built-in hand units: the room's five hands (`brightness`, `tone_soft`, `tone_loud`, `paint`, `note`) |
+| `hand_templates()` | Use-case templates for new hands (vibrate, speak, light colour, move, notify, …) |
+| `from_hand_template(tpl, name=None, version="1.0.0")` | A new hand unit from a template |
+| `hand_stub(unit)` | A Python skeleton for a hand (`guard(body)`, `act(option, body)`) |
+| `check_hand(unit)` | Problems with a hand unit |
+| `hand_kind(output)` | Which of the room's hands an architecture output is, or `None` (then the room leaves it out) |
 | `load(path)` | Read an architecture (or any JSON) |
 | `check(arch)` | `(problems, warnings)` |
 | `schedule(arch, steps=1000)` | Shares of the day with nobody awake, nobody reading, two asleep, the ideal; Olvasós not asleep on average |
