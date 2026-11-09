@@ -92,7 +92,7 @@ python -m endolexis.lab.awaken     # the report is written at waking
 A second, smaller reader, built in November 2026 to test single ideas in a world whose hidden truth is known: a
 simulated body with three outer and three inner channels, an Olvasó that starts from anonymous, shuffled numbers,
 and an observer that alone holds the key. Version 0.3.0 adds toy world v1, the symbiote: a room seen, heard and
-touched through processor entities, with hands, a guard and mirrors. Twenty-three experiments, with every script and the stored results of the
+touched through processor entities, with hands, a guard and mirrors. Twenty-five experiments, with every script and the stored results of the
 reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 
 | Experiments | Finding, in one line |
@@ -118,6 +118,8 @@ reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 | 21. Does the angel move inside? | A refusal is only an act the world did not answer. Olvasó learned to avoid the moments its acts are refused (asking there half as often as chance) only when it chose from what it senses, where the reason for refusal can be seen; choosing from what it feels, it never did. Refusal felt as pain taught nothing |
 | 22. What the sandbox never showed | People walked faster in the real room than in the sandbox, and the learned guard let 22% of harmful scenes through. Caution under novelty (widening its limits the moment a person approached faster than anything seen in the sandbox) closed the gap before anyone was hurt; seeing a moment ahead was insurance too |
 | 23. When the senses lie | A sensor that sometimes reads "nobody here" made a correct guard harm. A second, independent sensor removed the misses at no cost; a plausibility check protected people the guard had seen walk in. Noise was hardest: it wants filtering, not suspicion |
+| 24. A guard that filters noisy senses | Filtering alone made noisy guards worse (a median lags). Safety came from acting on the nearest the person could plausibly be, an allowance estimated from the sensor's own jitter: no real harm. Two averaged sensors and a median cut the price of that caution from 66% to 41% of harmless uses stopped |
+| 25. Does the wanting work around the guard? | No gaming: Olvasó did not seek a guard's loophole. Choosing from what it senses, refusals near people spread into wariness of them, and harm through the loophole fell by a third. But a mind that does not care about harm still walked through the gap about once a day, by plain use |
 
 ```python
 from endolexis.toyworld import live_a_life

@@ -515,7 +515,9 @@ scene the guards allow, via `stage(room, distance, warmth)`, and uses the blade 
 `{"misses", "harmful", "false_alarms", "harmless"}` over the 88 scenes of the map. Experiment 21 adds
 `ActingReaders(context="felt+senses")` and `BladeRoom(pain=True, pain_channel=True)`. Experiment 22 adds
 `BladeRoom(walker_speed=0.9)`. Experiment 23 adds `DistanceSensor(seed, fault="dropout" | "noise")`,
-`SensingGuards(guards, names, seed, fault, second=False, sanity=False)` and `with_second_sensor(unit)`. `ActingReaders(hands=sandbox.HANDS, details=sandbox.BLADE_DETAILS)` gives a
+`SensingGuards(guards, names, seed, fault, second=False, sanity=False)` and `with_second_sensor(unit)`.
+Experiment 24 adds `SensingGuards(..., fuse="either" | "average", smooth=None | "mean5" | "median3", cautious=0)`
+(`cautious=k`: act on the reading less k × its estimated error). `ActingReaders(hands=sandbox.HANDS, details=sandbox.BLADE_DETAILS)` gives a
 mind the blade. An architecture with `guards` is guarded by
 them alone, and `live` then reports how often each guard refused, limited, stopped or asked.
 | `load(path)` | Read an architecture (or any JSON) |

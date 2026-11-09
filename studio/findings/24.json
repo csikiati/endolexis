@@ -1,0 +1,56 @@
+{
+  "number": 24,
+  "short": "A guard that filters noisy senses",
+  "results": "noisy_senses_results.json",
+  "first_column": "Sensor, and filter",
+  "base": "noise, raw",
+  "title": "A guard that filters noisy senses",
+  "setup": "Experiment 24 · every distance reading off by a cell · 5 lives × 30 days each",
+  "question": "Suspicion was the wrong tool for noise. Here the guard filters: a median of the last 3 readings (calmer, a moment late), two independent sensors averaged (no lag), and caution, acting on the nearest the person could plausibly be: the reading less twice its typical error, estimated from how much successive readings jitter.",
+  "order": [
+    "honest sensor",
+    "noise, raw",
+    "noise, median of 3",
+    "noise, two averaged",
+    "noise, raw, cautious",
+    "noise, median of 3, cautious",
+    "noise, two averaged, cautious",
+    "noise, two averaged, median of 3, cautious",
+    "honest sensor, cautious"
+  ],
+  "columns": [
+    {
+      "key": "exam_miss_rate",
+      "label": "Harms let through",
+      "what": "share of the exam's harmful scenes the guard let happen",
+      "pct": true,
+      "bar": true
+    },
+    {
+      "key": "walking_in_miss_rate",
+      "label": "…people walking in",
+      "what": "the same, with every staged person walking to the machine",
+      "pct": true
+    },
+    {
+      "key": "exam_false_alarm_rate",
+      "label": "Harmless stopped",
+      "what": "share of the exam's harmless scenes the guard stopped",
+      "pct": true,
+      "bar": true
+    },
+    {
+      "key": "adult_harm",
+      "label": "Real harm (adult)",
+      "what": "harms in the real room in adulthood",
+      "digits": 1
+    }
+  ],
+  "points": [
+    "Filtering alone does not make a guard safe: a median of 3 doubled the misses (it lags, and near the limit a calmer reading is as often too far). Averaging two sensors helped a little.",
+    "Safety comes from admitting the uncertainty: acting on the nearest the person could plausibly be brought the misses to a few in a thousand and the real harm to none.",
+    "Filtering and fusion lower the price of that caution: from 66% of harmless uses stopped on one raw sensor to 41% with two averaged sensors and a median.",
+    "The allowance measures itself: on an honest sensor it shrank to almost nothing."
+  ],
+  "note": "Noise is paid for either in harm or in caution. Better senses, more of them, lower the price; nothing removes it."
+}

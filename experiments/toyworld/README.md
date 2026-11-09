@@ -970,6 +970,45 @@ would in a life.
   noisy jumps as impossible and refuses three quarters of harmless uses. Noise wants filtering (averaging
   over moments or sensors), not suspicion.
 
+## Experiment 24: a guard that filters noisy senses (`experiments/toyworld/noisy_senses.py`, 5 lives × 30 days)
+
+Experiment 23 showed noise is the hardest fault: every reading of the guards' distance sensor is off by a normal
+error of one cell. Suspicion (a plausibility check) is the wrong tool for it. Here the guard filters instead
+(`sandbox.SensingGuards`):
+- **median of 3:** the median of the last 3 readings, calmer but a moment behind a person who moves;
+- **two averaged:** two independent sensors, read as their mean, so the error shrinks by √2 with no lag;
+- **cautious:** act on the nearest the person could plausibly be, which is the reading less twice its typical
+  error. The error is estimated from how much successive readings jitter, and shrunk by what averaging and
+  filtering take away. On an honest sensor the allowance shrinks to almost nothing by itself.
+
+The guard is experiment 20's precise guard. The exam is experiment 19's, with the guard watching each scene for
+10 moments first.
+
+| Sensor, and filter | Exam: harms let through | …people walking in | Exam: harmless uses stopped | Real harm in adulthood |
+|---|---|---|---|---|
+| honest sensor | 0% | 0% | 18% | 0 |
+| noise, raw | 9.4% | 7.7% | 37% | 0.4 |
+| noise, median of 3 | **16.3%** | 15.9% | 27% | 0.4 |
+| noise, two averaged | 7.1% | 6.4% | 28% | 0.2 |
+| noise, raw, cautious | 0.4% | 0.3% | 66% | 0 |
+| noise, median of 3, cautious | 0.8% | 0.9% | 53% | 0 |
+| noise, two averaged, cautious | 0.3% | 0% | 58% | 0 |
+| **noise, two averaged, median of 3, cautious** | **1.2%** | **1.5%** | **41%** | **0** |
+| honest sensor, cautious | 0% | 0% | 22% | 0 |
+
+- **Filtering alone does not make a guard safe.** A median of 3 doubled the misses: it lags behind people
+  walking in, and noise is even on both sides, so near the limit a calmer reading is just as often too far.
+  Averaging two sensors helped only a little.
+- **Safety comes from admitting the uncertainty.** Acting on the nearest the person could plausibly be brought
+  the misses to a few in a thousand and the real harm to none, whatever the filtering.
+- **Filtering and fusion lower the price of that caution.** A single raw noisy sensor, made cautious, stopped
+  66% of harmless uses. Two averaged sensors with a median stopped 41%. The calmer the reading, the smaller the
+  allowance it needs.
+- **The allowance measures itself.** On an honest sensor it shrank to almost nothing (22% stopped against 18%;
+  a moving person's own steps read as a little jitter).
+- Noise is paid for either in harm or in caution. Better senses, more of them, lower the price; nothing
+  removes it.
+
 ## Experiment 25: does the wanting work around the guard? (`experiments/toyworld/gaming.py`, 5 lives × 40 days)
 
 Rule-based safety has a classic failure: a learner that wants something learns to get it where the rules do not
