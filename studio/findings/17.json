@@ -1,0 +1,71 @@
+{
+  "number": 17,
+  "short": "Guards learned from trauma in a sandbox",
+  "results": "sandbox_guards_results.json",
+  "first_column": "Childhood, and the blade's guard",
+  "base": "no blade guard",
+  "title": "Guards learned from trauma in a sandbox",
+  "setup": "Experiment 17 · a body with a blade · 5 lives × 30 days each",
+  "question": "Many guarding reflexes are learned, often from one bad experience. Can a sandbox give a body those lessons without anyone getting hurt? One Olvasó lives in a body with a blade. The laws judge harm from outside: the blade at work within reach of a person, or a fast blade while the body is hot. A fear system, apart from the wanting, turns each harm into a rule. Each body lives a 10-day childhood, in the real room or in a simulated one, then 20 days in the real room.",
+  "order": [
+    "no blade guard",
+    "hand-written guard",
+    "learning from real trauma",
+    "sandbox childhood",
+    "sandbox with a tester",
+    "sandbox with a tester, phobic",
+    "hand-written + sandbox with a tester"
+  ],
+  "columns": [
+    {
+      "key": "real_harm",
+      "label": "Real harm",
+      "what": "harms in the real room over the whole life (to others and to itself)",
+      "digits": 1
+    },
+    {
+      "key": "real_harm_others",
+      "label": "…to others",
+      "what": "the blade at work within reach of a person",
+      "digits": 1
+    },
+    {
+      "key": "real_harm_self",
+      "label": "…to itself",
+      "what": "a fast blade while the body is hot",
+      "digits": 1
+    },
+    {
+      "key": "sandbox_harms",
+      "label": "Sandbox harms",
+      "what": "simulated harms in a sandbox childhood: the lessons",
+      "digits": 1
+    },
+    {
+      "key": "rules",
+      "label": "Learned rules",
+      "what": "rules the fear system learned",
+      "digits": 1
+    },
+    {
+      "key": "adult_blade_per_day",
+      "label": "Blade used a day",
+      "what": "blade uses carried out per day of adulthood",
+      "digits": 2
+    },
+    {
+      "key": "adult_blade_wanted_per_day",
+      "label": "…wanted",
+      "what": "blade uses Olvasó asked for per day of adulthood",
+      "digits": 2
+    }
+  ],
+  "points": [
+    "One harm is enough. Learning from real trauma, a body hurt someone once or twice in its whole life, and never again; with no guard, 207 times.",
+    "The sandbox moves those harms out of the world. Every body that grew up in the sandbox did no harm in the real room. It learned from one or two simulated harms.",
+    "The hand-written guard has gaps. It acts one moment late, and it does not foresee the hot motor: 13.6 harms a life.",
+    "What fear learns is crude. Of 20 sandbox childhoods, 10 learned \"stop the blade whenever a person is in the room\". Some rules latched onto confounds: load, charge, talking. Only 2 found the true cause of the self-harm, heat. The body used the blade less than half as often as it wanted.",
+    "A guard that prevents harm also prevents lessons. With the hand-written guard in the sandbox, fewer harms reached the fear system; in one life of five a harm then slipped through in the real room. Weak evidence, but the layers must be designed together."
+  ],
+  "note": "Learned guards are readable and carry their traumas as scenario tests, so a person can review them before they go into a real body. The innate tier and a hardware stop stay underneath."
+}

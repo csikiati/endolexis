@@ -157,6 +157,7 @@ pre.preview { background: var(--soft); border: 1px solid var(--line); border-rad
 
 /* findings */
 .find { display: grid; gap: 16px; max-width: 980px }
+.find > .seg { justify-self: start; margin-bottom: 0 }
 .find p { max-width: 70ch; margin: 0 }
 .tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--panel) }
 table { border-collapse: collapse; width: 100%; font-size: .84rem; font-variant-numeric: tabular-nums }
@@ -188,7 +189,7 @@ tr.base td { background: var(--soft) }
   <nav class="tabs" role="tablist">
     <button role="tab" id="tab-wiring" aria-selected="true" data-view="wiring">Wiring and sleep</button>
     <button role="tab" id="tab-maker" aria-selected="false" data-view="maker">Maker</button>
-    <button role="tab" id="tab-findings" aria-selected="false" data-view="findings">Experiment 16</button>
+    <button role="tab" id="tab-findings" aria-selected="false" data-view="findings">Experiments</button>
   </nav>
 
   <!-- wiring -->
@@ -389,7 +390,7 @@ tr.base td { background: var(--soft) }
 <script type="application/json" id="data-guard-templates">[]</script>
 <script type="application/json" id="data-learned-guards">[]</script>
 <script type="application/json" id="data-examples">{}</script>
-<script type="application/json" id="data-findings">null</script>
+<script type="application/json" id="data-findings">[]</script>
 <script>
 (() => {
 const $ = s => document.querySelector(s);
@@ -1269,20 +1270,25 @@ $("#g_signals").innerHTML = Object.entries(ROOM_SIGNALS).map(([k, v]) => `<span 
 pickGuardTemplate("blade");
 
 /* ---------- findings ---------- */
+let findingNo = null;
 function renderFindings() {
   const el = $("#findings");
-  if (!FINDINGS) { el.innerHTML = `<h2>Experiment 16</h2><p class="hint">The results are not in yet.</p>`; return; }
-  const cols = FINDINGS.columns, rows = FINDINGS.rows;
+  if (!FINDINGS.length) { el.innerHTML = `<h2>Experiments</h2><p class="hint">The results are not in yet.</p>`; return; }
+  if (findingNo == null) { try { findingNo = +localStorage.getItem("olvaso-studio-exp") || null; } catch {} }
+  const F = FINDINGS.find(f => f.number === findingNo) || FINDINGS[0]; findingNo = F.number;
+  const cols = F.columns, rows = F.rows;
   const max = {}; for (const c of cols) max[c.key] = Math.max(...rows.map(r => r.mean[c.key] ?? 0), 1e-9);
   const cell = (c, v) => v == null ? "–" : c.pct ? `${Math.round(v * 100)} %${c.bar ? `<span class="bar" style="width:${Math.round(28 * v / max[c.key])}px"></span>` : ""}` : (Math.round(v * 100) / 100).toFixed(c.digits ?? 2);
-  el.innerHTML = `<div><span class="eyebrow">${esc(FINDINGS.setup)}</span><h2 style="font-size:1.5rem;margin-top:4px">${esc(FINDINGS.title)}</h2></div>
-    <p>${esc(FINDINGS.question)}</p>
-    <div class="tbl"><table><thead><tr><th>Architecture</th>${cols.map(c => `<th title="${esc(c.what)}">${esc(c.label)}</th>`).join("")}</tr></thead>
-    <tbody>${rows.map(r => `<tr class="${r.base ? "base" : ""}"><td>${esc(r.name)}${EXAMPLES[r.name] ? ` <button class="ghost" data-open-ex="${esc(r.name)}" title="Open this architecture">open</button>` : ""}</td>${cols.map(c => `<td>${cell(c, r.mean[c.key])}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+  el.innerHTML = `<div class="seg" role="group" aria-label="Which experiment">${FINDINGS.map(f => `<button type="button" aria-pressed="${f.number === F.number}" data-exp="${f.number}" title="${esc(f.short)}">${f.number}</button>`).join("")}</div>
+    <div><span class="eyebrow">${esc(F.setup)}</span><h2 style="font-size:1.5rem;margin-top:4px">${esc(F.title)}</h2></div>
+    <p>${esc(F.question)}</p>
+    <div class="tbl"><table><thead><tr><th>${esc(F.first_column || "Condition")}</th>${cols.map(c => `<th title="${esc(c.what)}">${esc(c.label)}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(r => `<tr class="${r.base ? "base" : ""}"><td>${esc(r.name)}${F.number === 16 && EXAMPLES[r.name] ? ` <button class="ghost" data-open-ex="${esc(r.name)}" title="Open this architecture">open</button>` : ""}</td>${cols.map(c => `<td>${cell(c, r.mean[c.key])}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
     <p class="hint">${cols.map(c => `<b>${esc(c.label)}</b>: ${esc(c.what)}`).join(" · ")}</p>
-    <h3>What it shows</h3><ol class="points">${FINDINGS.points.map(p => `<li>${esc(p)}</li>`).join("")}</ol>
-    <p class="hint">${esc(FINDINGS.note)}</p>`;
+    <h3>What it shows</h3><ol class="points">${F.points.map(p => `<li>${esc(p)}</li>`).join("")}</ol>
+    <p class="hint">${esc(F.note)}</p>`;
   el.querySelectorAll("[data-open-ex]").forEach(b => b.onclick = () => { load(EXAMPLES[b.dataset.openEx]); showView("wiring"); });
+  el.querySelectorAll("[data-exp]").forEach(b => b.onclick = () => { findingNo = +b.dataset.exp; try { localStorage.setItem("olvaso-studio-exp", findingNo); } catch {} renderFindings(); });
 }
 
 /* ---------- start ---------- */

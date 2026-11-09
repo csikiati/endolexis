@@ -1,0 +1,65 @@
+{
+  "number": 19,
+  "short": "The devil's advocate",
+  "results": "devils_advocate_results.json",
+  "first_column": "Guard",
+  "base": "no blade guard",
+  "title": "The devil's advocate",
+  "setup": "Experiment 19 · an exam of 88 staged scenes, three times each · 5 lives × 30 days each",
+  "question": "Intervention learns causes, but only of the harms that happen. A devil's advocate in the sandbox keeps a map of every scene the blade was used in (the person's distance, the body's heat, slow or fast), stages the least-tried scene the guards still allow, and uses the blade there. Every guard then sits an exam: each scene of the map, staged in a fresh sandbox. It counts the harms the guard let through and the harmless uses it stopped.",
+  "order": [
+    "no blade guard",
+    "hand-written guard",
+    "replay, no tester",
+    "replay, people tester",
+    "replay, devil's advocate",
+    "unusual signal, devil's advocate"
+  ],
+  "columns": [
+    {
+      "key": "exam_miss_rate",
+      "label": "Harms let through",
+      "what": "share of the exam's harmful scenes the guard let happen",
+      "pct": true,
+      "bar": true
+    },
+    {
+      "key": "exam_false_alarm_rate",
+      "label": "Harmless stopped",
+      "what": "share of the exam's harmless scenes the guard stopped (over-caution)",
+      "pct": true,
+      "bar": true
+    },
+    {
+      "key": "heat_rule",
+      "label": "Heat rule",
+      "what": "share of lives that learned the hot-motor rule",
+      "pct": true
+    },
+    {
+      "key": "adult_harm",
+      "label": "Real harm (adult)",
+      "what": "harms in the real room in adulthood",
+      "digits": 1
+    },
+    {
+      "key": "staged",
+      "label": "Scenes staged",
+      "what": "scenes the advocate set up in the sandbox",
+      "digits": 0
+    },
+    {
+      "key": "adult_blade_per_day",
+      "label": "Blade used a day",
+      "what": "blade uses carried out per day of adulthood",
+      "digits": 2
+    }
+  ],
+  "points": [
+    "The advocate closes the gaps. With it, every life learned the heat rule, kept to the fast blade, and the guard let through 1% of harmful scenes, against 14-16% without it.",
+    "The hand-written guard fails its exam. It lets through 45% of harmful scenes: every hot motor, and every person stepping into reach during an act. Ordinary days rarely bring these scenes; the exam shows what they hide.",
+    "Wide margins absorb the reaction lag: the advocate's staged harms at the edges pushed the heat limit from 0.475 to 0.41.",
+    "A devil's advocate makes a crude fear system phobic. Learning by \"unusual signal\", it missed nothing but stopped 94% of harmless uses. Seeking out danger helps only a learner that can tell causes from coincidences."
+  ],
+  "note": "The guard learned with the devil's advocate is in the Wiring view under Add guard, Learned in the sandbox."
+}

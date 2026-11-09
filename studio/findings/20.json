@@ -1,0 +1,60 @@
+{
+  "number": 20,
+  "short": "Removing the reaction lag",
+  "results": "lookahead_guards_results.json",
+  "first_column": "Guard",
+  "base": "margin 1, sees now",
+  "title": "Removing the reaction lag",
+  "setup": "Experiment 20 · the exam of experiment 19 · 5 lives × 30 days each",
+  "question": "A guard checks the state before each moment, so a person stepping into reach is harmed before the stop. Experiment 19's guards absorbed this lag with margins and paid with over-caution. Two ways to remove it at its root: look ahead (each condition is checked now and a moment on, from each signal's rate of change), or learn the limit on what the guard actually sees, as replay does. Can the margin then go?",
+  "order": [
+    "margin 1, sees now",
+    "margin 1, sees a moment ahead",
+    "margin 1/4, sees now",
+    "margin 1/4, sees a moment ahead",
+    "no margin, sees now",
+    "no margin, sees a moment ahead",
+    "hand-written, sees a moment ahead"
+  ],
+  "columns": [
+    {
+      "key": "exam_miss_rate",
+      "label": "Harms let through",
+      "what": "share of the exam's harmful scenes the guard let happen",
+      "pct": true,
+      "bar": true
+    },
+    {
+      "key": "exam_false_alarm_rate",
+      "label": "Harmless stopped",
+      "what": "share of the exam's harmless scenes the guard stopped (over-caution)",
+      "pct": true,
+      "bar": true
+    },
+    {
+      "key": "distance_threshold",
+      "label": "Distance limit",
+      "what": "the widest learned distance limit, in cells (true reach: 3, and 4 when fast)",
+      "digits": 2
+    },
+    {
+      "key": "heat_threshold",
+      "label": "Heat limit",
+      "what": "the learned heat limit for the fast blade (true: 0.5)",
+      "digits": 2
+    },
+    {
+      "key": "adult_harm",
+      "label": "Real harm (adult)",
+      "what": "harms in the real room in adulthood",
+      "digits": 1
+    }
+  ],
+  "points": [
+    "The lag's root was the wording of the rule. A rule stated on the harm itself (\"within reach\") is one moment late. Replay states its limits on what the guard sees, so the lag is already inside them: 3.4 cells for the slow blade, its reach plus one moment's walk; heat 0.46, 0.5 less one moment's warming.",
+    "So the margin can go. With no margin and no look-ahead, the learned guards let none of 812 harmful scenes through, and stopped 9% of harmless uses, against 27% with experiment 19's margin.",
+    "Looking ahead on top counts the lag twice: more caution (13%), no more safety.",
+    "Looking ahead is for rules written by people. The hand-written guard, seeing a moment ahead, let through 28% of harmful scenes instead of 45% (experiment 19). What remains is the hot motor its author did not foresee."
+  ],
+  "note": "The guard learned with no margin is in the Wiring view under Add guard, Learned in the sandbox. The hand-written blade template now looks a moment ahead."
+}

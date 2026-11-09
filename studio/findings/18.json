@@ -1,0 +1,75 @@
+{
+  "number": 18,
+  "short": "Fear that finds causes",
+  "results": "causal_guards_results.json",
+  "first_column": "Fear system, where it learned",
+  "base": "unusual signal, sandbox with a tester",
+  "title": "Fear that finds causes",
+  "setup": "Experiment 18 · the body, blade and rooms of experiment 17 · 5 lives × 30 days each",
+  "question": "Experiment 17's fear system asked which signal was most unusual when the blade hurt, and learned crude rules and confounds. Two others ask about causes. Near misses compares the harm only with the most alike harmless moments. Intervention, which only a sandbox can do, replays a copy of the world just before the harm, changing one thing at a time: what makes the harm disappear is a cause. It then searches where the harm begins, and whether the other option would have hurt too.",
+  "order": [
+    "unusual signal, sandbox with a tester",
+    "near misses, sandbox with a tester",
+    "intervention, sandbox with a tester",
+    "intervention, sandbox without a tester",
+    "unusual signal, real trauma",
+    "near misses, real trauma"
+  ],
+  "columns": [
+    {
+      "key": "real_harm",
+      "label": "Real harm",
+      "what": "harms in the real room over the whole life",
+      "digits": 1
+    },
+    {
+      "key": "rules_on_causes",
+      "label": "Rules on causes",
+      "what": "rules per life on a true cause: the person's distance or presence, or heat",
+      "digits": 1
+    },
+    {
+      "key": "rules_on_confounds",
+      "label": "…on confounds",
+      "what": "rules per life on a signal that moved with the harm without causing it (load, charge, talking)",
+      "digits": 1
+    },
+    {
+      "key": "rule_person_anywhere",
+      "label": "\"Person anywhere\"",
+      "what": "share of lives that learned to stop the blade whenever a person is in the room",
+      "pct": true
+    },
+    {
+      "key": "distance_threshold",
+      "label": "Distance limit",
+      "what": "the widest learned distance limit, in cells (true reach: 3, and 4 when fast)",
+      "digits": 1
+    },
+    {
+      "key": "heat_rules_fast_only",
+      "label": "Heat kept to fast",
+      "what": "heat rules per life kept to the fast blade, which alone burns the motor",
+      "digits": 1
+    },
+    {
+      "key": "adult_blade_per_day",
+      "label": "Blade used a day",
+      "what": "blade uses carried out per day of adulthood",
+      "digits": 2
+    },
+    {
+      "key": "adult_blade_wanted_per_day",
+      "label": "…wanted",
+      "what": "blade uses Olvasó asked for per day of adulthood",
+      "digits": 2
+    }
+  ],
+  "points": [
+    "Intervention finds causes. All 20 of its rules were on true causes, none on a confound, and none was \"a person anywhere in the room\". It learned the blade's reach with a margin (4.3 cells, 5.4 when fast; true 3 and 4), and that only the fast blade burns the motor (warmth > 0.48; true 0.5). It took about 40 copies of the world per life.",
+    "Only for the harms that happened. In one life the sandbox never brought a hot motor, so no heat rule was learned, and the real room had the harm.",
+    "Near misses did not help here. Matching on everything else still blamed load when the fast blade was at work, because the confound moves with the act itself.",
+    "Right rules free the hand less than expected. The body wants to act most while the person sits at the desk, inside the true reach: even exact rules let the blade work about half the times it is wanted."
+  ],
+  "note": "The guard learned by intervention is in the Wiring view under Add guard, Learned in the sandbox."
+}

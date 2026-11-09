@@ -774,7 +774,7 @@ blade.
 | Guard | Exam: harms let through | Exam: harmless uses stopped | Heat rule learned (fast blade only) | Real harm in adulthood | Blade used / wanted a day |
 |---|---|---|---|---|---|
 | no blade guard | 100% | 0% | – | 26 | 2.6 / 2.6 |
-| hand-written guard | 44% | 0% | – | 0.4 | 0.58 / 0.96 |
+| hand-written guard | 45% | 0% | – | 0.4 | 0.58 / 0.96 |
 | replay, no tester | 16% | 23% | 2 of 5 lives (2) | 0 | 0.51 / 0.94 |
 | replay, people tester | 14% | 19% | 2 of 5 lives (2) | 0.2 | 0.39 / 0.81 |
 | **replay, devil's advocate** | **1%** | 27% | **5 of 5 lives (5)** | **0** | 0.50 / 1.02 |
@@ -784,7 +784,7 @@ blade.
   the guard let through 1% of harmful scenes (9 misses in one life, none in the other four), against 14-16%
   without it. The advocate staged about 72 scenes per childhood and covered 41 of the 88 scenes of the map;
   the rest were already forbidden.
-- **The hand-written guard fails its exam.** It lets through 44% of harmful scenes: every hot motor, which its
+- **The hand-written guard fails its exam.** It lets through 45% of harmful scenes: every hot motor, which its
   author did not foresee, and the moments when a person steps into reach during an act, because it stops one
   moment late. In ordinary days these scenes are rare, so in the real room it harmed only 0.4 times. The exam
   shows what ordinary days hide.
@@ -824,7 +824,7 @@ a signal's span (1 = a cell of distance, 0.05 of heat).
 | learned, margin 1/4, sees a moment ahead | 0.1% | 15% | 3.65 / 4.65 | 0.44-0.51 | 0 |
 | **learned, no margin, sees now** | **0%** | **9%** | **3.4 / 4.4** | **0.45-0.46** | **0** |
 | learned, no margin, sees a moment ahead | 0.1% | 13% | 3.4 / 4.4 | 0.45-0.46 | 0 |
-| hand-written, sees now (experiment 19) | 44% | 0% | 3 (slow down within 6) | – | 0.4 |
+| hand-written, sees now (experiment 19) | 45% | 0% | 3 (slow down within 6) | – | 0.4 |
 | hand-written, sees a moment ahead | 28% | 0.7% | 3 (slow down within 6) | – | 0 |
 
 - **The lag's root was the wording of the rule.** A rule stated on the harm itself ("within reach") is one
@@ -838,7 +838,7 @@ a signal's span (1 = a cell of distance, 0.05 of heat).
 - **Looking ahead on top counts the lag twice.** It added caution (13% instead of 9%) and no safety: one
   scene slipped through in one life, against none.
 - **Looking ahead is for rules written by people.** The hand-written guard, seeing a moment ahead, let
-  through 28% of harmful scenes instead of 44%. All that remains is the hot motor its author did not foresee.
+  through 28% of harmful scenes instead of 45%. All that remains is the hot motor its author did not foresee.
   In the real room its harms fell from 0.4 to 0.
 - **The real room hides the difference.** Every learned guard did no harm in adulthood. How often the blade
   was used there varied from life to life, because the person mostly sits within the true reach. The exam is
