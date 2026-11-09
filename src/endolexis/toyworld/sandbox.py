@@ -130,8 +130,8 @@ BINARY = {"person", "talking"}
 class TraumaLearner:
     """Learns guard rules for one hand from harm, one event at a time."""
 
-    def __init__(self, hand=BLADE, generalize=1.0, name="learned-blade"):
-        self.hand, self.g, self.name = hand, float(generalize), name
+    def __init__(self, hand=BLADE, generalize=1.0, name="learned-blade", lookahead=0):
+        self.hand, self.g, self.name, self.lookahead = hand, float(generalize), name, lookahead
         self.safe = []              # signals while the hand was at work and did no harm
         self.rules = {}             # (signal, op) -> threshold
         self.tests = []
@@ -195,7 +195,7 @@ class TraumaLearner:
                                f"{'harm' if len(self.traumas) == 1 else 'harms'} "
                                f"(generalization {self.g:g}): stop the {self.hand} in the states that hurt.",
                 "version": "1.0.0", "tier": "learned", "protects": [self.hand], "rules": rules,
-                "on_missing": "refuse", "tests": self.tests}
+                "on_missing": "refuse", "tests": self.tests, **({"lookahead": self.lookahead} if self.lookahead else {})}
 
 
 class NearMissLearner(TraumaLearner):

@@ -19,6 +19,12 @@ default) unless the guard says `"ignore"`.
 
 Every guard carries scenario tests ({"hand", "option", "state": {signal: value}, "expect"}) that
 `run_tests` checks before a life is lived.
+
+Look-ahead (`"lookahead": n`, moments; 0 by default): the guard's sensing also gives each signal's rate of
+change per moment (`"<signal>@rate"`), and a guard that looks ahead checks every condition against the
+present value and the value n moments on (value + n × rate). The rule fires if either crosses: a guard
+that sees ahead can only be more careful. It takes away the reaction lag: a guard that judges only what it
+sees now is always one moment late for what the next moment brings.
 """
 import numpy as np
 
@@ -82,6 +88,9 @@ def check_guard(u):
                 bad.append(f"rule {i + 1}: a condition needs a signal")
     if u.get("on_missing", "refuse") not in ("refuse", "ignore"):
         bad.append('on_missing is "refuse" or "ignore"')
+    la = u.get("lookahead", 0)
+    if not isinstance(la, (int, float)) or la < 0:
+        bad.append("lookahead is a number of moments, 0 or more")
     return bad
 
 
@@ -107,6 +116,7 @@ def decide(guards, hand, option, signals, ongoing=False):
             if o and option is not None and not _cmp(option, o["op"], o["value"]):
                 continue
             fired, why = True, []
+            ahead = float(g.get("lookahead", 0) or 0)
             for c in r.get("when", []):
                 v = signals.get(c["signal"])
                 if v is None:
@@ -115,10 +125,15 @@ def decide(guards, hand, option, signals, ongoing=False):
                         break
                     why.append(f"{c['signal']} unknown")
                     continue                                 # fails closed: the condition counts as true
-                if not _cmp(v, c["op"], c["value"]):
+                values = [v]
+                rate = signals.get(c["signal"] + "@rate")
+                if ahead and rate is not None and c["op"] != "in" and isinstance(v, (int, float)):
+                    values.append(v + ahead * rate)          # where it will be, if it goes on like this
+                hit = [x for x in values if _cmp(x, c["op"], c["value"])]
+                if not hit:
                     fired = False
                     break
-                why.append(f"{c['signal']} {c['op']} {c['value']}")
+                why.append(f"{c['signal']} {c['op']} {c['value']}" + (" (ahead)" if hit[0] is not v else ""))
             if not fired:
                 continue
             out = then if not (ongoing and then == "stop") else "stop"
@@ -144,11 +159,28 @@ class RoomGuards:
         self.guards, self.names = guards, hand_names          # kind -> hand name (unit name)
         self.done = {k: [] for k in hand_names}               # moments each hand was carried out
         self.counts = {g["name"]: {o: 0 for o in OUTCOMES} for g in guards}
+        self.seen = {}                                         # moment -> what the guards sensed (for rates)
 
     def count(self, guard, outcome):
         self.counts.setdefault(guard, {o: 0 for o in OUTCOMES})[outcome] += 1
 
+    RATED = ("warmth", "charge", "load", "person_distance")
+
     def signals(self, room, kind):
+        s = self._sense(room, kind)
+        now = {k: s[k] for k in self.RATED}
+        self.seen[room.t] = now
+        before = self.seen.get(room.t - 1)
+        for k in self.RATED:
+            if before is None or (k == "person_distance" and (now[k] >= 99 or before[k] >= 99)):
+                s[k + "@rate"] = 0.0
+            else:
+                s[k + "@rate"] = now[k] - before[k]
+        for t in [t for t in self.seen if t < room.t - 2]:
+            del self.seen[t]
+        return s
+
+    def _sense(self, room, kind):
         D = room.day_length
         dist = float(np.linalg.norm(room.pos - DESK)) if room.present else 99.0
         busy = {"tone_soft": room.tone_left > 0 and room.tone_amp < 0.3,
@@ -172,7 +204,9 @@ class RoomGuards:
         return (kind, opt), out, by
 
     def watch(self, room):
-        """Cut short a hand at work when a stop rule comes true."""
+        """Cut short a hand at work when a stop rule comes true. Called every moment, it also keeps what
+        the guards sensed, for the rates."""
+        self.signals(room, "brightness")
         for kind, left in (("tone_soft", "tone_left"), ("tone_loud", "tone_left"), ("paint", "paint_left"),
                            ("note", "note_left")):
             if getattr(room, left) <= 0:

@@ -199,4 +199,25 @@ def test_guard_command_line(tmp_path, capsys):
     out = tmp_path / "blade.json"
     assert cli(["new-guard", "blade", "-o", str(out)]) == 0
     assert cli(["test-guards", str(out)]) == 0
-    assert "4 of 4 scenarios hold" in capsys.readouterr().out
+    assert "5 of 5 scenarios hold" in capsys.readouterr().out
+
+
+def test_a_guard_that_sees_ahead():
+    g = {"format": "endolexis-guard", "name": "reach", "description": "x", "version": "1", "protects": ["blade"],
+         "rules": [{"when": [{"signal": "person_distance", "op": "<", "value": 3}], "then": "stop"}]}
+    walking_in = {"person_distance": 3.3, "person_distance@rate": -0.4}
+    assert decide([g], "blade", "slow", walking_in)[0] == "allow"            # judging only the present: late
+    assert decide([{**g, "lookahead": 1}], "blade", "slow", walking_in)[0] == "stop"
+    walking_away = {"person_distance": 2.9, "person_distance@rate": 0.4}
+    assert decide([{**g, "lookahead": 1}], "blade", "slow", walking_away)[0] == "stop"   # never less careful
+    assert check_guard({**g, "lookahead": -1})
+
+
+def test_the_room_guards_sense_rates():
+    room = Room(seed=1, hands=True)
+    rg = RoomGuards([], {})
+    rg.watch(room)
+    room.step()
+    room.warmth += 0.05
+    s = rg.signals(room, "paint")
+    assert abs(s["warmth@rate"] - (room.warmth - rg.seen[room.t - 1]["warmth"])) < 1e-12

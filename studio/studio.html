@@ -350,6 +350,7 @@ tr.base td { background: var(--soft) }
             <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px"><span class="eyebrow">Rules</span><button type="button" id="g_addRule">Add rule</button></div>
             <div id="g_rules" class="rules"></div>
           </div>
+          <label>Sees ahead (moments): checks each condition now and that many moments on, from how fast each signal changes<input type="number" id="g_lookahead" min="0" max="10" step="1" value="0"></label>
           <label>When a signal cannot be sensed<select id="g_missing"><option value="refuse">refuse (fail closed)</option><option value="ignore">ignore that rule</option></select></label>
           <div>
             <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px"><span class="eyebrow">Scenario tests</span><button type="button" id="g_addTest">Add scenario</button></div>
@@ -1048,7 +1049,8 @@ const OPS = { "<": (a, b) => a < b, "<=": (a, b) => a <= b, ">": (a, b) => a > b
   in: (a, b) => Array.isArray(b) && b.includes(a) };
 const ROOM_SIGNALS = { warmth: "the body's warmth (0..1)", charge: "the battery's charge (0..1)", load: "the work the body does (0..1)",
   hour: "time of day, 0-24", person: "1 while a person is in the room", person_distance: "how far the person is from the machine, in room cells (99: nobody)",
-  talking: "1 while someone talks", recent: "times this hand was carried out in the last 100 moments", active: "1 while this hand is still at work" };
+  talking: "1 while someone talks", recent: "times this hand was carried out in the last 100 moments", active: "1 while this hand is still at work",
+  "warmth@rate": "how much warmth changed in the last moment (likewise charge@rate, load@rate, person_distance@rate)" };
 const OPNAME = { "<": "<", "<=": "≤", ">": ">", ">=": "≥", "==": "=", "!=": "≠", in: "in" };
 function checkGuard(u) {
   const bad = [];
@@ -1067,6 +1069,7 @@ function checkGuard(u) {
     for (const c of r.when || []) if (!c.signal) bad.push(`rule ${i + 1}: a condition needs a signal`);
   });
   if (!["refuse", "ignore"].includes(u.on_missing ?? "refuse")) bad.push('on_missing is "refuse" or "ignore"');
+  if (u.lookahead != null && !(typeof u.lookahead === "number" && u.lookahead >= 0)) bad.push("lookahead is a number of moments, 0 or more");
   return bad;
 }
 const guardProtects = (g, hand) => (g.protects || []).includes("*") || (g.protects || []).includes(hand);
@@ -1078,10 +1081,13 @@ function decide(guards, hand, option, signals, ongoing = false) {
       if (ongoing && r.then !== "stop") continue;
       if (r.option && option != null && !OPS[r.option.op](option, r.option.value)) continue;
       let fired = true;
+      const ahead = +(g.lookahead || 0);
       for (const c of r.when || []) {
         const v = signals[c.signal];
         if (v == null) { if ((g.on_missing ?? "refuse") === "ignore") { fired = false; break; } continue; }
-        if (!OPS[c.op](v, c.value)) { fired = false; break; }
+        const vals = [v], rate = signals[c.signal + "@rate"];
+        if (ahead && rate != null && c.op !== "in" && typeof v === "number") vals.push(v + ahead * rate);   // where it will be
+        if (!vals.some(x => OPS[c.op](x, c.value))) { fired = false; break; }
       }
       if (fired && SEV[r.then] > SEV[best[0]]) best = [r.then, r.then === "limit" ? r.to : option, g.name];
     }
@@ -1114,7 +1120,7 @@ function renderGuards() {
   el.innerHTML = A.guards.map(g => {
     const u = g.unit, mine = res.filter(r => r.guard === u.name), fail = mine.filter(r => !r.ok).length;
     return `<div class="gcard"><div style="display:flex;justify-content:space-between;gap:6px;align-items:start"><div style="min-width:0"><h3>${esc(u.title || u.name)} <span class="tier">${esc(u.tier || "innate")}</span></h3>
-      <div class="sub" style="color:var(--muted)">protects ${esc((u.protects || []).join(", "))}</div></div>
+      <div class="sub" style="color:var(--muted)">protects ${esc((u.protects || []).join(", "))}${u.lookahead ? ` · sees ${u.lookahead} moment${u.lookahead > 1 ? "s" : ""} ahead` : ""}</div></div>
       <div style="display:flex;gap:2px"><button class="ghost" title="About this guard" data-ginfo="${g.id}">i</button><button class="ghost" title="Remove ${esc(u.title || u.name)}" data-rmguard="${g.id}">×</button></div></div>
       ${(u.rules || []).map(r => `<div class="rl">${esc(ruleText(r))}</div>`).join("")}
       <div class="${!mine.length ? "warn" : fail ? "bad" : "ok"}" style="font-size:.74rem">${!mine.length ? "no scenario tests" : fail ? `${fail} of ${mine.length} scenarios fail` : `${mine.length} ${mine.length === 1 ? "scenario holds" : "scenarios hold"}`}</div></div>`;
@@ -1169,7 +1175,7 @@ const showVal = v => Array.isArray(v) ? v.join(", ") : v == null ? "" : String(v
 function fromGuardTemplate(t) {
   const u = JSON.parse(JSON.stringify(t)); delete u.use_case;
   return { name: t.name === "blank" ? "my-guard" : "my-" + t.name, version: "1.0.0", tier: "innate", title: t.title === "Blank" ? "" : t.title,
-    description: t.description, protects: (t.protects || []).join(", "), on_missing: t.on_missing || "refuse",
+    description: t.description, protects: (t.protects || []).join(", "), on_missing: t.on_missing || "refuse", lookahead: String(t.lookahead || 0),
     rules: u.rules.map(r => ({ when: (r.when || []).map(c => ({ signal: c.signal, op: c.op, value: showVal(c.value) })),
       optOp: r.option?.op || "", optVal: showVal(r.option?.value), then: r.then, to: showVal(r.to) })),
     tests: (u.tests || []).map(x => ({ name: x.name || "", hand: x.hand, option: showVal(x.option), state: Object.entries(x.state || {}).map(([k, v]) => `${k}=${v}`).join(", "), expect: x.expect, ongoing: !!x.ongoing })) };
@@ -1181,6 +1187,7 @@ function guardOf(g) {
       if (r.optOp) o.option = { op: r.optOp, value: parseVal(r.optVal, r.optOp) };
       if (r.then === "limit") o.to = optValue(r.to); return o; }),
     on_missing: g.on_missing,
+    ...(+g.lookahead > 0 ? { lookahead: +g.lookahead } : {}),
     tests: g.tests.map(t => { const st = {}; for (const kv of t.state.split(",")) { const [k, v] = kv.split("="); if (k && k.trim() && v != null) st[k.trim()] = optValue(v); }
       const o = { name: t.name.trim(), hand: t.hand.trim(), option: t.option.trim() === "" ? null : optValue(t.option), state: st, expect: t.expect }; if (t.ongoing) o.ongoing = true; return o; }) };
   return u;
@@ -1216,7 +1223,7 @@ function updateGuard() {
   const res = bad.length ? [] : runTests([u]);
   res.forEach((r, i) => { const el = $("#gt_r_" + i); if (el) { el.textContent = (r.ok ? "✓ " : "✗ ") + r.got; el.className = "res " + (r.ok ? "ok" : "bad"); } });
   const fail = res.filter(r => !r.ok).length;
-  const unknown = [...new Set(u.rules.flatMap(r => r.when.map(c => c.signal)).filter(sg => !(sg in ROOM_SIGNALS)))];
+  const unknown = [...new Set(u.rules.flatMap(r => r.when.map(c => c.signal)).filter(sg => !(sg in ROOM_SIGNALS) && !sg.endsWith("@rate")))];
   $("#g_check").innerHTML = (bad.length ? bad.map(b => `<span class="chip bad"><i class="dot" style="background:var(--bad)"></i>${esc(b)}</span>`).join("")
     : `<span class="chip ${fail ? "bad" : res.length ? "ok" : "warn"}"><i class="dot" style="background:var(--${fail ? "bad" : res.length ? "ok" : "warn"})"></i>${fail ? `${fail} of ${res.length} scenarios fail` : res.length ? `A sound guard: ${res.length} ${res.length === 1 ? "scenario holds" : "scenarios hold"}` : "Sound, but untested"}</span>`)
     + (unknown.length ? `<span class="chip warn"><i class="dot" style="background:var(--warn)"></i>The room cannot sense ${esc(unknown.join(", "))}: ${u.on_missing === "ignore" ? "those rules are ignored there" : "refused there"}</span>` : "");
@@ -1225,7 +1232,7 @@ function updateGuard() {
 }
 function fillGuard() {
   $("#g_name").value = G.name; $("#g_version").value = G.version; $("#g_tier").value = G.tier; $("#g_title").value = G.title; $("#g_desc").value = G.description;
-  $("#g_protects").value = G.protects; $("#g_missing").value = G.on_missing; renderRules(); renderTestsRows(); updateGuard();
+  $("#g_protects").value = G.protects; $("#g_missing").value = G.on_missing; $("#g_lookahead").value = G.lookahead; renderRules(); renderTestsRows(); updateGuard();
 }
 function pickGuardTemplate(name) { const t = GTPLS.find(x => x.name === name) || GTPLS[0]; G = fromGuardTemplate(t); renderGTpls(t.name); fillGuard(); }
 function renderGTpls(active) { $("#gtpls").innerHTML = GTPLS.map(t => `<button type="button" aria-pressed="${t.name === active}" data-gtpl="${t.name}" title="${esc(t.use_case)}">${esc(t.title)}</button>`).join(""); }
@@ -1236,7 +1243,8 @@ $("#guardForm").addEventListener("input", e => {
   else if (t.dataset.r) { const [i, k] = t.dataset.r.split("|"); G.rules[+i][k] = t.value; if (k === "then" || k === "optOp") { renderRules(); } }
   else if (t.dataset.t) { const [i, k] = t.dataset.t.split("|"); G.tests[+i][k] = t.value; }
   else ({ g_name: () => G.name = t.value, g_version: () => G.version = t.value, g_tier: () => G.tier = t.value, g_title: () => G.title = t.value,
-    g_desc: () => G.description = t.value, g_protects: () => G.protects = t.value, g_missing: () => G.on_missing = t.value }[t.id] || (() => {}))();
+    g_desc: () => G.description = t.value, g_protects: () => G.protects = t.value, g_missing: () => G.on_missing = t.value,
+    g_lookahead: () => G.lookahead = t.value }[t.id] || (() => {}))();
   updateGuard();
 });
 $("#guardForm").addEventListener("change", e => { const t = e.target; if (t.tagName === "SELECT") t.dispatchEvent(new Event("input", { bubbles: true })); });

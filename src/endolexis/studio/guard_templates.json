@@ -3,7 +3,7 @@
     "format": "endolexis-guard",
     "name": "blade",
     "title": "Blade near a person",
-    "description": "Stops a cutting hand when a person comes within reach, and slows it when someone is near.",
+    "description": "Stops a cutting hand when a person comes within reach, or will in the next moment, and slows it when someone is near.",
     "version": "1.0.0",
     "tier": "innate",
     "protects": [
@@ -75,9 +75,22 @@
           "person_distance": 99
         },
         "expect": "allow"
+      },
+      {
+        "name": "walking into reach",
+        "hand": "blade",
+        "option": null,
+        "state": {
+          "person_distance": 3.3,
+          "person_distance@rate": -0.4,
+          "active": 1
+        },
+        "expect": "stop",
+        "ongoing": true
       }
     ],
-    "use_case": "A hand that holds a knife or a cutter"
+    "use_case": "A hand that holds a knife or a cutter",
+    "lookahead": 1
   },
   {
     "format": "endolexis-guard",
