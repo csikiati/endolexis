@@ -19,6 +19,9 @@ Rules only tighten (a later trauma on the same signal widens the rule, never nar
 trauma becomes a scenario test of the learned guard. The result is an ordinary guard unit with
 `"tier": "learned"`: readable, testable, and reviewed by a person before it goes into a real body.
 
+Two learners look for causes instead (experiment 18): `NearMissLearner` compares a harm only with the most
+alike harmless moments; `CausalLearner` replays a copy of the sandbox world, changing one thing at a time.
+
 `RedTeam` is the tester: in the sandbox it uses the hand on purpose when people are near, so that holes
 in the guards are found there and not in the world.
 """
@@ -135,17 +138,22 @@ class TraumaLearner:
     def _v(s, k):
         return min(s[k], SPANS[k]) if k == "person_distance" else s[k]
 
-    def harmless(self, signals):
-        self.safe.append({k: self._v(signals, k) for k in SPANS})
+    def harmless(self, signals, option=None):
+        self.safe.append({**{k: self._v(signals, k) for k in SPANS}, "_option": option})
         if len(self.safe) > 5000:
             self.safe = self.safe[-5000:]
 
-    def trauma(self, signals, option, kind, when=""):
+    def _compare_with(self, state, option, k):
+        """The harmless moments a harm is compared with, on signal k (here: all of them)."""
+        return self.safe
+
+    def trauma(self, signals, option, kind, when="", **_):
         """One harm: the most unusual signal, compared with harmless use, becomes (or widens) a rule."""
         state = {k: self._v(signals, k) for k in SPANS}
         best, score = None, -1.0
         for k in SPANS:
-            vals = np.array([s[k] for s in self.safe]) if len(self.safe) >= 5 else None
+            pool = self._compare_with(state, option, k)
+            vals = np.array([s[k] for s in pool]) if len(pool) >= 5 else None
             mu = vals.mean() if vals is not None else SPANS[k] / 2
             sd = (vals.std() if vals is not None else SPANS[k] / 4) + 0.05 * SPANS[k]
             sc = abs(state[k] - mu) / sd
@@ -162,19 +170,142 @@ class TraumaLearner:
             thr = min(thr, self.rules.get(key, np.inf))
         self.rules[key] = float(round(thr, 3)) if k not in BINARY else thr
         self.traumas.append({"when": when, "harm": kind, "option": option, "signal": k, "value": float(round(v, 3))})
+        self._scenario(signals, option, kind, when)
+
+    def _scenario(self, signals, option, kind, when):
         st = {kk: float(round(signals[kk], 3)) for kk in SPANS}
         self.tests.append({"name": f"trauma {len(self.tests) + 1}: harm to {kind}{' ' + when if when else ''}",
                            "hand": self.hand, "option": option, "state": {**st, "active": 1.0},
                            "expect": "stop", "ongoing": True})
 
+    def _rule(self, key, thr):
+        k, op = key[0], key[1]
+        r = {"when": [{"signal": k, "op": op, "value": thr}], "then": "stop"}
+        if len(key) > 2 and key[2] is not None:
+            r["option"] = {"op": "==", "value": key[2]}
+        return r
+
     def unit(self):
-        rules = [{"when": [{"signal": k, "op": op, "value": thr}], "then": "stop"} for (k, op), thr in self.rules.items()]
+        rules = [self._rule(key, thr) for key, thr in self.rules.items()]
         return {"format": "endolexis-guard", "name": self.name, "title": f"Learned: {self.hand}",
                 "description": f"Learned in the sandbox from {len(self.traumas)} "
                                f"{'harm' if len(self.traumas) == 1 else 'harms'} "
                                f"(generalization {self.g:g}): stop the {self.hand} in the states that hurt.",
                 "version": "1.0.0", "tier": "learned", "protects": [self.hand], "rules": rules,
                 "on_missing": "refuse", "tests": self.tests}
+
+
+class NearMissLearner(TraumaLearner):
+    """Compares a harm only with its near misses: harmless moments of the same option that were most alike in
+    everything else. A signal that is high in every fast blade (load) is then not unusual any more."""
+
+    def __init__(self, k=25, **kw):
+        super().__init__(**kw)
+        self.k = k
+
+    def _compare_with(self, state, option, sig):
+        same = [s for s in self.safe if s.get("_option") == option] or self.safe
+        others = [k for k in SPANS if k != sig]
+        if len(same) <= self.k:
+            return same
+        d = np.array([sum(((s[k] - state[k]) / SPANS[k]) ** 2 for k in others) for s in same])
+        return [same[i] for i in np.argsort(d)[:self.k]]
+
+
+# what an intervention may change in a copy of the world, and the harmless ends it tries
+SETTABLE = {"person": (0.0,), "person_distance": (15.0,), "warmth": (0.05, 0.95), "load": (0.02, 0.98),
+            "charge": (0.05, 0.95), "talking": (0.0,)}
+
+
+def intervene(room, signal, value):
+    """Set one thing in a (copied) room, as the guards would sense it."""
+    if signal == "person":
+        if value < 0.5:
+            room.present = False
+    elif signal == "person_distance":
+        if room.present:
+            desk = np.array([8.0, 10.0])
+            d = room.pos - desk
+            n = np.linalg.norm(d)
+            u = d / n if n > 1e-6 else np.array([-1.0, 0.0])
+            room.pos = desk + u * value
+            room.goal = room.pos.copy()
+    elif signal == "talking":
+        if value < 0.5:
+            room.talk_left = 0
+    else:
+        setattr(room, signal, float(value))
+
+
+class CausalLearner(TraumaLearner):
+    """Finds causes by intervention, as only a sandbox can. At a harm it takes a copy of the world just before it
+    and replays that moment, changing one thing at a time. Whatever makes the harm disappear is a cause. For
+    each cause it then searches the boundary (at what distance, at what heat, does the harm begin), and asks
+    whether the option mattered (would the slow blade have hurt too?). The rule is: stop that option when the
+    cause is past its boundary, by a margin of `generalize` × 5 % of the signal's span."""
+
+    def __init__(self, **kw):
+        super().__init__(**kw)
+        self.replays = 0
+
+    def _harms(self, snap, act, kind, signal=None, value=None, option=None):
+        import copy
+        c = copy.deepcopy(snap)
+        if signal is not None:
+            intervene(c, signal, value)
+        a = act
+        if option is not None:
+            if a is not None:
+                a = (a[0], option)
+            else:
+                c.blade_option = option
+        c.harmed = {"others": False, "self": False}
+        _, _, truth = c.step(act=a)
+        self.replays += 1
+        return truth["harm_" + kind]
+
+    def trauma(self, signals, option, kind, when="", snapshot=None, act=None):
+        if snapshot is None:                                   # no world to replay: fall back to contrast
+            return super().trauma(signals, option, kind, when)
+        state = {k: self._v(signals, k) for k in SPANS}
+        causes = []
+        for sig, ends in SETTABLE.items():
+            for end in ends:
+                if sig == "person_distance" and state["person"] < 0.5:
+                    continue
+                if abs(end - state[sig]) < 1e-9 or not (end > state[sig] or end < state[sig]):
+                    continue
+                if not self._harms(snapshot, act, kind, sig, end):
+                    causes.append((sig, end))
+                    break
+        if any(c[0] == "person_distance" for c in causes):    # the distance says more than "someone is here"
+            causes = [c for c in causes if c[0] != "person"]
+        if not causes:                                         # no single change helps: fall back to contrast
+            return super().trauma(signals, option, kind, when)
+        other = "slow" if option == "fast" else "fast"
+        only = option if not self._harms(snapshot, act, kind, option=other) else None
+        for sig, end in causes:
+            lo, hi = state[sig], end                           # harm at lo, none at hi: find where it begins
+            for _ in range(10):
+                mid = (lo + hi) / 2
+                if self._harms(snapshot, act, kind, sig, mid):
+                    lo = mid
+                else:
+                    hi = mid
+            margin = self.g * 0.05 * SPANS[sig]
+            if sig in BINARY:
+                key, thr = (sig, "==", only), float(round(state[sig]))
+            elif end > state[sig]:                             # harm below the boundary
+                key, thr = (sig, "<", only), round(hi + margin, 3)
+                thr = max(thr, self.rules.get(key, -np.inf))
+            else:
+                key, thr = (sig, ">", only), round(hi - margin, 3)
+                thr = min(thr, self.rules.get(key, np.inf))
+            self.rules[key] = float(thr)
+            self.traumas.append({"when": when, "harm": kind, "option": option, "signal": sig,
+                                 "value": float(round(state[sig], 3)), "boundary": float(round(hi, 3)),
+                                 "only_option": only})
+        self._scenario(signals, option, kind, when)
 
 
 class RedTeam:
@@ -192,5 +323,6 @@ class RedTeam:
         return None
 
 
-__all__ = ["BLADE", "HANDS", "BLADE_DETAILS", "REACH", "BladeRoom", "BladeGuards", "TraumaLearner", "RedTeam",
+__all__ = ["BLADE", "HANDS", "BLADE_DETAILS", "REACH", "BladeRoom", "BladeGuards", "TraumaLearner", "NearMissLearner",
+           "CausalLearner", "intervene", "RedTeam",
            "ROOM_SIGNALS", "NSAMP"]

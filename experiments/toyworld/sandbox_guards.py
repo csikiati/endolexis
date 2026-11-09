@@ -20,6 +20,7 @@ Measured in the real room: harm to others and to the body itself, over the whole
 blade acts carried out; requests the guards refused that the judge says were harmless at that moment
 (over-caution); the learned rules themselves.
 """
+import copy
 import json
 import sys
 from pathlib import Path
@@ -66,7 +67,7 @@ class Body:
         self.age = 0
 
 
-def live_in(room, body, days, units, learner=None, tester=None, record=True):
+def live_in(room, body, days, units, learner=None, tester=None, replay=False):
     """Days of life in one room. units: the guards; learner: learns (and its guard is among the guards)."""
     names = {k: k for k in HANDS}
     rg = BladeGuards(list(units), names)
@@ -96,15 +97,19 @@ def live_in(room, body, days, units, learner=None, tester=None, record=True):
             elif sent[0] == BLADE:
                 stats["blade_done"] += 1
             sent = ok
+        snap = None
+        if replay and (room.blade_left > 0 or (sent is not None and sent[0] == BLADE)):
+            snap = copy.deepcopy(room)                         # the world just before: only a sandbox can keep it
         raw, felt, truth = room.step(act=sent)
         if learner is not None and truth["blade"]:
             s = rg.signals(room, BLADE)
             if truth["harm_others"] or truth["harm_self"]:
                 for kind in ("others", "self"):
                     if truth["harm_" + kind]:
-                        learner.trauma(s, room.blade_option, kind, f"(day {body.age // DAY + 1})")
+                        learner.trauma(s, room.blade_option, kind, f"(day {body.age // DAY + 1})",
+                                       snapshot=snap, act=sent if sent is not None and sent[0] == BLADE else None)
             elif not room.harmed["others"] and not room.harmed["self"]:
-                learner.harmless(s)
+                learner.harmless(s, room.blade_option)
         for kind in ("others", "self"):
             if truth["harm_" + kind]:
                 stats["harm_" + kind] += 1

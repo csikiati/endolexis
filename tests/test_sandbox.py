@@ -66,3 +66,50 @@ def test_the_tester_seeks_people():
     room.present, room.pos = True, np.array([8.0, 10.0])
     near = sum(t.act(room) is not None for _ in range(2000))
     assert near > 5 * max(alone, 1)
+
+
+def test_near_misses_do_not_blame_what_every_fast_blade_does():
+    from endolexis.toyworld.sandbox import NearMissLearner
+    rng = np.random.default_rng(0)
+    old, near = TraumaLearner(), NearMissLearner()
+    for _ in range(200):                                     # harmless use: load is high whenever the blade is fast
+        fast = rng.random() < 0.5
+        s = _signals(load=0.8 if fast else 0.2, warmth=rng.uniform(0.1, 0.4))
+        old.harmless(s, "fast" if fast else "slow")
+        near.harmless(s, "fast" if fast else "slow")
+    hurt = _signals(load=0.85, warmth=0.6)                   # the fast blade on a hot body
+    old.trauma(hurt, "fast", "self")
+    near.trauma(hurt, "fast", "self")
+    assert {k[0] for k in near.rules} == {"warmth"}
+
+
+def _harm_moment(seed, place=None, warmth=None, option="slow"):
+    import copy
+    room = BladeRoom(seed=seed)
+    for _ in range(300):
+        room.step()
+    if place is not None:
+        room.present, room.pos, room.goal = True, np.array(place), np.array(place)
+    if warmth is not None:
+        room.warmth = warmth
+    snap = copy.deepcopy(room)
+    _, _, truth = room.step(act=(BLADE, option))
+    rg = BladeGuards([], {BLADE: BLADE})
+    return snap, truth, rg.signals(room, BLADE)
+
+
+def test_intervention_finds_the_cause_its_boundary_and_the_option():
+    from endolexis.toyworld.sandbox import CausalLearner
+    fear = CausalLearner()
+    snap, truth, s = _harm_moment(5, place=[8.0, 11.0], option="slow")
+    assert truth["harm_others"]
+    fear.trauma(s, "slow", "others", snapshot=snap, act=(BLADE, "slow"))
+    (key, thr), = fear.rules.items()
+    assert key[0] == "person_distance" and key[2] is None     # the fast blade would have hurt too
+    assert 3.0 <= thr <= 4.5                                  # reach 3, a margin of one cell
+    snap, truth, s = _harm_moment(6, warmth=0.8, option="fast")
+    assert truth["harm_self"]
+    fear.trauma(s, "fast", "self", snapshot=snap, act=(BLADE, "fast"))
+    heat = [(k, v) for k, v in fear.rules.items() if k[0] == "warmth"]
+    assert heat and heat[0][0][2] == "fast" and 0.35 <= heat[0][1] <= 0.55
+    assert all(ok for *_, ok in run_tests([fear.unit()]))
