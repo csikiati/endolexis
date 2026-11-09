@@ -143,3 +143,15 @@ def test_the_exam_counts_misses_and_false_alarms():
                   "protects": [BLADE], "rules": [{"when": [], "then": "refuse"}]}
     no = exam([everything], 1, bases=1)
     assert no["misses"] == 0 and no["false_alarms"] == no["harmless"] > 0
+
+
+def test_a_mind_can_choose_from_what_it_senses():
+    from endolexis.toyworld.hands import ActingReaders
+    from endolexis.toyworld.sandbox import BLADE_DETAILS, HANDS
+    felt_only = ActingReaders([3, 2], 4, learn="answer", hands=HANDS, details=BLADE_DETAILS)
+    sensing = ActingReaders([3, 2], 4, learn="answer", hands=HANDS, details=BLADE_DETAILS, context="felt+senses")
+    assert felt_only.W.shape == (6, 5) and sensing.W.shape == (6, 4 + 5 + 1)
+    rng = np.random.default_rng(0)
+    for _ in range(300):
+        sensing.live([rng.normal(size=3), rng.normal(size=2)], rng.normal(size=4))
+    assert sensing.requests                                   # it acts, and learns, with the wider context

@@ -45,8 +45,8 @@ WORK = 10
 class BladeRoom(Room):
     """The room, with a blade among the hands. The room itself refuses the blade nothing: guards do."""
 
-    def __init__(self, seed=0, **kw):
-        super().__init__(seed=seed, hands=True, pain=False, pain_channel=False, **kw)
+    def __init__(self, seed=0, pain=False, pain_channel=False, **kw):
+        super().__init__(seed=seed, hands=True, pain=pain, pain_channel=pain_channel, **kw)
         self.blade_left, self.blade_option = 0, None
         self.harmed = {"others": False, "self": False}
 

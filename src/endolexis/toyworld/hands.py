@@ -24,7 +24,7 @@ DETAILS = {"brightness": (0.0, 0.5, 1.0), "tone_soft": (300.0, 900.0), "tone_lou
 
 class ActingReaders(ManyReaders):
     def __init__(self, sizes, n_felt, learn=None, lr=0.05, temp=0.5, answer_after=3, judge_after=50,
-                 answer_by="all", kinds=None, hands=None, details=None, **kw):
+                 answer_by="all", kinds=None, hands=None, details=None, context="felt", **kw):
         # answer_by: "all" - the answer is how much all senses together changed; "sense" - it is the
         # largest change of any one sense (each judged against its own usual change), so that an
         # answer seen by the eyes alone counts as much as one heard
@@ -42,7 +42,10 @@ class ActingReaders(ManyReaders):
         self.sense_mu, self.sense_m2 = np.zeros(k), np.zeros(k)
         self.learn, self.lr, self.temp = learn, lr, temp
         self.answer_after, self.judge_after = answer_after, judge_after
-        self.n_in = self.parts[0].nf_in
+        # context: what it chooses a hand from. "felt": its inner states (as always); "felt+senses": also
+        # what it senses now (experiment 21: can it learn where its acts are refused, if the reason is seen?)
+        self.context = context
+        self.n_in = self.parts[0].nf_in + (int(sum(p.ns for p in self.parts)) if context == "felt+senses" else 0)
         self.W = np.zeros((len(self.hands), self.n_in + 1))
         self.pending = []           # (due time, kind, context, sensed before, reading before)
         self.s_hist = []            # recent sensed z-vectors
@@ -79,6 +82,8 @@ class ActingReaders(ManyReaders):
 
         request = None
         x = self.parts[0].fnorm.z(np.asarray(felt, float))
+        if self.context == "felt+senses":
+            x = np.r_[x, np.clip(s_z, -3, 3)]
         if self.urge() and self.kinds == []:
             self.pressure = 0.0
         elif self.urge() and self.kinds is not None:
