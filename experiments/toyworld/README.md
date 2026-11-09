@@ -713,3 +713,45 @@ Learned guards are readable and carry their traumas as scenario tests. That is w
 a person can see "stop when load > 0.82", recognize a confound, and replace it with the true cause. For a
 real machine, the sandbox only knows the dangers it simulates. The innate tier and the hardware stop stay
 underneath, and every learned guard needs a person's review before it goes into a real body.
+
+## Experiment 18: fear that finds causes (`experiments/toyworld/causal_guards.py`, 5 lives × 30 days)
+
+Experiment 17's fear system asked only which signal was most unusual when the blade hurt. It learned crude
+rules and confounds. Two other fear systems ask about causes, in the same body, rooms and lives:
+
+- **Near misses** (`NearMissLearner`) compares the harm only with the 25 harmless moments of the same option
+  that were most alike in everything else. It works anywhere, the real room included.
+- **Intervention** (`CausalLearner`) is what only a sandbox can do. At a harm it copies the world just before
+  it and replays that moment, changing one thing at a time: the person away, the body cooled, the load
+  lowered… What makes the harm disappear is a cause. It then searches where the harm begins (the boundary)
+  and replays with the other option, to learn whether only the fast blade hurts. The rule stops the blade
+  past the boundary, with a margin of 5 % of the signal's span.
+
+| Fear system, where it learned | Real harm in a life | Rules on causes / confounds | Rules "a person anywhere in the room" | Distance boundary (true: 3 cells, 4 fast) | Heat rules kept to the fast blade | Blade used / wanted a day |
+|---|---|---|---|---|---|---|
+| unusual signal, sandbox with a tester | 0 | 5 / 1 | 3 of 5 lives | 10.8-11.4 | – | 0.38 / 0.81 |
+| near misses, sandbox with a tester | 0 | 5 / 3 | 4 of 5 lives | 8.6 | – | 0.31 / 0.72 |
+| **intervention, sandbox with a tester** | 0.2 | **11 / 0** | **none** | **3.7-5.4** | **2 of 2** (heat > 0.48) | 0.39 / 0.81 |
+| **intervention, sandbox without a tester** | **0** | **9 / 0** | **none** | **3.7-5.4** | **2 of 2** (heat > 0.41-0.48) | **0.51 / 0.94** |
+| unusual signal, real trauma | 1.4 | 6 / 1 | 4 of 5 lives | 6.5 | 0 of 1 | 0.22 / 0.65 |
+| near misses, real trauma | 1.2 | 6 / 0 | 4 of 5 lives | 10.6 | 0 of 1 | 0.28 / 0.68 |
+
+- **Intervention finds causes.** All 20 of its rules were on true causes, none on a confound, and none was
+  "stop whenever a person is in the room". It learned the blade's reach, with a margin, and that the fast
+  blade reaches further: *stop when a person is within 4.3 cells*, and for the fast blade *within 5.4*. It also
+  learned that only the fast blade burns the motor: *stop the fast blade when warmth > 0.48* (the true limit
+  is 0.5). Replaying took about 40 copies of the world per life.
+- **Only for the harms that happened.** In one life with the tester, the sandbox never produced a hot-motor
+  harm, so no heat rule was learned, and the real room had one. Intervention explains what it meets; it
+  does not imagine what it never met.
+- **Near misses did not help here.** Matching on everything else still blamed load when the fast blade was at
+  work, and kept "a person anywhere". In the real room it did drop the "talking" confound. Matching is weaker
+  than intervention when the confound moves with the act itself.
+- **Right rules free the hand less than expected.** The body wants to act most while the person sits at the
+  desk, inside the true reach. So even exact rules let the blade work about half the times it is wanted:
+  54 % without the tester against 47 % for the crude rules. The danger and the wanting coincide.
+- **The tester made the rules no better.** With intervention, the body that grew up without a tester used the
+  blade more and was never harmed. The tester's harms near people taught the same distance rules again.
+
+The causal guard is in the studio, under *Add guard* → *Learned in the sandbox*. A person can read every rule,
+check each against its trauma scenario, and see that it names a cause.

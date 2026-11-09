@@ -504,7 +504,10 @@ The format, the web studio and the command line are described in [`studio/README
 (`"slow"`, `"fast"`), whose `step` also reports `harm_others` and `harm_self` as judged by the laws;
 `BladeGuards` (guards that also watch the blade); `TraumaLearner(hand="blade", generalize=1.0)`, the fear
 system: `harmless(signals)`, `trauma(signals, option, kind)`, `unit()` → a learned guard unit;
-`RedTeam(seed)`, the tester. `ActingReaders(hands=sandbox.HANDS, details=sandbox.BLADE_DETAILS)` gives a
+`RedTeam(seed)`, the tester. Experiment 18 adds `NearMissLearner(k=25)` (compares a harm with the most alike harmless
+moments of the same option) and `CausalLearner()` (`trauma(..., snapshot=room_copy, act=act)` replays the
+copy with one thing changed at a time, via `intervene(room, signal, value)`, and learns causes, boundaries
+and whether the option mattered). `ActingReaders(hands=sandbox.HANDS, details=sandbox.BLADE_DETAILS)` gives a
 mind the blade. An architecture with `guards` is guarded by
 them alone, and `live` then reports how often each guard refused, limited, stopped or asked.
 | `load(path)` | Read an architecture (or any JSON) |

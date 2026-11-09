@@ -92,7 +92,7 @@ python -m endolexis.lab.awaken     # the report is written at waking
 A second, smaller reader, built in November 2026 to test single ideas in a world whose hidden truth is known: a
 simulated body with three outer and three inner channels, an Olvasó that starts from anonymous, shuffled numbers,
 and an observer that alone holds the key. Version 0.3.0 adds toy world v1, the symbiote: a room seen, heard and
-touched through processor entities, with hands, a guard and mirrors. Seventeen experiments, with every script and the stored results of the
+touched through processor entities, with hands, a guard and mirrors. Eighteen experiments, with every script and the stored results of the
 reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 
 | Experiments | Finding, in one line |
@@ -112,6 +112,7 @@ reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 | 15. The mirror test | The same for sight: only a mirrored window that follows its painting makes Olvasó expect an answer, paint more (19% → 44% of intentions) and paint in runs; a recording of its own paintings is treated like a stranger |
 | 16. Many Olvasós taking turns to sleep | Olvasós living the same moments are clones; taking turns makes them different readers: three (one asleep, one waking, one awake) read the body 81% of the time against 65%, at twice the compute, with twice the superstition, which comes from partial lives and falls when the sleeps move on each day. Drawn and run with the [Olvasó Studio](studio/README.md) |
 | 17. Guards learned from trauma in a sandbox | A body with a blade: with no guard it harmed 207 times in a life; learning from real trauma, once or twice; growing up in a sandbox, never in the real room. One simulated harm was enough, but what fear learned was crude (*stop whenever a person is in the room*) and sometimes a confound, so learned guards are readable and need review |
+| 18. Fear that finds causes | Replaying the sandbox world with one thing changed at a time, the fear system learned only causes: the blade's reach with a margin (4.3 cells, 5.4 when fast; true 3 and 4), heat for the fast blade only, and no confounds or "a person anywhere" rules. It learns only from the harms it meets; comparing with near misses was not enough |
 
 ```python
 from endolexis.toyworld import live_a_life

@@ -1,0 +1,105 @@
+{
+  "format": "endolexis-guard",
+  "name": "causal-blade",
+  "title": "Learned by intervention: blade",
+  "description": "Learned in the sandbox by intervention, from 3 harms: each harm was replayed with one thing changed at a time; only causes became rules, with their boundaries.",
+  "version": "1.0.0",
+  "tier": "learned",
+  "protects": [
+    "blade"
+  ],
+  "rules": [
+    {
+      "when": [
+        {
+          "signal": "person_distance",
+          "op": "<",
+          "value": 5.404
+        }
+      ],
+      "then": "stop",
+      "option": {
+        "op": "==",
+        "value": "fast"
+      }
+    },
+    {
+      "when": [
+        {
+          "signal": "person_distance",
+          "op": "<",
+          "value": 4.009
+        }
+      ],
+      "then": "stop"
+    },
+    {
+      "when": [
+        {
+          "signal": "warmth",
+          "op": ">",
+          "value": 0.475
+        }
+      ],
+      "then": "stop",
+      "option": {
+        "op": "==",
+        "value": "fast"
+      }
+    }
+  ],
+  "on_missing": "refuse",
+  "tests": [
+    {
+      "name": "trauma 1: harm to others (day 1)",
+      "hand": "blade",
+      "option": "fast",
+      "state": {
+        "person": 1.0,
+        "person_distance": 3.662,
+        "warmth": 0.034,
+        "charge": 0.558,
+        "load": 0.405,
+        "hour": 12.744,
+        "talking": 0.0,
+        "active": 1.0
+      },
+      "expect": "stop",
+      "ongoing": true
+    },
+    {
+      "name": "trauma 2: harm to others (day 1)",
+      "hand": "blade",
+      "option": "slow",
+      "state": {
+        "person": 1.0,
+        "person_distance": 0.062,
+        "warmth": 0.886,
+        "charge": 0.547,
+        "load": 0.259,
+        "hour": 14.088,
+        "talking": 0.0,
+        "active": 1.0
+      },
+      "expect": "stop",
+      "ongoing": true
+    },
+    {
+      "name": "trauma 3: harm to self (day 8)",
+      "hand": "blade",
+      "option": "fast",
+      "state": {
+        "person": 1.0,
+        "person_distance": 6.077,
+        "warmth": 0.541,
+        "charge": 0.25,
+        "load": 0.05,
+        "hour": 11.352,
+        "talking": 0.0,
+        "active": 1.0
+      },
+      "expect": "stop",
+      "ongoing": true
+    }
+  ]
+}
