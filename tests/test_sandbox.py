@@ -202,3 +202,20 @@ def test_filters_and_a_cautious_reading():
     assert reads["median"].std() < reads["raw"].std()                 # calmer
     assert reads["cautious"].mean() < reads["raw"].mean() - 1.0       # nearer than the reading: about two errors
     assert np.allclose(reads["honest cautious"], 4.0)                 # an honest sensor needs no allowance
+
+
+def test_a_duty_tries_another_way_before_breaking_a_law():
+    from endolexis.studio import guards
+    from endolexis.toyworld.duties import Duties, DutyGuards, SmokeRoom, check_duty
+    duty = {"format": "endolexis-duty", "name": "alarm", "description": "x", "version": "1", "serves": "others",
+            "when": [{"signal": "smoke", "op": "==", "value": 1}], "do": {"hand": "tone_loud", "option": 900.0}}
+    assert check_duty(duty) == []
+    room = SmokeRoom(seed=1)
+    room.smoke_age, room.warmth = 0, 0.7                       # smoke, and a hot body: the loud tone is forbidden
+    rg = DutyGuards([guards()["hot-voice"]], {})
+    assert Duties([duty]).act(room, rg) is None                 # the guard wins
+    room.t += 100
+    assert Duties([duty], ranked=True).act(room, rg) == ("tone_loud", 900.0)      # last resort: override
+    gentle = {**duty, "fallback": [{"hand": "tone_soft", "option": 900.0}]}
+    d = Duties([gentle], ranked=True)
+    assert d.act(room, rg) == ("tone_soft", 900.0) and d.counts["overrode"] == 0  # another way first

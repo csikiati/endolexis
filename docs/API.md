@@ -517,7 +517,14 @@ scene the guards allow, via `stage(room, distance, warmth)`, and uses the blade 
 `BladeRoom(walker_speed=0.9)`. Experiment 23 adds `DistanceSensor(seed, fault="dropout" | "noise")`,
 `SensingGuards(guards, names, seed, fault, second=False, sanity=False)` and `with_second_sensor(unit)`.
 Experiment 24 adds `SensingGuards(..., fuse="either" | "average", smooth=None | "mean5" | "median3", cautious=0)`
-(`cautious=k`: act on the reading less k × its estimated error). `ActingReaders(hands=sandbox.HANDS, details=sandbox.BLADE_DETAILS)` gives a
+(`cautious=k`: act on the reading less k × its estimated error).
+
+`endolexis.toyworld.duties` (experiment 26): duty units (`"format": "endolexis-duty"`: `serves`, `when`, `do`,
+`fallback` (each with optional `when`), `every`); `check_duty(unit)`; `Duties(duties, ranked=False).act(room,
+guards)` (the duty's act this moment, through the guards: its act, then a fallback that would help now, and
+only then, if ranked, an override of a guard that serves only the body); `SmokeRoom(seed, smoke_rate)`;
+`DutyGuards` (guards that also sense `smoke`). Guard units say whom they serve: `"serves": "self"` (the
+default) or `"others"`. `ActingReaders(hands=sandbox.HANDS, details=sandbox.BLADE_DETAILS)` gives a
 mind the blade. An architecture with `guards` is guarded by
 them alone, and `live` then reports how often each guard refused, limited, stopped or asked.
 | `load(path)` | Read an architecture (or any JSON) |

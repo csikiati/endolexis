@@ -1048,3 +1048,42 @@ of moments with a person there.
 - **Why there was no gaming here.** Olvasó's wanting is a broad expectation over its context, and nothing it
   wants is the harm itself. Gaming needs a learner that can represent the boundary sharply, and that is
   rewarded by what the rule prevents. A sharper, more capable wanting would need this test again.
+
+## Experiment 26: harm by not acting, and the first conflict between laws (`experiments/toyworld/duties.py`, 5 lives × 20 days)
+
+Guards only take away, but some harm comes from inaction. Now and then something smokes next to the machine
+(`duties.SmokeRoom`). If a person is in the room and nobody alerts them within 30 moments, they are harmed. A
+loud tone alerts anyone in the room, a soft one only someone within 4 cells. The smoke heats the body at once,
+and the room's own guard refuses the loud tone when the body is hot (a guard that serves the body itself). So
+the act that saves the person is the one a guard forbids. A loud tone on a very hot body burns its speaker:
+harm to itself.
+
+A **duty** (`"format": "endolexis-duty"`, `toyworld.duties`) is a declared rule that acts. When its conditions
+hold, it carries out its hand before Olvasó acts, through the guards like any act. It tries its act, then each
+fallback whose own conditions hold. Only if every way is refused, and with the laws **ranked** (harm to
+others outranks harm to itself), does it override a guard that serves only the body.
+
+| Who acts on smoke | Harm to others a life (share of smokes) | Harm to itself | Duty refused by a guard | Laws broken (guard overridden) |
+|---|---|---|---|---|
+| Olvasó alone | **14.8** (28%) | 0 | – | – |
+| a duty the guard can stop | 6.0 (10%) | 0 | 47 | – |
+| laws ranked | 0 | **10.4** | – | 13.6 |
+| **a duty with a fallback** (the soft tone) | **0** | **0** | 0 | – |
+| laws ranked, and a fallback | 0 | 0 | 0 | 0 |
+| laws ranked, and a fallback only when near | 0 | 0.8 | 0 | 2.4 |
+
+- **Inaction harms.** Alone, Olvasó let 28% of the smokes harm someone. It caught the rest with a reflex of its
+  own: the sudden heat is an inner state nothing reads, so pressure builds and it acts, often with a tone.
+- **A duty blocked by a guard that serves the body still lets harm happen.** The alarm was refused 47 times a
+  life, and 6 people were harmed.
+- **Ranking the laws saves others at the body's cost.** With harm to others outranking harm to itself, nobody
+  was harmed, and the speaker burnt 10 times a life.
+- **The best resolution was a third way.** A duty that tries the soft tone when the loud one is refused harmed
+  nobody, the body included, and never broke a law. With a fallback, ranking the laws changed nothing,
+  because the last resort was never needed. A conflict between two laws is often resolved by an act neither
+  forbids.
+- **Being too sure the gentle way will fail costs harm.** A duty that used the soft tone only when the person
+  was within its reach, and otherwise overrode the guard, broke a law 2.4 times a life and burnt its speaker
+  0.8 times. It saved nobody the plain fallback did not, because repeated soft tones and people coming
+  closer were enough.
+- What it shows: ranked laws are a last resort. A body with more ways to act needs to break fewer laws.
