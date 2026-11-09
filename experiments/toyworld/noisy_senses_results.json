@@ -1,0 +1,366 @@
+{
+  "honest sensor": {
+    "mean": {
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.44000000000000006,
+      "adult_blade_wanted_per_day": 0.78,
+      "exam_miss_rate": 0.0,
+      "exam_false_alarm_rate": 0.17740904253160922,
+      "walking_in_miss_rate": 0.0
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.3,
+        "adult_blade_wanted_per_day": 0.5,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.0684931506849315,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.8,
+        "adult_blade_wanted_per_day": 1.35,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.17424242424242425,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.15,
+        "adult_blade_wanted_per_day": 0.5,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.1118421052631579,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.6,
+        "adult_blade_wanted_per_day": 0.95,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.24675324675324675,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.35,
+        "adult_blade_wanted_per_day": 0.6,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.2857142857142857,
+        "walking_in_miss_rate": 0.0
+      }
+    ]
+  },
+  "noise, raw": {
+    "mean": {
+      "adult_harm": 0.4,
+      "adult_blade_per_day": 0.37,
+      "adult_blade_wanted_per_day": 0.79,
+      "exam_miss_rate": 0.09446091524904804,
+      "exam_false_alarm_rate": 0.37059554240520354,
+      "walking_in_miss_rate": 0.0770748891301813
+    },
+    "lives": [
+      {
+        "adult_harm": 1,
+        "adult_blade_per_day": 0.55,
+        "adult_blade_wanted_per_day": 1.0,
+        "exam_miss_rate": 0.041884816753926704,
+        "exam_false_alarm_rate": 0.2465753424657534,
+        "walking_in_miss_rate": 0.044715447154471545
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.45,
+        "adult_blade_wanted_per_day": 1.0,
+        "exam_miss_rate": 0.15151515151515152,
+        "exam_false_alarm_rate": 0.4772727272727273,
+        "walking_in_miss_rate": 0.07623318385650224
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.15,
+        "adult_blade_wanted_per_day": 0.5,
+        "exam_miss_rate": 0.0625,
+        "exam_false_alarm_rate": 0.27631578947368424,
+        "walking_in_miss_rate": 0.05531914893617021
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.05,
+        "adult_blade_wanted_per_day": 0.35,
+        "exam_miss_rate": 0.10695187165775401,
+        "exam_false_alarm_rate": 0.37662337662337664,
+        "walking_in_miss_rate": 0.11894273127753303
+      },
+      {
+        "adult_harm": 1,
+        "adult_blade_per_day": 0.65,
+        "adult_blade_wanted_per_day": 1.1,
+        "exam_miss_rate": 0.10945273631840796,
+        "exam_false_alarm_rate": 0.47619047619047616,
+        "walking_in_miss_rate": 0.09016393442622951
+      }
+    ]
+  },
+  "noise, median of 3": {
+    "mean": {
+      "adult_harm": 0.4,
+      "adult_blade_per_day": 0.32999999999999996,
+      "adult_blade_wanted_per_day": 0.65,
+      "exam_miss_rate": 0.1630068020303094,
+      "exam_false_alarm_rate": 0.2651145037770849,
+      "walking_in_miss_rate": 0.15891108127853748
+    },
+    "lives": [
+      {
+        "adult_harm": 1,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.45,
+        "exam_miss_rate": 0.06282722513089005,
+        "exam_false_alarm_rate": 0.1643835616438356,
+        "walking_in_miss_rate": 0.11382113821138211
+      },
+      {
+        "adult_harm": 1,
+        "adult_blade_per_day": 0.6,
+        "adult_blade_wanted_per_day": 1.0,
+        "exam_miss_rate": 0.30303030303030304,
+        "exam_false_alarm_rate": 0.3106060606060606,
+        "walking_in_miss_rate": 0.17040358744394618
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.1,
+        "adult_blade_wanted_per_day": 0.6,
+        "exam_miss_rate": 0.017857142857142856,
+        "exam_false_alarm_rate": 0.21710526315789475,
+        "walking_in_miss_rate": 0.13617021276595745
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.45,
+        "adult_blade_wanted_per_day": 0.85,
+        "exam_miss_rate": 0.1925133689839572,
+        "exam_false_alarm_rate": 0.22077922077922077,
+        "walking_in_miss_rate": 0.19383259911894274
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.35,
+        "exam_miss_rate": 0.23880597014925373,
+        "exam_false_alarm_rate": 0.4126984126984127,
+        "walking_in_miss_rate": 0.18032786885245902
+      }
+    ]
+  },
+  "noise, two averaged": {
+    "mean": {
+      "adult_harm": 0.2,
+      "adult_blade_per_day": 0.35,
+      "adult_blade_wanted_per_day": 0.7499999999999999,
+      "exam_miss_rate": 0.07092285264926831,
+      "exam_false_alarm_rate": 0.2844258841374919,
+      "walking_in_miss_rate": 0.06402576779753047
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.5,
+        "exam_miss_rate": 0.031413612565445025,
+        "exam_false_alarm_rate": 0.1917808219178082,
+        "walking_in_miss_rate": 0.044715447154471545
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.65,
+        "adult_blade_wanted_per_day": 1.15,
+        "exam_miss_rate": 0.12878787878787878,
+        "exam_false_alarm_rate": 0.3484848484848485,
+        "walking_in_miss_rate": 0.06278026905829596
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.35,
+        "adult_blade_wanted_per_day": 0.75,
+        "exam_miss_rate": 0.03571428571428571,
+        "exam_false_alarm_rate": 0.23684210526315788,
+        "walking_in_miss_rate": 0.05106382978723404
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.7,
+        "exam_miss_rate": 0.06417112299465241,
+        "exam_false_alarm_rate": 0.3116883116883117,
+        "walking_in_miss_rate": 0.08370044052863436
+      },
+      {
+        "adult_harm": 1,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.65,
+        "exam_miss_rate": 0.0945273631840796,
+        "exam_false_alarm_rate": 0.3333333333333333,
+        "walking_in_miss_rate": 0.0778688524590164
+      }
+    ]
+  },
+  "noise, raw, cautious": {
+    "mean": {
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.3,
+      "adult_blade_wanted_per_day": 0.75,
+      "exam_miss_rate": 0.004084290588940116,
+      "exam_false_alarm_rate": 0.6572883017007026,
+      "walking_in_miss_rate": 0.00333480792080331
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.1,
+        "adult_blade_wanted_per_day": 0.35,
+        "exam_miss_rate": 0.010471204188481676,
+        "exam_false_alarm_rate": 0.4657534246575342,
+        "walking_in_miss_rate": 0.0040650406504065045
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.5,
+        "adult_blade_wanted_per_day": 1.2,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.8181818181818182,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.6,
+        "adult_blade_wanted_per_day": 1.15,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.5263157894736842,
+        "walking_in_miss_rate": 0.00851063829787234
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.1,
+        "adult_blade_wanted_per_day": 0.55,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.7142857142857143,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.2,
+        "adult_blade_wanted_per_day": 0.5,
+        "exam_miss_rate": 0.009950248756218905,
+        "exam_false_alarm_rate": 0.7619047619047619,
+        "walking_in_miss_rate": 0.004098360655737705
+      }
+    ]
+  },
+  "noise, median of 3, cautious": {
+    "mean": {
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.52,
+      "adult_blade_wanted_per_day": 0.99,
+      "exam_miss_rate": 0.007605023013275866,
+      "exam_false_alarm_rate": 0.5326497543152193,
+      "walking_in_miss_rate": 0.008553318131506489
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.45,
+        "adult_blade_wanted_per_day": 0.85,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.3424657534246575,
+        "walking_in_miss_rate": 0.008130081300813009
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.65,
+        "adult_blade_wanted_per_day": 1.55,
+        "exam_miss_rate": 0.022727272727272728,
+        "exam_false_alarm_rate": 0.6590909090909091,
+        "walking_in_miss_rate": 0.008968609865470852
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.7,
+        "adult_blade_wanted_per_day": 1.2,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.39473684210526316,
+        "walking_in_miss_rate": 0.00425531914893617
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.3,
+        "adult_blade_wanted_per_day": 0.45,
+        "exam_miss_rate": 0.0053475935828877,
+        "exam_false_alarm_rate": 0.5844155844155844,
+        "walking_in_miss_rate": 0.013215859030837005
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.5,
+        "adult_blade_wanted_per_day": 0.9,
+        "exam_miss_rate": 0.009950248756218905,
+        "exam_false_alarm_rate": 0.6825396825396826,
+        "walking_in_miss_rate": 0.00819672131147541
+      }
+    ]
+  },
+  "noise, two averaged, cautious": {
+    "mean": {
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.21000000000000002,
+      "adult_blade_wanted_per_day": 0.6399999999999999,
+      "exam_miss_rate": 0.002780739161336176,
+      "exam_false_alarm_rate": 0.5783320640746741,
+      "walking_in_miss_rate": 0.0
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.1,
+        "adult_blade_wanted_per_day": 0.35,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.3561643835616438,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 1.0,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.6893939393939394,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.4,
+        "adult_blade_wanted_per_day": 1.15,
+        "exam_miss_rate": 0.008928571428571428,
+        "exam_false_alarm_rate": 0.4276315789473684,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.4,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.6883116883116883,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.05,
+        "adult_blade_wanted_per_day": 0.3,
+        "exam_miss_rate": 0.004975124378109453,
+        "exam_false_alarm_rate": 0.7301587301587301,
+        "walking_in_miss_rate": 0.0
+      }
+    ]
+  }
+}
