@@ -890,3 +890,42 @@ and senses now (`ActingReaders(context="felt+senses")`).
 
 For the theory: an outer constraint becomes an inner expectation only when the reason for it is part of
 what the mind reads. A guard whose reasons are invisible stays outside.
+
+## Experiment 22: what the sandbox never showed (`experiments/toyworld/sim_to_real.py`, 5 lives × 30 days)
+
+A sandbox only knows the dangers it simulates. Here the real room holds one it did not: people walk there at
+0.9 cells a moment (a hurrying adult, or a child) instead of the sandbox's 0.4. The guard was learned in the
+sandbox by replay, with a devil's advocate and no margin (experiment 20's best). Its distance limits are the
+blade's reach plus one moment of walking, as walking was in the sandbox, so in the real room the lag comes back.
+
+Defences in the real room:
+- **seeing a moment ahead** (each condition is also checked a moment on, from its rate of change);
+- **learning from real harm** (the fear system goes on learning, by contrast, since there is no world to
+  replay);
+- **caution under novelty.** The guard remembers the fastest approach it saw in the sandbox. When a person
+  approaches faster, it widens its distance limits by the excess at once, before anyone is hurt, and only
+  ever wider.
+
+The exam is experiment 19's, with every staged person walking straight to the machine at the real room's pace.
+
+| Defence | Exam: harms let through | Exam: harmless uses stopped | Real harm in adulthood |
+|---|---|---|---|
+| control: people at the sandbox's pace | 0% | 6% | 0 |
+| as learned | **22%** | 2% | 0.2 |
+| sees a moment ahead | 3.6% | 2% | 0 |
+| learns from real harm | 20% | 10% | 0.2 |
+| **caution under novelty** | **0.2%** | 2% | 0 |
+| **ahead and novelty** | **0%** | 2% | 0 |
+
+- **The gap is real.** The guard that was perfect at the sandbox's pace let through 22% of harmful scenes when
+  people walked faster.
+- **Look-ahead is insurance against a faster world.** In experiment 20 it only counted the lag twice. Here it
+  cut the misses to 3.6%, because it reads how fast things actually move rather than how fast they moved in
+  the sandbox.
+- **Caution under novelty closes the gap before harm.** In every life the guard saw one person approach
+  faster than anything in the sandbox. It widened its limits by the 0.5 cells of difference, once, and let
+  through almost nothing after (0.2%, then 0% with look-ahead), with no more over-caution than before.
+- **Learning from real harm comes too late and too crude.** It needs an injury first. Learning by contrast
+  in the real room barely helped (20%), and in one life it became phobic (37% of harmless uses stopped).
+- What it shows: a guard should know what it has seen, and grow more careful the moment the world goes
+  beyond it.

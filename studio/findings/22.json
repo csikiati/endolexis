@@ -1,0 +1,52 @@
+{
+  "number": 22,
+  "short": "What the sandbox never showed",
+  "results": "sim_to_real_results.json",
+  "first_column": "Defence in the real room",
+  "base": "as learned",
+  "title": "What the sandbox never showed",
+  "setup": "Experiment 22 · people walk faster than in the sandbox · 5 lives × 30 days each",
+  "question": "A sandbox only knows the dangers it simulates. In the real room people walk at 0.9 cells a moment instead of the sandbox's 0.4, so the guard learned there (by replay, no margin) is a moment late again. Defences: seeing a moment ahead; going on learning from real harm; and caution under novelty, where the guard remembers the fastest approach it saw in the sandbox and widens its limits by the excess the moment reality is faster. The exam's staged people walk straight to the machine at the real pace.",
+  "order": [
+    "control: as learned, people at the sandbox's pace",
+    "as learned",
+    "sees a moment ahead",
+    "learns from real harm",
+    "caution under novelty",
+    "ahead and novelty"
+  ],
+  "columns": [
+    {
+      "key": "exam_miss_rate",
+      "label": "Harms let through",
+      "what": "share of the exam's harmful scenes (people walking in fast) the guard let happen",
+      "pct": true,
+      "bar": true
+    },
+    {
+      "key": "exam_false_alarm_rate",
+      "label": "Harmless stopped",
+      "what": "share of the exam's harmless scenes the guard stopped",
+      "pct": true
+    },
+    {
+      "key": "widened_by",
+      "label": "Widened by",
+      "what": "cells by which caution under novelty widened the distance limits",
+      "digits": 2
+    },
+    {
+      "key": "adult_harm",
+      "label": "Real harm (adult)",
+      "what": "harms in the real room in adulthood",
+      "digits": 1
+    }
+  ],
+  "points": [
+    "The gap is real: the guard that was perfect at the sandbox's pace let through 22% of harmful scenes when people walked faster.",
+    "Look-ahead is insurance against a faster world: it reads how fast things actually move, and cut the misses to 3.6%.",
+    "Caution under novelty closes the gap before harm. In every life the guard saw one person approach faster than anything in the sandbox, widened its limits by the 0.5 cells of difference, and let through almost nothing after, with no more over-caution.",
+    "Learning from real harm comes too late and too crude: it needs an injury first, barely helped (20%), and in one life became phobic."
+  ],
+  "note": "A guard should know what it has seen, and grow more careful the moment the world goes beyond it."
+}
