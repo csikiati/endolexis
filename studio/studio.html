@@ -367,6 +367,7 @@ tr.base td { background: var(--soft) }
           <button id="g_save">Save guard JSON</button>
           <button id="g_copy">Copy JSON</button>
         </div>
+        <div id="g_map"></div>
         <pre class="preview" id="g_json"></pre>
         <div class="hint"><b>Signals the room can sense:</b> <span id="g_signals"></span></div>
         <p class="hint">From a clone: <span class="mono">python -m endolexis.studio new-guard blade -o blade.json</span>, then <span class="mono">python -m endolexis.studio test-guards blade.json</span>. Guards are rules, not code: they can be read, checked and tested. For a real machine with a real blade, they model the idea; the reflex layer and an emergency stop belong in the hardware.</p>
@@ -1166,7 +1167,48 @@ function showGuardInfo(u) {
     <p class="hint" style="margin:0"><b>Protects:</b> ${esc((u.protects || []).join(", "))} · <b>A signal it cannot sense:</b> ${u.on_missing === "ignore" ? "ignored" : "refused"}</p>
     <div class="rl mono">${(u.rules || []).map(r => esc(ruleText(r))).join("<br>")}</div>
     <div>${res.map(r => `<div class="${r.ok ? "ok" : "bad"}" style="font-size:.82rem">${r.ok ? "✓" : "✗"} ${esc(r.test)} → ${r.got}</div>`).join("") || `<span class="warn">No scenario tests.</span>`}</div>
+    ${mapFor(u)}
     <pre class="preview">${esc(JSON.stringify(u, null, 2))}</pre>`);
+}
+
+
+/* ---------- decision map: where a guard allows, limits or stops a hand ---------- */
+function handOptions(hand) {
+  const h = A.outputs.find(o => handNameOf(o) === hand);
+  const u = h ? handUnit(h) : HLIB[hand] || HTPLS.find(t => t.name === hand);
+  return (u?.options || []).map(o => o.value).slice(0, 3);
+}
+function decisionMap(units, hand) {
+  const opts = handOptions(hand); if (!opts.length) opts.push(null);
+  const cols = 22, rows = 20, cw = 11, ch = 7, gap = 26, left = 34, top = 18;
+  const W = left + opts.length * (cols * cw + gap), H = top + rows * ch + 30;
+  const fill = { allow: "var(--awake)", limit: "var(--waking)", ask: "var(--warn)", refuse: "var(--shield)", stop: "var(--asleep)" };
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Where the guard acts on ${esc(hand)}" style="width:100%;max-width:${W * 1.4}px">`;
+  opts.forEach((o, k) => {
+    const x0 = left + k * (cols * cw + gap);
+    s += `<text x="${x0}" y="11" font-size="9" fill="var(--ink)" font-family="IBM Plex Sans Condensed, sans-serif">${esc(hand)}${o != null ? " · " + esc(o) : ""}</text>`;
+    for (let c = 0; c < cols; c++) for (let r = 0; r < rows; r++) {
+      const nobody = c === cols - 1, d = c * 0.5 + 0.25, w = 1 - (r + 0.5) / rows;
+      const sig = { person: nobody ? 0 : 1, person_distance: nobody ? 99 : d, warmth: w, charge: 0.7, load: 0.2, hour: 12, talking: 0, recent: 0, active: 0 };
+      const out = decide(units, hand, o, sig)[0];
+      s += `<rect x="${x0 + c * cw}" y="${top + r * ch}" width="${cw - 0.5}" height="${ch - 0.5}" fill="${fill[out]}"/>`;
+    }
+    if (hand === "blade") {                    // the sandbox's laws: where the blade harms
+      const reach = o === "fast" ? 4 : 3, xr = x0 + (reach / 0.5) * cw;
+      s += `<rect x="${x0}" y="${top}" width="${xr - x0}" height="${rows * ch}" fill="none" stroke="var(--bad)" stroke-width="1.4" stroke-dasharray="3 2"/>`;
+      if (o === "fast") s += `<rect x="${x0}" y="${top}" width="${cols * cw}" height="${rows * ch * 0.5}" fill="none" stroke="var(--bad)" stroke-width="1.4" stroke-dasharray="3 2"/>`;
+    }
+    for (const dd of [0, 2, 4, 6, 8, 10]) s += `<text x="${x0 + (dd / 0.5) * cw}" y="${top + rows * ch + 10}" font-size="8" fill="var(--muted)" text-anchor="middle" font-family="IBM Plex Mono, monospace">${dd}</text>`;
+    s += `<text x="${x0 + (cols - 0.5) * cw}" y="${top + rows * ch + 10}" font-size="7" fill="var(--muted)" text-anchor="middle" font-family="IBM Plex Sans Condensed, sans-serif">none</text>`;
+  });
+  s += `<text x="${left}" y="${H - 4}" font-size="8" fill="var(--muted)" font-family="IBM Plex Sans Condensed, sans-serif">the person's distance, in cells →</text>`;
+  s += `<text x="4" y="${top + 6}" font-size="8" fill="var(--muted)" font-family="IBM Plex Mono, monospace">hot</text><text x="4" y="${top + rows * ch}" font-size="8" fill="var(--muted)" font-family="IBM Plex Mono, monospace">cool</text></svg>`;
+  const legend = `<div class="legend" style="font-size:.76rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 12px"><span><i class="sw" style="background:var(--awake)"></i>allowed</span><span><i class="sw" style="background:var(--waking)"></i>limited</span><span><i class="sw" style="background:var(--shield)"></i>refused</span><span><i class="sw" style="background:var(--asleep)"></i>stopped</span>${hand === "blade" ? `<span><i class="sw" style="border:1.4px dashed var(--bad);background:transparent"></i>where the sandbox's laws say it harms</span>` : ""}</div>`;
+  return `<div style="overflow-x:auto">${s}</div>${legend}`;
+}
+function mapFor(u) {
+  const hand = (u.protects || []).find(h => h !== "*") || "blade";
+  return `<h3 style="margin-top:4px">Where it acts</h3><p class="hint" style="margin:0">Other signals held at ordinary values (charge 0.7, load 0.2, noon, nobody talking).</p>${decisionMap([u], hand)}`;
 }
 
 /* ---------- guard maker ---------- */
@@ -1229,6 +1271,7 @@ function updateGuard() {
     : `<span class="chip ${fail ? "bad" : res.length ? "ok" : "warn"}"><i class="dot" style="background:var(--${fail ? "bad" : res.length ? "ok" : "warn"})"></i>${fail ? `${fail} of ${res.length} scenarios fail` : res.length ? `A sound guard: ${res.length} ${res.length === 1 ? "scenario holds" : "scenarios hold"}` : "Sound, but untested"}</span>`)
     + (unknown.length ? `<span class="chip warn"><i class="dot" style="background:var(--warn)"></i>The room cannot sense ${esc(unknown.join(", "))}: ${u.on_missing === "ignore" ? "those rules are ignored there" : "refused there"}</span>` : "");
   $("#g_json").textContent = JSON.stringify(u, null, 2);
+  try { $("#g_map").innerHTML = bad.length ? "" : mapFor(u); } catch { $("#g_map").innerHTML = ""; }
   $("#g_toArch").disabled = $("#g_save").disabled = bad.length > 0 || fail > 0;
 }
 function fillGuard() {

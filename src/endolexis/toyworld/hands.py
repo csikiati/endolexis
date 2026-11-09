@@ -44,8 +44,11 @@ class ActingReaders(ManyReaders):
         self.answer_after, self.judge_after = answer_after, judge_after
         # context: what it chooses a hand from. "felt": its inner states (as always); "felt+senses": also
         # what it senses now (experiment 21: can it learn where its acts are refused, if the reason is seen?)
+        # "felt+words": also the words it senses now, one place per word: a sharp wanting, a separate
+        # expectation for every scene it has a word for (experiment 27)
         self.context = context
-        self.n_in = self.parts[0].nf_in + (int(sum(p.ns for p in self.parts)) if context == "felt+senses" else 0)
+        extra = {"felt+senses": int(sum(p.ns for p in self.parts)), "felt+words": self.total_words}
+        self.n_in = self.parts[0].nf_in + extra.get(context, 0)
         self.W = np.zeros((len(self.hands), self.n_in + 1))
         self.pending = []           # (due time, kind, context, sensed before, reading before)
         self.s_hist = []            # recent sensed z-vectors
@@ -84,6 +87,12 @@ class ActingReaders(ManyReaders):
         x = self.parts[0].fnorm.z(np.asarray(felt, float))
         if self.context == "felt+senses":
             x = np.r_[x, np.clip(s_z, -3, 3)]
+        elif self.context == "felt+words":
+            hot = np.zeros(self.n_in - len(x))
+            for w in self.words_now():
+                if w >= 0:
+                    hot[w] = 1.0
+            x = np.r_[x, hot]
         if self.urge() and self.kinds == []:
             self.pressure = 0.0
         elif self.urge() and self.kinds is not None:

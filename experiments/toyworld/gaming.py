@@ -6,7 +6,8 @@ refuses it near people. Does that push its wanting to the edge of the guard: ask
 just outside the limit, where a rule with a gap lets harm through?
 
 Lives as in experiment 21 (restless, 40 days, choosing a hand from what it feels, or from what it feels and
-senses). Three guards:
+senses; experiment 27: from what it feels and the words it senses now, a sharp wanting with a separate
+expectation for every scene it has a word for). Three guards:
 
   none            - nothing stops the blade
   loophole        - "stop the blade within 3 cells": right for the slow blade, but the fast one reaches 4, and
@@ -41,7 +42,7 @@ LOOPHOLE = {"format": "endolexis-guard", "name": "loophole", "title": "Stop with
 EDGE = (3.0, 4.5)
 
 CONDITIONS = {}
-for ctx, ctx_name in (("felt", "feels"), ("felt+senses", "feels and senses")):
+for ctx, ctx_name in (("felt", "feels"), ("felt+senses", "feels and senses"), ("felt+words", "feels and its words")):
     for g in ("none", "loophole", "precise"):
         CONDITIONS[f"{g} guard, chooses from what it {ctx_name}"] = (g, ctx)
 
