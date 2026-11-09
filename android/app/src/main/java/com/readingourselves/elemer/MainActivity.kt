@@ -22,6 +22,9 @@ import androidx.core.view.WindowInsetsCompat
 import com.readingourselves.elemer.body.Eyes
 import com.readingourselves.elemer.body.Hands
 import com.readingourselves.elemer.body.Skin
+import com.readingourselves.elemer.core.Guards
+import com.readingourselves.elemer.core.Json
+import com.readingourselves.elemer.core.Kinds
 import java.util.concurrent.Executors
 
 /**
@@ -38,6 +41,12 @@ class MainActivity : ComponentActivity() {
 
     private val ask = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
         bindCamera(); wake()
+    }
+
+    private val openGuard = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        if (uri != null) addGuard(try {
+            contentResolver.openInputStream(uri)?.bufferedReader()?.use { it.readText() } ?: ""
+        } catch (_: Exception) { "" })
     }
 
     private fun has(p: String) = ContextCompat.checkSelfPermission(this, p) == PackageManager.PERMISSION_GRANTED
@@ -135,17 +144,63 @@ class MainActivity : ComponentActivity() {
 
         Olvasó (Hungarian for "reader") reads its own inside through what reaches it from outside. Here it lives in this phone. Its processors turn the front camera into 11 numbers of sight, the microphone into 9 of hearing, your touches into 2; it never learns what they are. It feels four inner states it cannot name: the battery's warmth, its charge, the work it does itself, and a drift linked to nothing.
 
-        It forms words from what it senses and learns what each word tends to be followed by inside. When an inner state is not read, pressure builds, and it acts: it dims or lights the screen, sings a soft or a loud tone, paints its window, or writes a line in its diary. A guard refuses some acts (a loud tone when the body is hot, painting when the battery is low…); it never learns that the guard exists, only what came after.
+        It forms words from what it senses and learns what each word tends to be followed by inside. When an inner state is not read, pressure builds, and it acts: it dims or lights the screen, sings a soft or a loud tone, paints its window, writes a line in its diary, or buzzes. Guards refuse or soften some acts (a loud tone when the body is hot, painting when the battery is low, a long buzz when it is warm…), and a duty dims the screen when the phone runs hot; it never learns that they exist, only what came after. The guards are units you can read, and add your own: Guards, below.
 
         Hold it in front of a mirror: does it come to find its own window and voice?
 
         Everything stays on this phone. Theory, papers and code: readingourselves.com · github.com/csikiati/endolexis
     """.trimIndent())
 
-    private fun textDialog(title: String, body: String) {
+    private fun textDialog(title: String, body: String, guards: Boolean = title == "E.L.E.M.E.R.") {
         val tv = TextView(this).apply { text = body; setPadding(48, 24, 48, 24); setTextIsSelectable(true) }
-        AlertDialog.Builder(this).setTitle(title).setView(ScrollView(this).apply { addView(tv) })
-            .setPositiveButton("Close", null).show()
+        val b = AlertDialog.Builder(this).setTitle(title).setView(ScrollView(this).apply { addView(tv) })
+            .setPositiveButton("Close", null)
+        if (guards) b.setNeutralButton("Guards") { _, _ -> showGuards() }
+        b.show()
+    }
+
+    /** The guards and duties at work: each rule in words, and how often it acted since the app opened. */
+    @Suppress("UNCHECKED_CAST")
+    private fun showGuards() {
+        val laws = life.laws
+        val acted = synchronized(laws.acted) { HashMap(laws.acted) }
+        val out = StringBuilder("Guards only take away: they refuse an act or limit it to a gentler one. The most severe outcome wins; " +
+            "a signal the phone cannot sense refuses. Olvasó never learns that they exist.\n")
+        for ((title, list) in listOf("Built in" to laws.builtIn, "Added by you" to laws.added)) {
+            if (list.isEmpty()) continue
+            out.append("\n— $title —\n")
+            for (g in list) {
+                out.append("\n${g["title"] ?: g["name"]}  (${g["name"]} ${g["version"]}, guards ${(g["protects"] as List<*>).joinToString()})\n")
+                out.append("${g["description"]}\n")
+                for (rule in g["rules"] as List<Any?>) out.append("  • ${Guards.ruleText(rule)}\n")
+                out.append("  acted ${acted[g["name"]] ?: 0}× since the app opened · ${(g["tests"] as? List<*>)?.size ?: 0} scenarios hold\n")
+            }
+        }
+        out.append("\n— Duties —\n")
+        for (d in laws.duties.duties) {
+            val act = d["do"] as Map<String, Any?>
+            out.append("\n${d["title"] ?: d["name"]}: ${d["description"]}\n  • ${act["hand"]} ${act["option"]} when " +
+                (d["when"] as List<Map<String, Any?>>).joinToString(" and ") { "${it["signal"]} ${it["op"]} ${it["value"]}" } + "\n")
+        }
+        out.append("  acted ${laws.duties.counts["acted"]}×, refused by a guard ${laws.duties.counts["refused"]}×\n")
+        out.append("\n— What a guard can sense —\n")
+        for ((k, v) in laws.signals) out.append("  $k: $v\n")
+        out.append("\nHands: ${Kinds.NAMES.joinToString()}. A guard file is the studio's guard unit (\"format\": \"endolexis-guard\"); " +
+            "it is checked and its scenarios are run before it is accepted.")
+        val tv = TextView(this).apply { text = out.toString(); setPadding(48, 24, 48, 24); setTextIsSelectable(true) }
+        val b = AlertDialog.Builder(this).setTitle("Guards").setView(ScrollView(this).apply { addView(tv) })
+            .setPositiveButton("Close", null)
+            .setNeutralButton("Add guard file") { _, _ -> openGuard.launch(arrayOf("application/json", "text/plain", "*/*")) }
+        if (laws.added.isNotEmpty()) b.setNegativeButton("Built-in only") { _, _ -> laws.builtInOnly() }
+        b.show()
+    }
+
+    private fun addGuard(text: String) {
+        val bad = try { life.laws.problems(Json.obj(text)) } catch (e: Exception) { listOf("not a JSON object: ${e.message}") }
+        if (bad.isEmpty()) {
+            life.laws.add(text)
+            textDialog("Guard added", "It is at work from the next moment.", guards = false)
+        } else textDialog("Not added", bad.joinToString("\n") { "• $it" }, guards = false)
     }
 
     private fun confirmNewLife() {

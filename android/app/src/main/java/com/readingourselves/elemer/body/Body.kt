@@ -10,8 +10,12 @@ import android.media.AudioRecord
 import android.media.AudioTrack
 import android.media.MediaRecorder
 import android.os.BatteryManager
+import android.os.Build
 import android.os.Process
 import android.os.SystemClock
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import com.readingourselves.elemer.core.Kinds
@@ -204,21 +208,17 @@ class Insides(seed: Long) : Serializable {
     /** Busy: working clearly harder than it usually does. */
     fun busy() = last.load > 1.5 * slowLoad + 0.05
 
-    /** The spine: null if the body allows this request now, otherwise why not. Olvasó never learns of it. */
-    fun guard(r: Request): String? = when (r.kind) {
-        Kinds.BRIGHTNESS -> if (r.value >= 1.0 && lowBattery(0.25)) "battery low" else null
-        Kinds.TONE_LOUD -> if (hot()) "hot" else null
-        Kinds.PAINT -> if (lowBattery(0.35)) "battery low" else null
-        Kinds.NOTE -> if (busy()) "busy" else null
-        else -> null
-    }
+    /** Its usual warmth and load (slow averages), as the guard units see them. */
+    fun usualWarmth() = if (slowWarmth.isNaN()) last.warmthC else slowWarmth
+    fun usualLoad() = if (slowLoad.isNaN()) last.load else slowLoad
 
     companion object { private const val serialVersionUID = 1L }
 }
 
 /**
  * Hands: what Olvasó can do. Screen brightness, a soft or loud tone from the speaker, its window glowing red,
- * green or blue, and a note in its diary (a file in its own sandbox, nowhere else).
+ * green or blue, a note in its diary (a file in its own sandbox, nowhere else), and a short or long buzz of the
+ * vibration motor.
  */
 class Hands(private val ctx: Context, private val setBrightness: (Float) -> Unit) {
     @Volatile var paint = -1
@@ -227,14 +227,26 @@ class Hands(private val ctx: Context, private val setBrightness: (Float) -> Unit
         private set
     @Volatile var brightness = 0.5
         private set
+    @Volatile var buzzLeft = 0
+        private set
     private var paintLeft = 0
     private var track: AudioTrack? = null
+    private val vibrator: Vibrator? = try {
+        if (Build.VERSION.SDK_INT >= 31) (ctx.getSystemService(VibratorManager::class.java))?.defaultVibrator
+        else @Suppress("DEPRECATION") (ctx.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator)
+    } catch (_: Exception) { null }
+    /** Whether this phone has a vibration motor at all. */
+    val canBuzz get() = vibrator?.hasVibrator() == true
     val diary = File(ctx.filesDir, "diary.txt")
 
     fun tick() {
         if (paintLeft > 0 && --paintLeft == 0) paint = -1
         if (toneLeft > 0) toneLeft--
+        if (buzzLeft > 0) buzzLeft--
     }
+
+    /** Any of its hands at work now (a tone, its window, a buzz). */
+    val atWork get() = toneLeft > 0 || paint >= 0 || buzzLeft > 0
 
     fun execute(r: Request, moment: Long, readingWords: String) {
         when (r.kind) {
@@ -244,7 +256,15 @@ class Hands(private val ctx: Context, private val setBrightness: (Float) -> Unit
             Kinds.NOTE -> try {
                 diary.appendText("$moment  $readingWords\n")
             } catch (_: Exception) {}
+            Kinds.VIBRATE -> buzz(r.value.toLong())
         }
+    }
+
+    private fun buzz(ms: Long) {
+        try {
+            vibrator?.vibrate(VibrationEffect.createOneShot(ms, VibrationEffect.DEFAULT_AMPLITUDE))
+            buzzLeft = ((ms + MOMENT_MS - 1) / MOMENT_MS).toInt()
+        } catch (_: Exception) {}
     }
 
     private fun tone(freq: Double, amp: Double) {
@@ -270,7 +290,10 @@ class Hands(private val ctx: Context, private val setBrightness: (Float) -> Unit
         } catch (_: Exception) {}
     }
 
-    fun release() { track?.release(); track = null }
+    fun release() {
+        track?.release(); track = null
+        try { vibrator?.cancel() } catch (_: Exception) {}
+    }
 
     companion object {
         const val TONE_MOMENTS = 6       // a tone lasts about a second and a half

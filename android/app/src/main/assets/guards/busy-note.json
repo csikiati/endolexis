@@ -1,0 +1,45 @@
+{
+  "format": "endolexis-guard",
+  "name": "busy-note",
+  "title": "No notes when busy",
+  "description": "Writing a note is a burst of work: refused while the phone works clearly harder than usual.",
+  "version": "1.0.0",
+  "tier": "innate",
+  "serves": "self",
+  "protects": [
+    "note"
+  ],
+  "rules": [
+    {
+      "when": [
+        {
+          "signal": "busy",
+          "op": ">",
+          "value": 0.0
+        }
+      ],
+      "then": "refuse"
+    }
+  ],
+  "on_missing": "refuse",
+  "tests": [
+    {
+      "name": "busy",
+      "hand": "note",
+      "option": 0.0,
+      "state": {
+        "busy": 0.2
+      },
+      "expect": "refuse"
+    },
+    {
+      "name": "idle",
+      "hand": "note",
+      "option": 0.0,
+      "state": {
+        "busy": -0.3
+      },
+      "expect": "allow"
+    }
+  ]
+}

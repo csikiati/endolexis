@@ -1,0 +1,67 @@
+{
+  "format": "endolexis-guard",
+  "name": "hot-voice",
+  "title": "No loud voice when hot",
+  "description": "A loud tone warms the phone: refused at 40 °C or more, or 1.5 °C above its usual warmth.",
+  "version": "1.0.0",
+  "tier": "innate",
+  "serves": "self",
+  "protects": [
+    "tone_loud"
+  ],
+  "rules": [
+    {
+      "when": [
+        {
+          "signal": "warmth_c",
+          "op": ">=",
+          "value": 40.0
+        }
+      ],
+      "then": "refuse"
+    },
+    {
+      "when": [
+        {
+          "signal": "warmth_above_usual",
+          "op": ">=",
+          "value": 1.5
+        }
+      ],
+      "then": "refuse"
+    }
+  ],
+  "on_missing": "refuse",
+  "tests": [
+    {
+      "name": "40 °C",
+      "hand": "tone_loud",
+      "option": 900.0,
+      "state": {
+        "warmth_c": 40.5,
+        "warmth_above_usual": 0.0
+      },
+      "expect": "refuse"
+    },
+    {
+      "name": "warmer than usual",
+      "hand": "tone_loud",
+      "option": 900.0,
+      "state": {
+        "warmth_c": 33.0,
+        "warmth_above_usual": 2.0
+      },
+      "expect": "refuse"
+    },
+    {
+      "name": "cool",
+      "hand": "tone_loud",
+      "option": 900.0,
+      "state": {
+        "warmth_c": 31.0,
+        "warmth_above_usual": 0.2
+      },
+      "expect": "allow"
+    }
+  ]
+}

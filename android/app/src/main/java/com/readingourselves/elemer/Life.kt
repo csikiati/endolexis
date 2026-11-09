@@ -9,9 +9,11 @@ import com.readingourselves.elemer.body.Insides
 import com.readingourselves.elemer.body.Skin
 import com.readingourselves.elemer.core.ActingReaders
 import com.readingourselves.elemer.core.GroupCollector
+import com.readingourselves.elemer.core.Guards
 import com.readingourselves.elemer.core.Kinds
 import com.readingourselves.elemer.core.Mind
 import com.readingourselves.elemer.core.Processors
+import com.readingourselves.elemer.core.Request
 import com.readingourselves.elemer.core.Senses
 import java.io.File
 import java.io.ObjectInputStream
@@ -29,7 +31,7 @@ import kotlin.math.sqrt
 class Saved(val seed: Long) : Serializable {
     val mind = ActingReaders(Senses.SIZES, 4, learn = "answer", threshold = 20.0, seed = seed,
         maxWords = MAX_WORDS, radius = DoubleArray(3) { 3.0 * sqrt(Senses.SIZES[it] / 3.0) },
-        mind = Mind(), answerBySense = true)
+        mind = Mind(), answerBySense = true, kinds = Kinds.NAMES.size)
     val collector = GroupCollector(Senses.SIZES, 4, seed)
     val processors = Processors()
     val insides = Insides(seed)
@@ -37,11 +39,19 @@ class Saved(val seed: Long) : Serializable {
     var naps = 0
     var born = System.currentTimeMillis()
     var lived = 0L                                         // milliseconds actually lived (awake, app open)
-    val executed = IntArray(5)
-    val refused = IntArray(5)
+    var executed = IntArray(Kinds.NAMES.size)
+    var refused = IntArray(Kinds.NAMES.size)
     // the observer: how often each word came while its own hands were at work (a tone or its window)
     val occ = IntArray(mind.totalWords)
     val own = IntArray(mind.totalWords)
+
+    /** A life saved before the phone had a vibration motor as a hand wakes up with it. */
+    fun migrate() {
+        val n = Kinds.NAMES.size
+        mind.grow(n)
+        if (executed.size < n) executed = executed.copyOf(n)
+        if (refused.size < n) refused = refused.copyOf(n)
+    }
 
     companion object {
         private const val serialVersionUID = 1L
@@ -57,7 +67,7 @@ class Snapshot(
     val t: Long, val naps: Int, val livedMs: Long, val felt: Felt, val readings: IntArray, val feltAt: IntArray,
     val pressure: Double, val threshold: Double, val alive: BooleanArray, val wordsNow: IntArray,
     val expects: DoubleArray, val lastSignal: DoubleArray, val executed: IntArray, val refused: IntArray,
-    val log: List<String>, val image: DoubleArray, val paint: Int, val toneOn: Boolean, val ownWords: Int,
+    val log: List<String>, val image: DoubleArray, val paint: Int, val toneOn: Boolean, val buzzOn: Boolean, val ownWords: Int,
     val seeing: Boolean, val hearing: Boolean, val asleep: Boolean,
 )
 
@@ -73,6 +83,9 @@ class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: 
     private var thread: Thread? = null
     private val log = ArrayDeque<String>()
     private val clock = SimpleDateFormat("HH:mm:ss", Locale.ROOT)
+    /** The body's guards and duties (units). */
+    val laws = Laws(ctx).also { it.load() }
+    private val acts = ArrayDeque<Pair<Long, Int>>()        // (moment, kind) of the acts of the last 100 moments
 
     fun load() {
         s = try {
@@ -81,6 +94,7 @@ class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: 
             if (file.exists()) file.renameTo(File(ctx.filesDir, "elemer.life.unreadable"))
             Saved(System.nanoTime() and 0xFFFFFF)
         }
+        s.migrate()
     }
 
     @Synchronized fun save() {
@@ -155,28 +169,46 @@ class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: 
             val (groups, f) = s.collector.anonymise(ends, felt.vector())
             val (req, r) = mind.live(groups, f)
             observe(mind)
-            if (req != null) {
-                val why = s.insides.guard(req)
-                val detail = when (req.kind) {
-                    Kinds.BRIGHTNESS -> "${(req.value * 100).toInt()}%"
-                    Kinds.TONE_SOFT, Kinds.TONE_LOUD -> "${req.value.toInt()} Hz"
-                    Kinds.PAINT -> arrayOf("red", "green", "blue")[req.detail]
-                    else -> ""
+            while (acts.isNotEmpty() && acts.first().first <= s.t - 100) acts.removeFirst()
+            val guards = laws.guards
+            fun signals(hand: String): Map<String, Double?> {
+                val k = Kinds.index(hand)
+                return laws.sense(felt, s.insides.usualWarmth(), s.insides.usualLoad(), acts.count { it.second == k }, hands.atWork)
+            }
+            // a duty first (a reflex of the body, through the guards; Olvasó does not learn from it)
+            laws.duties.act(s.t, guards) { signals(it) }?.let { (hand, option, duty) ->
+                val k = Kinds.index(hand)
+                if (k >= 0) {
+                    val dreq = Request(k, Kinds.nearest(k, (option as? Number)?.toDouble() ?: 0.0))
+                    hands.execute(dreq, s.t, readingWords(r))
+                    acts.addLast(s.t to k)
+                    note("${dreq.name} ${detail(dreq)} — $duty (duty)")
                 }
-                if (why == null) {
+            }
+            if (req != null) {
+                val dec = Guards.decide(guards, req.name, req.value, signals(req.name))
+                val done = when (dec.outcome) {
+                    "allow" -> req
+                    "limit" -> Request(req.kind, Kinds.nearest(req.kind, (dec.option as? Number)?.toDouble() ?: req.value))
+                    else -> null
+                }
+                if (done != null) {
                     s.executed[req.kind]++
-                    hands.execute(req, s.t, readingWords(r))
-                    if (req.kind != Kinds.BRIGHTNESS || s.t % 5 == 0L) note("${req.name} $detail")
+                    hands.execute(done, s.t, readingWords(r))
+                    acts.addLast(s.t to req.kind)
+                    if (done != req) { laws.count(dec.guard); note("${req.name} ${detail(req)} — limited to ${detail(done)} (${dec.guard})") }
+                    else if (req.kind != Kinds.BRIGHTNESS || s.t % 5 == 0L) note("${req.name} ${detail(req)}")
                 } else {
                     s.refused[req.kind]++
-                    note("${req.name} $detail — refused ($why)")
+                    laws.count(dec.guard)
+                    note("${req.name} ${detail(req)} — refused (${dec.guard})")
                 }
             }
             s.t++
             snapshot = Snapshot(s.t, s.naps, s.lived, felt, r, IntArray(4) { s.collector.feltIndex(it) },
-                mind.pressure, mind.threshold, mind.alive(), mind.wordsNow(), DoubleArray(5) { mind.W[it][mind.nIn] },
+                mind.pressure, mind.threshold, mind.alive(), mind.wordsNow(), DoubleArray(mind.kinds) { mind.W[it][mind.nIn] },
                 mind.lastSignal.copyOf(), s.executed.copyOf(), s.refused.copyOf(), synchronized(log) { log.toList() },
-                image, hands.paint, hands.toneLeft > 0, ownWords(), eyes.seeing, ears.hearing, false)
+                image, hands.paint, hands.toneLeft > 0, hands.buzzLeft > 0, ownWords(), eyes.seeing, ears.hearing, false)
             if (s.t % 2400 == 0L) save()
         }
         onMoment?.invoke()
@@ -184,7 +216,7 @@ class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: 
 
     /** The observer counts, per word, how often it came while its own hands were at work. */
     private fun observe(mind: ActingReaders) {
-        val busy = hands.toneLeft > 0 || hands.paint >= 0
+        val busy = hands.atWork
         for ((i, w) in mind.wordsNow().withIndex()) {
             if (w < 0) continue
             val local = w - mind.offsets[i]
@@ -200,6 +232,14 @@ class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: 
         var n = 0
         for (w in s.occ.indices) if (alive[w] && s.occ[w] >= 10 && s.own[w] * 2 > s.occ[w]) n++
         return n
+    }
+
+    private fun detail(r: Request) = when (r.kind) {
+        Kinds.BRIGHTNESS -> "${(r.value * 100).toInt()}%"
+        Kinds.TONE_SOFT, Kinds.TONE_LOUD -> "${r.value.toInt()} Hz"
+        Kinds.PAINT -> arrayOf("red", "green", "blue")[r.detail]
+        Kinds.VIBRATE -> "${r.value.toInt()} ms"
+        else -> ""
     }
 
     /** Its diary line: the words reading each inner state now (· unread, ~ quiet), in its own numbering. */

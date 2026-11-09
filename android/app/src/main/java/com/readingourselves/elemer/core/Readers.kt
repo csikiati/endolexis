@@ -114,12 +114,28 @@ open class ManyReaders(
     }
 }
 
-/** The five ways the body offers to act, and their details (hands.py DETAILS). */
+/**
+ * The ways the body offers to act, and their details (hands.py DETAILS). The first five are those of the toy world;
+ * the phone adds a sixth, its vibration motor (a short or a long buzz, in milliseconds).
+ */
 object Kinds {
-    val NAMES = arrayOf("brightness", "tone_soft", "tone_loud", "paint", "note")
+    val NAMES = arrayOf("brightness", "tone_soft", "tone_loud", "paint", "note", "vibrate")
     val DETAILS = arrayOf(doubleArrayOf(0.0, 0.5, 1.0), doubleArrayOf(300.0, 900.0), doubleArrayOf(300.0, 900.0),
-        doubleArrayOf(0.0, 1.0, 2.0), doubleArrayOf(0.0))
+        doubleArrayOf(0.0, 1.0, 2.0), doubleArrayOf(0.0), doubleArrayOf(150.0, 600.0))
     const val BRIGHTNESS = 0; const val TONE_SOFT = 1; const val TONE_LOUD = 2; const val PAINT = 3; const val NOTE = 4
+    const val VIBRATE = 5
+    /** The toy world's hands (a mind made for a golden replay of Python has these five). */
+    const val ROOM = 5
+
+    fun index(name: String) = NAMES.indexOf(name)
+
+    /** The detail of a kind nearest to an option (a guard's limit names an option; the hands work by detail). */
+    fun nearest(kind: Int, option: Double): Int {
+        val d = DETAILS[kind]
+        var best = 0
+        for (i in d.indices) if (abs(d[i] - option) < abs(d[best] - option)) best = i
+        return best
+    }
 }
 
 /** Where intentions come from: chance, weighted by expectation. Replaceable, so tests can replay a Python life. */
@@ -158,14 +174,15 @@ class ActingReaders(
     sizes: IntArray, nFelt: Int, val learn: String? = "answer", val lr: Double = 0.05, val temp: Double = 0.5,
     val answerAfter: Int = 3, val judgeAfter: Int = 50, val answerBySense: Boolean = false,
     threshold: Double = 20.0, seed: Long = 0, maxWords: IntArray, radius: DoubleArray, mind: Mind = Mind(),
-    var chooser: Chooser = RandomChooser(seed),
+    var chooser: Chooser = RandomChooser(seed), kinds: Int = Kinds.ROOM,
 ) : ManyReaders(sizes, nFelt, threshold, seed, maxWords, radius, false, mind) {
     private val bounds = IntArray(parts.size + 1).also { for (i in parts.indices) it[i + 1] = it[i] + parts[i].ns }
     private val senseMu = DoubleArray(parts.size)
     private val senseM2 = DoubleArray(parts.size)
     val nIn = parts[0].nfIn
     /** Expectations: one row per kind, over the felt levels plus a bias ("how much it expects an answer"). */
-    val W = Array(Kinds.NAMES.size) { DoubleArray(nIn + 1) }
+    var W = Array(kinds) { DoubleArray(nIn + 1) }
+        private set
 
     private class Pending(val due: Long, val k: Int, val x: DoubleArray, val sBefore: DoubleArray, val readBefore: Double) : Serializable
     private val pending = ArrayList<Pending>()
@@ -175,7 +192,18 @@ class ActingReaders(
     private var changeN = 0
     private val readLog = ArrayList<Double>()
     /** The last signal each kind got (what followed), for the screen. */
-    val lastSignal = DoubleArray(Kinds.NAMES.size)
+    var lastSignal = DoubleArray(kinds)
+        private set
+
+    /** How many kinds of action it knows. */
+    val kinds get() = W.size
+
+    /** A new hand: a mind saved with fewer kinds wakes up knowing more, expecting nothing yet of the new ones. */
+    fun grow(n: Int) {
+        if (n <= W.size) return
+        W = Array(n) { if (it < W.size) W[it] else DoubleArray(nIn + 1) }
+        lastSignal = DoubleArray(n) { if (it < lastSignal.size) lastSignal[it] else 0.0 }
+    }
 
     private fun sensedZ(inputs: List<DoubleArray>): DoubleArray {
         val out = DoubleArray(bounds.last())

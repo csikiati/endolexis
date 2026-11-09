@@ -1,0 +1,20 @@
+{
+  "format": "endolexis-duty",
+  "name": "cool-down",
+  "title": "Cool down",
+  "version": "1.0.0",
+  "serves": "self",
+  "description": "When the phone is 2.5 °C warmer than usual, dim the screen (at most once a minute and a half).",
+  "when": [
+    {
+      "signal": "warmth_above_usual",
+      "op": ">=",
+      "value": 2.5
+    }
+  ],
+  "do": {
+    "hand": "brightness",
+    "option": 0.0
+  },
+  "every": 400
+}

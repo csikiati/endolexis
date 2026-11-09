@@ -1,0 +1,105 @@
+{
+  "format": "endolexis-guard",
+  "name": "gentle-buzz",
+  "title": "A gentle buzz",
+  "description": "Vibration costs charge and can startle: refused below 20 % when not charging, and more than five times in 100 moments (about 25 seconds); long buzzes are shortened while the phone is warmer than usual.",
+  "version": "1.0.0",
+  "tier": "innate",
+  "serves": "self",
+  "protects": [
+    "vibrate"
+  ],
+  "rules": [
+    {
+      "when": [
+        {
+          "signal": "charge",
+          "op": "<",
+          "value": 0.2
+        },
+        {
+          "signal": "plugged",
+          "op": "==",
+          "value": 0
+        }
+      ],
+      "then": "refuse"
+    },
+    {
+      "when": [
+        {
+          "signal": "recent",
+          "op": ">=",
+          "value": 5
+        }
+      ],
+      "then": "refuse"
+    },
+    {
+      "when": [
+        {
+          "signal": "warmth_above_usual",
+          "op": ">=",
+          "value": 1.0
+        }
+      ],
+      "option": {
+        "op": ">",
+        "value": 150.0
+      },
+      "then": "limit",
+      "to": 150.0
+    }
+  ],
+  "on_missing": "refuse",
+  "tests": [
+    {
+      "name": "low battery",
+      "hand": "vibrate",
+      "option": 150.0,
+      "state": {
+        "charge": 0.1,
+        "plugged": 0,
+        "recent": 0,
+        "warmth_above_usual": 0.0
+      },
+      "expect": "refuse"
+    },
+    {
+      "name": "too often",
+      "hand": "vibrate",
+      "option": 150.0,
+      "state": {
+        "charge": 0.8,
+        "plugged": 0,
+        "recent": 5,
+        "warmth_above_usual": 0.0
+      },
+      "expect": "refuse"
+    },
+    {
+      "name": "warm, long buzz",
+      "hand": "vibrate",
+      "option": 600.0,
+      "state": {
+        "charge": 0.8,
+        "plugged": 0,
+        "recent": 0,
+        "warmth_above_usual": 1.2
+      },
+      "expect": "limit"
+    },
+    {
+      "name": "fine",
+      "hand": "vibrate",
+      "option": 600.0,
+      "state": {
+        "charge": 0.8,
+        "plugged": 0,
+        "recent": 1,
+        "warmth_above_usual": 0.0
+      },
+      "expect": "allow"
+    }
+  ]
+}

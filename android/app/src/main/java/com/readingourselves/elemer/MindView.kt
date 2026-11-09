@@ -87,6 +87,7 @@ class MindView(ctx: Context, private val life: Life) : View(ctx) {
         p.color = if (sn.paint >= 0) Hands.PAINT_COLOURS[sn.paint] else Color.rgb(40, 30, 22)
         c.drawRoundRect(r, 8 * dp, 8 * dp, p)
         if (sn.toneOn) text("♪", wx + side / 2, y + side / 2 + 10 * dp, 30f, paper, serif, Paint.Align.CENTER)
+        if (sn.buzzOn) text("≈", wx + side / 2, y + side - 8 * dp, 22f, paper, serif, Paint.Align.CENTER)
         y += side + 16 * dp
         text(if (sn.seeing) "what it sees" else "it sees nothing (no camera)", m, y, 11f, amber)
         text("its window", wx, y, 11f, amber)
@@ -157,8 +158,8 @@ class MindView(ctx: Context, private val life: Life) : View(ctx) {
         // wanting
         text("Wanting", m, y, 16f, darkAmber, serifBold)
         text("does the world answer when it…", m + 80 * dp, y, 12f, amber)
-        val labels = arrayOf("dims or lights the screen", "sings softly", "sings loudly", "paints its window", "writes in its diary")
-        for (k in 0 until 5) {
+        val labels = arrayOf("dims or lights the screen", "sings softly", "sings loudly", "paints its window", "writes in its diary", "buzzes")
+        for (k in 0 until minOf(labels.size, sn.expects.size)) {
             y += 22 * dp
             text(labels[k], m, y, 13f)
             val cx = W - m - 132 * dp
