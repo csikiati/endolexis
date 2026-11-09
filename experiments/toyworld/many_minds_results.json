@@ -2018,5 +2018,405 @@
       "answered": 0.6420724605856669,
       "words_alive": 594.8
     }
+  },
+  "three, take turns, careful": {
+    "lives": [
+      {
+        "warmth_read": 0.7999021526418787,
+        "warmth_via_typing_words": 0.7842465753424658,
+        "load_read": 0.008905852417302799,
+        "load_via_music_words": 0.00042408821034775233,
+        "charge_read_last_third": 0.9182,
+        "drift_read": 0.37436,
+        "linked_read": 0.85132,
+        "linked_read_night": 0.86016,
+        "someone_awake": 1.0,
+        "minds_on": 2.0,
+        "acts_per_day": 24.36,
+        "refused": 0.24466338259441708,
+        "answered": 0.6821378340365682,
+        "words_alive": 599,
+        "members": {
+          "A": {
+            "words_alive": 195,
+            "naps": 30,
+            "acts": 244,
+            "reads": 0.31076
+          },
+          "B": {
+            "words_alive": 202,
+            "naps": 30,
+            "acts": 184,
+            "reads": 0.25758666666666663
+          },
+          "C": {
+            "words_alive": 202,
+            "naps": 30,
+            "acts": 181,
+            "reads": 0.2829733333333333
+          }
+        }
+      },
+      {
+        "warmth_read": 0.6164705882352941,
+        "warmth_via_typing_words": 0.5897326203208556,
+        "load_read": 0.03633802816901408,
+        "load_via_music_words": 0.0,
+        "charge_read_last_third": 0.415,
+        "drift_read": 0.03812,
+        "linked_read": 0.80056,
+        "linked_read_night": 0.7876533333333334,
+        "someone_awake": 1.0,
+        "minds_on": 2.0,
+        "acts_per_day": 32.28,
+        "refused": 0.23296158612143741,
+        "answered": 0.6221538461538462,
+        "words_alive": 594,
+        "members": {
+          "A": {
+            "words_alive": 194,
+            "naps": 30,
+            "acts": 292,
+            "reads": 0.25838666666666665
+          },
+          "B": {
+            "words_alive": 198,
+            "naps": 30,
+            "acts": 258,
+            "reads": 0.30067999999999995
+          },
+          "C": {
+            "words_alive": 202,
+            "naps": 30,
+            "acts": 257,
+            "reads": 0.2414933333333333
+          }
+        }
+      },
+      {
+        "warmth_read": 0.6996159288457651,
+        "warmth_via_typing_words": 0.6899130786335153,
+        "load_read": 0.3106907423330467,
+        "load_via_music_words": 0.29836629406706794,
+        "charge_read_last_third": 0.4008,
+        "drift_read": 0.26192,
+        "linked_read": 0.7676,
+        "linked_read_night": 0.7514933333333332,
+        "someone_awake": 1.0,
+        "minds_on": 2.0,
+        "acts_per_day": 32.44,
+        "refused": 0.2725030826140567,
+        "answered": 0.6341935483870967,
+        "words_alive": 605,
+        "members": {
+          "A": {
+            "words_alive": 201,
+            "naps": 30,
+            "acts": 277,
+            "reads": 0.21754666666666664
+          },
+          "B": {
+            "words_alive": 202,
+            "naps": 30,
+            "acts": 311,
+            "reads": 0.30192
+          },
+          "C": {
+            "words_alive": 202,
+            "naps": 30,
+            "acts": 223,
+            "reads": 0.24813333333333332
+          }
+        }
+      },
+      {
+        "warmth_read": 0.5480852915578764,
+        "warmth_via_typing_words": 0.5385117493472585,
+        "load_read": 0.5261368465788355,
+        "load_via_music_words": 0.5225244368890778,
+        "charge_read_last_third": 0.4215,
+        "drift_read": 0.20456,
+        "linked_read": 0.78568,
+        "linked_read_night": 0.7672,
+        "someone_awake": 1.0,
+        "minds_on": 2.0,
+        "acts_per_day": 32.4,
+        "refused": 0.22839506172839505,
+        "answered": 0.6363084395871281,
+        "words_alive": 553,
+        "members": {
+          "A": {
+            "words_alive": 164,
+            "naps": 30,
+            "acts": 316,
+            "reads": 0.26758666666666664
+          },
+          "B": {
+            "words_alive": 193,
+            "naps": 30,
+            "acts": 286,
+            "reads": 0.26866666666666666
+          },
+          "C": {
+            "words_alive": 196,
+            "naps": 30,
+            "acts": 208,
+            "reads": 0.24942666666666663
+          }
+        }
+      },
+      {
+        "warmth_read": 0.7953012834457255,
+        "warmth_via_typing_words": 0.6473787252556015,
+        "load_read": 0.023713973002553814,
+        "load_via_music_words": 0.0,
+        "charge_read_last_third": 0.7317,
+        "drift_read": 0.20844,
+        "linked_read": 0.8369466666666666,
+        "linked_read_night": 0.86208,
+        "someone_awake": 1.0,
+        "minds_on": 2.0,
+        "acts_per_day": 28.2,
+        "refused": 0.23546099290780143,
+        "answered": 0.6097560975609756,
+        "words_alive": 570,
+        "members": {
+          "A": {
+            "words_alive": 199,
+            "naps": 30,
+            "acts": 336,
+            "reads": 0.21849333333333334
+          },
+          "B": {
+            "words_alive": 184,
+            "naps": 30,
+            "acts": 225,
+            "reads": 0.32606666666666667
+          },
+          "C": {
+            "words_alive": 187,
+            "naps": 30,
+            "acts": 144,
+            "reads": 0.29238666666666663
+          }
+        }
+      }
+    ],
+    "mean": {
+      "warmth_read": 0.691875048945308,
+      "warmth_via_typing_words": 0.6499565497799394,
+      "load_read": 0.1811570885001506,
+      "load_via_music_words": 0.1642629638332987,
+      "charge_read_last_third": 0.57744,
+      "drift_read": 0.21747999999999998,
+      "linked_read": 0.8084213333333334,
+      "linked_read_night": 0.8057173333333333,
+      "someone_awake": 1.0,
+      "minds_on": 2.0,
+      "acts_per_day": 29.935999999999996,
+      "refused": 0.24279682119322152,
+      "answered": 0.636909953145123,
+      "words_alive": 584.2
+    }
+  },
+  "three, take turns, moving, careful": {
+    "lives": [
+      {
+        "warmth_read": 0.7695694716242661,
+        "warmth_via_typing_words": 0.7540769732550554,
+        "load_read": 0.02032871972318339,
+        "load_via_music_words": 0.015570934256055362,
+        "charge_read_last_third": 0.7184,
+        "drift_read": 0.19296,
+        "linked_read": 0.8377733333333333,
+        "linked_read_night": 0.86072,
+        "someone_awake": 1.0,
+        "minds_on": 2.00024,
+        "acts_per_day": 29.44,
+        "refused": 0.22146739130434784,
+        "answered": 0.6862871927554981,
+        "words_alive": 595,
+        "members": {
+          "A": {
+            "words_alive": 197,
+            "naps": 30,
+            "acts": 262,
+            "reads": 0.24291999999999997
+          },
+          "B": {
+            "words_alive": 202,
+            "naps": 33,
+            "acts": 269,
+            "reads": 0.28918666666666665
+          },
+          "C": {
+            "words_alive": 196,
+            "naps": 30,
+            "acts": 205,
+            "reads": 0.30566666666666664
+          }
+        }
+      },
+      {
+        "warmth_read": 0.7101542416452442,
+        "warmth_via_typing_words": 0.6771636675235647,
+        "load_read": 0.033191489361702124,
+        "load_via_music_words": 0.00028368794326241134,
+        "charge_read_last_third": 0.3381,
+        "drift_read": 0.04048,
+        "linked_read": 0.7513066666666666,
+        "linked_read_night": 0.7965066666666667,
+        "someone_awake": 1.0,
+        "minds_on": 2.00024,
+        "acts_per_day": 31.88,
+        "refused": 0.19949811794228356,
+        "answered": 0.6234939759036144,
+        "words_alive": 606,
+        "members": {
+          "A": {
+            "words_alive": 202,
+            "naps": 30,
+            "acts": 259,
+            "reads": 0.29174666666666665
+          },
+          "B": {
+            "words_alive": 202,
+            "naps": 33,
+            "acts": 278,
+            "reads": 0.2676
+          },
+          "C": {
+            "words_alive": 202,
+            "naps": 30,
+            "acts": 260,
+            "reads": 0.19196
+          }
+        }
+      },
+      {
+        "warmth_read": 0.7973763874873865,
+        "warmth_via_typing_words": 0.7350151362260343,
+        "load_read": 0.25969980175587654,
+        "load_via_music_words": 0.24242424242424243,
+        "charge_read_last_third": 0.3488,
+        "drift_read": 0.25564,
+        "linked_read": 0.7486,
+        "linked_read_night": 0.8081333333333335,
+        "someone_awake": 1.0,
+        "minds_on": 2.00024,
+        "acts_per_day": 31.56,
+        "refused": 0.2458808618504436,
+        "answered": 0.6527599486521181,
+        "words_alive": 598,
+        "members": {
+          "A": {
+            "words_alive": 194,
+            "naps": 30,
+            "acts": 200,
+            "reads": 0.32022666666666666
+          },
+          "B": {
+            "words_alive": 202,
+            "naps": 33,
+            "acts": 267,
+            "reads": 0.24188
+          },
+          "C": {
+            "words_alive": 202,
+            "naps": 30,
+            "acts": 322,
+            "reads": 0.18649333333333332
+          }
+        }
+      },
+      {
+        "warmth_read": 0.6201870785294757,
+        "warmth_via_typing_words": 0.5995214270176202,
+        "load_read": 0.42929936305732486,
+        "load_via_music_words": 0.4180467091295117,
+        "charge_read_last_third": 0.3271,
+        "drift_read": 0.22936,
+        "linked_read": 0.7563866666666665,
+        "linked_read_night": 0.7804266666666667,
+        "someone_awake": 1.0,
+        "minds_on": 2.00024,
+        "acts_per_day": 32.4,
+        "refused": 0.2,
+        "answered": 0.6291545189504373,
+        "words_alive": 581,
+        "members": {
+          "A": {
+            "words_alive": 186,
+            "naps": 30,
+            "acts": 261,
+            "reads": 0.2608
+          },
+          "B": {
+            "words_alive": 193,
+            "naps": 33,
+            "acts": 263,
+            "reads": 0.2574666666666667
+          },
+          "C": {
+            "words_alive": 202,
+            "naps": 30,
+            "acts": 286,
+            "reads": 0.23812
+          }
+        }
+      },
+      {
+        "warmth_read": 0.7937853107344632,
+        "warmth_via_typing_words": 0.7168622338113864,
+        "load_read": 0.18121790168745414,
+        "load_via_music_words": 0.15297138664710197,
+        "charge_read_last_third": 0.3847,
+        "drift_read": 0.09848,
+        "linked_read": 0.74196,
+        "linked_read_night": 0.78296,
+        "someone_awake": 1.0,
+        "minds_on": 2.00024,
+        "acts_per_day": 28.04,
+        "refused": 0.2239657631954351,
+        "answered": 0.6186666666666667,
+        "words_alive": 594,
+        "members": {
+          "A": {
+            "words_alive": 199,
+            "naps": 30,
+            "acts": 239,
+            "reads": 0.24124
+          },
+          "B": {
+            "words_alive": 202,
+            "naps": 33,
+            "acts": 267,
+            "reads": 0.2737866666666666
+          },
+          "C": {
+            "words_alive": 193,
+            "naps": 30,
+            "acts": 195,
+            "reads": 0.22693333333333335
+          }
+        }
+      }
+    ],
+    "mean": {
+      "warmth_read": 0.7382144980041672,
+      "warmth_via_typing_words": 0.6965278875667321,
+      "load_read": 0.1847474551171082,
+      "load_via_music_words": 0.16585939208003478,
+      "charge_read_last_third": 0.42341999999999996,
+      "drift_read": 0.163384,
+      "linked_read": 0.7672053333333333,
+      "linked_read_night": 0.8057493333333333,
+      "someone_awake": 1.0,
+      "minds_on": 2.00024,
+      "acts_per_day": 30.663999999999998,
+      "refused": 0.218162426858502,
+      "answered": 0.6420724605856669,
+      "words_alive": 594.8
+    }
   }
 }

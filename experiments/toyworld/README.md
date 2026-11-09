@@ -599,3 +599,60 @@ patch of colour was too small a change to count as an answer.
   of those moments in every condition, but through the words of its own seen window in only 6%. Unlike the
   voice (experiment 14: 36%), the window's words were few and the load has other causes (music, notes).
 - **Little superstition from a stranger's window** (load misread when idle: under 1%).
+
+## Experiment 16: many Olvasós taking turns to sleep (`experiments/toyworld/many_minds.py`, 5 lives × 30 days)
+
+The world and mind of experiments 13-15 (hands, the guard, the mirror voice; restless until day 10), but one,
+two or three Olvasós live in the body at once. Each is wired to processor outputs and to the hands
+(an architecture, drawn in the [web studio](../../studio/README.md)) and has its own day: **asleep** (lid
+closed, nothing sensed, no acting), **waking** (it senses and reads, but does not act yet), **awake**. Each
+tidies its words when it wakes. The body reads a state when any Olvasó that is not asleep reads it (the best
+fit counts) and has one pair of hands.
+
+| Architecture | States read | …at night | Warmth, rightly | Load, rightly | Charge, last third | Drift read | Acts a day | Answered | Cost |
+|---|---|---|---|---|---|---|---|---|---|
+| **one, never sleeps** | 65% | 68% | 66% | 10% | 25% | 9% | 33 | 62% | 1.0 |
+| one, sleeps nights (a third) | 44% | 26% | 37% | 4% | 21% | 10% | 21 | 60% | 0.67 |
+| two, take turns (half each) | 62% | 63% | 48% | 7% | 28% | 10% | 32 | 58% | 1.0 |
+| two, take turns, moving | 64% | 67% | 50% | 0% | 26% | 11% | 32 | 57% | 1.0 |
+| **three, take turns** (one asleep, one waking, one awake) | **81%** | **81%** | 66% | **16%** | **58%** | 22% | 30 | 64% | 2.0 |
+| three, take turns, no waking | 80% | 80% | 65% | 12% | 55% | 20% | 55 | 60% | 2.0 |
+| **three, take turns, moving** | 77% | 81% | **70%** | 17% | 42% | 16% | 31 | 64% | 2.0 |
+| three, take turns, careful body | 81% | 81% | 65% | 16% | 58% | 22% | 30 | 64% | 2.0 |
+| three, take turns, moving, careful body | 77% | 81% | 70% | 17% | 42% | 16% | 31 | 64% | 2.0 |
+| three, sleep together | 44% | 26% | 37% | 4% | 21% | 10% | 21 | 60% | 2.0 |
+| three, never sleep | 65% | 68% | 66% | 10% | 25% | 9% | 33 | 62% | 3.0 |
+| three specialists (eye, ear, hand), take turns | 58% | 60% | 31% | 3% | 28% | 9% | 43 | 28% | 2.0 |
+| three specialists, never sleep | 67% | 69% | 67% | 11% | 33% | 15% | 113 | 28% | 3.0 |
+
+*States read*: moments in which warmth, charge and load are read (mean of the three), from day 5. *Rightly*:
+read through a word of the true cause (typing; music). *Drift* is linked to nothing: any reading of it is
+superstition. *Cost*: Olvasós not asleep, on average. *Moving*: every sleep starts 2.4 hours later each day.
+*Careful body*: when several Olvasós offer a reading of the same state, the best must fit that many times
+better.
+
+- **Being many gives nothing by itself.** Three Olvasós that live the same moments are one Olvasó three times:
+  three that never sleep scored exactly like one, number for number, and three that sleep together exactly
+  like one that sleeps nights. Each has its own secret key, but Olvasó reads distances between z-scored
+  numbers, which a shuffle, a sign, a scale and an offset do not change.
+- **Taking turns makes them different readers**, because each lives different hours. Three taking turns read
+  the body 81% of the time against 65%. Charge is read more than twice as often, load is read rightly more
+  often, and the night is read as well as the day. The cost is twice the compute.
+- **The price is superstition** (drift read 22% against 9%), and it does not come from many chances: a
+  careful body did not help. In one life, three quarters of the drift readings had only one Olvasó offering
+  a reading. They came mostly from the Olvasó that sleeps through the person's working hours (10:00-18:00)
+  and lives only evenings and nights, and from Olvasós while waking. A partial life breeds superstition.
+- **Moving sleeps** let every Olvasó see every hour. They cut the superstition to 16% and gave the truest
+  reading of warmth of all (70% through typing words), at some cost to charge.
+- **At the same cost, turns do not pay.** Two Olvasós taking turns (always one awake) read no better than one
+  that never sleeps, and warmth less truly: half a life each is too little for slow meanings.
+- **The waking stage keeps the hands calm.** Without it, two are awake at once: reading is the same, but
+  acting nearly doubles and more is refused.
+- **Specialists do not work.** An eye, an ear and a hand as separate Olvasós act three times as much and
+  learn far less from what follows (28% of acts answered against 62%), since an ear cannot see its painted
+  window answer. Taking turns, they read warmth rightly only 31% of the time, because the hand that feels the
+  typing sleeps a third of the day.
+
+Here sleep only seals the lid and tidies the words; it restores nothing. So the benefit is diversity of
+experience, bought with compute and paid for with superstition. A sleep that consolidates or replays
+(experiments 6-7) may change the picture: the next question.

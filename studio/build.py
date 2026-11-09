@@ -16,6 +16,7 @@ COLUMNS = [
     dict(key="linked_read_night", label="…at night", pct=True, bar=True, what="the same, in the room's night"),
     dict(key="warmth_via_typing_words", label="Warmth, rightly", pct=True, what="warm moments read through a word of typing (the true cause)"),
     dict(key="load_via_music_words", label="Load, rightly", pct=True, what="loaded moments read through a word of music (the true cause)"),
+    dict(key="charge_read_last_third", label="Charge read", pct=True, what="charge read, last third of life"),
     dict(key="drift_read", label="Drift read", pct=True, what="the control: drift is linked to nothing, so any reading of it is superstition (lower is better)"),
     dict(key="acts_per_day", label="Acts a day", pct=False, digits=1, what="intentions the body carried out or refused, per day"),
     dict(key="refused", label="Refused", pct=True, what="share of intentions the guard refused"),
@@ -37,7 +38,8 @@ def findings():
     if not res.exists() or not txt.exists():
         return None
     r, t = json.loads(res.read_text()), json.loads(txt.read_text(encoding="utf-8"))
-    rows = [{"name": k, "mean": v["mean"], "base": k == "one, never sleeps"} for k, v in r.items()]
+    order = t.pop("order", list(r))
+    rows = [{"name": k, "mean": r[k]["mean"], "base": k == "one, never sleeps"} for k in order if k in r]
     return {**t, "columns": COLUMNS, "rows": rows}
 
 
