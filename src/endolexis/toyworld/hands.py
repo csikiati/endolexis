@@ -24,7 +24,7 @@ DETAILS = {"brightness": (0.0, 0.5, 1.0), "tone_soft": (300.0, 900.0), "tone_lou
 
 class ActingReaders(ManyReaders):
     def __init__(self, sizes, n_felt, learn=None, lr=0.05, temp=0.5, answer_after=3, judge_after=50,
-                 answer_by="all", kinds=None, **kw):
+                 answer_by="all", kinds=None, hands=None, details=None, **kw):
         # answer_by: "all" - the answer is how much all senses together changed; "sense" - it is the
         # largest change of any one sense (each judged against its own usual change), so that an
         # answer seen by the eyes alone counts as much as one heard
@@ -33,13 +33,17 @@ class ActingReaders(ManyReaders):
         # kinds: the hands this reader is wired to (indices into KINDS); None = all of them.
         # An empty list makes a pure reader: pressure still builds and is let go, but nothing is asked
         self.kinds = None if kinds is None else [int(k) for k in kinds]
+        # hands, details: the body's hands and their options, for a body with other hands than the
+        # room's (the sandbox's blade); by default room.KINDS and DETAILS
+        self.hands = list(hands or KINDS)
+        self.details = dict(details or DETAILS)
         self.bounds = np.cumsum([0] + [p.ns for p in self.parts])
         k = len(self.parts)
         self.sense_mu, self.sense_m2 = np.zeros(k), np.zeros(k)
         self.learn, self.lr, self.temp = learn, lr, temp
         self.answer_after, self.judge_after = answer_after, judge_after
         self.n_in = self.parts[0].nf_in
-        self.W = np.zeros((len(KINDS), self.n_in + 1))
+        self.W = np.zeros((len(self.hands), self.n_in + 1))
         self.pending = []           # (due time, kind, context, sensed before, reading before)
         self.s_hist = []            # recent sensed z-vectors
         self.change_mu, self.change_m2, self.change_n = 0.0, 0.0, 0
@@ -88,19 +92,19 @@ class ActingReaders(ManyReaders):
             request = self._intend(k, x, s_z)
         elif self.urge():
             if self.learn is None:
-                k = int(self.rng.integers(len(KINDS)))
+                k = int(self.rng.integers(len(self.hands)))
             else:
                 v = self.expect(x) / self.temp
                 p = np.exp(v - v.max())
-                k = int(self.rng.choice(len(KINDS), p=p / p.sum()))
+                k = int(self.rng.choice(len(self.hands), p=p / p.sum()))
             request = self._intend(k, x, s_z)
         self.t += 1
         return request, readings
 
     def _intend(self, k, x, s_z):
         """Form an intention of kind k (with a random detail) and remember it, to learn from what follows."""
-        kind = KINDS[k]
-        opts = DETAILS[kind]
+        kind = self.hands[k]
+        opts = self.details[kind]
         request = (kind, opts[int(self.rng.integers(len(opts)))])
         self.pressure = 0.0
         due = self.answer_after if self.learn == "answer" else self.judge_after

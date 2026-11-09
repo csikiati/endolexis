@@ -60,6 +60,8 @@ def main():
     for block, value in (("data-library", library()), ("data-templates", templates()),
                          ("data-hands", hands()), ("data-hand-templates", hand_templates()),
                          ("data-guards", guards()), ("data-guard-templates", guard_templates()),
+                         ("data-learned-guards", [json.loads(f.read_text(encoding="utf-8"))
+                                                  for f in sorted((HERE / "examples" / "learned").glob("*.json"))]),
                          ("data-examples", examples), ("data-findings", findings())):
         html = embed(html, block, value)
     p = HERE / "index.html"

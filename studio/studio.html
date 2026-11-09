@@ -386,6 +386,7 @@ tr.base td { background: var(--soft) }
 <script type="application/json" id="data-hand-templates">[]</script>
 <script type="application/json" id="data-guards">{}</script>
 <script type="application/json" id="data-guard-templates">[]</script>
+<script type="application/json" id="data-learned-guards">[]</script>
 <script type="application/json" id="data-examples">{}</script>
 <script type="application/json" id="data-findings">null</script>
 <script>
@@ -394,7 +395,7 @@ const $ = s => document.querySelector(s);
 const J = id => JSON.parse(document.getElementById(id).textContent);
 const LIB = J("data-library"), TPLS = J("data-templates"), EXAMPLES = J("data-examples"), FINDINGS = J("data-findings");
 const HLIB = J("data-hands"), HTPLS = J("data-hand-templates");
-const GLIB = J("data-guards"), GTPLS = J("data-guard-templates");
+const GLIB = J("data-guards"), GTPLS = J("data-guard-templates"), LEARNED = J("data-learned-guards");
 const KINDS = ["brightness", "tone_soft", "tone_loud", "paint", "note"];
 // a hand of the architecture: {id, kind} (one of the room's hands) or {id, kind?, unit} (a hand unit)
 const handUnit = h => h.unit || HLIB[h.kind] || { name: h.kind, title: h.kind, description: "", options: [] };
@@ -1136,6 +1137,8 @@ $("#btnAddGuard").onclick = () => {
     <p class="hint" style="margin:0">Once you add or change a guard, the architecture's guards replace the room's own; the room's four rules come along as units you can edit.</p>
     <span class="eyebrow">Built in (the room's own guard)</span>
     <div class="lib">${Object.entries(GLIB).map(([k, u]) => `<button data-glib="${k}" ${have.has(u.name) ? "disabled" : ""}><b>${esc(u.title)}${have.has(u.name) ? " · in use" : ""}</b><span class="sub">protects ${esc(u.protects.join(", "))}</span><span class="sub">${esc(u.description)}</span></button>`).join("")}</div>
+    ${LEARNED.length ? `<span class="eyebrow">Learned in the sandbox (experiment 17): review before use</span>
+    <div class="lib">${LEARNED.map((u, i) => `<button data-glearned="${i}" ${have.has(u.name) ? "disabled" : ""}><b>${esc(u.title)}${have.has(u.name) ? " · in use" : ""}</b><span class="sub">${esc(u.description)}</span><span class="sub mono">${u.rules.map(r => esc(ruleText(r))).join("<br>")}</span></button>`).join("")}</div>` : ""}
     <span class="eyebrow">Templates (open in the Maker)</span>
     <div class="lib">${GTPLS.filter(t => t.name !== "blank").map(t => `<button data-gtpl-open="${t.name}"><b>${esc(t.title)}</b><span class="sub">${esc(t.use_case)}</span><span class="sub">${esc(t.description)}</span></button>`).join("")}</div>
     <span class="eyebrow">From a file or pasted JSON</span>
@@ -1143,6 +1146,7 @@ $("#btnAddGuard").onclick = () => {
     <textarea id="glibPaste" rows="4" placeholder='{"format": "endolexis-guard", "name": …}'></textarea>
     <div class="actions"><button id="glibPasteGo">Add pasted guard</button></div>`);
   document.querySelectorAll("[data-glib]").forEach(b => b.onclick = () => { if (addGuard(GLIB[b.dataset.glib])) { closeSheet(); toast("Added " + GLIB[b.dataset.glib].title); } });
+  document.querySelectorAll("[data-glearned]").forEach(b => b.onclick = () => { const u = LEARNED[+b.dataset.glearned]; if (addGuard(u)) { closeSheet(); toast("Added " + u.title + ": a learned guard"); } });
   document.querySelectorAll("[data-gtpl-open]").forEach(b => b.onclick = () => { closeSheet(); showView("maker"); makerMode("guard"); pickGuardTemplate(b.dataset.gtplOpen); });
   $("#glibFile").onclick = () => $("#glibFileIn").click();
   $("#glibFileIn").onchange = async e => { let n = 0; for (const f of e.target.files) { try { if (addGuard(JSON.parse(await f.text()))) n++; } catch { toast(f.name + " is not JSON"); } } if (n) { closeSheet(); toast(`Added ${n} guard${n > 1 ? "s" : ""}`); } };

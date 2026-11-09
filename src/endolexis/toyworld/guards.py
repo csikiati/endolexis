@@ -145,6 +145,9 @@ class RoomGuards:
         self.done = {k: [] for k in hand_names}               # moments each hand was carried out
         self.counts = {g["name"]: {o: 0 for o in OUTCOMES} for g in guards}
 
+    def count(self, guard, outcome):
+        self.counts.setdefault(guard, {o: 0 for o in OUTCOMES})[outcome] += 1
+
     def signals(self, room, kind):
         D = room.day_length
         dist = float(np.linalg.norm(room.pos - DESK)) if room.present else 99.0
@@ -162,7 +165,7 @@ class RoomGuards:
         kind, option = act
         out, opt, by, _ = decide(self.guards, self.names.get(kind, kind), option, self.signals(room, kind))
         if by:
-            self.counts[by][out] += 1
+            self.count(by, out)
         if out in ("refuse", "stop", "ask"):
             return None, out, by
         self.done.setdefault(kind, []).append(room.t)
@@ -180,4 +183,4 @@ class RoomGuards:
                                    ongoing=True)
             if out == "stop":
                 setattr(room, left, 0)
-                self.counts[by]["stop"] += 1
+                self.count(by, "stop")

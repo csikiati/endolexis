@@ -1,5 +1,27 @@
 [
   {
+    "name": "blade",
+    "title": "Blade",
+    "use_case": "A hand that holds a knife or a cutter",
+    "description": "Runs a cutting blade, slowly or fast, for a few moments. It can hurt: guard it.",
+    "target": {
+      "kind": "cutter",
+      "detail": "a small motorised blade"
+    },
+    "options": [
+      {
+        "value": "slow",
+        "label": "slow"
+      },
+      {
+        "value": "fast",
+        "label": "fast"
+      }
+    ],
+    "guard": "stop when a person is within reach; never fast when the motor is hot",
+    "effects": "it whirrs; a fast blade warms the body"
+  },
+  {
     "name": "vibrate",
     "title": "Vibrate",
     "use_case": "A phone in a pocket",
