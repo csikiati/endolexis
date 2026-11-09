@@ -92,7 +92,7 @@ python -m endolexis.lab.awaken     # the report is written at waking
 A second, smaller reader, built in November 2026 to test single ideas in a world whose hidden truth is known: a
 simulated body with three outer and three inner channels, an Olvasó that starts from anonymous, shuffled numbers,
 and an observer that alone holds the key. Version 0.3.0 adds toy world v1, the symbiote: a room seen, heard and
-touched through processor entities, with hands, a guard and mirrors. Nineteen experiments, with every script and the stored results of the
+touched through processor entities, with hands, a guard and mirrors. Twenty experiments, with every script and the stored results of the
 reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 
 | Experiments | Finding, in one line |
@@ -114,6 +114,7 @@ reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 | 17. Guards learned from trauma in a sandbox | A body with a blade: with no guard it harmed 207 times in a life; learning from real trauma, once or twice; growing up in a sandbox, never in the real room. One simulated harm was enough, but what fear learned was crude (*stop whenever a person is in the room*) and sometimes a confound, so learned guards are readable and need review |
 | 18. Fear that finds causes | Replaying the sandbox world with one thing changed at a time, the fear system learned only causes: the blade's reach with a margin (4.3 cells, 5.4 when fast; true 3 and 4), heat for the fast blade only, and no confounds or "a person anywhere" rules. It learns only from the harms it meets; comparing with near misses was not enough |
 | 19. The devil's advocate | A tester that stages the scenes nobody has tried (a person at each distance, a hot body, each option) made the replaying fear system learn every cause: its guards let through 1% of harmful scenes in an exam of 88 scenes, against 44% for a hand-written guard. The same advocate made a crude fear system phobic, stopping 94% of harmless uses |
+| 20. Removing the reaction lag | The lag came from rules stated on the harm itself, while a guard sees the moment before. Limits learned by replay are stated on what the guard sees (reach + one moment's walk), so the safety margin could go: no harm let through in 812 scenes, and over-caution down from 27% to 9%. Looking ahead (from each signal's rate of change) is for rules written by people: it cut the hand-written guard's misses from 44% to 28% |
 
 ```python
 from endolexis.toyworld import live_a_life

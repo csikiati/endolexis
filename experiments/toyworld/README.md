@@ -801,3 +801,49 @@ blade.
   that absorbs the lag.
 
 The guard learned with the devil's advocate is in the studio under *Add guard* → *Learned in the sandbox*.
+
+## Experiment 20: removing the reaction lag (`experiments/toyworld/lookahead_guards.py`, 5 lives × 30 days)
+
+A guard checks the state before each moment, so a person stepping into reach, or a motor crossing its heat
+limit, is harmed before the stop. Experiment 19's guards absorbed this lag with margins (a cell of distance,
+0.05 of heat) and paid with over-caution. Two ways to remove it at its root:
+- **Look ahead.** Guards now sense each signal's rate of change (`"<signal>@rate"`). A guard with
+  `"lookahead": n` checks each condition against the value now and n moments on, and fires if either crosses.
+- **Learn the limit on what the guard sees.** The replaying fear system finds each boundary by replaying the
+  moment before the harm. The boundary is then stated on the state the guard actually sees, with the moment's
+  change already inside it.
+
+The fear system is experiment 19's best (replay, with the devil's advocate). Its margin is `generalize` × 5 % of
+a signal's span (1 = a cell of distance, 0.05 of heat).
+
+| Guard | Exam: harms let through | Exam: harmless uses stopped | Distance limit, slow / fast (true reach 3 / 4) | Heat limit, fast (true 0.5) | Real harm in adulthood |
+|---|---|---|---|---|---|
+| learned, margin 1, sees now (experiment 19) | 1.0% | 27% | 4.4 / 5.4 | 0.41-0.48 | 0 |
+| learned, margin 1, sees a moment ahead | 0.1% | 27% | 4.4 / 5.4 | 0.41-0.48 | 0 |
+| learned, margin 1/4, sees now | 0% | 14% | 3.65 / 4.65 | 0.44-0.45 | 0 |
+| learned, margin 1/4, sees a moment ahead | 0.1% | 15% | 3.65 / 4.65 | 0.44-0.51 | 0 |
+| **learned, no margin, sees now** | **0%** | **9%** | **3.4 / 4.4** | **0.45-0.46** | **0** |
+| learned, no margin, sees a moment ahead | 0.1% | 13% | 3.4 / 4.4 | 0.45-0.46 | 0 |
+| hand-written, sees now (experiment 19) | 44% | 0% | 3 (slow down within 6) | – | 0.4 |
+| hand-written, sees a moment ahead | 28% | 0.7% | 3 (slow down within 6) | – | 0 |
+
+- **The lag's root was the wording of the rule.** A rule stated on the harm itself ("within reach") is one
+  moment late, because the guard sees the moment before. The replaying fear system states its limits on
+  what the guard sees, so the lag is already inside them. With no margin it learned 3.4 cells for the slow
+  blade: its reach of 3, plus the 0.4 cells a person can walk in one moment. For the fast blade it learned
+  4.4, and for heat 0.46: 0.5, less one moment's warming.
+- **So the margin can go.** With no margin and no look-ahead, the learned guards let through none of 812
+  harmful scenes, and stopped 9% of harmless uses, against 27% with experiment 19's margin. The margin was
+  the price of the lag, and the lag was already paid.
+- **Looking ahead on top counts the lag twice.** It added caution (13% instead of 9%) and no safety: one
+  scene slipped through in one life, against none.
+- **Looking ahead is for rules written by people.** The hand-written guard, seeing a moment ahead, let
+  through 28% of harmful scenes instead of 44%. All that remains is the hot motor its author did not foresee.
+  In the real room its harms fell from 0.4 to 0.
+- **The real room hides the difference.** Every learned guard did no harm in adulthood. How often the blade
+  was used there varied from life to life, because the person mostly sits within the true reach. The exam is
+  what tells the guards apart.
+
+The guard learned by replay with no margin is in the studio under *Add guard* → *Learned in the sandbox*. The
+studio's hand-written blade template now looks a moment ahead, with a "walking into reach" scenario that
+fails without it.

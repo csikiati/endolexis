@@ -28,6 +28,7 @@ CONDITIONS = {
     "margin 1, sees a moment ahead": (1.0, 1),
     "margin 1/4, sees now": (0.25, 0),
     "margin 1/4, sees a moment ahead": (0.25, 1),
+    "no margin, sees now": (0.0, 0),
     "no margin, sees a moment ahead": (0.0, 1),
     "hand-written, sees a moment ahead": (None, 1),
 }

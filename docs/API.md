@@ -497,7 +497,9 @@ The format, the web studio and the command line are described in [`studio/README
 
 `endolexis.toyworld.guards`: `check_guard(unit)`; `decide(guards, hand, option, signals, ongoing=False)` →
 `(outcome, option, guard, why)`, the most severe of `allow` < `limit` < `ask` < `refuse` < `stop`;
-`run_tests(guards)` → `[(guard, scenario, got, ok)]`; `ROOM_SIGNALS`; `RoomGuards(guards, names)` with
+`run_tests(guards)` → `[(guard, scenario, got, ok)]`; `ROOM_SIGNALS` (plus `"<signal>@rate"`, the change in the
+last moment, for warmth, charge, load and person_distance; a guard with `"lookahead": n` also checks each
+condition n moments on); `RoomGuards(guards, names)` with
 `request(room, act)` and `watch(room)` (stops hands at work).
 
 `endolexis.toyworld.sandbox` (experiment 17): `BladeRoom(seed)`, the room with a sixth hand, a blade

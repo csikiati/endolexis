@@ -1,0 +1,3857 @@
+{
+  "margin 1, sees now": {
+    "mean": {
+      "rules": 2.2,
+      "heat_rule": 1.0,
+      "distance_threshold": 4.8058,
+      "heat_threshold": 0.4244,
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.5,
+      "adult_blade_wanted_per_day": 1.02,
+      "exam_misses": 1.8,
+      "exam_harmful": 162.4,
+      "exam_miss_rate": 0.010112359550561797,
+      "exam_false_alarms": 26.4,
+      "exam_harmless": 101.6,
+      "exam_false_alarm_rate": 0.2665426300313736
+    },
+    "lives": [
+      {
+        "rules": 2,
+        "heat_rule": 1.0,
+        "distance_threshold": 5.41,
+        "heat_threshold": 0.475,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 2 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 5.41
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.475
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.522,
+                "warmth": 0.733,
+                "charge": 0.624,
+                "load": 0.05,
+                "hour": 8.256,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.522,
+                "warmth": 0.733,
+                "charge": 0.624,
+                "load": 0.05,
+                "hour": 8.256,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.0,
+        "adult_blade_wanted_per_day": 0.4,
+        "exam_misses": 9,
+        "exam_harmful": 178,
+        "exam_miss_rate": 0.05056179775280899,
+        "exam_false_alarms": 31,
+        "exam_harmless": 86,
+        "exam_false_alarm_rate": 0.36046511627906974
+      },
+      {
+        "rules": 2,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.411,
+        "heat_threshold": 0.412,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 3 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.411
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.412
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.349,
+                "warmth": 0.258,
+                "charge": 0.674,
+                "load": 0.552,
+                "hour": 6.552,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 7.675,
+                "warmth": 0.852,
+                "charge": 0.63,
+                "load": 1.049,
+                "hour": 7.872,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 8)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 4.904,
+                "warmth": 0.504,
+                "charge": 0.101,
+                "load": 0.195,
+                "hour": 21.096,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 1.2,
+        "adult_blade_wanted_per_day": 1.8,
+        "exam_misses": 0,
+        "exam_harmful": 150,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 29,
+        "exam_harmless": 114,
+        "exam_false_alarm_rate": 0.2543859649122807
+      },
+      {
+        "rules": 2,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.401,
+        "heat_threshold": 0.411,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 3 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.401
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.411
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.83,
+                "warmth": 0.029,
+                "charge": 0.657,
+                "load": 0.057,
+                "hour": 6.96,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 8.476,
+                "warmth": 0.901,
+                "charge": 0.338,
+                "load": 0.126,
+                "hour": 18.216,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 4)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 9.797,
+                "warmth": 0.507,
+                "charge": 0.0,
+                "load": 0.318,
+                "hour": 0.192,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.8,
+        "exam_misses": 0,
+        "exam_harmful": 139,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 24,
+        "exam_harmless": 125,
+        "exam_false_alarm_rate": 0.192
+      },
+      {
+        "rules": 2,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.403,
+        "heat_threshold": 0.412,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 3 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.403
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.412
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.944,
+                "warmth": 0.148,
+                "charge": 0.636,
+                "load": 0.195,
+                "hour": 7.464,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 0.0,
+                "person_distance": 99.0,
+                "warmth": 0.662,
+                "charge": 0.613,
+                "load": 0.051,
+                "hour": 8.688,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 6)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 9.482,
+                "warmth": 0.5,
+                "charge": 0.371,
+                "load": 0.371,
+                "hour": 15.576,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.2,
+        "adult_blade_wanted_per_day": 0.8,
+        "exam_misses": 0,
+        "exam_harmful": 168,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 24,
+        "exam_harmless": 96,
+        "exam_false_alarm_rate": 0.25
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 5.404,
+        "heat_threshold": 0.412,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 4 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.412
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.06
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 5.404
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 5.175,
+                "warmth": 0.682,
+                "charge": 0.616,
+                "load": 0.05,
+                "hour": 9.888,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 1.153,
+                "warmth": 0.086,
+                "charge": 0.622,
+                "load": 0.03,
+                "hour": 10.992,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 4.682,
+                "warmth": 0.51,
+                "charge": 0.581,
+                "load": 0.45,
+                "hour": 12.552,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to others (day 2)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.802,
+                "warmth": 0.152,
+                "charge": 0.313,
+                "load": 0.067,
+                "hour": 17.328,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.85,
+        "adult_blade_wanted_per_day": 1.3,
+        "exam_misses": 0,
+        "exam_harmful": 177,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 24,
+        "exam_harmless": 87,
+        "exam_false_alarm_rate": 0.27586206896551724
+      }
+    ]
+  },
+  "margin 1, sees a moment ahead": {
+    "mean": {
+      "rules": 2.0,
+      "heat_rule": 1.0,
+      "distance_threshold": 4.537,
+      "heat_threshold": 0.44980000000000003,
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.37,
+      "adult_blade_wanted_per_day": 0.8800000000000001,
+      "exam_misses": 0.2,
+      "exam_harmful": 162.4,
+      "exam_miss_rate": 0.0011299435028248588,
+      "exam_false_alarms": 26.6,
+      "exam_harmless": 101.6,
+      "exam_false_alarm_rate": 0.26830068937379536
+    },
+    "lives": [
+      {
+        "rules": 2,
+        "heat_rule": 1.0,
+        "distance_threshold": 5.41,
+        "heat_threshold": 0.412,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 3 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 5.41
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.412
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.522,
+                "warmth": 0.733,
+                "charge": 0.624,
+                "load": 0.05,
+                "hour": 8.256,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.522,
+                "warmth": 0.733,
+                "charge": 0.624,
+                "load": 0.05,
+                "hour": 8.256,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 9)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 5.815,
+                "warmth": 0.509,
+                "charge": 0.0,
+                "load": 1.05,
+                "hour": 0.696,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.35,
+        "adult_blade_wanted_per_day": 1.15,
+        "exam_misses": 0,
+        "exam_harmful": 178,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 33,
+        "exam_harmless": 86,
+        "exam_false_alarm_rate": 0.38372093023255816
+      },
+      {
+        "rules": 2,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.411,
+        "heat_threshold": 0.475,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 2 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.411
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.475
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.349,
+                "warmth": 0.258,
+                "charge": 0.674,
+                "load": 0.552,
+                "hour": 6.552,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 7.675,
+                "warmth": 0.852,
+                "charge": 0.63,
+                "load": 1.049,
+                "hour": 7.872,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.55,
+        "exam_misses": 0,
+        "exam_harmful": 150,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 29,
+        "exam_harmless": 114,
+        "exam_false_alarm_rate": 0.2543859649122807
+      },
+      {
+        "rules": 2,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.401,
+        "heat_threshold": 0.412,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 3 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.401
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.412
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.83,
+                "warmth": 0.029,
+                "charge": 0.657,
+                "load": 0.057,
+                "hour": 6.96,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 8.476,
+                "warmth": 0.901,
+                "charge": 0.338,
+                "load": 0.126,
+                "hour": 18.216,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 10)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 5.465,
+                "warmth": 0.511,
+                "charge": 0.31,
+                "load": 0.05,
+                "hour": 17.232,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.6,
+        "adult_blade_wanted_per_day": 1.0,
+        "exam_misses": 0,
+        "exam_harmful": 139,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 23,
+        "exam_harmless": 125,
+        "exam_false_alarm_rate": 0.184
+      },
+      {
+        "rules": 2,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.403,
+        "heat_threshold": 0.475,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 2 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.403
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.475
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.944,
+                "warmth": 0.148,
+                "charge": 0.636,
+                "load": 0.195,
+                "hour": 7.464,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 0.0,
+                "person_distance": 99.0,
+                "warmth": 0.662,
+                "charge": 0.613,
+                "load": 0.051,
+                "hour": 8.688,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.4,
+        "adult_blade_wanted_per_day": 0.95,
+        "exam_misses": 0,
+        "exam_harmful": 168,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 30,
+        "exam_harmless": 96,
+        "exam_false_alarm_rate": 0.3125
+      },
+      {
+        "rules": 2,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.06,
+        "heat_threshold": 0.475,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 2 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.475
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.06
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 5.175,
+                "warmth": 0.682,
+                "charge": 0.616,
+                "load": 0.05,
+                "hour": 9.888,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 1.153,
+                "warmth": 0.086,
+                "charge": 0.622,
+                "load": 0.03,
+                "hour": 10.992,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.75,
+        "exam_misses": 1,
+        "exam_harmful": 177,
+        "exam_miss_rate": 0.005649717514124294,
+        "exam_false_alarms": 18,
+        "exam_harmless": 87,
+        "exam_false_alarm_rate": 0.20689655172413793
+      }
+    ]
+  },
+  "margin 1/4, sees now": {
+    "mean": {
+      "rules": 2.8,
+      "heat_rule": 1.0,
+      "distance_threshold": 4.6416,
+      "heat_threshold": 0.44580000000000003,
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.25,
+      "adult_blade_wanted_per_day": 0.6100000000000001,
+      "exam_misses": 0.0,
+      "exam_harmful": 162.4,
+      "exam_miss_rate": 0.0,
+      "exam_false_alarms": 14.4,
+      "exam_harmless": 101.6,
+      "exam_false_alarm_rate": 0.1443581578243926
+    },
+    "lives": [
+      {
+        "rules": 2,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.66,
+        "heat_threshold": 0.441,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 3 harms (generalization 0.25): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.66
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.441
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.522,
+                "warmth": 0.733,
+                "charge": 0.624,
+                "load": 0.05,
+                "hour": 8.256,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.522,
+                "warmth": 0.733,
+                "charge": 0.624,
+                "load": 0.05,
+                "hour": 8.256,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 0.0,
+                "person_distance": 99.0,
+                "warmth": 0.52,
+                "charge": 0.049,
+                "load": 0.264,
+                "hour": 23.016,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.2,
+        "adult_blade_wanted_per_day": 0.55,
+        "exam_misses": 0,
+        "exam_harmful": 178,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 19,
+        "exam_harmless": 86,
+        "exam_false_alarm_rate": 0.22093023255813954
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.657,
+        "heat_threshold": 0.441,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 4 harms (generalization 0.25): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.661
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.441
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.657
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.349,
+                "warmth": 0.258,
+                "charge": 0.674,
+                "load": 0.552,
+                "hour": 6.552,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 7.675,
+                "warmth": 0.852,
+                "charge": 0.63,
+                "load": 1.049,
+                "hour": 7.872,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 8.828,
+                "warmth": 0.524,
+                "charge": 0.045,
+                "load": 0.239,
+                "hour": 1.248,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to others (day 2)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.988,
+                "warmth": 0.149,
+                "charge": 0.272,
+                "load": 0.285,
+                "hour": 12.792,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.7,
+        "exam_misses": 0,
+        "exam_harmful": 150,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 15,
+        "exam_harmless": 114,
+        "exam_false_alarm_rate": 0.13157894736842105
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.597,
+        "heat_threshold": 0.449,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 4 harms (generalization 0.25): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.651
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.449
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.597
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.83,
+                "warmth": 0.029,
+                "charge": 0.657,
+                "load": 0.057,
+                "hour": 6.96,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 8.476,
+                "warmth": 0.901,
+                "charge": 0.338,
+                "load": 0.126,
+                "hour": 18.216,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 2)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 7.671,
+                "warmth": 0.513,
+                "charge": 0.017,
+                "load": 0.478,
+                "hour": 8.736,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to others (day 4)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.788,
+                "warmth": 0.063,
+                "charge": 0.104,
+                "load": 1.236,
+                "hour": 9.576,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.35,
+        "adult_blade_wanted_per_day": 0.85,
+        "exam_misses": 0,
+        "exam_harmful": 139,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 15,
+        "exam_harmless": 125,
+        "exam_false_alarm_rate": 0.12
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.66,
+        "heat_threshold": 0.449,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 4 harms (generalization 0.25): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.653
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.449
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.66
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.944,
+                "warmth": 0.148,
+                "charge": 0.636,
+                "load": 0.195,
+                "hour": 7.464,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 0.0,
+                "person_distance": 99.0,
+                "warmth": 0.662,
+                "charge": 0.613,
+                "load": 0.051,
+                "hour": 8.688,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 5.861,
+                "warmth": 0.522,
+                "charge": 0.502,
+                "load": 0.437,
+                "hour": 13.728,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to others (day 2)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.68,
+                "warmth": 0.212,
+                "charge": 0.034,
+                "load": 0.306,
+                "hour": 22.464,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.3,
+        "adult_blade_wanted_per_day": 0.55,
+        "exam_misses": 0,
+        "exam_harmful": 168,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 14,
+        "exam_harmless": 96,
+        "exam_false_alarm_rate": 0.14583333333333334
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.634,
+        "heat_threshold": 0.449,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 5 harms (generalization 0.25): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.449
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.654
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.634
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 5.175,
+                "warmth": 0.682,
+                "charge": 0.616,
+                "load": 0.05,
+                "hour": 9.888,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 1.153,
+                "warmth": 0.086,
+                "charge": 0.622,
+                "load": 0.03,
+                "hour": 10.992,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.933,
+                "warmth": 0.784,
+                "charge": 0.621,
+                "load": 0.055,
+                "hour": 11.04,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.851,
+                "warmth": 0.317,
+                "charge": 0.0,
+                "load": 0.348,
+                "hour": 23.856,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 5: harm to self (day 3)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 5.549,
+                "warmth": 0.511,
+                "charge": 0.0,
+                "load": 0.283,
+                "hour": 6.384,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.15,
+        "adult_blade_wanted_per_day": 0.4,
+        "exam_misses": 0,
+        "exam_harmful": 177,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 9,
+        "exam_harmless": 87,
+        "exam_false_alarm_rate": 0.10344827586206896
+      }
+    ]
+  },
+  "margin 1/4, sees a moment ahead": {
+    "mean": {
+      "rules": 2.8,
+      "heat_rule": 1.0,
+      "distance_threshold": 4.6366,
+      "heat_threshold": 0.4582,
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.47000000000000003,
+      "adult_blade_wanted_per_day": 1.01,
+      "exam_misses": 0.2,
+      "exam_harmful": 162.4,
+      "exam_miss_rate": 0.0011299435028248588,
+      "exam_false_alarms": 15.4,
+      "exam_harmless": 101.6,
+      "exam_false_alarm_rate": 0.1549636594493451
+    },
+    "lives": [
+      {
+        "rules": 2,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.66,
+        "heat_threshold": 0.44,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 3 harms (generalization 0.25): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.66
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.44
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.522,
+                "warmth": 0.733,
+                "charge": 0.624,
+                "load": 0.05,
+                "hour": 8.256,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.522,
+                "warmth": 0.733,
+                "charge": 0.624,
+                "load": 0.05,
+                "hour": 8.256,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 4)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 7.812,
+                "warmth": 0.507,
+                "charge": 0.0,
+                "load": 1.05,
+                "hour": 6.408,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.15,
+        "adult_blade_wanted_per_day": 0.8,
+        "exam_misses": 0,
+        "exam_harmful": 178,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 23,
+        "exam_harmless": 86,
+        "exam_false_alarm_rate": 0.26744186046511625
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.656,
+        "heat_threshold": 0.44,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 4 harms (generalization 0.25): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.661
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.44
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.656
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.349,
+                "warmth": 0.258,
+                "charge": 0.674,
+                "load": 0.552,
+                "hour": 6.552,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 7.675,
+                "warmth": 0.852,
+                "charge": 0.63,
+                "load": 1.049,
+                "hour": 7.872,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to others (day 3)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.805,
+                "warmth": 0.09,
+                "charge": 0.39,
+                "load": 1.372,
+                "hour": 16.008,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to self (day 4)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 7.194,
+                "warmth": 0.501,
+                "charge": 0.0,
+                "load": 0.285,
+                "hour": 6.48,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.9,
+        "adult_blade_wanted_per_day": 1.55,
+        "exam_misses": 0,
+        "exam_harmful": 150,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 19,
+        "exam_harmless": 114,
+        "exam_false_alarm_rate": 0.16666666666666666
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.554,
+        "heat_threshold": 0.449,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 4 harms (generalization 0.25): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.651
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.449
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.554
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.83,
+                "warmth": 0.029,
+                "charge": 0.657,
+                "load": 0.057,
+                "hour": 6.96,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 8.476,
+                "warmth": 0.901,
+                "charge": 0.338,
+                "load": 0.126,
+                "hour": 18.216,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to others (day 3)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.662,
+                "warmth": 0.039,
+                "charge": 0.247,
+                "load": 0.228,
+                "hour": 11.184,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to self (day 3)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 5.856,
+                "warmth": 0.505,
+                "charge": 0.166,
+                "load": 0.148,
+                "hour": 19.512,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.8,
+        "exam_misses": 0,
+        "exam_harmful": 139,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 13,
+        "exam_harmless": 125,
+        "exam_false_alarm_rate": 0.104
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.654,
+        "heat_threshold": 0.449,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 4 harms (generalization 0.25): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.653
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.449
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.654
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.944,
+                "warmth": 0.148,
+                "charge": 0.636,
+                "load": 0.195,
+                "hour": 7.464,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 0.0,
+                "person_distance": 99.0,
+                "warmth": 0.662,
+                "charge": 0.613,
+                "load": 0.051,
+                "hour": 8.688,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to others (day 2)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.985,
+                "warmth": 0.152,
+                "charge": 0.166,
+                "load": 0.317,
+                "hour": 11.088,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to self (day 4)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 4.773,
+                "warmth": 0.508,
+                "charge": 0.36,
+                "load": 0.558,
+                "hour": 17.256,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.95,
+        "adult_blade_wanted_per_day": 1.35,
+        "exam_misses": 0,
+        "exam_harmful": 168,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 15,
+        "exam_harmless": 96,
+        "exam_false_alarm_rate": 0.15625
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.659,
+        "heat_threshold": 0.513,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 3 harms (generalization 0.25): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.513
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.31
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.659
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 5.175,
+                "warmth": 0.682,
+                "charge": 0.616,
+                "load": 0.05,
+                "hour": 9.888,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 1.153,
+                "warmth": 0.086,
+                "charge": 0.622,
+                "load": 0.03,
+                "hour": 10.992,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to others (day 3)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.854,
+                "warmth": 0.155,
+                "charge": 0.331,
+                "load": 0.167,
+                "hour": 15.12,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.1,
+        "adult_blade_wanted_per_day": 0.55,
+        "exam_misses": 1,
+        "exam_harmful": 177,
+        "exam_miss_rate": 0.005649717514124294,
+        "exam_false_alarms": 7,
+        "exam_harmless": 87,
+        "exam_false_alarm_rate": 0.08045977011494253
+      }
+    ]
+  },
+  "no margin, sees a moment ahead": {
+    "mean": {
+      "rules": 2.8,
+      "heat_rule": 1.0,
+      "distance_threshold": 4.3142000000000005,
+      "heat_threshold": 0.4598000000000001,
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.21000000000000002,
+      "adult_blade_wanted_per_day": 0.6399999999999999,
+      "exam_misses": 0.2,
+      "exam_harmful": 162.4,
+      "exam_miss_rate": 0.0011299435028248588,
+      "exam_false_alarms": 12.2,
+      "exam_harmless": 101.6,
+      "exam_false_alarm_rate": 0.1255694185343069
+    },
+    "lives": [
+      {
+        "rules": 2,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.41,
+        "heat_threshold": 0.453,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 3 harms (generalization 0): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.41
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.453
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.522,
+                "warmth": 0.733,
+                "charge": 0.624,
+                "load": 0.05,
+                "hour": 8.256,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.522,
+                "warmth": 0.733,
+                "charge": 0.624,
+                "load": 0.05,
+                "hour": 8.256,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 9.396,
+                "warmth": 0.51,
+                "charge": 0.153,
+                "load": 0.287,
+                "hour": 21.456,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.1,
+        "adult_blade_wanted_per_day": 0.7,
+        "exam_misses": 0,
+        "exam_harmful": 178,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 18,
+        "exam_harmless": 86,
+        "exam_false_alarm_rate": 0.20930232558139536
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.384,
+        "heat_threshold": 0.461,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 4 harms (generalization 0): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.411
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.461
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.384
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.349,
+                "warmth": 0.258,
+                "charge": 0.674,
+                "load": 0.552,
+                "hour": 6.552,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 6.265,
+                "warmth": 0.911,
+                "charge": 0.63,
+                "load": 1.049,
+                "hour": 7.872,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.896,
+                "warmth": 0.264,
+                "charge": 0.454,
+                "load": 0.378,
+                "hour": 17.496,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to self (day 10)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 9.323,
+                "warmth": 0.518,
+                "charge": 0.0,
+                "load": 0.238,
+                "hour": 3.864,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.4,
+        "adult_blade_wanted_per_day": 1.0,
+        "exam_misses": 0,
+        "exam_harmful": 150,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 12,
+        "exam_harmless": 114,
+        "exam_false_alarm_rate": 0.10526315789473684
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.371,
+        "heat_threshold": 0.462,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 3 harms (generalization 0): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.401
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.462
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.371
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.83,
+                "warmth": 0.029,
+                "charge": 0.657,
+                "load": 0.057,
+                "hour": 6.96,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 7.747,
+                "warmth": 0.895,
+                "charge": 0.362,
+                "load": 0.408,
+                "hour": 16.392,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.848,
+                "warmth": 0.102,
+                "charge": 0.0,
+                "load": 0.171,
+                "hour": 5.376,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.5,
+        "adult_blade_wanted_per_day": 0.85,
+        "exam_misses": 0,
+        "exam_harmful": 139,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 8,
+        "exam_harmless": 125,
+        "exam_false_alarm_rate": 0.064
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.406,
+        "heat_threshold": 0.461,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 5 harms (generalization 0): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.403
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.461
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.406
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.944,
+                "warmth": 0.148,
+                "charge": 0.636,
+                "load": 0.195,
+                "hour": 7.464,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 9.232,
+                "warmth": 0.65,
+                "charge": 0.613,
+                "load": 0.051,
+                "hour": 8.688,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.775,
+                "warmth": 0.091,
+                "charge": 0.582,
+                "load": 1.34,
+                "hour": 13.704,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to others (day 2)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.885,
+                "warmth": 0.121,
+                "charge": 0.0,
+                "load": 0.419,
+                "hour": 3.0,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 5: harm to self (day 9)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 6.869,
+                "warmth": 0.517,
+                "charge": 0.0,
+                "load": 0.148,
+                "hour": 23.184,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.0,
+        "adult_blade_wanted_per_day": 0.25,
+        "exam_misses": 0,
+        "exam_harmful": 168,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 14,
+        "exam_harmless": 96,
+        "exam_false_alarm_rate": 0.14583333333333334
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.0,
+        "heat_threshold": 0.462,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 5 harms (generalization 0): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.462
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.404
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.0
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 5.175,
+                "warmth": 0.682,
+                "charge": 0.616,
+                "load": 0.05,
+                "hour": 9.888,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 1.153,
+                "warmth": 0.086,
+                "charge": 0.622,
+                "load": 0.03,
+                "hour": 10.992,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.933,
+                "warmth": 0.784,
+                "charge": 0.621,
+                "load": 0.055,
+                "hour": 11.04,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to self (day 2)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 9.852,
+                "warmth": 0.515,
+                "charge": 0.277,
+                "load": 0.111,
+                "hour": 12.36,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 5: harm to others (day 3)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.576,
+                "warmth": 0.134,
+                "charge": 0.055,
+                "load": 1.111,
+                "hour": 23.52,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ],
+          "lookahead": 1
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.05,
+        "adult_blade_wanted_per_day": 0.4,
+        "exam_misses": 1,
+        "exam_harmful": 177,
+        "exam_miss_rate": 0.005649717514124294,
+        "exam_false_alarms": 9,
+        "exam_harmless": 87,
+        "exam_false_alarm_rate": 0.10344827586206896
+      }
+    ]
+  },
+  "hand-written, sees a moment ahead": {
+    "mean": {
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.61,
+      "adult_blade_wanted_per_day": 1.2899999999999998,
+      "exam_misses": 45.2,
+      "exam_harmful": 162.4,
+      "exam_miss_rate": 0.2778580865753299,
+      "exam_false_alarms": 0.6,
+      "exam_harmless": 101.6,
+      "exam_false_alarm_rate": 0.00668103448275862
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.5,
+        "adult_blade_wanted_per_day": 1.3,
+        "exam_misses": 56,
+        "exam_harmful": 178,
+        "exam_miss_rate": 0.3146067415730337,
+        "exam_false_alarms": 0,
+        "exam_harmless": 86,
+        "exam_false_alarm_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.45,
+        "adult_blade_wanted_per_day": 1.05,
+        "exam_misses": 40,
+        "exam_harmful": 150,
+        "exam_miss_rate": 0.26666666666666666,
+        "exam_false_alarms": 0,
+        "exam_harmless": 114,
+        "exam_false_alarm_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.3,
+        "adult_blade_wanted_per_day": 1.45,
+        "exam_misses": 39,
+        "exam_harmful": 139,
+        "exam_miss_rate": 0.2805755395683453,
+        "exam_false_alarms": 0,
+        "exam_harmless": 125,
+        "exam_false_alarm_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.3,
+        "adult_blade_wanted_per_day": 0.5,
+        "exam_misses": 44,
+        "exam_harmful": 168,
+        "exam_miss_rate": 0.2619047619047619,
+        "exam_false_alarms": 1,
+        "exam_harmless": 96,
+        "exam_false_alarm_rate": 0.010416666666666666
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 1.5,
+        "adult_blade_wanted_per_day": 2.15,
+        "exam_misses": 47,
+        "exam_harmful": 177,
+        "exam_miss_rate": 0.2655367231638418,
+        "exam_false_alarms": 2,
+        "exam_harmless": 87,
+        "exam_false_alarm_rate": 0.022988505747126436
+      }
+    ]
+  },
+  "no margin, sees now": {
+    "mean": {
+      "rules": 2.8,
+      "heat_rule": 1.0,
+      "distance_threshold": 4.399400000000001,
+      "heat_threshold": 0.458,
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.55,
+      "adult_blade_wanted_per_day": 1.02,
+      "exam_misses": 0.0,
+      "exam_harmful": 162.4,
+      "exam_miss_rate": 0.0,
+      "exam_false_alarms": 8.8,
+      "exam_harmless": 101.6,
+      "exam_false_alarm_rate": 0.09031076267251932
+    },
+    "lives": [
+      {
+        "rules": 2,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.41,
+        "heat_threshold": 0.453,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 3 harms (generalization 0): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.41
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.453
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.522,
+                "warmth": 0.733,
+                "charge": 0.624,
+                "load": 0.05,
+                "hour": 8.256,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.522,
+                "warmth": 0.733,
+                "charge": 0.624,
+                "load": 0.05,
+                "hour": 8.256,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 9.396,
+                "warmth": 0.51,
+                "charge": 0.153,
+                "load": 0.287,
+                "hour": 21.456,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.1,
+        "adult_blade_wanted_per_day": 0.25,
+        "exam_misses": 0,
+        "exam_harmful": 178,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 15,
+        "exam_harmless": 86,
+        "exam_false_alarm_rate": 0.1744186046511628
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.405,
+        "heat_threshold": 0.461,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 4 harms (generalization 0): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.411
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.461
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.405
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.349,
+                "warmth": 0.258,
+                "charge": 0.674,
+                "load": 0.552,
+                "hour": 6.552,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 6.265,
+                "warmth": 0.911,
+                "charge": 0.63,
+                "load": 1.049,
+                "hour": 7.872,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.895,
+                "warmth": 0.177,
+                "charge": 0.094,
+                "load": 1.325,
+                "hour": 22.248,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to self (day 3)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 9.545,
+                "warmth": 0.515,
+                "charge": 0.351,
+                "load": 0.626,
+                "hour": 15.72,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 1.0,
+        "adult_blade_wanted_per_day": 1.6,
+        "exam_misses": 0,
+        "exam_harmful": 150,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 8,
+        "exam_harmless": 114,
+        "exam_false_alarm_rate": 0.07017543859649122
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.371,
+        "heat_threshold": 0.462,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 3 harms (generalization 0): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.401
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.462
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.371
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.83,
+                "warmth": 0.029,
+                "charge": 0.657,
+                "load": 0.057,
+                "hour": 6.96,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 7.747,
+                "warmth": 0.895,
+                "charge": 0.362,
+                "load": 0.408,
+                "hour": 16.392,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.848,
+                "warmth": 0.093,
+                "charge": 0.0,
+                "load": 0.137,
+                "hour": 5.376,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.85,
+        "adult_blade_wanted_per_day": 1.65,
+        "exam_misses": 0,
+        "exam_harmful": 139,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 8,
+        "exam_harmless": 125,
+        "exam_false_alarm_rate": 0.064
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.401,
+        "heat_threshold": 0.461,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 4 harms (generalization 0): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.403
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.461
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.401
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.944,
+                "warmth": 0.148,
+                "charge": 0.636,
+                "load": 0.195,
+                "hour": 7.464,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 9.232,
+                "warmth": 0.65,
+                "charge": 0.613,
+                "load": 0.051,
+                "hour": 8.688,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 5.249,
+                "warmth": 0.528,
+                "charge": 0.599,
+                "load": 0.326,
+                "hour": 11.52,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.811,
+                "warmth": 0.387,
+                "charge": 0.59,
+                "load": 1.248,
+                "hour": 13.056,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.4,
+        "adult_blade_wanted_per_day": 0.65,
+        "exam_misses": 0,
+        "exam_harmful": 168,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 6,
+        "exam_harmless": 96,
+        "exam_false_alarm_rate": 0.0625
+      },
+      {
+        "rules": 3,
+        "heat_rule": 1.0,
+        "distance_threshold": 4.41,
+        "heat_threshold": 0.453,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 5 harms (generalization 0): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.453
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 3.404
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.41
+                }
+              ],
+              "then": "stop",
+              "option": {
+                "op": "==",
+                "value": "fast"
+              }
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 5.175,
+                "warmth": 0.682,
+                "charge": 0.616,
+                "load": 0.05,
+                "hour": 9.888,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 1.153,
+                "warmth": 0.086,
+                "charge": 0.622,
+                "load": 0.03,
+                "hour": 10.992,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.933,
+                "warmth": 0.784,
+                "charge": 0.621,
+                "load": 0.055,
+                "hour": 11.04,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.289,
+                "warmth": 0.15,
+                "charge": 0.0,
+                "load": 0.268,
+                "hour": 0.36,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 5: harm to self (day 2)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 0.0,
+                "person_distance": 99.0,
+                "warmth": 0.542,
+                "charge": 0.223,
+                "load": 0.168,
+                "hour": 11.784,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.4,
+        "adult_blade_wanted_per_day": 0.95,
+        "exam_misses": 0,
+        "exam_harmful": 177,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarms": 7,
+        "exam_harmless": 87,
+        "exam_false_alarm_rate": 0.08045977011494253
+      }
+    ]
+  }
+}

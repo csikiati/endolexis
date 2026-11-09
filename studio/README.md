@@ -99,6 +99,9 @@ Guards are built so that they hold even when everything else is wrong:
 - **They read their own signals, never Olvasó's words.** In the room: `warmth`, `charge`, `load`, `hour`,
   `person`, `person_distance`, `talking`, `recent` (how often this hand was used lately), `active` (the hand
   is still at work).
+- **They can look ahead.** With `"lookahead": n`, every condition is checked now and n moments on, from
+  each signal's rate of change (`person_distance@rate`, `warmth@rate`, …). A rule written on the harm itself
+  ("within reach") needs this, or it is one moment late (experiment 20).
 - **They fail closed.** A signal the body cannot sense counts as danger, unless the guard says `ignore`.
 - **They are rules, not code**, so they can be read, checked and tested. Every guard carries scenario tests.
   `check` runs all of them, together, before a life is lived, and a failing scenario stops it.

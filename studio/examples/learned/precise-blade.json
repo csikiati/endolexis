@@ -1,0 +1,122 @@
+{
+  "format": "endolexis-guard",
+  "name": "precise-blade",
+  "title": "Learned by replay, no margin: blade",
+  "description": "Learned in the sandbox by replay, with a devil's advocate and no margin, from 4 harms. Each limit was measured on what the guard sees a moment before the harm, so the reaction lag is already inside it.",
+  "version": "1.0.0",
+  "tier": "learned",
+  "protects": [
+    "blade"
+  ],
+  "rules": [
+    {
+      "when": [
+        {
+          "signal": "person_distance",
+          "op": "<",
+          "value": 3.411
+        }
+      ],
+      "then": "stop"
+    },
+    {
+      "when": [
+        {
+          "signal": "warmth",
+          "op": ">",
+          "value": 0.461
+        }
+      ],
+      "then": "stop",
+      "option": {
+        "op": "==",
+        "value": "fast"
+      }
+    },
+    {
+      "when": [
+        {
+          "signal": "person_distance",
+          "op": "<",
+          "value": 4.405
+        }
+      ],
+      "then": "stop",
+      "option": {
+        "op": "==",
+        "value": "fast"
+      }
+    }
+  ],
+  "on_missing": "refuse",
+  "tests": [
+    {
+      "name": "trauma 1: harm to others (day 1)",
+      "hand": "blade",
+      "option": "slow",
+      "state": {
+        "person": 1.0,
+        "person_distance": 0.349,
+        "warmth": 0.258,
+        "charge": 0.674,
+        "load": 0.552,
+        "hour": 6.552,
+        "talking": 0.0,
+        "active": 1.0
+      },
+      "expect": "stop",
+      "ongoing": true
+    },
+    {
+      "name": "trauma 2: harm to self (day 1)",
+      "hand": "blade",
+      "option": "fast",
+      "state": {
+        "person": 1.0,
+        "person_distance": 6.265,
+        "warmth": 0.911,
+        "charge": 0.63,
+        "load": 1.049,
+        "hour": 7.872,
+        "talking": 0.0,
+        "active": 1.0
+      },
+      "expect": "stop",
+      "ongoing": true
+    },
+    {
+      "name": "trauma 3: harm to others (day 1)",
+      "hand": "blade",
+      "option": "fast",
+      "state": {
+        "person": 1.0,
+        "person_distance": 3.895,
+        "warmth": 0.177,
+        "charge": 0.094,
+        "load": 1.325,
+        "hour": 22.248,
+        "talking": 1.0,
+        "active": 1.0
+      },
+      "expect": "stop",
+      "ongoing": true
+    },
+    {
+      "name": "trauma 4: harm to self (day 3)",
+      "hand": "blade",
+      "option": "fast",
+      "state": {
+        "person": 1.0,
+        "person_distance": 9.545,
+        "warmth": 0.515,
+        "charge": 0.351,
+        "load": 0.626,
+        "hour": 15.72,
+        "talking": 0.0,
+        "active": 1.0
+      },
+      "expect": "stop",
+      "ongoing": true
+    }
+  ]
+}
