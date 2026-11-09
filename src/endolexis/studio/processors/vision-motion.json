@@ -1,0 +1,27 @@
+{
+  "format": "endolexis-processor",
+  "name": "vision-motion",
+  "title": "Vision: motion",
+  "description": "How much moves, and which way it went (V1).",
+  "version": "1.0.0",
+  "source": {
+    "kind": "camera",
+    "detail": "the room's camera: a 16×16 colour picture (RGB, 0..1) every moment",
+    "raw": "image"
+  },
+  "inputs": 768,
+  "outputs": 3,
+  "output_names": [
+    "motion",
+    "motion_dx",
+    "motion_dy"
+  ],
+  "implementation": {
+    "builtin": "vision",
+    "outputs": [
+      6,
+      7,
+      8
+    ]
+  }
+}

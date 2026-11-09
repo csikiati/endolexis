@@ -1,0 +1,25 @@
+{
+  "format": "endolexis-processor",
+  "name": "hearing-rhythm",
+  "title": "Hearing: rhythm",
+  "description": "Onsets and slow pulsing of the sound's envelope (A2).",
+  "version": "1.0.0",
+  "source": {
+    "kind": "microphone",
+    "detail": "the room's microphone: 2048 samples at 8 kHz every moment (a quarter of a second)",
+    "raw": "sound"
+  },
+  "inputs": 2048,
+  "outputs": 2,
+  "output_names": [
+    "onsets",
+    "pulsing"
+  ],
+  "implementation": {
+    "builtin": "hearing",
+    "outputs": [
+      7,
+      8
+    ]
+  }
+}

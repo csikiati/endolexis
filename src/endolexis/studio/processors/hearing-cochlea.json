@@ -1,0 +1,29 @@
+{
+  "format": "endolexis-processor",
+  "name": "hearing-cochlea",
+  "title": "Hearing: cochlea",
+  "description": "Loudness and the low, mid and high band shares (A0).",
+  "version": "1.0.0",
+  "source": {
+    "kind": "microphone",
+    "detail": "the room's microphone: 2048 samples at 8 kHz every moment (a quarter of a second)",
+    "raw": "sound"
+  },
+  "inputs": 2048,
+  "outputs": 4,
+  "output_names": [
+    "loudness",
+    "low",
+    "mid",
+    "high"
+  ],
+  "implementation": {
+    "builtin": "hearing",
+    "outputs": [
+      0,
+      1,
+      2,
+      3
+    ]
+  }
+}

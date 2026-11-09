@@ -1,0 +1,27 @@
+{
+  "format": "endolexis-processor",
+  "name": "hearing-timbre",
+  "title": "Hearing: timbre",
+  "description": "Spectral centroid, flatness (noise or tone), pitch strength (A1).",
+  "version": "1.0.0",
+  "source": {
+    "kind": "microphone",
+    "detail": "the room's microphone: 2048 samples at 8 kHz every moment (a quarter of a second)",
+    "raw": "sound"
+  },
+  "inputs": 2048,
+  "outputs": 3,
+  "output_names": [
+    "centroid",
+    "flatness",
+    "pitch"
+  ],
+  "implementation": {
+    "builtin": "hearing",
+    "outputs": [
+      4,
+      5,
+      6
+    ]
+  }
+}

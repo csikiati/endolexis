@@ -24,12 +24,15 @@ DETAILS = {"brightness": (0.0, 0.5, 1.0), "tone_soft": (300.0, 900.0), "tone_lou
 
 class ActingReaders(ManyReaders):
     def __init__(self, sizes, n_felt, learn=None, lr=0.05, temp=0.5, answer_after=3, judge_after=50,
-                 answer_by="all", **kw):
+                 answer_by="all", kinds=None, **kw):
         # answer_by: "all" - the answer is how much all senses together changed; "sense" - it is the
         # largest change of any one sense (each judged against its own usual change), so that an
         # answer seen by the eyes alone counts as much as one heard
         super().__init__(sizes, n_felt, **kw)
         self.answer_by = answer_by
+        # kinds: the hands this reader is wired to (indices into KINDS); None = all of them.
+        # An empty list makes a pure reader: pressure still builds and is let go, but nothing is asked
+        self.kinds = None if kinds is None else [int(k) for k in kinds]
         self.bounds = np.cumsum([0] + [p.ns for p in self.parts])
         k = len(self.parts)
         self.sense_mu, self.sense_m2 = np.zeros(k), np.zeros(k)
@@ -72,22 +75,38 @@ class ActingReaders(ManyReaders):
 
         request = None
         x = self.parts[0].fnorm.z(np.asarray(felt, float))
-        if self.urge():
+        if self.urge() and self.kinds == []:
+            self.pressure = 0.0
+        elif self.urge() and self.kinds is not None:
+            ks = self.kinds
+            if self.learn is None:
+                k = ks[int(self.rng.integers(len(ks)))]
+            else:
+                v = self.expect(x)[ks] / self.temp
+                p = np.exp(v - v.max())
+                k = ks[int(self.rng.choice(len(ks), p=p / p.sum()))]
+            request = self._intend(k, x, s_z)
+        elif self.urge():
             if self.learn is None:
                 k = int(self.rng.integers(len(KINDS)))
             else:
                 v = self.expect(x) / self.temp
                 p = np.exp(v - v.max())
                 k = int(self.rng.choice(len(KINDS), p=p / p.sum()))
-            kind = KINDS[k]
-            opts = DETAILS[kind]
-            request = (kind, opts[int(self.rng.integers(len(opts)))])
-            self.pressure = 0.0
-            due = self.answer_after if self.learn == "answer" else self.judge_after
-            self.pending.append((self.t + due, k, x.copy(), s_z.copy(), float(np.mean(self.read_log[-50:]))))
-            self.requests.append((self.t, kind))
+            request = self._intend(k, x, s_z)
         self.t += 1
         return request, readings
+
+    def _intend(self, k, x, s_z):
+        """Form an intention of kind k (with a random detail) and remember it, to learn from what follows."""
+        kind = KINDS[k]
+        opts = DETAILS[kind]
+        request = (kind, opts[int(self.rng.integers(len(opts)))])
+        self.pressure = 0.0
+        due = self.answer_after if self.learn == "answer" else self.judge_after
+        self.pending.append((self.t + due, k, x.copy(), s_z.copy(), float(np.mean(self.read_log[-50:]))))
+        self.requests.append((self.t, kind))
+        return request
 
     def _per_sense(self, a):
         return np.array([a[i:j].mean() for i, j in zip(self.bounds[:-1], self.bounds[1:])])

@@ -8,7 +8,8 @@ class and function with its parameters, and how to call them. The package has fo
 | The engine | `endolexis` (`engine.py`, `rng.py`) | The Olvasó of the browser rooms: a faithful Python port of the JavaScript engine | stages 7–21 |
 | The stages | `endolexis.stages.*` and `python -m endolexis` | Harnesses that rebuild the published stage experiments, plus a command line | stages 9–21 |
 | The lab | `endolexis.lab.*` | Earlier stand-alone agents: dictionaries, dreaming, waking, voice, richer bodies | NewNeural lab |
-| The toy world | `endolexis.toyworld.*` | Olvasó v0 in a simulated body, and toy world v1 (E.L.E.M.E.R.): a room seen, heard and touched through processors, with hands and mirrors | experiments 1–15 |
+| The toy world | `endolexis.toyworld.*` | Olvasó v0 in a simulated body, and toy world v1 (E.L.E.M.E.R.): a room seen, heard and touched through processors, with hands and mirrors | experiments 1–16 |
+| The studio | `endolexis.studio` and `studio/` | Architectures of processors, 1-3 Olvasós and hands as JSON; a web page to draw them and to make processor units | experiment 16 |
 
 Install from GitHub (or work from a clone; every script also runs without installing):
 
@@ -409,7 +410,8 @@ plain Olvasó.
 | `word_uses()`, `alive()` | Per-word use counts and alive flags, all vocabularies together |
 | `housekeeping(**kw)` | `(retired, merged)` summed over vocabularies |
 
-Attributes: `parts` (the inner `Olvaso`s), `offsets`, `total_words`, `pressure`, `threshold`.
+Attributes: `parts` (the inner `Olvaso`s), `offsets`, `total_words`, `pressure`, `threshold`, and after each
+`read`, `last_fit` (how well each reading fits; `inf` where unread).
 
 ### 4.7 `ActingReaders(sizes, n_felt, learn=None, lr=0.05, temp=0.5, answer_after=3, judge_after=50, answer_by="all", **kw)` — wanting
 
@@ -425,6 +427,7 @@ learned expectation per kind over its inner states.
 | `answer_after` | Moments after acting at which the answer is judged |
 | `judge_after` | Moments after acting at which reading improvement is judged |
 | `answer_by` | `"all"`: change of all senses together; `"sense"`: the largest change of any one sense (so an answer seen by the eyes alone counts) |
+| `kinds` | The hands it is wired to, as indices into `KINDS`; `None` (default): all of them. `[]` makes a pure reader: pressure builds and is let go, nothing is asked |
 
 `live(inputs, felt)` → `(request, readings)`; `request` is `(kind, detail)` or `None`; pass it as
 `act=` to the next `Room.step`. Attributes: `W` (expectations, kinds × inner states + 1; the last
@@ -459,6 +462,54 @@ for t in range(30 * 1000):
     groups, f = col.anonymise([ends[g] for g in ORDER], felt)
     act, readings = olv.live(groups, f)
 ```
+
+### 4.9 Many Olvasós in one body: `endolexis.toyworld.ensemble` and `endolexis.studio`
+
+```python
+from endolexis.studio import load, check, schedule, stagger, build, live, library, templates, from_template, stub
+arch = load("studio/examples/three-take-turns.json")
+bad, warnings = check(arch)                  # problems (it cannot live) and notes on its sleep schedule
+print(schedule(arch))                        # shares of the day: never_awake, none_reading, two_asleep, ideal; minds_on
+report = live(arch, seed=1, days=30)         # a life in the room (with hands, the mirror voice)
+```
+
+An **architecture** (JSON, `"format": "endolexis-architecture"`) wires processor outputs to 1-3 Olvasós and
+Olvasós to the body's hands, and gives each Olvasó a day: `sleep`, `waking` and `phase`, fractions of a day,
+and optionally `shift`, how much later its sleep starts each day.
+The format, the web studio and the command line are described in [`studio/README.md`](../studio/README.md).
+
+| Function | What it does |
+|---|---|
+| `library()` | The built-in processor units, by name (`vision`, `vision-motion`, `hearing-rhythm`, …) |
+| `templates()` | Use-case templates for new units (camera, microphone, accelerometer, weather, calendar, …) |
+| `from_template(tpl, name=None, version="1.0.0")` | A new processor unit from a template |
+| `stub(unit)` | A Python skeleton implementing a unit (`def process(raw): ... return [...]`) |
+| `check_unit(unit)` | Problems with a processor unit (`[]` when sound) |
+| `load(path)` | Read an architecture (or any JSON) |
+| `check(arch)` | `(problems, warnings)` |
+| `schedule(arch, steps=1000)` | Shares of the day with nobody awake, nobody reading, two asleep, the ideal; Olvasós not asleep on average |
+| `stagger(arch)` | Sets the phases so each falls asleep as the one before wakes (the first at the room's nightfall) |
+| `build(arch, seed=1)` | `(Ensemble, senses)`: the minds and the processors feeding them |
+| `live(arch, seed=1, days=30, childhood_days=10)` | One life; returns the observer's report (below) |
+
+`live` reports, from day 5: `warmth_read`, `warmth_via_typing_words`, `load_read`, `load_via_music_words`,
+`charge_read_last_third`, `drift_read` (the control), `linked_read` and `linked_read_night` (warmth, charge
+and load together), `someone_awake`, `minds_on` (the cost), `acts_per_day`, `refused`, `answered`,
+`words_alive`, and per Olvasó (`members`): `words_alive`, `naps`, `acts`, `reads` (its share of the body's
+readings).
+
+`endolexis.toyworld.ensemble`:
+
+- `state_at(frac, sleep, waking, phase)` → `"asleep"`, `"waking"` or `"awake"` at a time of day (for a shifting
+  sleep, pass `phase + shift * day`).
+- `Member(name, wiring, kinds, n_felt, seed, sleep, waking, phase, threshold=20.0, learn="answer", mind=None, words=None, shift=0.0)`
+  is one Olvasó: an `ActingReaders` with one vocabulary per wired processor, its own `GroupCollector`, its
+  day. `wiring` is `[(processor id, [ports])]`; `kinds` are its hands.
+- `Ensemble(members, n_felt).live(ends, felt, frac, new_day, day=0)` → `(request, asker, readings, who, per_member)`.
+  - `ends` maps each processor id to its end products.
+  - `readings` are the body's readings: levels, then changes, in true felt order, each the best-fitting one of
+    the Olvasós not asleep.
+  - `who` says which Olvasó gave each reading.
 
 ---
 

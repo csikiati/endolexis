@@ -1,0 +1,438 @@
+[
+  {
+    "name": "camera-colour",
+    "title": "Camera: colour",
+    "use_case": "Seeing the room",
+    "description": "Average brightness and colour opponents of a camera picture.",
+    "source": {
+      "kind": "camera",
+      "detail": "an RGB picture, resized to 16×16, values 0..1",
+      "raw": "image"
+    },
+    "inputs": 768,
+    "outputs": [
+      {
+        "name": "brightness",
+        "how": "mean of all pixels"
+      },
+      {
+        "name": "red_green",
+        "how": "mean red minus mean green"
+      },
+      {
+        "name": "blue_yellow",
+        "how": "mean blue minus the mean of red and green"
+      },
+      {
+        "name": "contrast",
+        "how": "standard deviation of brightness"
+      }
+    ]
+  },
+  {
+    "name": "camera-motion",
+    "title": "Camera: motion",
+    "use_case": "Seeing movement",
+    "description": "How much changed since the last picture, and which way the change moved.",
+    "source": {
+      "kind": "camera",
+      "detail": "an RGB picture, resized to 16×16, values 0..1",
+      "raw": "image"
+    },
+    "inputs": 768,
+    "outputs": [
+      {
+        "name": "motion",
+        "how": "mean absolute difference from the previous picture"
+      },
+      {
+        "name": "motion_dx",
+        "how": "horizontal shift of the changed area's centre"
+      },
+      {
+        "name": "motion_dy",
+        "how": "vertical shift of the changed area's centre"
+      }
+    ]
+  },
+  {
+    "name": "microphone-spectrum",
+    "title": "Microphone: spectrum",
+    "use_case": "Hearing the room",
+    "description": "Loudness and how the sound's energy is shared between low, mid and high bands.",
+    "source": {
+      "kind": "microphone",
+      "detail": "a block of 2048 samples at 8 kHz",
+      "raw": "sound"
+    },
+    "inputs": 2048,
+    "outputs": [
+      {
+        "name": "loudness",
+        "how": "root mean square of the samples"
+      },
+      {
+        "name": "low",
+        "how": "share of energy below 300 Hz"
+      },
+      {
+        "name": "mid",
+        "how": "share of energy 300–1500 Hz"
+      },
+      {
+        "name": "high",
+        "how": "share of energy above 1500 Hz"
+      }
+    ]
+  },
+  {
+    "name": "microphone-rhythm",
+    "title": "Microphone: rhythm",
+    "use_case": "Hearing beats and speech",
+    "description": "Onsets and slow pulsing of the sound's envelope.",
+    "source": {
+      "kind": "microphone",
+      "detail": "a block of 2048 samples at 8 kHz",
+      "raw": "sound"
+    },
+    "inputs": 2048,
+    "outputs": [
+      {
+        "name": "onsets",
+        "how": "how many times the envelope jumps up"
+      },
+      {
+        "name": "pulsing",
+        "how": "strength of the envelope's 2–8 Hz modulation"
+      }
+    ]
+  },
+  {
+    "name": "keyboard-mouse",
+    "title": "Keyboard and mouse",
+    "use_case": "A person at the machine",
+    "description": "Key presses and mouse travel in the moment.",
+    "source": {
+      "kind": "keyboard and mouse",
+      "detail": "key-down events and pointer movement since the last moment",
+      "raw": "touch"
+    },
+    "inputs": 2,
+    "outputs": [
+      {
+        "name": "keys",
+        "how": "key presses this moment"
+      },
+      {
+        "name": "mouse",
+        "how": "pointer travel this moment"
+      }
+    ]
+  },
+  {
+    "name": "accelerometer",
+    "title": "Accelerometer",
+    "use_case": "A phone or a robot that is carried",
+    "description": "How strongly and how jerkily the body moves, and how it is tilted.",
+    "source": {
+      "kind": "accelerometer",
+      "detail": "x, y, z acceleration, 50 samples per moment (150 numbers)",
+      "raw": "accel"
+    },
+    "inputs": 150,
+    "outputs": [
+      {
+        "name": "shake",
+        "how": "standard deviation of the acceleration magnitude"
+      },
+      {
+        "name": "jerk",
+        "how": "mean absolute change of the magnitude"
+      },
+      {
+        "name": "tilt_x",
+        "how": "mean x divided by gravity"
+      },
+      {
+        "name": "tilt_y",
+        "how": "mean y divided by gravity"
+      },
+      {
+        "name": "steps",
+        "how": "peaks per second of the magnitude"
+      }
+    ]
+  },
+  {
+    "name": "light-sensor",
+    "title": "Ambient light sensor",
+    "use_case": "Day, night and lamps",
+    "description": "The light level and how fast it changes.",
+    "source": {
+      "kind": "light sensor",
+      "detail": "one lux reading per moment",
+      "raw": "lux"
+    },
+    "inputs": 1,
+    "outputs": [
+      {
+        "name": "level",
+        "how": "log10 of lux + 1"
+      },
+      {
+        "name": "change",
+        "how": "difference from the previous level"
+      }
+    ]
+  },
+  {
+    "name": "location",
+    "title": "Location (GPS)",
+    "use_case": "A body that travels",
+    "description": "Speed, turning and how far from the usual place.",
+    "source": {
+      "kind": "GPS",
+      "detail": "latitude, longitude, accuracy (3 numbers)",
+      "raw": "gps"
+    },
+    "inputs": 3,
+    "outputs": [
+      {
+        "name": "speed",
+        "how": "distance from the last fix per second"
+      },
+      {
+        "name": "turning",
+        "how": "change of heading"
+      },
+      {
+        "name": "away",
+        "how": "distance from the running average position"
+      },
+      {
+        "name": "still",
+        "how": "moments since it last moved"
+      }
+    ]
+  },
+  {
+    "name": "heart",
+    "title": "Heart (wearable)",
+    "use_case": "A body with a pulse",
+    "description": "Heart rate and its variability from a wearable's beat-to-beat intervals.",
+    "source": {
+      "kind": "wearable",
+      "detail": "the last 10 beat-to-beat intervals in milliseconds",
+      "raw": "rr"
+    },
+    "inputs": 10,
+    "outputs": [
+      {
+        "name": "rate",
+        "how": "60000 / mean interval"
+      },
+      {
+        "name": "variability",
+        "how": "root mean square of successive differences"
+      },
+      {
+        "name": "change",
+        "how": "rate minus the rate a minute ago"
+      }
+    ]
+  },
+  {
+    "name": "weather",
+    "title": "Weather service",
+    "use_case": "Outdoor conditions",
+    "description": "Outdoor weather from a weather service, refreshed now and then.",
+    "source": {
+      "kind": "web service",
+      "detail": "temperature °C, pressure hPa, humidity %, wind m/s, rain mm/h",
+      "raw": "weather"
+    },
+    "inputs": 5,
+    "outputs": [
+      {
+        "name": "temperature",
+        "how": "as given"
+      },
+      {
+        "name": "pressure_trend",
+        "how": "change over the last hour"
+      },
+      {
+        "name": "humidity",
+        "how": "as given"
+      },
+      {
+        "name": "wind",
+        "how": "as given"
+      },
+      {
+        "name": "rain",
+        "how": "as given"
+      }
+    ]
+  },
+  {
+    "name": "calendar",
+    "title": "Calendar",
+    "use_case": "The rhythm of a working day",
+    "description": "How the person's day is filled, from their calendar.",
+    "source": {
+      "kind": "calendar",
+      "detail": "start and end times of today's events",
+      "raw": "calendar"
+    },
+    "inputs": 20,
+    "outputs": [
+      {
+        "name": "busy_now",
+        "how": "1 while an event is on"
+      },
+      {
+        "name": "to_next",
+        "how": "minutes to the next event"
+      },
+      {
+        "name": "events_today",
+        "how": "number of events today"
+      },
+      {
+        "name": "left_today",
+        "how": "events still to come"
+      }
+    ]
+  },
+  {
+    "name": "network",
+    "title": "Network traffic",
+    "use_case": "A machine's contact with others",
+    "description": "How much the machine talks to the network.",
+    "source": {
+      "kind": "network interface",
+      "detail": "bytes in, bytes out, open connections since the last moment",
+      "raw": "net"
+    },
+    "inputs": 3,
+    "outputs": [
+      {
+        "name": "bytes_in",
+        "how": "log of bytes received"
+      },
+      {
+        "name": "bytes_out",
+        "how": "log of bytes sent"
+      },
+      {
+        "name": "connections",
+        "how": "open connections"
+      },
+      {
+        "name": "burstiness",
+        "how": "bytes this moment against the minute's mean"
+      }
+    ]
+  },
+  {
+    "name": "text-stream",
+    "title": "Text stream",
+    "use_case": "Chats and messages",
+    "description": "Clockwork measures of incoming text: never its meaning.",
+    "source": {
+      "kind": "chat or message stream",
+      "detail": "the messages that arrived in the moment",
+      "raw": "text"
+    },
+    "inputs": 0,
+    "outputs": [
+      {
+        "name": "messages",
+        "how": "number of messages"
+      },
+      {
+        "name": "length",
+        "how": "mean length in characters"
+      },
+      {
+        "name": "questions",
+        "how": "share of messages with a question mark"
+      },
+      {
+        "name": "shouting",
+        "how": "share of capital letters and exclamation marks"
+      }
+    ]
+  },
+  {
+    "name": "market",
+    "title": "Market price feed",
+    "use_case": "A world of prices",
+    "description": "Change and restlessness of a price series.",
+    "source": {
+      "kind": "market data feed",
+      "detail": "last price and traded volume",
+      "raw": "price"
+    },
+    "inputs": 2,
+    "outputs": [
+      {
+        "name": "change",
+        "how": "relative change since the last moment"
+      },
+      {
+        "name": "volatility",
+        "how": "standard deviation of the last 20 changes"
+      },
+      {
+        "name": "volume",
+        "how": "log of volume"
+      }
+    ]
+  },
+  {
+    "name": "thermostat",
+    "title": "Smart-home thermostat",
+    "use_case": "A house as a body",
+    "description": "Indoor temperature and heating from a home's thermostat.",
+    "source": {
+      "kind": "thermostat",
+      "detail": "indoor temperature, target temperature, heating on or off",
+      "raw": "home"
+    },
+    "inputs": 3,
+    "outputs": [
+      {
+        "name": "indoor",
+        "how": "indoor temperature"
+      },
+      {
+        "name": "gap",
+        "how": "target minus indoor"
+      },
+      {
+        "name": "heating",
+        "how": "1 while heating"
+      }
+    ]
+  },
+  {
+    "name": "blank",
+    "title": "Blank",
+    "use_case": "Your own",
+    "description": "Start from nothing: name it, say where its information comes from, list its outputs.",
+    "source": {
+      "kind": "",
+      "detail": "",
+      "raw": ""
+    },
+    "inputs": 1,
+    "outputs": [
+      {
+        "name": "output_1",
+        "how": ""
+      }
+    ]
+  }
+]

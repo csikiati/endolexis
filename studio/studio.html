@@ -1,0 +1,807 @@
+<title>Olvasó Studio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=Spectral:ital,wght@0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a patch bay on drafting vellum. Three columns (processors | Olvasós | hands) joined by cords,
+   with the day of each Olvasó drawn as lanes underneath. Cords take the colour of the Olvasó they touch. */
+:root {
+  --bg: #eceee8; --panel: #f7f8f4; --ink: #1d2430; --muted: #5d6673; --line: #c9cec4; --soft: #dfe3da;
+  --o1: #b7791f; --o2: #1f7a7a; --o3: #8a3f74;
+  --asleep: #2c3566; --waking: #d9a441; --awake: #e9ecdf; --night: rgba(44,53,102,.10);
+  --bad: #b3261e; --warn: #9a6400; --ok: #2d6a3e;
+  --f-display: "Spectral", Georgia, serif;
+  --f-ui: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #161a20; --panel: #1e232b; --ink: #e4e7df; --muted: #9aa3ad; --line: #353c47; --soft: #262c35;
+  --o1: #e0a647; --o2: #4fb3ad; --o3: #c77bb0;
+  --asleep: #5865b8; --waking: #e0b257; --awake: #2c333d; --night: rgba(120,135,220,.10);
+  --bad: #ef6b60; --warn: #e0a647; --ok: #6cc184; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #161a20; --panel: #1e232b; --ink: #e4e7df; --muted: #9aa3ad; --line: #353c47; --soft: #262c35;
+  --o1: #e0a647; --o2: #4fb3ad; --o3: #c77bb0;
+  --asleep: #5865b8; --waking: #e0b257; --awake: #2c333d; --night: rgba(120,135,220,.10);
+  --bad: #ef6b60; --warn: #e0a647; --ok: #6cc184; color-scheme: dark }
+* { box-sizing: border-box }
+[hidden] { display: none !important }
+body { background: var(--bg); color: var(--ink); font: 15px/1.45 var(--f-ui); margin: 0 }
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 14px 40px; max-width: 1280px; margin: 0 auto }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; text-wrap: balance; margin: 0 }
+h1 { font-size: 1.6rem; letter-spacing: .01em }
+h2 { font-size: 1.2rem }
+h3 { font-size: 1.02rem }
+.eyebrow { font: 500 .72rem var(--f-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--muted) }
+.mono { font-family: var(--f-mono); font-size: .82rem }
+button, select, input, textarea { font: inherit; color: inherit }
+button { cursor: pointer; border: 1px solid var(--line); background: var(--panel); border-radius: 6px; padding: 5px 11px }
+button:hover { border-color: var(--muted) }
+button.primary { background: var(--ink); color: var(--bg); border-color: var(--ink) }
+button.ghost { background: transparent; border-color: transparent; color: var(--muted); padding: 2px 6px }
+button.ghost:hover { color: var(--ink); border-color: var(--line) }
+:focus-visible { outline: 2px solid var(--o2); outline-offset: 2px }
+input[type=text], input[type=number], textarea, select { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 5px 8px; width: 100% }
+textarea { font-family: var(--f-mono); font-size: .8rem; resize: vertical }
+label { display: grid; gap: 3px; font-size: .82rem; color: var(--muted) }
+
+header.top { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: end; justify-content: space-between; padding-bottom: 12px; border-bottom: 1px solid var(--line) }
+.title-row { display: grid; gap: 2px; min-width: 0 }
+#archName { font: 600 1.6rem var(--f-display); border: none; background: transparent; padding: 0; width: min(28ch, 70vw) }
+#archName:hover, #archName:focus { background: var(--panel) }
+.actions { display: flex; flex-wrap: wrap; gap: 6px; align-items: center }
+nav.tabs { display: flex; gap: 2px; margin: 14px 0 12px; flex-wrap: wrap }
+nav.tabs button { border: none; background: transparent; border-bottom: 2px solid transparent; border-radius: 0; padding: 6px 12px; font-weight: 500; color: var(--muted) }
+nav.tabs button[aria-selected=true] { color: var(--ink); border-bottom-color: var(--ink) }
+
+.status { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .86rem; margin: 0 0 10px }
+.status .chip { display: inline-flex; gap: 6px; align-items: center }
+.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none }
+.bad { color: var(--bad) } .warn { color: var(--warn) } .ok { color: var(--ok) }
+
+/* the patch bay */
+.bay-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--soft) }
+.bay { position: relative; display: grid; grid-template-columns: minmax(250px, 1.15fr) minmax(250px, 1fr) minmax(210px, .8fr); gap: 0 clamp(60px, 9vw, 130px); padding: 16px 18px 22px; min-width: 860px }
+.col { display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1; min-width: 0 }
+.col-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; min-height: 30px }
+svg.cords { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: visible }
+svg.cords path.cord { fill: none; stroke-width: 2.2; stroke-linecap: round; pointer-events: stroke; cursor: pointer; opacity: .85 }
+svg.cords path.cord:hover { stroke-width: 4; opacity: 1 }
+svg.cords path.cord.sel { stroke-width: 4.5; opacity: 1; stroke-dasharray: 7 4 }
+svg.cords path.hit { fill: none; stroke: transparent; stroke-width: 12; pointer-events: stroke; cursor: pointer }
+svg.cords path.temp { fill: none; stroke: var(--ink); stroke-width: 2; stroke-dasharray: 4 4 }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 9px; position: relative }
+.card-head { display: flex; gap: 8px; align-items: start; justify-content: space-between; padding: 9px 10px 6px 12px }
+.card-head .meta { min-width: 0 }
+.card-head .sub { font-size: .76rem; color: var(--muted); overflow-wrap: anywhere }
+.ports { list-style: none; margin: 0; padding: 2px 0 8px }
+.port { display: grid; grid-template-columns: 1fr auto 16px; gap: 6px; align-items: center; padding: 1px 0 1px 12px; font-size: .84rem; min-height: 24px }
+.port .pname { font-family: var(--f-mono); font-size: .76rem; overflow-wrap: anywhere }
+.pips { display: inline-flex; gap: 3px }
+.pip { width: 15px; height: 15px; border-radius: 4px; border: 1px solid var(--line); background: transparent; padding: 0; font: 600 .6rem var(--f-ui); line-height: 13px; color: var(--muted) }
+.pip.on { color: #fff; border-color: transparent }
+.socket { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--muted); background: var(--panel); margin-right: -8px; cursor: crosshair; touch-action: none; position: relative; z-index: 3 }
+.socket:hover, .socket.armed { border-color: var(--ink); background: var(--ink) }
+.socket.in { position: absolute; left: -8px; top: 50%; transform: translateY(-50%); margin: 0 }
+.socket.out { position: absolute; right: -8px; top: 50%; transform: translateY(-50%); margin: 0 }
+.drop-ok { outline: 2px dashed var(--o2); outline-offset: 3px }
+.olv { border-width: 2px; padding-bottom: 10px }
+.olv .badge { width: 26px; height: 26px; border-radius: 50%; color: #fff; font: 600 .85rem var(--f-display); display: grid; place-items: center; flex: none }
+.olv .name { font: 600 1.02rem var(--f-display); border: none; background: transparent; padding: 0; width: 100% }
+.olv .body { padding: 0 12px; display: grid; gap: 8px }
+.olv .feeds { font-size: .78rem; color: var(--muted) }
+.slider { display: grid; grid-template-columns: 58px 1fr 92px; gap: 8px; align-items: center; font-size: .8rem }
+.slider input { width: 100%; accent-color: var(--ink) }
+.slider output { font-family: var(--f-mono); font-size: .74rem; text-align: right; font-variant-numeric: tabular-nums }
+.lane-mini { height: 8px; border-radius: 4px; overflow: hidden; display: flex; border: 1px solid var(--line) }
+.hand { padding: 10px 12px 10px 16px }
+.hand .sub { font-size: .78rem; color: var(--muted) }
+.add-tile { border: 1px dashed var(--line); background: transparent; border-radius: 9px; padding: 9px; color: var(--muted); text-align: center }
+.cord-x { position: absolute; z-index: 4; transform: translate(-50%,-50%); border-radius: 50%; width: 26px; height: 26px; padding: 0; background: var(--ink); color: var(--bg); border: none; font-weight: 600 }
+.hint { font-size: .8rem; color: var(--muted) }
+
+/* the day */
+.day { margin-top: 16px; display: grid; gap: 8px }
+.day svg { width: 100%; height: auto; display: block }
+.day .legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: .8rem; color: var(--muted); align-items: center }
+.sw { width: 18px; height: 10px; border-radius: 2px; display: inline-block; vertical-align: middle; margin-right: 5px; border: 1px solid var(--line) }
+.runbox { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; margin-top: 14px }
+.runbox code { font-family: var(--f-mono); font-size: .8rem; overflow-wrap: anywhere; flex: 1 1 280px; min-width: 0 }
+
+/* dialogs as panels */
+.sheet { position: fixed; inset: 0; background: rgba(10,14,20,.45); z-index: 20; display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)) }
+.sheet-in { background: var(--panel); color: var(--ink); border-radius: 12px; border: 1px solid var(--line); width: min(760px, 100%); max-height: 88vh; overflow: auto; padding: 16px 18px; display: grid; gap: 12px }
+.lib { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px }
+.lib button { text-align: left; display: grid; gap: 2px; padding: 8px 10px }
+.lib .sub { font-size: .76rem; color: var(--muted) }
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 7px 14px; border-radius: 8px; z-index: 30; font-size: .88rem }
+
+/* maker */
+.maker { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 18px }
+@media (max-width: 860px) { .maker { grid-template-columns: 1fr } }
+.tpls { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 14px }
+.tpls button { font-size: .8rem; padding: 4px 9px }
+.tpls button[aria-pressed=true] { background: var(--ink); color: var(--bg); border-color: var(--ink) }
+.form { display: grid; gap: 10px }
+.form .two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px }
+.form .three { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px }
+@media (max-width: 520px) { .form .two, .form .three { grid-template-columns: 1fr } }
+.outrows { display: grid; gap: 6px }
+.outrow { display: grid; grid-template-columns: 26px minmax(0, 1fr) minmax(0, 1.6fr) 28px; gap: 6px; align-items: center }
+.outrow .n { font-family: var(--f-mono); font-size: .74rem; color: var(--muted); text-align: right }
+pre.preview { background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 10px; overflow: auto; font: .76rem/1.45 var(--f-mono); max-height: 340px; margin: 0; white-space: pre }
+
+/* findings */
+.find { display: grid; gap: 16px; max-width: 980px }
+.find p { max-width: 70ch; margin: 0 }
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--panel) }
+table { border-collapse: collapse; width: 100%; font-size: .84rem; font-variant-numeric: tabular-nums }
+th, td { padding: 6px 9px; border-bottom: 1px solid var(--soft); text-align: right; white-space: nowrap }
+th:first-child, td:first-child { text-align: left }
+th { font-weight: 500; color: var(--muted); font-size: .74rem; vertical-align: bottom; white-space: normal; min-width: 64px }
+td .bar { display: inline-block; height: 6px; border-radius: 3px; background: var(--o2); vertical-align: middle; margin-left: 6px; opacity: .7 }
+tr.base td { background: var(--soft) }
+.points { display: grid; gap: 10px; margin: 0; padding-left: 1.2em; max-width: 78ch }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="title-row">
+      <span class="eyebrow">Olvasó Studio · architecture</span>
+      <input id="archName" type="text" aria-label="Architecture name" value="three, take turns">
+    </div>
+    <div class="actions">
+      <select id="exampleSel" aria-label="Open an example" style="width:auto"><option value="">Open an example…</option></select>
+      <button id="btnOpen">Open JSON…</button>
+      <button id="btnNew">New</button>
+      <button id="btnSave" class="primary">Save JSON</button>
+      <button id="btnCopy">Copy JSON</button>
+      <input id="fileArch" type="file" accept=".json,application/json" hidden>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="tab-wiring" aria-selected="true" data-view="wiring">Wiring and sleep</button>
+    <button role="tab" id="tab-maker" aria-selected="false" data-view="maker">Processor maker</button>
+    <button role="tab" id="tab-findings" aria-selected="false" data-view="findings">Experiment 16</button>
+  </nav>
+
+  <!-- wiring -->
+  <section id="view-wiring">
+    <div class="status" id="status"></div>
+    <div class="bay-scroll" id="bayScroll">
+      <div class="bay" id="bay">
+        <svg class="cords" id="cords" aria-hidden="true"></svg>
+        <div class="col" id="colP">
+          <div class="col-head"><h2>Processors</h2><button id="btnAddProc">Add processor</button></div>
+          <div id="procList" class="col" style="gap:12px"></div>
+        </div>
+        <div class="col" id="colO">
+          <div class="col-head"><h2>Olvasós</h2><button id="btnAddOlv">Add Olvasó</button></div>
+          <div id="olvList" class="col" style="gap:12px"></div>
+        </div>
+        <div class="col" id="colH">
+          <div class="col-head"><h2>Hands</h2><button id="btnAddHand">Add hand</button></div>
+          <div id="handList" class="col" style="gap:10px"></div>
+        </div>
+      </div>
+    </div>
+    <p class="hint">Drag from a socket to a card to lay a cord, or tap a socket and then the card. Tap a cord to select it, then × or Delete to remove it. The lettered pips beside each output wire it to an Olvasó, or unwire it.</p>
+
+    <div class="day">
+      <div style="display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;justify-content:space-between">
+        <h2>A day of the body</h2>
+        <div class="actions"><label id="dayPick" class="slider" style="grid-template-columns:auto 140px 52px;display:grid" hidden><span>Show</span><input type="range" id="dayPickIn" min="0" max="29" value="0" aria-label="Which day of its life to show"><output id="dayPickOut">day 1</output></label><button id="btnStagger">Take turns</button><button id="btnIdeal">One asleep, one waking, one awake</button></div>
+      </div>
+      <div id="dayStrip"></div>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--asleep)"></i>asleep: lid closed, nothing sensed</span>
+        <span><i class="sw" style="background:var(--waking)"></i>waking: senses and reads, does not act yet</span>
+        <span><i class="sw" style="background:var(--awake)"></i>awake: reads and acts</span>
+        <span><i class="sw" style="background:var(--night)"></i>the room's night (18:00–06:00)</span>
+      </div>
+      <p class="hint" id="dayNote"></p>
+    </div>
+
+    <div class="runbox">
+      <span class="eyebrow">Live it</span>
+      <code id="runCmd">python -m endolexis.studio run three-take-turns.json --seeds 1 2 3 --days 30</code>
+      <button id="btnCopyCmd">Copy</button>
+    </div>
+  </section>
+
+  <!-- maker -->
+  <section id="view-maker" hidden>
+    <div class="maker">
+      <div>
+        <h2>Make a processor unit</h2>
+        <p class="hint" style="max-width:62ch">A processor is clockwork between an outside source and Olvasó: it turns what comes in into a few numbers and never learns or names anything. Start from a use case, then adjust.</p>
+        <div class="tpls" id="tpls"></div>
+        <form class="form" id="unitForm" autocomplete="off">
+          <div class="three">
+            <label>Name (file name, no spaces)<input type="text" id="u_name"></label>
+            <label>Version<input type="text" id="u_version" value="1.0.0"></label>
+            <label>Inputs (0: any)<input type="number" id="u_inputs" min="0" step="1"></label>
+          </div>
+          <label>Title<input type="text" id="u_title"></label>
+          <label>Description<textarea id="u_desc" rows="2" style="font-family:var(--f-ui);font-size:.9rem"></textarea></label>
+          <div class="two">
+            <label>Outside source<input type="text" id="u_src" placeholder="camera, microphone, web service…"></label>
+            <label>Key in the raw senses<input type="text" id="u_raw" placeholder="image, sound, touch…"></label>
+          </div>
+          <label>What arrives from the source<input type="text" id="u_detail"></label>
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px"><span class="eyebrow">Outputs</span><button type="button" id="u_addOut">Add output</button></div>
+            <div class="outrows" id="u_outs"></div>
+          </div>
+          <label>Implementation
+            <select id="u_impl">
+              <option value="python">Python function (module:process)</option>
+              <option value="none">None yet (describe only)</option>
+            </select>
+          </label>
+          <label id="u_modWrap">Python module<input type="text" id="u_module" placeholder="my_processor"></label>
+        </form>
+      </div>
+      <div style="display:grid;gap:10px;align-content:start;min-width:0">
+        <div id="u_check" class="status"></div>
+        <div class="actions">
+          <button id="u_toArch" class="primary">Add to architecture</button>
+          <button id="u_save">Save unit JSON</button>
+          <button id="u_copy">Copy JSON</button>
+        </div>
+        <pre class="preview" id="u_json"></pre>
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><h3>Python skeleton</h3><div class="actions"><button id="u_saveStub">Save</button><button id="u_copyStub">Copy</button></div></div>
+        <pre class="preview" id="u_stub"></pre>
+        <p class="hint">From a clone: <span class="mono">python -m endolexis.studio new-processor accelerometer --stub my_accel.py -o my_accel.json</span> does the same from the command line. The room of the toy world gives <span class="mono">image</span>, <span class="mono">sound</span> and <span class="mono">touch</span>; other sources need a world or a body that provides them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- findings -->
+  <section id="view-findings" hidden>
+    <div class="find" id="findings"></div>
+  </section>
+</div>
+
+<div id="sheet" class="sheet" hidden></div>
+
+<script type="application/json" id="data-library">{}</script>
+<script type="application/json" id="data-templates">[]</script>
+<script type="application/json" id="data-examples">{}</script>
+<script type="application/json" id="data-findings">null</script>
+<script>
+(() => {
+const $ = s => document.querySelector(s);
+const J = id => JSON.parse(document.getElementById(id).textContent);
+const LIB = J("data-library"), TPLS = J("data-templates"), EXAMPLES = J("data-examples"), FINDINGS = J("data-findings");
+const KINDS = ["brightness", "tone_soft", "tone_loud", "paint", "note"];
+const HANDS = { brightness: "dims or lights the screen", tone_soft: "sings a soft tone", tone_loud: "sings a loud tone",
+  paint: "paints its window red, green or blue", note: "writes a note to its sandbox" };
+const HAND_TITLE = { brightness: "Brightness", tone_soft: "Soft tone", tone_loud: "Loud tone", paint: "Paint", note: "Note" };
+const LETTERS = ["A", "B", "C"];
+const col = i => `var(--o${i + 1})`;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const r4 = x => Math.round(x * 10000) / 10000;
+
+let A;                 // the architecture being edited
+let sel = null;        // selected cord index
+let armed = null;      // {node, port?} waiting for a tap on a target
+let dl = null;         // downloads capability
+if (window.claude?.use) window.claude.use("downloads").then(d => { dl = d }).catch(() => {});
+
+function toast(msg) {
+  const t = document.createElement("div"); t.className = "toast"; t.textContent = msg; document.body.append(t);
+  setTimeout(() => t.remove(), 2200);
+}
+async function saveFile(filename, text) {
+  if (dl) {
+    try { await dl.save({ filename, data: text }); toast("Saved " + filename); }
+    catch (e) {
+      if (e?.code === "declined") return;
+      if (e?.code === "rejected_extension") return saveFile(filename + ".txt", text);
+      toast("Saving is not available here: use Copy instead");
+    }
+    return;
+  }
+  try {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([text], { type: "application/json" })); a.download = filename;
+    document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  } catch { toast("Saving is not available here: use Copy instead") }
+}
+async function copy(text, what) {
+  try { await navigator.clipboard.writeText(text); toast(what + " copied"); }
+  catch {
+    const ta = document.createElement("textarea"); ta.value = text; document.body.append(ta); ta.select();
+    try { document.execCommand("copy"); toast(what + " copied") } catch { toast("Select the text and copy it") }
+    ta.remove();
+  }
+}
+const slug = s => (s || "architecture").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "architecture";
+
+/* ---------- the day: same rules as endolexis.toyworld.ensemble.state_at ---------- */
+let viewDay = 0;      // which day of its life the timeline shows (sleeps may shift)
+function stateAt(frac, o, day = viewDay) {
+  const x = ((frac - (+o.phase || 0) - (+o.shift || 0) * day) % 1 + 1) % 1;
+  if (x < (+o.sleep || 0)) return "asleep";
+  if (x < (+o.sleep || 0) + (+o.waking || 0)) return "waking";
+  return "awake";
+}
+function schedule() {
+  const N = 1000, os = A.olvasos; let never = 0, none = 0, two = 0, ideal = 0, on = 0;
+  for (let i = 0; i < N; i++) {
+    const s = os.map(o => stateAt(i / N, o, 0));
+    const asleep = s.filter(x => x === "asleep").length, awake = s.filter(x => x === "awake").length;
+    if (!awake) never++; if (asleep === s.length) none++; if (asleep > 1) two++;
+    if (awake >= 1 && asleep <= 1) ideal++; on += s.length - asleep;
+  }
+  return { never: never / N, none: none / N, two: two / N, ideal: ideal / N, on: on / N };
+}
+function stagger() {
+  let ph = 0.5;
+  for (const o of A.olvasos) if (+o.sleep > 0) { o.phase = r4(((ph % 1) + 1) % 1); ph += +o.sleep; }
+}
+const clock = f => { const h = (6 + f * 24) % 24; const hh = Math.floor(h + 1e-9), mm = Math.round((h - hh) * 60);
+  return `${String(mm === 60 ? hh + 1 : hh).padStart(2, "0")}:${String(mm === 60 ? 0 : mm).padStart(2, "0")}`; };
+const hours = f => { const h = f * 24; return (Math.round(h * 10) / 10) + " h"; };
+
+/* ---------- checks: same rules as endolexis.studio.check ---------- */
+function checkUnit(u) {
+  const bad = [];
+  if (u.format !== "endolexis-processor") bad.push('format must be "endolexis-processor"');
+  for (const k of ["name", "description", "version", "source"]) if (!u[k] || (typeof u[k] === "object" && !u[k].kind)) bad.push(k + " is missing");
+  if (!Number.isInteger(u.inputs) || u.inputs < 0) bad.push("inputs must be a whole number (0: any number)");
+  if (!Number.isInteger(u.outputs) || u.outputs < 1) bad.push("outputs must be a whole number, at least 1");
+  if (u.output_names && u.output_names.length !== u.outputs) bad.push(`output_names has ${u.output_names.length} names for ${u.outputs} outputs`);
+  return bad;
+}
+function check() {
+  const bad = [], warn = [];
+  const n = A.olvasos.length;
+  if (n < 1 || n > 3) bad.push(`${n} Olvasós: an architecture has 1, 2 or 3`);
+  for (const p of A.processors) for (const b of checkUnit(p.unit)) bad.push(`${p.unit.title || p.unit.name}: ${b}`);
+  for (const o of A.olvasos) {
+    const s = +o.sleep, w = +o.waking;
+    if (!(s >= 0 && w >= 0 && s + w <= 1 + 1e-9)) bad.push(`${o.name}: sleep and waking together are at most the whole day`);
+    if (!(+(o.shift || 0) >= 0 && +(o.shift || 0) < 1)) bad.push(`${o.name}: its daily shift is a fraction of a day`);
+    if (!A.links.some(l => l.to.node === o.id)) bad.push(`${o.name}: no processor output is wired to it`);
+    if (!A.links.some(l => l.from.node === o.id)) warn.push(`${o.name} has no hands: it reads, but cannot act`);
+  }
+  for (const p of A.processors) {
+    const imp = p.unit.implementation || {};
+    if (!imp.builtin && !imp.python) warn.push(`${p.unit.title || p.unit.name} has no implementation yet: describe-only, the runner cannot live it`);
+    if (!A.links.some(l => l.from.node === p.id)) warn.push(`${p.unit.title || p.unit.name} is not wired to any Olvasó`);
+  }
+  const sc = schedule();
+  if (sc.never > 0) warn.push(`for ${Math.round(sc.never * 100)} % of the day no Olvasó is awake: the body cannot act`);
+  if (sc.none > 0) warn.push(`for ${Math.round(sc.none * 100)} % of the day every Olvasó sleeps: nothing is read`);
+  if (sc.two > 0) warn.push(`for ${Math.round(sc.two * 100)} % of the day more than one Olvasó sleeps`);
+  return { bad, warn, sc };
+}
+
+/* ---------- architecture helpers ---------- */
+function blank() {
+  return { format: "endolexis-architecture", version: 1, name: "my architecture", note: "",
+    processors: [], olvasos: [{ id: "o1", name: "Olvasó A", sleep: 0, waking: 0, phase: 0.5 }],
+    outputs: KINDS.map(k => ({ id: "h_" + k, kind: k })), links: [], life: { days: 30, childhood_days: 10 } };
+}
+function newId(prefix, list) { let i = 1; while (list.some(x => x.id === prefix + i)) i++; return prefix + i; }
+const hasLink = (from, to) => A.links.some(l => l.from.node === from.node && (l.from.port ?? null) === (from.port ?? null) && l.to.node === to);
+function addLink(from, to) {
+  const isProc = A.processors.some(p => p.id === from.node), isOlv = A.olvasos.some(o => o.id === from.node);
+  if (isProc && !A.olvasos.some(o => o.id === to)) return toast("A processor output goes to an Olvasó");
+  if (isOlv && !A.outputs.some(h => h.id === to)) return toast("An Olvasó goes to a hand");
+  if (hasLink(from, to)) return;
+  A.links.push(isProc ? { from: { node: from.node, port: from.port }, to: { node: to } } : { from: { node: from.node }, to: { node: to } });
+  render();
+}
+function removeLinks(pred) { A.links = A.links.filter(l => !pred(l)); sel = null; render(); }
+const olvIndex = id => A.olvasos.findIndex(o => o.id === id);
+
+/* ---------- rendering ---------- */
+function render() {
+  $("#archName").value = A.name || "";
+  renderProcs(); renderOlvs(); renderHands(); renderStatus(); renderDay();
+  $("#runCmd").textContent = `python -m endolexis.studio run ${slug(A.name)}.json --seeds 1 2 3 --days ${A.life?.days || 30}`;
+  $("#btnAddOlv").disabled = A.olvasos.length >= 3;
+  $("#btnAddHand").disabled = A.outputs.length >= KINDS.length;
+  requestAnimationFrame(drawCords);
+}
+function renderProcs() {
+  const el = $("#procList");
+  el.innerHTML = A.processors.map(p => {
+    const u = p.unit, names = u.output_names || Array.from({ length: u.outputs }, (_, i) => "output " + (i + 1));
+    const allTo = A.olvasos.map((o, i) => {
+      const on = names.every((_, k) => hasLink({ node: p.id, port: k }, o.id));
+      return `<button class="pip ${on ? "on" : ""}" style="${on ? "background:" + col(i) : ""}" title="${on ? "Unwire" : "Wire"} every output ${on ? "from" : "to"} ${esc(o.name)}" data-all="${p.id}" data-olv="${o.id}">${LETTERS[i]}</button>`;
+    }).join("");
+    return `<article class="card" data-proc="${p.id}">
+      <div class="card-head"><div class="meta"><h3>${esc(u.title || u.name)}</h3>
+        <div class="sub">${esc(u.source?.kind || "")} · ${u.inputs || "any"} in → ${u.outputs} out · v${esc(u.version)}</div></div>
+        <div style="display:flex;gap:4px;align-items:center"><span class="pips">${allTo}</span>
+        <button class="ghost" title="About this unit" data-info="${p.id}">i</button>
+        <button class="ghost" title="Remove ${esc(u.title || u.name)}" data-rmproc="${p.id}">×</button></div></div>
+      <ul class="ports">${names.map((nm, k) => `<li class="port"><span class="pname">${esc(nm)}</span>
+        <span class="pips">${A.olvasos.map((o, i) => { const on = hasLink({ node: p.id, port: k }, o.id);
+          return `<button class="pip ${on ? "on" : ""}" style="${on ? "background:" + col(i) : ""}" aria-label="${on ? "Unwire" : "Wire"} ${esc(nm)} ${on ? "from" : "to"} ${esc(o.name)}" data-pip="${p.id}|${k}|${o.id}">${LETTERS[i]}</button>`; }).join("")}</span>
+        <span class="socket ${armed && armed.node === p.id && armed.port === k ? "armed" : ""}" data-src="${p.id}" data-port="${k}" title="Drag to an Olvasó"></span></li>`).join("")}</ul>
+    </article>`;
+  }).join("") || `<p class="hint">No processors yet. Add one from the library, or make one in the Processor maker.</p>`;
+}
+function feedsOf(o) {
+  const by = {};
+  for (const l of A.links) if (l.to.node === o.id) (by[l.from.node] ||= new Set()).add(l.from.port);
+  return A.processors.filter(p => by[p.id]).map(p => `${p.unit.title || p.unit.name} ${by[p.id].size}`);
+}
+function laneMini(o) {
+  const segs = []; let last = null, start = 0;
+  for (let i = 0; i <= 96; i++) { const s = i < 96 ? stateAt(i / 96, o) : null;
+    if (s !== last) { if (last) segs.push([last, i - start]); last = s; start = i; } }
+  return segs.map(([s, w]) => `<span style="flex:${w};background:var(--${s})"></span>`).join("");
+}
+function renderOlvs() {
+  $("#olvList").innerHTML = A.olvasos.map((o, i) => {
+    const feeds = feedsOf(o), hands = A.links.filter(l => l.from.node === o.id).length;
+    const words = feeds.length;
+    return `<article class="card olv" data-target="${o.id}" style="border-color:${col(i)}">
+      <span class="socket in" aria-hidden="true"></span>
+      <div class="card-head"><span class="badge" style="background:${col(i)}">${LETTERS[i]}</span>
+        <div class="meta" style="flex:1"><input class="name" type="text" id="name-${o.id}" value="${esc(o.name)}" data-name="${o.id}" aria-label="Name of Olvasó ${LETTERS[i]}">
+        <div class="feeds">${words ? words + (words === 1 ? " vocabulary: " : " vocabularies: ") + esc(feeds.join(" · ")) : "nothing wired in yet"} · ${hands} ${hands === 1 ? "hand" : "hands"}</div></div>
+        <button class="ghost" title="Remove ${esc(o.name)}" data-rmolv="${o.id}" ${A.olvasos.length <= 1 ? "disabled" : ""}>×</button></div>
+      <div class="body">
+        <div class="slider"><span>Sleeps</span><input type="range" min="0" max="100" step="1" id="sl-${o.id}" value="${Math.round(o.sleep * 100)}" data-k="sleep" data-o="${o.id}" aria-label="Share of the day ${esc(o.name)} sleeps"><output>${Math.round(o.sleep * 100)} % · ${hours(o.sleep)}</output></div>
+        <div class="slider"><span>Waking</span><input type="range" min="0" max="100" step="1" id="wk-${o.id}" value="${Math.round(o.waking * 100)}" data-k="waking" data-o="${o.id}" aria-label="Share of the day ${esc(o.name)} is waking"><output>${Math.round(o.waking * 100)} % · ${hours(o.waking)}</output></div>
+        <div class="slider"><span>Later by</span><input type="range" min="0" max="25" step="0.5" id="sh-${o.id}" value="${Math.round((o.shift || 0) * 200) / 2}" data-k="shift" data-o="${o.id}" aria-label="How much later ${esc(o.name)} falls asleep each day" ${o.sleep > 0 ? "" : "disabled"}><output>${o.shift ? hours(o.shift) + " a day" : "same time"}</output></div>
+        <div class="slider"><span>Falls asleep</span><input type="range" min="0" max="100" step="1" id="ph-${o.id}" value="${Math.round(o.phase * 100)}" data-k="phase" data-o="${o.id}" aria-label="When ${esc(o.name)} falls asleep" ${o.sleep > 0 ? "" : "disabled"}><output>${o.sleep > 0 ? clock(o.phase) : "never"}</output></div>
+        <div class="lane-mini" title="Its day (the one shown below), from 06:00">${laneMini(o)}</div>
+      </div>
+      <span class="socket out ${armed && armed.node === o.id ? "armed" : ""}" data-src="${o.id}" title="Drag to a hand"></span>
+    </article>`;
+  }).join("");
+}
+function renderHands() {
+  $("#handList").innerHTML = A.outputs.map(h => {
+    const who = A.links.filter(l => l.to.node === h.id).map(l => olvIndex(l.from.node)).filter(i => i >= 0);
+    return `<article class="card hand" data-target="${h.id}">
+      <span class="socket in" aria-hidden="true"></span>
+      <div style="display:flex;justify-content:space-between;gap:6px;align-items:start"><div><h3>${HAND_TITLE[h.kind] || esc(h.kind)}</h3>
+      <div class="sub">${HANDS[h.kind] || "not a hand of this body"}</div></div>
+      <div style="display:flex;gap:3px;align-items:center">${who.map(i => `<i class="dot" style="background:${col(i)}" title="${esc(A.olvasos[i].name)}"></i>`).join("")}
+      <button class="ghost" title="Remove this hand" data-rmhand="${h.id}">×</button></div></div></article>`;
+  }).join("");
+}
+function renderStatus() {
+  const { bad, warn, sc } = check();
+  const items = [];
+  if (!bad.length) items.push(`<span class="chip ok"><i class="dot" style="background:var(--ok)"></i>Ready to live</span>`);
+  for (const b of bad) items.push(`<span class="chip bad"><i class="dot" style="background:var(--bad)"></i>${esc(b)}</span>`);
+  for (const w of warn) items.push(`<span class="chip warn"><i class="dot" style="background:var(--warn)"></i>${esc(w)}</span>`);
+  $("#status").innerHTML = items.join("");
+  $("#dayNote").textContent = `On average ${sc.on.toFixed(2)} Olvasós are not asleep (the cost). Someone is awake ${Math.round((1 - sc.never) * 100)} % of the day; at most one asleep with someone awake ${Math.round(sc.ideal * 100)} % of the day. One day is 1000 moments of the room; it starts at sunrise, 06:00.`;
+}
+function renderDay() {
+  const moving = A.olvasos.some(o => +o.shift > 0);
+  $("#dayPick").hidden = !moving; if (!moving) viewDay = 0;
+  $("#dayPickOut").textContent = "day " + (viewDay + 1);
+  const W = 1000, laneH = 26, gap = 8, top = 22, n = A.olvasos.length, H = top + n * (laneH + gap) + laneH + 26;
+  let s = `<svg viewBox="0 0 ${W + 150} ${H}" role="img" aria-label="Who sleeps when, through one day">`;
+  const x = f => 110 + f * W;
+  s += `<rect x="${x(0.5)}" y="${top - 6}" width="${W / 2}" height="${H - top - 14}" fill="var(--night)"/>`;
+  for (let h = 0; h <= 24; h += 3) { const f = h / 24; s += `<line x1="${x(f)}" x2="${x(f)}" y1="${top - 4}" y2="${H - 22}" stroke="var(--line)" stroke-width="1"/>`;
+    s += `<text x="${x(f)}" y="12" font-size="11" text-anchor="middle" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${clock(f)}</text>`; }
+  A.olvasos.forEach((o, i) => {
+    const y = top + i * (laneH + gap);
+    s += `<text x="0" y="${y + 17}" font-size="13" fill="var(--ink)" font-family="IBM Plex Sans Condensed, sans-serif">${esc(o.name).slice(0, 14)}</text>`;
+    s += `<circle cx="100" cy="${y + 13}" r="5" fill="${col(i)}"/>`;
+    let last = null, st = 0;
+    for (let k = 0; k <= 200; k++) { const cur = k < 200 ? stateAt(k / 200, o) : null;
+      if (cur !== last) { if (last) s += `<rect x="${x(st / 200)}" y="${y}" width="${(k - st) / 200 * W}" height="${laneH}" fill="var(--${last})" stroke="var(--line)" stroke-width=".5"/>`; last = cur; st = k; } }
+  });
+  // the body: how many are awake, moment by moment
+  const y = top + n * (laneH + gap);
+  s += `<text x="0" y="${y + 17}" font-size="13" fill="var(--muted)" font-family="IBM Plex Sans Condensed, sans-serif">body</text>`;
+  for (let k = 0; k < 200; k++) { const st = A.olvasos.map(o => stateAt(k / 200, o));
+    const aw = st.filter(v => v === "awake").length, as = st.filter(v => v === "asleep").length;
+    const fill = aw === 0 ? (as === st.length ? "var(--bad)" : "var(--warn)") : "var(--ok)";
+    s += `<rect x="${x(k / 200)}" y="${y + laneH - 4 - Math.min(aw, 3) * 6}" width="${W / 200 + .3}" height="${4 + Math.min(aw, 3) * 6}" fill="${fill}" opacity=".75"/>`; }
+  s += `<text x="${x(1) + 6}" y="${y + 20}" font-size="10" fill="var(--muted)" font-family="IBM Plex Sans Condensed, sans-serif">awake</text>`;
+  s += `<text x="${x(0.25)}" y="${H - 6}" font-size="11" fill="var(--muted)" text-anchor="middle" font-family="IBM Plex Sans Condensed, sans-serif">day</text>`;
+  s += `<text x="${x(0.75)}" y="${H - 6}" font-size="11" fill="var(--muted)" text-anchor="middle" font-family="IBM Plex Sans Condensed, sans-serif">night</text></svg>`;
+  $("#dayStrip").innerHTML = s;
+}
+
+/* ---------- cords ---------- */
+const bez = (a, b) => { const d = Math.max(40, (b.x - a.x) * .5); return `M${a.x},${a.y} C${a.x + d},${a.y} ${b.x - d},${b.y} ${b.x},${b.y}`; };
+function drawCords() {
+  const svg = $("#cords"), bay = $("#bay").getBoundingClientRect();
+  svg.setAttribute("viewBox", `0 0 ${bay.width} ${bay.height}`);
+  let out = "";
+  document.querySelectorAll(".cord-x").forEach(e => e.remove());
+  A.links.forEach((l, idx) => {
+    let a, b, c;
+    if (l.from.port !== undefined) {
+      const s = document.querySelector(`.socket[data-src="${l.from.node}"][data-port="${l.from.port}"]`);
+      const t = document.querySelector(`[data-target="${l.to.node}"] .socket.in`);
+      if (!s || !t) return;
+      a = center(s, bay); b = center(t, bay); c = col(olvIndex(l.to.node));
+      const ps = A.processors.findIndex(p => p.id === l.from.node);
+      b.y += (ps - (A.processors.length - 1) / 2) * 6;          // fan in, one strand per processor
+    } else {
+      const s = document.querySelector(`.socket.out[data-src="${l.from.node}"]`);
+      const t = document.querySelector(`[data-target="${l.to.node}"] .socket.in`);
+      if (!s || !t) return;
+      a = center(s, bay); b = center(t, bay); c = col(olvIndex(l.from.node));
+    }
+    const d = bez(a, b);
+    out += `<path class="cord ${sel === idx ? "sel" : ""}" d="${d}" stroke="${c}"/><path class="hit" d="${d}" data-cord="${idx}"/>`;
+    if (sel === idx) {
+      const bt = document.createElement("button"); bt.className = "cord-x"; bt.textContent = "×"; bt.title = "Remove this cord";
+      bt.style.left = ((a.x + b.x) / 2) + "px"; bt.style.top = ((a.y + b.y) / 2) + "px";
+      bt.onclick = e => { e.stopPropagation(); A.links.splice(idx, 1); sel = null; render(); };
+      $("#bay").append(bt);
+    }
+  });
+  svg.innerHTML = out + `<path class="temp" id="tempCord" d=""/>`;
+}
+function center(el, bay) { const r = el.getBoundingClientRect(); return { x: r.left + r.width / 2 - bay.left, y: r.top + r.height / 2 - bay.top }; }
+
+let drag = null;
+$("#bay").addEventListener("pointerdown", e => {
+  const s = e.target.closest(".socket[data-src]"); if (!s) return;
+  e.preventDefault();
+  drag = { from: { node: s.dataset.src, port: s.dataset.port !== undefined ? +s.dataset.port : undefined }, x0: e.clientX, y0: e.clientY, moved: false };
+  s.setPointerCapture?.(e.pointerId);
+});
+$("#bay").addEventListener("pointermove", e => {
+  if (!drag) return;
+  if (Math.hypot(e.clientX - drag.x0, e.clientY - drag.y0) > 5) drag.moved = true;
+  if (!drag.moved) return;
+  const bay = $("#bay").getBoundingClientRect();
+  const s = drag.from.port !== undefined ? document.querySelector(`.socket[data-src="${drag.from.node}"][data-port="${drag.from.port}"]`) : document.querySelector(`.socket.out[data-src="${drag.from.node}"]`);
+  const a = center(s, bay), b = { x: e.clientX - bay.left, y: e.clientY - bay.top };
+  $("#tempCord").setAttribute("d", bez(a, b));
+  document.querySelectorAll(".drop-ok").forEach(x => x.classList.remove("drop-ok"));
+  const t = document.elementFromPoint(e.clientX, e.clientY)?.closest("[data-target]");
+  if (t) t.classList.add("drop-ok");
+});
+$("#bay").addEventListener("pointerup", e => {
+  if (!drag) return;
+  const d = drag; drag = null;
+  document.querySelectorAll(".drop-ok").forEach(x => x.classList.remove("drop-ok"));
+  $("#tempCord")?.setAttribute("d", "");
+  if (d.moved) {
+    const t = document.elementFromPoint(e.clientX, e.clientY)?.closest("[data-target]");
+    if (t) addLink(d.from, t.dataset.target);
+  } else {
+    armed = armed && armed.node === d.from.node && armed.port === d.from.port ? null : d.from;
+    render();
+    if (armed) toast(armed.port !== undefined ? "Now tap an Olvasó" : "Now tap a hand");
+  }
+});
+$("#bay").addEventListener("click", e => {
+  const hit = e.target.closest("[data-cord]");
+  if (hit) { sel = +hit.dataset.cord; drawCords(); return; }
+  const pip = e.target.closest("[data-pip]");
+  if (pip) { const [p, k, o] = pip.dataset.pip.split("|"); const f = { node: p, port: +k };
+    if (hasLink(f, o)) removeLinks(l => l.from.node === p && l.from.port === +k && l.to.node === o); else addLink(f, o); return; }
+  const all = e.target.closest("[data-all]");
+  if (all) { const p = A.processors.find(x => x.id === all.dataset.all), o = all.dataset.olv;
+    const on = Array.from({ length: p.unit.outputs }, (_, k) => k).every(k => hasLink({ node: p.id, port: k }, o));
+    if (on) removeLinks(l => l.from.node === p.id && l.to.node === o);
+    else { for (let k = 0; k < p.unit.outputs; k++) if (!hasLink({ node: p.id, port: k }, o)) A.links.push({ from: { node: p.id, port: k }, to: { node: o } }); render(); }
+    return; }
+  if (e.target.closest("[data-rmproc]")) { const id = e.target.closest("[data-rmproc]").dataset.rmproc;
+    A.processors = A.processors.filter(p => p.id !== id); removeLinks(l => l.from.node === id); return; }
+  if (e.target.closest("[data-rmolv]")) { const id = e.target.closest("[data-rmolv]").dataset.rmolv;
+    A.olvasos = A.olvasos.filter(o => o.id !== id); removeLinks(l => l.from.node === id || l.to.node === id); return; }
+  if (e.target.closest("[data-rmhand]")) { const id = e.target.closest("[data-rmhand]").dataset.rmhand;
+    A.outputs = A.outputs.filter(h => h.id !== id); removeLinks(l => l.to.node === id); return; }
+  if (e.target.closest("[data-info]")) { const p = A.processors.find(x => x.id === e.target.closest("[data-info]").dataset.info); showInfo(p.unit); return; }
+  const t = e.target.closest("[data-target]");
+  if (armed && t && !e.target.closest("input,button")) { const f = armed; armed = null; addLink(f, t.dataset.target); return; }
+  if (!e.target.closest(".socket")) { if (sel !== null) { sel = null; drawCords(); } if (armed) { armed = null; render(); } }
+});
+$("#bay").addEventListener("input", e => {
+  const t = e.target;
+  if (t.dataset.name) { A.olvasos.find(o => o.id === t.dataset.name).name = t.value; renderDay(); renderStatus(); return; }
+  if (t.dataset.k) {
+    const o = A.olvasos.find(x => x.id === t.dataset.o), v = r4(+t.value / 100);
+    o[t.dataset.k] = v;
+    if (t.dataset.k === "sleep" && o.sleep + o.waking > 1) o.waking = r4(1 - o.sleep);
+    if (t.dataset.k === "waking" && o.sleep + o.waking > 1) o.sleep = r4(1 - o.waking);
+    const card = t.closest(".olv");
+    card.querySelector('[data-k=sleep]').value = Math.round(o.sleep * 100); card.querySelector('[data-k=waking]').value = Math.round(o.waking * 100);
+    const outs = card.querySelectorAll(".slider output");
+    outs[0].textContent = `${Math.round(o.sleep * 100)} % · ${hours(o.sleep)}`; outs[1].textContent = `${Math.round(o.waking * 100)} % · ${hours(o.waking)}`;
+    outs[2].textContent = o.shift ? hours(o.shift) + " a day" : "same time"; card.querySelector('[data-k=shift]').disabled = !(o.sleep > 0);
+    outs[3].textContent = o.sleep > 0 ? clock(o.phase) : "never"; card.querySelector('[data-k=phase]').disabled = !(o.sleep > 0);
+    card.querySelector(".lane-mini").innerHTML = laneMini(o);
+    renderDay(); renderStatus();
+  }
+});
+document.addEventListener("keydown", e => {
+  if ((e.key === "Delete" || e.key === "Backspace") && sel !== null && !e.target.closest("input,textarea")) { A.links.splice(sel, 1); sel = null; render(); }
+  if (e.key === "Escape") { closeSheet(); if (armed) { armed = null; render(); } }
+});
+new ResizeObserver(() => drawCords()).observe($("#bay"));
+
+/* ---------- sheets ---------- */
+function openSheet(html) { const s = $("#sheet"); s.innerHTML = `<div class="sheet-in" role="dialog" aria-modal="true">${html}</div>`; s.hidden = false; }
+function closeSheet() { $("#sheet").hidden = true; $("#sheet").innerHTML = ""; }
+$("#sheet").addEventListener("click", e => { if (e.target.id === "sheet" || e.target.closest("[data-close]")) closeSheet(); });
+function showInfo(u) {
+  openSheet(`<div style="display:flex;justify-content:space-between;gap:10px"><div><span class="eyebrow">processor unit · v${esc(u.version)}</span><h2>${esc(u.title || u.name)}</h2></div><button data-close>Close</button></div>
+    <p style="margin:0">${esc(u.description)}</p>
+    <p class="hint" style="margin:0"><b>Source:</b> ${esc(u.source?.kind)}: ${esc(u.source?.detail)}<br><b>In:</b> ${u.inputs || "any number of"} numbers · <b>Out:</b> ${u.outputs} · <b>Implementation:</b> ${esc(JSON.stringify(u.implementation || "none"))}</p>
+    <pre class="preview">${esc(JSON.stringify(u, null, 2))}</pre>`);
+}
+function addUnit(u) {
+  const bad = checkUnit(u); if (bad.length) { toast("Not a processor unit: " + bad[0]); return false; }
+  const id = newId("p_" + slug(u.name).replace(/-/g, "_") + "_", A.processors).replace(/_1$/, "") ;
+  A.processors.push({ id: A.processors.some(p => p.id === id) ? newId("p", A.processors) : id, unit: JSON.parse(JSON.stringify(u)) });
+  render(); return true;
+}
+$("#btnAddProc").onclick = () => {
+  openSheet(`<div style="display:flex;justify-content:space-between;gap:10px"><h2>Add a processor</h2><button data-close>Close</button></div>
+    <span class="eyebrow">Built in (the toy world can live these)</span>
+    <div class="lib">${Object.entries(LIB).map(([k, u]) => `<button data-lib="${k}"><b>${esc(u.title)}</b><span class="sub">${esc(u.source.kind)} · ${u.outputs} outputs</span><span class="sub">${esc(u.description)}</span></button>`).join("")}</div>
+    <span class="eyebrow">From a file or pasted JSON</span>
+    <div class="actions"><button id="libFile">Choose unit JSON…</button><input id="libFileIn" type="file" accept=".json,application/json" multiple hidden></div>
+    <textarea id="libPaste" rows="5" placeholder='{"format": "endolexis-processor", "name": …}'></textarea>
+    <div class="actions"><button id="libPasteGo">Add pasted unit</button><span class="hint">or make one in the Processor maker</span></div>`);
+  document.querySelectorAll("[data-lib]").forEach(b => b.onclick = () => { addUnit(LIB[b.dataset.lib]); closeSheet(); toast("Added " + LIB[b.dataset.lib].title); });
+  $("#libFile").onclick = () => $("#libFileIn").click();
+  $("#libFileIn").onchange = async e => { let n = 0; for (const f of e.target.files) { try { if (addUnit(JSON.parse(await f.text()))) n++; } catch { toast(f.name + " is not JSON"); } } if (n) { closeSheet(); toast(`Added ${n} unit${n > 1 ? "s" : ""}`); } };
+  $("#libPasteGo").onclick = () => { try { if (addUnit(JSON.parse($("#libPaste").value))) closeSheet(); } catch { toast("That is not JSON"); } };
+};
+$("#btnAddOlv").onclick = () => {
+  if (A.olvasos.length >= 3) return;
+  const id = newId("o", A.olvasos), L = LETTERS.find(l => !A.olvasos.some(o => o.name === "Olvasó " + l)) || "";
+  A.olvasos.push({ id, name: "Olvasó " + L, sleep: 0, waking: 0, phase: 0.5, shift: 0 });
+  for (const h of A.outputs) A.links.push({ from: { node: id }, to: { node: h.id } });
+  render();
+};
+$("#btnAddHand").onclick = () => {
+  const missing = KINDS.filter(k => !A.outputs.some(h => h.kind === k));
+  openSheet(`<div style="display:flex;justify-content:space-between;gap:10px"><h2>Add a hand</h2><button data-close>Close</button></div>
+    <p class="hint" style="margin:0">The room's body has five hands; every request passes its guard.</p>
+    <div class="lib">${missing.map(k => `<button data-hand="${k}"><b>${HAND_TITLE[k]}</b><span class="sub">${HANDS[k]}</span></button>`).join("")}</div>`);
+  document.querySelectorAll("[data-hand]").forEach(b => b.onclick = () => { A.outputs.push({ id: "h_" + b.dataset.hand, kind: b.dataset.hand }); A.outputs.sort((a, c) => KINDS.indexOf(a.kind) - KINDS.indexOf(c.kind)); closeSheet(); render(); });
+};
+$("#dayPickIn").addEventListener("input", e => { viewDay = +e.target.value; renderDay(); A.olvasos.forEach(o => { const c = document.querySelector(`[data-target="${o.id}"] .lane-mini`); if (c) c.innerHTML = laneMini(o); }); });
+$("#btnStagger").onclick = () => { stagger(); render(); toast("Each falls asleep as the one before wakes"); };
+$("#btnIdeal").onclick = () => {
+  const n = A.olvasos.length;
+  for (const o of A.olvasos) { o.sleep = r4(1 / n); o.waking = n >= 3 ? r4(1 / n) : 0; }
+  stagger(); render();
+};
+
+/* ---------- file actions ---------- */
+const archText = () => JSON.stringify(A, null, 2) + "\n";
+$("#archName").addEventListener("input", e => { A.name = e.target.value; $("#runCmd").textContent = `python -m endolexis.studio run ${slug(A.name)}.json --seeds 1 2 3 --days ${A.life?.days || 30}`; });
+$("#btnSave").onclick = () => saveFile(slug(A.name) + ".json", archText());
+$("#btnCopy").onclick = () => copy(archText(), "Architecture");
+$("#btnCopyCmd").onclick = () => copy($("#runCmd").textContent, "Command");
+$("#btnNew").onclick = () => { A = blank(); sel = armed = null; render(); };
+$("#btnOpen").onclick = () => $("#fileArch").click();
+$("#fileArch").onchange = async e => { const f = e.target.files[0]; if (!f) return;
+  try { const a = JSON.parse(await f.text()); if (a.format !== "endolexis-architecture") throw 0; load(a); toast("Opened " + f.name); }
+  catch { toast(f.name + " is not an architecture file"); } e.target.value = ""; };
+for (const k of Object.keys(EXAMPLES)) { const o = document.createElement("option"); o.value = k; o.textContent = k; $("#exampleSel").append(o); }
+$("#exampleSel").onchange = e => { if (e.target.value) load(EXAMPLES[e.target.value]); e.target.value = ""; };
+function load(a) {
+  A = JSON.parse(JSON.stringify(a)); A.links ||= []; A.outputs ||= []; A.processors ||= []; A.olvasos ||= [];
+  for (const o of A.olvasos) { o.sleep = +o.sleep || 0; o.waking = +o.waking || 0; o.phase = +o.phase || 0; o.shift = +o.shift || 0; }
+  sel = armed = null; render();
+  try { localStorage.setItem("olvaso-studio-arch", JSON.stringify(A)); } catch {}
+}
+const remember = () => { try { localStorage.setItem("olvaso-studio-arch", JSON.stringify(A)); } catch {} };
+document.addEventListener("pointerup", () => setTimeout(remember, 0)); document.addEventListener("change", remember);
+
+/* ---------- tabs ---------- */
+document.querySelectorAll("nav.tabs button").forEach(b => b.onclick = () => showView(b.dataset.view));
+function showView(v) {
+  document.querySelectorAll("nav.tabs button").forEach(b => b.setAttribute("aria-selected", b.dataset.view === v));
+  for (const k of ["wiring", "maker", "findings"]) $("#view-" + k).hidden = k !== v;
+  if (v === "wiring") requestAnimationFrame(drawCords);
+  if (location.hash.slice(1) !== v) history.replaceState(null, "", "#" + v);
+}
+addEventListener("hashchange", () => { const v = location.hash.slice(1); if (["wiring", "maker", "findings"].includes(v)) showView(v); });
+
+/* ---------- processor maker (same rules as endolexis.studio.from_template and stub) ---------- */
+let U = null;
+function fromTemplate(t) {
+  return { name: t.name === "blank" ? "my-processor" : "my-" + t.name, title: t.title === "Blank" ? "" : t.title, version: "1.0.0",
+    description: t.description, source: { ...t.source }, inputs: t.inputs, outs: t.outputs.map(o => ({ ...o })), impl: "python", module: (t.name === "blank" ? "my_processor" : "my_" + t.name.replace(/-/g, "_")) };
+}
+function unitOf(u) {
+  const out = { format: "endolexis-processor", name: u.name.trim(), title: u.title.trim() || u.name.trim(), description: u.description.trim(), version: u.version.trim(),
+    source: { kind: u.source.kind.trim(), detail: u.source.detail.trim(), raw: u.source.raw.trim() }, inputs: Number.isFinite(+u.inputs) && u.inputs !== "" ? Math.round(+u.inputs) : -1,
+    outputs: u.outs.length, output_names: u.outs.map(o => o.name.trim()), outputs_how: u.outs.map(o => ({ name: o.name.trim(), how: o.how.trim() })) };
+  if (u.impl === "python") out.implementation = { python: (u.module.trim() || "my_processor") + ":process" };
+  return out;
+}
+function stubOf(unit) {
+  const KW = new Set("False None True and as assert async await break class continue def del elif else except finally for from global if import in is lambda nonlocal not or pass raise return try while with yield".split(" "));
+  const names = unit.output_names.map((n, i) => /^[A-Za-z_]\w*$/.test(n) && !KW.has(n) ? n : `output_${i + 1}`);
+  const hows = Object.fromEntries((unit.outputs_how || []).map(o => [o.name, o.how]));
+  const raw = unit.source.raw || "your_source";
+  return [`"""${unit.title} ${unit.version}: ${unit.description}`, `Source: ${unit.source.kind} - ${unit.source.detail}`, "",
+    'Clockwork only: it reports perception, never names, and never learns."""', "import numpy as np", "", "",
+    "def process(raw):", `    x = np.asarray(raw["${raw}"], float)   # ${unit.inputs} numbers in (0: any number)`,
+    ...names.map((n, i) => `    ${n} = 0.0   # ${hows[unit.output_names[i]] || "TODO"}`), `    return [${names.join(", ")}]`, ""].join("\n");
+}
+function renderTpls(active) {
+  $("#tpls").innerHTML = TPLS.map(t => `<button type="button" aria-pressed="${t.name === active}" data-tpl="${t.name}" title="${esc(t.use_case)}">${esc(t.title)}</button>`).join("");
+}
+function fillForm() {
+  $("#u_name").value = U.name; $("#u_version").value = U.version; $("#u_inputs").value = U.inputs; $("#u_title").value = U.title;
+  $("#u_desc").value = U.description; $("#u_src").value = U.source.kind; $("#u_raw").value = U.source.raw; $("#u_detail").value = U.source.detail;
+  $("#u_impl").value = U.impl; $("#u_module").value = U.module; renderOuts(); updateMaker();
+}
+function renderOuts() {
+  $("#u_outs").innerHTML = U.outs.map((o, i) => `<div class="outrow"><span class="n">${i}</span>
+    <input type="text" id="uo_n_${i}" value="${esc(o.name)}" data-on="${i}" aria-label="Output ${i} name" placeholder="name">
+    <input type="text" id="uo_h_${i}" value="${esc(o.how)}" data-oh="${i}" aria-label="Output ${i}: how it is computed" placeholder="how it is computed">
+    <button type="button" class="ghost" data-orm="${i}" aria-label="Remove output ${i}" ${U.outs.length <= 1 ? "disabled" : ""}>×</button></div>`).join("");
+}
+function updateMaker() {
+  const u = unitOf(U), bad = checkUnit(u);
+  if (u.output_names.some(n => !n)) bad.push("every output needs a name");
+  if (new Set(u.output_names).size !== u.output_names.length) bad.push("two outputs have the same name");
+  if (!/^[a-z0-9][a-z0-9_-]*$/i.test(u.name)) bad.push("the name is a file name: letters, digits, - and _");
+  $("#u_check").innerHTML = bad.length ? bad.map(b => `<span class="chip bad"><i class="dot" style="background:var(--bad)"></i>${esc(b)}</span>`).join("")
+    : `<span class="chip ok"><i class="dot" style="background:var(--ok)"></i>A sound processor unit: ${u.inputs || "any"} in, ${u.outputs} out</span>`;
+  $("#u_json").textContent = JSON.stringify(u, null, 2);
+  $("#u_stub").textContent = stubOf(u);
+  $("#u_modWrap").hidden = U.impl !== "python";
+  $("#u_toArch").disabled = $("#u_save").disabled = bad.length > 0;
+}
+$("#tpls").addEventListener("click", e => { const b = e.target.closest("[data-tpl]"); if (!b) return; const t = TPLS.find(x => x.name === b.dataset.tpl); U = fromTemplate(t); renderTpls(t.name); fillForm(); });
+$("#unitForm").addEventListener("input", e => {
+  const t = e.target;
+  if (t.dataset.on !== undefined) U.outs[+t.dataset.on].name = t.value;
+  else if (t.dataset.oh !== undefined) U.outs[+t.dataset.oh].how = t.value;
+  else ({ u_name: () => U.name = t.value, u_version: () => U.version = t.value, u_inputs: () => U.inputs = t.value, u_title: () => U.title = t.value,
+    u_desc: () => U.description = t.value, u_src: () => U.source.kind = t.value, u_raw: () => U.source.raw = t.value, u_detail: () => U.source.detail = t.value,
+    u_impl: () => U.impl = t.value, u_module: () => U.module = t.value }[t.id] || (() => {}))();
+  updateMaker();
+});
+$("#unitForm").addEventListener("change", e => { if (e.target.id === "u_impl") { U.impl = e.target.value; updateMaker(); } });
+$("#unitForm").addEventListener("submit", e => e.preventDefault());
+$("#u_addOut").onclick = () => { U.outs.push({ name: "output_" + (U.outs.length + 1), how: "" }); renderOuts(); updateMaker(); };
+$("#u_outs").addEventListener("click", e => { const b = e.target.closest("[data-orm]"); if (!b) return; U.outs.splice(+b.dataset.orm, 1); renderOuts(); updateMaker(); });
+$("#u_save").onclick = () => { const u = unitOf(U); saveFile(u.name + ".json", JSON.stringify(u, null, 2) + "\n"); };
+$("#u_copy").onclick = () => copy(JSON.stringify(unitOf(U), null, 2) + "\n", "Unit JSON");
+$("#u_saveStub").onclick = () => saveFile((U.module.trim() || "my_processor") + ".py", stubOf(unitOf(U)));
+$("#u_copyStub").onclick = () => copy(stubOf(unitOf(U)), "Python skeleton");
+$("#u_toArch").onclick = () => { if (addUnit(unitOf(U))) { showView("wiring"); toast("Added " + (U.title || U.name) + ": wire its outputs"); } };
+
+/* ---------- findings ---------- */
+function renderFindings() {
+  const el = $("#findings");
+  if (!FINDINGS) { el.innerHTML = `<h2>Experiment 16</h2><p class="hint">The results are not in yet.</p>`; return; }
+  const cols = FINDINGS.columns, rows = FINDINGS.rows;
+  const max = {}; for (const c of cols) max[c.key] = Math.max(...rows.map(r => r.mean[c.key] ?? 0), 1e-9);
+  const cell = (c, v) => v == null ? "–" : c.pct ? `${Math.round(v * 100)} %${c.bar ? `<span class="bar" style="width:${Math.round(28 * v / max[c.key])}px"></span>` : ""}` : (Math.round(v * 100) / 100).toFixed(c.digits ?? 2);
+  el.innerHTML = `<div><span class="eyebrow">${esc(FINDINGS.setup)}</span><h2 style="font-size:1.5rem;margin-top:4px">${esc(FINDINGS.title)}</h2></div>
+    <p>${esc(FINDINGS.question)}</p>
+    <div class="tbl"><table><thead><tr><th>Architecture</th>${cols.map(c => `<th title="${esc(c.what)}">${esc(c.label)}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(r => `<tr class="${r.base ? "base" : ""}"><td>${esc(r.name)}${EXAMPLES[r.name] ? ` <button class="ghost" data-open-ex="${esc(r.name)}" title="Open this architecture">open</button>` : ""}</td>${cols.map(c => `<td>${cell(c, r.mean[c.key])}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+    <p class="hint">${cols.map(c => `<b>${esc(c.label)}</b>: ${esc(c.what)}`).join(" · ")}</p>
+    <h3>What it shows</h3><ol class="points">${FINDINGS.points.map(p => `<li>${esc(p)}</li>`).join("")}</ol>
+    <p class="hint">${esc(FINDINGS.note)}</p>`;
+  el.querySelectorAll("[data-open-ex]").forEach(b => b.onclick = () => { load(EXAMPLES[b.dataset.openEx]); showView("wiring"); });
+}
+
+/* ---------- start ---------- */
+let saved = null; try { saved = JSON.parse(localStorage.getItem("olvaso-studio-arch")); } catch {}
+load(saved?.format === "endolexis-architecture" ? saved : (EXAMPLES["three, take turns"] || blank()));
+U = fromTemplate(TPLS.find(t => t.name === "accelerometer") || TPLS[0]); renderTpls(TPLS.find(t => t.name === "accelerometer") ? "accelerometer" : TPLS[0]?.name); fillForm();
+renderFindings();
+const v0 = location.hash.slice(1); showView(["wiring", "maker", "findings"].includes(v0) ? v0 : "wiring");
+})();
+</script>

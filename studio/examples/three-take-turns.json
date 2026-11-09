@@ -1,0 +1,873 @@
+{
+  "format": "endolexis-architecture",
+  "version": 1,
+  "name": "three, take turns",
+  "note": "",
+  "processors": [
+    {
+      "id": "p_vision",
+      "unit": {
+        "format": "endolexis-processor",
+        "name": "vision",
+        "title": "Vision",
+        "description": "All of the clockwork eye: retina (brightness, colour opponents, contrast, balance), motion and where it went, edge energy.",
+        "version": "1.0.0",
+        "source": {
+          "kind": "camera",
+          "detail": "the room's camera: a 16×16 colour picture (RGB, 0..1) every moment",
+          "raw": "image"
+        },
+        "inputs": 768,
+        "outputs": 11,
+        "output_names": [
+          "brightness",
+          "red_green",
+          "blue_yellow",
+          "contrast",
+          "left_right",
+          "top_bottom",
+          "motion",
+          "motion_dx",
+          "motion_dy",
+          "edges_h",
+          "edges_v"
+        ],
+        "implementation": {
+          "builtin": "vision"
+        }
+      },
+      "x": 40,
+      "y": 60
+    },
+    {
+      "id": "p_hearing",
+      "unit": {
+        "format": "endolexis-processor",
+        "name": "hearing",
+        "title": "Hearing",
+        "description": "All of the clockwork ear: loudness and band shares, timbre (centroid, flatness, pitch strength), rhythm (onsets, pulsing).",
+        "version": "1.0.0",
+        "source": {
+          "kind": "microphone",
+          "detail": "the room's microphone: 2048 samples at 8 kHz every moment (a quarter of a second)",
+          "raw": "sound"
+        },
+        "inputs": 2048,
+        "outputs": 9,
+        "output_names": [
+          "loudness",
+          "low",
+          "mid",
+          "high",
+          "centroid",
+          "flatness",
+          "pitch",
+          "onsets",
+          "pulsing"
+        ],
+        "implementation": {
+          "builtin": "hearing"
+        }
+      },
+      "x": 40,
+      "y": 260
+    },
+    {
+      "id": "p_touch",
+      "unit": {
+        "format": "endolexis-processor",
+        "name": "touch",
+        "title": "Touch",
+        "description": "Key presses and mouse movement.",
+        "version": "1.0.0",
+        "source": {
+          "kind": "keyboard and mouse",
+          "detail": "key presses and mouse movement in the moment",
+          "raw": "touch"
+        },
+        "inputs": 2,
+        "outputs": 2,
+        "output_names": [
+          "keys",
+          "mouse"
+        ],
+        "implementation": {
+          "builtin": "touch"
+        }
+      },
+      "x": 40,
+      "y": 460
+    }
+  ],
+  "olvasos": [
+    {
+      "id": "o1",
+      "name": "A",
+      "sleep": 0.3333,
+      "waking": 0.3333,
+      "phase": 0.5,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "o2",
+      "name": "B",
+      "sleep": 0.3333,
+      "waking": 0.3333,
+      "phase": 0.8333,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "o3",
+      "name": "C",
+      "sleep": 0.3333,
+      "waking": 0.3333,
+      "phase": 0.1666,
+      "x": 0,
+      "y": 0
+    }
+  ],
+  "outputs": [
+    {
+      "id": "h_brightness",
+      "kind": "brightness"
+    },
+    {
+      "id": "h_tone_soft",
+      "kind": "tone_soft"
+    },
+    {
+      "id": "h_tone_loud",
+      "kind": "tone_loud"
+    },
+    {
+      "id": "h_paint",
+      "kind": "paint"
+    },
+    {
+      "id": "h_note",
+      "kind": "note"
+    }
+  ],
+  "links": [
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 0
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 1
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 2
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 3
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 4
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 5
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 6
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 7
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 8
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 9
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 10
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 0
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 1
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 2
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 3
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 4
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 5
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 6
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 7
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 8
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_touch",
+        "port": 0
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "p_touch",
+        "port": 1
+      },
+      "to": {
+        "node": "o1"
+      }
+    },
+    {
+      "from": {
+        "node": "o1"
+      },
+      "to": {
+        "node": "h_brightness"
+      }
+    },
+    {
+      "from": {
+        "node": "o1"
+      },
+      "to": {
+        "node": "h_tone_soft"
+      }
+    },
+    {
+      "from": {
+        "node": "o1"
+      },
+      "to": {
+        "node": "h_tone_loud"
+      }
+    },
+    {
+      "from": {
+        "node": "o1"
+      },
+      "to": {
+        "node": "h_paint"
+      }
+    },
+    {
+      "from": {
+        "node": "o1"
+      },
+      "to": {
+        "node": "h_note"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 0
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 1
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 2
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 3
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 4
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 5
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 6
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 7
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 8
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 9
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 10
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 0
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 1
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 2
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 3
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 4
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 5
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 6
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 7
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 8
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_touch",
+        "port": 0
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "p_touch",
+        "port": 1
+      },
+      "to": {
+        "node": "o2"
+      }
+    },
+    {
+      "from": {
+        "node": "o2"
+      },
+      "to": {
+        "node": "h_brightness"
+      }
+    },
+    {
+      "from": {
+        "node": "o2"
+      },
+      "to": {
+        "node": "h_tone_soft"
+      }
+    },
+    {
+      "from": {
+        "node": "o2"
+      },
+      "to": {
+        "node": "h_tone_loud"
+      }
+    },
+    {
+      "from": {
+        "node": "o2"
+      },
+      "to": {
+        "node": "h_paint"
+      }
+    },
+    {
+      "from": {
+        "node": "o2"
+      },
+      "to": {
+        "node": "h_note"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 0
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 1
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 2
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 3
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 4
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 5
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 6
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 7
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 8
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 9
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_vision",
+        "port": 10
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 0
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 1
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 2
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 3
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 4
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 5
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 6
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 7
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_hearing",
+        "port": 8
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_touch",
+        "port": 0
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "p_touch",
+        "port": 1
+      },
+      "to": {
+        "node": "o3"
+      }
+    },
+    {
+      "from": {
+        "node": "o3"
+      },
+      "to": {
+        "node": "h_brightness"
+      }
+    },
+    {
+      "from": {
+        "node": "o3"
+      },
+      "to": {
+        "node": "h_tone_soft"
+      }
+    },
+    {
+      "from": {
+        "node": "o3"
+      },
+      "to": {
+        "node": "h_tone_loud"
+      }
+    },
+    {
+      "from": {
+        "node": "o3"
+      },
+      "to": {
+        "node": "h_paint"
+      }
+    },
+    {
+      "from": {
+        "node": "o3"
+      },
+      "to": {
+        "node": "h_note"
+      }
+    }
+  ],
+  "life": {
+    "days": 30,
+    "childhood_days": 10
+  }
+}

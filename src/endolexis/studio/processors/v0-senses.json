@@ -1,0 +1,22 @@
+{
+  "format": "endolexis-processor",
+  "name": "v0-senses",
+  "title": "The v0 senses",
+  "description": "Only what the v0 body had: light, loudness and key presses.",
+  "version": "1.0.0",
+  "source": {
+    "kind": "camera, microphone, keyboard",
+    "detail": "brightness of the picture, loudness of the sound, key presses",
+    "raw": "image, sound, touch"
+  },
+  "inputs": 2818,
+  "outputs": 3,
+  "output_names": [
+    "brightness",
+    "loudness",
+    "keys"
+  ],
+  "implementation": {
+    "builtin": "v0"
+  }
+}

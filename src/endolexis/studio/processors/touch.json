@@ -1,0 +1,21 @@
+{
+  "format": "endolexis-processor",
+  "name": "touch",
+  "title": "Touch",
+  "description": "Key presses and mouse movement.",
+  "version": "1.0.0",
+  "source": {
+    "kind": "keyboard and mouse",
+    "detail": "key presses and mouse movement in the moment",
+    "raw": "touch"
+  },
+  "inputs": 2,
+  "outputs": 2,
+  "output_names": [
+    "keys",
+    "mouse"
+  ],
+  "implementation": {
+    "builtin": "touch"
+  }
+}

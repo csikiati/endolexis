@@ -1,0 +1,33 @@
+{
+  "format": "endolexis-processor",
+  "name": "vision-retina",
+  "title": "Vision: retina",
+  "description": "The eye's first stage only: brightness, red–green, blue–yellow, contrast, left–right and top–bottom balance (V0).",
+  "version": "1.0.0",
+  "source": {
+    "kind": "camera",
+    "detail": "the room's camera: a 16×16 colour picture (RGB, 0..1) every moment",
+    "raw": "image"
+  },
+  "inputs": 768,
+  "outputs": 6,
+  "output_names": [
+    "brightness",
+    "red_green",
+    "blue_yellow",
+    "contrast",
+    "left_right",
+    "top_bottom"
+  ],
+  "implementation": {
+    "builtin": "vision",
+    "outputs": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+}

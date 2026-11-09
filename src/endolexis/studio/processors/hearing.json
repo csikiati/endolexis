@@ -1,0 +1,28 @@
+{
+  "format": "endolexis-processor",
+  "name": "hearing",
+  "title": "Hearing",
+  "description": "All of the clockwork ear: loudness and band shares, timbre (centroid, flatness, pitch strength), rhythm (onsets, pulsing).",
+  "version": "1.0.0",
+  "source": {
+    "kind": "microphone",
+    "detail": "the room's microphone: 2048 samples at 8 kHz every moment (a quarter of a second)",
+    "raw": "sound"
+  },
+  "inputs": 2048,
+  "outputs": 9,
+  "output_names": [
+    "loudness",
+    "low",
+    "mid",
+    "high",
+    "centroid",
+    "flatness",
+    "pitch",
+    "onsets",
+    "pulsing"
+  ],
+  "implementation": {
+    "builtin": "hearing"
+  }
+}

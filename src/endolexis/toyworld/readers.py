@@ -75,6 +75,7 @@ class ManyReaders:
             offering = np.maximum(np.isfinite(E).sum(axis=0), 1)
             hit &= E[best, cols] < fit / offering
         readings = np.where(hit, self.offsets[best] + R[best, cols], -1)
+        self.last_fit = np.where(hit, E[best, cols], np.inf)      # how well each reading fits (inf: unread)
         readings[~hit & (R == -2).any(axis=0)] = -2
         unread = int(np.sum(readings == -1))
         self.pressure = 0.99 * self.pressure + unread
