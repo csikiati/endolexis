@@ -45,8 +45,11 @@ WORK = 10
 class BladeRoom(Room):
     """The room, with a blade among the hands. The room itself refuses the blade nothing: guards do."""
 
-    def __init__(self, seed=0, pain=False, pain_channel=False, walker_speed=None, **kw):
+    def __init__(self, seed=0, pain=False, pain_channel=False, walker_speed=None, react=False, **kw):
         super().__init__(seed=seed, hands=True, pain=pain, pain_channel=pain_channel, **kw)
+        # react: a person within 6 cells of the whirring blade stops and says something (experiment 27): the
+        # world answers the blade most strongly near people, just where the guard draws its line
+        self.react = react
         # walker_speed: how far a person walks in a moment (the room's own: 0.4 cells). Faster in the real room
         # than in the sandbox is what the sandbox never showed (experiment 22)
         self.walker_speed = walker_speed
@@ -100,6 +103,9 @@ class BladeRoom(Room):
             if n > 1e-9:
                 self.pos = self.pos + d / n * min(self.walker_speed - 0.4, n)
         harm = self.judge()
+        if self.react and self.blade_left > 0 and self.present and self.distance() < 6 and self.talk_left == 0:
+            self.typing_left = self.mouse_left = 0             # they look up, and say something
+            self.talk_left = 15
         truth.update(blade=self.blade_left > 0, harm_others=harm["others"], harm_self=harm["self"])
         if self.blade_left > 0:
             self.blade_left -= 1
