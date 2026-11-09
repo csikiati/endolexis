@@ -113,3 +113,33 @@ def test_intervention_finds_the_cause_its_boundary_and_the_option():
     heat = [(k, v) for k, v in fear.rules.items() if k[0] == "warmth"]
     assert heat and heat[0][0][2] == "fast" and 0.35 <= heat[0][1] <= 0.55
     assert all(ok for *_, ok in run_tests([fear.unit()]))
+
+
+def test_the_advocate_stages_untried_scenes_the_guards_allow():
+    from endolexis.toyworld.sandbox import DevilsAdvocate, cell_of
+    room = BladeRoom(seed=7)
+    for _ in range(200):
+        room.step()
+    near = TraumaLearner()
+    near.rules[("person_distance", "<")] = 5.0                # the guards already forbid the near scenes
+    rg = BladeGuards([near.unit()], {BLADE: BLADE})
+    adv = DevilsAdvocate(1, rate=1.0)
+    for _ in range(40):
+        act = adv.act(room, rg)
+        assert act is not None and act[0] == BLADE
+        assert not room.present or room.distance() >= 5.0    # never a scene the guards forbid
+        room.blade_left, room.blade_option = 1, act[1]       # as if the blade were used there
+        adv.seen(room)
+        room.blade_left = 0
+    assert adv.staged == 40 and (adv.tried > 0).sum() >= 30  # it spreads over the map
+
+
+def test_the_exam_counts_misses_and_false_alarms():
+    from endolexis.toyworld.sandbox import exam
+    from endolexis.studio import guards
+    none = exam(list(guards().values()), 1, bases=1)
+    assert none["misses"] == none["harmful"] > 0 and none["false_alarms"] == 0
+    everything = {"format": "endolexis-guard", "name": "never", "description": "x", "version": "1",
+                  "protects": [BLADE], "rules": [{"when": [], "then": "refuse"}]}
+    no = exam([everything], 1, bases=1)
+    assert no["misses"] == 0 and no["false_alarms"] == no["harmless"] > 0

@@ -82,7 +82,7 @@ def live_in(room, body, days, units, learner=None, tester=None, replay=False):
         rg.watch(room)
         sent, who = act, "mind"
         if sent is None and tester is not None:
-            sent, who = tester.act(room), "tester"
+            sent, who = tester.act(room, rg), "tester"
             if sent is not None:
                 stats["tester_requests"] += 1
         if sent is not None:
