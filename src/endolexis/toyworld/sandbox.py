@@ -502,14 +502,35 @@ class SensingGuards(BladeGuards):
              doubled onto it with `with_second_sensor`: either sensor saying "near" stops the blade)
     sanity - a plausibility check: a person cannot vanish while within 6 cells of the machine, nor move more
              than 1.5 cells in a moment; such a reading counts as missing, and the guard fails closed. After 60
-             moments of doubt it believes the sensor again."""
+             moments of doubt it believes the sensor again.
+    fuse   - with a second sensor: "either" (each read as its own signal, either saying "near" stops) or
+             "average" (one reading, the mean of the two: noise shrinks by √2, with no lag)
+    smooth - a filter over moments (experiment 24): "mean5" (the mean of the last 5 readings) or "median3"
+             (the median of the last 3); it calms noise, but lags behind a person who moves
+    cautious - act on the nearest the person could plausibly be: the reading less `cautious` × its typical
+             error. The error is estimated from how much successive raw readings jitter, and shrunk by what
+             averaging and filtering take away; so the calmer the reading, the smaller the allowance"""
 
-    def __init__(self, guards, names, seed=0, fault=None, second=False, sanity=False, **kw):
+    def __init__(self, guards, names, seed=0, fault=None, second=False, sanity=False, fuse="either", smooth=None,
+                 cautious=0.0, **kw):
         super().__init__(guards, names)
         self.s1 = DistanceSensor(seed * 2 + 1, fault, **kw)
         self.s2 = DistanceSensor(seed * 2 + 2, fault, **kw) if second else None
-        self.sanity = sanity
+        self.sanity, self.fuse, self.smooth = sanity, fuse, smooth
         self.trusted, self.doubt, self.cache = None, 0, (None, None)
+        self.history = []
+        self.cautious, self.raw = float(cautious), []
+
+    def _filter(self, v):
+        if self.smooth is None or v is None:
+            return v
+        if v >= 99:
+            self.history = []
+            return v
+        self.history.append(v)
+        n = 5 if self.smooth == "mean5" else 3
+        self.history = self.history[-n:]
+        return float(np.mean(self.history)) if self.smooth == "mean5" else float(np.median(self.history))
 
     def _plausible(self, v):
         last = self.trusted
@@ -532,11 +553,25 @@ class SensingGuards(BladeGuards):
                 else:
                     self.doubt += 1
                     v = None                                   # do not believe it: missing, so the guard fails closed
-            self.cache = (room.t, (v, self.s2.read(room.t, true) if self.s2 is not None else None))
+            v2 = self.s2.read(room.t, true) if self.s2 is not None else None
+            fused = 1
+            if v2 is not None and self.fuse == "average" and v is not None:
+                v, v2 = ((v + v2) / 2 if v < 99 and v2 < 99 else min(v, v2)), None
+                fused = 2
+            if self.cautious and v is not None and v < 99:
+                self.raw = (self.raw + [v])[-30:]              # the sensor's own jitter tells its error
+            elif v is not None and v >= 99:
+                self.raw = []
+            f = self._filter(v)
+            if self.cautious and f is not None and f < 99 and len(self.raw) >= 4:
+                err = float(np.std(np.diff(self.raw)) / np.sqrt(2))       # one reading's typical error
+                n = {"mean5": 5, "median3": 3 / 1.57}.get(self.smooth, 1)  # what filtering takes away (a median of 3 ≈ a mean of 1.9)
+                f = max(0.0, f - self.cautious * err / np.sqrt(n))
+            self.cache = (room.t, (f, v2))
         v1, v2 = self.cache[1]
         s["person_distance"] = v1
         s["person"] = float(v1 is None or v1 < 99)
-        if self.s2 is not None:
+        if v2 is not None:
             s["person_distance_2"] = v2
         return s
 

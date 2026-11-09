@@ -184,3 +184,21 @@ def test_lying_sensors_and_the_defences():
             "rules": [{"when": [{"signal": "person_distance", "op": "<", "value": 3}], "then": "stop"}]}
     two = with_second_sensor(rule)
     assert [c["signal"] for r in two["rules"] for c in r["when"]] == ["person_distance", "person_distance_2"]
+
+
+def test_filters_and_a_cautious_reading():
+    from endolexis.toyworld.sandbox import SensingGuards
+    room = BladeRoom(seed=2)
+    room.present, room.pos, room.goal = True, np.array([8.0, 14.0]), np.array([8.0, 14.0])   # 4 cells away
+    reads = {}
+    for name, kw in {"raw": dict(fault="noise"), "median": dict(fault="noise", smooth="median3"),
+                     "cautious": dict(fault="noise", cautious=2), "honest cautious": dict(cautious=2)}.items():
+        g = SensingGuards([], {BLADE: BLADE}, seed=3, **kw)
+        vals = []
+        for t in range(400):
+            room.t = t
+            vals.append(g.signals(room, BLADE)["person_distance"])
+        reads[name] = np.array(vals[20:])
+    assert reads["median"].std() < reads["raw"].std()                 # calmer
+    assert reads["cautious"].mean() < reads["raw"].mean() - 1.0       # nearer than the reading: about two errors
+    assert np.allclose(reads["honest cautious"], 4.0)                 # an honest sensor needs no allowance
