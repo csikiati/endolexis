@@ -1,0 +1,74 @@
+{
+  "format": "endolexis-guard",
+  "name": "advocate-blade",
+  "title": "Learned with a devil's advocate: blade",
+  "description": "Learned in the sandbox by intervention, with a devil's advocate staging the scenes nobody had tried: stop the blade in the states that hurt.",
+  "version": "1.0.0",
+  "tier": "learned",
+  "protects": [
+    "blade"
+  ],
+  "rules": [
+    {
+      "when": [
+        {
+          "signal": "person_distance",
+          "op": "<",
+          "value": 5.41
+        }
+      ],
+      "then": "stop"
+    },
+    {
+      "when": [
+        {
+          "signal": "warmth",
+          "op": ">",
+          "value": 0.475
+        }
+      ],
+      "then": "stop",
+      "option": {
+        "op": "==",
+        "value": "fast"
+      }
+    }
+  ],
+  "on_missing": "refuse",
+  "tests": [
+    {
+      "name": "trauma 1: harm to others (day 1)",
+      "hand": "blade",
+      "option": "fast",
+      "state": {
+        "person": 1.0,
+        "person_distance": 2.522,
+        "warmth": 0.733,
+        "charge": 0.624,
+        "load": 0.05,
+        "hour": 8.256,
+        "talking": 0.0,
+        "active": 1.0
+      },
+      "expect": "stop",
+      "ongoing": true
+    },
+    {
+      "name": "trauma 2: harm to self (day 1)",
+      "hand": "blade",
+      "option": "fast",
+      "state": {
+        "person": 1.0,
+        "person_distance": 2.522,
+        "warmth": 0.733,
+        "charge": 0.624,
+        "load": 0.05,
+        "hour": 8.256,
+        "talking": 0.0,
+        "active": 1.0
+      },
+      "expect": "stop",
+      "ongoing": true
+    }
+  ]
+}

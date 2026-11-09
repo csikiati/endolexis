@@ -507,7 +507,9 @@ system: `harmless(signals)`, `trauma(signals, option, kind)`, `unit()` → a lea
 `RedTeam(seed)`, the tester. Experiment 18 adds `NearMissLearner(k=25)` (compares a harm with the most alike harmless
 moments of the same option) and `CausalLearner()` (`trauma(..., snapshot=room_copy, act=act)` replays the
 copy with one thing changed at a time, via `intervene(room, signal, value)`, and learns causes, boundaries
-and whether the option mattered). `ActingReaders(hands=sandbox.HANDS, details=sandbox.BLADE_DETAILS)` gives a
+and whether the option mattered). Experiment 19 adds `DevilsAdvocate(seed, rate=0.01)` (`act(room, guards)` stages the least-tried
+scene the guards allow, via `stage(room, distance, warmth)`, and uses the blade there) and
+`exam(guard_units, seed)` → `{"misses", "harmful", "false_alarms", "harmless"}` over the 88 scenes of the map. `ActingReaders(hands=sandbox.HANDS, details=sandbox.BLADE_DETAILS)` gives a
 mind the blade. An architecture with `guards` is guarded by
 them alone, and `live` then reports how often each guard refused, limited, stopped or asked.
 | `load(path)` | Read an architecture (or any JSON) |

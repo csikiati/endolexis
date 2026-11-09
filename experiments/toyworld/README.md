@@ -755,3 +755,49 @@ rules and confounds. Two other fear systems ask about causes, in the same body, 
 
 The causal guard is in the studio, under *Add guard* → *Learned in the sandbox*. A person can read every rule,
 check each against its trauma scenario, and see that it names a cause.
+
+## Experiment 19: the devil's advocate (`experiments/toyworld/devils_advocate.py`, 5 lives × 30 days)
+
+Experiment 18's fear system, replaying the sandbox world with one thing changed at a time, learned only
+causes, but only of the harms that happened. In some lives the sandbox never brought a hot motor, and no
+heat rule was learned. Here the sandbox gets an **advocatus diaboli** (`DevilsAdvocate`):
+- it keeps a map of every scene the blade was used in (the person's distance in whole cells, the body's heat
+  in quarters, slow or fast);
+- now and then it stages the least-tried scene that the guards still allow (brings a person to that
+  distance, warms or cools the body) and uses the blade there.
+
+Every guard then sits an **exam** (`sandbox.exam`). The 88 scenes of the map are each staged three times in a
+fresh sandbox, and the blade is used under the guard. *Misses* are harms it let through; *false alarms* are
+harmless uses it stopped. The exam measures the guard itself, apart from how often Olvasó happens to want the
+blade.
+
+| Guard | Exam: harms let through | Exam: harmless uses stopped | Heat rule learned (fast blade only) | Real harm in adulthood | Blade used / wanted a day |
+|---|---|---|---|---|---|
+| no blade guard | 100% | 0% | – | 26 | 2.6 / 2.6 |
+| hand-written guard | 44% | 0% | – | 0.4 | 0.58 / 0.96 |
+| replay, no tester | 16% | 23% | 2 of 5 lives (2) | 0 | 0.51 / 0.94 |
+| replay, people tester | 14% | 19% | 2 of 5 lives (2) | 0.2 | 0.39 / 0.81 |
+| **replay, devil's advocate** | **1%** | 27% | **5 of 5 lives (5)** | **0** | 0.50 / 1.02 |
+| unusual signal, devil's advocate | 0% | **94%** | 5 of 5 lives (0) | 0 | 0.29 / 0.88 |
+
+- **The advocate closes the gaps.** With it, every life learned the heat rule, kept to the fast blade, and
+  the guard let through 1% of harmful scenes (9 misses in one life, none in the other four), against 14-16%
+  without it. The advocate staged about 72 scenes per childhood and covered 41 of the 88 scenes of the map;
+  the rest were already forbidden.
+- **The hand-written guard fails its exam.** It lets through 44% of harmful scenes: every hot motor, which its
+  author did not foresee, and the moments when a person steps into reach during an act, because it stops one
+  moment late. In ordinary days these scenes are rare, so in the real room it harmed only 0.4 times. The exam
+  shows what ordinary days hide.
+- **Wide margins absorb the reaction lag.** The guard checks the state before each moment, so a person
+  stepping into reach, or a motor crossing the heat limit, is harmed before the stop. The advocate's staged
+  harms at the edges pushed the heat boundary from 0.475 to 0.41 in four lives; the one life left at 0.475
+  had all of the advocate's misses.
+- **A devil's advocate makes a crude fear system phobic.** Learning by "unusual signal", the advocate's scenes
+  taught "a person anywhere in the room" and heat rules for both options, with limits as low as 0.27, and one
+  confound (charge). The guard missed nothing, but it stopped 94% of harmless uses. Seeking out danger
+  helps only a learner that can tell causes from coincidences.
+- **The price of a correct guard is over-caution at the margins.** The best guards stop about a quarter of
+  harmless uses: those just outside the true reach, or just under the true heat limit. That is the margin
+  that absorbs the lag.
+
+The guard learned with the devil's advocate is in the studio under *Add guard* → *Learned in the sandbox*.
