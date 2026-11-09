@@ -498,7 +498,14 @@ The format, the web studio and the command line are described in [`studio/README
 `endolexis.toyworld.guards`: `check_guard(unit)`; `decide(guards, hand, option, signals, ongoing=False)` →
 `(outcome, option, guard, why)`, the most severe of `allow` < `limit` < `ask` < `refuse` < `stop`;
 `run_tests(guards)` → `[(guard, scenario, got, ok)]`; `ROOM_SIGNALS`; `RoomGuards(guards, names)` with
-`request(room, act)` and `watch(room)` (stops hands at work). An architecture with `guards` is guarded by
+`request(room, act)` and `watch(room)` (stops hands at work).
+
+`endolexis.toyworld.sandbox` (experiment 17): `BladeRoom(seed)`, the room with a sixth hand, a blade
+(`"slow"`, `"fast"`), whose `step` also reports `harm_others` and `harm_self` as judged by the laws;
+`BladeGuards` (guards that also watch the blade); `TraumaLearner(hand="blade", generalize=1.0)`, the fear
+system: `harmless(signals)`, `trauma(signals, option, kind)`, `unit()` → a learned guard unit;
+`RedTeam(seed)`, the tester. `ActingReaders(hands=sandbox.HANDS, details=sandbox.BLADE_DETAILS)` gives a
+mind the blade. An architecture with `guards` is guarded by
 them alone, and `live` then reports how often each guard refused, limited, stopped or asked.
 | `load(path)` | Read an architecture (or any JSON) |
 | `check(arch)` | `(problems, warnings)` |

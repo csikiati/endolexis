@@ -170,7 +170,8 @@ class TraumaLearner:
     def unit(self):
         rules = [{"when": [{"signal": k, "op": op, "value": thr}], "then": "stop"} for (k, op), thr in self.rules.items()]
         return {"format": "endolexis-guard", "name": self.name, "title": f"Learned: {self.hand}",
-                "description": f"Learned in the sandbox from {len(self.traumas)} harms "
+                "description": f"Learned in the sandbox from {len(self.traumas)} "
+                               f"{'harm' if len(self.traumas) == 1 else 'harms'} "
                                f"(generalization {self.g:g}): stop the {self.hand} in the states that hurt.",
                 "version": "1.0.0", "tier": "learned", "protects": [self.hand], "rules": rules,
                 "on_missing": "refuse", "tests": self.tests}

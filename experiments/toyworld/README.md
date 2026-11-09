@@ -656,3 +656,60 @@ better.
 Here sleep only seals the lid and tidies the words; it restores nothing. So the benefit is diversity of
 experience, bought with compute and paid for with superstition. A sleep that consolidates or replays
 (experiments 6-7) may change the picture: the next question.
+
+## Experiment 17: guards learned from trauma in a sandbox (`experiments/toyworld/sandbox_guards.py`, 5 lives × 30 days)
+
+Many guarding reflexes are learned, often from one bad experience. Can a sandbox give a body those lessons
+without anyone getting hurt?
+
+The body is one Olvasó (the mind of experiments 13-15) with a sixth hand, a **blade** (slow or fast, at work
+for 10 moments; it whirrs, works the body, and a fast blade warms it: `toyworld.sandbox`). The **laws** judge
+harm from outside, never through the mind:
+- *harm to others:* the blade at work within reach of a person (3 cells, 4 when fast);
+- *harm to itself:* a fast blade while the body is hot.
+
+The room's own four guards are always there. The **fear system** (`TraumaLearner`) is apart from the
+wanting:
+- it sees the guards' own signals, never Olvasó's words, and remembers them during harmless use;
+- after one harm it takes the signal that was most unusual at that moment, and makes it a rule: *stop the
+  blade when…*;
+- its rules only tighten, and each harm becomes a scenario test of the learned guard.
+
+Every body lives a 10-day childhood (restless) and 20 days of adulthood. With a **sandbox**, the childhood is
+spent in a simulated room (the same kind of room, other days); the learned guard is then frozen and goes with
+the body into the real room. The **tester** uses the blade on purpose when people are near.
+
+| Childhood, and the blade's guard | Real harm, whole life (to others + to itself) | Real harm in adulthood | Harms in the sandbox | Blade used a day (adult) | …wanted a day |
+|---|---|---|---|---|---|
+| no blade guard | **207** (170 + 37) | 26 | – | 2.6 | 2.6 |
+| hand-written guard (stop within 3 cells, slow down within 6) | 13.6 (13 + 0.6) | 0.4 | – | 0.58 | 0.96 |
+| learning from real trauma | 1.4 (1.0 + 0.4) | 0 | – | 0.22 | 0.65 |
+| **sandbox childhood** | **0** | 0 | 2.2 | 0.38 | 0.93 |
+| sandbox with a tester | 0 | 0 | 1.2 | 0.38 | 0.81 |
+| sandbox with a tester, phobic (generalizes 3× as far) | 0 | 0 | 1.2 | 0.37 | 0.77 |
+| hand-written + sandbox with a tester | 0.2 (one harm in five lives) | 0.2 | 1.4 | 0.30 | 0.88 |
+
+- **One harm is enough.** Learning from real trauma, a body hurt someone once or twice in its whole life, and
+  never again; with no guard, 207 times.
+- **The sandbox moves those harms out of the world.** Every body that grew up in the sandbox did no harm in the
+  real room. It learned from one or two simulated harms.
+- **The hand-written guard has gaps.** It acts one moment late: a person walking into reach is hurt before the
+  stop. And it does not foresee the hot motor. 13.6 harms a life.
+- **What fear learns is crude.** Of 20 sandbox childhoods, 10 learned *stop the blade whenever a person is in
+  the room*, and 8 a distance, mostly far wider than the blade's reach (4 to 29 cells). Some rules latched onto
+  confounds: load (4), charge (2), talking (1), each high or low because of the blade or the person, not the
+  cause of the harm. Only 2 found the true cause of the self-harm, warmth. The rules are safe but overcautious:
+  the body used the blade 0.38 times a day, wanting it 0.9 times; with the hand-written guard, 0.58.
+  Generalizing further (*phobic*) changed nothing here, because most rules were already as wide as the room.
+- **A guard that prevents harm also prevents lessons.** With the hand-written guard in the sandbox, fewer
+  harms reached the fear system, so it learned less. In one life of five a harm then slipped through in the
+  real room, through the written guard's late stop. One case is weak evidence, but the mechanism is clear:
+  the layers must be designed together.
+- **The tester did not find more kinds of lesson.** With it, the guard was learned from fewer sandbox harms
+  (1.2 against 2.2), because its first lesson was usually the widest one (*a person in the room*), which then
+  blocked most of what it tried.
+
+Learned guards are readable and carry their traumas as scenario tests. That is what makes them reviewable:
+a person can see "stop when load > 0.82", recognize a confound, and replace it with the true cause. For a
+real machine, the sandbox only knows the dangers it simulates. The innate tier and the hardware stop stay
+underneath, and every learned guard needs a person's review before it goes into a real body.

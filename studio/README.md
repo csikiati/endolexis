@@ -106,8 +106,9 @@ Guards are built so that they hold even when everything else is wrong:
 The room's own guard, as the four built-in units, lives exactly the same life as the room's fixed guard (a
 test checks this).
 
-The *learned* tier is for guards a sandbox will produce: a body lives a childhood in a simulated room, harm is
-judged from outside, and each harm becomes a rule with its scenario (the next experiment). For a real machine
+The *learned* tier is for guards a sandbox produces. A body lives a childhood in a simulated room, harm is
+judged from outside, and each harm becomes a rule with its scenario (experiment 17). *Add guard* lists the
+learned blade guard from that experiment under *Learned in the sandbox*: read it before you use it. For a real machine
 with a real blade, these guards model the idea. The reflex layer and an emergency stop belong in the hardware.
 
 A unit with a Python implementation is called with the room's raw senses (`raw["image"]`, `raw["sound"]`,
