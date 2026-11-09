@@ -172,7 +172,8 @@ class RoomGuards:
         self.seen[room.t] = now
         before = self.seen.get(room.t - 1)
         for k in self.RATED:
-            if before is None or (k == "person_distance" and (now[k] >= 99 or before[k] >= 99)):
+            if before is None or now[k] is None or before[k] is None or (
+                    k == "person_distance" and (now[k] >= 99 or before[k] >= 99)):
                 s[k + "@rate"] = 0.0
             else:
                 s[k + "@rate"] = now[k] - before[k]

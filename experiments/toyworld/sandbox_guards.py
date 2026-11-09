@@ -67,10 +67,10 @@ class Body:
         self.age = 0
 
 
-def live_in(room, body, days, units, learner=None, tester=None, replay=False):
+def live_in(room, body, days, units, learner=None, tester=None, replay=False, observe=None, make_guards=None):
     """Days of life in one room. units: the guards; learner: learns (and its guard is among the guards)."""
     names = {k: k for k in HANDS}
-    rg = BladeGuards(list(units), names)
+    rg = make_guards(list(units)) if make_guards else BladeGuards(list(units), names)
     stats = dict(harm_others=0, harm_self=0, blade_requests=0, blade_done=0, refused=0, refused_harmless=0,
                  tester_requests=0, acts=0, harm_days=[])
     act, start = None, None
@@ -80,6 +80,8 @@ def live_in(room, body, days, units, learner=None, tester=None, replay=False):
         if learner is not None:
             rg.guards = [u for u in units if u.get("name") != learner.name] + [learner.unit()]
         rg.watch(room)
+        if observe is not None:
+            observe(room, rg)
         sent, who = act, "mind"
         if sent is None and tester is not None:
             sent, who = tester.act(room, rg), "tester"

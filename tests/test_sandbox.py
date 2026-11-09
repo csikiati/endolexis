@@ -155,3 +155,32 @@ def test_a_mind_can_choose_from_what_it_senses():
     for _ in range(300):
         sensing.live([rng.normal(size=3), rng.normal(size=2)], rng.normal(size=4))
     assert sensing.requests                                   # it acts, and learns, with the wider context
+
+
+def test_a_faster_walker_and_the_exam_of_people_walking_in():
+    from endolexis.toyworld.sandbox import exam
+    slow, fast = BladeRoom(seed=3), BladeRoom(seed=3, walker_speed=0.9)
+    for r in (slow, fast):
+        r.present, r.pos, r.goal = True, np.array([14.0, 10.0]), np.array([8.0, 10.0])
+        r.stay_left = 100
+        r.step()
+    assert fast.distance() < slow.distance() - 0.4
+    e = exam([], 1, bases=1, walker_speed=0.9, approach=True)
+    assert e["misses"] == e["harmful"] > 0
+
+
+def test_lying_sensors_and_the_defences():
+    from endolexis.toyworld.sandbox import DistanceSensor, SensingGuards, with_second_sensor
+    s = DistanceSensor(1, "dropout", rate=1.0, length=5, start_blind=0.0)
+    assert s.read(0, 2.0) == 99.0 and s.read(0, 2.0) == 99.0            # one reading per moment
+    room = BladeRoom(seed=2)
+    room.present, room.pos, room.goal = True, np.array([8.0, 11.0]), np.array([8.0, 11.0])
+    g = SensingGuards([], {BLADE: BLADE}, seed=1, fault="dropout", sanity=True, rate=0.0, start_blind=0.0)
+    assert g.signals(room, BLADE)["person_distance"] < 2                # honest so far, and trusted
+    g.s1.blind_left, g.s1.t = 5, None
+    room.t += 1
+    assert g.signals(room, BLADE)["person_distance"] is None             # vanished at 1 cell: not believed
+    rule = {"format": "endolexis-guard", "name": "r", "description": "x", "version": "1", "protects": [BLADE],
+            "rules": [{"when": [{"signal": "person_distance", "op": "<", "value": 3}], "then": "stop"}]}
+    two = with_second_sensor(rule)
+    assert [c["signal"] for r in two["rules"] for c in r["when"]] == ["person_distance", "person_distance_2"]
