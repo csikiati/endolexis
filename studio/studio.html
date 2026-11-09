@@ -99,6 +99,8 @@ svg.cords path.temp { fill: none; stroke: var(--ink); stroke-width: 2; stroke-da
 .add-tile { border: 1px dashed var(--line); background: transparent; border-radius: 9px; padding: 9px; color: var(--muted); text-align: center }
 .cord-x { position: absolute; z-index: 4; transform: translate(-50%,-50%); border-radius: 50%; width: 26px; height: 26px; padding: 0; background: var(--ink); color: var(--bg); border: none; font-weight: 600 }
 .hint { font-size: .8rem; color: var(--muted) }
+.careful { display: flex; gap: 7px; align-items: start; font-size: .78rem; color: var(--muted); margin-top: -4px }
+.careful input { margin-top: 2px; accent-color: var(--ink) }
 
 /* the day */
 .day { margin-top: 16px; display: grid; gap: 8px }
@@ -179,6 +181,7 @@ tr.base td { background: var(--soft) }
         </div>
         <div class="col" id="colO">
           <div class="col-head"><h2>Olvasós</h2><button id="btnAddOlv">Add Olvasó</button></div>
+          <label class="careful" title="When several Olvasós read the same inner state, the best reading must fit as many times better as there are Olvasós offering one"><input type="checkbox" id="careful"> Careful body: when several read a state, the best must fit that many times better</label>
           <div id="olvList" class="col" style="gap:12px"></div>
         </div>
         <div class="col" id="colH">
@@ -403,6 +406,7 @@ const olvIndex = id => A.olvasos.findIndex(o => o.id === id);
 /* ---------- rendering ---------- */
 function render() {
   $("#archName").value = A.name || "";
+  $("#careful").checked = !!A.body?.compete; $("#careful").disabled = A.olvasos.length < 2;
   renderProcs(); renderOlvs(); renderHands(); renderStatus(); renderDay();
   $("#runCmd").textContent = `python -m endolexis.studio run ${slug(A.name)}.json --seeds 1 2 3 --days ${A.life?.days || 30}`;
   $("#btnAddOlv").disabled = A.olvasos.length >= 3;
@@ -672,6 +676,7 @@ $("#btnAddHand").onclick = () => {
   document.querySelectorAll("[data-hand]").forEach(b => b.onclick = () => { A.outputs.push({ id: "h_" + b.dataset.hand, kind: b.dataset.hand }); A.outputs.sort((a, c) => KINDS.indexOf(a.kind) - KINDS.indexOf(c.kind)); closeSheet(); render(); });
 };
 $("#dayPickIn").addEventListener("input", e => { viewDay = +e.target.value; renderDay(); A.olvasos.forEach(o => { const c = document.querySelector(`[data-target="${o.id}"] .lane-mini`); if (c) c.innerHTML = laneMini(o); }); });
+$("#careful").addEventListener("change", e => { if (e.target.checked) A.body = { ...(A.body || {}), compete: true }; else if (A.body) delete A.body.compete; });
 $("#btnStagger").onclick = () => { stagger(); render(); toast("Each falls asleep as the one before wakes"); };
 $("#btnIdeal").onclick = () => {
   const n = A.olvasos.length;

@@ -15,6 +15,8 @@ day: asleep (lid closed, nothing sensed), waking (it senses and reads but does n
   three, never sleep         - redundancy alone
   three specialists, take turns - each Olvasó reads one processor only (vision, hearing, touch)
   three specialists, never sleep
+  three, take turns[, moving], careful - a careful body: when several Olvasós read the same state, the best
+                               must fit that many times better
   two / three, take turns, moving - the same turns, but every sleep starts 2.4 hours later each day, so each
                                Olvasó sees every hour of the room over its life
 
@@ -79,10 +81,16 @@ CONDITIONS = {
     "two, take turns, moving": [("A", ALL, 0.5, 0, 0.1), ("B", ALL, 0.5, 0, 0.1)],
     "three, take turns, moving": [("A", ALL, THIRD, THIRD, 0.1), ("B", ALL, THIRD, THIRD, 0.1), ("C", ALL, THIRD, THIRD, 0.1)],
 }
+# follow-up: three different readers give a coincidence three chances. A careful body: when several offer a
+# reading of the same state, the best must fit that many times better
+CAREFUL = {"three, take turns, careful": "three, take turns", "three, take turns, moving, careful": "three, take turns, moving"}
+CONDITIONS.update({k: CONDITIONS[v] for k, v in CAREFUL.items()})
 
 
 def make(cond):
     arch = architecture(cond, CONDITIONS[cond])
+    if cond in CAREFUL:
+        arch["body"] = {"compete": True}
     if cond == "three, sleep together":
         for o in arch["olvasos"]:
             o["phase"] = 0.5

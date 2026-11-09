@@ -9,8 +9,10 @@ Three kinds of file:
                   or {"python": "module:function"} (called with the world's raw senses, returns
                   `outputs` numbers)
   architecture    (format "endolexis-architecture") - processors, 1-3 Olvasós (each with its sleep,
-                  waking and phase as fractions of a day), the body's hands, and the links between
-                  them: a processor output to an Olvasó, an Olvasó to a hand
+                  waking and phase as fractions of a day, and optionally shift: how much later its sleep
+                  starts each day), the body's hands, the links between them (a processor output to an
+                  Olvasó, an Olvasó to a hand), and optionally body: {"compete": true}, a careful body
+                  (when several Olvasós read a state, the best must fit that many times better)
   template        (templates.json) - starting points for new processor units, by use case
 
 `python -m endolexis.studio --help` for the command line. The web studio (studio/index.html in the
@@ -194,7 +196,7 @@ def build(arch, seed=1):
                               threshold=o.get("threshold", 20.0), learn=o.get("learn", "answer"),
                               mind=o.get("mind"), shift=o.get("shift", 0.0)))
     used = {ln["from"]["node"] for ln in arch["links"]}
-    return Ensemble(members, len(FELT1)), _Senses({k: v for k, v in procs.items() if k in used})
+    return Ensemble(members, len(FELT1), compete=bool((arch.get("body") or {}).get("compete"))), _Senses({k: v for k, v in procs.items() if k in used})
 
 
 def live(arch, seed=1, days=30, childhood_days=10, progress=None):

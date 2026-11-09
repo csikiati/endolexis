@@ -16,7 +16,9 @@ sees every hour of the room. Waking up, it tidies its words (housekeeping, retir
 day instead (as in experiments 12-15). All of them feel the same body.
 
 The body reads an inner state when any Olvasó that is not asleep reads it; when several do, the
-reading that fits best counts. The body has one pair of hands: when two awake Olvasós ask in the
+reading that fits best counts. A careful body (`compete=True`) asks more when several offer: the best must fit
+as many times better as there are Olvasós offering a reading (the more chances a coincidence had, the less
+a good fit means; as `ManyReaders(compete=True)` does across vocabularies). The body has one pair of hands: when two awake Olvasós ask in the
 same moment, the first one asking is carried out and the other's intention is let go (it is not
 learned from).
 """
@@ -78,8 +80,8 @@ class Member:
 
 
 class Ensemble:
-    def __init__(self, members, n_felt):
-        self.members, self.nf = members, n_felt
+    def __init__(self, members, n_felt, compete=False):
+        self.members, self.nf, self.compete = members, n_felt, compete
         self.t = 0
 
     def set_threshold(self, value):
@@ -128,6 +130,7 @@ class Ensemble:
         readings = np.full(2 * self.nf, -1)
         who = [None] * (2 * self.nf)
         best = np.full(2 * self.nf, np.inf)
+        offering = np.zeros(2 * self.nf, int)
         for m in self.members:
             if m.name not in per:
                 continue
@@ -136,9 +139,15 @@ class Ensemble:
                 for mode in (0, 1):                      # level, change
                     j = m.at[i] + mode * self.nf
                     k = i + mode * self.nf
+                    offering[k] += r[j] >= 0
                     if r[j] >= 0 and fit[j] < best[k]:
                         best[k], readings[k], who[k] = fit[j], r[j], m
                     elif r[j] == -2 and readings[k] == -1:
                         readings[k] = -2
+        if self.compete:
+            limit = self.members[0].mind.parts[0].fit
+            for k in range(2 * self.nf):
+                if offering[k] > 1 and best[k] >= limit / offering[k]:
+                    readings[k], who[k] = -1, None
         self.t += 1
         return request, asker, readings, who, per
