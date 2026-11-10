@@ -27,6 +27,7 @@ class Laws(private val ctx: Context) {
         "lying" to "1 while it lies flat and still (the accelerometer)",
         "buzzes_here" to "its buzzes since it was last laid down",
         "light" to "the camera's mean brightness, 0 to 1",
+        "lux" to "the ambient light sensor, lux (the night log's light)",
         "loudness" to "the microphone's level, dBFS (silence about -90, speech about -30)",
     )
 
@@ -95,7 +96,7 @@ class Laws(private val ctx: Context) {
 
     /** The signals for one hand now. */
     fun sense(felt: Felt, usualWarmth: Double, usualLoad: Double, recent: Int, active: Boolean, lying: Double?,
-              buzzesHere: Int, light: Double?, loudness: Double?): Map<String, Double?> = mapOf(
+              buzzesHere: Int, light: Double?, loudness: Double?, lux: Double?): Map<String, Double?> = mapOf(
         "warmth_c" to felt.warmthC,
         "warmth_above_usual" to felt.warmthC - usualWarmth,
         "charge" to felt.charge,
@@ -109,5 +110,6 @@ class Laws(private val ctx: Context) {
         "buzzes_here" to buzzesHere.toDouble(),
         "light" to light,
         "loudness" to loudness,
+        "lux" to lux,
     )
 }

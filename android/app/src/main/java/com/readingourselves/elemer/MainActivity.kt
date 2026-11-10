@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.AlertDialog
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.WindowManager
@@ -25,6 +26,7 @@ import com.readingourselves.elemer.body.Skin
 import com.readingourselves.elemer.core.Guards
 import com.readingourselves.elemer.core.Json
 import com.readingourselves.elemer.core.Kinds
+import com.readingourselves.elemer.core.Nights
 import java.util.concurrent.Executors
 
 /**
@@ -49,6 +51,14 @@ class MainActivity : ComponentActivity() {
         } catch (_: Exception) { "" })
     }
 
+    private val saveLog = registerForActivityResult(ActivityResultContracts.CreateDocument("text/csv")) { uri ->
+        if (uri != null) try {
+            contentResolver.openOutputStream(uri)?.use { it.write(NightLog.file(this).readBytes()) }
+        } catch (_: Exception) {}
+    }
+
+    private val askNotify = registerForActivityResult(ActivityResultContracts.RequestPermission()) { startNightLog() }
+
     private fun has(p: String) = ContextCompat.checkSelfPermission(this, p) == PackageManager.PERMISSION_GRANTED
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,6 +80,7 @@ class MainActivity : ComponentActivity() {
         }
         sleepButton = button("Sleep") { if (asleep) wake() else sleep() }
         button("Diary") { showDiary() }
+        button("Nights") { showNights() }
         button("New life") { confirmNewLife() }
         button("About") { showAbout() }
         root.addView(bar)
@@ -85,6 +96,7 @@ class MainActivity : ComponentActivity() {
     override fun onStart() {
         super.onStart()
         val missing = listOf(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO).filter { !has(it) }
+        if (NightLog.isRunning) { sleepButton.text = "Wake"; asleep = true; return }   // the night log has the microphone
         if (missing.isNotEmpty()) ask.launch(missing.toTypedArray()) else { bindCamera(); wake() }
     }
 
@@ -100,6 +112,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun wake() {
+        if (NightLog.isRunning) { showNights(); return }
         if (!asleep && lifeRunning) return
         life.start(has(Manifest.permission.RECORD_AUDIO))
         lifeRunning = true; asleep = false; sleepButton.text = "Sleep"
@@ -201,6 +214,62 @@ class MainActivity : ComponentActivity() {
             life.laws.add(text)
             textDialog("Guard added", "It is at work from the next moment.", guards = false)
         } else textDialog("Not added", bad.joinToString("\n") { "• $it" }, guards = false)
+    }
+
+    /** The night log: start or stop it, mark sleep, calibrate a guard from your nights, save the record. */
+    private fun showNights() {
+        val samples = try { Nights.parse(NightLog.file(this).readText()) } catch (_: Exception) { emptyList() }
+        val running = NightLog.isRunning
+        val text = StringBuilder()
+        text.append(if (running) "Recording now${if (NightLog.isAsleep(this)) ", and you are marked asleep" else ""}.\n\n"
+            else "Not recording.\n\n")
+        text.append("The night log learns what your nights look like to the phone, so that Olvasó never buzzes you awake. " +
+            "Start it in the evening and put the phone where it spends the night; you can lock it or use other apps. " +
+            "Tap \"Going to sleep\" in its notification at bedtime and \"Awake\" in the morning. Every 4 seconds it notes " +
+            "whether the phone lies flat, the light, and how loud it is (a number, never the sound), in the app's own folder only. " +
+            "Olvasó sleeps while it records.\n\nAfter two nights or more, Calibrate makes a guard of your own from them; " +
+            "you see its rules and numbers before you add it.\n\n")
+        text.append("Recorded: ${samples.size} moments, ${Nights.nights(samples)} nights, " +
+            "${samples.count { it.asleep }} moments marked asleep.")
+        val b = AlertDialog.Builder(this).setTitle("Nights").setMessage(text.toString())
+            .setPositiveButton(if (running) "Stop" else "Start") { _, _ -> if (running) { NightLog.stop(this); sleepButton.postDelayed({ wake() }, 1500) } else startNightLog() }
+            .setNeutralButton("Calibrate") { _, _ -> calibrate(samples) }
+        if (samples.isNotEmpty()) b.setNegativeButton("Save log…") { _, _ -> saveLog.launch("elemer-nights.csv") }
+        b.show()
+    }
+
+    private fun startNightLog() {
+        if (!has(Manifest.permission.RECORD_AUDIO)) {
+            textDialog("Nights", "The night log needs the microphone (for loudness: a number, never the sound). " +
+                "Allow it in the app's settings, then start again.", guards = false)
+            return
+        }
+        if (Build.VERSION.SDK_INT >= 33 && !has(Manifest.permission.POST_NOTIFICATIONS) && !askedNotify) {
+            askedNotify = true
+            askNotify.launch(Manifest.permission.POST_NOTIFICATIONS)
+            return
+        }
+        sleep()                                       // Olvasó sleeps; the log takes the microphone
+        NightLog.start(this)
+    }
+
+    private var askedNotify = false
+
+    private fun calibrate(samples: List<Nights.Sample>) {
+        val c = Nights.calibrate(samples)
+        val unit = c.unit
+        if (!c.ok || unit == null) { textDialog("Not yet", c.why, guards = false); return }
+        val rules = (unit["rules"] as List<*>).joinToString("\n") { "  • " + Guards.ruleText(it) }
+        AlertDialog.Builder(this).setTitle("A guard from your nights")
+            .setMessage("${unit["description"]}\n\nRules:\n$rules\n\nAdded, it works beside the built-in guards " +
+                "(it can only take away). It replaces an earlier \"my-nights\".")
+            .setPositiveButton("Add as guard") { _, _ ->
+                val text = Json.write(unit)
+                val bad = life.laws.problems(Json.obj(text))
+                if (bad.isEmpty()) { life.laws.add(text); textDialog("Guard added", "\"my-nights\" is at work from the next moment.", guards = false) }
+                else textDialog("Not added", bad.joinToString("\n") { "• $it" }, guards = false)
+            }
+            .setNegativeButton("Not now", null).show()
     }
 
     private fun confirmNewLife() {

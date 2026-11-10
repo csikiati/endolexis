@@ -186,7 +186,7 @@ class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: 
             fun signals(hand: String): Map<String, Double?> {
                 val k = Kinds.index(hand)
                 return laws.sense(felt, s.insides.usualWarmth(), s.insides.usualLoad(), acts.count { it.second == k },
-                    hands.atWork, lying, buzzesHere, light, loudness)
+                    hands.atWork, lying, buzzesHere, light, loudness, level.lux())
             }
             // a duty first (a reflex of the body, through the guards; Olvasó does not learn from it)
             laws.duties.act(s.t, guards) { signals(it) }?.let { (hand, option, duty) ->

@@ -92,19 +92,28 @@ class Eyes : ImageAnalysis.Analyzer {
 }
 
 /**
- * Level: the accelerometer, for the guards only (not one of Olvasó's senses). Lying = flat (gravity nearly all on
- * the axis through the screen) and still (hardly any change over the last second). Without an accelerometer it
- * knows nothing (null), and a guard that asks fails closed.
+ * Level: the accelerometer and the ambient light sensor, for the guards and the night log only (not Olvasó's senses).
+ * Lying = flat (gravity nearly all on the axis through the screen) and still (hardly any change over the last
+ * second). Without a sensor it knows nothing (null), and a guard that asks fails closed. Both work with the screen
+ * off and need no permission.
  */
 class Level(ctx: Context) : SensorEventListener {
     private val sm = ctx.getSystemService(Context.SENSOR_SERVICE) as? SensorManager
     private val sensor = sm?.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+    private val light = sm?.getDefaultSensor(Sensor.TYPE_LIGHT)
     private val recent = ArrayDeque<Double>()
     @Volatile private var flat = false
     @Volatile private var known = false
+    @Volatile private var luxNow: Double? = null
 
-    fun start() { sensor?.let { sm?.registerListener(this, it, SensorManager.SENSOR_DELAY_NORMAL) } }
+    fun start() {
+        sensor?.let { sm?.registerListener(this, it, SensorManager.SENSOR_DELAY_NORMAL) }
+        light?.let { sm?.registerListener(this, it, SensorManager.SENSOR_DELAY_NORMAL) }
+    }
     fun stop() { try { sm?.unregisterListener(this) } catch (_: Exception) {} }
+
+    /** The ambient light, lux (null: no light sensor, or nothing reported yet). */
+    fun lux(): Double? = luxNow
 
     /** 1 lying flat and still, 0 not, null not known. */
     fun lying(): Double? = if (!known) null else synchronized(recent) {
@@ -113,6 +122,7 @@ class Level(ctx: Context) : SensorEventListener {
     }
 
     override fun onSensorChanged(e: SensorEvent) {
+        if (e.sensor.type == Sensor.TYPE_LIGHT) { luxNow = e.values[0].toDouble(); return }
         val (x, y, z) = Triple(e.values[0].toDouble(), e.values[1].toDouble(), e.values[2].toDouble())
         flat = abs(z) > 9.0 && sqrt(x * x + y * y) < 1.5
         synchronized(recent) {

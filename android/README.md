@@ -59,11 +59,33 @@ A duty acts, before Olvasó, through the guards: `cool-down` (`assets/duties/`) 
 what a guard can sense: `warmth_c`, `warmth_above_usual`, `charge`, `plugged`, `load`, `busy`, `hour`, `recent`
 (acts of that hand in the last 100 moments), `active` (1 while any hand is at work), `lying` (flat and still, from the
 accelerometer), `buzzes_here` (its buzzes since it was last laid down), `light` (the camera's mean brightness) and
-`loudness` (the microphone, dBFS). Without a camera, microphone or accelerometer those are unknown, and a guard
+`loudness` (the microphone, dBFS) and `lux` (the ambient light sensor). Without a camera, microphone or accelerometer those are unknown, and a guard
 that asks for them fails closed. **Add guard file** opens a
 guard unit (JSON); it is accepted only if it is sound, guards hands this phone has, uses signals it can sense, and
 every one of its scenarios holds. It is kept in the app's own folder and is at work from the next moment.
 **Built-in only** removes the added ones.
+
+**Your nights.** `learned-buzz` knows sleep only from a simulation: a dark, quiet nightstand on the simulation's
+scales. **Nights** fits it to you. **Start** begins the night log, a background recorder with a notification, so
+the phone can be locked or used for anything else. Olvasó sleeps while it records. Every 4 seconds it notes
+whether the phone lies flat (the accelerometer), the ambient light (the light sensor, lux) and how loud it is (the
+microphone level in dBFS, a number, never the sound), with your mark: tap **Going to sleep** in the notification at
+bedtime and **Awake** in the morning. The record (`nights.csv`) stays in the app's own folder; **Save log…** gives
+you a copy.
+
+After two nights or more, **Calibrate** does what the sandbox learner did for the hidden cause "the person
+sleeps", on your own record (`core/Nights.kt`):
+- among the moments the phone lay flat, it takes the light and loudness of almost all your sleep (99.5 %), with a
+  margin;
+- it keeps only the conditions that leave your waking moments alone;
+- it adds caution for what the nights never showed: at the hours you sleep, a room darker than (almost) any you
+  were awake in also counts as sleep.
+
+It shows the rules, and how much of your recorded sleep and waking they would refuse. **Add as guard** adds them as
+`my-nights` beside the built-in guards, through the same checks as any added guard file. Calibrating again replaces it.
+
+Permissions for the night log: notifications (Android 13 and later ask), the microphone (already asked), and a
+foreground service for it. The phone shows its microphone indicator while the log runs.
 
 A life saved before the sixth hand wakes up with it: its expectations for the five old hands are kept, and it
 expects nothing yet of the buzz.
@@ -113,5 +135,6 @@ the way numpy does them (pairwise), so the two minds make the same decisions bit
 | `core/Guards.kt`, `core/Json.kt` | guard and duty units (guards.py, duties.py), a small JSON reader |
 | `body/Body.kt` | eyes, ears, skin, insides, hands |
 | `Laws.kt` | the guards and duties at work: built-in and added units, the signals |
+| `NightLog.kt`, `core/Nights.kt` | the night log (a background service) and the calibration of `my-nights` |
 | `Life.kt` | one life: the moment loop (duty, then Olvasó through the guards), saving, the observer |
 | `MindView.kt`, `MainActivity.kt` | the screen |

@@ -13,6 +13,28 @@ object Json {
         return v
     }
 
+    /** JSON text of maps, lists, numbers, strings, booleans and null (two-space indents, as the studio writes). */
+    fun write(v: Any?, indent: String = ""): String = when (v) {
+        null -> "null"
+        is Boolean -> v.toString()
+        is Number -> v.toDouble().let { d -> if (d == Math.floor(d) && Math.abs(d) < 1e15) d.toLong().toString() + ".0" else d.toString() }
+        is String -> quote(v)
+        is Map<*, *> -> if (v.isEmpty()) "{}" else v.entries.joinToString(",\n", "{\n", "\n$indent}") {
+            "$indent  ${quote(it.key.toString())}: ${write(it.value, "$indent  ")}"
+        }
+        is List<*> -> if (v.isEmpty()) "[]" else v.joinToString(",\n", "[\n", "\n$indent]") { "$indent  ${write(it, "$indent  ")}" }
+        else -> quote(v.toString())
+    }
+
+    private fun quote(s: String) = buildString {
+        append('"')
+        for (c in s) when (c) {
+            '"' -> append("\\\""); '\\' -> append("\\\\"); '\n' -> append("\\n"); '\t' -> append("\\t")
+            else -> if (c < ' ') append("\\u%04x".format(c.code)) else append(c)
+        }
+        append('"')
+    }
+
     @Suppress("UNCHECKED_CAST")
     fun obj(text: String): Map<String, Any?> = parse(text) as? Map<String, Any?> ?: error("not a JSON object")
 
