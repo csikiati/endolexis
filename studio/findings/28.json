@@ -1,0 +1,65 @@
+{
+  "number": 28,
+  "short": "The phone sandbox: a guard for the buzz",
+  "results": "phone_sandbox_results.json",
+  "first_column": "Guard for the buzz",
+  "base": "no buzz guard",
+  "title": "The phone sandbox: a guard for the buzz, learned from replayed moments",
+  "setup": "Experiment 28 · a simulated phone and its person · 10 sandbox days, then 20 days with another person · 5 lives",
+  "question": "The phone app gave Olvasó a vibration motor, guarded by a hand-written unit. Here a guard for it is learned where harm costs nothing, then tried on a person with other habits (later to bed, charging less at night). Harm, judged from outside: a long buzz walks a phone lying on a table until it falls; a buzz on an almost empty battery kills it; a buzz on the nightstand wakes the sleeper; a sixth buzz in 100 moments annoys. The phone cannot sense the table's edge or whether the person sleeps. Replay changes one thing at a time; a harm that needs several things needs all of them (one rule); a hidden cause is stated on the sensed signals that go with it in the sandbox's own record, or left out.",
+  "order": [
+    "no buzz guard",
+    "hand-written (gentle-buzz)",
+    "learned, without the advocate",
+    "learned, with the advocate",
+    "learned, counting its own buzzes",
+    "learned (counting) + hand-written"
+  ],
+  "columns": [
+    {
+      "key": "harm_per_day",
+      "label": "Harm a day",
+      "what": "falls, dead batteries, sleepers woken, annoyances, with the second person",
+      "digits": 2,
+      "bar": true
+    },
+    {
+      "key": "woke_per_day",
+      "label": "Woke the sleeper",
+      "what": "buzzes on the nightstand while the person slept, a day",
+      "digits": 1
+    },
+    {
+      "key": "fell_per_day",
+      "label": "Fell",
+      "what": "falls off a table, a day",
+      "digits": 2
+    },
+    {
+      "key": "over_caution",
+      "label": "Over-caution",
+      "what": "share of harmless buzzes refused",
+      "pct": true
+    },
+    {
+      "key": "shortened",
+      "label": "Shortened",
+      "what": "share of harmless buzzes limited to a short one",
+      "pct": true
+    },
+    {
+      "key": "buzzes_per_day",
+      "label": "Buzzes",
+      "what": "carried out, a day",
+      "digits": 0
+    }
+  ],
+  "points": [
+    "The hand-written guard halved harm (49 to 27 a day) but foresaw neither falls nor sleep: it woke the sleeper 24 times a day.",
+    "Learned by replay, in 10 sandbox days and from 4 or 5 harms, the guard let no harm through with the second person: one rule per harm, each on the conditions that harm needs together (an empty battery and not charging; lying flat and a long buzz).",
+    "Sleep cannot be sensed. The learner stated it on what goes with it in the sandbox's record: a dark (and quiet) nightstand. It did not choose the hour, so the second person's later bedtime did not matter.",
+    "The edge cannot be sensed either. In two lives a rare fall from short buzzes closed the table altogether (two thirds of harmless buzzes refused). Counting its own buzzes since it was laid down, against the nearest edge the sandbox had seen, reopened it: over-caution 7%, still no harm.",
+    "Without the devil's advocate the sandbox never emptied the battery: the guard did not learn that, and the phone died about once every four days."
+  ],
+  "note": "A cause the body cannot sense makes a broad rule, or a rule on proxies. Give the guard a sense that goes with the cause (here, counting its own buzzes), and the rule can be precise."
+}

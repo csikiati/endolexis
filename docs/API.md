@@ -523,7 +523,11 @@ Experiment 24 adds `SensingGuards(..., fuse="either" | "average", smooth=None | 
 `fallback` (each with optional `when`), `every`); `check_duty(unit)`; `Duties(duties, ranked=False).act(room,
 guards)` (the duty's act this moment, through the guards: its act, then a fallback that would help now, and
 only then, if ranked, an override of a guard that serves only the body); `SmokeRoom(seed, smoke_rate)`;
-`DutyGuards` (guards that also sense `smoke`). Experiment 27 adds `ActingReaders(context="felt+words")` (choosing from what it feels and
+`DutyGuards` (guards that also sense `smoke`). `endolexis.toyworld.phone` (experiment 28): `PhoneWorld(seed, habits=SANDBOX | REAL)`
+(a simulated phone and its person: `senses()`, the guard signals of the real phone; `step(buzz=None)` → the harms
+`fell`, `died`, `woke`, `annoyed`; `would_harm(option)`); `ReplayLearner(generalize=1.0, count_sense=False)`
+(`watch(world)` keeps the sandbox's record, `trauma(snapshot, option, harms)` learns by replay, `unit()` → a
+learned guard unit for `vibrate`); `wanting(rng)`; `Advocate(seed)`. Experiment 27 adds `ActingReaders(context="felt+words")` (choosing from what it feels and
 the words it senses now) and `BladeRoom(react=True)` (people near the whirring blade stop and speak). Guard units say whom they serve: `"serves": "self"` (the
 default) or `"others"`. `ActingReaders(hands=sandbox.HANDS, details=sandbox.BLADE_DETAILS)` gives a
 mind the blade. An architecture with `guards` is guarded by

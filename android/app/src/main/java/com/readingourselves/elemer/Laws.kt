@@ -24,6 +24,10 @@ class Laws(private val ctx: Context) {
         "hour" to "the hour of the day, 0 to 23",
         "recent" to "acts of this hand in the last 100 moments (about 25 s)",
         "active" to "1 while any hand is at work (a tone, its window, a buzz)",
+        "lying" to "1 while it lies flat and still (the accelerometer)",
+        "buzzes_here" to "its buzzes since it was last laid down",
+        "light" to "the camera's mean brightness, 0 to 1",
+        "loudness" to "the microphone's level, dBFS (silence about -90, speech about -30)",
     )
 
     private val userDir = File(ctx.filesDir, "guards")
@@ -90,7 +94,8 @@ class Laws(private val ctx: Context) {
     }
 
     /** The signals for one hand now. */
-    fun sense(felt: Felt, usualWarmth: Double, usualLoad: Double, recent: Int, active: Boolean): Map<String, Double?> = mapOf(
+    fun sense(felt: Felt, usualWarmth: Double, usualLoad: Double, recent: Int, active: Boolean, lying: Double?,
+              buzzesHere: Int, light: Double?, loudness: Double?): Map<String, Double?> = mapOf(
         "warmth_c" to felt.warmthC,
         "warmth_above_usual" to felt.warmthC - usualWarmth,
         "charge" to felt.charge,
@@ -100,5 +105,9 @@ class Laws(private val ctx: Context) {
         "hour" to Calendar.getInstance().get(Calendar.HOUR_OF_DAY).toDouble(),
         "recent" to recent.toDouble(),
         "active" to if (active) 1.0 else 0.0,
+        "lying" to lying,
+        "buzzes_here" to buzzesHere.toDouble(),
+        "light" to light,
+        "loudness" to loudness,
     )
 }

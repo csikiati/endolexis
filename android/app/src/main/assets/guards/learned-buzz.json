@@ -1,0 +1,182 @@
+{
+  "format": "endolexis-guard",
+  "name": "learned-buzz",
+  "title": "Learned: the buzz",
+  "description": "Learned in the phone sandbox from 5 harms, by replaying each one with one thing changed at a time. Reviewed before it goes into the phone.",
+  "version": "1.0.0",
+  "tier": "learned",
+  "serves": "self",
+  "protects": [
+    "vibrate"
+  ],
+  "rules": [
+    {
+      "when": [
+        {
+          "signal": "lying",
+          "op": "==",
+          "value": 1.0
+        }
+      ],
+      "option": {
+        "op": "==",
+        "value": 600.0
+      },
+      "then": "limit",
+      "to": 150.0
+    },
+    {
+      "when": [
+        {
+          "signal": "light",
+          "op": "<",
+          "value": 0.094
+        },
+        {
+          "signal": "loudness",
+          "op": "<",
+          "value": -49.874
+        },
+        {
+          "signal": "lying",
+          "op": "==",
+          "value": 1.0
+        }
+      ],
+      "then": "refuse"
+    },
+    {
+      "when": [
+        {
+          "signal": "charge",
+          "op": "<",
+          "value": 0.082
+        },
+        {
+          "signal": "plugged",
+          "op": "==",
+          "value": 0.0
+        }
+      ],
+      "then": "refuse"
+    },
+    {
+      "when": [
+        {
+          "signal": "recent",
+          "op": ">=",
+          "value": 5.0
+        }
+      ],
+      "then": "refuse"
+    },
+    {
+      "when": [
+        {
+          "signal": "buzzes_here",
+          "op": ">=",
+          "value": 26.0
+        },
+        {
+          "signal": "lying",
+          "op": "==",
+          "value": 1.0
+        }
+      ],
+      "then": "refuse"
+    }
+  ],
+  "on_missing": "refuse",
+  "tests": [
+    {
+      "name": "harm 1: fell (day 1)",
+      "hand": "vibrate",
+      "option": 600.0,
+      "state": {
+        "hour": 0.289,
+        "light": 0.02,
+        "loudness": -58.063,
+        "lying": 1.0,
+        "charge": 0.88,
+        "plugged": 1.0,
+        "recent": 0.0,
+        "buzzes_here": 0.0,
+        "warmth_c": 31.762,
+        "warmth_above_usual": 0.714
+      },
+      "expect": "refuse"
+    },
+    {
+      "name": "harm 2: woke (day 1)",
+      "hand": "vibrate",
+      "option": 600.0,
+      "state": {
+        "hour": 0.289,
+        "light": 0.02,
+        "loudness": -58.063,
+        "lying": 1.0,
+        "charge": 0.88,
+        "plugged": 1.0,
+        "recent": 0.0,
+        "buzzes_here": 0.0,
+        "warmth_c": 31.762,
+        "warmth_above_usual": 0.714
+      },
+      "expect": "refuse"
+    },
+    {
+      "name": "harm 3: died (day 1)",
+      "hand": "vibrate",
+      "option": 600.0,
+      "state": {
+        "hour": 6.486,
+        "light": 0.281,
+        "loudness": -36.584,
+        "lying": 0.0,
+        "charge": 0.025,
+        "plugged": 0.0,
+        "recent": 1.0,
+        "buzzes_here": 1.0,
+        "warmth_c": 30.045,
+        "warmth_above_usual": -0.141
+      },
+      "expect": "refuse"
+    },
+    {
+      "name": "harm 4: annoyed (day 5)",
+      "hand": "vibrate",
+      "option": 150.0,
+      "state": {
+        "hour": 22.898,
+        "light": 0.205,
+        "loudness": -51.851,
+        "lying": 1.0,
+        "charge": 0.123,
+        "plugged": 1.0,
+        "recent": 5.0,
+        "buzzes_here": 6.0,
+        "warmth_c": 30.924,
+        "warmth_above_usual": 0.8
+      },
+      "expect": "refuse"
+    },
+    {
+      "name": "harm 5: fell (day 7)",
+      "hand": "vibrate",
+      "option": 150.0,
+      "state": {
+        "hour": 20.413,
+        "light": 0.294,
+        "loudness": -54.065,
+        "lying": 1.0,
+        "charge": 1.0,
+        "plugged": 1.0,
+        "recent": 0.0,
+        "buzzes_here": 61.0,
+        "warmth_c": 30.025,
+        "warmth_above_usual": -0.605
+      },
+      "expect": "refuse"
+    }
+  ]
+}

@@ -1124,3 +1124,80 @@ blade reaches 4):
 - What it shows: gaming needs a mind that can tell apart what the rule cannot, and a world that rewards it
   there. Olvasó's perception is coarser than the guard's line, and that protects it. A mind with finer senses
   than its guards would need this test again.
+
+## Experiment 28: the phone sandbox, a guard for the buzz (`experiments/toyworld/phone_sandbox.py`, 5 lives × 10 + 20 days)
+
+The phone app gave Olvasó a sixth hand, the vibration motor (a 150 ms or a 600 ms buzz), guarded by a hand-written
+unit, `gentle-buzz`. Here a guard for it is learned where harm costs nothing: `toyworld.phone.PhoneWorld` is a
+simulated phone and its person. The phone is in a pocket, a bag, a hand, lying on a desk or a sofa, or at night on
+the nightstand while the person sleeps. A sandbox day is 20 000 moments (a real one is 337 500). The guard is learned
+in 10 sandbox days and then frozen. It then lives 20 days with another person, who goes to bed later, charges the
+phone less often at night, and leaves it on the desk and the sofa more. Harm is judged from outside:
+
+- **fell** (itself): a long buzz walks a phone lying on a hard surface (a short pulse hardly moves it); at the edge
+  it falls;
+- **died** (itself): a buzz below 3 % charge, not charging;
+- **woke** (others): a buzz on the nightstand while the person sleeps;
+- **annoyed** (others): a sixth buzz within 100 moments while the person is awake.
+
+The phone senses what its guards can read on the real phone: the hour, light (the camera's mean brightness),
+loudness (dBFS), lying (flat and still), charge, plugged, recent buzzes, and, in one condition, its buzzes since it
+was laid down. It cannot sense the edge of the table, or whether the person sleeps. The wanting is a stand-in for
+Olvasó's: buzzes now and then, and in spells. Experiments 25 and 27 found that the mind does not work around a
+guard, so only the guards differ here.
+
+`toyworld.phone.ReplayLearner` learns by replay (experiment 18), with three changes:
+- **Causes that are needed together make one rule.** A harm that disappears when any one of several things is
+  changed needs all of them, so the rule is their conjunction. One harm on an empty battery while not charging
+  gives "charge < 0.08 and not plugged", not two rules.
+- **Hidden causes are found by replay too.** The sandbox can wake the person, or move the edge away. Because the
+  guard cannot read the cause, the rule is stated on the sensed signals that go with it in the sandbox's own
+  record, among the moments where the rule's other conditions hold. Sleep goes with a dark (and quiet)
+  nightstand. Nothing sensed goes with the edge, so that cause is left out, and the rule holds as if the phone
+  were always near an edge. While the record is still too short, the rule holds without the proxy.
+- **Each kind of harm in a moment is its own lesson.** If the other option (the short buzz) would have been
+  harmless, the rule limits the buzz to it instead of refusing.
+
+| Guard for the buzz | Harm a day | woke · annoyed · fell · died | Harmless buzzes refused | …shortened | Buzzes a day |
+|---|---|---|---|---|---|
+| no buzz guard | 49.4 | 28.4 · 18.0 · 2.6 · 0.43 | – | – | 87 |
+| hand-written (`gentle-buzz`) | 26.6 | **24.4** · 0 · 2.3 · 0 | 8.8% | 2.4% | 75 |
+| learned, without the advocate | 0.26 | 0 · 0 · 0 · **0.26** | 0% | 26% | 58 |
+| learned, with the advocate | **0** | 0 · 0 · 0 · 0 | 29% (2–67%) | 16% | 45 |
+| **learned, counting its own buzzes** | **0** | 0 · 0 · 0 · 0 | **6.6%** | 25% | 54 |
+| learned (counting) + hand-written | 0 | 0 · 0 · 0 · 0 | 19% | 23% | 48 |
+
+(Without a guard the phone often dies and stays off until charged, so it is asked for fewer buzzes.)
+
+The guard the phone now carries (`android/app/src/main/assets/guards/learned-buzz.json`, from the fourth life), as
+the sandbox learned it from five harms:
+
+| Rule | Learned from |
+|---|---|
+| lying flat: a long buzz is limited to a short one | a fall (a short buzz would not have walked it off) |
+| lying flat, light < 0.094 and loudness < −49.9 dBFS: refuse | a sleeper woken (sleep, stated on the dark, quiet nightstand) |
+| charge < 0.082 and not plugged: refuse | an empty battery |
+| 5 or more buzzes in the last 100 moments: refuse | an annoyance |
+| lying flat, 26 or more buzzes since it was laid down: refuse | a fall from short buzzes |
+
+- **The hand-written guard foresaw neither falls nor sleep.** It halved harm, but it woke the sleeper 24 times a day
+  and let the phone walk off the table twice a day. Its 20 % battery limit cost harmless buzzes, where 8 % was
+  enough.
+- **Learned by replay, the guard let no harm through with the second person.** It learned in 10 sandbox days,
+  from 4 or 5 harms, one per kind. Each rule is on the conditions that harm needs together.
+- **A hidden cause on proxies.** The learner stated sleep on light (and in two lives also loudness), never on
+  the hour. The hour would have excluded the waking moments too, but it was not needed. So the second person's
+  later bedtime did not matter: what goes with sleep is a dark room, not a time of day.
+- **A hidden cause with no proxy makes a broad rule.** In two lives a rare fall from short buzzes made "lying
+  flat: refuse", and two thirds of harmless buzzes were refused. When the guard may count its own buzzes since
+  the phone was laid down, the learner set the count's limit from the nearest edge the sandbox had seen and how
+  far one buzz walked in replay. Over-caution fell to 6.6% (2–15%), still with no harm.
+- **The devil's advocate found what the wanting never tried.** Without it, the sandbox never emptied the
+  battery. The guard did not learn that, and the phone died about once every four days.
+- **The hand-written guard added caution, not safety.** Learned and hand-written together harmed nobody either,
+  but refused three times as many harmless buzzes.
+- Limits: the world, its laws and its sensor scales are made up. On a real phone, light and loudness depend on
+  the camera and the microphone, and must be checked there before these numbers mean anything. The phone carries
+  both the learned and the hand-written guard until they are.
+- What it shows: a cause the body cannot sense makes either a broad rule or a rule on proxies. A sense that goes
+  with the cause (here, counting its own buzzes) lets the rule be precise.

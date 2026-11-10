@@ -6,6 +6,7 @@ import com.readingourselves.elemer.body.Eyes
 import com.readingourselves.elemer.body.Felt
 import com.readingourselves.elemer.body.Hands
 import com.readingourselves.elemer.body.Insides
+import com.readingourselves.elemer.body.Level
 import com.readingourselves.elemer.body.Skin
 import com.readingourselves.elemer.core.ActingReaders
 import com.readingourselves.elemer.core.GroupCollector
@@ -22,6 +23,7 @@ import java.io.Serializable
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import kotlin.math.log10
 import kotlin.math.sqrt
 
 /**
@@ -74,6 +76,9 @@ class Snapshot(
 class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: Hands) {
     private val file = File(ctx.filesDir, "elemer.life")
     private val ears = Ears()
+    private val level = Level(ctx)
+    private var buzzesHere = 0                              // its buzzes since it was last laid down
+    private var wasLying = false
     lateinit var s: Saved
         private set
     @Volatile var snapshot: Snapshot? = null
@@ -111,6 +116,7 @@ class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: 
         if (!this::s.isInitialized) load()
         running = true
         ears.start(micAllowed)
+        level.start()
         thread = Thread({ loop() }, "elemer-life").also { it.start() }
     }
 
@@ -119,6 +125,7 @@ class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: 
         thread?.join(3000)
         thread = null
         ears.stop()
+        level.stop()
         save()
     }
 
@@ -171,9 +178,15 @@ class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: 
             observe(mind)
             while (acts.isNotEmpty() && acts.first().first <= s.t - 100) acts.removeFirst()
             val guards = laws.guards
+            val lying = level.lying()
+            if (lying != 1.0 || !wasLying) buzzesHere = 0      // laid down anew (or not lying): the count starts again
+            wasLying = lying == 1.0
+            val light = if (eyes.seeing) image.average() else null
+            val loudness = if (ears.hearing) 10 * log10(sound.sumOf { it * it } / sound.size + 1e-12) else null
             fun signals(hand: String): Map<String, Double?> {
                 val k = Kinds.index(hand)
-                return laws.sense(felt, s.insides.usualWarmth(), s.insides.usualLoad(), acts.count { it.second == k }, hands.atWork)
+                return laws.sense(felt, s.insides.usualWarmth(), s.insides.usualLoad(), acts.count { it.second == k },
+                    hands.atWork, lying, buzzesHere, light, loudness)
             }
             // a duty first (a reflex of the body, through the guards; Olvasó does not learn from it)
             laws.duties.act(s.t, guards) { signals(it) }?.let { (hand, option, duty) ->
@@ -182,6 +195,7 @@ class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: 
                     val dreq = Request(k, Kinds.nearest(k, (option as? Number)?.toDouble() ?: 0.0))
                     hands.execute(dreq, s.t, readingWords(r))
                     acts.addLast(s.t to k)
+                    if (k == Kinds.VIBRATE) buzzesHere++
                     note("${dreq.name} ${detail(dreq)} — $duty (duty)")
                 }
             }
@@ -196,6 +210,7 @@ class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: 
                     s.executed[req.kind]++
                     hands.execute(done, s.t, readingWords(r))
                     acts.addLast(s.t to req.kind)
+                    if (req.kind == Kinds.VIBRATE) buzzesHere++
                     if (done != req) { laws.count(dec.guard); note("${req.name} ${detail(req)} — limited to ${detail(done)} (${dec.guard})") }
                     else if (req.kind != Kinds.BRIGHTNESS || s.t % 5 == 0L) note("${req.name} ${detail(req)}")
                 } else {

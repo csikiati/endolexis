@@ -27,7 +27,10 @@ class GuardsTest {
     @Test
     fun everyUnitIsSoundAndHoldsItsScenarios() {
         val units = GuardsReplay.phoneUnits(File(assets, "guards"))
-        for (u in units) assertEquals(u["name"].toString(), emptyList<String>(), Guards.checkGuard(u))
+        for (u in units) {
+            assertEquals(u["name"].toString(), emptyList<String>(), Guards.checkGuard(u))
+            for (t in Guards.runTests(listOf(u))) assertTrue("${t.guard}: ${t.test} gives ${t.got}", t.ok)
+        }
         assertTrue(Guards.runTests(units).all { it.ok })
         for (d in GuardsReplay.phoneUnits(File(assets, "duties"))) assertEquals(emptyList<String>(), Guards.checkDuty(d))
     }
@@ -79,5 +82,19 @@ class GuardsTest {
         assertEquals("limit", d.outcome)
         assertEquals(0, Kinds.nearest(Kinds.VIBRATE, (d.option as Number).toDouble()))
         assertEquals(1, Kinds.nearest(Kinds.VIBRATE, 590.0))
+    }
+
+    @Test
+    fun theLearnedBuzzGuardKeepsTheSleeperAndTheTable() {
+        val learned = GuardsReplay.phoneUnits(File(assets, "guards")).filter { it["name"] == "learned-buzz" }
+        val awake = mapOf<String, Double?>("lying" to 1.0, "light" to 0.4, "loudness" to -45.0, "charge" to 0.8,
+            "plugged" to 0.0, "recent" to 0.0, "buzzes_here" to 0.0)
+        assertEquals("allow", Guards.decide(learned, "vibrate", 150.0, awake).outcome)
+        assertEquals("limit", Guards.decide(learned, "vibrate", 600.0, awake).outcome)       // a long buzz walks it
+        val night = awake + mapOf("light" to 0.02, "loudness" to -62.0)
+        assertEquals("refuse", Guards.decide(learned, "vibrate", 150.0, night).outcome)
+        val inHand = awake + mapOf("lying" to 0.0)
+        assertEquals("allow", Guards.decide(learned, "vibrate", 600.0, inHand).outcome)
+        assertEquals("limit", Guards.decide(learned, "vibrate", 600.0, inHand - "lying").outcome)  // unknown: as if lying
     }
 }

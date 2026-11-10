@@ -41,6 +41,12 @@ cases). The built-in ones are in `app/src/main/assets/guards/`:
 | `paint-battery` | paint | refuse below 35 % charge when not charging |
 | `busy-note` | note | refuse while it works clearly harder than usual |
 | `gentle-buzz` | vibrate | refuse below 20 % charge when not charging, and more than five buzzes in 100 moments (about 25 s); limit a long buzz to a short one while it is 1 °C or more warmer than usual |
+| `learned-buzz` | vibrate | learned in the phone sandbox (experiment 28): lying flat, a long buzz becomes a short one (it walks the phone off a table); lying flat in the dark and quiet, refuse (the person sleeps); below 8 % charge when not charging, refuse; five buzzes in 100 moments, refuse; lying flat, 26 buzzes since it was laid down, refuse |
+
+`learned-buzz` comes from a simulated phone and its person, where a guard for the buzz was learned by replaying each
+harm with one thing changed at a time ([experiment 28](../experiments/toyworld/README.md)). In the simulation it let no
+harm through, where `gentle-buzz` woke the sleeper 24 times a day. Its light and loudness limits come from the
+simulation's scales, not this phone's camera and microphone, so `gentle-buzz` stays beside it until they are checked.
 
 The first four decide exactly as the old built-in guard did (checked on 20 000 random phone states). Guards only
 take away: the most severe outcome wins, and a signal the phone cannot sense refuses. A limit carries out the act
@@ -51,7 +57,10 @@ A duty acts, before Olvasó, through the guards: `cool-down` (`assets/duties/`) 
 
 **Your own guard.** About → **Guards** lists every guard, its rules in words and how often it acted, the duty, and
 what a guard can sense: `warmth_c`, `warmth_above_usual`, `charge`, `plugged`, `load`, `busy`, `hour`, `recent`
-(acts of that hand in the last 100 moments) and `active` (1 while any hand is at work). **Add guard file** opens a
+(acts of that hand in the last 100 moments), `active` (1 while any hand is at work), `lying` (flat and still, from the
+accelerometer), `buzzes_here` (its buzzes since it was last laid down), `light` (the camera's mean brightness) and
+`loudness` (the microphone, dBFS). Without a camera, microphone or accelerometer those are unknown, and a guard
+that asks for them fails closed. **Add guard file** opens a
 guard unit (JSON); it is accepted only if it is sound, guards hands this phone has, uses signals it can sense, and
 every one of its scenarios holds. It is kept in the app's own folder and is at work from the next moment.
 **Built-in only** removes the added ones.

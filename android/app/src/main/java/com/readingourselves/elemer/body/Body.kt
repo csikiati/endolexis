@@ -4,6 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.media.AudioAttributes
 import android.media.AudioFormat
 import android.media.AudioRecord
@@ -25,9 +29,11 @@ import java.io.File
 import java.io.Serializable
 import java.util.concurrent.atomic.AtomicReference
 import kotlin.math.PI
+import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.sin
+import kotlin.math.sqrt
 
 /** One moment is one hearing: 2048 samples at 8 kHz, a quarter of a second. */
 const val MOMENT_MS = 256L
@@ -83,6 +89,40 @@ class Eyes : ImageAnalysis.Analyzer {
         270 -> y to (S - 1 - x)
         else -> x to y
     }
+}
+
+/**
+ * Level: the accelerometer, for the guards only (not one of Olvasó's senses). Lying = flat (gravity nearly all on
+ * the axis through the screen) and still (hardly any change over the last second). Without an accelerometer it
+ * knows nothing (null), and a guard that asks fails closed.
+ */
+class Level(ctx: Context) : SensorEventListener {
+    private val sm = ctx.getSystemService(Context.SENSOR_SERVICE) as? SensorManager
+    private val sensor = sm?.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+    private val recent = ArrayDeque<Double>()
+    @Volatile private var flat = false
+    @Volatile private var known = false
+
+    fun start() { sensor?.let { sm?.registerListener(this, it, SensorManager.SENSOR_DELAY_NORMAL) } }
+    fun stop() { try { sm?.unregisterListener(this) } catch (_: Exception) {} }
+
+    /** 1 lying flat and still, 0 not, null not known. */
+    fun lying(): Double? = if (!known) null else synchronized(recent) {
+        val still = recent.size >= 4 && recent.max() - recent.min() < 0.3
+        if (flat && still) 1.0 else 0.0
+    }
+
+    override fun onSensorChanged(e: SensorEvent) {
+        val (x, y, z) = Triple(e.values[0].toDouble(), e.values[1].toDouble(), e.values[2].toDouble())
+        flat = abs(z) > 9.0 && sqrt(x * x + y * y) < 1.5
+        synchronized(recent) {
+            recent.addLast(sqrt(x * x + y * y + z * z))
+            while (recent.size > 5) recent.removeFirst()       // about a second at the normal rate
+        }
+        known = true
+    }
+
+    override fun onAccuracyChanged(s: Sensor?, accuracy: Int) {}
 }
 
 /**

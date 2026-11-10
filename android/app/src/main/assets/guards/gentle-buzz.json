@@ -61,7 +61,11 @@
         "charge": 0.1,
         "plugged": 0,
         "recent": 0,
-        "warmth_above_usual": 0.0
+        "warmth_above_usual": 0.0,
+        "lying": 0.0,
+        "buzzes_here": 0.0,
+        "light": 0.4,
+        "loudness": -40.0
       },
       "expect": "refuse"
     },
@@ -73,7 +77,11 @@
         "charge": 0.8,
         "plugged": 0,
         "recent": 5,
-        "warmth_above_usual": 0.0
+        "warmth_above_usual": 0.0,
+        "lying": 0.0,
+        "buzzes_here": 0.0,
+        "light": 0.4,
+        "loudness": -40.0
       },
       "expect": "refuse"
     },
@@ -85,7 +93,11 @@
         "charge": 0.8,
         "plugged": 0,
         "recent": 0,
-        "warmth_above_usual": 1.2
+        "warmth_above_usual": 1.2,
+        "lying": 0.0,
+        "buzzes_here": 0.0,
+        "light": 0.4,
+        "loudness": -40.0
       },
       "expect": "limit"
     },
@@ -97,7 +109,11 @@
         "charge": 0.8,
         "plugged": 0,
         "recent": 1,
-        "warmth_above_usual": 0.0
+        "warmth_above_usual": 0.0,
+        "lying": 0.0,
+        "buzzes_here": 0.0,
+        "light": 0.4,
+        "loudness": -40.0
       },
       "expect": "allow"
     }
