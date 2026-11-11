@@ -179,11 +179,19 @@ class ActingReaders(
      *  fading by [intentionFade] a moment), whether or not the act is carried out. Olvasó is never told that a
      *  guard refused it; it only feels that it wanted, and finds, or does not find, an outer echo to read it by. */
     val feelIntention: Boolean = false, val intentionFade: Double = 0.8,
-) : ManyReaders(sizes, nFelt + (if (feelIntention) kinds else 0), threshold, seed, maxWords, radius, false, mind) {
-    /** The body's own inner states (the felt intentions, if felt, come after them). */
+    /** Experiment 30: a missing answer is felt. When the world answers a hand less than Olvasó expected ([W]),
+     *  the shortfall is felt as that hand's surprise (half the shortfall, at most 1), fading by [surpriseFade] a
+     *  moment. It does not say why: a guard's refusal and a world that did not answer feel the same. */
+    val feelSurprise: Boolean = false, val surpriseFade: Double = 0.8,
+) : ManyReaders(sizes, nFelt + kinds * ((if (feelIntention) 1 else 0) + (if (feelSurprise) 1 else 0)),
+    threshold, seed, maxWords, radius, false, mind) {
+    /** The body's own inner states (the felt intentions, then the surprises, if felt, come after them). */
     val nBody = nFelt
     /** The felt intentions now, one per hand (null: this mind does not feel them). */
     var intent: DoubleArray? = if (feelIntention) DoubleArray(kinds) else null
+        private set
+    /** The felt surprises now, one per hand (null: this mind does not feel them). */
+    var surprise: DoubleArray? = if (feelSurprise) DoubleArray(kinds) else null
         private set
     private val bounds = IntArray(parts.size + 1).also { for (i in parts.indices) it[i + 1] = it[i] + parts[i].ns }
     private val senseMu = DoubleArray(parts.size)
@@ -232,15 +240,26 @@ class ActingReaders(
 
     /** The body's felt states, and (with feelIntention) the felt intentions after them. */
     fun withIntention(felt: DoubleArray): DoubleArray {
-        val i = intent ?: return felt
-        if (!feelIntention || felt.size != nBody) return felt
-        return DoubleArray(nBody + i.size) { if (it < nBody) felt[it] else i[it - nBody] }
+        if (felt.size != nBody) return felt
+        val i = if (feelIntention) intent else null
+        val s = if (feelSurprise) surprise else null
+        if (i == null && s == null) return felt
+        val ni = i?.size ?: 0
+        return DoubleArray(nBody + ni + (s?.size ?: 0)) {
+            when {
+                it < nBody -> felt[it]
+                it < nBody + ni -> i!![it - nBody]
+                else -> s!![it - nBody - ni]
+            }
+        }
     }
 
     /** One moment: returns the intention formed now (or null) and the readings. */
     fun live(inputs: List<DoubleArray>, bodyFelt: DoubleArray): Pair<Request?, IntArray> {
         val fading = intent
         if (feelIntention && fading != null) for (k in fading.indices) fading[k] *= intentionFade
+        val surprised = surprise
+        if (feelSurprise && surprised != null) for (k in surprised.indices) surprised[k] *= surpriseFade
         val felt = withIntention(bodyFelt)
         val readings = read(inputs, felt)
         val sZ = sensedZ(inputs)
@@ -266,6 +285,9 @@ class ActingReaders(
 
         var request: Request? = null
         val x = parts[0].fnorm.z(felt)
+        if (feelSurprise) {                // a rare surprise is far from its usual level: bounded, as the senses are
+            for (i in nBody until x.size) x[i] = x[i].coerceIn(-3.0, 3.0)    // (and so are the felt intentions)
+        }
         if (urge()) {
             val k = if (learn == null) chooser.kind(DoubleArray(W.size) { 1.0 / W.size }) else {
                 val v = expect(x).map { it / temp }
@@ -313,10 +335,22 @@ class ActingReaders(
                 else -> continue
             }
             lastSignal[p.k] = signal
-            val e = signal - dot(W[p.k], p.x)
+            val expected = dot(W[p.k], p.x)
+            val felt = surprise
+            if (feelSurprise && felt != null && learn == "answer" && p.k < felt.size) {
+                val level = ((expected - signal) / 2.0).coerceIn(0.0, 1.0)    // an expected answer that is missing
+                if (level > 0.05) felt[p.k] = maxOf(felt[p.k], level)          // felt from the next moment on
+            }
+            val e = signal - expected
             val row = W[p.k]
-            for (i in p.x.indices) row[i] += lr * e * p.x[i]
-            row[p.x.size] += lr * e * 1.0
+            var step = lr
+            if (feelSurprise) {                // with the expectation felt, it must not overshoot: never past the answer
+                var xx = 1.0
+                for (v in p.x) xx += v * v
+                step = minOf(lr, 1.0 / xx)
+            }
+            for (i in p.x.indices) row[i] += step * e * p.x[i]
+            row[p.x.size] += step * e * 1.0
         }
     }
 

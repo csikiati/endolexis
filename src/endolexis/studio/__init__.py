@@ -313,7 +313,8 @@ def build(arch, seed=1):
                               sleep=o.get("sleep", 0), waking=o.get("waking", 0), phase=o.get("phase", 0),
                               threshold=o.get("threshold", 20.0), learn=o.get("learn", "answer"),
                               mind=o.get("mind"), shift=o.get("shift", 0.0),
-                              feel_intention=bool(o.get("feel_intention", False))))
+                              feel_intention=bool(o.get("feel_intention", False)),
+                              feel_surprise=bool(o.get("feel_surprise", False))))
     used = {ln["from"]["node"] for ln in arch["links"]}
     return Ensemble(members, len(FELT1), compete=bool((arch.get("body") or {}).get("compete"))), _Senses({k: v for k, v in procs.items() if k in used})
 
@@ -418,7 +419,7 @@ def _report(ens, rows, acts, days):
                                    rw[1] == i for rw in (x[4], x[5], x[6])) / 3)}
                       for m in ens.members}
     for m in ens.members:
-        if m.mind.feel_intention:                    # it felt its own intentions: what became of them
+        if m.mind.feel_intention or m.mind.feel_surprise:   # it felt its intentions or its surprises: what of them
             from ..toyworld.hands import mind_report
             out["members"][m.name]["intention"] = mind_report(m.mind, days - max(1, days // 3), days)
     return out

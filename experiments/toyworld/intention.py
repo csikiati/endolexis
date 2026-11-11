@@ -6,6 +6,11 @@ With --intention, every Olvasó in the run feels each intention it forms as an i
 feel_intention=True)`), the results go to <experiment>_intention_results.json, and every life also reports what
 the observer saw of its mind (`hands.mind_report`). Without it, the experiments run exactly as before, now also
 reporting the mind (so that a run without the feeling can be compared).
+
+Experiment 30 adds --surprise: Olvasó feels a missing answer, an answer it expected from a hand that did not come
+(`ActingReaders(feel_surprise=True)`); results in <experiment>_surprise_results.json, or with both switches
+<experiment>_both_results.json. --surprise-shuffled is the control (the same surprises on a random hand, 50-500
+moments later): <experiment>_shuffled_results.json.
 """
 import os
 import sys
@@ -14,20 +19,25 @@ ON = "--intention" in sys.argv or os.environ.get("ENDOLEXIS_FEEL_INTENTION") == 
 if ON:
     os.environ["ENDOLEXIS_FEEL_INTENTION"] = "1"          # the pool's workers see it too
     sys.argv = [a for a in sys.argv if a != "--intention"]
+SHUFFLED = "--surprise-shuffled" in sys.argv or os.environ.get("ENDOLEXIS_FEEL_SURPRISE") == "shuffled"
+SURPRISE = SHUFFLED or "--surprise" in sys.argv or os.environ.get("ENDOLEXIS_FEEL_SURPRISE") == "1"
+if SURPRISE:
+    os.environ["ENDOLEXIS_FEEL_SURPRISE"] = "shuffled" if SHUFFLED else "1"
+    sys.argv = [a for a in sys.argv if a not in ("--surprise", "--surprise-shuffled")]
 BASELINE = "--mind-baseline" in sys.argv                # a run without the feeling, kept for the comparison
 if BASELINE:
     sys.argv = [a for a in sys.argv if a != "--mind-baseline"]
 
 
 def mind_kw():
-    return {"feel_intention": True} if ON else {}
+    return {**({"feel_intention": True} if ON else {}), **({"feel_surprise": "shuffled" if SHUFFLED else True} if SURPRISE else {})}
 
 
 def results_name(name):
     """experiment_results.json, or with --intention experiment_intention_results.json (and --mind-baseline:
     experiment_mind_results.json, the same lives without the feeling, with the mind reported)."""
-    return name.replace("_results.json", "_intention_results.json" if ON else
-                        ("_mind_results.json" if BASELINE else "_results.json"))
+    tag = "_shuffled" if SHUFFLED else ("_both" if ON else "_surprise") if SURPRISE else "_intention" if ON else "_mind" if BASELINE else ""
+    return name.replace("_results.json", tag + "_results.json")
 
 
 def report(mind, days, childhood=None):

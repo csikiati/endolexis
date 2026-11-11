@@ -162,6 +162,8 @@ class MainActivity : ComponentActivity() {
 
         A new life can be born feeling its own intentions (the New life button): then every intention it forms is also an inner state, whether or not the act is done, and asks to be read like the others. This life ${if (life.feelsIntention) "feels" else "does not feel"} its intentions.
 
+        It can also be born feeling a missing answer: when the world answers a hand less than it expected, the shortfall is felt, without saying why. This life ${if (life.feelsSurprise) "feels" else "does not feel"} a missing answer.
+
         Hold it in front of a mirror: does it come to find its own window and voice?
 
         Everything stays on this phone. Theory, papers and code: readingourselves.com · github.com/csikiati/endolexis
@@ -293,15 +295,27 @@ class MainActivity : ComponentActivity() {
             textSize = 12f
             alpha = 0.7f
         }
+        val surprised = CheckBox(this).apply {
+            text = "It feels a missing answer"
+            isChecked = prefs.getBoolean("feel_surprise", false)
+        }
+        val whySurprise = TextView(this).apply {
+            text = "When the world answers one of its hands less than it expected, the shortfall is felt, as a " +
+                "surprise of that hand. It does not say why: a guard's refusal and a world that did not answer " +
+                "feel the same (experiment 30)."
+            textSize = 12f
+            alpha = 0.7f
+        }
         val box = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(pad + pad / 2, pad / 2, pad + pad / 2, 0)
-            addView(intro); addView(feel); addView(why)
+            addView(intro); addView(feel); addView(why); addView(surprised); addView(whySurprise)
         }
         AlertDialog.Builder(this).setTitle("Start a new life?").setView(box)
             .setPositiveButton("New life") { _, _ ->
-                prefs.edit().putBoolean("feel_intention", feel.isChecked).apply()
-                life.newLife(feel.isChecked)
+                prefs.edit().putBoolean("feel_intention", feel.isChecked)
+                    .putBoolean("feel_surprise", surprised.isChecked).apply()
+                life.newLife(feel.isChecked, surprised.isChecked)
             }
             .setNegativeButton("Cancel", null).show()
     }

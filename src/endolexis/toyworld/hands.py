@@ -20,7 +20,18 @@ intention the world answers can be read by the words of its answer (the whirr, t
 a guard refuses has no outer echo. Olvasó is never told that it was refused: it only feels that it wanted, and
 finds, or does not find, anything outside to read that wanting by. Unread, the felt intention builds pressure like
 any unread state. (Unlike experiment 13's pain, which is a felt signal of the refusal itself.)
+
+feel_surprise (experiment 30): a missing answer is felt. Learning from answers, Olvasó already expects an answer
+from each hand in the state it is in (`W`). When the moment to judge an intention comes and the world answered
+less than it expected, the shortfall is felt: each hand has a "surprise" trace that rises to the shortfall (in
+units of the world's usual change, at most 1 for a shortfall of 2) and fades by `surprise_fade` a moment. It
+does not say why: a guard's refusal and a world that simply did not answer feel the same. Whether Olvasó comes
+to tell them apart is up to what it senses while it feels the surprise. Only an expected answer that is missing
+is felt; an unexpected answer is not. feel_surprise="shuffled" is the control: the same surprises, felt on a
+random hand 50-500 moments later, when nothing about them goes with the act any more.
 """
+from collections import Counter
+
 import numpy as np
 
 from .readers import ManyReaders
@@ -33,15 +44,22 @@ DETAILS = {"brightness": (0.0, 0.5, 1.0), "tone_soft": (300.0, 900.0), "tone_lou
 class ActingReaders(ManyReaders):
     def __init__(self, sizes, n_felt, learn=None, lr=0.05, temp=0.5, answer_after=3, judge_after=50,
                  answer_by="all", kinds=None, hands=None, details=None, context="felt", feel_intention=False,
-                 intention_fade=0.8, **kw):
+                 intention_fade=0.8, feel_surprise=False, surprise_fade=0.8, **kw):
         # answer_by: "all" - the answer is how much all senses together changed; "sense" - it is the
         # largest change of any one sense (each judged against its own usual change), so that an
         # answer seen by the eyes alone counts as much as one heard
         n_hands = len(hands or KINDS)
         self.feel_intention, self.intention_fade = bool(feel_intention), float(intention_fade)
-        self.n_body = n_felt                          # the body's own inner states; then, if felt, the intentions
-        super().__init__(sizes, n_felt + (n_hands if feel_intention else 0), **kw)
+        self.shuffled = feel_surprise == "shuffled"
+        self.feel_surprise, self.surprise_fade = bool(feel_surprise), float(surprise_fade)
+        self.delayed = []           # with feel_surprise="shuffled": (due, hand, level, act)
+        self.shuffle_rng = np.random.default_rng(kw.get("seed", 0) + 30)
+        self.n_body = n_felt          # the body's own inner states; then, if felt, the intentions, then the surprises
+        super().__init__(sizes, n_felt + n_hands * (int(self.feel_intention) + int(self.feel_surprise)), **kw)
         self.intent = np.zeros(n_hands)
+        self.surprise = np.zeros(n_hands)
+        self.acts = []              # observer only: [t, kind, done or None] per intention (with feel_surprise)
+        self.surprises = []         # observer only: [t, kind, act, level, read, unread, disregarded, Counter of words]
         self.watch = []             # observer only: [t, kind, done or None, read, unread, disregarded] per intention
         self.watch_for = 8          # moments after an intention in which its felt trace is watched
         self.daily = {}             # observer only: per 1000 moments, how the body's states and the intentions fared
@@ -82,8 +100,11 @@ class ActingReaders(ManyReaders):
     def with_intention(self, felt):
         """The body's felt states, and (with feel_intention) the felt intentions after them."""
         felt = np.asarray(felt, float)
-        if self.feel_intention and len(felt) == self.n_body:
-            felt = np.r_[felt, self.intent]
+        if len(felt) == self.n_body:
+            if self.feel_intention:
+                felt = np.r_[felt, self.intent]
+            if self.feel_surprise:
+                felt = np.r_[felt, self.surprise]
         return felt
 
     def read(self, inputs, felt):
@@ -92,11 +113,19 @@ class ActingReaders(ManyReaders):
     def live(self, inputs, felt):
         if self.feel_intention:
             self.intent *= self.intention_fade
+        if self.feel_surprise:
+            self.surprise *= self.surprise_fade
+            while self.delayed and self.delayed[0][0] <= self.t:
+                _, k, level, act = self.delayed.pop(0)
+                self.surprise[k] = max(self.surprise[k], level)
+                self.surprises.append([self.t, k, act, level, 0, 0, 0, Counter()])
         felt = self.with_intention(felt)
         readings = self.read(inputs, felt)
         self._account(readings)
         if self.feel_intention:
             self._watch_intentions(readings)
+        if self.feel_surprise:
+            self._watch_surprises(readings)
         s_z = self._sensed_z(inputs)
         self.s_hist.append(s_z)
         if len(self.s_hist) > self.answer_after + 1:
@@ -117,6 +146,8 @@ class ActingReaders(ManyReaders):
 
         request = None
         x = self.parts[0].fnorm.z(np.asarray(felt, float))
+        if self.feel_surprise:            # a rare surprise is far from its usual level: bounded, as the senses are
+            x[self.n_body:] = np.clip(x[self.n_body:], -3, 3)        # (and so are the felt intentions with it)
         if self.context == "felt+senses":
             x = np.r_[x, np.clip(s_z, -3, 3)]
         elif self.context == "felt+words":
@@ -154,7 +185,10 @@ class ActingReaders(ManyReaders):
         request = (kind, opts[int(self.rng.integers(len(opts)))])
         self.pressure = 0.0
         due = self.answer_after if self.learn == "answer" else self.judge_after
-        self.pending.append((self.t + due, k, x.copy(), s_z.copy(), float(np.mean(self.read_log[-50:]))))
+        act = [self.t, k, None]
+        if self.feel_surprise:
+            self.acts.append(act)
+        self.pending.append((self.t + due, k, x.copy(), s_z.copy(), float(np.mean(self.read_log[-50:])), act))
         self.requests.append((self.t, kind))
         if self.feel_intention:
             self.intent[k] = 1.0                      # felt from the next moment on
@@ -166,6 +200,8 @@ class ActingReaders(ManyReaders):
         """The observer reports whether the last intention was carried out (False: a guard refused it)."""
         if self.watch and self.watch[-1][2] is None:
             self.watch[-1][2] = bool(done)
+        if self.acts and self.acts[-1][2] is None:
+            self.acts[-1][2] = bool(done)
 
     def intention_columns(self, k):
         """Where hand k's felt intention is in the readings: its level, and (adapt_mode "both") its change."""
@@ -175,18 +211,28 @@ class ActingReaders(ManyReaders):
             cols.append(nf_in + self.n_body + k)
         return cols
 
+    def surprise_columns(self, k):
+        """Where hand k's felt surprise is in the readings: its level, and (adapt_mode "both") its change."""
+        nf_in = self.parts[0].nf_in
+        c = self.n_body + len(self.hands) * int(self.feel_intention) + k
+        return [c] + ([nf_in + c] if self.parts[0].nf > nf_in else [])
+
     def body_columns(self):
         nf_in = self.parts[0].nf_in
         return list(range(self.n_body)) + (list(range(nf_in, nf_in + self.n_body)) if self.parts[0].nf > nf_in else [])
 
     def _account(self, readings):
-        d = self.daily.setdefault(self.t // 1000, np.zeros(6))
+        d = self.daily.setdefault(self.t // 1000, np.zeros(8))
         b = readings[self.body_columns()]
-        d += (1, np.sum(b >= 0), np.sum(b != -2), np.sum(b == -1), 0, 0)
+        d += (1, np.sum(b >= 0), np.sum(b != -2), np.sum(b == -1), 0, 0, 0, 0)
         if self.feel_intention:
             cols = [c for k in range(len(self.hands)) for c in self.intention_columns(k)]
             d[4] += np.sum(readings[cols] == -1)
             d[5] += np.sum(readings[cols] >= 0)
+        if self.feel_surprise:
+            cols = [c for k in range(len(self.hands)) for c in self.surprise_columns(k)]
+            d[6] += np.sum(readings[cols] == -1)
+            d[7] += np.sum(readings[cols] >= 0)
 
     def _watch_intentions(self, readings):
         for w in self.watch[-4:]:
@@ -196,13 +242,22 @@ class ActingReaders(ManyReaders):
                 w[4] += int(np.sum(r == -1))
                 w[5] += int(np.sum(r == -2))
 
+    def _watch_surprises(self, readings):
+        for w in self.surprises[-4:]:
+            if 0 < self.t - w[0] <= self.watch_for:
+                r = readings[self.surprise_columns(w[1])]
+                w[4] += int(np.sum(r >= 0))
+                w[5] += int(np.sum(r == -1))
+                w[6] += int(np.sum(r == -2))
+                w[7].update(int(v) for v in r if v >= 0)
+
     def _per_sense(self, a):
         return np.array([a[i:j].mean() for i, j in zip(self.bounds[:-1], self.bounds[1:])])
 
     def _settle(self, s_z):
         """Learn from intentions whose aftermath has now been seen."""
         while self.pending and self.pending[0][0] <= self.t:
-            _, k, x, s_before, read_before = self.pending.pop(0)
+            _, k, x, s_before, read_before, act = self.pending.pop(0)
             if self.learn == "answer" and self.answer_by == "sense":
                 sd = np.sqrt(self.sense_m2 / max(self.change_n - 1, 1)) + 1e-9
                 z = (self._per_sense(np.abs(s_z - s_before)) - self.sense_mu) / sd
@@ -216,7 +271,20 @@ class ActingReaders(ManyReaders):
                 continue
             self.signals.append((k, signal))
             xb = np.r_[x, 1.0]
-            self.W[k] += self.lr * (signal - self.W[k] @ xb) * xb
+            expected = float(self.W[k] @ xb)
+            if self.feel_surprise and self.learn == "answer":
+                level = float(np.clip((expected - signal) / 2.0, 0.0, 1.0))   # an expected answer that is missing
+                if level > 0.05 and self.shuffled:
+                    due = self.t + int(self.shuffle_rng.integers(50, 500))
+                    self.delayed.append((due, int(self.shuffle_rng.integers(len(self.hands))), level, act))
+                    self.delayed.sort(key=lambda d: d[0])
+                elif level > 0.05:
+                    self.surprise[k] = max(self.surprise[k], level)      # felt from the next moment on
+                    self.surprises.append([self.t, k, act, level, 0, 0, 0, Counter()])
+            lr = self.lr
+            if self.feel_surprise:        # with the expectation felt, it must not overshoot: never past the answer
+                lr = min(lr, 1.0 / float(xb @ xb))
+            self.W[k] += lr * (signal - expected) * xb
 
 
 def mind_report(mind, first_day, last_day):
@@ -238,4 +306,44 @@ def mind_report(mind, first_day, last_day):
             seen = sum(x[3] + x[4] for x in w)
             out[f"intention_read_when_{name}"] = float(sum(x[3] for x in w) / seen) if seen else None
             out[f"intentions_{name}"] = len(w)
+    if mind.feel_surprise:
+        out.update(surprise_report(mind, first_day, last_day, days))
+    return out
+
+
+def surprise_report(mind, first_day, last_day, days=None):
+    """The observer's view of the felt surprises (experiment 30): how many, how many came from a refusal (the rest
+    from a world that did not answer an act that was done), how often each was read, and whether the words that
+    read them tell the two causes apart. cause_from_words: how much better the cause is told from the word that
+    read the surprise than with the causes shuffled among the same words (0: not at all, 1: always)."""
+    lo, hi = first_day * 1000, last_day * 1000
+    acts = [a for a in mind.acts if lo <= a[0] < hi and a[2] is not None]
+    ss = [w for w in mind.surprises if lo <= w[0] < hi and w[2][2] is not None]
+    out = {"surprises_per_day": len(ss) / max(1, last_day - first_day),
+           "surprise_after_refused": None, "surprise_after_done": None,
+           "surprise_read_when_refused": None, "surprise_read_when_done": None,
+           "surprises_refused": 0, "surprises_done": 0, "surprise_share_of_unread": None, "cause_from_words": None, "surprises_read": 0}
+    for name, sel in (("refused", False), ("done", True)):
+        n_acts = sum(1 for a in acts if a[2] is sel)
+        w = [x for x in ss if x[2][2] is sel]
+        out[f"surprises_{name}"] = len(w)
+        out[f"surprise_after_{name}"] = len(w) / n_acts if n_acts else None
+        seen = sum(x[4] + x[5] for x in w)
+        out[f"surprise_read_when_{name}"] = float(sum(x[4] for x in w) / seen) if seen else None
+    if days:
+        s = np.sum(days, axis=0)
+        out["surprise_share_of_unread"] = float(s[6] / (s[3] + s[4] + s[6])) if (s[3] + s[4] + s[6]) else 0.0
+    read = [(x[7].most_common(1)[0][0], x[2][2]) for x in ss if x[7]]
+    if len(read) >= 20 and 0 < sum(c for _, c in read) < len(read):
+        def accuracy(pairs):
+            by = {}
+            for word, cause in pairs:
+                by.setdefault(word, Counter())[cause] += 1
+            return sum(c.most_common(1)[0][1] for c in by.values()) / len(pairs)
+        rng = np.random.default_rng(0)
+        words, causes = [w for w, _ in read], [c for _, c in read]
+        chance = np.mean([accuracy(list(zip(words, rng.permutation(causes)))) for _ in range(20)])
+        acc = accuracy(read)
+        out["cause_from_words"] = float((acc - chance) / (1 - chance)) if chance < 1 else 0.0
+        out["surprises_read"] = len(read)
     return out

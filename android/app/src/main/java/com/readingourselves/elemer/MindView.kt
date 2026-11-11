@@ -123,6 +123,19 @@ class MindView(ctx: Context, private val life: Life) : View(ctx) {
                 tag(sn.readings[sn.nIn + 4 + k], W - m - 72 * dp, y)
             }
         }
+        // a missing answer, felt (experiment 30): whether anything outside reads its surprise
+        sn.surprise?.let { surprise ->
+            val at = 4 + (sn.intent?.size ?: 0)
+            y += 28 * dp
+            text("A missing answer, felt", m, y, 13f, darkAmber, serifBold)
+            for (k in surprise.indices) {
+                y += 22 * dp
+                text("missed: " + Kinds.NAMES[k], m, y, 13f, if (surprise[k] > 0.05) ink else faint)
+                text("%.2f".format(surprise[k]), m + 118 * dp, y, 13f, ink, mono)
+                tag(sn.readings[at + k], W - m - 150 * dp, y)
+                tag(sn.readings[sn.nIn + at + k], W - m - 72 * dp, y)
+            }
+        }
         y += 18 * dp
         // pressure
         val bw = W - 2 * m

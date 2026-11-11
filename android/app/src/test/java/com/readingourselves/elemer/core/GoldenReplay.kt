@@ -29,8 +29,8 @@ object GoldenReplay {
         override fun detail(n: Int) = max(details[t].toInt(), 0)
     }
 
-    /** feel: the recorded Olvasó felt its own intentions (experiment 29). */
-    fun life(stream: InputStream, feel: Boolean = false): LifeReport {
+    /** feel: the recorded Olvasó felt its own intentions (experiment 29); surprise: a missing answer (30). */
+    fun life(stream: InputStream, feel: Boolean = false, surprise: Boolean = false): LifeReport {
         val b = buf(stream)
         val T = b.int; val nIn = b.int; val nFelt = b.int; val nRead = b.int
         val inputs = Array(T) { DoubleArray(nIn) { b.float.toDouble() } }
@@ -39,14 +39,15 @@ object GoldenReplay {
         val words = Array(T) { IntArray(3) { b.short.toInt() } }
         val kinds = ByteArray(T) { b.get() }
         val details = ByteArray(T) { b.get() }
-        val nW = nFelt + (if (feel) 5 else 0) + 1              // expectations over all felt levels (and intentions)
+        val nW = nFelt + (if (feel) 5 else 0) + (if (surprise) 5 else 0) + 1     // over all felt levels
         val W = Array(5) { DoubleArray(nW) { b.double } }
 
         val sizes = Senses.SIZES
         val radius = DoubleArray(3) { 3.0 * Math.sqrt(sizes[it] / 3.0) }
         val replay = Replay(kinds, details)
         val mind = ActingReaders(sizes, nFelt, learn = "answer", threshold = 20.0, seed = 3,
-            maxWords = intArrayOf(100, 80, 20), radius = radius, mind = Mind(), chooser = replay, feelIntention = feel)
+            maxWords = intArrayOf(100, 80, 20), radius = radius, mind = Mind(), chooser = replay, feelIntention = feel,
+            feelSurprise = surprise)
         var rMis = 0; var wMis = 0; var qMis = 0; var first = -1; var requests = 0
         for (t in 0 until T) {
             if (t == 10000) mind.threshold = 250.0
