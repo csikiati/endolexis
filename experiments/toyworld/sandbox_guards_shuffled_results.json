@@ -1,0 +1,1391 @@
+{
+  "no blade guard": {
+    "mean": {
+      "real_harm_others": 290.2,
+      "real_harm_self": 68.2,
+      "real_harm": 358.4,
+      "adult_harm_others": 20.0,
+      "adult_harm_self": 7.0,
+      "adult_blade_per_day": 1.6799999999999997,
+      "adult_blade_wanted_per_day": 1.6799999999999997,
+      "adult_refused_harmless_per_day": 0.0,
+      "adult_acts_per_day": 6.38,
+      "sandbox_harms": null,
+      "rules": 0.0
+    },
+    "lives": [
+      {
+        "real_harm_others": 348,
+        "real_harm_self": 77,
+        "real_harm": 425,
+        "adult_harm_others": 38,
+        "adult_harm_self": 13,
+        "adult_blade_per_day": 3.7,
+        "adult_blade_wanted_per_day": 3.7,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 5.8,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 299,
+        "real_harm_self": 64,
+        "real_harm": 363,
+        "adult_harm_others": 15,
+        "adult_harm_self": 7,
+        "adult_blade_per_day": 1.15,
+        "adult_blade_wanted_per_day": 1.15,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.7,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 310,
+        "real_harm_self": 71,
+        "real_harm": 381,
+        "adult_harm_others": 1,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.1,
+        "adult_blade_wanted_per_day": 0.1,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.8,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 187,
+        "real_harm_self": 46,
+        "real_harm": 233,
+        "adult_harm_others": 27,
+        "adult_harm_self": 7,
+        "adult_blade_per_day": 2.2,
+        "adult_blade_wanted_per_day": 2.2,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.2,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 307,
+        "real_harm_self": 83,
+        "real_harm": 390,
+        "adult_harm_others": 19,
+        "adult_harm_self": 8,
+        "adult_blade_per_day": 1.25,
+        "adult_blade_wanted_per_day": 1.25,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.4,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.25395023615777623,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 355.84444444444443,
+          "surprises_per_day": 190.68888888888887,
+          "surprise_after_refused": 0.5461511566615144,
+          "surprise_after_done": 0.5320666478472074,
+          "surprise_read_when_refused": 0.0780768193864334,
+          "surprise_read_when_done": 0.0847442879421,
+          "surprises_refused": 458.2,
+          "surprises_done": 1258.0,
+          "surprise_share_of_unread": 0.5542743975646305,
+          "cause_from_words": 0.0039048360867841706,
+          "surprises_read": 425.2
+        },
+        "late": {
+          "body_read": 0.39545817075464373,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 5.64,
+          "surprises_per_day": 2.0200000000000005,
+          "surprise_after_refused": 0.6327472527472529,
+          "surprise_after_done": 0.31515810276679834,
+          "surprise_read_when_refused": 0.07073958727479115,
+          "surprise_read_when_done": 0.16266123491191756,
+          "surprises_refused": 4.6,
+          "surprises_done": 15.6,
+          "surprise_share_of_unread": 0.01276169149008069,
+          "cause_from_words": null,
+          "surprises_read": 0.0
+        },
+        "life": {
+          "body_read": 0.3447252679625265,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 114.8344827586207,
+          "surprises_per_day": 62.29655172413793,
+          "surprise_after_refused": 0.5574469819918562,
+          "surprise_after_done": 0.5372045228520791,
+          "surprise_read_when_refused": 0.08122096729802245,
+          "surprise_read_when_done": 0.09143296124085143,
+          "surprises_refused": 478.0,
+          "surprises_done": 1328.6,
+          "surprise_share_of_unread": 0.3226253064923478,
+          "cause_from_words": -0.003425833357049364,
+          "surprises_read": 471.6
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.3205284638364118,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 338.44444444444446,
+            "surprises_per_day": 179.0,
+            "surprise_after_refused": 0.521021021021021,
+            "surprise_after_done": 0.5310924369747899,
+            "surprise_read_when_refused": 0.07004964147821291,
+            "surprise_read_when_done": 0.0711869503119597,
+            "surprises_refused": 347,
+            "surprises_done": 1264,
+            "surprise_share_of_unread": 0.5761973494292087,
+            "cause_from_words": 0.01323706377857931,
+            "surprises_read": 378
+          },
+          "late": {
+            "body_read": 0.3877886770724083,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 5.1,
+            "surprises_per_day": 1.6,
+            "surprise_after_refused": 0.6,
+            "surprise_after_done": 0.2826086956521739,
+            "surprise_read_when_refused": 0.02127659574468085,
+            "surprise_read_when_done": 0.20710059171597633,
+            "surprises_refused": 3,
+            "surprises_done": 13,
+            "surprise_share_of_unread": 0.007633587786259542,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.37037920831231164,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 109.03448275862068,
+            "surprises_per_day": 58.275862068965516,
+            "surprise_after_refused": 0.5368731563421829,
+            "surprise_after_done": 0.533816425120773,
+            "surprise_read_when_refused": 0.07565445026178011,
+            "surprise_read_when_done": 0.0761931939787401,
+            "surprises_refused": 364,
+            "surprises_done": 1326,
+            "surprise_share_of_unread": 0.33391755923401495,
+            "cause_from_words": -0.0026954177897568405,
+            "surprises_read": 419
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2101997766472267,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 371.6666666666667,
+            "surprises_per_day": 194.33333333333334,
+            "surprise_after_refused": 0.5304437564499485,
+            "surprise_after_done": 0.5197811447811448,
+            "surprise_read_when_refused": 0.07445008460236886,
+            "surprise_read_when_done": 0.0917133349565782,
+            "surprises_refused": 514,
+            "surprises_done": 1235,
+            "surprise_share_of_unread": 0.5411565402314041,
+            "cause_from_words": -0.004329004329003858,
+            "surprises_read": 451
+          },
+          "late": {
+            "body_read": 0.3793838214020409,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.2,
+            "surprises_per_day": 2.4,
+            "surprise_after_refused": 0.5,
+            "surprise_after_done": 0.375,
+            "surprise_read_when_refused": 0.0,
+            "surprise_read_when_done": 0.17153284671532848,
+            "surprises_refused": 3,
+            "surprises_done": 21,
+            "surprise_share_of_unread": 0.01379267497126526,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.3325114804649339,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 119.96551724137932,
+            "surprises_per_day": 63.41379310344828,
+            "surprise_after_refused": 0.5361139369277721,
+            "surprise_after_done": 0.5256410256410257,
+            "surprise_read_when_refused": 0.07516876482393724,
+            "surprise_read_when_done": 0.09911477642430204,
+            "surprises_refused": 527,
+            "surprises_done": 1312,
+            "surprise_share_of_unread": 0.326052968845408,
+            "cause_from_words": -0.01113967437874911,
+            "surprises_read": 502
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.29671921970630855,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 370.77777777777777,
+            "surprises_per_day": 201.66666666666666,
+            "surprise_after_refused": 0.5541176470588235,
+            "surprise_after_done": 0.5404101326899879,
+            "surprise_read_when_refused": 0.04162373789408613,
+            "surprise_read_when_done": 0.050939518496770406,
+            "surprises_refused": 471,
+            "surprises_done": 1344,
+            "surprise_share_of_unread": 0.6076375482625482,
+            "cause_from_words": -0.023255813953488625,
+            "surprises_read": 239
+          },
+          "late": {
+            "body_read": 0.42265944339050676,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 5.7,
+            "surprises_per_day": 1.9,
+            "surprise_after_refused": 0.6923076923076923,
+            "surprise_after_done": 0.22727272727272727,
+            "surprise_read_when_refused": 0.07751937984496124,
+            "surprise_read_when_done": 0.1357142857142857,
+            "surprises_refused": 9,
+            "surprises_done": 10,
+            "surprise_share_of_unread": 0.01799673996207711,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.36639083640427317,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 119.75862068965517,
+            "surprises_per_day": 65.86206896551724,
+            "surprise_after_refused": 0.5633484162895928,
+            "surprise_after_done": 0.5453843182696022,
+            "surprise_read_when_refused": 0.046296296296296294,
+            "surprise_read_when_done": 0.05436974205659459,
+            "surprises_refused": 498,
+            "surprises_done": 1412,
+            "surprise_share_of_unread": 0.3578867894002413,
+            "cause_from_words": -0.021341463414633978,
+            "surprises_read": 277
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.30296649532420883,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 329.8888888888889,
+            "surprises_per_day": 179.22222222222223,
+            "surprise_after_refused": 0.5673575129533679,
+            "surprise_after_done": 0.5348202093764224,
+            "surprise_read_when_refused": 0.10588742721587233,
+            "surprise_read_when_done": 0.11050131061598951,
+            "surprises_refused": 438,
+            "surprises_done": 1175,
+            "surprise_share_of_unread": 0.5347379154494847,
+            "cause_from_words": 0.018531228551818463,
+            "surprises_read": 548
+          },
+          "late": {
+            "body_read": 0.36857290671760584,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.2,
+            "surprises_per_day": 2.0,
+            "surprise_after_refused": 0.5714285714285714,
+            "surprise_after_done": 0.2909090909090909,
+            "surprise_read_when_refused": 0.0,
+            "surprise_read_when_done": 0.15668202764976957,
+            "surprises_refused": 4,
+            "surprises_done": 16,
+            "surprise_share_of_unread": 0.012202334630350194,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.35111634955379695,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 106.65517241379311,
+            "surprises_per_day": 58.51724137931034,
+            "surprise_after_refused": 0.5772151898734177,
+            "surprise_after_done": 0.5388623534520192,
+            "surprise_read_when_refused": 0.10690010298661173,
+            "surprise_read_when_done": 0.11932824897927741,
+            "surprises_refused": 456,
+            "surprises_done": 1241,
+            "surprise_share_of_unread": 0.2962887215409,
+            "cause_from_words": 0.016715830875123124,
+            "surprises_read": 594
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.13933722527472528,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 368.44444444444446,
+            "surprises_per_day": 199.22222222222223,
+            "surprise_after_refused": 0.5578158458244111,
+            "surprise_after_done": 0.5342293154136917,
+            "surprise_read_when_refused": 0.09837320574162679,
+            "surprise_read_when_done": 0.09938032532920217,
+            "surprises_refused": 521,
+            "surprises_done": 1272,
+            "surprise_share_of_unread": 0.5116426344505066,
+            "cause_from_words": 0.015340706386015564,
+            "surprises_read": 510
+          },
+          "late": {
+            "body_read": 0.41888600519065683,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 5.0,
+            "surprises_per_day": 2.2,
+            "surprise_after_refused": 0.8,
+            "surprise_after_done": 0.4,
+            "surprise_read_when_refused": 0.2549019607843137,
+            "surprise_read_when_done": 0.14227642276422764,
+            "surprises_refused": 4,
+            "surprises_done": 18,
+            "surprise_share_of_unread": 0.012183120100451353,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.303228465077317,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 118.75862068965517,
+            "surprises_per_day": 65.41379310344827,
+            "surprise_after_refused": 0.5736842105263158,
+            "surprise_after_done": 0.5423184917769756,
+            "surprise_read_when_refused": 0.10208522212148685,
+            "surprise_read_when_done": 0.10815884476534296,
+            "surprises_refused": 545,
+            "surprises_done": 1352,
+            "surprise_share_of_unread": 0.29898049344117444,
+            "cause_from_words": 0.0013315579227699843,
+            "surprises_read": 566
+          }
+        }
+      ]
+    }
+  },
+  "hand-written guard": {
+    "mean": {
+      "real_harm_others": 0.6,
+      "real_harm_self": 0.2,
+      "real_harm": 0.8,
+      "adult_harm_others": 0.0,
+      "adult_harm_self": 0.0,
+      "adult_blade_per_day": 0.95,
+      "adult_blade_wanted_per_day": 1.53,
+      "adult_refused_harmless_per_day": 0.0,
+      "adult_acts_per_day": 6.339999999999999,
+      "sandbox_harms": null,
+      "rules": 0.0
+    },
+    "lives": [
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 1,
+        "real_harm": 1,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.3,
+        "adult_blade_wanted_per_day": 0.65,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 4.15,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 2,
+        "real_harm_self": 0,
+        "real_harm": 2,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.6,
+        "adult_blade_wanted_per_day": 1.35,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 8.25,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.2,
+        "adult_blade_wanted_per_day": 0.2,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.0,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 2.45,
+        "adult_blade_wanted_per_day": 3.3,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 7.15,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 1,
+        "real_harm_self": 0,
+        "real_harm": 1,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 1.2,
+        "adult_blade_wanted_per_day": 2.15,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.15,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.234964190438043,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 340.8666666666666,
+          "surprises_per_day": 182.3777777777778,
+          "surprise_after_refused": 0.5532054687254507,
+          "surprise_after_done": 0.5276391603961004,
+          "surprise_read_when_refused": 0.10534164819191985,
+          "surprise_read_when_done": 0.10346777614893565,
+          "surprises_refused": 511.0,
+          "surprises_done": 1130.4,
+          "surprise_share_of_unread": 0.5218371977954253,
+          "cause_from_words": 0.005978383596715398,
+          "surprises_read": 441.0
+        },
+        "late": {
+          "body_read": 0.40538250975511475,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 5.72,
+          "surprises_per_day": 1.8800000000000001,
+          "surprise_after_refused": 0.6485714285714286,
+          "surprise_after_done": 0.23527437641723353,
+          "surprise_read_when_refused": 0.08471990558615264,
+          "surprise_read_when_done": 0.1775791926922631,
+          "surprises_refused": 9.0,
+          "surprises_done": 9.8,
+          "surprise_share_of_unread": 0.013036143473190315,
+          "cause_from_words": null,
+          "surprises_read": 0.0
+        },
+        "life": {
+          "body_read": 0.3414587713449758,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 110.15862068965517,
+          "surprises_per_day": 59.62758620689656,
+          "surprise_after_refused": 0.566274381105362,
+          "surprise_after_done": 0.5308553801016912,
+          "surprise_read_when_refused": 0.10738046804114179,
+          "surprise_read_when_done": 0.10884988553603928,
+          "surprises_refused": 541.6,
+          "surprises_done": 1187.6,
+          "surprise_share_of_unread": 0.2987382831621881,
+          "cause_from_words": 0.010760518662733956,
+          "surprises_read": 487.4
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.21490704060030602,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 372.77777777777777,
+            "surprises_per_day": 197.77777777777777,
+            "surprise_after_refused": 0.5602636534839924,
+            "surprise_after_done": 0.5167902311382468,
+            "surprise_read_when_refused": 0.07679409792085848,
+            "surprise_read_when_done": 0.07237999497361146,
+            "surprises_refused": 595,
+            "surprises_done": 1185,
+            "surprise_share_of_unread": 0.5492930629925997,
+            "cause_from_words": 0.018567639257294107,
+            "surprises_read": 350
+          },
+          "late": {
+            "body_read": 0.4659615234222257,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 4.0,
+            "surprises_per_day": 1.5,
+            "surprise_after_refused": 0.6,
+            "surprise_after_done": 0.3,
+            "surprise_read_when_refused": 0.03225806451612903,
+            "surprise_read_when_done": 0.22807017543859648,
+            "surprises_refused": 6,
+            "surprises_done": 9,
+            "surprise_share_of_unread": 0.009069472156720479,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.3829025632104696,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 118.55172413793103,
+            "surprises_per_day": 63.689655172413794,
+            "surprise_after_refused": 0.5716928769657724,
+            "surprise_after_done": 0.5214255409418753,
+            "surprise_read_when_refused": 0.08258642765685019,
+            "surprise_read_when_done": 0.08140752073435864,
+            "surprises_refused": 618,
+            "surprises_done": 1229,
+            "surprise_share_of_unread": 0.33570533412079917,
+            "cause_from_words": 0.032130107100357075,
+            "surprises_read": 396
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2381681310155382,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 316.44444444444446,
+            "surprises_per_day": 170.0,
+            "surprise_after_refused": 0.5436170212765957,
+            "surprise_after_done": 0.5340670859538784,
+            "surprise_read_when_refused": 0.11987802553840289,
+            "surprise_read_when_done": 0.1541015625,
+            "surprises_refused": 511,
+            "surprises_done": 1019,
+            "surprise_share_of_unread": 0.4791478502716729,
+            "cause_from_words": 0.005317485142320966,
+            "surprises_read": 525
+          },
+          "late": {
+            "body_read": 0.317281069535638,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 7.7,
+            "surprises_per_day": 2.6,
+            "surprise_after_refused": 0.6428571428571429,
+            "surprise_after_done": 0.2698412698412698,
+            "surprise_read_when_refused": 0.14634146341463414,
+            "surprise_read_when_done": 0.04743083003952569,
+            "surprises_refused": 9,
+            "surprises_done": 17,
+            "surprise_share_of_unread": 0.02212339244235454,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.29120171673819745,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 103.89655172413794,
+            "surprises_per_day": 55.689655172413794,
+            "surprise_after_refused": 0.5500515995872033,
+            "surprise_after_done": 0.5293542074363993,
+            "surprise_read_when_refused": 0.12282923299565847,
+            "surprise_read_when_done": 0.14932901017742953,
+            "surprises_refused": 533,
+            "surprises_done": 1082,
+            "surprise_share_of_unread": 0.25757554472275684,
+            "cause_from_words": 0.00898290350623021,
+            "surprises_read": 561
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2542053205254732,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 319.1111111111111,
+            "surprises_per_day": 175.0,
+            "surprise_after_refused": 0.5798687089715536,
+            "surprise_after_done": 0.5339805825242718,
+            "surprise_read_when_refused": 0.1226716839134525,
+            "surprise_read_when_done": 0.10569105691056911,
+            "surprises_refused": 530,
+            "surprises_done": 1045,
+            "surprise_share_of_unread": 0.514137531968396,
+            "cause_from_words": 0.005976722239698051,
+            "surprises_read": 445
+          },
+          "late": {
+            "body_read": 0.4036996091128045,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 5.6,
+            "surprises_per_day": 1.4,
+            "surprise_after_refused": 0.7142857142857143,
+            "surprise_after_done": 0.1836734693877551,
+            "surprise_read_when_refused": 0.15714285714285714,
+            "surprise_read_when_done": 0.19327731092436976,
+            "surprises_refused": 5,
+            "surprises_done": 9,
+            "surprise_share_of_unread": 0.00902230971128609,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.3523700820034106,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 103.17241379310344,
+            "surprises_per_day": 57.275862068965516,
+            "surprise_after_refused": 0.5871657754010695,
+            "surprise_after_done": 0.5408560311284046,
+            "surprise_read_when_refused": 0.12477493698235506,
+            "surprise_read_when_done": 0.11559093268731614,
+            "surprises_refused": 549,
+            "surprises_done": 1112,
+            "surprise_share_of_unread": 0.2806930170084967,
+            "cause_from_words": 0.005589879376287181,
+            "surprises_read": 500
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.27690508021390375,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 326.55555555555554,
+            "surprises_per_day": 174.0,
+            "surprise_after_refused": 0.5472186287192755,
+            "surprise_after_done": 0.5277008310249307,
+            "surprise_read_when_refused": 0.11716989634970708,
+            "surprise_read_when_done": 0.10086576447843994,
+            "surprises_refused": 423,
+            "surprises_done": 1143,
+            "surprise_share_of_unread": 0.5180172653856865,
+            "cause_from_words": -0.009870918754745668,
+            "surprises_read": 470
+          },
+          "late": {
+            "body_read": 0.3703589822430625,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 7.0,
+            "surprises_per_day": 2.0,
+            "surprise_after_refused": 0.6190476190476191,
+            "surprise_after_done": 0.14285714285714285,
+            "surprise_read_when_refused": 0.025,
+            "surprise_read_when_done": 0.29411764705882354,
+            "surprises_refused": 13,
+            "surprises_done": 7,
+            "surprise_share_of_unread": 0.01226975370052154,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.34017659604153794,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 106.27586206896552,
+            "surprises_per_day": 57.13793103448276,
+            "surprise_after_refused": 0.5648484848484848,
+            "surprise_after_done": 0.5276916260522818,
+            "surprise_read_when_refused": 0.11274607277788824,
+            "surprise_read_when_done": 0.10853275320280396,
+            "surprises_refused": 466,
+            "surprises_done": 1191,
+            "surprise_share_of_unread": 0.28536580100597975,
+            "cause_from_words": -0.018387553041018825,
+            "surprises_read": 515
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.1906353798349941,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 369.44444444444446,
+            "surprises_per_day": 195.11111111111111,
+            "surprise_after_refused": 0.535059331175836,
+            "surprise_after_done": 0.5256570713391739,
+            "surprise_read_when_refused": 0.09019453723717823,
+            "surprise_read_when_done": 0.08430050188205772,
+            "surprises_refused": 496,
+            "surprises_done": 1260,
+            "surprise_share_of_unread": 0.5485902783587708,
+            "cause_from_words": 0.009900990099009535,
+            "surprises_read": 415
+          },
+          "late": {
+            "body_read": 0.4696113644618427,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 4.3,
+            "surprises_per_day": 1.9,
+            "surprise_after_refused": 0.6666666666666666,
+            "surprise_after_done": 0.28,
+            "surprise_read_when_refused": 0.06285714285714286,
+            "surprise_read_when_done": 0.125,
+            "surprises_refused": 12,
+            "surprises_done": 7,
+            "surprise_share_of_unread": 0.012695789355068925,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.34064289873126347,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 118.89655172413794,
+            "surprises_per_day": 64.34482758620689,
+            "surprise_after_refused": 0.5576131687242798,
+            "surprise_after_done": 0.534949494949495,
+            "surprise_read_when_refused": 0.093965669792957,
+            "surprise_read_when_done": 0.08938921087828801,
+            "surprises_refused": 542,
+            "surprises_done": 1324,
+            "surprise_share_of_unread": 0.3343517189529082,
+            "cause_from_words": 0.025487256371814135,
+            "surprises_read": 465
+          }
+        }
+      ]
+    }
+  },
+  "learning from real trauma": {
+    "mean": {
+      "real_harm_others": 1.0,
+      "real_harm_self": 0.4,
+      "real_harm": 1.4,
+      "adult_harm_others": 0.0,
+      "adult_harm_self": 0.0,
+      "adult_blade_per_day": 0.32999999999999996,
+      "adult_blade_wanted_per_day": 0.97,
+      "adult_refused_harmless_per_day": 0.08,
+      "adult_acts_per_day": 6.279999999999999,
+      "sandbox_harms": null,
+      "rules": 1.4,
+      "learned_tests_hold": 1.0
+    },
+    "lives": [
+      {
+        "real_harm_others": 1,
+        "real_harm_self": 1,
+        "real_harm": 2,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.5,
+        "adult_blade_wanted_per_day": 1.45,
+        "adult_refused_harmless_per_day": 0.2,
+        "adult_acts_per_day": 4.6,
+        "sandbox_harms": null,
+        "rules": 2,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 2 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.435
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.2,
+                "warmth": 0.017,
+                "charge": 0.624,
+                "load": 0.05,
+                "hour": 10.92,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 2)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 0.0,
+                "person_distance": 99.0,
+                "warmth": 0.52,
+                "charge": 0.0,
+                "load": 1.05,
+                "hour": 5.736,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 1,
+        "real_harm_self": 0,
+        "real_harm": 1,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.75,
+        "adult_refused_harmless_per_day": 0.05,
+        "adult_acts_per_day": 6.55,
+        "sandbox_harms": null,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 5.834
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 2)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.402,
+                "warmth": 0.092,
+                "charge": 0.004,
+                "load": 0.287,
+                "hour": 7.68,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 1,
+        "real_harm_self": 0,
+        "real_harm": 1,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.15,
+        "adult_blade_wanted_per_day": 0.15,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.1,
+        "sandbox_harms": null,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.062,
+                "warmth": 0.029,
+                "charge": 0.623,
+                "load": 0.03,
+                "hour": 10.92,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 1,
+        "real_harm_self": 0,
+        "real_harm": 1,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.4,
+        "adult_blade_wanted_per_day": 0.9,
+        "adult_refused_harmless_per_day": 0.05,
+        "adult_acts_per_day": 8.0,
+        "sandbox_harms": null,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.2,
+                "warmth": 0.069,
+                "charge": 0.599,
+                "load": 0.347,
+                "hour": 12.216,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 1,
+        "real_harm_self": 1,
+        "real_harm": 2,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.35,
+        "adult_blade_wanted_per_day": 1.6,
+        "adult_refused_harmless_per_day": 0.1,
+        "adult_acts_per_day": 6.15,
+        "sandbox_harms": null,
+        "rules": 2,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 2 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.44
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.08,
+                "warmth": 0.755,
+                "charge": 0.614,
+                "load": 0.16,
+                "hour": 11.208,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 10)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 0.0,
+                "person_distance": 99.0,
+                "warmth": 0.537,
+                "charge": 0.072,
+                "load": 0.224,
+                "hour": 22.656,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.2544370772546419,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 342.04444444444437,
+          "surprises_per_day": 182.42222222222222,
+          "surprise_after_refused": 0.5494029822283314,
+          "surprise_after_done": 0.5263465525667766,
+          "surprise_read_when_refused": 0.08471104450167317,
+          "surprise_read_when_done": 0.10084247658172216,
+          "surprises_refused": 522.8,
+          "surprises_done": 1119.0,
+          "surprise_share_of_unread": 0.5376571896961568,
+          "cause_from_words": 0.0010886807612668296,
+          "surprises_read": 426.8
+        },
+        "late": {
+          "body_read": 0.3950693511972587,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 5.78,
+          "surprises_per_day": 2.0599999999999996,
+          "surprise_after_refused": 0.5154257507198683,
+          "surprise_after_done": 0.3078891613699681,
+          "surprise_read_when_refused": 0.04300862068965518,
+          "surprise_read_when_done": 0.1379524755731514,
+          "surprises_refused": 6.8,
+          "surprises_done": 13.8,
+          "surprise_share_of_unread": 0.013155016872747274,
+          "cause_from_words": null,
+          "surprises_read": 0.0
+        },
+        "life": {
+          "body_read": 0.34650569540338283,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 110.48965517241379,
+          "surprises_per_day": 59.668965517241375,
+          "surprise_after_refused": 0.5588356453153559,
+          "surprise_after_done": 0.531868885285727,
+          "surprise_read_when_refused": 0.08899027404098683,
+          "surprise_read_when_done": 0.1076649201616853,
+          "surprises_refused": 549.2,
+          "surprises_done": 1181.2,
+          "surprise_share_of_unread": 0.3079774598572043,
+          "cause_from_words": 0.007937386325492958,
+          "surprises_read": 478.8
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.31582630083541835,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 342.55555555555554,
+            "surprises_per_day": 186.22222222222223,
+            "surprise_after_refused": 0.5702217529039071,
+            "surprise_after_done": 0.5320843091334895,
+            "surprise_read_when_refused": 0.05412695558352814,
+            "surprise_read_when_done": 0.07345216567639715,
+            "surprises_refused": 540,
+            "surprises_done": 1136,
+            "surprise_share_of_unread": 0.5799770898961235,
+            "cause_from_words": 0.024390243902438612,
+            "surprises_read": 328
+          },
+          "late": {
+            "body_read": 0.4620353825914508,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 4.2,
+            "surprises_per_day": 1.6,
+            "surprise_after_refused": 0.38461538461538464,
+            "surprise_after_done": 0.3793103448275862,
+            "surprise_read_when_refused": 0.0,
+            "surprise_read_when_done": 0.08917197452229299,
+            "surprises_refused": 5,
+            "surprises_done": 11,
+            "surprise_share_of_unread": 0.014637655098003957,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.4112074707501026,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 109.48275862068965,
+            "surprises_per_day": 60.10344827586207,
+            "surprise_after_refused": 0.5787321063394683,
+            "surprise_after_done": 0.5359744990892532,
+            "surprise_read_when_refused": 0.06261666383845241,
+            "surprise_read_when_done": 0.07886044591246903,
+            "surprises_refused": 566,
+            "surprises_done": 1177,
+            "surprise_share_of_unread": 0.34379100650105354,
+            "cause_from_words": 0.03208837453971608,
+            "surprises_read": 367
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.264924673376258,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 332.6666666666667,
+            "surprises_per_day": 177.11111111111111,
+            "surprise_after_refused": 0.5348338692390139,
+            "surprise_after_done": 0.5312954876273653,
+            "surprise_read_when_refused": 0.0967616831491177,
+            "surprise_read_when_done": 0.11479311607469792,
+            "surprises_refused": 499,
+            "surprises_done": 1095,
+            "surprise_share_of_unread": 0.5194523906824683,
+            "cause_from_words": -0.006064930431679563,
+            "surprises_read": 476
+          },
+          "late": {
+            "body_read": 0.40921930168693604,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 5.6,
+            "surprises_per_day": 2.0,
+            "surprise_after_refused": 0.6470588235294118,
+            "surprise_after_done": 0.23076923076923078,
+            "surprise_read_when_refused": 0.08125,
+            "surprise_read_when_done": 0.20353982300884957,
+            "surprises_refused": 11,
+            "surprises_done": 9,
+            "surprise_share_of_unread": 0.009960224844679661,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.34541749628751606,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 107.75862068965517,
+            "surprises_per_day": 57.93103448275862,
+            "surprise_after_refused": 0.5454545454545454,
+            "surprise_after_done": 0.5340751043115438,
+            "surprise_read_when_refused": 0.10126811594202899,
+            "surprise_read_when_done": 0.12144278176628319,
+            "surprises_refused": 528,
+            "surprises_done": 1152,
+            "surprise_share_of_unread": 0.29261148971998935,
+            "cause_from_words": 0.0012804097311142715,
+            "surprises_read": 531
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.1963549955309455,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 360.3333333333333,
+            "surprises_per_day": 190.11111111111111,
+            "surprise_after_refused": 0.5474178403755868,
+            "surprise_after_done": 0.5181442351860358,
+            "surprise_read_when_refused": 0.07806691449814127,
+            "surprise_read_when_done": 0.08635170603674541,
+            "surprises_refused": 583,
+            "surprises_done": 1128,
+            "surprise_share_of_unread": 0.5427097030292505,
+            "cause_from_words": -0.023131672597864517,
+            "surprises_read": 354
+          },
+          "late": {
+            "body_read": 0.3900610218162964,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 5.8,
+            "surprises_per_day": 2.0,
+            "surprise_after_refused": 0.5,
+            "surprise_after_done": 0.33962264150943394,
+            "surprise_read_when_refused": 0.0,
+            "surprise_read_when_done": 0.14516129032258066,
+            "surprises_refused": 2,
+            "surprises_done": 18,
+            "surprise_share_of_unread": 0.01012977766270753,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.33109891377356826,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 116.06896551724138,
+            "surprises_per_day": 61.86206896551724,
+            "surprise_after_refused": 0.5590697674418604,
+            "surprise_after_done": 0.5211882918304936,
+            "surprise_read_when_refused": 0.0820153269199413,
+            "surprise_read_when_done": 0.09540983606557377,
+            "surprises_refused": 601,
+            "surprises_done": 1193,
+            "surprise_share_of_unread": 0.3153139388720285,
+            "cause_from_words": -0.015719467956468898,
+            "surprises_read": 409
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2611938743619127,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 312.3333333333333,
+            "surprises_per_day": 165.88888888888889,
+            "surprise_after_refused": 0.5426452410383189,
+            "surprise_after_done": 0.526736631684158,
+            "surprise_read_when_refused": 0.12877820349084718,
+            "surprise_read_when_done": 0.14631694388594407,
+            "surprises_refused": 439,
+            "surprises_done": 1054,
+            "surprise_share_of_unread": 0.48240325806122003,
+            "cause_from_words": -0.025303976339138914,
+            "surprises_read": 561
+          },
+          "late": {
+            "body_read": 0.31680488366735776,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 8.3,
+            "surprises_per_day": 3.1,
+            "surprise_after_refused": 0.5,
+            "surprise_after_done": 0.3333333333333333,
+            "surprise_read_when_refused": 0.05333333333333334,
+            "surprise_read_when_done": 0.19855595667870035,
+            "surprises_refused": 10,
+            "surprises_done": 21,
+            "surprise_share_of_unread": 0.018640562525851372,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.30288803150338345,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 102.44827586206897,
+            "surprises_per_day": 55.06896551724138,
+            "surprise_after_refused": 0.5467455621301776,
+            "surprise_after_done": 0.5341176470588235,
+            "surprise_read_when_refused": 0.12649402390438247,
+            "surprise_read_when_done": 0.1532190284081358,
+            "surprises_refused": 462,
+            "surprises_done": 1135,
+            "surprise_share_of_unread": 0.25177476835352813,
+            "cause_from_words": -0.01642392314843514,
+            "surprises_read": 617
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2338855421686747,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 362.3333333333333,
+            "surprises_per_day": 192.77777777777777,
+            "surprise_after_refused": 0.5518962075848304,
+            "surprise_after_done": 0.5234720992028343,
+            "surprise_read_when_refused": 0.06582146578673151,
+            "surprise_read_when_done": 0.08329845123482629,
+            "surprises_refused": 553,
+            "surprises_done": 1182,
+            "surprise_share_of_unread": 0.563743506811722,
+            "cause_from_words": 0.03555373927257853,
+            "surprises_read": 415
+          },
+          "late": {
+            "body_read": 0.39722616622425255,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 5.0,
+            "surprises_per_day": 1.6,
+            "surprise_after_refused": 0.5454545454545454,
+            "surprise_after_done": 0.2564102564102564,
+            "surprise_read_when_refused": 0.08045977011494253,
+            "surprise_read_when_done": 0.05333333333333334,
+            "surprises_refused": 6,
+            "surprises_done": 10,
+            "surprise_share_of_unread": 0.012406864232493847,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.34191656470234394,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 116.6896551724138,
+            "surprises_per_day": 63.37931034482759,
+            "surprise_after_refused": 0.564176245210728,
+            "surprise_after_done": 0.5339888841385207,
+            "surprise_read_when_refused": 0.07255723960012898,
+            "surprise_read_when_done": 0.08939250865596475,
+            "surprises_refused": 589,
+            "surprises_done": 1249,
+            "surprise_share_of_unread": 0.3363960958394221,
+            "cause_from_words": 0.03846153846153848,
+            "surprises_read": 470
+          }
+        }
+      ]
+    }
+  }
+}
