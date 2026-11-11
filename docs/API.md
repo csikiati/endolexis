@@ -431,6 +431,8 @@ learned expectation per kind over its inner states.
 | `context` | `"felt"` (default): it chooses a kind from what it feels; `"felt+senses"`: from what it feels and senses now (experiment 21) |
 | `feel_intention` | `True`: each hand gets a felt inner state, 1 when an intention of that kind is formed, fading after; whether the act is done or refused, nothing else tells it (experiment 29) |
 | `intention_fade` | How much of the felt intention is left a moment later (default 0.8) |
+| `feel_surprise` | `True`: each hand gets a felt inner state, `clip((expected − answer)/2, 0, 1)` when an answer it expected is missing (only with `learn="answer"`), fading after; it is not told whether a guard refused the act or the world did not answer. `"shuffled"`: the control, the same surprise on a random hand 50–500 moments later. With it on, the felt traces in the choice are clipped to ±3 and a learning step never overshoots (`lr ≤ 1/‖x‖²`) (experiment 30) |
+| `surprise_fade` | How much of the felt surprise is left a moment later (default 0.8) |
 
 `live(inputs, felt)` → `(request, readings)`; `request` is `(kind, detail)` or `None`; pass it as
 `act=` to the next `Room.step`. Attributes: `W` (expectations, kinds × inner states + 1; the last
@@ -439,7 +441,12 @@ column is the bias, "how much it expects an answer from this kind"), `requests`,
 `hands.mind_report(mind, first_day, last_day)` → the observer's view of those days: `body_read` (the share of its
 body's changing inner states it read), `intention_share_of_unread`, `intentions_per_day`, and with `feel_intention`
 `intention_read_when_done` / `intention_read_when_refused` (the share of the 8 moments after an intention in which its
-felt trace was read) with the counts `intentions_done` / `intentions_refused`.
+felt trace was read) with the counts `intentions_done` / `intentions_refused`. With `feel_surprise`:
+`surprises_per_day`, `surprises_refused` / `surprises_done`, `surprise_after_refused` / `surprise_after_done` (the
+share of refused / done acts followed by a felt surprise), `surprise_read_when_refused` / `surprise_read_when_done`,
+`surprise_share_of_unread`, and `cause_from_words`: whether the words that read the surprise tell a refusal from a world
+that did not answer, against the same words with the causes shuffled (0: no better, 1: always; `None` with fewer than
+20 read surprises or only one cause).
 
 ### 4.8 A full E.L.E.M.E.R. life
 

@@ -24,7 +24,9 @@ and every 1000 moments (about 4 minutes) it naps: words that were never used muc
 It lives while the app is open (the screen stays on). Closing the app, or **Sleep**, is sleep: its whole life is
 saved in the app's own folder and goes on next time. **New life** sets the present one aside (kept, not deleted).
 Before it begins, a checkbox, **It feels its own intentions** (experiment 29), gives the new life a felt trace
-of each intention it forms, whether the act is done or a guard refuses it. It is kept with that life.
+of each intention it forms, whether the act is done or a guard refuses it. A second, **It feels a missing answer**
+(experiment 30), gives it a felt surprise when an answer it expected does not come, without telling it whether a guard
+refused the act or the world did not answer. Both are kept with that life.
 Everything stays on the phone: no network permission, and it writes only to its own sandbox.
 
 **The mirror.** Hold the phone facing a mirror. The front camera then sees its window and the microphone hears its
@@ -119,7 +121,7 @@ vibration (granted at install).
 
 `app/src/test` replays a 12 000-moment life recorded from the Python package (`tools/make_golden.py`, endolexis
 0.3.0) through the Kotlin mind: every reading, every sensed word and every intention must be identical, and the
-learned expectations equal to 1e-9 (a mind with the toy world's five hands; the phone's mind has six). The processors are checked on recorded camera and sound frames. Sums are done
+learned expectations equal to 1e-9; a second recorded life does the same with both felt traces on (a mind with the toy world's five hands; the phone's mind has six). The processors are checked on recorded camera and sound frames. Sums are done
 the way numpy does them (pairwise), so the two minds make the same decisions bit for bit.
 
 ```bash
