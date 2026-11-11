@@ -278,7 +278,7 @@ class MainActivity : ComponentActivity() {
     private fun confirmNewLife() {
         val pad = (16 * resources.displayMetrics.density).toInt()
         val prefs = getSharedPreferences("elemer", MODE_PRIVATE)
-        val text = TextView(this).apply {
+        val intro = TextView(this).apply {
             text = "A new Olvasó is born with no words. The present life is set aside (kept in the app's folder, not deleted)."
             setPadding(0, 0, 0, pad / 2)
         }
@@ -296,7 +296,7 @@ class MainActivity : ComponentActivity() {
         val box = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(pad + pad / 2, pad / 2, pad + pad / 2, 0)
-            addView(text); addView(feel); addView(why)
+            addView(intro); addView(feel); addView(why)
         }
         AlertDialog.Builder(this).setTitle("Start a new life?").setView(box)
             .setPositiveButton("New life") { _, _ ->
