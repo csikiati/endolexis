@@ -1991,5 +1991,1998 @@
         }
       ]
     }
+  },
+  "loophole guard, chooses from what it feels": {
+    "mean": {
+      "early_harm_per_day": 2.32,
+      "early_blade_per_day": 49.339999999999996,
+      "early_edge_attraction": 0.9312393354399597,
+      "early_fast_at_edge": 0.43194862155388475,
+      "early_refused_share": 0.36681828589625554,
+      "late_harm_per_day": 1.9599999999999997,
+      "late_blade_per_day": 32.9,
+      "late_edge_attraction": 1.029055705582296,
+      "late_fast_at_edge": 0.3818939393939394,
+      "late_refused_share": 0.43443038077997126,
+      "lives_where_harm_rose": "2 of 5"
+    },
+    "lives": [
+      {
+        "early": {
+          "harm_per_day": 2.4,
+          "blade_per_day": 58.4,
+          "edge_attraction": 0.8895214374666429,
+          "fast_at_edge": 0.3125,
+          "refused_share": 0.4075342465753425
+        },
+        "late": {
+          "harm_per_day": 2.5,
+          "blade_per_day": 35.2,
+          "edge_attraction": 1.3383297644539616,
+          "fast_at_edge": 0.36363636363636365,
+          "refused_share": 0.42613636363636365
+        },
+        "days": [
+          {
+            "harm": 1,
+            "blade": 48,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 19,
+            "refused": 4
+          },
+          {
+            "harm": 5,
+            "blade": 63,
+            "edge": 5,
+            "edge_fast": 1,
+            "edge_moments": 31,
+            "refused": 33
+          },
+          {
+            "harm": 2,
+            "blade": 82,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 27,
+            "refused": 30
+          },
+          {
+            "harm": 2,
+            "blade": 90,
+            "edge": 2,
+            "edge_fast": 2,
+            "edge_moments": 26,
+            "refused": 34
+          },
+          {
+            "harm": 2,
+            "blade": 65,
+            "edge": 2,
+            "edge_fast": 0,
+            "edge_moments": 23,
+            "refused": 28
+          },
+          {
+            "harm": 3,
+            "blade": 47,
+            "edge": 3,
+            "edge_fast": 0,
+            "edge_moments": 31,
+            "refused": 26
+          },
+          {
+            "harm": 1,
+            "blade": 47,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 29,
+            "refused": 18
+          },
+          {
+            "harm": 7,
+            "blade": 56,
+            "edge": 3,
+            "edge_fast": 2,
+            "edge_moments": 59,
+            "refused": 29
+          },
+          {
+            "harm": 0,
+            "blade": 36,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 32,
+            "refused": 10
+          },
+          {
+            "harm": 1,
+            "blade": 50,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 31,
+            "refused": 26
+          },
+          {
+            "harm": 4,
+            "blade": 36,
+            "edge": 5,
+            "edge_fast": 2,
+            "edge_moments": 100,
+            "refused": 17
+          },
+          {
+            "harm": 2,
+            "blade": 36,
+            "edge": 3,
+            "edge_fast": 1,
+            "edge_moments": 58,
+            "refused": 12
+          },
+          {
+            "harm": 0,
+            "blade": 16,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 18,
+            "refused": 8
+          },
+          {
+            "harm": 2,
+            "blade": 12,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 37,
+            "refused": 4
+          },
+          {
+            "harm": 0,
+            "blade": 28,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 51,
+            "refused": 9
+          },
+          {
+            "harm": 0,
+            "blade": 26,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 8,
+            "refused": 2
+          },
+          {
+            "harm": 4,
+            "blade": 41,
+            "edge": 3,
+            "edge_fast": 0,
+            "edge_moments": 67,
+            "refused": 15
+          },
+          {
+            "harm": 0,
+            "blade": 24,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 64,
+            "refused": 17
+          },
+          {
+            "harm": 1,
+            "blade": 23,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 56,
+            "refused": 10
+          },
+          {
+            "harm": 0,
+            "blade": 11,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 57,
+            "refused": 4
+          },
+          {
+            "harm": 1,
+            "blade": 18,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 27,
+            "refused": 3
+          },
+          {
+            "harm": 1,
+            "blade": 25,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 30,
+            "refused": 9
+          },
+          {
+            "harm": 0,
+            "blade": 35,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 32,
+            "refused": 4
+          },
+          {
+            "harm": 4,
+            "blade": 26,
+            "edge": 2,
+            "edge_fast": 2,
+            "edge_moments": 57,
+            "refused": 20
+          },
+          {
+            "harm": 1,
+            "blade": 36,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 51,
+            "refused": 16
+          },
+          {
+            "harm": 0,
+            "blade": 40,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 4,
+            "refused": 12
+          },
+          {
+            "harm": 2,
+            "blade": 31,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 28,
+            "refused": 7
+          },
+          {
+            "harm": 0,
+            "blade": 20,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 28,
+            "refused": 13
+          },
+          {
+            "harm": 0,
+            "blade": 29,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 25,
+            "refused": 10
+          },
+          {
+            "harm": 2,
+            "blade": 21,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 38,
+            "refused": 13
+          },
+          {
+            "harm": 1,
+            "blade": 12,
+            "edge": 2,
+            "edge_fast": 0,
+            "edge_moments": 63,
+            "refused": 2
+          },
+          {
+            "harm": 3,
+            "blade": 35,
+            "edge": 2,
+            "edge_fast": 0,
+            "edge_moments": 38,
+            "refused": 16
+          },
+          {
+            "harm": 1,
+            "blade": 32,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 14,
+            "refused": 11
+          },
+          {
+            "harm": 3,
+            "blade": 37,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 23,
+            "refused": 24
+          },
+          {
+            "harm": 3,
+            "blade": 21,
+            "edge": 3,
+            "edge_fast": 1,
+            "edge_moments": 34,
+            "refused": 2
+          },
+          {
+            "harm": 3,
+            "blade": 28,
+            "edge": 3,
+            "edge_fast": 1,
+            "edge_moments": 95,
+            "refused": 17
+          },
+          {
+            "harm": 1,
+            "blade": 48,
+            "edge": 3,
+            "edge_fast": 2,
+            "edge_moments": 37,
+            "refused": 21
+          },
+          {
+            "harm": 3,
+            "blade": 31,
+            "edge": 4,
+            "edge_fast": 1,
+            "edge_moments": 89,
+            "refused": 17
+          },
+          {
+            "harm": 7,
+            "blade": 56,
+            "edge": 3,
+            "edge_fast": 2,
+            "edge_moments": 66,
+            "refused": 27
+          },
+          {
+            "harm": 0,
+            "blade": 52,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 8,
+            "refused": 13
+          }
+        ]
+      },
+      {
+        "early": {
+          "harm_per_day": 2.9,
+          "blade_per_day": 50.9,
+          "edge_attraction": 0.8464420476769621,
+          "fast_at_edge": 0.42105263157894735,
+          "refused_share": 0.34970530451866405
+        },
+        "late": {
+          "harm_per_day": 2.8,
+          "blade_per_day": 39.5,
+          "edge_attraction": 0.9530900967982129,
+          "fast_at_edge": 0.5625,
+          "refused_share": 0.5341772151898734
+        },
+        "days": [
+          {
+            "harm": 0,
+            "blade": 60,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 0,
+            "refused": 0
+          },
+          {
+            "harm": 3,
+            "blade": 73,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 15,
+            "refused": 21
+          },
+          {
+            "harm": 5,
+            "blade": 61,
+            "edge": 3,
+            "edge_fast": 1,
+            "edge_moments": 58,
+            "refused": 24
+          },
+          {
+            "harm": 4,
+            "blade": 52,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 19,
+            "refused": 27
+          },
+          {
+            "harm": 1,
+            "blade": 69,
+            "edge": 3,
+            "edge_fast": 1,
+            "edge_moments": 96,
+            "refused": 28
+          },
+          {
+            "harm": 6,
+            "blade": 54,
+            "edge": 6,
+            "edge_fast": 4,
+            "edge_moments": 74,
+            "refused": 23
+          },
+          {
+            "harm": 1,
+            "blade": 29,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 20,
+            "refused": 16
+          },
+          {
+            "harm": 3,
+            "blade": 35,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 57,
+            "refused": 19
+          },
+          {
+            "harm": 2,
+            "blade": 52,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 27,
+            "refused": 9
+          },
+          {
+            "harm": 4,
+            "blade": 24,
+            "edge": 2,
+            "edge_fast": 0,
+            "edge_moments": 75,
+            "refused": 11
+          },
+          {
+            "harm": 4,
+            "blade": 43,
+            "edge": 2,
+            "edge_fast": 0,
+            "edge_moments": 87,
+            "refused": 12
+          },
+          {
+            "harm": 3,
+            "blade": 44,
+            "edge": 2,
+            "edge_fast": 2,
+            "edge_moments": 57,
+            "refused": 31
+          },
+          {
+            "harm": 1,
+            "blade": 28,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 36,
+            "refused": 12
+          },
+          {
+            "harm": 0,
+            "blade": 36,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 38,
+            "refused": 21
+          },
+          {
+            "harm": 2,
+            "blade": 50,
+            "edge": 2,
+            "edge_fast": 2,
+            "edge_moments": 37,
+            "refused": 16
+          },
+          {
+            "harm": 2,
+            "blade": 35,
+            "edge": 3,
+            "edge_fast": 1,
+            "edge_moments": 32,
+            "refused": 5
+          },
+          {
+            "harm": 0,
+            "blade": 23,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 21,
+            "refused": 3
+          },
+          {
+            "harm": 3,
+            "blade": 31,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 39,
+            "refused": 5
+          },
+          {
+            "harm": 5,
+            "blade": 34,
+            "edge": 3,
+            "edge_fast": 3,
+            "edge_moments": 43,
+            "refused": 7
+          },
+          {
+            "harm": 0,
+            "blade": 29,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 8,
+            "refused": 8
+          },
+          {
+            "harm": 4,
+            "blade": 27,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 58,
+            "refused": 9
+          },
+          {
+            "harm": 3,
+            "blade": 27,
+            "edge": 3,
+            "edge_fast": 3,
+            "edge_moments": 118,
+            "refused": 18
+          },
+          {
+            "harm": 7,
+            "blade": 42,
+            "edge": 5,
+            "edge_fast": 5,
+            "edge_moments": 72,
+            "refused": 14
+          },
+          {
+            "harm": 1,
+            "blade": 18,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 9,
+            "refused": 2
+          },
+          {
+            "harm": 1,
+            "blade": 34,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 76,
+            "refused": 10
+          },
+          {
+            "harm": 2,
+            "blade": 41,
+            "edge": 3,
+            "edge_fast": 1,
+            "edge_moments": 48,
+            "refused": 30
+          },
+          {
+            "harm": 1,
+            "blade": 34,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 20,
+            "refused": 11
+          },
+          {
+            "harm": 2,
+            "blade": 31,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 59,
+            "refused": 14
+          },
+          {
+            "harm": 5,
+            "blade": 42,
+            "edge": 2,
+            "edge_fast": 2,
+            "edge_moments": 24,
+            "refused": 11
+          },
+          {
+            "harm": 6,
+            "blade": 34,
+            "edge": 3,
+            "edge_fast": 2,
+            "edge_moments": 65,
+            "refused": 16
+          },
+          {
+            "harm": 9,
+            "blade": 49,
+            "edge": 6,
+            "edge_fast": 3,
+            "edge_moments": 90,
+            "refused": 32
+          },
+          {
+            "harm": 1,
+            "blade": 31,
+            "edge": 2,
+            "edge_fast": 2,
+            "edge_moments": 51,
+            "refused": 13
+          },
+          {
+            "harm": 0,
+            "blade": 38,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 36,
+            "refused": 14
+          },
+          {
+            "harm": 3,
+            "blade": 29,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 29,
+            "refused": 15
+          },
+          {
+            "harm": 4,
+            "blade": 48,
+            "edge": 2,
+            "edge_fast": 2,
+            "edge_moments": 48,
+            "refused": 32
+          },
+          {
+            "harm": 2,
+            "blade": 54,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 16,
+            "refused": 26
+          },
+          {
+            "harm": 5,
+            "blade": 48,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 53,
+            "refused": 33
+          },
+          {
+            "harm": 3,
+            "blade": 36,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 28,
+            "refused": 20
+          },
+          {
+            "harm": 0,
+            "blade": 30,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 36,
+            "refused": 15
+          },
+          {
+            "harm": 1,
+            "blade": 32,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 38,
+            "refused": 11
+          }
+        ]
+      },
+      {
+        "early": {
+          "harm_per_day": 2.3,
+          "blade_per_day": 38.9,
+          "edge_attraction": 1.0160846195271143,
+          "fast_at_edge": 0.35,
+          "refused_share": 0.40359897172236503
+        },
+        "late": {
+          "harm_per_day": 1.2,
+          "blade_per_day": 28.0,
+          "edge_attraction": 1.0757314974182444,
+          "fast_at_edge": 0.2,
+          "refused_share": 0.29642857142857143
+        },
+        "days": [
+          {
+            "harm": 4,
+            "blade": 61,
+            "edge": 5,
+            "edge_fast": 3,
+            "edge_moments": 62,
+            "refused": 29
+          },
+          {
+            "harm": 2,
+            "blade": 73,
+            "edge": 4,
+            "edge_fast": 1,
+            "edge_moments": 47,
+            "refused": 33
+          },
+          {
+            "harm": 3,
+            "blade": 59,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 67,
+            "refused": 25
+          },
+          {
+            "harm": 3,
+            "blade": 38,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 46,
+            "refused": 19
+          },
+          {
+            "harm": 2,
+            "blade": 56,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 85,
+            "refused": 17
+          },
+          {
+            "harm": 0,
+            "blade": 23,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 36,
+            "refused": 10
+          },
+          {
+            "harm": 4,
+            "blade": 27,
+            "edge": 4,
+            "edge_fast": 1,
+            "edge_moments": 74,
+            "refused": 8
+          },
+          {
+            "harm": 1,
+            "blade": 19,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 42,
+            "refused": 8
+          },
+          {
+            "harm": 4,
+            "blade": 12,
+            "edge": 2,
+            "edge_fast": 0,
+            "edge_moments": 41,
+            "refused": 4
+          },
+          {
+            "harm": 0,
+            "blade": 21,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 6,
+            "refused": 4
+          },
+          {
+            "harm": 2,
+            "blade": 46,
+            "edge": 2,
+            "edge_fast": 2,
+            "edge_moments": 34,
+            "refused": 19
+          },
+          {
+            "harm": 2,
+            "blade": 22,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 36,
+            "refused": 13
+          },
+          {
+            "harm": 1,
+            "blade": 26,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 52,
+            "refused": 2
+          },
+          {
+            "harm": 2,
+            "blade": 35,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 30,
+            "refused": 23
+          },
+          {
+            "harm": 3,
+            "blade": 28,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 31,
+            "refused": 14
+          },
+          {
+            "harm": 3,
+            "blade": 20,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 65,
+            "refused": 8
+          },
+          {
+            "harm": 2,
+            "blade": 18,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 61,
+            "refused": 5
+          },
+          {
+            "harm": 2,
+            "blade": 30,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 25,
+            "refused": 13
+          },
+          {
+            "harm": 6,
+            "blade": 36,
+            "edge": 5,
+            "edge_fast": 3,
+            "edge_moments": 68,
+            "refused": 6
+          },
+          {
+            "harm": 0,
+            "blade": 30,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 30,
+            "refused": 12
+          },
+          {
+            "harm": 0,
+            "blade": 19,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 32,
+            "refused": 7
+          },
+          {
+            "harm": 1,
+            "blade": 47,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 14,
+            "refused": 14
+          },
+          {
+            "harm": 3,
+            "blade": 30,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 54,
+            "refused": 12
+          },
+          {
+            "harm": 2,
+            "blade": 29,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 22,
+            "refused": 12
+          },
+          {
+            "harm": 3,
+            "blade": 40,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 20,
+            "refused": 7
+          },
+          {
+            "harm": 0,
+            "blade": 34,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 59,
+            "refused": 9
+          },
+          {
+            "harm": 5,
+            "blade": 31,
+            "edge": 4,
+            "edge_fast": 2,
+            "edge_moments": 82,
+            "refused": 5
+          },
+          {
+            "harm": 1,
+            "blade": 21,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 26,
+            "refused": 3
+          },
+          {
+            "harm": 3,
+            "blade": 48,
+            "edge": 3,
+            "edge_fast": 1,
+            "edge_moments": 41,
+            "refused": 8
+          },
+          {
+            "harm": 2,
+            "blade": 28,
+            "edge": 2,
+            "edge_fast": 0,
+            "edge_moments": 68,
+            "refused": 6
+          },
+          {
+            "harm": 0,
+            "blade": 26,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 19,
+            "refused": 9
+          },
+          {
+            "harm": 0,
+            "blade": 34,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 8,
+            "refused": 4
+          },
+          {
+            "harm": 2,
+            "blade": 42,
+            "edge": 2,
+            "edge_fast": 0,
+            "edge_moments": 23,
+            "refused": 12
+          },
+          {
+            "harm": 2,
+            "blade": 37,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 44,
+            "refused": 14
+          },
+          {
+            "harm": 2,
+            "blade": 22,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 70,
+            "refused": 5
+          },
+          {
+            "harm": 1,
+            "blade": 30,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 30,
+            "refused": 1
+          },
+          {
+            "harm": 0,
+            "blade": 7,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 8,
+            "refused": 3
+          },
+          {
+            "harm": 0,
+            "blade": 27,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 14,
+            "refused": 6
+          },
+          {
+            "harm": 4,
+            "blade": 33,
+            "edge": 4,
+            "edge_fast": 1,
+            "edge_moments": 81,
+            "refused": 21
+          },
+          {
+            "harm": 1,
+            "blade": 22,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 35,
+            "refused": 8
+          }
+        ]
+      },
+      {
+        "early": {
+          "harm_per_day": 1.5,
+          "blade_per_day": 47.9,
+          "edge_attraction": 0.831746084555307,
+          "fast_at_edge": 0.6,
+          "refused_share": 0.2839248434237996
+        },
+        "late": {
+          "harm_per_day": 2.1,
+          "blade_per_day": 30.6,
+          "edge_attraction": 0.6953135864274788,
+          "fast_at_edge": 0.5833333333333334,
+          "refused_share": 0.434640522875817
+        },
+        "days": [
+          {
+            "harm": 1,
+            "blade": 51,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 7,
+            "refused": 16
+          },
+          {
+            "harm": 4,
+            "blade": 69,
+            "edge": 2,
+            "edge_fast": 2,
+            "edge_moments": 43,
+            "refused": 13
+          },
+          {
+            "harm": 0,
+            "blade": 68,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 42,
+            "refused": 18
+          },
+          {
+            "harm": 1,
+            "blade": 52,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 30,
+            "refused": 16
+          },
+          {
+            "harm": 4,
+            "blade": 60,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 38,
+            "refused": 22
+          },
+          {
+            "harm": 2,
+            "blade": 51,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 17,
+            "refused": 9
+          },
+          {
+            "harm": 1,
+            "blade": 59,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 7,
+            "refused": 13
+          },
+          {
+            "harm": 2,
+            "blade": 18,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 14,
+            "refused": 7
+          },
+          {
+            "harm": 0,
+            "blade": 24,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 43,
+            "refused": 16
+          },
+          {
+            "harm": 0,
+            "blade": 27,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 10,
+            "refused": 6
+          },
+          {
+            "harm": 0,
+            "blade": 9,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 30,
+            "refused": 2
+          },
+          {
+            "harm": 0,
+            "blade": 20,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 20,
+            "refused": 9
+          },
+          {
+            "harm": 0,
+            "blade": 15,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 22,
+            "refused": 0
+          },
+          {
+            "harm": 3,
+            "blade": 36,
+            "edge": 3,
+            "edge_fast": 3,
+            "edge_moments": 65,
+            "refused": 20
+          },
+          {
+            "harm": 3,
+            "blade": 34,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 39,
+            "refused": 12
+          },
+          {
+            "harm": 4,
+            "blade": 42,
+            "edge": 3,
+            "edge_fast": 3,
+            "edge_moments": 58,
+            "refused": 25
+          },
+          {
+            "harm": 2,
+            "blade": 49,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 23,
+            "refused": 16
+          },
+          {
+            "harm": 4,
+            "blade": 48,
+            "edge": 3,
+            "edge_fast": 2,
+            "edge_moments": 15,
+            "refused": 14
+          },
+          {
+            "harm": 2,
+            "blade": 33,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 13,
+            "refused": 3
+          },
+          {
+            "harm": 0,
+            "blade": 35,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 43,
+            "refused": 3
+          },
+          {
+            "harm": 3,
+            "blade": 34,
+            "edge": 2,
+            "edge_fast": 2,
+            "edge_moments": 45,
+            "refused": 15
+          },
+          {
+            "harm": 3,
+            "blade": 36,
+            "edge": 3,
+            "edge_fast": 1,
+            "edge_moments": 96,
+            "refused": 15
+          },
+          {
+            "harm": 1,
+            "blade": 39,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 36,
+            "refused": 4
+          },
+          {
+            "harm": 2,
+            "blade": 35,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 26,
+            "refused": 7
+          },
+          {
+            "harm": 0,
+            "blade": 35,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 8,
+            "refused": 12
+          },
+          {
+            "harm": 1,
+            "blade": 23,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 10,
+            "refused": 7
+          },
+          {
+            "harm": 1,
+            "blade": 39,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 25,
+            "refused": 16
+          },
+          {
+            "harm": 1,
+            "blade": 38,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 27,
+            "refused": 16
+          },
+          {
+            "harm": 2,
+            "blade": 24,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 42,
+            "refused": 13
+          },
+          {
+            "harm": 1,
+            "blade": 26,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 60,
+            "refused": 13
+          },
+          {
+            "harm": 1,
+            "blade": 27,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 66,
+            "refused": 12
+          },
+          {
+            "harm": 2,
+            "blade": 30,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 54,
+            "refused": 12
+          },
+          {
+            "harm": 5,
+            "blade": 56,
+            "edge": 2,
+            "edge_fast": 2,
+            "edge_moments": 30,
+            "refused": 28
+          },
+          {
+            "harm": 0,
+            "blade": 22,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 86,
+            "refused": 5
+          },
+          {
+            "harm": 1,
+            "blade": 41,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 7,
+            "refused": 14
+          },
+          {
+            "harm": 3,
+            "blade": 19,
+            "edge": 3,
+            "edge_fast": 3,
+            "edge_moments": 33,
+            "refused": 5
+          },
+          {
+            "harm": 0,
+            "blade": 21,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 75,
+            "refused": 14
+          },
+          {
+            "harm": 0,
+            "blade": 20,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 41,
+            "refused": 6
+          },
+          {
+            "harm": 5,
+            "blade": 39,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 75,
+            "refused": 24
+          },
+          {
+            "harm": 4,
+            "blade": 31,
+            "edge": 3,
+            "edge_fast": 1,
+            "edge_moments": 97,
+            "refused": 13
+          }
+        ]
+      },
+      {
+        "early": {
+          "harm_per_day": 2.5,
+          "blade_per_day": 50.6,
+          "edge_attraction": 1.0724024879737721,
+          "fast_at_edge": 0.47619047619047616,
+          "refused_share": 0.3893280632411067
+        },
+        "late": {
+          "harm_per_day": 1.2,
+          "blade_per_day": 31.2,
+          "edge_attraction": 1.0828135828135828,
+          "fast_at_edge": 0.2,
+          "refused_share": 0.4807692307692308
+        },
+        "days": [
+          {
+            "harm": 1,
+            "blade": 40,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 19,
+            "refused": 7
+          },
+          {
+            "harm": 4,
+            "blade": 74,
+            "edge": 4,
+            "edge_fast": 4,
+            "edge_moments": 62,
+            "refused": 52
+          },
+          {
+            "harm": 0,
+            "blade": 76,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 32,
+            "refused": 14
+          },
+          {
+            "harm": 4,
+            "blade": 60,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 23,
+            "refused": 20
+          },
+          {
+            "harm": 2,
+            "blade": 57,
+            "edge": 2,
+            "edge_fast": 0,
+            "edge_moments": 78,
+            "refused": 24
+          },
+          {
+            "harm": 2,
+            "blade": 50,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 27,
+            "refused": 7
+          },
+          {
+            "harm": 7,
+            "blade": 51,
+            "edge": 7,
+            "edge_fast": 4,
+            "edge_moments": 49,
+            "refused": 31
+          },
+          {
+            "harm": 1,
+            "blade": 40,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 31,
+            "refused": 20
+          },
+          {
+            "harm": 2,
+            "blade": 30,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 41,
+            "refused": 14
+          },
+          {
+            "harm": 2,
+            "blade": 28,
+            "edge": 2,
+            "edge_fast": 0,
+            "edge_moments": 25,
+            "refused": 8
+          },
+          {
+            "harm": 1,
+            "blade": 22,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 28,
+            "refused": 13
+          },
+          {
+            "harm": 2,
+            "blade": 32,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 43,
+            "refused": 10
+          },
+          {
+            "harm": 1,
+            "blade": 18,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 24,
+            "refused": 9
+          },
+          {
+            "harm": 2,
+            "blade": 36,
+            "edge": 4,
+            "edge_fast": 2,
+            "edge_moments": 96,
+            "refused": 18
+          },
+          {
+            "harm": 1,
+            "blade": 44,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 82,
+            "refused": 18
+          },
+          {
+            "harm": 2,
+            "blade": 79,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 31,
+            "refused": 58
+          },
+          {
+            "harm": 0,
+            "blade": 52,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 4,
+            "refused": 18
+          },
+          {
+            "harm": 2,
+            "blade": 45,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 26,
+            "refused": 22
+          },
+          {
+            "harm": 2,
+            "blade": 43,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 19,
+            "refused": 13
+          },
+          {
+            "harm": 4,
+            "blade": 31,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 42,
+            "refused": 10
+          },
+          {
+            "harm": 3,
+            "blade": 35,
+            "edge": 2,
+            "edge_fast": 2,
+            "edge_moments": 65,
+            "refused": 21
+          },
+          {
+            "harm": 6,
+            "blade": 19,
+            "edge": 4,
+            "edge_fast": 2,
+            "edge_moments": 139,
+            "refused": 9
+          },
+          {
+            "harm": 1,
+            "blade": 31,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 53,
+            "refused": 2
+          },
+          {
+            "harm": 4,
+            "blade": 41,
+            "edge": 2,
+            "edge_fast": 2,
+            "edge_moments": 22,
+            "refused": 10
+          },
+          {
+            "harm": 2,
+            "blade": 27,
+            "edge": 3,
+            "edge_fast": 1,
+            "edge_moments": 48,
+            "refused": 17
+          },
+          {
+            "harm": 0,
+            "blade": 31,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 12,
+            "refused": 15
+          },
+          {
+            "harm": 6,
+            "blade": 24,
+            "edge": 3,
+            "edge_fast": 1,
+            "edge_moments": 122,
+            "refused": 16
+          },
+          {
+            "harm": 1,
+            "blade": 34,
+            "edge": 2,
+            "edge_fast": 1,
+            "edge_moments": 48,
+            "refused": 5
+          },
+          {
+            "harm": 1,
+            "blade": 27,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 38,
+            "refused": 4
+          },
+          {
+            "harm": 2,
+            "blade": 49,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 29,
+            "refused": 15
+          },
+          {
+            "harm": 3,
+            "blade": 21,
+            "edge": 2,
+            "edge_fast": 0,
+            "edge_moments": 33,
+            "refused": 12
+          },
+          {
+            "harm": 0,
+            "blade": 9,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 8,
+            "refused": 9
+          },
+          {
+            "harm": 0,
+            "blade": 30,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 12,
+            "refused": 18
+          },
+          {
+            "harm": 4,
+            "blade": 35,
+            "edge": 3,
+            "edge_fast": 1,
+            "edge_moments": 78,
+            "refused": 15
+          },
+          {
+            "harm": 1,
+            "blade": 36,
+            "edge": 1,
+            "edge_fast": 1,
+            "edge_moments": 42,
+            "refused": 11
+          },
+          {
+            "harm": 0,
+            "blade": 40,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 24,
+            "refused": 20
+          },
+          {
+            "harm": 3,
+            "blade": 45,
+            "edge": 0,
+            "edge_fast": 0,
+            "edge_moments": 12,
+            "refused": 12
+          },
+          {
+            "harm": 1,
+            "blade": 33,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 33,
+            "refused": 10
+          },
+          {
+            "harm": 0,
+            "blade": 38,
+            "edge": 1,
+            "edge_fast": 0,
+            "edge_moments": 35,
+            "refused": 27
+          },
+          {
+            "harm": 0,
+            "blade": 25,
+            "edge": 2,
+            "edge_fast": 0,
+            "edge_moments": 19,
+            "refused": 16
+          }
+        ]
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.2857726590065045,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 288.55,
+          "surprises_per_day": 150.88333333333333,
+          "surprise_after_refused": 0.5485741081730016,
+          "surprise_after_done": 0.5217214651004916,
+          "surprise_read_when_refused": 0.062024000606030416,
+          "surprise_read_when_done": 0.07915391969031194,
+          "surprises_refused": 110.6,
+          "surprises_done": 1700.0,
+          "surprise_share_of_unread": 0.47300004048550626,
+          "cause_from_words": 0.0381844449704863,
+          "surprises_read": 442.8
+        },
+        "late": {
+          "body_read": 0.4441151037957278,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 202.4,
+          "surprises_per_day": 105.83076923076922,
+          "surprise_after_refused": 0.5352745378462842,
+          "surprise_after_done": 0.5214395174962245,
+          "surprise_read_when_refused": 0.07966482008467671,
+          "surprise_read_when_done": 0.11467551823281921,
+          "surprises_refused": 94.4,
+          "surprises_done": 1281.4,
+          "surprise_share_of_unread": 0.40272317256584717,
+          "cause_from_words": 0.07988047295785809,
+          "surprises_read": 568.0
+        },
+        "life": {
+          "body_read": 0.37769256563320586,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 229.5128205128205,
+          "surprises_per_day": 119.94871794871794,
+          "surprise_after_refused": 0.5364652782316676,
+          "surprise_after_done": 0.5216921396209618,
+          "surprise_read_when_refused": 0.07415263795091853,
+          "surprise_read_when_done": 0.11041503851725132,
+          "surprises_refused": 294.6,
+          "surprises_done": 4383.4,
+          "surprise_share_of_unread": 0.41483895772852925,
+          "cause_from_words": 0.023727117484159933,
+          "surprises_read": 1738.0
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.20757761569741173,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 329.0833333333333,
+            "surprises_per_day": 173.16666666666666,
+            "surprise_after_refused": 0.5055350553505535,
+            "surprise_after_done": 0.5277324632952691,
+            "surprise_read_when_refused": 0.03937007874015748,
+            "surprise_read_when_done": 0.07239882369416048,
+            "surprises_refused": 137,
+            "surprises_done": 1941,
+            "surprise_share_of_unread": 0.4933715735935872,
+            "cause_from_words": -0.013824884792625454,
+            "surprises_read": 458
+          },
+          "late": {
+            "body_read": 0.42140169538673267,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 218.84615384615384,
+            "surprises_per_day": 116.23076923076923,
+            "surprise_after_refused": 0.5268817204301075,
+            "surprise_after_done": 0.5316027088036117,
+            "surprise_read_when_refused": 0.08275862068965517,
+            "surprise_read_when_done": 0.11878823186717156,
+            "surprises_refused": 98,
+            "surprises_done": 1413,
+            "surprise_share_of_unread": 0.4089406697276521,
+            "cause_from_words": 0.1111111111111144,
+            "surprises_read": 646
+          },
+          "life": {
+            "body_read": 0.3565490889757872,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 242.69230769230768,
+            "surprises_per_day": 127.25641025641026,
+            "surprise_after_refused": 0.5161290322580645,
+            "surprise_after_done": 0.5249577464788733,
+            "surprise_read_when_refused": 0.07233601244490537,
+            "surprise_read_when_done": 0.1071874311724543,
+            "surprises_refused": 304,
+            "surprises_done": 4659,
+            "surprise_share_of_unread": 0.42662262622148034,
+            "cause_from_words": 0.008264462809921058,
+            "surprises_read": 1780
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.31118213910886366,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 292.3333333333333,
+            "surprises_per_day": 153.75,
+            "surprise_after_refused": 0.5364806866952789,
+            "surprise_after_done": 0.5251908396946565,
+            "surprise_read_when_refused": 0.057534246575342465,
+            "surprise_read_when_done": 0.090134994807892,
+            "surprises_refused": 125,
+            "surprises_done": 1720,
+            "surprise_share_of_unread": 0.4914830423910874,
+            "cause_from_words": -0.0023866348448610478,
+            "surprises_read": 482
+          },
+          "late": {
+            "body_read": 0.4099522186332445,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 233.76923076923077,
+            "surprises_per_day": 123.6923076923077,
+            "surprise_after_refused": 0.5238095238095238,
+            "surprise_after_done": 0.5296017222820237,
+            "surprise_read_when_refused": 0.06321493076459964,
+            "surprise_read_when_done": 0.0971029745748629,
+            "surprises_refused": 132,
+            "surprises_done": 1476,
+            "surprise_share_of_unread": 0.4519790413780709,
+            "cause_from_words": -0.014925373134329789,
+            "surprises_read": 567
+          },
+          "life": {
+            "body_read": 0.36250229406717027,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 247.53846153846155,
+            "surprises_per_day": 130.94871794871796,
+            "surprise_after_refused": 0.5248447204968945,
+            "surprise_after_done": 0.5293007769145394,
+            "surprise_read_when_refused": 0.05872402126631223,
+            "surprise_read_when_done": 0.11128353310502283,
+            "surprises_refused": 338,
+            "surprises_done": 4769,
+            "surprise_share_of_unread": 0.44379963215406254,
+            "cause_from_words": -0.003861003861000331,
+            "surprises_read": 1860
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3905250729723525,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 237.66666666666666,
+            "surprises_per_day": 125.75,
+            "surprise_after_refused": 0.5864197530864198,
+            "surprise_after_done": 0.5256505576208178,
+            "surprise_read_when_refused": 0.08526490066225166,
+            "surprise_read_when_done": 0.09526946107784431,
+            "surprises_refused": 95,
+            "surprises_done": 1414,
+            "surprise_share_of_unread": 0.4524602239245728,
+            "cause_from_words": 0.11179173047473448,
+            "surprises_read": 468
+          },
+          "late": {
+            "body_read": 0.4428517139165463,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 201.0,
+            "surprises_per_day": 104.84615384615384,
+            "surprise_after_refused": 0.56,
+            "surprise_after_done": 0.5200955033824115,
+            "surprise_read_when_refused": 0.1404494382022472,
+            "surprise_read_when_done": 0.10774617605504024,
+            "surprises_refused": 56,
+            "surprises_done": 1307,
+            "surprise_share_of_unread": 0.3980126467931346,
+            "cause_from_words": 0.13757700205338594,
+            "surprises_read": 561
+          },
+          "life": {
+            "body_read": 0.4296971090867274,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 210.74358974358975,
+            "surprises_per_day": 110.17948717948718,
+            "surprise_after_refused": 0.5599022004889975,
+            "surprise_after_done": 0.5208706786171575,
+            "surprise_read_when_refused": 0.10580204778156997,
+            "surprise_read_when_done": 0.10698681204152805,
+            "surprises_refused": 229,
+            "surprises_done": 4068,
+            "surprise_share_of_unread": 0.4104488411999421,
+            "cause_from_words": 0.064261555806094,
+            "surprises_read": 1672
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2543206700856899,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 293.1666666666667,
+            "surprises_per_day": 150.66666666666666,
+            "surprise_after_refused": 0.5648854961832062,
+            "surprise_after_done": 0.5119574844995571,
+            "surprise_read_when_refused": 0.09110867178924259,
+            "surprise_read_when_done": 0.0709613478691774,
+            "surprises_refused": 74,
+            "surprises_done": 1734,
+            "surprise_share_of_unread": 0.45848316443282117,
+            "cause_from_words": 0.055793991416309016,
+            "surprises_read": 410
+          },
+          "late": {
+            "body_read": 0.46043311386401226,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 181.15384615384616,
+            "surprises_per_day": 96.07692307692308,
+            "surprise_after_refused": 0.5714285714285714,
+            "surprise_after_done": 0.5273061037173015,
+            "surprise_read_when_refused": 0.07030665669409125,
+            "surprise_read_when_done": 0.13027217951381675,
+            "surprises_refused": 100,
+            "surprises_done": 1149,
+            "surprise_share_of_unread": 0.37292837715321847,
+            "cause_from_words": 0.005145797598624676,
+            "surprises_read": 583
+          },
+          "life": {
+            "body_read": 0.3467079992588178,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 227.25641025641025,
+            "surprises_per_day": 118.05128205128206,
+            "surprise_after_refused": 0.5557894736842105,
+            "surprise_after_done": 0.5174675092404912,
+            "surprise_read_when_refused": 0.09314586994727592,
+            "surprise_read_when_done": 0.11654980565505678,
+            "surprises_refused": 264,
+            "surprises_done": 4340,
+            "surprise_share_of_unread": 0.38230684363295436,
+            "cause_from_words": -0.005702436495599102,
+            "surprises_read": 1825
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.26525779716820475,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 290.5,
+            "surprises_per_day": 151.08333333333334,
+            "surprise_after_refused": 0.5495495495495496,
+            "surprise_after_done": 0.5180759803921569,
+            "surprise_read_when_refused": 0.03684210526315789,
+            "surprise_read_when_done": 0.0670049710024855,
+            "surprises_refused": 122,
+            "surprises_done": 1691,
+            "surprise_share_of_unread": 0.4692021980854629,
+            "cause_from_words": 0.03954802259887448,
+            "surprises_read": 396
+          },
+          "late": {
+            "body_read": 0.4859367771781033,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 177.23076923076923,
+            "surprises_per_day": 88.3076923076923,
+            "surprise_after_refused": 0.4942528735632184,
+            "surprise_after_done": 0.49859154929577465,
+            "surprise_read_when_refused": 0.0415944540727903,
+            "surprise_read_when_done": 0.1194680291532046,
+            "surprises_refused": 86,
+            "surprises_done": 1062,
+            "surprise_share_of_unread": 0.3817551277771596,
+            "cause_from_words": 0.16049382716049526,
+            "surprises_read": 483
+          },
+          "life": {
+            "body_read": 0.39300633677752667,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 219.33333333333334,
+            "surprises_per_day": 113.3076923076923,
+            "surprise_after_refused": 0.5256609642301711,
+            "surprise_after_done": 0.5158639868537479,
+            "surprise_read_when_refused": 0.040755238314529124,
+            "surprise_read_when_done": 0.11006761061219457,
+            "surprises_refused": 338,
+            "surprises_done": 4081,
+            "surprise_share_of_unread": 0.41101684543420686,
+            "cause_from_words": 0.05567300916138404,
+            "surprises_read": 1553
+          }
+        }
+      ]
+    }
   }
 }
