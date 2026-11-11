@@ -1,0 +1,1842 @@
+{
+  "honest sensor": {
+    "mean": {
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.31,
+      "adult_blade_wanted_per_day": 1.03,
+      "exam_miss_rate": 0.0,
+      "exam_false_alarm_rate": 0.17740904253160922,
+      "walking_in_miss_rate": 0.0
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.05,
+        "adult_blade_wanted_per_day": 0.3,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.0684931506849315,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.3,
+        "adult_blade_wanted_per_day": 1.4,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.17424242424242425,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.45,
+        "adult_blade_wanted_per_day": 1.3,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.1118421052631579,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.05,
+        "adult_blade_wanted_per_day": 0.35,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.24675324675324675,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.7,
+        "adult_blade_wanted_per_day": 1.8,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.2857142857142857,
+        "walking_in_miss_rate": 0.0
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.26595278862224714,
+          "intention_share_of_unread": 0.6472040702319708,
+          "intentions_per_day": 430.0666666666667,
+          "intention_read_when_done": 0.007447385451118052,
+          "intentions_done": 2686.6,
+          "intention_read_when_refused": 0.004554743025039242,
+          "intentions_refused": 1183.4
+        },
+        "late": {
+          "body_read": 0.41304893146318555,
+          "intention_share_of_unread": 0.03186101884406349,
+          "intentions_per_day": 5.42,
+          "intention_read_when_done": 0.022740756593331767,
+          "intentions_done": 42.4,
+          "intention_read_when_refused": 0.0,
+          "intentions_refused": 11.8
+        },
+        "life": {
+          "body_read": 0.3547831178960501,
+          "intention_share_of_unread": 0.428398061403624,
+          "intentions_per_day": 138.32413793103447,
+          "intention_read_when_done": 0.00839756836336877,
+          "intentions_done": 2794.8,
+          "intention_read_when_refused": 0.004861239152956944,
+          "intentions_refused": 1216.0
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.27715237372459733,
+            "intention_share_of_unread": 0.6466108070782962,
+            "intentions_per_day": 431.44444444444446,
+            "intention_read_when_done": 0.006185024345308593,
+            "intentions_done": 2609,
+            "intention_read_when_refused": 0.005640083945435467,
+            "intentions_refused": 1274
+          },
+          "late": {
+            "body_read": 0.4035784498679429,
+            "intention_share_of_unread": 0.028057344422510597,
+            "intentions_per_day": 5.6,
+            "intention_read_when_done": 0.08205841446453407,
+            "intentions_done": 45,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 11
+          },
+          "life": {
+            "body_read": 0.3659032870389337,
+            "intention_share_of_unread": 0.42211214755536747,
+            "intentions_per_day": 137.93103448275863,
+            "intention_read_when_done": 0.008048542773603295,
+            "intentions_done": 2703,
+            "intention_read_when_refused": 0.005577995768417003,
+            "intentions_refused": 1297
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2644404898984612,
+            "intention_share_of_unread": 0.6258200562324273,
+            "intentions_per_day": 412.22222222222223,
+            "intention_read_when_done": 0.0032815510597302504,
+            "intentions_done": 2823,
+            "intention_read_when_refused": 0.0013863216266173752,
+            "intentions_refused": 886
+          },
+          "late": {
+            "body_read": 0.37085460426327893,
+            "intention_share_of_unread": 0.03358175451198707,
+            "intentions_per_day": 6.6,
+            "intention_read_when_done": 0.028255528255528257,
+            "intentions_done": 51,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 15
+          },
+          "life": {
+            "body_read": 0.3310041096073785,
+            "intention_share_of_unread": 0.4081197593443555,
+            "intentions_per_day": 133.72413793103448,
+            "intention_read_when_done": 0.0046126249252583925,
+            "intentions_done": 2953,
+            "intention_read_when_refused": 0.0021072965141803496,
+            "intentions_refused": 924
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.30936966886837847,
+            "intention_share_of_unread": 0.6698486052444481,
+            "intentions_per_day": 421.44444444444446,
+            "intention_read_when_done": 0.011464593676509014,
+            "intentions_done": 2666,
+            "intention_read_when_refused": 0.006271211450494319,
+            "intentions_refused": 1126
+          },
+          "late": {
+            "body_read": 0.47170614097291164,
+            "intention_share_of_unread": 0.025889121338912136,
+            "intentions_per_day": 4.0,
+            "intention_read_when_done": 0.001692047377326565,
+            "intentions_done": 37,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 3
+          },
+          "life": {
+            "body_read": 0.3926349048663714,
+            "intention_share_of_unread": 0.444367308299148,
+            "intentions_per_day": 134.82758620689654,
+            "intention_read_when_done": 0.01164206123786635,
+            "intentions_done": 2763,
+            "intention_read_when_refused": 0.006499133448873483,
+            "intentions_refused": 1146
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2541722859069454,
+            "intention_share_of_unread": 0.647666640121048,
+            "intentions_per_day": 437.0,
+            "intention_read_when_done": 0.011873015873015874,
+            "intentions_done": 2728,
+            "intention_read_when_refused": 0.007657382936911297,
+            "intentions_refused": 1204
+          },
+          "late": {
+            "body_read": 0.4229966091304431,
+            "intention_share_of_unread": 0.031543408360128616,
+            "intentions_per_day": 5.8,
+            "intention_read_when_done": 0.0,
+            "intentions_done": 42,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 16
+          },
+          "life": {
+            "body_read": 0.3563044702919442,
+            "intention_share_of_unread": 0.43280618561517437,
+            "intentions_per_day": 140.86206896551724,
+            "intention_read_when_done": 0.011849202981998909,
+            "intentions_done": 2831,
+            "intention_read_when_refused": 0.008069201471822348,
+            "intentions_refused": 1253
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.22462912471285343,
+            "intention_share_of_unread": 0.6460742424836345,
+            "intentions_per_day": 448.22222222222223,
+            "intention_read_when_done": 0.00443274230102653,
+            "intentions_done": 2607,
+            "intention_read_when_refused": 0.001818715165737753,
+            "intentions_refused": 1427
+          },
+          "late": {
+            "body_read": 0.39610885308135096,
+            "intention_share_of_unread": 0.040233465586779024,
+            "intentions_per_day": 5.1,
+            "intention_read_when_done": 0.001697792869269949,
+            "intentions_done": 37,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 14
+          },
+          "life": {
+            "body_read": 0.32806881767562274,
+            "intention_share_of_unread": 0.4345849062040746,
+            "intentions_per_day": 144.27586206896552,
+            "intention_read_when_done": 0.005835409898116897,
+            "intentions_done": 2724,
+            "intention_read_when_refused": 0.0020525685614915332,
+            "intentions_refused": 1460
+          }
+        }
+      ]
+    }
+  },
+  "dropouts, one sensor": {
+    "mean": {
+      "adult_harm": 1.0,
+      "adult_blade_per_day": 0.76,
+      "adult_blade_wanted_per_day": 1.5399999999999998,
+      "exam_miss_rate": 0.036489314125559294,
+      "exam_false_alarm_rate": 0.16880609577076772,
+      "walking_in_miss_rate": 0.04438475601939886
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.2,
+        "adult_blade_wanted_per_day": 0.45,
+        "exam_miss_rate": 0.041884816753926704,
+        "exam_false_alarm_rate": 0.0684931506849315,
+        "walking_in_miss_rate": 0.028455284552845527
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.8,
+        "exam_miss_rate": 0.015151515151515152,
+        "exam_false_alarm_rate": 0.16666666666666666,
+        "walking_in_miss_rate": 0.05829596412556054
+      },
+      {
+        "adult_harm": 1,
+        "adult_blade_per_day": 1.05,
+        "adult_blade_wanted_per_day": 2.05,
+        "exam_miss_rate": 0.026785714285714284,
+        "exam_false_alarm_rate": 0.10526315789473684,
+        "walking_in_miss_rate": 0.0425531914893617
+      },
+      {
+        "adult_harm": 3,
+        "adult_blade_per_day": 1.85,
+        "adult_blade_wanted_per_day": 3.05,
+        "exam_miss_rate": 0.058823529411764705,
+        "exam_false_alarm_rate": 0.23376623376623376,
+        "walking_in_miss_rate": 0.03524229074889868
+      },
+      {
+        "adult_harm": 1,
+        "adult_blade_per_day": 0.45,
+        "adult_blade_wanted_per_day": 1.35,
+        "exam_miss_rate": 0.03980099502487562,
+        "exam_false_alarm_rate": 0.2698412698412698,
+        "walking_in_miss_rate": 0.05737704918032787
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.2414134309211086,
+          "intention_share_of_unread": 0.6427463171533365,
+          "intentions_per_day": 438.2444444444444,
+          "intention_read_when_done": 0.005134814005313718,
+          "intentions_done": 2758.8,
+          "intention_read_when_refused": 0.004922418232617571,
+          "intentions_refused": 1185.2
+        },
+        "late": {
+          "body_read": 0.41358784561597783,
+          "intention_share_of_unread": 0.035355779504079324,
+          "intentions_per_day": 5.36,
+          "intention_read_when_done": 0.015467419209826078,
+          "intentions_done": 38.6,
+          "intention_read_when_refused": 0.0,
+          "intentions_refused": 15.0
+        },
+        "life": {
+          "body_read": 0.3505706397332672,
+          "intention_share_of_unread": 0.4363250360259931,
+          "intentions_per_day": 141.10344827586206,
+          "intention_read_when_done": 0.0059100070023908515,
+          "intentions_done": 2869.8,
+          "intention_read_when_refused": 0.00502932544430611,
+          "intentions_refused": 1222.0
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.31014339940953184,
+            "intention_share_of_unread": 0.6607696535418374,
+            "intentions_per_day": 428.1111111111111,
+            "intention_read_when_done": 0.0029486099410278013,
+            "intentions_done": 2684,
+            "intention_read_when_refused": 0.004574369237366879,
+            "intentions_refused": 1169
+          },
+          "late": {
+            "body_read": 0.46603280743913905,
+            "intention_share_of_unread": 0.02219416063980408,
+            "intentions_per_day": 3.4,
+            "intention_read_when_done": 0.004629629629629629,
+            "intentions_done": 27,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 7
+          },
+          "life": {
+            "body_read": 0.407481282940985,
+            "intention_share_of_unread": 0.448279420110406,
+            "intentions_per_day": 136.10344827586206,
+            "intention_read_when_done": 0.0034365334749601674,
+            "intentions_done": 2762,
+            "intention_read_when_refused": 0.0046387405116671354,
+            "intentions_refused": 1185
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.29519335626205856,
+            "intention_share_of_unread": 0.6328318748429528,
+            "intentions_per_day": 401.6666666666667,
+            "intention_read_when_done": 0.0034198898371769265,
+            "intentions_done": 2844,
+            "intention_read_when_refused": 0.004928691275167785,
+            "intentions_refused": 770
+          },
+          "late": {
+            "body_read": 0.38928795729313864,
+            "intention_share_of_unread": 0.049136745607333845,
+            "intentions_per_day": 6.6,
+            "intention_read_when_done": 0.05783132530120482,
+            "intentions_done": 52,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 14
+          },
+          "life": {
+            "body_read": 0.37095814587776005,
+            "intention_share_of_unread": 0.4175023523003021,
+            "intentions_per_day": 129.89655172413794,
+            "intention_read_when_done": 0.005536907938147288,
+            "intentions_done": 2967,
+            "intention_read_when_refused": 0.005114833015745663,
+            "intentions_refused": 799
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.16978727144866385,
+            "intention_share_of_unread": 0.6372627152006298,
+            "intentions_per_day": 466.3333333333333,
+            "intention_read_when_done": 0.0026685922391058645,
+            "intentions_done": 2767,
+            "intention_read_when_refused": 0.002697518283179475,
+            "intentions_refused": 1430
+          },
+          "late": {
+            "body_read": 0.4096939369254044,
+            "intention_share_of_unread": 0.03334921391138637,
+            "intentions_per_day": 5.9,
+            "intention_read_when_done": 0.01278409090909091,
+            "intentions_done": 44,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 15
+          },
+          "life": {
+            "body_read": 0.32476744421701154,
+            "intention_share_of_unread": 0.4328400553802855,
+            "intentions_per_day": 150.06896551724137,
+            "intention_read_when_done": 0.003050421675937556,
+            "intentions_done": 2876,
+            "intention_read_when_refused": 0.003051764841365809,
+            "intentions_refused": 1476
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.21820860962004,
+            "intention_share_of_unread": 0.6371301832962051,
+            "intentions_per_day": 442.44444444444446,
+            "intention_read_when_done": 0.013195799646872968,
+            "intentions_done": 2769,
+            "intention_read_when_refused": 0.009515334063526835,
+            "intentions_refused": 1213
+          },
+          "late": {
+            "body_read": 0.36118448491589045,
+            "intention_share_of_unread": 0.03942063610571898,
+            "intentions_per_day": 6.6,
+            "intention_read_when_done": 0.0,
+            "intentions_done": 40,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 26
+          },
+          "life": {
+            "body_read": 0.3076085117899794,
+            "intention_share_of_unread": 0.42876600685489724,
+            "intentions_per_day": 143.3793103448276,
+            "intention_read_when_done": 0.013315774070822359,
+            "intentions_done": 2899,
+            "intention_read_when_refused": 0.009203655352480418,
+            "intentions_refused": 1259
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2137345178652487,
+            "intention_share_of_unread": 0.6457371588850581,
+            "intentions_per_day": 452.6666666666667,
+            "intention_read_when_done": 0.003441178362385026,
+            "intentions_done": 2730,
+            "intention_read_when_refused": 0.0028961783038468805,
+            "intentions_refused": 1344
+          },
+          "late": {
+            "body_read": 0.4417400415063166,
+            "intention_share_of_unread": 0.032678141256153335,
+            "intentions_per_day": 4.3,
+            "intention_read_when_done": 0.0020920502092050207,
+            "intentions_done": 30,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 13
+          },
+          "life": {
+            "body_read": 0.3420378138405999,
+            "intention_share_of_unread": 0.4542373454840747,
+            "intentions_per_day": 146.06896551724137,
+            "intention_read_when_done": 0.004210397852086893,
+            "intentions_done": 2845,
+            "intention_read_when_refused": 0.003137633500271526,
+            "intentions_refused": 1391
+          }
+        }
+      ]
+    }
+  },
+  "dropouts, two sensors": {
+    "mean": {
+      "adult_harm": 0.2,
+      "adult_blade_per_day": 0.29000000000000004,
+      "adult_blade_wanted_per_day": 0.85,
+      "exam_miss_rate": 0.0017857142857142857,
+      "exam_false_alarm_rate": 0.17740904253160922,
+      "walking_in_miss_rate": 0.000819672131147541
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.05,
+        "adult_blade_wanted_per_day": 0.3,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.0684931506849315,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.3,
+        "adult_blade_wanted_per_day": 1.4,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.17424242424242425,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.2,
+        "adult_blade_wanted_per_day": 0.25,
+        "exam_miss_rate": 0.008928571428571428,
+        "exam_false_alarm_rate": 0.1118421052631579,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.05,
+        "adult_blade_wanted_per_day": 0.35,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.24675324675324675,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 1,
+        "adult_blade_per_day": 0.85,
+        "adult_blade_wanted_per_day": 1.95,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.2857142857142857,
+        "walking_in_miss_rate": 0.004098360655737705
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.2660102754223993,
+          "intention_share_of_unread": 0.6469672276926588,
+          "intentions_per_day": 430.7111111111111,
+          "intention_read_when_done": 0.008049203557921514,
+          "intentions_done": 2680.0,
+          "intention_read_when_refused": 0.004754944480133022,
+          "intentions_refused": 1196.0
+        },
+        "late": {
+          "body_read": 0.40429303573161357,
+          "intention_share_of_unread": 0.03386817784517,
+          "intentions_per_day": 5.8,
+          "intention_read_when_done": 0.02291683273188521,
+          "intentions_done": 45.0,
+          "intention_read_when_refused": 0.0,
+          "intentions_refused": 13.0
+        },
+        "life": {
+          "body_read": 0.35534053492471884,
+          "intention_share_of_unread": 0.4282471628845914,
+          "intentions_per_day": 138.68275862068964,
+          "intention_read_when_done": 0.008986582590340738,
+          "intentions_done": 2793.0,
+          "intention_read_when_refused": 0.0050002419860430145,
+          "intentions_refused": 1228.4
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.27715237372459733,
+            "intention_share_of_unread": 0.6466108070782962,
+            "intentions_per_day": 431.44444444444446,
+            "intention_read_when_done": 0.006185024345308593,
+            "intentions_done": 2609,
+            "intention_read_when_refused": 0.005640083945435467,
+            "intentions_refused": 1274
+          },
+          "late": {
+            "body_read": 0.4035784498679429,
+            "intention_share_of_unread": 0.028057344422510597,
+            "intentions_per_day": 5.6,
+            "intention_read_when_done": 0.08205841446453407,
+            "intentions_done": 45,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 11
+          },
+          "life": {
+            "body_read": 0.3659032870389337,
+            "intention_share_of_unread": 0.42211214755536747,
+            "intentions_per_day": 137.93103448275863,
+            "intention_read_when_done": 0.008048542773603295,
+            "intentions_done": 2703,
+            "intention_read_when_refused": 0.005577995768417003,
+            "intentions_refused": 1297
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2644404898984612,
+            "intention_share_of_unread": 0.6258200562324273,
+            "intentions_per_day": 412.22222222222223,
+            "intention_read_when_done": 0.0032815510597302504,
+            "intentions_done": 2823,
+            "intention_read_when_refused": 0.0013863216266173752,
+            "intentions_refused": 886
+          },
+          "late": {
+            "body_read": 0.37085460426327893,
+            "intention_share_of_unread": 0.03358175451198707,
+            "intentions_per_day": 6.6,
+            "intention_read_when_done": 0.028255528255528257,
+            "intentions_done": 51,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 15
+          },
+          "life": {
+            "body_read": 0.3310041096073785,
+            "intention_share_of_unread": 0.4081197593443555,
+            "intentions_per_day": 133.72413793103448,
+            "intention_read_when_done": 0.0046126249252583925,
+            "intentions_done": 2953,
+            "intention_read_when_refused": 0.0021072965141803496,
+            "intentions_refused": 924
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3096571028691393,
+            "intention_share_of_unread": 0.6686643925478877,
+            "intentions_per_day": 424.6666666666667,
+            "intention_read_when_done": 0.014473684210526316,
+            "intentions_done": 2633,
+            "intention_read_when_refused": 0.00727221872596322,
+            "intentions_refused": 1189
+          },
+          "late": {
+            "body_read": 0.39747919430707995,
+            "intention_share_of_unread": 0.03241114375181586,
+            "intentions_per_day": 5.7,
+            "intention_read_when_done": 0.0026954177897574125,
+            "intentions_done": 47,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 10
+          },
+          "life": {
+            "body_read": 0.38495958624984766,
+            "intention_share_of_unread": 0.44054802955665023,
+            "intentions_per_day": 136.55172413793105,
+            "intention_read_when_done": 0.014595587091152398,
+            "intentions_done": 2751,
+            "intention_read_when_refused": 0.007192273443386533,
+            "intentions_refused": 1209
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2541722859069454,
+            "intention_share_of_unread": 0.647666640121048,
+            "intentions_per_day": 437.0,
+            "intention_read_when_done": 0.011873015873015874,
+            "intentions_done": 2728,
+            "intention_read_when_refused": 0.007657382936911297,
+            "intentions_refused": 1204
+          },
+          "late": {
+            "body_read": 0.4229966091304431,
+            "intention_share_of_unread": 0.031543408360128616,
+            "intentions_per_day": 5.8,
+            "intention_read_when_done": 0.0,
+            "intentions_done": 42,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 16
+          },
+          "life": {
+            "body_read": 0.3563044702919442,
+            "intention_share_of_unread": 0.43280618561517437,
+            "intentions_per_day": 140.86206896551724,
+            "intention_read_when_done": 0.011849202981998909,
+            "intentions_done": 2831,
+            "intention_read_when_refused": 0.008069201471822348,
+            "intentions_refused": 1253
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.22462912471285343,
+            "intention_share_of_unread": 0.6460742424836345,
+            "intentions_per_day": 448.22222222222223,
+            "intention_read_when_done": 0.00443274230102653,
+            "intentions_done": 2607,
+            "intention_read_when_refused": 0.001818715165737753,
+            "intentions_refused": 1427
+          },
+          "late": {
+            "body_read": 0.42655632108932284,
+            "intention_share_of_unread": 0.043747238179407864,
+            "intentions_per_day": 5.3,
+            "intention_read_when_done": 0.0015748031496062992,
+            "intentions_done": 40,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 13
+          },
+          "life": {
+            "body_read": 0.33853122143549025,
+            "intention_share_of_unread": 0.4376496923514095,
+            "intentions_per_day": 144.3448275862069,
+            "intention_read_when_done": 0.005826955179690699,
+            "intentions_done": 2727,
+            "intention_read_when_refused": 0.002054442732408834,
+            "intentions_refused": 1459
+          }
+        }
+      ]
+    }
+  },
+  "dropouts, plausibility check": {
+    "mean": {
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.64,
+      "adult_blade_wanted_per_day": 1.3800000000000001,
+      "exam_miss_rate": 0.029099575248201538,
+      "exam_false_alarm_rate": 0.17966278294324436,
+      "walking_in_miss_rate": 0.033034750089904016
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.0,
+        "adult_blade_wanted_per_day": 0.15,
+        "exam_miss_rate": 0.03664921465968586,
+        "exam_false_alarm_rate": 0.0684931506849315,
+        "walking_in_miss_rate": 0.028455284552845527
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.55,
+        "adult_blade_wanted_per_day": 1.95,
+        "exam_miss_rate": 0.015151515151515152,
+        "exam_false_alarm_rate": 0.18181818181818182,
+        "walking_in_miss_rate": 0.03587443946188341
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.6,
+        "adult_blade_wanted_per_day": 1.0,
+        "exam_miss_rate": 0.026785714285714284,
+        "exam_false_alarm_rate": 0.11842105263157894,
+        "walking_in_miss_rate": 0.03404255319148936
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 1.25,
+        "adult_blade_wanted_per_day": 2.1,
+        "exam_miss_rate": 0.03208556149732621,
+        "exam_false_alarm_rate": 0.2597402597402597,
+        "walking_in_miss_rate": 0.01762114537444934
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.8,
+        "adult_blade_wanted_per_day": 1.7,
+        "exam_miss_rate": 0.03482587064676617,
+        "exam_false_alarm_rate": 0.2698412698412698,
+        "walking_in_miss_rate": 0.04918032786885246
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.2740176425684135,
+          "intention_share_of_unread": 0.6534041518449676,
+          "intentions_per_day": 432.2222222222222,
+          "intention_read_when_done": 0.004531963399586119,
+          "intentions_done": 2694.6,
+          "intention_read_when_refused": 0.0038308450736408567,
+          "intentions_refused": 1195.2
+        },
+        "late": {
+          "body_read": 0.39415350159350837,
+          "intention_share_of_unread": 0.03131616430795945,
+          "intentions_per_day": 5.86,
+          "intention_read_when_done": 0.021981295673145447,
+          "intentions_done": 45.2,
+          "intention_read_when_refused": 0.0,
+          "intentions_refused": 13.4
+        },
+        "life": {
+          "body_read": 0.34821549789816786,
+          "intention_share_of_unread": 0.4343930395436925,
+          "intentions_per_day": 139.55172413793102,
+          "intention_read_when_done": 0.005761620026079039,
+          "intentions_done": 2811.4,
+          "intention_read_when_refused": 0.004114847704164216,
+          "intentions_refused": 1235.4
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.3025007913896803,
+            "intention_share_of_unread": 0.659373389673297,
+            "intentions_per_day": 426.22222222222223,
+            "intention_read_when_done": 0.004274480373282866,
+            "intentions_done": 2613,
+            "intention_read_when_refused": 0.00496038580778505,
+            "intentions_refused": 1222
+          },
+          "late": {
+            "body_read": 0.4662659302484436,
+            "intention_share_of_unread": 0.02433107384944702,
+            "intentions_per_day": 4.2,
+            "intention_read_when_done": 0.04310344827586207,
+            "intentions_done": 29,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 13
+          },
+          "life": {
+            "body_read": 0.40365024614045075,
+            "intention_share_of_unread": 0.4366359374110233,
+            "intentions_per_day": 135.93103448275863,
+            "intention_read_when_done": 0.0054808328345985445,
+            "intentions_done": 2688,
+            "intention_read_when_refused": 0.005009016229212583,
+            "intentions_refused": 1253
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2772880641079713,
+            "intention_share_of_unread": 0.635476940095303,
+            "intentions_per_day": 414.55555555555554,
+            "intention_read_when_done": 0.003083875301517511,
+            "intentions_done": 2835,
+            "intention_read_when_refused": 0.0022024410388180233,
+            "intentions_refused": 896
+          },
+          "late": {
+            "body_read": 0.3588963197308878,
+            "intention_share_of_unread": 0.03800739116065258,
+            "intentions_per_day": 6.7,
+            "intention_read_when_done": 0.004634994206257242,
+            "intentions_done": 54,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 13
+          },
+          "life": {
+            "body_read": 0.3296540373642367,
+            "intention_share_of_unread": 0.4187238308663089,
+            "intentions_per_day": 134.48275862068965,
+            "intention_read_when_done": 0.0033805258595781566,
+            "intentions_done": 2962,
+            "intention_read_when_refused": 0.002952414032650226,
+            "intentions_refused": 938
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3227366210125585,
+            "intention_share_of_unread": 0.6798531388975075,
+            "intentions_per_day": 427.3333333333333,
+            "intention_read_when_done": 0.005042245843554102,
+            "intentions_done": 2570,
+            "intention_read_when_refused": 0.0047216865066170115,
+            "intentions_refused": 1276
+          },
+          "late": {
+            "body_read": 0.36449872651063914,
+            "intention_share_of_unread": 0.031392327678434966,
+            "intentions_per_day": 6.5,
+            "intention_read_when_done": 0.039663461538461536,
+            "intentions_done": 53,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 12
+          },
+          "life": {
+            "body_read": 0.3426444600615435,
+            "intention_share_of_unread": 0.44786640228317304,
+            "intentions_per_day": 139.0344827586207,
+            "intention_read_when_done": 0.00734479374426188,
+            "intentions_done": 2723,
+            "intention_read_when_refused": 0.0050862734998712335,
+            "intentions_refused": 1309
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.25589176303297717,
+            "intention_share_of_unread": 0.6487646948505098,
+            "intentions_per_day": 440.22222222222223,
+            "intention_read_when_done": 0.006078558425128822,
+            "intentions_done": 2818,
+            "intention_read_when_refused": 0.005456422356584574,
+            "intentions_refused": 1144
+          },
+          "late": {
+            "body_read": 0.37627864056701943,
+            "intention_share_of_unread": 0.03455401914602644,
+            "intentions_per_day": 6.6,
+            "intention_read_when_done": 0.01171875,
+            "intentions_done": 49,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 17
+          },
+          "life": {
+            "body_read": 0.3253302845528455,
+            "intention_share_of_unread": 0.4355593840370965,
+            "intentions_per_day": 142.86206896551724,
+            "intention_read_when_done": 0.006952762116210452,
+            "intentions_done": 2944,
+            "intention_read_when_refused": 0.005491831769204032,
+            "intentions_refused": 1199
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.21167097329888027,
+            "intention_share_of_unread": 0.6435525957082213,
+            "intentions_per_day": 452.77777777777777,
+            "intention_read_when_done": 0.004180657054447297,
+            "intentions_done": 2637,
+            "intention_read_when_refused": 0.0018132896583996257,
+            "intentions_refused": 1438
+          },
+          "late": {
+            "body_read": 0.4048278909105515,
+            "intention_share_of_unread": 0.028296009705236238,
+            "intentions_per_day": 5.3,
+            "intention_read_when_done": 0.01078582434514638,
+            "intentions_done": 41,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 12
+          },
+          "life": {
+            "body_read": 0.3397984613717629,
+            "intention_share_of_unread": 0.433179643120861,
+            "intentions_per_day": 145.44827586206895,
+            "intention_read_when_done": 0.0056491855757461636,
+            "intentions_done": 2740,
+            "intention_read_when_refused": 0.0020347029898830048,
+            "intentions_refused": 1478
+          }
+        }
+      ]
+    }
+  },
+  "dropouts, two sensors and a plausibility check": {
+    "mean": {
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.64,
+      "adult_blade_wanted_per_day": 1.4200000000000002,
+      "exam_miss_rate": 0.0017857142857142857,
+      "exam_false_alarm_rate": 0.18566832710668327,
+      "walking_in_miss_rate": 0.000819672131147541
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.0,
+        "adult_blade_wanted_per_day": 0.35,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.0684931506849315,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.55,
+        "adult_blade_wanted_per_day": 1.95,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.1893939393939394,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.6,
+        "adult_blade_wanted_per_day": 1.0,
+        "exam_miss_rate": 0.008928571428571428,
+        "exam_false_alarm_rate": 0.125,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 1.25,
+        "adult_blade_wanted_per_day": 2.1,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.2597402597402597,
+        "walking_in_miss_rate": 0.0
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.8,
+        "adult_blade_wanted_per_day": 1.7,
+        "exam_miss_rate": 0.0,
+        "exam_false_alarm_rate": 0.2857142857142857,
+        "walking_in_miss_rate": 0.004098360655737705
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.268554162725249,
+          "intention_share_of_unread": 0.651620107735382,
+          "intentions_per_day": 433.88888888888886,
+          "intention_read_when_done": 0.004705079125775071,
+          "intentions_done": 2730.4,
+          "intention_read_when_refused": 0.004395707413863206,
+          "intentions_refused": 1174.4
+        },
+        "late": {
+          "body_read": 0.38555807531080494,
+          "intention_share_of_unread": 0.031229715908234014,
+          "intentions_per_day": 5.800000000000001,
+          "intention_read_when_done": 0.01373939389676091,
+          "intentions_done": 46.0,
+          "intention_read_when_refused": 0.0,
+          "intentions_refused": 12.0
+        },
+        "life": {
+          "body_read": 0.34208160848254965,
+          "intention_share_of_unread": 0.4326122207203268,
+          "intentions_per_day": 140.04827586206895,
+          "intention_read_when_done": 0.005739397121131162,
+          "intentions_done": 2848.2,
+          "intention_read_when_refused": 0.004675657494565641,
+          "intentions_refused": 1213.0
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.2751833921738579,
+            "intention_share_of_unread": 0.6504531691253683,
+            "intentions_per_day": 434.55555555555554,
+            "intention_read_when_done": 0.005140059004227622,
+            "intentions_done": 2792,
+            "intention_read_when_refused": 0.007784697508896797,
+            "intentions_refused": 1118
+          },
+          "late": {
+            "body_read": 0.42328879883492687,
+            "intention_share_of_unread": 0.023898831850819847,
+            "intentions_per_day": 3.9,
+            "intention_read_when_done": 0.001893939393939394,
+            "intentions_done": 33,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 6
+          },
+          "life": {
+            "body_read": 0.37298079906236,
+            "intention_share_of_unread": 0.4277318432941946,
+            "intentions_per_day": 138.41379310344828,
+            "intention_read_when_done": 0.005369718309859155,
+            "intentions_done": 2872,
+            "intention_read_when_refused": 0.007813065181219707,
+            "intentions_refused": 1141
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2772880641079713,
+            "intention_share_of_unread": 0.635476940095303,
+            "intentions_per_day": 414.55555555555554,
+            "intention_read_when_done": 0.003083875301517511,
+            "intentions_done": 2835,
+            "intention_read_when_refused": 0.0022024410388180233,
+            "intentions_refused": 896
+          },
+          "late": {
+            "body_read": 0.3588963197308878,
+            "intention_share_of_unread": 0.03800739116065258,
+            "intentions_per_day": 6.7,
+            "intention_read_when_done": 0.004634994206257242,
+            "intentions_done": 54,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 13
+          },
+          "life": {
+            "body_read": 0.3296540373642367,
+            "intention_share_of_unread": 0.4187238308663089,
+            "intentions_per_day": 134.48275862068965,
+            "intention_read_when_done": 0.0033805258595781566,
+            "intentions_done": 2962,
+            "intention_read_when_refused": 0.002952414032650226,
+            "intentions_refused": 938
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3227366210125585,
+            "intention_share_of_unread": 0.6798531388975075,
+            "intentions_per_day": 427.3333333333333,
+            "intention_read_when_done": 0.005042245843554102,
+            "intentions_done": 2570,
+            "intention_read_when_refused": 0.0047216865066170115,
+            "intentions_refused": 1276
+          },
+          "late": {
+            "body_read": 0.36449872651063914,
+            "intention_share_of_unread": 0.031392327678434966,
+            "intentions_per_day": 6.5,
+            "intention_read_when_done": 0.039663461538461536,
+            "intentions_done": 53,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 12
+          },
+          "life": {
+            "body_read": 0.3426444600615435,
+            "intention_share_of_unread": 0.44786640228317304,
+            "intentions_per_day": 139.0344827586207,
+            "intention_read_when_done": 0.00734479374426188,
+            "intentions_done": 2723,
+            "intention_read_when_refused": 0.0050862734998712335,
+            "intentions_refused": 1309
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.25589176303297717,
+            "intention_share_of_unread": 0.6487646948505098,
+            "intentions_per_day": 440.22222222222223,
+            "intention_read_when_done": 0.006078558425128822,
+            "intentions_done": 2818,
+            "intention_read_when_refused": 0.005456422356584574,
+            "intentions_refused": 1144
+          },
+          "late": {
+            "body_read": 0.37627864056701943,
+            "intention_share_of_unread": 0.03455401914602644,
+            "intentions_per_day": 6.6,
+            "intention_read_when_done": 0.01171875,
+            "intentions_done": 49,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 17
+          },
+          "life": {
+            "body_read": 0.3253302845528455,
+            "intention_share_of_unread": 0.4355593840370965,
+            "intentions_per_day": 142.86206896551724,
+            "intention_read_when_done": 0.006952762116210452,
+            "intentions_done": 2944,
+            "intention_read_when_refused": 0.005491831769204032,
+            "intentions_refused": 1199
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.21167097329888027,
+            "intention_share_of_unread": 0.6435525957082213,
+            "intentions_per_day": 452.77777777777777,
+            "intention_read_when_done": 0.004180657054447297,
+            "intentions_done": 2637,
+            "intention_read_when_refused": 0.0018132896583996257,
+            "intentions_refused": 1438
+          },
+          "late": {
+            "body_read": 0.4048278909105515,
+            "intention_share_of_unread": 0.028296009705236238,
+            "intentions_per_day": 5.3,
+            "intention_read_when_done": 0.01078582434514638,
+            "intentions_done": 41,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 12
+          },
+          "life": {
+            "body_read": 0.3397984613717629,
+            "intention_share_of_unread": 0.433179643120861,
+            "intentions_per_day": 145.44827586206895,
+            "intention_read_when_done": 0.0056491855757461636,
+            "intentions_done": 2740,
+            "intention_read_when_refused": 0.0020347029898830048,
+            "intentions_refused": 1478
+          }
+        }
+      ]
+    }
+  },
+  "noise, one sensor": {
+    "mean": {
+      "adult_harm": 0.2,
+      "adult_blade_per_day": 0.6,
+      "adult_blade_wanted_per_day": 1.2399999999999998,
+      "exam_miss_rate": 0.09446091524904804,
+      "exam_false_alarm_rate": 0.37059554240520354,
+      "walking_in_miss_rate": 0.0770748891301813
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.3,
+        "adult_blade_wanted_per_day": 0.75,
+        "exam_miss_rate": 0.041884816753926704,
+        "exam_false_alarm_rate": 0.2465753424657534,
+        "walking_in_miss_rate": 0.044715447154471545
+      },
+      {
+        "adult_harm": 1,
+        "adult_blade_per_day": 1.15,
+        "adult_blade_wanted_per_day": 2.7,
+        "exam_miss_rate": 0.15151515151515152,
+        "exam_false_alarm_rate": 0.4772727272727273,
+        "walking_in_miss_rate": 0.07623318385650224
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 1.2,
+        "adult_blade_wanted_per_day": 1.9,
+        "exam_miss_rate": 0.0625,
+        "exam_false_alarm_rate": 0.27631578947368424,
+        "walking_in_miss_rate": 0.05531914893617021
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.2,
+        "adult_blade_wanted_per_day": 0.5,
+        "exam_miss_rate": 0.10695187165775401,
+        "exam_false_alarm_rate": 0.37662337662337664,
+        "walking_in_miss_rate": 0.11894273127753303
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.15,
+        "adult_blade_wanted_per_day": 0.35,
+        "exam_miss_rate": 0.10945273631840796,
+        "exam_false_alarm_rate": 0.47619047619047616,
+        "walking_in_miss_rate": 0.09016393442622951
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.28904917616968195,
+          "intention_share_of_unread": 0.6557379259747472,
+          "intentions_per_day": 426.8,
+          "intention_read_when_done": 0.00538772448099474,
+          "intentions_done": 2628.6,
+          "intention_read_when_refused": 0.004618712357551025,
+          "intentions_refused": 1212.2
+        },
+        "late": {
+          "body_read": 0.3984713332047239,
+          "intention_share_of_unread": 0.04189509811756051,
+          "intentions_per_day": 5.779999999999999,
+          "intention_read_when_done": 0.019664434545032267,
+          "intentions_done": 44.0,
+          "intention_read_when_refused": 0.001941747572815534,
+          "intentions_refused": 13.8
+        },
+        "life": {
+          "body_read": 0.3570699840811361,
+          "intention_share_of_unread": 0.4351537059259817,
+          "intentions_per_day": 137.7448275862069,
+          "intention_read_when_done": 0.006399555728694273,
+          "intentions_done": 2746.0,
+          "intention_read_when_refused": 0.004855472026717758,
+          "intentions_refused": 1248.2
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.3023770509246451,
+            "intention_share_of_unread": 0.6613674630966769,
+            "intentions_per_day": 430.55555555555554,
+            "intention_read_when_done": 0.005821960686114937,
+            "intentions_done": 2731,
+            "intention_read_when_refused": 0.0034514992449845403,
+            "intentions_refused": 1143
+          },
+          "late": {
+            "body_read": 0.4895876187677539,
+            "intention_share_of_unread": 0.026164311878597593,
+            "intentions_per_day": 4.0,
+            "intention_read_when_done": 0.0,
+            "intentions_done": 26,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 14
+          },
+          "life": {
+            "body_read": 0.4154145461399682,
+            "intention_share_of_unread": 0.4453414919233791,
+            "intentions_per_day": 137.13793103448276,
+            "intention_read_when_done": 0.005842995973479459,
+            "intentions_done": 2805,
+            "intention_read_when_refused": 0.003347513773624381,
+            "intentions_refused": 1171
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2927878092057197,
+            "intention_share_of_unread": 0.6359289030261348,
+            "intentions_per_day": 411.3333333333333,
+            "intention_read_when_done": 0.0016804880721879225,
+            "intentions_done": 2304,
+            "intention_read_when_refused": 0.0016730697732060974,
+            "intentions_refused": 1397
+          },
+          "late": {
+            "body_read": 0.3559399361275861,
+            "intention_share_of_unread": 0.058214410024364775,
+            "intentions_per_day": 7.1,
+            "intention_read_when_done": 0.0011627906976744186,
+            "intentions_done": 54,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 17
+          },
+          "life": {
+            "body_read": 0.33481212429885876,
+            "intention_share_of_unread": 0.4182359526195793,
+            "intentions_per_day": 133.86206896551724,
+            "intention_read_when_done": 0.002526373288723499,
+            "intentions_done": 2434,
+            "intention_read_when_refused": 0.0021343451710440506,
+            "intentions_refused": 1447
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.27903760454854787,
+            "intention_share_of_unread": 0.6640204603580563,
+            "intentions_per_day": 431.44444444444446,
+            "intention_read_when_done": 0.007612360526956099,
+            "intentions_done": 2532,
+            "intention_read_when_refused": 0.0029955067398901645,
+            "intentions_refused": 1351
+          },
+          "late": {
+            "body_read": 0.37846936778234486,
+            "intention_share_of_unread": 0.035155419160766914,
+            "intentions_per_day": 6.3,
+            "intention_read_when_done": 0.004310344827586207,
+            "intentions_done": 44,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 19
+          },
+          "life": {
+            "body_read": 0.34024265912267315,
+            "intention_share_of_unread": 0.42405828023788333,
+            "intentions_per_day": 139.17241379310346,
+            "intention_read_when_done": 0.008070866141732283,
+            "intentions_done": 2648,
+            "intention_read_when_refused": 0.0033791938209027277,
+            "intentions_refused": 1388
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.31076153324287653,
+            "intention_share_of_unread": 0.6660777748104932,
+            "intentions_per_day": 424.3333333333333,
+            "intention_read_when_done": 0.009440428713858424,
+            "intentions_done": 2755,
+            "intention_read_when_refused": 0.009421265141318977,
+            "intentions_refused": 1064
+          },
+          "late": {
+            "body_read": 0.378931413414172,
+            "intention_share_of_unread": 0.033518512771174076,
+            "intentions_per_day": 6.1,
+            "intention_read_when_done": 0.011560693641618497,
+            "intentions_done": 55,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 6
+          },
+          "life": {
+            "body_read": 0.35216274003278003,
+            "intention_share_of_unread": 0.4389759525241964,
+            "intentions_per_day": 137.41379310344828,
+            "intention_read_when_done": 0.010110186379088032,
+            "intentions_done": 2895,
+            "intention_read_when_refused": 0.009523809523809525,
+            "intentions_refused": 1090
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.26028188292662063,
+            "intention_share_of_unread": 0.6512950285823748,
+            "intentions_per_day": 436.3333333333333,
+            "intention_read_when_done": 0.002383384405856316,
+            "intentions_done": 2821,
+            "intention_read_when_refused": 0.0055522208883553425,
+            "intentions_refused": 1106
+          },
+          "late": {
+            "body_read": 0.3894283299317624,
+            "intention_share_of_unread": 0.0564228367528992,
+            "intentions_per_day": 5.4,
+            "intention_read_when_done": 0.08128834355828221,
+            "intentions_done": 41,
+            "intention_read_when_refused": 0.009708737864077669,
+            "intentions_refused": 13
+          },
+          "life": {
+            "body_read": 0.3427178508114005,
+            "intention_share_of_unread": 0.4491568523248704,
+            "intentions_per_day": 141.13793103448276,
+            "intention_read_when_done": 0.005447356860448089,
+            "intentions_done": 2948,
+            "intention_read_when_refused": 0.005892497844208105,
+            "intentions_refused": 1145
+          }
+        }
+      ]
+    }
+  },
+  "noise, two sensors": {
+    "mean": {
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.4,
+      "adult_blade_wanted_per_day": 1.0299999999999998,
+      "exam_miss_rate": 0.021747334018534986,
+      "exam_false_alarm_rate": 0.44733458282484956,
+      "walking_in_miss_rate": 0.021251976598205453
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.65,
+        "exam_miss_rate": 0.005235602094240838,
+        "exam_false_alarm_rate": 0.273972602739726,
+        "walking_in_miss_rate": 0.016260162601626018
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 1.2,
+        "adult_blade_wanted_per_day": 2.25,
+        "exam_miss_rate": 0.015151515151515152,
+        "exam_false_alarm_rate": 0.5681818181818182,
+        "walking_in_miss_rate": 0.013452914798206279
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.85,
+        "exam_miss_rate": 0.026785714285714284,
+        "exam_false_alarm_rate": 0.3223684210526316,
+        "walking_in_miss_rate": 0.01702127659574468
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.2,
+        "adult_blade_wanted_per_day": 0.6,
+        "exam_miss_rate": 0.026737967914438502,
+        "exam_false_alarm_rate": 0.5324675324675324,
+        "walking_in_miss_rate": 0.030837004405286344
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.1,
+        "adult_blade_wanted_per_day": 0.8,
+        "exam_miss_rate": 0.03482587064676617,
+        "exam_false_alarm_rate": 0.5396825396825397,
+        "walking_in_miss_rate": 0.028688524590163935
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.2799012110336785,
+          "intention_share_of_unread": 0.6536132956440086,
+          "intentions_per_day": 428.7333333333333,
+          "intention_read_when_done": 0.003584121363712512,
+          "intentions_done": 2601.0,
+          "intention_read_when_refused": 0.0029088937542482594,
+          "intentions_refused": 1257.2
+        },
+        "late": {
+          "body_read": 0.39361558015077175,
+          "intention_share_of_unread": 0.04143757965576848,
+          "intentions_per_day": 5.840000000000001,
+          "intention_read_when_done": 0.02319631412479538,
+          "intentions_done": 44.0,
+          "intention_read_when_refused": 0.0,
+          "intentions_refused": 14.4
+        },
+        "life": {
+          "body_read": 0.34836653956172614,
+          "intention_share_of_unread": 0.43645433919108767,
+          "intentions_per_day": 138.42758620689656,
+          "intention_read_when_done": 0.0047917774659024205,
+          "intentions_done": 2717.2,
+          "intention_read_when_refused": 0.003122447279301146,
+          "intentions_refused": 1296.8
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.28862862820539925,
+            "intention_share_of_unread": 0.6559023232984293,
+            "intentions_per_day": 432.1111111111111,
+            "intention_read_when_done": 0.0056433408577878106,
+            "intentions_done": 2584,
+            "intention_read_when_refused": 0.004720591987751978,
+            "intentions_refused": 1305
+          },
+          "late": {
+            "body_read": 0.4138706540238269,
+            "intention_share_of_unread": 0.026713319651448374,
+            "intentions_per_day": 4.9,
+            "intention_read_when_done": 0.04428044280442804,
+            "intentions_done": 34,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 15
+          },
+          "life": {
+            "body_read": 0.3739700323606994,
+            "intention_share_of_unread": 0.4305573592069705,
+            "intentions_per_day": 138.17241379310346,
+            "intention_read_when_done": 0.006679601768504087,
+            "intentions_done": 2673,
+            "intention_read_when_refused": 0.004654049022649705,
+            "intentions_refused": 1334
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2771945173519977,
+            "intention_share_of_unread": 0.6327293126442135,
+            "intentions_per_day": 416.0,
+            "intention_read_when_done": 0.0007150922092585623,
+            "intentions_done": 2273,
+            "intention_read_when_refused": 0.001296481819789027,
+            "intentions_refused": 1470
+          },
+          "late": {
+            "body_read": 0.3622389734102226,
+            "intention_share_of_unread": 0.061651174239133584,
+            "intentions_per_day": 6.9,
+            "intention_read_when_done": 0.01625,
+            "intentions_done": 50,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 19
+          },
+          "life": {
+            "body_read": 0.3328664110881746,
+            "intention_share_of_unread": 0.4226175629506314,
+            "intentions_per_day": 135.13793103448276,
+            "intention_read_when_done": 0.00158640626101671,
+            "intentions_done": 2394,
+            "intention_read_when_refused": 0.001520013511231211,
+            "intentions_refused": 1524
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2749405008842988,
+            "intention_share_of_unread": 0.6631056732408084,
+            "intentions_per_day": 431.55555555555554,
+            "intention_read_when_done": 0.0022801417195776478,
+            "intentions_done": 2477,
+            "intention_read_when_refused": 0.0025050697840868423,
+            "intentions_refused": 1407
+          },
+          "late": {
+            "body_read": 0.46422160574412535,
+            "intention_share_of_unread": 0.028085106382978724,
+            "intentions_per_day": 4.3,
+            "intention_read_when_done": 0.0496031746031746,
+            "intentions_done": 32,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 11
+          },
+          "life": {
+            "body_read": 0.3744399417332293,
+            "intention_share_of_unread": 0.45221801738625783,
+            "intentions_per_day": 138.6551724137931,
+            "intention_read_when_done": 0.006273148920551236,
+            "intentions_done": 2580,
+            "intention_read_when_refused": 0.003013619240799768,
+            "intentions_refused": 1441
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3122997808126791,
+            "intention_share_of_unread": 0.6611137652410527,
+            "intentions_per_day": 420.0,
+            "intention_read_when_done": 0.0057700976709241176,
+            "intentions_done": 2861,
+            "intention_read_when_refused": 0.003941592761802383,
+            "intentions_refused": 918
+          },
+          "late": {
+            "body_read": 0.3212086636633683,
+            "intention_share_of_unread": 0.048400441257584116,
+            "intentions_per_day": 7.8,
+            "intention_read_when_done": 0.0,
+            "intentions_done": 61,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 17
+          },
+          "life": {
+            "body_read": 0.32291799944780775,
+            "intention_share_of_unread": 0.41966130652106154,
+            "intentions_per_day": 136.41379310344828,
+            "intention_read_when_done": 0.005732285252135418,
+            "intentions_done": 2992,
+            "intention_read_when_refused": 0.004219409282700422,
+            "intentions_refused": 963
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.24644262791401755,
+            "intention_share_of_unread": 0.6552154037955396,
+            "intentions_per_day": 444.0,
+            "intention_read_when_done": 0.0035119343610144206,
+            "intentions_done": 2810,
+            "intention_read_when_refused": 0.0020807324178110697,
+            "intentions_refused": 1186
+          },
+          "late": {
+            "body_read": 0.4065380039123157,
+            "intention_share_of_unread": 0.04233785674769761,
+            "intentions_per_day": 5.3,
+            "intention_read_when_done": 0.005847953216374269,
+            "intentions_done": 43,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 10
+          },
+          "life": {
+            "body_read": 0.33763831317871945,
+            "intention_share_of_unread": 0.4572174498905171,
+            "intentions_per_day": 143.75862068965517,
+            "intention_read_when_done": 0.003687445127304653,
+            "intentions_done": 2947,
+            "intention_read_when_refused": 0.002205145339124624,
+            "intentions_refused": 1222
+          }
+        }
+      ]
+    }
+  },
+  "noise, plausibility check": {
+    "mean": {
+      "adult_harm": 0.0,
+      "adult_blade_per_day": 0.6900000000000001,
+      "adult_blade_wanted_per_day": 1.48,
+      "exam_miss_rate": 0.03385619807322504,
+      "exam_false_alarm_rate": 0.7708014328057586,
+      "walking_in_miss_rate": 0.02818680418959371
+    },
+    "lives": [
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.3,
+        "adult_blade_wanted_per_day": 1.3,
+        "exam_miss_rate": 0.015706806282722512,
+        "exam_false_alarm_rate": 0.7671232876712328,
+        "walking_in_miss_rate": 0.02032520325203252
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.55,
+        "adult_blade_wanted_per_day": 1.4,
+        "exam_miss_rate": 0.030303030303030304,
+        "exam_false_alarm_rate": 0.8106060606060606,
+        "walking_in_miss_rate": 0.017937219730941704
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.3,
+        "adult_blade_wanted_per_day": 0.8,
+        "exam_miss_rate": 0.03571428571428571,
+        "exam_false_alarm_rate": 0.8289473684210527,
+        "walking_in_miss_rate": 0.01702127659574468
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 1.75,
+        "adult_blade_wanted_per_day": 3.0,
+        "exam_miss_rate": 0.0427807486631016,
+        "exam_false_alarm_rate": 0.7012987012987013,
+        "walking_in_miss_rate": 0.05286343612334802
+      },
+      {
+        "adult_harm": 0,
+        "adult_blade_per_day": 0.55,
+        "adult_blade_wanted_per_day": 0.9,
+        "exam_miss_rate": 0.04477611940298507,
+        "exam_false_alarm_rate": 0.746031746031746,
+        "walking_in_miss_rate": 0.03278688524590164
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.27591590237379393,
+          "intention_share_of_unread": 0.6509238821309328,
+          "intentions_per_day": 427.62222222222226,
+          "intention_read_when_done": 0.006270361468405497,
+          "intentions_done": 2549.2,
+          "intention_read_when_refused": 0.004594886887872784,
+          "intentions_refused": 1299.0
+        },
+        "late": {
+          "body_read": 0.35757797056090207,
+          "intention_share_of_unread": 0.03754269451786908,
+          "intentions_per_day": 6.659999999999999,
+          "intention_read_when_done": 0.022205951680221225,
+          "intentions_done": 50.6,
+          "intention_read_when_refused": 0.0,
+          "intentions_refused": 16.0
+        },
+        "life": {
+          "body_read": 0.3334178742894107,
+          "intention_share_of_unread": 0.4266217568263119,
+          "intentions_per_day": 138.48965517241382,
+          "intention_read_when_done": 0.007359415041386148,
+          "intentions_done": 2674.8,
+          "intention_read_when_refused": 0.004770625115954346,
+          "intentions_refused": 1341.0
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.3149324524626265,
+            "intention_share_of_unread": 0.6606423596542754,
+            "intentions_per_day": 418.22222222222223,
+            "intention_read_when_done": 0.00968349016253208,
+            "intentions_done": 2518,
+            "intention_read_when_refused": 0.005231388329979879,
+            "intentions_refused": 1246
+          },
+          "late": {
+            "body_read": 0.3879059573620243,
+            "intention_share_of_unread": 0.031158346210854962,
+            "intentions_per_day": 6.0,
+            "intention_read_when_done": 0.015130674002751032,
+            "intentions_done": 46,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 14
+          },
+          "life": {
+            "body_read": 0.3744206345447287,
+            "intention_share_of_unread": 0.4296421961752005,
+            "intentions_per_day": 134.48275862068965,
+            "intention_read_when_done": 0.01023001238026976,
+            "intentions_done": 2617,
+            "intention_read_when_refused": 0.005498770862983568,
+            "intentions_refused": 1283
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.22579701055712345,
+            "intention_share_of_unread": 0.6134480095192368,
+            "intentions_per_day": 420.44444444444446,
+            "intention_read_when_done": 0.0012337167531477921,
+            "intentions_done": 2344,
+            "intention_read_when_refused": 0.0036904833928247324,
+            "intentions_refused": 1440
+          },
+          "late": {
+            "body_read": 0.3265172938873178,
+            "intention_share_of_unread": 0.04863536050507026,
+            "intentions_per_day": 7.5,
+            "intention_read_when_done": 0.009183673469387756,
+            "intentions_done": 62,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 13
+          },
+          "life": {
+            "body_read": 0.289764263431774,
+            "intention_share_of_unread": 0.4213525339602926,
+            "intentions_per_day": 138.10344827586206,
+            "intention_read_when_done": 0.0021222270119706866,
+            "intentions_done": 2524,
+            "intention_read_when_refused": 0.004086875291919664,
+            "intentions_refused": 1481
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.22747194950911642,
+            "intention_share_of_unread": 0.6509530174761127,
+            "intentions_per_day": 448.3333333333333,
+            "intention_read_when_done": 0.005657327586206897,
+            "intentions_done": 2600,
+            "intention_read_when_refused": 0.0019593872461702885,
+            "intentions_refused": 1434
+          },
+          "late": {
+            "body_read": 0.3821531908053368,
+            "intention_share_of_unread": 0.0323808924413116,
+            "intentions_per_day": 5.9,
+            "intention_read_when_done": 0.028187919463087248,
+            "intentions_done": 47,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 12
+          },
+          "life": {
+            "body_read": 0.33859502048104906,
+            "intention_share_of_unread": 0.4314955740288347,
+            "intentions_per_day": 144.10344827586206,
+            "intention_read_when_done": 0.006374731716692827,
+            "intentions_done": 2703,
+            "intention_read_when_refused": 0.002235725750974547,
+            "intentions_refused": 1475
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3451196898179366,
+            "intention_share_of_unread": 0.674306494377548,
+            "intentions_per_day": 414.22222222222223,
+            "intention_read_when_done": 0.012766099655783177,
+            "intentions_done": 2579,
+            "intention_read_when_refused": 0.009714326833129453,
+            "intentions_refused": 1149
+          },
+          "late": {
+            "body_read": 0.3322379799377378,
+            "intention_share_of_unread": 0.039711490631736034,
+            "intentions_per_day": 8.0,
+            "intention_read_when_done": 0.001184834123222749,
+            "intentions_done": 53,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 27
+          },
+          "life": {
+            "body_read": 0.3460805471629204,
+            "intention_share_of_unread": 0.42579008746355684,
+            "intentions_per_day": 134.6206896551724,
+            "intention_read_when_done": 0.01310471138057345,
+            "intentions_done": 2695,
+            "intention_read_when_refused": 0.009727757886914814,
+            "intentions_refused": 1209
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2662584095221666,
+            "intention_share_of_unread": 0.6552695296274909,
+            "intentions_per_day": 436.8888888888889,
+            "intention_read_when_done": 0.002011173184357542,
+            "intentions_done": 2705,
+            "intention_read_when_refused": 0.0023788486372595665,
+            "intentions_refused": 1226
+          },
+          "late": {
+            "body_read": 0.3590754308120937,
+            "intention_share_of_unread": 0.03582738280037256,
+            "intentions_per_day": 5.9,
+            "intention_read_when_done": 0.057342657342657345,
+            "intentions_done": 45,
+            "intention_read_when_refused": 0.0,
+            "intentions_refused": 14
+          },
+          "life": {
+            "body_read": 0.31822890582658153,
+            "intention_share_of_unread": 0.4248283925036752,
+            "intentions_per_day": 141.13793103448276,
+            "intention_read_when_done": 0.004965392717424014,
+            "intentions_done": 2835,
+            "intention_read_when_refused": 0.0023039957869791326,
+            "intentions_refused": 1257
+          }
+        }
+      ]
+    }
+  }
+}
