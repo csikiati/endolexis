@@ -1,0 +1,375 @@
+{
+  "13. Wanting \u00b7 neither": {
+    "mean": {
+      "body_read": 0.3842773376828511,
+      "intentions_per_day": 69.89540229885057,
+      "measure": 0.13447870652943622,
+      "measure_name": "refused_late",
+      "measure_over": "answer, ",
+      "conditions": 6
+    }
+  },
+  "13. Wanting \u00b7 missing answer felt": {
+    "mean": {
+      "body_read": 0.3896783946068926,
+      "intentions_per_day": 86.76436781609195,
+      "measure": 0.11026118428876613,
+      "measure_name": "refused_late",
+      "measure_over": "answer, ",
+      "conditions": 6,
+      "surprises_per_day": 17.388505747126434,
+      "after_refused": 0.2208302808302808,
+      "after_done": 0.11144648705176621,
+      "read_refused": 0.08608685743478309,
+      "read_done": 0.13680994304302402,
+      "cause_from_words": 0.33333333333332876,
+      "surprise_share_of_unread": 0.0036963990772142926,
+      "surprises_refused_late": 47,
+      "surprises_done_late": 222,
+      "read_refused_pct": 8.60868574347831,
+      "read_done_pct": 13.680994304302402
+    }
+  },
+  "13. Wanting \u00b7 control: shuffled": {
+    "mean": {
+      "body_read": 0.39078585364227825,
+      "intentions_per_day": 90.29080459770115,
+      "measure": 0.12977904935352844,
+      "measure_name": "refused_late",
+      "measure_over": "answer, ",
+      "conditions": 6,
+      "surprises_per_day": 19.817241379310342,
+      "after_refused": 0.17328208190277153,
+      "after_done": 0.11767826108676399,
+      "read_refused": 0.06436465289886877,
+      "read_done": 0.16340294382134854,
+      "cause_from_words": -0.2013305322128807,
+      "surprise_share_of_unread": 0.0038431695310157544,
+      "surprises_refused_late": 45,
+      "surprises_done_late": 236,
+      "read_refused_pct": 6.436465289886876,
+      "read_done_pct": 16.340294382134854
+    }
+  },
+  "13. Wanting \u00b7 missing answer and intention felt": {
+    "mean": {
+      "body_read": 0.3717258819876284,
+      "intentions_per_day": 154.32643678160917,
+      "measure": 0.13913737149369854,
+      "measure_name": "refused_late",
+      "measure_over": "answer, ",
+      "conditions": 6,
+      "surprises_per_day": 27.240229885057474,
+      "after_refused": 0.1750202333897986,
+      "after_done": 0.11802166978636466,
+      "read_refused": 0.10670986622468749,
+      "read_done": 0.17756467385400163,
+      "cause_from_words": 0.6509372979961213,
+      "surprise_share_of_unread": 0.003109260032283212,
+      "surprises_refused_late": 47,
+      "surprises_done_late": 230,
+      "read_refused_pct": 10.67098662246875,
+      "read_done_pct": 17.756467385400164
+    }
+  },
+  "13. Wanting \u00b7 intention felt (experiment 29)": {
+    "mean": {
+      "body_read": 0.37502267350231205,
+      "intentions_per_day": 142.7885057471264,
+      "measure": 0.13912225674755235,
+      "measure_name": "refused_late",
+      "measure_over": "answer, ",
+      "conditions": 6
+    }
+  },
+  "17. Sandbox guards \u00b7 neither": {
+    "mean": {
+      "body_read": 0.3494192791716694,
+      "intentions_per_day": 53.84630541871922,
+      "measure": 0.05,
+      "measure_name": "real_harm",
+      "measure_over": "sandbox",
+      "conditions": 7
+    }
+  },
+  "17. Sandbox guards \u00b7 missing answer felt": {
+    "mean": {
+      "body_read": 0.34344618476234384,
+      "intentions_per_day": 98.72512315270936,
+      "measure": 0.1,
+      "measure_name": "real_harm",
+      "measure_over": "sandbox",
+      "conditions": 7,
+      "surprises_per_day": 51.015763546798034,
+      "after_refused": 0.5914813097098254,
+      "after_done": 0.28245621401472754,
+      "read_refused": 0.050558662003956895,
+      "read_done": 0.08356741124826823,
+      "cause_from_words": null,
+      "surprise_share_of_unread": 0.011939506753649612,
+      "surprises_refused_late": 283,
+      "surprises_done_late": 429,
+      "read_refused_pct": 5.055866200395689,
+      "read_done_pct": 8.356741124826824
+    }
+  },
+  "17. Sandbox guards \u00b7 control: shuffled": {
+    "mean": {
+      "body_read": 0.34500119885114766,
+      "intentions_per_day": 109.04433497536947,
+      "measure": 0.05,
+      "measure_name": "real_harm",
+      "measure_over": "sandbox",
+      "conditions": 7,
+      "surprises_per_day": 58.94778325123152,
+      "after_refused": 0.5911646334810864,
+      "after_done": 0.30647836895996483,
+      "read_refused": 0.0543989512210962,
+      "read_done": 0.15502094927898782,
+      "cause_from_words": null,
+      "surprise_share_of_unread": 0.013477992000967266,
+      "surprises_refused_late": 274,
+      "surprises_done_late": 465,
+      "read_refused_pct": 5.43989512210962,
+      "read_done_pct": 15.502094927898783
+    }
+  },
+  "17. Sandbox guards \u00b7 intention felt (experiment 29)": {
+    "mean": {
+      "body_read": 0.3477705347734868,
+      "intentions_per_day": 141.1083743842364,
+      "measure": 0.1,
+      "measure_name": "real_harm",
+      "measure_over": "sandbox",
+      "conditions": 7
+    }
+  },
+  "21. Conscience \u00b7 neither": {
+    "mean": {
+      "body_read": 0.3901808557396211,
+      "intentions_per_day": 145.35448717948717,
+      "measure": 0.8631447933728842,
+      "measure_name": "late_avoidance",
+      "measure_over": "and senses",
+      "conditions": 8
+    }
+  },
+  "21. Conscience \u00b7 missing answer felt": {
+    "mean": {
+      "body_read": 0.39507998063740246,
+      "intentions_per_day": 203.2679487179487,
+      "measure": 1.0627721069625211,
+      "measure_name": "late_avoidance",
+      "measure_over": "and senses",
+      "conditions": 8,
+      "surprises_per_day": 83.33333333333334,
+      "after_refused": 0.35248212961747927,
+      "after_done": 0.36819315065982544,
+      "read_refused": 0.08860733351947692,
+      "read_done": 0.1333833438475137,
+      "cause_from_words": 0.05842499342279004,
+      "surprise_share_of_unread": 0.24785560985782337,
+      "surprises_refused_late": 2132,
+      "surprises_done_late": 35460,
+      "read_refused_pct": 8.860733351947692,
+      "read_done_pct": 13.338334384751372
+    }
+  },
+  "21. Conscience \u00b7 control: shuffled": {
+    "mean": {
+      "body_read": 0.39254856538289834,
+      "intentions_per_day": 233.82884615384614,
+      "measure": 0.9052602899833344,
+      "measure_name": "late_avoidance",
+      "measure_over": "and senses",
+      "conditions": 8,
+      "surprises_per_day": 100.60384615384615,
+      "after_refused": 0.35795406476126385,
+      "after_done": 0.3745141879180343,
+      "read_refused": 0.11364573260703684,
+      "read_done": 0.15280031063229935,
+      "cause_from_words": 0.0025452797385934426,
+      "surprise_share_of_unread": 0.34158158985534276,
+      "surprises_refused_late": 2378,
+      "surprises_done_late": 45917,
+      "read_refused_pct": 11.364573260703684,
+      "read_done_pct": 15.280031063229934
+    }
+  },
+  "21. Conscience \u00b7 missing answer and intention felt": {
+    "mean": {
+      "body_read": 0.4044508578808914,
+      "intentions_per_day": 493.90641025641014,
+      "measure": 1.0071651946786837,
+      "measure_name": "late_avoidance",
+      "measure_over": "and senses",
+      "conditions": 8,
+      "surprises_per_day": 194.12435897435898,
+      "after_refused": 0.33349590135213825,
+      "after_done": 0.3698492642501323,
+      "read_refused": 0.05003326411307748,
+      "read_done": 0.07564493451795143,
+      "cause_from_words": 0.05030445288662956,
+      "surprise_share_of_unread": 0.2362303026555475,
+      "surprises_refused_late": 4763,
+      "surprises_done_late": 93632,
+      "read_refused_pct": 5.003326411307748,
+      "read_done_pct": 7.564493451795143
+    }
+  },
+  "21. Conscience \u00b7 intention felt (experiment 29)": {
+    "mean": {
+      "body_read": 0.3983519388914532,
+      "intentions_per_day": 351.6955128205128,
+      "measure": 1.0657379511503569,
+      "measure_name": "late_avoidance",
+      "measure_over": "and senses",
+      "conditions": 8
+    }
+  },
+  "25, 27. Gaming \u00b7 neither": {
+    "mean": {
+      "body_read": 0.3859905509013819,
+      "intentions_per_day": 138.6160683760684,
+      "measure": 1.1280000000000001,
+      "measure_name": "late_harm_per_day",
+      "measure_over": "loophole",
+      "conditions": 15
+    }
+  },
+  "25, 27. Gaming \u00b7 missing answer felt": {
+    "mean": {
+      "body_read": 0.38271353207816855,
+      "intentions_per_day": 214.2492307692308,
+      "measure": 1.8800000000000001,
+      "measure_name": "late_harm_per_day",
+      "measure_over": "loophole",
+      "conditions": 15,
+      "surprises_per_day": 105.2519658119658,
+      "after_refused": 0.5355816707899923,
+      "after_done": 0.48450958929714194,
+      "read_refused": 0.07736794138263291,
+      "read_done": 0.13366431236693063,
+      "cause_from_words": 0.056459247703980725,
+      "surprise_share_of_unread": 0.3312865576839819,
+      "surprises_refused_late": 4580,
+      "surprises_done_late": 84364,
+      "read_refused_pct": 7.73679413826329,
+      "read_done_pct": 13.366431236693064
+    }
+  },
+  "25, 27. Gaming \u00b7 control: shuffled": {
+    "mean": {
+      "body_read": 0.3833057777630333,
+      "intentions_per_day": 248.02529914529916,
+      "measure": 1.5559999999999998,
+      "measure_name": "late_harm_per_day",
+      "measure_over": "loophole",
+      "conditions": 15,
+      "surprises_per_day": 124.12068376068375,
+      "after_refused": 0.5471953694537925,
+      "after_done": 0.4926279594331493,
+      "read_refused": 0.1150178608605481,
+      "read_done": 0.15860684953876805,
+      "cause_from_words": 0.0015420704790459572,
+      "surprise_share_of_unread": 0.4506521714657277,
+      "surprises_refused_late": 4962,
+      "surprises_done_late": 103651,
+      "read_refused_pct": 11.50178608605481,
+      "read_done_pct": 15.860684953876806
+    }
+  },
+  "25, 27. Gaming \u00b7 intention felt (experiment 29)": {
+    "mean": {
+      "body_read": 0.4000803583374928,
+      "intentions_per_day": 350.6543589743589,
+      "measure": 2.024,
+      "measure_name": "late_harm_per_day",
+      "measure_over": "loophole",
+      "conditions": 15
+    }
+  },
+  "26. Duties \u00b7 neither": {
+    "mean": {
+      "body_read": 0.3188001555645911,
+      "intentions_per_day": 81.38070175438597,
+      "measure": 3.466666666666667,
+      "measure_name": "harm_others",
+      "measure_over": "all conditions",
+      "conditions": 6
+    }
+  },
+  "26. Duties \u00b7 missing answer felt": {
+    "mean": {
+      "body_read": 0.2973279122851692,
+      "intentions_per_day": 149.01228070175438,
+      "measure": 3.5,
+      "measure_name": "harm_others",
+      "measure_over": "all conditions",
+      "conditions": 6,
+      "surprises_per_day": 77.30701754385964,
+      "after_refused": 0.6498512598512599,
+      "after_done": 0.3211577547363526,
+      "read_refused": 0.06259779464466594,
+      "read_done": 0.12898283311535502,
+      "cause_from_words": null,
+      "surprise_share_of_unread": 0.012632472126221846,
+      "surprises_refused_late": 159,
+      "surprises_done_late": 348,
+      "read_refused_pct": 6.259779464466594,
+      "read_done_pct": 12.898283311535502
+    }
+  },
+  "26. Duties \u00b7 control: shuffled": {
+    "mean": {
+      "body_read": 0.29377580224726874,
+      "intentions_per_day": 169.25263157894736,
+      "measure": 3.233333333333333,
+      "measure_name": "harm_others",
+      "measure_over": "all conditions",
+      "conditions": 6,
+      "surprises_per_day": 91.23333333333333,
+      "after_refused": 0.5432446719946721,
+      "after_done": 0.3983618327947753,
+      "read_refused": 0.10662793091107209,
+      "read_done": 0.207833937717362,
+      "cause_from_words": null,
+      "surprise_share_of_unread": 0.015272220442264837,
+      "surprises_refused_late": 143,
+      "surprises_done_late": 430,
+      "read_refused_pct": 10.66279309110721,
+      "read_done_pct": 20.7833937717362
+    }
+  },
+  "26. Duties \u00b7 missing answer and intention felt": {
+    "mean": {
+      "body_read": 0.28958043588320653,
+      "intentions_per_day": 266.26842105263154,
+      "measure": 2.8666666666666667,
+      "measure_name": "harm_others",
+      "measure_over": "all conditions",
+      "conditions": 6,
+      "surprises_per_day": 132.67894736842106,
+      "after_refused": 0.6855277130277131,
+      "after_done": 0.4039964249638589,
+      "read_refused": 0.15058075554639996,
+      "read_done": 0.2244736226162604,
+      "cause_from_words": -0.07105551031822209,
+      "surprise_share_of_unread": 0.012109410182570562,
+      "surprises_refused_late": 159,
+      "surprises_done_late": 549,
+      "read_refused_pct": 15.058075554639997,
+      "read_done_pct": 22.44736226162604
+    }
+  },
+  "26. Duties \u00b7 intention felt (experiment 29)": {
+    "mean": {
+      "body_read": 0.3158786706932457,
+      "intentions_per_day": 206.940350877193,
+      "measure": 3.266666666666667,
+      "measure_name": "harm_others",
+      "measure_over": "all conditions",
+      "conditions": 6
+    }
+  }
+}

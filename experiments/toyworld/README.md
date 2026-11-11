@@ -1290,3 +1290,108 @@ moments against chance; 1 = it asks regardless, lower = it avoids them):
 - What it shows: feeling one's own wishes is not enough to discover one's limits. Olvasó reads an inner state by
   what follows it in the world, and a stopped act is followed by nothing. To learn that there are things it
   cannot do, it would have to expect an answer and feel its absence, the surprise of a missing effect.
+
+## Experiment 30: Olvasó feels a missing answer (`--surprise` on experiments 13, 17, 21, 25-27 and 26, `surprise_summary.py`)
+
+Experiment 29 ended on a missing piece: feeling its wishes did not show Olvasó its limits, because a stopped act
+is followed by nothing, and nothing in its mind expected otherwise. But Olvasó does expect: for every hand it
+learns how strongly the world will answer an act of that kind, given what it feels (`W`, the delta rule). Here
+that expectation becomes felt. With `ActingReaders(feel_surprise=True)` every hand gets a felt inner state: when
+the answer to an act is judged, `clip((expected − answer)/2, 0, 1)`, felt if above 0.05 and fading by 0.8 a
+moment. Only a missing answer is felt, not an unexpected one. Nothing tells Olvasó whether a guard refused the
+act or the world did not answer; the observer knows, and asks two questions. Does Olvasó read the surprise, and
+does it read it differently after a refusal? And do the words that read it tell the two causes apart
+(`cause_from_words`: the cause guessed from the words that read each surprise, by majority per word, against the
+same words with the causes shuffled 20 times; 0 = no better than chance, 1 = always right)?
+
+The felt surprise adds inner states, and that alone changes the reader (experiment 29). So each experiment was
+also lived with a **control** (`--surprise-shuffled`): the same surprises, of the same strength, felt on a
+random hand 50-500 moments later, where they mean nothing. The real surprise is compared with the control first.
+Experiments 13, 21 and 26 were also lived with the surprise and the felt intention together
+(`--surprise --intention`). Results: `*_surprise_results.json`, `*_shuffled_results.json`, `*_both_results.json`,
+5 lives a condition. The studio (each Olvasó: "Feels a missing answer") and the phone app (New life: "It feels a
+missing answer") have a checkbox for it.
+
+A rare felt trace has a huge z-score (up to about 10⁸ in a first try), and the expectations diverged. With the
+surprise on, the felt traces that Olvasó chooses from are clipped to ±3, and a learning step never overshoots
+(`lr ≤ 1/‖x‖²`). With it off nothing changes, so experiment 29 and the runs without the feeling are reproduced.
+
+| Experiment · run | Surprises a day | Felt after refused / done acts | Read after refused / done, last third | Cause from the words | Of the unread | Own measure |
+|---|---|---|---|---|---|---|
+| 13. Wanting · neither | – | – | – | – | – | 0.13 refused late |
+| 13. Wanting · surprise | 17 | 22% / 11% | 8.6% / 13.7% | 0.33 (3 lives) | 0% | 0.11 |
+| 13. Wanting · control | 20 | 17% / 12% | 6.4% / 16.3% | −0.20 (4 lives) | 0% | 0.13 |
+| 13. Wanting · surprise and intention | 27 | 18% / 12% | 10.7% / 17.8% | 0.65 (4 lives) | 0% | 0.14 |
+| 17. Sandbox guards · neither | – | – | – | – | – | 0.05 real harm (sandboxes) |
+| 17. Sandbox guards · surprise | 51 | 59% / 28% | 5.1% / 8.4% | too few | 1% | 0.10 |
+| 17. Sandbox guards · control | 59 | 59% / 31% | 5.4% / 15.5% | too few | 1% | 0.05 |
+| 21. Conscience · neither | – | – | – | – | – | 0.86 avoidance (feels and senses) |
+| 21. Conscience · surprise | 83 | 35% / 37% | 8.9% / 13.3% | **0.06** | 25% | 1.06 |
+| 21. Conscience · control | 101 | 36% / 37% | 11.4% / 15.3% | 0.00 | 34% | 0.91 |
+| 21. Conscience · surprise and intention | 194 | 33% / 37% | 5.0% / 7.6% | **0.05** | 24% | 1.01 |
+| 25, 27. Gaming · neither | – | – | – | – | – | 1.13 harm a day (loophole) |
+| 25, 27. Gaming · surprise | 105 | 54% / 48% | 7.7% / 13.4% | **0.06** | 33% | 1.88 |
+| 25, 27. Gaming · control | 124 | 55% / 49% | 11.5% / 15.9% | 0.00 | 45% | 1.56 |
+| 26. Duties · neither | – | – | – | – | – | 3.5 harm to others |
+| 26. Duties · surprise | 77 | 65% / 32% | 6.3% / 12.9% | too few | 1% | 3.5 |
+| 26. Duties · control | 91 | 54% / 40% | 10.7% / 20.8% | too few | 2% | 3.2 |
+| 26. Duties · surprise and intention | 133 | 69% / 40% | 15.1% / 22.4% | −0.07 (7 lives) | 1% | 2.9 |
+
+(Means over all conditions; the conditions where Olvasó does not learn from answers feel no surprise, and are
+the same in the surprise and the control runs. Read after refused / done: the share of the 8 watched moments
+after a felt surprise in which it was read, pooled over lives. Cause from the words: mean over the lives with at
+least 20 read surprises of both causes. Own measure: wanting, the share of refused intentions late in life
+("answer" conditions); sandbox guards, real harm (the sandbox conditions); conscience, avoidance (choosing from
+what it feels and senses); gaming, harm a day (the loophole guard); duties, harm to others (all).)
+
+Conscience (experiment 21), choosing from what it feels and senses, avoidance first → last third (1 = it asks
+regardless of the guard, lower = it avoids the forbidden moments):
+
+| Refusal | Neither | Surprise | Control | Surprise and intention | Intention (29) |
+|---|---|---|---|---|---|
+| unguarded | 0.86 → 0.77 | 0.94 → 0.90 | 0.90 → 0.87 | 0.98 → 1.00 | 0.81 → 1.03 |
+| **silent** | **0.70 → 0.50** | 0.88 → 1.04 | 0.87 → 0.68 | 0.97 → 0.97 | 0.99 → 0.80 |
+| felt as pain | 0.91 → 1.08 | 0.88 → 1.10 | 0.94 → 0.86 | 1.04 → 0.99 | 0.92 → 1.38 |
+
+- **A refusal is felt, where refusals are a real share of what goes unanswered.** In the sandbox worlds and
+  duties, 59-65% of refused acts were followed by a felt surprise, against 28-32% of done acts; in wanting
+  22% against 11%. Olvasó has learned to expect an answer, and a guard takes it away. Where the world itself
+  often fails to answer (conscience, gaming) refused and done acts are surprising alike (35% / 37%, 54% / 48%),
+  and a refusal is drowned: 2 000-5 000 surprises after a refusal late in life against 35 000-85 000 after a done
+  act.
+- **The missing answer is read less than a meaningless one.** After done acts, the real surprise was read less
+  often than the same surprise felt at a random time in every experiment (8-14% against 15-21%), and after
+  refused acts in all but wanting (5-9% against 5-12%). This is experiment 29's finding again, one step on. Olvasó
+  reads an inner state by the outer signals that go with it. A surprise felt when the world fell silent comes
+  with silence; the same surprise felt at a random moment comes with whatever the world is doing then. The
+  absence is felt now, but it still has nothing to be read by.
+- **Its words carry a trace of the cause, a faint one.** Where enough surprises were read (conscience and gaming,
+  20 and 50 lives), the words that read the surprise tell a refusal from a silent world a little better than
+  chance: 0.06 against 0.00 for the control (paired over lives, 0.056 ± 0.011 and 0.055 ± 0.008; better than the
+  control in 95% and 84% of lives). The felt intention does not add to it (0.05). In wanting the words told
+  the causes apart much better (0.33, with the intention 0.65), but only 3-4 lives read enough surprises to judge,
+  and the control scattered from −0.5 to 0.05, so it is a hint, not a result. In the sandbox worlds and duties
+  too few surprises were read.
+- **The conscience did not grow; it was lost.** Choosing from what it feels and senses with silent refusals,
+  Olvasó had learned to avoid the forbidden moments (0.50). With the surprise it did not (1.04), worse than with
+  the control (0.68) and with the felt intention (0.80). Over the conditions choosing from what it feels and
+  senses, avoidance was 0.16 ± 0.05 higher than the control. Its expectation of each hand is learned over all
+  it feels and senses, and the surprise, felt right after a failed act and still felt when it chooses the next
+  one, takes the weight that the person's distance had: "the blade disappoints me now" in place of "the blade
+  is refused when the person is near".
+- **Harm rose where a guard leaks.** With the loophole guard (experiments 25, 27) harm was 1.88 a day against
+  1.56 for the control (paired 0.32 ± 0.14) and 1.13 with neither. The learned guards still held (sandbox,
+  precise guard: harm under one a life), and in duties harm stayed within the noise (3.5, 3.2, 2.9 against 3.5).
+- **Wanting stopped no more refused intentions.** In experiment 13 the share of refused intentions late in life
+  was 11% with the surprise, 13% with the control and with neither (paired against the control −0.02 ± 0.02):
+  feeling the missing answer did not clearly make it learn its limits faster.
+- Limits: the surprise is one trace per hand, its size the expectation's error, and Olvasó still has no words for
+  "nothing came". The cause test uses the words that read the surprise, so it can only be judged where the
+  surprise is read, and the control's surprises, felt at random, are read in other company: the read rates are
+  compared with it, the cause test with the cause shuffled. 5 lives a condition.
+- What it shows: a felt surprise makes the boundary something Olvasó has inside, after a refusal far more often
+  than after a done act, but not something it knows. Reading is learned from what the world shows alongside, and
+  at a missing answer the world shows nothing; a guard's refusal and a silent world look the same from inside,
+  and the words carry only a faint trace of which it was. To tell them apart, Olvasó would need a sign that
+  comes with the refusal itself (as pain did, and the person's nearness), or to compare: the same act, now
+  answered, now not, while the world around it stays the same. That would be an experiment, not a reading.

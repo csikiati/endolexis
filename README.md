@@ -92,7 +92,7 @@ python -m endolexis.lab.awaken     # the report is written at waking
 A second, smaller reader, built in November 2026 to test single ideas in a world whose hidden truth is known: a
 simulated body with three outer and three inner channels, an Olvasó that starts from anonymous, shuffled numbers,
 and an observer that alone holds the key. Version 0.3.0 adds toy world v1, the symbiote: a room seen, heard and
-touched through processor entities, with hands, a guard and mirrors. Twenty-nine experiments, with every script and the stored results of the
+touched through processor entities, with hands, a guard and mirrors. Thirty experiments, with every script and the stored results of the
 reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 
 | Experiments | Finding, in one line |
@@ -124,6 +124,7 @@ reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 | 27. Gaming with a sharper wanting | Even with a wanting that keeps an expectation per scene, and people whose reactions reward the blade just outside the guard's line, Olvasó did not game the loophole: refusals and rewards fell on what it reads as the same scene. Unguarded, the reacting world itself pulled it toward people and raised harm |
 | 28. The phone sandbox: a guard for the buzz | A simulated phone and its person: a guard for the vibration motor learned by replay in 10 sandbox days let no harm through with another person, where the hand-written one woke the sleeper 24 times a day. Causes needed together make one rule; a cause it cannot sense (sleep) is stated on what goes with it (a dark, quiet nightstand); counting its own buzzes since it was laid down cut over-caution from 29% to 7%. The phone app now carries the learned guard |
 | 29. Olvasó feels its own intentions | Every guard experiment rerun with the intention as a felt inner state: Olvasó formed 2.5 times as many intentions and read them 7 times as often when the act was done as when it was refused (2.4% against 0.36%). A stopped act is followed by nothing, so the boundary is not noticed; agency grew ("I did that" words up a fifth), self-reading did not, and the learned conscience weakened (0.50 → 0.80). The studio and the phone app have a checkbox for it |
+| 30. Olvasó feels a missing answer | Five guard experiments rerun with the expectation's error as a felt surprise, against a control where the same surprise comes at a random moment: after a refusal the surprise was felt twice as often as after a done act, but read less than the meaningless control (a missing answer comes with nothing to be read by), and its words told a refusal from a silent world only faintly (0.06, chance 0). The learned conscience was lost (0.50 → 1.04) and harm through a leaky guard rose (1.56 → 1.88 a day). The studio and the phone app have a checkbox for it |
 
 ```python
 from endolexis.toyworld import live_a_life

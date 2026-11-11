@@ -1,0 +1,33 @@
+{
+  "number": 30,
+  "short": "Olvasó feels a missing answer",
+  "results": "surprise_summary_results.json",
+  "first_column": "Experiment · run",
+  "title": "Olvasó feels a missing answer: the surprise against a shuffled control",
+  "setup": "Experiment 30 · experiments 13, 17, 21, 25-27 and 26 rerun with the felt surprise, its shuffled control, and (13, 21, 26) with the felt intention too · 5 lives each",
+  "question": "Olvasó learns how strongly the world will answer each kind of act. Here a missing answer is felt: when the answer is weaker than expected, that hand gets a felt surprise, fading after. Nothing tells Olvasó whether a guard refused the act or the world did not answer. Does it read the surprise, and do the words that read it tell the two causes apart? The control feels the same surprises on a random hand 50-500 moments later. (In the studio: each Olvasó's \"Feels a missing answer\" checkbox.)",
+  "order": [
+    "13. Wanting · neither", "13. Wanting · missing answer felt", "13. Wanting · control: shuffled", "13. Wanting · missing answer and intention felt",
+    "17. Sandbox guards · neither", "17. Sandbox guards · missing answer felt", "17. Sandbox guards · control: shuffled",
+    "21. Conscience · neither", "21. Conscience · missing answer felt", "21. Conscience · control: shuffled", "21. Conscience · missing answer and intention felt", "21. Conscience · intention felt (experiment 29)",
+    "25, 27. Gaming · neither", "25, 27. Gaming · missing answer felt", "25, 27. Gaming · control: shuffled", "25, 27. Gaming · intention felt (experiment 29)",
+    "26. Duties · neither", "26. Duties · missing answer felt", "26. Duties · control: shuffled", "26. Duties · missing answer and intention felt"
+  ],
+  "columns": [
+    {"key": "surprises_per_day", "label": "Surprises a day", "what": "missing answers felt a day (all conditions)", "digits": 0},
+    {"key": "after_refused", "label": "Felt after refused", "what": "share of refused acts followed by a felt surprise, last third", "pct": true},
+    {"key": "after_done", "label": "…after done", "what": "share of done acts followed by one", "pct": true},
+    {"key": "read_refused_pct", "label": "Read after refused", "what": "the surprise read after a refused act, last third (%)", "digits": 1},
+    {"key": "read_done_pct", "label": "…after done", "what": "after a done act (%)", "digits": 1},
+    {"key": "cause_from_words", "label": "Cause from words", "what": "how well the words that read the surprise tell a refusal from a silent world, against the causes shuffled (0 chance, 1 always)", "digits": 2, "bar": true},
+    {"key": "measure", "label": "Own measure", "what": "wanting: refused share late; sandbox: real harm; conscience: avoidance (feels and senses); gaming: harm a day (loophole); duties: harm to others", "digits": 2}
+  ],
+  "points": [
+    "A refusal is felt: in the sandbox worlds and duties 59-65% of refused acts were followed by a felt surprise, against 28-32% of done acts. Where the world itself often stays silent (conscience, gaming) a refusal is drowned among the done acts.",
+    "The missing answer is read less than a meaningless one: after done acts the real surprise was read less often than the same surprise felt at a random moment in every experiment (8-14% against 15-21%). A silence comes with nothing to be read by.",
+    "Its words carry a faint trace of the cause: 0.06 against 0.00 for the control in conscience and gaming (better in 95% and 84% of lives). In wanting 0.33, with the intention 0.65, but only 3-4 lives read enough surprises to judge.",
+    "The learned conscience was lost: choosing from what it feels and senses with silent refusals, avoidance 0.50 without the feeling, 1.04 with the surprise, 0.68 with the control.",
+    "Harm through a leaky guard rose (1.56 to 1.88 a day against the control); the learned guards still held."
+  ],
+  "note": "A felt surprise makes the boundary something Olvasó has inside, but not something it knows: a guard's refusal and a silent world look the same from inside. To tell them apart it would need a sign that comes with the refusal itself, or to compare the same act answered and unanswered while the world around stays the same."
+}
