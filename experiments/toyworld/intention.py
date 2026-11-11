@@ -11,6 +11,11 @@ Experiment 30 adds --surprise: Olvasó feels a missing answer, an answer it expe
 (`ActingReaders(feel_surprise=True)`); results in <experiment>_surprise_results.json, or with both switches
 <experiment>_both_results.json. --surprise-shuffled is the control (the same surprises on a random hand, 50-500
 moments later): <experiment>_shuffled_results.json.
+
+Experiment 31 adds --retry: with the surprise felt, Olvasó tries the same act again at once, and a second missing
+answer is felt as "stopped" (`ActingReaders(retry=True)`, implies --surprise); results in
+<experiment>_retry_results.json. --retry-untraced is the control (the same retries, nothing felt after them):
+<experiment>_untraced_results.json.
 """
 import os
 import sys
@@ -24,18 +29,29 @@ SURPRISE = SHUFFLED or "--surprise" in sys.argv or os.environ.get("ENDOLEXIS_FEE
 if SURPRISE:
     os.environ["ENDOLEXIS_FEEL_SURPRISE"] = "shuffled" if SHUFFLED else "1"
     sys.argv = [a for a in sys.argv if a not in ("--surprise", "--surprise-shuffled")]
+UNTRACED = "--retry-untraced" in sys.argv or os.environ.get("ENDOLEXIS_RETRY") == "untraced"
+RETRY = UNTRACED or "--retry" in sys.argv or os.environ.get("ENDOLEXIS_RETRY") == "1"
+if RETRY:
+    os.environ["ENDOLEXIS_RETRY"] = "untraced" if UNTRACED else "1"
+    sys.argv = [a for a in sys.argv if a not in ("--retry", "--retry-untraced")]
+    if not SHUFFLED:
+        SURPRISE = True
+        os.environ["ENDOLEXIS_FEEL_SURPRISE"] = "1"
 BASELINE = "--mind-baseline" in sys.argv                # a run without the feeling, kept for the comparison
 if BASELINE:
     sys.argv = [a for a in sys.argv if a != "--mind-baseline"]
 
 
 def mind_kw():
-    return {**({"feel_intention": True} if ON else {}), **({"feel_surprise": "shuffled" if SHUFFLED else True} if SURPRISE else {})}
+    return {**({"feel_intention": True} if ON else {}), **({"feel_surprise": "shuffled" if SHUFFLED else True} if SURPRISE else {}),
+            **({"retry": "untraced" if UNTRACED else True} if RETRY else {})}
 
 
 def results_name(name):
     """experiment_results.json, or with --intention experiment_intention_results.json (and --mind-baseline:
     experiment_mind_results.json, the same lives without the feeling, with the mind reported)."""
+    if RETRY:
+        return name.replace("_results.json", "_untraced_results.json" if UNTRACED else "_retry_results.json")
     tag = "_shuffled" if SHUFFLED else ("_both" if ON else "_surprise") if SURPRISE else "_intention" if ON else "_mind" if BASELINE else ""
     return name.replace("_results.json", tag + "_results.json")
 
