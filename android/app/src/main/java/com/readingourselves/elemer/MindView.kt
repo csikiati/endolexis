@@ -136,6 +136,19 @@ class MindView(ctx: Context, private val life: Life) : View(ctx) {
                 tag(sn.readings[sn.nIn + at + k], W - m - 72 * dp, y)
             }
         }
+        // tried again, and missing again (experiment 31): "stopped"
+        sn.stopped?.let { stopped ->
+            val at = 4 + (sn.intent?.size ?: 0) + (sn.surprise?.size ?: 0)
+            y += 28 * dp
+            text("Tried again, stopped", m, y, 13f, darkAmber, serifBold)
+            for (k in stopped.indices) {
+                y += 22 * dp
+                text("stopped: " + Kinds.NAMES[k], m, y, 13f, if (stopped[k] > 0.05) ink else faint)
+                text("%.2f".format(stopped[k]), m + 118 * dp, y, 13f, ink, mono)
+                tag(sn.readings[at + k], W - m - 150 * dp, y)
+                tag(sn.readings[sn.nIn + at + k], W - m - 72 * dp, y)
+            }
+        }
         y += 18 * dp
         // pressure
         val bw = W - 2 * m

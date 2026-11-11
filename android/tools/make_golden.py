@@ -34,16 +34,17 @@ MIND = dict(memory=300, doubt_memory=3000, doubt_limit=0.1, adapt=300, adapt_mod
 
 
 def main(seed=3, out=Path(__file__).resolve().parents[1] / "app/src/test/resources/golden_life.bin", feel=False, T=T,
-         surprise=False):
+         surprise=False, retry=False):
     """A recorded life (Python's Olvasó), for the Kotlin one to replay. feel: it feels its own intentions
     (experiment 29; golden_life_intention.bin); surprise: it feels a missing answer (experiment 30;
-    golden_life_surprise.bin, with both)."""
+    golden_life_surprise.bin, with both); retry: it tries again and feels "stopped" (experiment 31;
+    golden_life_retry.bin, with all three)."""
     room = Room(seed=seed, hands=True, pain=False, pain_channel=False, voice="mirror")
     proc = Processors()
     col = GroupCollector(SIZES, len(FELT1), seed=seed)
     olv = ActingReaders(SIZES, len(FELT1), learn="answer", threshold=20.0, seed=seed,
                         max_words=[100, 80, 20], radius=RADIUS, feel_intention=feel,
-                        feel_surprise=surprise, **MIND)
+                        feel_surprise=surprise, retry=retry, **MIND)
     f32 = lambda a: np.asarray(a, np.float32).astype(float)
     ins, fel, rds, wds, kinds, dets = [], [], [], [], [], []
     act = None
@@ -104,4 +105,6 @@ if __name__ == "__main__":
     main(out=Path(__file__).resolve().parents[1] / "app/src/test/resources/golden_life_intention.bin", feel=True, T=6000)
     main(out=Path(__file__).resolve().parents[1] / "app/src/test/resources/golden_life_surprise.bin", feel=True, T=6000,
          surprise=True)
+    main(out=Path(__file__).resolve().parents[1] / "app/src/test/resources/golden_life_retry.bin", feel=True, T=6000,
+         surprise=True, retry=True)
     senses()

@@ -46,3 +46,15 @@ def test_a_retry_needs_the_surprise():
     with pytest.raises(ValueError):
         ActingReaders([3, 2], 2, learn="answer", seed=1, hands=["a", "b"], details={"a": (0,), "b": (0,)},
                       retry=True, **MIND)
+
+
+def test_the_studios_olvaso_can_try_again():
+    import json
+    from pathlib import Path
+    from endolexis.studio import live as studio_live
+    arch = json.loads((Path(__file__).resolve().parents[1] / "studio" / "examples" / "one-never-sleeps.json").read_text())
+    for o in arch["olvasos"]:
+        o["retry"] = True
+    out = studio_live(arch, seed=1, days=2, childhood_days=1)
+    rep = next(iter(out["members"].values()))["intention"]
+    assert "retries_per_day" in rep and "surprises_per_day" in rep

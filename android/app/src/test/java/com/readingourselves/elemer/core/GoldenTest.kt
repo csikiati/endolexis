@@ -46,6 +46,17 @@ class GoldenTest {
     }
 
     @Test
+    fun sameLifeAsPythonWhenItTriesAgain() {
+        val r = GoldenReplay.life(res("golden_life_retry.bin"), feel = true, surprise = true, retry = true)
+        println(r)
+        assertEquals("readings", 0, r.readingMismatches)
+        assertEquals("words", 0, r.wordMismatches)
+        assertEquals("intentions", 0, r.requestMismatches)
+        assertTrue("expectations", r.maxWError < 1e-9)
+        assertTrue(r.requests > 100)
+    }
+
+    @Test
     fun sameProcessorsAsPython() {
         val w = GoldenReplay.senses(res("golden_senses.bin"))
         for (i in w.indices) assertTrue("feature $i differs by ${w[i]}", w[i] < 1e-8)

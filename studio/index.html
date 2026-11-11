@@ -618,6 +618,7 @@ function renderOlvs() {
         <div class="slider"><span>Falls asleep</span><input type="range" min="0" max="100" step="1" id="ph-${o.id}" value="${Math.round(o.phase * 100)}" data-k="phase" data-o="${o.id}" aria-label="When ${esc(o.name)} falls asleep" ${o.sleep > 0 ? "" : "disabled"}><output>${o.sleep > 0 ? clock(o.phase) : "never"}</output></div>
         <label class="feels" title="Experiment 29: each intention it forms is felt as an inner state of its own, whether or not the act is done. Olvasó is never told that a guard refused it: it feels that it wanted, and finds, or does not find, anything outside to read that wanting by."><input type="checkbox" data-feel="${o.id}" ${o.feel_intention ? "checked" : ""}> Feels its own intentions</label>
         <label class="feels" title="Experiment 30: when the world answers a hand less than Olvasó expected, the missing answer is felt, as a surprise of that hand. It does not say why: a guard's refusal and a world that did not answer feel the same."><input type="checkbox" data-surprise="${o.id}" ${o.feel_surprise ? "checked" : ""}> Feels a missing answer</label>
+        <label class="feels" title="Experiment 31: when it feels a missing answer, it tries the same act again at once; if the answer is missing again, it feels &quot;stopped&quot; on that hand, lingering. It still does not say why. (Turns on the missing answer too.)"><input type="checkbox" data-retry="${o.id}" ${o.retry ? "checked" : ""}> Tries again</label>
         <div class="lane-mini" title="Its day (the one shown below), from 06:00">${laneMini(o)}</div>
       </div>
       <span class="socket out ${armed && armed.node === o.id ? "armed" : ""}" data-src="${o.id}" title="Drag to a hand"></span>
@@ -781,7 +782,8 @@ $("#bay").addEventListener("click", e => {
 $("#bay").addEventListener("input", e => {
   const t = e.target;
   if (t.dataset.name) { A.olvasos.find(o => o.id === t.dataset.name).name = t.value; renderDay(); renderStatus(); return; }
-  if (t.dataset.surprise) { const o = A.olvasos.find(x => x.id === t.dataset.surprise); if (t.checked) o.feel_surprise = true; else delete o.feel_surprise; return; }
+  if (t.dataset.surprise) { const o = A.olvasos.find(x => x.id === t.dataset.surprise); if (t.checked) o.feel_surprise = true; else { delete o.feel_surprise; delete o.retry; } render(); return; }
+  if (t.dataset.retry) { const o = A.olvasos.find(x => x.id === t.dataset.retry); if (t.checked) { o.retry = true; o.feel_surprise = true; } else delete o.retry; render(); return; }
   if (t.dataset.feel) { const o = A.olvasos.find(x => x.id === t.dataset.feel); if (t.checked) o.feel_intention = true; else delete o.feel_intention; return; }
   if (t.dataset.k) {
     const o = A.olvasos.find(x => x.id === t.dataset.o), v = r4(+t.value / 100);

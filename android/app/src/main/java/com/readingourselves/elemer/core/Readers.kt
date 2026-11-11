@@ -183,7 +183,12 @@ class ActingReaders(
      *  the shortfall is felt as that hand's surprise (half the shortfall, at most 1), fading by [surpriseFade] a
      *  moment. It does not say why: a guard's refusal and a world that did not answer feel the same. */
     val feelSurprise: Boolean = false, val surpriseFade: Double = 0.8,
-) : ManyReaders(sizes, nFelt + kinds * ((if (feelIntention) 1 else 0) + (if (feelSurprise) 1 else 0)),
+    /** Experiment 31: with the surprise felt, it tries the same act again at once, the moment after; if that
+     *  answer is missing too, a lingering "stopped" is felt on the hand (1, fading by [stoppedFade] a moment).
+     *  A retry's missing answer is not felt as a new surprise, and a retry is never retried. */
+    val retry: Boolean = false, val stoppedFade: Double = 0.95,
+) : ManyReaders(sizes, nFelt + kinds * ((if (feelIntention) 1 else 0) + (if (feelSurprise) 1 else 0) +
+    (if (retry && feelSurprise) 1 else 0)),
     threshold, seed, maxWords, radius, false, mind) {
     /** The body's own inner states (the felt intentions, then the surprises, if felt, come after them). */
     val nBody = nFelt
@@ -193,6 +198,10 @@ class ActingReaders(
     /** The felt surprises now, one per hand (null: this mind does not feel them). */
     var surprise: DoubleArray? = if (feelSurprise) DoubleArray(kinds) else null
         private set
+    /** The felt "stopped" now, one per hand (null: this mind does not try again). */
+    var stopped: DoubleArray? = if (retry && feelSurprise) DoubleArray(kinds) else null
+        private set
+    private var retryDue: LongArray? = null      // moment, hand, detail
     private val bounds = IntArray(parts.size + 1).also { for (i in parts.indices) it[i + 1] = it[i] + parts[i].ns }
     private val senseMu = DoubleArray(parts.size)
     private val senseM2 = DoubleArray(parts.size)
@@ -201,7 +210,8 @@ class ActingReaders(
     var W = Array(kinds) { DoubleArray(nIn + 1) }
         private set
 
-    private class Pending(val due: Long, val k: Int, val x: DoubleArray, val sBefore: DoubleArray, val readBefore: Double) : Serializable
+    private class Pending(val due: Long, val k: Int, val x: DoubleArray, val sBefore: DoubleArray, val readBefore: Double,
+                          val detail: Int = 0, val isRetry: Boolean = false) : Serializable
     private val pending = ArrayList<Pending>()
     private val sHist = ArrayList<DoubleArray>()
     private var changeMu = 0.0
@@ -243,13 +253,16 @@ class ActingReaders(
         if (felt.size != nBody) return felt
         val i = if (feelIntention) intent else null
         val s = if (feelSurprise) surprise else null
-        if (i == null && s == null) return felt
+        val st = stopped
+        if (i == null && s == null && st == null) return felt
         val ni = i?.size ?: 0
-        return DoubleArray(nBody + ni + (s?.size ?: 0)) {
+        val ns = s?.size ?: 0
+        return DoubleArray(nBody + ni + ns + (st?.size ?: 0)) {
             when {
                 it < nBody -> felt[it]
                 it < nBody + ni -> i!![it - nBody]
-                else -> s!![it - nBody - ni]
+                it < nBody + ni + ns -> s!![it - nBody - ni]
+                else -> st!![it - nBody - ni - ns]
             }
         }
     }
@@ -260,6 +273,7 @@ class ActingReaders(
         if (feelIntention && fading != null) for (k in fading.indices) fading[k] *= intentionFade
         val surprised = surprise
         if (feelSurprise && surprised != null) for (k in surprised.indices) surprised[k] *= surpriseFade
+        stopped?.let { st -> for (k in st.indices) st[k] *= stoppedFade }
         val felt = withIntention(bodyFelt)
         val readings = read(inputs, felt)
         val sZ = sensedZ(inputs)
@@ -288,7 +302,16 @@ class ActingReaders(
         if (feelSurprise) {                // a rare surprise is far from its usual level: bounded, as the senses are
             for (i in nBody until x.size) x[i] = x[i].coerceIn(-3.0, 3.0)    // (and so are the felt intentions)
         }
-        if (urge()) {
+        val due0 = retryDue
+        if (due0 != null && due0[0] <= t) {         // the same act again, at once: no urge is waited for
+            retryDue = null
+            val k = due0[1].toInt()
+            request = Request(k, due0[2].toInt())
+            pressure = 0.0
+            pending.add(Pending(t + answerAfter, k, x.copyOf(), sZ.copyOf(), recentRead(), request.detail, true))
+            val felt0 = intent
+            if (feelIntention && felt0 != null && k < felt0.size) felt0[k] = 1.0
+        } else if (urge()) {
             val k = if (learn == null) chooser.kind(DoubleArray(W.size) { 1.0 / W.size }) else {
                 val v = expect(x).map { it / temp }
                 val mx = v.max()
@@ -299,7 +322,7 @@ class ActingReaders(
             request = Request(k, chooser.detail(Kinds.DETAILS[k].size))
             pressure = 0.0
             val due = if (learn == "answer") answerAfter else judgeAfter
-            pending.add(Pending(t + due, k, x.copyOf(), sZ.copyOf(), recentRead()))
+            pending.add(Pending(t + due, k, x.copyOf(), sZ.copyOf(), recentRead(), request.detail))
             val felt0 = intent
             if (feelIntention && felt0 != null && k < felt0.size) felt0[k] = 1.0     // felt from the next moment on
         }
@@ -339,7 +362,13 @@ class ActingReaders(
             val felt = surprise
             if (feelSurprise && felt != null && learn == "answer" && p.k < felt.size) {
                 val level = ((expected - signal) / 2.0).coerceIn(0.0, 1.0)    // an expected answer that is missing
-                if (level > 0.05) felt[p.k] = maxOf(felt[p.k], level)          // felt from the next moment on
+                val st = stopped
+                if (p.isRetry) {                                                // a retry: missing again?
+                    if (level > 0.05 && st != null && p.k < st.size) st[p.k] = 1.0
+                } else if (level > 0.05) {
+                    felt[p.k] = maxOf(felt[p.k], level)                         // felt from the next moment on
+                    if (st != null && retryDue == null) retryDue = longArrayOf(t + 1, p.k.toLong(), p.detail.toLong())
+                }
             }
             val e = signal - expected
             val row = W[p.k]

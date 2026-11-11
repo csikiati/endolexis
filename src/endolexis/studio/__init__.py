@@ -314,7 +314,8 @@ def build(arch, seed=1):
                               threshold=o.get("threshold", 20.0), learn=o.get("learn", "answer"),
                               mind=o.get("mind"), shift=o.get("shift", 0.0),
                               feel_intention=bool(o.get("feel_intention", False)),
-                              feel_surprise=bool(o.get("feel_surprise", False))))
+                              feel_surprise=bool(o.get("feel_surprise", False) or o.get("retry", False)),
+                              retry=bool(o.get("retry", False))))
     used = {ln["from"]["node"] for ln in arch["links"]}
     return Ensemble(members, len(FELT1), compete=bool((arch.get("body") or {}).get("compete"))), _Senses({k: v for k, v in procs.items() if k in used})
 

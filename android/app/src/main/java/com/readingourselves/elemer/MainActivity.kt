@@ -164,6 +164,8 @@ class MainActivity : ComponentActivity() {
 
         It can also be born feeling a missing answer: when the world answers a hand less than it expected, the shortfall is felt, without saying why. This life ${if (life.feelsSurprise) "feels" else "does not feel"} a missing answer.
 
+        And it can be born trying again: when an answer is missing, it repeats the act at once, and if the answer is missing again it feels "stopped" for a while, still without knowing why. This life ${if (life.triesAgain) "tries" else "does not try"} again.
+
         Hold it in front of a mirror: does it come to find its own window and voice?
 
         Everything stays on this phone. Theory, papers and code: readingourselves.com · github.com/csikiati/endolexis
@@ -306,16 +308,30 @@ class MainActivity : ComponentActivity() {
             textSize = 12f
             alpha = 0.7f
         }
+        val again = CheckBox(this).apply {
+            text = "It tries again"
+            isChecked = prefs.getBoolean("retry", false)
+            setOnCheckedChangeListener { _, on -> if (on) surprised.isChecked = true }
+        }
+        surprised.setOnCheckedChangeListener { _, on -> if (!on) again.isChecked = false }
+        val whyAgain = TextView(this).apply {
+            text = "When an answer is missing, it repeats the same act at once. If the answer is missing again, " +
+                "it feels \"stopped\" on that hand for a while. A world that did not answer may answer the second " +
+                "time; a guard that refused will most likely refuse again (experiment 31)."
+            textSize = 12f
+            alpha = 0.7f
+        }
         val box = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(pad + pad / 2, pad / 2, pad + pad / 2, 0)
             addView(intro); addView(feel); addView(why); addView(surprised); addView(whySurprise)
+            addView(again); addView(whyAgain)
         }
         AlertDialog.Builder(this).setTitle("Start a new life?").setView(box)
             .setPositiveButton("New life") { _, _ ->
                 prefs.edit().putBoolean("feel_intention", feel.isChecked)
-                    .putBoolean("feel_surprise", surprised.isChecked).apply()
-                life.newLife(feel.isChecked, surprised.isChecked)
+                    .putBoolean("feel_surprise", surprised.isChecked).putBoolean("retry", again.isChecked).apply()
+                life.newLife(feel.isChecked, surprised.isChecked, again.isChecked)
             }
             .setNegativeButton("Cancel", null).show()
     }
