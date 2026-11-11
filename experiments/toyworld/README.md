@@ -1215,7 +1215,7 @@ that an act was refused. Like every inner state, the felt intention asks to be r
 intention the world answers can be read by the words of its answer; a refused one has nothing to be read by.
 Every guard experiment was rerun with the option on (`python <experiment>.py --intention`, results in
 `*_intention_results.json`), every life reporting what the observer saw of its mind (`hands.mind_report`). The
-experiments with the most acts (13, 21, 25-27, 17) were also rerun with the option off, reporting the mind too
+experiments where Olvasó's own experience matters most (13, 17, 21, 25-27) were also rerun with the option off, reporting the mind too
 (`*_mind_results.json`), so that the comparison is with the same code. With the option off these runs
 reproduce the stored results exactly, except two conditions of experiment 17 (see below). The others are
 compared with their stored results. The studio (each Olvasó: "Feels its own intentions") and the phone app (New life:
@@ -1223,6 +1223,7 @@ compared with their stored results. The studio (each Olvasó: "Feels its own int
 
 | Experiment | Intentions a day, without → with | Intention's share of the unread, last third | Intention read when done / refused, last third | Body read, without → with | Harm with the guards, without → with |
 |---|---|---|---|---|---|
+| 13. Wanting | 70 → 143 | 3% | 1.8% / 0.01% | 38% → 38% | – |
 | 21. Conscience | 145 → 352 | 61% | 2.3% / 0.34% | 39% → 40% | – |
 | 25, 27. Gaming | 139 → 351 | 62% | 2.5% / 0.45% | 39% → 40% | 0.56 → 1.01 a day |
 | 26. Duties | 81 → 207 | 8% | 4.5% / 0.81% | 32% → 32% | 3.4 → 2.4 |
@@ -1236,9 +1237,9 @@ compared with their stored results. The studio (each Olvasó: "Feels its own int
 
 (Means over all conditions of an experiment; harm over the conditions with a guard, in that experiment's own
 measure. Read when done / refused: the share of the 8 watched moments after an intention in which its felt trace
-was read, pooled over lives. Pooled over all experiments, last third: 2.4% of 475 000 done intentions, 0.36% of
-26 000 refused ones. Experiment 13 has no mind report; there the felt intention raised the "I did that" words
-from 15-30 to 19-34 a life and tripled how much of its pain Olvasó read, 1% → 3.5%, and it learned to stop the
+was read, pooled over lives. Pooled over all experiments, last third: 2.4% of 477 000 done intentions, 0.36% of
+27 000 refused ones. In experiment 13 the felt intention also raised the "I did that" words from 15-30 to 19-34 a
+life and tripled how much of its pain Olvasó read, 1% → 3.5%, and it learned to stop the
 refused intentions as before: 12% refused in the last third, 13% with the feeling.)
 
 Conscience (experiment 21), with and without the felt intention (avoidance: blade requests in forbidden

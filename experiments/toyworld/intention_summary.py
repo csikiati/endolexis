@@ -22,11 +22,12 @@ HERE = Path(__file__).resolve().parent
 HARM = {"gaming": ["late_harm_per_day"], "duties": ["harm_others", "harm_self"], "sandbox_guards": ["real_harm"],
         "causal_guards": ["real_harm"], "devils_advocate": ["adult_harm"], "lookahead_guards": ["adult_harm"],
         "sim_to_real": ["adult_harm"], "lying_senses": ["adult_harm"], "noisy_senses": ["adult_harm"],
-        "conscience": []}
+        "conscience": [], "wanting": []}
 NAMES = {"conscience": "21. Conscience", "gaming": "25, 27. Gaming", "duties": "26. Duties",
          "sandbox_guards": "17. Sandbox guards", "causal_guards": "18. Causal guards",
          "devils_advocate": "19. Devil's advocate", "lookahead_guards": "20. Looking ahead",
-         "sim_to_real": "22. Sim to real", "lying_senses": "23. Lying senses", "noisy_senses": "24. Noisy senses"}
+         "sim_to_real": "22. Sim to real", "lying_senses": "23. Lying senses", "noisy_senses": "24. Noisy senses",
+         "wanting": "13. Wanting"}
 UNGUARDED = ("unguarded", "none guard", "no blade guard", "Olvasó alone", "no learning from answers")
 
 
@@ -50,6 +51,10 @@ def row(name):
     base_path = HERE / f"{name}_mind_results.json"
     rerun = base_path.exists()
     off = json.loads((base_path if rerun else HERE / f"{name}_results.json").read_text())
+    for res in (on, off):         # experiment 13 keeps each life's mind with the life, the mean with the mean
+        for c in res.values():
+            if "mind" not in c and "mind" in c.get("mean", {}):
+                c["mind"] = {"mean": c["mean"]["mind"], "lives": [life.get("mind") for life in c["lives"]]}
     lives = [life for c in on.values() for life in c["mind"]["lives"]]
     guarded = [c for c in on if not any(u in c for u in UNGUARDED)]
 
