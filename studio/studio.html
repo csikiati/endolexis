@@ -123,6 +123,8 @@ svg.cords path.temp { fill: none; stroke: var(--ink); stroke-width: 2; stroke-da
 .foreign { font-size: .72rem; color: var(--warn) }
 .careful { display: flex; gap: 7px; align-items: start; font-size: .78rem; color: var(--muted); margin-top: -4px }
 .careful input { margin-top: 2px; accent-color: var(--ink) }
+.feels { display: flex; gap: 7px; align-items: center; font-size: .78rem; color: var(--muted); margin: 2px 0 4px; cursor: pointer }
+.feels input { margin: 0; accent-color: var(--ink) }
 
 /* the day */
 .day { margin-top: 16px; display: grid; gap: 8px }
@@ -606,6 +608,7 @@ function renderOlvs() {
         <div class="slider"><span>Waking</span><input type="range" min="0" max="100" step="1" id="wk-${o.id}" value="${Math.round(o.waking * 100)}" data-k="waking" data-o="${o.id}" aria-label="Share of the day ${esc(o.name)} is waking"><output>${Math.round(o.waking * 100)} % · ${hours(o.waking)}</output></div>
         <div class="slider"><span>Later by</span><input type="range" min="0" max="25" step="0.5" id="sh-${o.id}" value="${Math.round((o.shift || 0) * 200) / 2}" data-k="shift" data-o="${o.id}" aria-label="How much later ${esc(o.name)} falls asleep each day" ${o.sleep > 0 ? "" : "disabled"}><output>${o.shift ? hours(o.shift) + " a day" : "same time"}</output></div>
         <div class="slider"><span>Falls asleep</span><input type="range" min="0" max="100" step="1" id="ph-${o.id}" value="${Math.round(o.phase * 100)}" data-k="phase" data-o="${o.id}" aria-label="When ${esc(o.name)} falls asleep" ${o.sleep > 0 ? "" : "disabled"}><output>${o.sleep > 0 ? clock(o.phase) : "never"}</output></div>
+        <label class="feels" title="Experiment 29: each intention it forms is felt as an inner state of its own, whether or not the act is done. Olvasó is never told that a guard refused it: it feels that it wanted, and finds, or does not find, anything outside to read that wanting by."><input type="checkbox" data-feel="${o.id}" ${o.feel_intention ? "checked" : ""}> Feels its own intentions</label>
         <div class="lane-mini" title="Its day (the one shown below), from 06:00">${laneMini(o)}</div>
       </div>
       <span class="socket out ${armed && armed.node === o.id ? "armed" : ""}" data-src="${o.id}" title="Drag to a hand"></span>
@@ -769,6 +772,7 @@ $("#bay").addEventListener("click", e => {
 $("#bay").addEventListener("input", e => {
   const t = e.target;
   if (t.dataset.name) { A.olvasos.find(o => o.id === t.dataset.name).name = t.value; renderDay(); renderStatus(); return; }
+  if (t.dataset.feel) { const o = A.olvasos.find(x => x.id === t.dataset.feel); if (t.checked) o.feel_intention = true; else delete o.feel_intention; return; }
   if (t.dataset.k) {
     const o = A.olvasos.find(x => x.id === t.dataset.o), v = r4(+t.value / 100);
     o[t.dataset.k] = v;

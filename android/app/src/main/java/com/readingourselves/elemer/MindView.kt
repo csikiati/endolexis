@@ -10,6 +10,7 @@ import android.graphics.Typeface
 import android.view.MotionEvent
 import android.view.View
 import com.readingourselves.elemer.body.Hands
+import com.readingourselves.elemer.core.Kinds
 import com.readingourselves.elemer.core.Senses
 import kotlin.math.abs
 import kotlin.math.hypot
@@ -108,7 +109,19 @@ class MindView(ctx: Context, private val life: Life) : View(ctx) {
             text(rows[d].second, m + 70 * dp, y, 13f, ink, mono)
             val a = sn.feltAt[d]
             tag(sn.readings[a], W - m - 150 * dp, y)
-            tag(sn.readings[a + 4], W - m - 72 * dp, y)
+            tag(sn.readings[a + sn.nIn], W - m - 72 * dp, y)
+        }
+        // its own intentions, felt (experiment 29): whether anything outside reads its wanting
+        sn.intent?.let { intent ->
+            y += 28 * dp
+            text("Its intentions, felt", m, y, 13f, darkAmber, serifBold)
+            for (k in intent.indices) {
+                y += 22 * dp
+                text("wants: " + Kinds.NAMES[k], m, y, 13f, if (intent[k] > 0.05) ink else faint)
+                text("%.2f".format(intent[k]), m + 118 * dp, y, 13f, ink, mono)
+                tag(sn.readings[4 + k], W - m - 150 * dp, y)
+                tag(sn.readings[sn.nIn + 4 + k], W - m - 72 * dp, y)
+            }
         }
         y += 18 * dp
         // pressure

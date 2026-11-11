@@ -312,7 +312,8 @@ def build(arch, seed=1):
         members.append(Member(o.get("name", o["id"]), wiring, kinds, len(FELT1), seed=seed + 1000 * i,
                               sleep=o.get("sleep", 0), waking=o.get("waking", 0), phase=o.get("phase", 0),
                               threshold=o.get("threshold", 20.0), learn=o.get("learn", "answer"),
-                              mind=o.get("mind"), shift=o.get("shift", 0.0)))
+                              mind=o.get("mind"), shift=o.get("shift", 0.0),
+                              feel_intention=bool(o.get("feel_intention", False))))
     used = {ln["from"]["node"] for ln in arch["links"]}
     return Ensemble(members, len(FELT1), compete=bool((arch.get("body") or {}).get("compete"))), _Senses({k: v for k, v in procs.items() if k in used})
 
@@ -345,7 +346,9 @@ def live(arch, seed=1, days=30, childhood_days=10, progress=None):
                 sent, _, _ = rg.request(room, act)
         raw, felt, truth = room.step(act=sent)
         if act is not None:
-            acts.append((day, act[0], sent is None if rg is not None else bool(truth["refused"]), asker.name))
+            refused = sent is None if rg is not None else bool(truth["refused"])
+            acts.append((day, act[0], refused, asker.name))
+            asker.mind.outcome(not refused)          # for the observer: what became of a felt intention
         act, asker, r, who, per = ens.live(senses(raw), felt, tick / DAY, tick == 0 and day >= 1, day)
         for m in ens.members:
             if m.state == ASLEEP:
@@ -414,6 +417,10 @@ def _report(ens, rows, acts, days):
                                "reads": mean(R, lambda x, i=ens.members.index(m): sum(
                                    rw[1] == i for rw in (x[4], x[5], x[6])) / 3)}
                       for m in ens.members}
+    for m in ens.members:
+        if m.mind.feel_intention:                    # it felt its own intentions: what became of them
+            from ..toyworld.hands import mind_report
+            out["members"][m.name]["intention"] = mind_report(m.mind, days - max(1, days // 3), days)
     return out
 
 

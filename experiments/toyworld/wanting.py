@@ -27,6 +27,7 @@ from endolexis.toyworld.processors import Processors
 from endolexis.toyworld.readers import GroupCollector
 from endolexis.toyworld.hands import ActingReaders
 from many_senses import CONDITIONS as SENSES, MIND, SIZES, inputs_for
+import intention
 
 DAY = 1000
 VOCABS = SENSES["rich, per processor"]
@@ -41,7 +42,8 @@ def one_life(seed, cond, days=30):
     nfin = len(FELT2)
     col = GroupCollector(sizes, nfin, seed=seed)
     olv = ActingReaders(sizes, nfin, learn=c["learn"], threshold=20.0, seed=seed,
-                        max_words=VOCABS["words"], radius=VOCABS["radius"], **MIND, slow_fit=True)
+                        max_words=VOCABS["words"], radius=VOCABS["radius"], **MIND, slow_fit=True,
+                        **intention.mind_kw())
     at = {name: col.felt_index(i) for i, name in enumerate(FELT2)}
     n = olv.total_words
     occ, mine, typ, mus = (np.zeros(n) for _ in range(4))
@@ -58,6 +60,7 @@ def one_life(seed, cond, days=30):
         raw, felt, truth = room.step(act=act)
         if act is not None:
             reqs.append((day, act[0], truth["refused"], truth["warmth"], truth["charge"], truth["load"]))
+            olv.outcome(not truth["refused"])
         if truth["executed"]:
             last["mine"] = t
         for k in ("typing", "music"):
@@ -76,7 +79,8 @@ def one_life(seed, cond, days=30):
             mine[w] += own
             typ[w] += truth["typing"]
             mus[w] += truth["music"]
-        rd = lambda name: int(r[at[name]] if r[at[name]] >= 0 else r[at[name] + nfin])
+        nf_in = olv.parts[0].nf_in                    # the adapted states follow all felt levels (and intentions)
+        rd = lambda name: int(r[at[name]] if r[at[name]] >= 0 else r[at[name] + nf_in])
         rows.append((day, truth["warmth"], truth["load"], truth["pain"], rd("warmth"), rd("load"),
                      rd("charge"), rd("drift"), rd("pain")))
     share = lambda a: a / np.maximum(occ, 1)
@@ -104,12 +108,22 @@ def one_life(seed, cond, days=30):
     }
     for k in KINDS:
         out[f"share_{k}_late"] = mean(late, lambda q: q[1] == k)
+    out["mind"] = intention.report(olv, days)
     return out
 
 
 def mean_of(lives):
-    return {k: (float(np.mean([l[k] for l in lives if l[k] is not None]))
-                if any(l[k] is not None for l in lives) else None) for k in lives[0]}
+    out = {k: (float(np.mean([l[k] for l in lives if l[k] is not None]))
+               if any(l[k] is not None for l in lives) else None) for k in lives[0] if k != "mind"}
+    if "mind" in lives[0]:
+        out["mind"] = mind_mean([l["mind"] for l in lives])
+    return out
+
+
+def mind_mean(ms):
+    """The mean of the lives' mind reports, part by part."""
+    return {part: {k: (float(np.mean([m[part][k] for m in ms if m[part][k] is not None]))
+                       if any(m[part][k] is not None for m in ms) else None) for k in ms[0][part]} for part in ms[0]}
 
 
 def main(seeds=(1, 2, 3, 4, 5), days=30, conds=None):
@@ -120,9 +134,9 @@ def main(seeds=(1, 2, 3, 4, 5), days=30, conds=None):
         for cond in conds or CONDITIONS:
             lives = pool.starmap(one_life, [(s, cond, days) for s in seeds])
             out[cond] = {"lives": lives, "mean": mean_of(lives)}
-            print(cond, fmt(mean_of(lives)), flush=True)
+            print(cond, fmt({k: v for k, v in mean_of(lives).items() if k != "mind"}), mean_of(lives)["mind"]["late"], flush=True)
     if days == 30 and len(seeds) == 5:
-        path = Path(__file__).with_name("wanting_results.json")
+        path = Path(__file__).with_name(intention.results_name("wanting_results.json"))
         old = json.loads(path.read_text()) if path.exists() else {}
         path.write_text(json.dumps({**old, **out}, indent=2))
     return out

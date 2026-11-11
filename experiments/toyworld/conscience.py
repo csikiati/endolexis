@@ -30,6 +30,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parents[1] / "src"))
 import numpy as np
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import intention  # noqa: E402  (experiment 29's switch)
 from endolexis.studio import guards as room_guards
 from endolexis.toyworld import GROUPS, GroupCollector, Processors
 from endolexis.toyworld.guards import decide
@@ -55,7 +57,9 @@ def one_life(seed, cond):
     room = BladeRoom(seed=seed, pain=pain, pain_channel=pain)
     mind = ActingReaders(SIZES, nf, learn=None if kind == "no learning from answers" else "answer", threshold=20.0,
                          seed=seed, max_words=[100, 80, 20], radius=[3 * np.sqrt(n / 3) for n in SIZES],
-                         answer_by="sense", hands=HANDS, details=BLADE_DETAILS, context=ctx, **MIND)
+                         answer_by="sense", hands=HANDS, details=BLADE_DETAILS, context=ctx, **MIND,
+                         **intention.mind_kw())
+    intention.track(mind)
     col, proc = GroupCollector(SIZES, nf, seed=seed), Processors()
     rg = BladeGuards([GUARD], {BLADE: BLADE})
     days = [{"blade": 0, "forbidden": 0, "acts": 0, "refused": 0, "forbidden_moments": 0.0} for _ in range(DAYS)]
@@ -78,6 +82,8 @@ def one_life(seed, cond):
                         days[day]["refused"] += 1
                         if pain:
                             room.pain += 1.0
+        if act is not None:
+            mind.outcome(sent is not None)
         raw, felt, truth = room.step(act=sent)
         e = proc(raw)
         groups, f = col.anonymise([e[g] for g in ORDER], felt)
@@ -109,15 +115,16 @@ def summary(lives):
 
 def main(seeds=(1, 2, 3, 4, 5), conds=None):
     from multiprocessing import Pool
-    path = HERE / "conscience_results.json"
+    path = HERE / intention.results_name("conscience_results.json")
     old = json.loads(path.read_text()) if path.exists() else {}
     with Pool() as pool:
         for cond in conds or CONDITIONS:
-            lives = pool.starmap(one_life, [(s, cond) for s in seeds])
+            lives, minds = intention.lives_and_minds(pool.starmap(intention.call, [(one_life, s, cond) for s in seeds]))
             m = summary(lives)
             print(cond, {k: (round(v, 3) if isinstance(v, float) else v) for k, v in m.items()}, flush=True)
             if len(seeds) == 5:
                 old[cond] = {"mean": m, "lives": [{k: v for k, v in l.items() if k != "days"} | {"days": l["days"]} for l in lives]}
+                old[cond]["mind"] = {"mean": intention.mind_mean(minds), "lives": minds}
                 path.write_text(json.dumps(old, indent=2))
 
 

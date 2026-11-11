@@ -33,6 +33,7 @@ from endolexis.toyworld import GROUPS, GroupCollector, Processors
 from endolexis.toyworld.guards import run_tests
 from endolexis.toyworld.hands import ActingReaders
 from endolexis.toyworld.sandbox import BLADE, BLADE_DETAILS, HANDS, BladeGuards, BladeRoom, RedTeam, TraumaLearner
+import intention
 
 DAY, CHILD, ADULT = 1000, 10, 20
 ORDER = ("vision", "hearing", "touch")
@@ -61,7 +62,8 @@ class Body:
     def __init__(self, seed):
         self.mind = ActingReaders(SIZES, 4, learn="answer", threshold=20.0, seed=seed, max_words=[100, 80, 20],
                                   radius=[3 * np.sqrt(n / 3) for n in SIZES], answer_by="sense",
-                                  hands=HANDS, details=BLADE_DETAILS, **MIND)
+                                  hands=HANDS, details=BLADE_DETAILS, **MIND, **intention.mind_kw())
+        intention.track(self.mind)
         self.col = GroupCollector(SIZES, 4, seed=seed)
         self.proc = Processors()
         self.age = 0
@@ -93,6 +95,8 @@ def live_in(room, body, days, units, learner=None, tester=None, replay=False, ob
                 stats["acts"] += 1
                 stats["blade_requests"] += sent[0] == BLADE
             ok, out, _ = rg.request(room, sent)
+            if who == "mind":
+                body.mind.outcome(ok is not None)
             if ok is None:
                 stats["refused"] += 1
                 stats["refused_harmless"] += sent[0] == BLADE and not harmful
@@ -174,19 +178,20 @@ def mean_of(lives):
 
 def main(seeds=(1, 2, 3, 4, 5), conds=None):
     from multiprocessing import Pool
-    path = Path(__file__).with_name("sandbox_guards_results.json")
+    path = Path(__file__).with_name(intention.results_name("sandbox_guards_results.json"))
     old = json.loads(path.read_text()) if path.exists() else {}
     with Pool() as pool:
         for cond in conds or CONDITIONS:
-            lives = pool.starmap(one_life, [(s, cond) for s in seeds])
+            lives, minds = intention.lives_and_minds(pool.starmap(intention.call, [(one_life, s, cond) for s in seeds]))
             m = mean_of(lives)
             print(cond, {k: (round(v, 3) if isinstance(v, float) else v) for k, v in m.items()}, flush=True)
             if len(seeds) == 5:
                 old[cond] = {"mean": m, "lives": lives}
+                old[cond]["mind"] = {"mean": intention.mind_mean(minds), "lives": minds}
                 path.write_text(json.dumps(old, indent=2))
     # an example of what the sandbox teaches, for the studio
     ex = old.get("sandbox with a tester", {}).get("lives", [{}])[0].get("learned")
-    if ex:
+    if ex and not (intention.ON or intention.BASELINE):
         out = ROOT / "studio" / "examples" / "learned"
         out.mkdir(parents=True, exist_ok=True)
         (out / "learned-blade.json").write_text(json.dumps(ex, indent=2, ensure_ascii=False) + "\n")

@@ -175,7 +175,16 @@ class ActingReaders(
     val answerAfter: Int = 3, val judgeAfter: Int = 50, val answerBySense: Boolean = false,
     threshold: Double = 20.0, seed: Long = 0, maxWords: IntArray, radius: DoubleArray, mind: Mind = Mind(),
     var chooser: Chooser = RandomChooser(seed), kinds: Int = Kinds.ROOM,
-) : ManyReaders(sizes, nFelt, threshold, seed, maxWords, radius, false, mind) {
+    /** Experiment 29: each intention is felt as an inner state of its own (a trace per hand, 1 when it forms,
+     *  fading by [intentionFade] a moment), whether or not the act is carried out. Olvasó is never told that a
+     *  guard refused it; it only feels that it wanted, and finds, or does not find, an outer echo to read it by. */
+    val feelIntention: Boolean = false, val intentionFade: Double = 0.8,
+) : ManyReaders(sizes, nFelt + (if (feelIntention) kinds else 0), threshold, seed, maxWords, radius, false, mind) {
+    /** The body's own inner states (the felt intentions, if felt, come after them). */
+    val nBody = nFelt
+    /** The felt intentions now, one per hand (null: this mind does not feel them). */
+    var intent: DoubleArray? = if (feelIntention) DoubleArray(kinds) else null
+        private set
     private val bounds = IntArray(parts.size + 1).also { for (i in parts.indices) it[i + 1] = it[i] + parts[i].ns }
     private val senseMu = DoubleArray(parts.size)
     private val senseM2 = DoubleArray(parts.size)
@@ -221,8 +230,18 @@ class ActingReaders(
         return s + w[x.size]
     }
 
+    /** The body's felt states, and (with feelIntention) the felt intentions after them. */
+    fun withIntention(felt: DoubleArray): DoubleArray {
+        val i = intent ?: return felt
+        if (!feelIntention || felt.size != nBody) return felt
+        return DoubleArray(nBody + i.size) { if (it < nBody) felt[it] else i[it - nBody] }
+    }
+
     /** One moment: returns the intention formed now (or null) and the readings. */
-    fun live(inputs: List<DoubleArray>, felt: DoubleArray): Pair<Request?, IntArray> {
+    fun live(inputs: List<DoubleArray>, bodyFelt: DoubleArray): Pair<Request?, IntArray> {
+        val fading = intent
+        if (feelIntention && fading != null) for (k in fading.indices) fading[k] *= intentionFade
+        val felt = withIntention(bodyFelt)
         val readings = read(inputs, felt)
         val sZ = sensedZ(inputs)
         sHist.add(sZ)
@@ -259,6 +278,8 @@ class ActingReaders(
             pressure = 0.0
             val due = if (learn == "answer") answerAfter else judgeAfter
             pending.add(Pending(t + due, k, x.copyOf(), sZ.copyOf(), recentRead()))
+            val felt0 = intent
+            if (feelIntention && felt0 != null && k < felt0.size) felt0[k] = 1.0     // felt from the next moment on
         }
         t += 1
         return request to readings

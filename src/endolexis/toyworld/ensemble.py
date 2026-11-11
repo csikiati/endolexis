@@ -55,7 +55,7 @@ class Member:
     """One Olvasó of the ensemble and what wires into and out of it."""
 
     def __init__(self, name, wiring, kinds, n_felt, seed, sleep=0.0, waking=0.0, phase=0.0,
-                 threshold=20.0, learn="answer", mind=None, words=None, shift=0.0):
+                 threshold=20.0, learn="answer", mind=None, words=None, shift=0.0, feel_intention=False):
         # wiring: [(processor id, [port, ...]), ...] - one vocabulary per processor
         self.name, self.wiring = name, [(p, list(ports)) for p, ports in wiring if ports]
         self.sleep, self.waking, self.phase, self.shift = float(sleep), float(waking), float(phase), float(shift)
@@ -66,7 +66,7 @@ class Member:
         self.col = GroupCollector(sizes, n_felt, seed=seed)
         self.mind = ActingReaders(sizes, n_felt, learn=learn, threshold=threshold, seed=seed,
                                   max_words=words, radius=[radius_for(n) for n in sizes],
-                                  answer_by="sense", kinds=kinds, **{**MIND, **(mind or {})})
+                                  answer_by="sense", kinds=kinds, feel_intention=feel_intention, **{**MIND, **(mind or {})})
         self.at = [self.col.felt_index(i) for i in range(n_felt)]
         self.state = AWAKE
         self.moments = {ASLEEP: 0, WAKING: 0, AWAKE: 0}
@@ -111,7 +111,7 @@ class Ensemble:
             groups, f = m.col.anonymise(m.inputs(ends), felt)
             if st == ASLEEP:
                 for p in m.mind.parts:
-                    p.sleep_moment(f)
+                    p.sleep_moment(m.mind.with_intention(f))
                 m.mind.t += 1
                 continue
             if st == WAKING:
@@ -126,6 +126,7 @@ class Ensemble:
                     else:                                # the hands are busy: let this one go
                         m.mind.pending.pop()
                         m.mind.requests.pop()
+                        m.mind.outcome(False)            # (a felt intention stays felt: it came to nothing)
             per[m.name] = (r, m.mind.last_fit.copy())
         readings = np.full(2 * self.nf, -1)
         who = [None] * (2 * self.nf)
@@ -137,7 +138,7 @@ class Ensemble:
             r, fit = per[m.name]
             for i in range(self.nf):
                 for mode in (0, 1):                      # level, change
-                    j = m.at[i] + mode * self.nf
+                    j = m.at[i] + mode * m.mind.parts[0].nf_in     # the changes follow all its felt levels
                     k = i + mode * self.nf
                     offering[k] += r[j] >= 0
                     if r[j] >= 0 and fit[j] < best[k]:

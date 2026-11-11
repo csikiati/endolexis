@@ -33,12 +33,14 @@ RADIUS = [3.0 * np.sqrt(n / 3) for n in SIZES]
 MIND = dict(memory=300, doubt_memory=3000, doubt_limit=0.1, adapt=300, adapt_mode="both", slow_fit=True)
 
 
-def main(seed=3, out=Path(__file__).resolve().parents[1] / "app/src/test/resources/golden_life.bin"):
+def main(seed=3, out=Path(__file__).resolve().parents[1] / "app/src/test/resources/golden_life.bin", feel=False, T=T):
+    """A recorded life (Python's Olvasó), for the Kotlin one to replay. feel: it feels its own intentions
+    (experiment 29; golden_life_intention.bin)."""
     room = Room(seed=seed, hands=True, pain=False, pain_channel=False, voice="mirror")
     proc = Processors()
     col = GroupCollector(SIZES, len(FELT1), seed=seed)
     olv = ActingReaders(SIZES, len(FELT1), learn="answer", threshold=20.0, seed=seed,
-                        max_words=[100, 80, 20], radius=RADIUS, **MIND)
+                        max_words=[100, 80, 20], radius=RADIUS, feel_intention=feel, **MIND)
     f32 = lambda a: np.asarray(a, np.float32).astype(float)
     ins, fel, rds, wds, kinds, dets = [], [], [], [], [], []
     act = None
@@ -96,4 +98,5 @@ def senses(seed=4, n=120, out=Path(__file__).resolve().parents[1] / "app/src/tes
 
 if __name__ == "__main__":
     main()
+    main(out=Path(__file__).resolve().parents[1] / "app/src/test/resources/golden_life_intention.bin", feel=True, T=6000)
     senses()

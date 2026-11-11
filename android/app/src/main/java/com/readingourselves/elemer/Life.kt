@@ -30,10 +30,11 @@ import kotlin.math.sqrt
  * Everything that makes up one life and survives between sessions: the mind, its secret key, the processors'
  * memory of the usual scene, the body's slow averages, and the observer's notes. Saved to the app's own folder.
  */
-class Saved(val seed: Long) : Serializable {
+class Saved(val seed: Long, val feelIntention: Boolean = false) : Serializable {
+    /** feelIntention (experiment 29): the life feels its own intentions as inner states (chosen when it is born). */
     val mind = ActingReaders(Senses.SIZES, 4, learn = "answer", threshold = 20.0, seed = seed,
         maxWords = MAX_WORDS, radius = DoubleArray(3) { 3.0 * sqrt(Senses.SIZES[it] / 3.0) },
-        mind = Mind(), answerBySense = true, kinds = Kinds.NAMES.size)
+        mind = Mind(), answerBySense = true, kinds = Kinds.NAMES.size, feelIntention = feelIntention)
     val collector = GroupCollector(Senses.SIZES, 4, seed)
     val processors = Processors()
     val insides = Insides(seed)
@@ -71,6 +72,8 @@ class Snapshot(
     val expects: DoubleArray, val lastSignal: DoubleArray, val executed: IntArray, val refused: IntArray,
     val log: List<String>, val image: DoubleArray, val paint: Int, val toneOn: Boolean, val buzzOn: Boolean, val ownWords: Int,
     val seeing: Boolean, val hearing: Boolean, val asleep: Boolean,
+    /** Where the readings "as change" begin (after every felt level), and the felt intentions now (null: not felt). */
+    val nIn: Int = 4, val intent: DoubleArray? = null,
 )
 
 class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: Hands) {
@@ -129,12 +132,15 @@ class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: 
         save()
     }
 
-    /** A new life: the old one is kept beside it, renamed, not deleted. */
-    fun newLife() {
+    /** Whether the present life feels its own intentions. */
+    val feelsIntention: Boolean get() = this::s.isInitialized && s.feelIntention
+
+    /** A new life: the old one is kept beside it, renamed, not deleted. feelIntention: it feels its intentions. */
+    fun newLife(feelIntention: Boolean = false) {
         val wasRunning = running
         if (wasRunning) { running = false; thread?.join(3000) }
         if (file.exists()) file.renameTo(File(ctx.filesDir, "elemer.life.${System.currentTimeMillis()}"))
-        s = Saved(System.nanoTime() and 0xFFFFFF)
+        s = Saved(System.nanoTime() and 0xFFFFFF, feelIntention)
         synchronized(log) { log.clear() }
         if (wasRunning) { running = true; thread = Thread({ loop() }, "elemer-life").also { it.start() } }
     }
@@ -223,7 +229,8 @@ class Life(private val ctx: Context, val eyes: Eyes, val skin: Skin, val hands: 
             snapshot = Snapshot(s.t, s.naps, s.lived, felt, r, IntArray(4) { s.collector.feltIndex(it) },
                 mind.pressure, mind.threshold, mind.alive(), mind.wordsNow(), DoubleArray(mind.kinds) { mind.W[it][mind.nIn] },
                 mind.lastSignal.copyOf(), s.executed.copyOf(), s.refused.copyOf(), synchronized(log) { log.toList() },
-                image, hands.paint, hands.toneLeft > 0, hands.buzzLeft > 0, ownWords(), eyes.seeing, ears.hearing, false)
+                image, hands.paint, hands.toneLeft > 0, hands.buzzLeft > 0, ownWords(), eyes.seeing, ears.hearing, false,
+                mind.parts[0].nfIn, mind.intent?.copyOf())
             if (s.t % 2400 == 0L) save()
         }
         onMoment?.invoke()

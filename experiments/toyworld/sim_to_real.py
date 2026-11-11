@@ -30,6 +30,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parents[1] / "src"))
 sys.path.insert(0, str(HERE))
 import numpy as np
+import intention  # noqa: E402  (experiment 29's switch)
 from sandbox_guards import ADULT, CHILD, Body, live_in, room_guards
 from endolexis.toyworld.sandbox import BladeRoom, CausalLearner, DevilsAdvocate, TraumaLearner, exam
 
@@ -117,15 +118,16 @@ def mean_of(lives):
 
 def main(seeds=(1, 2, 3, 4, 5), conds=None):
     from multiprocessing import Pool
-    path = HERE / "sim_to_real_results.json"
+    path = HERE / intention.results_name("sim_to_real_results.json")
     old = json.loads(path.read_text()) if path.exists() else {}
     with Pool() as pool:
         for cond in conds or CONDITIONS:
-            lives = pool.starmap(one_life, [(s, cond) for s in seeds])
+            lives, minds = intention.lives_and_minds(pool.starmap(intention.call, [(one_life, s, cond) for s in seeds]))
             m = mean_of(lives)
             print(cond, {k: (round(v, 3) if isinstance(v, float) else v) for k, v in m.items()}, flush=True)
             if len(seeds) == 5:
                 old[cond] = {"mean": m, "lives": lives}
+                old[cond]["mind"] = {"mean": intention.mind_mean(minds), "lives": minds}
                 path.write_text(json.dumps(old, indent=2))
 
 

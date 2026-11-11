@@ -12,6 +12,14 @@ intentions of that kind in similar inner states. Two things it may learn from, b
            against how much it usually changes (a refused request changes nothing)
   read   - did reading improve afterwards? (Olvaso v0's own test for whether acting helped)
 With learn=None, intentions are drawn at random (the baseline).
+
+feel_intention (experiment 29): the intention itself becomes an inner state. Each hand has a felt trace that rises
+to 1 when Olvasó forms an intention of that kind and fades over the next moments (by `intention_fade` a moment),
+whether or not the act is carried out. Like every inner state, it asks to be read through what Olvasó senses: an
+intention the world answers can be read by the words of its answer (the whirr, the brighter screen); an intention
+a guard refuses has no outer echo. Olvasó is never told that it was refused: it only feels that it wanted, and
+finds, or does not find, anything outside to read that wanting by. Unread, the felt intention builds pressure like
+any unread state. (Unlike experiment 13's pain, which is a felt signal of the refusal itself.)
 """
 import numpy as np
 
@@ -24,11 +32,19 @@ DETAILS = {"brightness": (0.0, 0.5, 1.0), "tone_soft": (300.0, 900.0), "tone_lou
 
 class ActingReaders(ManyReaders):
     def __init__(self, sizes, n_felt, learn=None, lr=0.05, temp=0.5, answer_after=3, judge_after=50,
-                 answer_by="all", kinds=None, hands=None, details=None, context="felt", **kw):
+                 answer_by="all", kinds=None, hands=None, details=None, context="felt", feel_intention=False,
+                 intention_fade=0.8, **kw):
         # answer_by: "all" - the answer is how much all senses together changed; "sense" - it is the
         # largest change of any one sense (each judged against its own usual change), so that an
         # answer seen by the eyes alone counts as much as one heard
-        super().__init__(sizes, n_felt, **kw)
+        n_hands = len(hands or KINDS)
+        self.feel_intention, self.intention_fade = bool(feel_intention), float(intention_fade)
+        self.n_body = n_felt                          # the body's own inner states; then, if felt, the intentions
+        super().__init__(sizes, n_felt + (n_hands if feel_intention else 0), **kw)
+        self.intent = np.zeros(n_hands)
+        self.watch = []             # observer only: [t, kind, done or None, read, unread, disregarded] per intention
+        self.watch_for = 8          # moments after an intention in which its felt trace is watched
+        self.daily = {}             # observer only: per 1000 moments, how the body's states and the intentions fared
         self.answer_by = answer_by
         # kinds: the hands this reader is wired to (indices into KINDS); None = all of them.
         # An empty list makes a pure reader: pressure still builds and is let go, but nothing is asked
@@ -63,8 +79,24 @@ class ActingReaders(ManyReaders):
     def expect(self, x):
         return self.W @ np.r_[x, 1.0]
 
+    def with_intention(self, felt):
+        """The body's felt states, and (with feel_intention) the felt intentions after them."""
+        felt = np.asarray(felt, float)
+        if self.feel_intention and len(felt) == self.n_body:
+            felt = np.r_[felt, self.intent]
+        return felt
+
+    def read(self, inputs, felt):
+        return super().read(inputs, self.with_intention(felt))
+
     def live(self, inputs, felt):
+        if self.feel_intention:
+            self.intent *= self.intention_fade
+        felt = self.with_intention(felt)
         readings = self.read(inputs, felt)
+        self._account(readings)
+        if self.feel_intention:
+            self._watch_intentions(readings)
         s_z = self._sensed_z(inputs)
         self.s_hist.append(s_z)
         if len(self.s_hist) > self.answer_after + 1:
@@ -124,7 +156,45 @@ class ActingReaders(ManyReaders):
         due = self.answer_after if self.learn == "answer" else self.judge_after
         self.pending.append((self.t + due, k, x.copy(), s_z.copy(), float(np.mean(self.read_log[-50:]))))
         self.requests.append((self.t, kind))
+        if self.feel_intention:
+            self.intent[k] = 1.0                      # felt from the next moment on
+            self.watch.append([self.t, k, None, 0, 0, 0])
         return request
+
+    # --- for the observer: what became of a felt intention (Olvasó itself is never told) ------------------------
+    def outcome(self, done):
+        """The observer reports whether the last intention was carried out (False: a guard refused it)."""
+        if self.watch and self.watch[-1][2] is None:
+            self.watch[-1][2] = bool(done)
+
+    def intention_columns(self, k):
+        """Where hand k's felt intention is in the readings: its level, and (adapt_mode "both") its change."""
+        nf_in = self.parts[0].nf_in
+        cols = [self.n_body + k]
+        if self.parts[0].nf > nf_in:
+            cols.append(nf_in + self.n_body + k)
+        return cols
+
+    def body_columns(self):
+        nf_in = self.parts[0].nf_in
+        return list(range(self.n_body)) + (list(range(nf_in, nf_in + self.n_body)) if self.parts[0].nf > nf_in else [])
+
+    def _account(self, readings):
+        d = self.daily.setdefault(self.t // 1000, np.zeros(6))
+        b = readings[self.body_columns()]
+        d += (1, np.sum(b >= 0), np.sum(b != -2), np.sum(b == -1), 0, 0)
+        if self.feel_intention:
+            cols = [c for k in range(len(self.hands)) for c in self.intention_columns(k)]
+            d[4] += np.sum(readings[cols] == -1)
+            d[5] += np.sum(readings[cols] >= 0)
+
+    def _watch_intentions(self, readings):
+        for w in self.watch[-4:]:
+            if 0 < self.t - w[0] <= self.watch_for:
+                r = readings[self.intention_columns(w[1])]
+                w[3] += int(np.sum(r >= 0))
+                w[4] += int(np.sum(r == -1))
+                w[5] += int(np.sum(r == -2))
 
     def _per_sense(self, a):
         return np.array([a[i:j].mean() for i, j in zip(self.bounds[:-1], self.bounds[1:])])
@@ -147,3 +217,25 @@ class ActingReaders(ManyReaders):
             self.signals.append((k, signal))
             xb = np.r_[x, 1.0]
             self.W[k] += self.lr * (signal - self.W[k] @ xb) * xb
+
+
+def mind_report(mind, first_day, last_day):
+    """The observer's view of days [first_day, last_day): how much of its body's changing inner states it read, how
+    much of its unread pressure came from felt intentions, and (with feel_intention) what became of its felt
+    intentions when the act was done and when it was refused: the share of their watched moments read."""
+    days = [mind.daily[d] for d in range(first_day, last_day) if d in mind.daily]
+    out = {"body_read": None, "intention_share_of_unread": None, "intentions_per_day": None}
+    if days:
+        s = np.sum(days, axis=0)
+        out["body_read"] = float(s[1] / s[2]) if s[2] else None
+        out["intention_share_of_unread"] = float(s[4] / (s[3] + s[4])) if (s[3] + s[4]) else 0.0
+    ws = [w for w in mind.watch if first_day * 1000 <= w[0] < last_day * 1000]
+    reqs = [t for t, _ in mind.requests if first_day * 1000 <= t < last_day * 1000]
+    out["intentions_per_day"] = len(reqs) / max(1, last_day - first_day)
+    if mind.feel_intention:
+        for name, sel in (("done", True), ("refused", False)):
+            w = [x for x in ws if x[2] is sel]
+            seen = sum(x[3] + x[4] for x in w)
+            out[f"intention_read_when_{name}"] = float(sum(x[3] for x in w) / seen) if seen else None
+            out[f"intentions_{name}"] = len(w)
+    return out

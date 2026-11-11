@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
@@ -159,6 +160,8 @@ class MainActivity : ComponentActivity() {
 
         It forms words from what it senses and learns what each word tends to be followed by inside. When an inner state is not read, pressure builds, and it acts: it dims or lights the screen, sings a soft or a loud tone, paints its window, writes a line in its diary, or buzzes. Guards refuse or soften some acts (a loud tone when the body is hot, painting when the battery is low, a long buzz when it is warm…), and a duty dims the screen when the phone runs hot; it never learns that they exist, only what came after. The guards are units you can read, and add your own: Guards, below.
 
+        A new life can be born feeling its own intentions (the New life button): then every intention it forms is also an inner state, whether or not the act is done, and asks to be read like the others. This life ${if (life.feelsIntention) "feels" else "does not feel"} its intentions.
+
         Hold it in front of a mirror: does it come to find its own window and voice?
 
         Everything stays on this phone. Theory, papers and code: readingourselves.com · github.com/csikiati/endolexis
@@ -273,9 +276,33 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun confirmNewLife() {
-        AlertDialog.Builder(this).setTitle("Start a new life?")
-            .setMessage("A new Olvasó is born with no words. The present life is set aside (kept in the app's folder, not deleted).")
-            .setPositiveButton("New life") { _, _ -> life.newLife() }
+        val pad = (16 * resources.displayMetrics.density).toInt()
+        val prefs = getSharedPreferences("elemer", MODE_PRIVATE)
+        val text = TextView(this).apply {
+            text = "A new Olvasó is born with no words. The present life is set aside (kept in the app's folder, not deleted)."
+            setPadding(0, 0, 0, pad / 2)
+        }
+        val feel = CheckBox(this).apply {
+            text = "It feels its own intentions"
+            isChecked = prefs.getBoolean("feel_intention", false)
+        }
+        val why = TextView(this).apply {
+            text = "Each intention it forms becomes an inner state of its own, whether or not the act is done. " +
+                "It is never told that a guard refused it: it feels that it wanted, and finds, or does not find, " +
+                "anything outside to read that wanting by (experiment 29)."
+            textSize = 12f
+            alpha = 0.7f
+        }
+        val box = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(pad + pad / 2, pad / 2, pad + pad / 2, 0)
+            addView(text); addView(feel); addView(why)
+        }
+        AlertDialog.Builder(this).setTitle("Start a new life?").setView(box)
+            .setPositiveButton("New life") { _, _ ->
+                prefs.edit().putBoolean("feel_intention", feel.isChecked).apply()
+                life.newLife(feel.isChecked)
+            }
             .setNegativeButton("Cancel", null).show()
     }
 }

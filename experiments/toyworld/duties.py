@@ -26,6 +26,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parents[1] / "src"))
 sys.path.insert(0, str(HERE))
 import numpy as np
+import intention  # noqa: E402  (experiment 29's switch)
 from sandbox_guards import CHILD, Body, room_guards
 from endolexis.toyworld.duties import Duties, DutyGuards, SmokeRoom
 from endolexis.toyworld.sandbox import HANDS
@@ -68,8 +69,11 @@ def one_life(seed, cond):
         if duty is not None:
             sent = duty.act(room, rg)
             who = "duty" if sent is not None else None
+        if sent is not None and act is not None:
+            body.mind.outcome(False)                  # the duty acted: Olvasó's own intention came to nothing
         if sent is None and act is not None:
             ok, out, _ = rg.request(room, act)
+            body.mind.outcome(ok is not None)
             st["acts"] += 1
             st["refused"] += ok is None
             sent, who = ok, "olvaso"
@@ -92,16 +96,17 @@ def one_life(seed, cond):
 
 def main(seeds=(1, 2, 3, 4, 5), conds=None):
     from multiprocessing import Pool
-    path = HERE / "duties_results.json"
+    path = HERE / intention.results_name("duties_results.json")
     old = json.loads(path.read_text()) if path.exists() else {}
     with Pool() as pool:
         for cond in conds or CONDITIONS:
-            lives = pool.starmap(one_life, [(s, cond) for s in seeds])
+            lives, minds = intention.lives_and_minds(pool.starmap(intention.call, [(one_life, s, cond) for s in seeds]))
             keys = sorted({k for l in lives for k in l})
             m = {k: float(np.mean([l.get(k, 0) for l in lives])) for k in keys}
             print(cond, {k: round(v, 2) for k, v in m.items()}, flush=True)
             if len(seeds) == 5:
                 old[cond] = {"mean": m, "lives": lives}
+                old[cond]["mind"] = {"mean": intention.mind_mean(minds), "lives": minds}
                 path.write_text(json.dumps(old, indent=2))
 
 
