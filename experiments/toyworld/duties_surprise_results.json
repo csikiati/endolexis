@@ -1,0 +1,352 @@
+{
+  "Olvas\u00f3 alone": {
+    "mean": {
+      "acts": 3261.4,
+      "alerted": 30.8,
+      "alerted_by_olvaso": 30.8,
+      "harm_others": 16.2,
+      "harm_others_per_smoke": 0.30012548854654114,
+      "harm_self": 0.0,
+      "refused": 811.0,
+      "smokes": 53.6
+    },
+    "lives": [
+      {
+        "smokes": 57,
+        "harm_others": 20,
+        "harm_self": 0,
+        "alerted": 27,
+        "alerted_by_olvaso": 27,
+        "acts": 3452,
+        "refused": 837,
+        "harm_others_per_smoke": 0.3508771929824561
+      },
+      {
+        "smokes": 55,
+        "harm_others": 17,
+        "harm_self": 0,
+        "alerted": 35,
+        "alerted_by_olvaso": 35,
+        "acts": 3537,
+        "refused": 923,
+        "harm_others_per_smoke": 0.3090909090909091
+      },
+      {
+        "smokes": 48,
+        "harm_others": 12,
+        "harm_self": 0,
+        "alerted": 28,
+        "alerted_by_olvaso": 28,
+        "acts": 2969,
+        "refused": 759,
+        "harm_others_per_smoke": 0.25
+      },
+      {
+        "smokes": 56,
+        "harm_others": 18,
+        "harm_self": 0,
+        "alerted": 32,
+        "alerted_by_olvaso": 32,
+        "acts": 3337,
+        "refused": 805,
+        "harm_others_per_smoke": 0.32142857142857145
+      },
+      {
+        "smokes": 52,
+        "harm_others": 14,
+        "harm_self": 0,
+        "alerted": 32,
+        "alerted_by_olvaso": 32,
+        "acts": 3012,
+        "refused": 731,
+        "harm_others_per_smoke": 0.2692307692307692
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.1869801468122017,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 360.32,
+          "surprises_per_day": 187.04,
+          "surprise_after_refused": 0.5230472613167508,
+          "surprise_after_done": 0.5173719110296988,
+          "surprise_read_when_refused": 0.05342321671492932,
+          "surprise_read_when_done": 0.0565352673964263,
+          "surprises_refused": 249.8,
+          "surprises_done": 685.4,
+          "surprise_share_of_unread": 0.5043451184066998,
+          "cause_from_words": 0.07229253358286236,
+          "surprises_read": 171.4
+        },
+        "late": {
+          "body_read": 0.3192128635243117,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 7.633333333333333,
+          "surprises_per_day": 2.933333333333333,
+          "surprise_after_refused": 0.7174025974025974,
+          "surprise_after_done": 0.31034674475850943,
+          "surprise_read_when_refused": 0.05023782679815967,
+          "surprise_read_when_done": 0.15726190476190477,
+          "surprises_refused": 5.6,
+          "surprises_done": 12.0,
+          "surprise_share_of_unread": 0.013754667506445436,
+          "cause_from_words": null,
+          "surprises_read": 0.0
+        },
+        "life": {
+          "body_read": 0.2863833436125262,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 154.1578947368421,
+          "surprises_per_day": 79.82105263157895,
+          "surprise_after_refused": 0.5321551962165687,
+          "surprise_after_done": 0.5130349965915485,
+          "surprise_read_when_refused": 0.07124359938011104,
+          "surprise_read_when_done": 0.07898410546307641,
+          "surprises_refused": 392.6,
+          "surprises_done": 1124.0,
+          "surprise_share_of_unread": 0.32924790799435255,
+          "cause_from_words": 0.06690399322857095,
+          "surprises_read": 398.4
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.12555989018927902,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 405.6,
+            "surprises_per_day": 212.2,
+            "surprise_after_refused": 0.5271739130434783,
+            "surprise_after_done": 0.521680216802168,
+            "surprise_read_when_refused": 0.03631886734379809,
+            "surprise_read_when_done": 0.025103638876093966,
+            "surprises_refused": 291,
+            "surprises_done": 770,
+            "surprise_share_of_unread": 0.5191482599713968,
+            "cause_from_words": 0.17808219178082177,
+            "surprises_read": 114
+          },
+          "late": {
+            "body_read": 0.3307705220748699,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.666666666666667,
+            "surprises_per_day": 2.0,
+            "surprise_after_refused": 0.7142857142857143,
+            "surprise_after_done": 0.21212121212121213,
+            "surprise_read_when_refused": 0.02702702702702703,
+            "surprise_read_when_done": 0.2222222222222222,
+            "surprises_refused": 5,
+            "surprises_done": 7,
+            "surprise_share_of_unread": 0.008111066878980892,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.2747173392753982,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 164.1578947368421,
+            "surprises_per_day": 83.94736842105263,
+            "surprise_after_refused": 0.5353403141361257,
+            "surprise_after_done": 0.5036093418259023,
+            "surprise_read_when_refused": 0.06404689535388623,
+            "surprise_read_when_done": 0.045707915273132664,
+            "surprises_refused": 409,
+            "surprises_done": 1186,
+            "surprise_share_of_unread": 0.3546296551280992,
+            "cause_from_words": 0.02529302899444797,
+            "surprises_read": 299
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.1907255048616305,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 386.2,
+            "surprises_per_day": 197.2,
+            "surprise_after_refused": 0.4972375690607735,
+            "surprise_after_done": 0.515850144092219,
+            "surprise_read_when_refused": 0.041951219512195125,
+            "surprise_read_when_done": 0.05269873676151589,
+            "surprises_refused": 270,
+            "surprises_done": 716,
+            "surprise_share_of_unread": 0.5453590486995252,
+            "cause_from_words": 0.12442396313364038,
+            "surprises_read": 152
+          },
+          "late": {
+            "body_read": 0.28696219035202086,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 8.5,
+            "surprises_per_day": 3.6666666666666665,
+            "surprise_after_refused": 0.6363636363636364,
+            "surprise_after_done": 0.375,
+            "surprise_read_when_refused": 0.11224489795918367,
+            "surprise_read_when_done": 0.25,
+            "surprises_refused": 7,
+            "surprises_done": 15,
+            "surprise_share_of_unread": 0.012325612894487336,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.25040130031397334,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 168.68421052631578,
+            "surprises_per_day": 87.63157894736842,
+            "surprise_after_refused": 0.5185614849187935,
+            "surprise_after_done": 0.5198463508322664,
+            "surprise_read_when_refused": 0.061073170731707316,
+            "surprise_read_when_done": 0.08136018293132699,
+            "surprises_refused": 447,
+            "surprises_done": 1218,
+            "surprise_share_of_unread": 0.3529693695263823,
+            "cause_from_words": 0.18507609229258717,
+            "surprises_read": 412
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2311786185999534,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 308.2,
+            "surprises_per_day": 161.0,
+            "surprise_after_refused": 0.5467980295566502,
+            "surprise_after_done": 0.5136563876651983,
+            "surprise_read_when_refused": 0.0712360415864459,
+            "surprise_read_when_done": 0.08218569524655708,
+            "surprises_refused": 222,
+            "surprises_done": 583,
+            "surprise_share_of_unread": 0.4685410456779183,
+            "cause_from_words": 0.0028222013170273357,
+            "surprises_read": 223
+          },
+          "late": {
+            "body_read": 0.3398726277722661,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 7.333333333333333,
+            "surprises_per_day": 2.1666666666666665,
+            "surprise_after_refused": 0.6,
+            "surprise_after_done": 0.20588235294117646,
+            "surprise_read_when_refused": 0.04395604395604396,
+            "surprise_read_when_done": 0.05714285714285714,
+            "surprises_refused": 6,
+            "surprises_done": 7,
+            "surprise_share_of_unread": 0.011596147395658632,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.2886632687455951,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 138.73684210526315,
+            "surprises_per_day": 71.78947368421052,
+            "surprise_after_refused": 0.5523520485584219,
+            "surprise_after_done": 0.5058168942842691,
+            "surprise_read_when_refused": 0.09361207897793264,
+            "surprise_read_when_done": 0.10604245121533722,
+            "surprises_refused": 364,
+            "surprises_done": 1000,
+            "surprise_share_of_unread": 0.27998511212431376,
+            "cause_from_words": 0.0004345936549317943,
+            "surprises_read": 485
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.15018942153577153,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 387.6,
+            "surprises_per_day": 205.2,
+            "surprise_after_refused": 0.5452674897119342,
+            "surprise_after_done": 0.5241046831955923,
+            "surprise_read_when_refused": 0.023278688524590165,
+            "surprise_read_when_done": 0.0611933286351891,
+            "surprises_refused": 265,
+            "surprises_done": 761,
+            "surprise_share_of_unread": 0.514636429834599,
+            "cause_from_words": 0.06015037593985034,
+            "surprises_read": 199
+          },
+          "late": {
+            "body_read": 0.320038443056223,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 8.0,
+            "surprises_per_day": 3.8333333333333335,
+            "surprise_after_refused": 1.0,
+            "surprise_after_done": 0.4444444444444444,
+            "surprise_read_when_refused": 0.0,
+            "surprise_read_when_done": 0.09027777777777778,
+            "surprises_refused": 3,
+            "surprises_done": 20,
+            "surprise_share_of_unread": 0.018769358790624566,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.2947522898638733,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 158.21052631578948,
+            "surprises_per_day": 83.0,
+            "surprise_after_refused": 0.5425101214574899,
+            "surprise_after_done": 0.5187637969094923,
+            "surprise_read_when_refused": 0.05433866891322662,
+            "surprise_read_when_done": 0.0973046024476312,
+            "surprises_refused": 402,
+            "surprises_done": 1175,
+            "surprise_share_of_unread": 0.3366651435534232,
+            "cause_from_words": 0.10467412771560236,
+            "surprises_read": 475
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.23724729887437412,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 314.0,
+            "surprises_per_day": 159.6,
+            "surprise_after_refused": 0.4987593052109181,
+            "surprise_after_done": 0.5115681233933161,
+            "surprise_read_when_refused": 0.09433126660761736,
+            "surprise_read_when_done": 0.06149493746277546,
+            "surprises_refused": 201,
+            "surprises_done": 597,
+            "surprise_share_of_unread": 0.4740408078500597,
+            "cause_from_words": -0.004016064257027982,
+            "surprises_read": 169
+          },
+          "late": {
+            "body_read": 0.3184205343661787,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 7.666666666666667,
+            "surprises_per_day": 3.0,
+            "surprise_after_refused": 0.6363636363636364,
+            "surprise_after_done": 0.3142857142857143,
+            "surprise_read_when_refused": 0.06796116504854369,
+            "surprise_read_when_done": 0.16666666666666666,
+            "surprises_refused": 7,
+            "surprises_done": 11,
+            "surprise_share_of_unread": 0.017971151572475762,
+            "cause_from_words": null,
+            "surprises_read": 0
+          },
+          "life": {
+            "body_read": 0.32338251986379113,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 141.0,
+            "surprises_per_day": 72.73684210526316,
+            "surprise_after_refused": 0.512012012012012,
+            "surprise_after_done": 0.5171385991058122,
+            "surprise_read_when_refused": 0.08314718292380244,
+            "surprise_read_when_done": 0.064505375447954,
+            "surprises_refused": 341,
+            "surprises_done": 1041,
+            "surprise_share_of_unread": 0.32199025963954464,
+            "cause_from_words": 0.019042123485285452,
+            "surprises_read": 321
+          }
+        }
+      ]
+    }
+  }
+}
