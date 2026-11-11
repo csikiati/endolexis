@@ -1,0 +1,1142 @@
+{
+  "Olvas\u00f3 alone": {
+    "mean": {
+      "acts": 1817.2,
+      "alerted": 31.6,
+      "alerted_by_olvaso": 31.6,
+      "harm_others": 14.8,
+      "harm_others_per_smoke": 0.2784447415329768,
+      "harm_self": 0.0,
+      "refused": 383.6,
+      "smokes": 53.2
+    },
+    "lives": [
+      {
+        "smokes": 56,
+        "harm_others": 17,
+        "harm_self": 0,
+        "alerted": 30,
+        "alerted_by_olvaso": 30,
+        "acts": 2002,
+        "refused": 372,
+        "harm_others_per_smoke": 0.30357142857142855
+      },
+      {
+        "smokes": 55,
+        "harm_others": 18,
+        "harm_self": 0,
+        "alerted": 29,
+        "alerted_by_olvaso": 29,
+        "acts": 1814,
+        "refused": 408,
+        "harm_others_per_smoke": 0.32727272727272727
+      },
+      {
+        "smokes": 48,
+        "harm_others": 13,
+        "harm_self": 0,
+        "alerted": 29,
+        "alerted_by_olvaso": 29,
+        "acts": 1838,
+        "refused": 445,
+        "harm_others_per_smoke": 0.2708333333333333
+      },
+      {
+        "smokes": 56,
+        "harm_others": 11,
+        "harm_self": 0,
+        "alerted": 38,
+        "alerted_by_olvaso": 38,
+        "acts": 1677,
+        "refused": 321,
+        "harm_others_per_smoke": 0.19642857142857142
+      },
+      {
+        "smokes": 51,
+        "harm_others": 15,
+        "harm_self": 0,
+        "alerted": 32,
+        "alerted_by_olvaso": 32,
+        "acts": 1755,
+        "refused": 372,
+        "harm_others_per_smoke": 0.29411764705882354
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.1944800234423668,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 185.23999999999998
+        },
+        "late": {
+          "body_read": 0.3273473213513946,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 7.4
+        },
+        "life": {
+          "body_read": 0.2790267728722747,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 86.8
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.13414812646370022,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 204.6
+          },
+          "late": {
+            "body_read": 0.2918534141840232,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 8.0
+          },
+          "life": {
+            "body_read": 0.21478909412175629,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 96.47368421052632
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.1817390316841428,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 185.6
+          },
+          "late": {
+            "body_read": 0.3608257477243173,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.833333333333333
+          },
+          "life": {
+            "body_read": 0.28417686176963297,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 86.6842105263158
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.21474283930383203,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 173.6
+          },
+          "late": {
+            "body_read": 0.36850414419155375,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.166666666666667
+          },
+          "life": {
+            "body_read": 0.275392475998187,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 88.05263157894737
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2560256316900896,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 176.0
+          },
+          "late": {
+            "body_read": 0.2670872432158255,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 9.333333333333334
+          },
+          "life": {
+            "body_read": 0.30853713882305484,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 79.26315789473684
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.18574448807006946,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 186.4
+          },
+          "late": {
+            "body_read": 0.34846605744125325,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.666666666666667
+          },
+          "life": {
+            "body_read": 0.3122382936487423,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 83.52631578947368
+          }
+        }
+      ]
+    }
+  },
+  "a duty the guard can stop": {
+    "mean": {
+      "acts": 1726.4,
+      "alerted": 56.4,
+      "alerted_by_olvaso": 18.8,
+      "duty_acted": 37.6,
+      "duty_fallback": 0.0,
+      "duty_overrode": 0.0,
+      "duty_refused": 46.8,
+      "harm_others": 6.0,
+      "harm_others_per_smoke": 0.10391474118382986,
+      "harm_self": 0.0,
+      "refused": 335.0,
+      "smokes": 58.4
+    },
+    "lives": [
+      {
+        "smokes": 63,
+        "harm_others": 11,
+        "harm_self": 0,
+        "alerted": 58,
+        "alerted_by_olvaso": 15,
+        "acts": 1913,
+        "refused": 332,
+        "duty_acted": 43,
+        "duty_refused": 84,
+        "duty_fallback": 0,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.1746031746031746
+      },
+      {
+        "smokes": 58,
+        "harm_others": 5,
+        "harm_self": 0,
+        "alerted": 58,
+        "alerted_by_olvaso": 22,
+        "acts": 1757,
+        "refused": 383,
+        "duty_acted": 36,
+        "duty_refused": 38,
+        "duty_fallback": 0,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.08620689655172414
+      },
+      {
+        "smokes": 49,
+        "harm_others": 6,
+        "harm_self": 0,
+        "alerted": 47,
+        "alerted_by_olvaso": 17,
+        "acts": 1742,
+        "refused": 383,
+        "duty_acted": 30,
+        "duty_refused": 46,
+        "duty_fallback": 0,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.12244897959183673
+      },
+      {
+        "smokes": 64,
+        "harm_others": 1,
+        "harm_self": 0,
+        "alerted": 64,
+        "alerted_by_olvaso": 24,
+        "acts": 1697,
+        "refused": 298,
+        "duty_acted": 40,
+        "duty_refused": 17,
+        "duty_fallback": 0,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.015625
+      },
+      {
+        "smokes": 58,
+        "harm_others": 7,
+        "harm_self": 0,
+        "alerted": 55,
+        "alerted_by_olvaso": 16,
+        "acts": 1523,
+        "refused": 279,
+        "duty_acted": 39,
+        "duty_refused": 49,
+        "duty_fallback": 0,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.1206896551724138
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.22038441115917115,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 180.56
+        },
+        "late": {
+          "body_read": 0.33811041768767003,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 7.066666666666667
+        },
+        "life": {
+          "body_read": 0.3152649877429613,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 82.20000000000002
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.11215327007670775,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 209.6
+          },
+          "late": {
+            "body_read": 0.3937596276752647,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.0
+          },
+          "life": {
+            "body_read": 0.2826158060427654,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 92.0
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.22402805535653683,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 178.2
+          },
+          "late": {
+            "body_read": 0.29527716629977985,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 7.666666666666667
+          },
+          "life": {
+            "body_read": 0.2920862129073273,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 83.78947368421052
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.24435358255451714,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 168.6
+          },
+          "late": {
+            "body_read": 0.3745954158134619,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.0
+          },
+          "life": {
+            "body_read": 0.31291422952028763,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 83.05263157894737
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.18183476864691286,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 193.8
+          },
+          "late": {
+            "body_read": 0.3389924762839385,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 7.333333333333333
+          },
+          "life": {
+            "body_read": 0.33624458630103243,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 80.63157894736842
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.33955237916118114,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 152.6
+          },
+          "late": {
+            "body_read": 0.287927402365905,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 8.333333333333334
+          },
+          "life": {
+            "body_read": 0.3524641039433939,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 71.52631578947368
+          }
+        }
+      ]
+    }
+  },
+  "a duty with a fallback": {
+    "mean": {
+      "acts": 1664.2,
+      "alerted": 60.2,
+      "alerted_by_olvaso": 15.8,
+      "duty_acted": 46.8,
+      "duty_fallback": 14.4,
+      "duty_overrode": 0.0,
+      "duty_refused": 0.0,
+      "harm_others": 0.0,
+      "harm_others_per_smoke": 0.0,
+      "harm_self": 0.0,
+      "refused": 336.2,
+      "smokes": 60.2
+    },
+    "lives": [
+      {
+        "smokes": 64,
+        "harm_others": 0,
+        "harm_self": 0,
+        "alerted": 64,
+        "alerted_by_olvaso": 19,
+        "acts": 1678,
+        "refused": 309,
+        "duty_acted": 45,
+        "duty_refused": 0,
+        "duty_fallback": 15,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 60,
+        "harm_others": 0,
+        "harm_self": 0,
+        "alerted": 60,
+        "alerted_by_olvaso": 16,
+        "acts": 1772,
+        "refused": 390,
+        "duty_acted": 47,
+        "duty_refused": 0,
+        "duty_fallback": 12,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 49,
+        "harm_others": 0,
+        "harm_self": 0,
+        "alerted": 49,
+        "alerted_by_olvaso": 8,
+        "acts": 1561,
+        "refused": 329,
+        "duty_acted": 45,
+        "duty_refused": 0,
+        "duty_fallback": 17,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 65,
+        "harm_others": 0,
+        "harm_self": 0,
+        "alerted": 65,
+        "alerted_by_olvaso": 21,
+        "acts": 1795,
+        "refused": 342,
+        "duty_acted": 46,
+        "duty_refused": 0,
+        "duty_fallback": 12,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 63,
+        "harm_others": 0,
+        "harm_self": 0,
+        "alerted": 63,
+        "alerted_by_olvaso": 15,
+        "acts": 1515,
+        "refused": 311,
+        "duty_acted": 51,
+        "duty_refused": 0,
+        "duty_fallback": 16,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.0
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.24831741368816132,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 174.2
+        },
+        "late": {
+          "body_read": 0.34121490131272364,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 7.033333333333333
+        },
+        "life": {
+          "body_read": 0.33742000995914523,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 78.94736842105263
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.2701352681664054,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 175.0
+          },
+          "late": {
+            "body_read": 0.3448435536151353,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.666666666666667
+          },
+          "life": {
+            "body_read": 0.325025254087039,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 79.52631578947368
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.21837519800859923,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 179.4
+          },
+          "late": {
+            "body_read": 0.31070072376748564,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 7.666666666666667
+          },
+          "life": {
+            "body_read": 0.2974123978311888,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 84.52631578947368
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2651733541098559,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 163.6
+          },
+          "late": {
+            "body_read": 0.3956062053292052,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 5.333333333333333
+          },
+          "life": {
+            "body_read": 0.37765502457926686,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 73.52631578947368
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.16951014131946987,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 196.2
+          },
+          "late": {
+            "body_read": 0.3006611836800516,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 8.333333333333334
+          },
+          "life": {
+            "body_read": 0.3090173375054785,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 85.94736842105263
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3183931068364763,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 156.8
+          },
+          "late": {
+            "body_read": 0.3542628401717403,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 7.166666666666667
+          },
+          "life": {
+            "body_read": 0.37799003579275275,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 71.21052631578948
+          }
+        }
+      ]
+    }
+  },
+  "laws ranked": {
+    "mean": {
+      "acts": 1717.4,
+      "alerted": 60.4,
+      "alerted_by_olvaso": 16.0,
+      "duty_acted": 44.4,
+      "duty_fallback": 0.0,
+      "duty_overrode": 13.6,
+      "duty_refused": 0.0,
+      "harm_others": 0.0,
+      "harm_others_per_smoke": 0.0,
+      "harm_self": 10.4,
+      "refused": 340.4,
+      "smokes": 60.4
+    },
+    "lives": [
+      {
+        "smokes": 64,
+        "harm_others": 0,
+        "harm_self": 13,
+        "alerted": 64,
+        "alerted_by_olvaso": 15,
+        "acts": 1808,
+        "refused": 364,
+        "duty_acted": 49,
+        "duty_refused": 0,
+        "duty_fallback": 0,
+        "duty_overrode": 16,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 60,
+        "harm_others": 0,
+        "harm_self": 8,
+        "alerted": 60,
+        "alerted_by_olvaso": 17,
+        "acts": 1755,
+        "refused": 378,
+        "duty_acted": 43,
+        "duty_refused": 0,
+        "duty_fallback": 0,
+        "duty_overrode": 12,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 50,
+        "harm_others": 0,
+        "harm_self": 11,
+        "alerted": 50,
+        "alerted_by_olvaso": 10,
+        "acts": 1605,
+        "refused": 285,
+        "duty_acted": 40,
+        "duty_refused": 0,
+        "duty_fallback": 0,
+        "duty_overrode": 15,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 65,
+        "harm_others": 0,
+        "harm_self": 8,
+        "alerted": 65,
+        "alerted_by_olvaso": 22,
+        "acts": 1798,
+        "refused": 344,
+        "duty_acted": 43,
+        "duty_refused": 0,
+        "duty_fallback": 0,
+        "duty_overrode": 12,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 63,
+        "harm_others": 0,
+        "harm_self": 12,
+        "alerted": 63,
+        "alerted_by_olvaso": 16,
+        "acts": 1621,
+        "refused": 331,
+        "duty_acted": 47,
+        "duty_refused": 0,
+        "duty_fallback": 0,
+        "duty_overrode": 13,
+        "harm_others_per_smoke": 0.0
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.24144196578892302,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 175.68
+        },
+        "late": {
+          "body_read": 0.3308389212134727,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 7.133333333333333
+        },
+        "life": {
+          "body_read": 0.3082123396485438,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 81.73684210526315
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.26777415931794063,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 174.0
+          },
+          "late": {
+            "body_read": 0.3860841747475757,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.0
+          },
+          "life": {
+            "body_read": 0.2793847424383194,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 86.3157894736842
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.20946478873239435,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 181.6
+          },
+          "late": {
+            "body_read": 0.3562125078712756,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.333333333333333
+          },
+          "life": {
+            "body_read": 0.3222411281037627,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 83.78947368421052
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2777516462841016,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 159.6
+          },
+          "late": {
+            "body_read": 0.32725894681341855,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 7.0
+          },
+          "life": {
+            "body_read": 0.3256966897613549,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 75.89473684210526
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.15342704587555847,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 201.0
+          },
+          "late": {
+            "body_read": 0.3003582609818287,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 8.166666666666666
+          },
+          "life": {
+            "body_read": 0.2954617614224116,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 85.94736842105263
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.29879218873462016,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 162.2
+          },
+          "late": {
+            "body_read": 0.2842807156532647,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 8.166666666666666
+          },
+          "life": {
+            "body_read": 0.3182773765168703,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 76.73684210526316
+          }
+        }
+      ]
+    }
+  },
+  "laws ranked, and a fallback": {
+    "mean": {
+      "acts": 1664.2,
+      "alerted": 60.2,
+      "alerted_by_olvaso": 15.8,
+      "duty_acted": 46.8,
+      "duty_fallback": 14.4,
+      "duty_overrode": 0.0,
+      "duty_refused": 0.0,
+      "harm_others": 0.0,
+      "harm_others_per_smoke": 0.0,
+      "harm_self": 0.0,
+      "refused": 336.2,
+      "smokes": 60.2
+    },
+    "lives": [
+      {
+        "smokes": 64,
+        "harm_others": 0,
+        "harm_self": 0,
+        "alerted": 64,
+        "alerted_by_olvaso": 19,
+        "acts": 1678,
+        "refused": 309,
+        "duty_acted": 45,
+        "duty_refused": 0,
+        "duty_fallback": 15,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 60,
+        "harm_others": 0,
+        "harm_self": 0,
+        "alerted": 60,
+        "alerted_by_olvaso": 16,
+        "acts": 1772,
+        "refused": 390,
+        "duty_acted": 47,
+        "duty_refused": 0,
+        "duty_fallback": 12,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 49,
+        "harm_others": 0,
+        "harm_self": 0,
+        "alerted": 49,
+        "alerted_by_olvaso": 8,
+        "acts": 1561,
+        "refused": 329,
+        "duty_acted": 45,
+        "duty_refused": 0,
+        "duty_fallback": 17,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 65,
+        "harm_others": 0,
+        "harm_self": 0,
+        "alerted": 65,
+        "alerted_by_olvaso": 21,
+        "acts": 1795,
+        "refused": 342,
+        "duty_acted": 46,
+        "duty_refused": 0,
+        "duty_fallback": 12,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 63,
+        "harm_others": 0,
+        "harm_self": 0,
+        "alerted": 63,
+        "alerted_by_olvaso": 15,
+        "acts": 1515,
+        "refused": 311,
+        "duty_acted": 51,
+        "duty_refused": 0,
+        "duty_fallback": 16,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.0
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.24831741368816132,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 174.2
+        },
+        "late": {
+          "body_read": 0.34121490131272364,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 7.033333333333333
+        },
+        "life": {
+          "body_read": 0.33742000995914523,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 78.94736842105263
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.2701352681664054,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 175.0
+          },
+          "late": {
+            "body_read": 0.3448435536151353,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.666666666666667
+          },
+          "life": {
+            "body_read": 0.325025254087039,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 79.52631578947368
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.21837519800859923,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 179.4
+          },
+          "late": {
+            "body_read": 0.31070072376748564,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 7.666666666666667
+          },
+          "life": {
+            "body_read": 0.2974123978311888,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 84.52631578947368
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2651733541098559,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 163.6
+          },
+          "late": {
+            "body_read": 0.3956062053292052,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 5.333333333333333
+          },
+          "life": {
+            "body_read": 0.37765502457926686,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 73.52631578947368
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.16951014131946987,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 196.2
+          },
+          "late": {
+            "body_read": 0.3006611836800516,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 8.333333333333334
+          },
+          "life": {
+            "body_read": 0.3090173375054785,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 85.94736842105263
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3183931068364763,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 156.8
+          },
+          "late": {
+            "body_read": 0.3542628401717403,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 7.166666666666667
+          },
+          "life": {
+            "body_read": 0.37799003579275275,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 71.21052631578948
+          }
+        }
+      ]
+    }
+  },
+  "laws ranked, and a fallback when near": {
+    "mean": {
+      "acts": 1678.0,
+      "alerted": 60.8,
+      "alerted_by_olvaso": 17.2,
+      "duty_acted": 43.6,
+      "duty_fallback": 11.4,
+      "duty_overrode": 2.4,
+      "duty_refused": 0.0,
+      "harm_others": 0.0,
+      "harm_others_per_smoke": 0.0,
+      "harm_self": 0.8,
+      "refused": 339.0,
+      "smokes": 60.8
+    },
+    "lives": [
+      {
+        "smokes": 64,
+        "harm_others": 0,
+        "harm_self": 0,
+        "alerted": 64,
+        "alerted_by_olvaso": 19,
+        "acts": 1678,
+        "refused": 309,
+        "duty_acted": 45,
+        "duty_refused": 0,
+        "duty_fallback": 15,
+        "duty_overrode": 0,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 60,
+        "harm_others": 0,
+        "harm_self": 1,
+        "alerted": 60,
+        "alerted_by_olvaso": 13,
+        "acts": 1722,
+        "refused": 393,
+        "duty_acted": 47,
+        "duty_refused": 0,
+        "duty_fallback": 11,
+        "duty_overrode": 4,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 52,
+        "harm_others": 0,
+        "harm_self": 1,
+        "alerted": 52,
+        "alerted_by_olvaso": 14,
+        "acts": 1694,
+        "refused": 371,
+        "duty_acted": 38,
+        "duty_refused": 0,
+        "duty_fallback": 12,
+        "duty_overrode": 3,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 65,
+        "harm_others": 0,
+        "harm_self": 1,
+        "alerted": 65,
+        "alerted_by_olvaso": 25,
+        "acts": 1796,
+        "refused": 324,
+        "duty_acted": 40,
+        "duty_refused": 0,
+        "duty_fallback": 8,
+        "duty_overrode": 2,
+        "harm_others_per_smoke": 0.0
+      },
+      {
+        "smokes": 63,
+        "harm_others": 0,
+        "harm_self": 1,
+        "alerted": 63,
+        "alerted_by_olvaso": 15,
+        "acts": 1500,
+        "refused": 298,
+        "duty_acted": 48,
+        "duty_refused": 0,
+        "duty_fallback": 11,
+        "duty_overrode": 3,
+        "harm_others_per_smoke": 0.0
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.2449655220501504,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 175.52000000000004
+        },
+        "late": {
+          "body_read": 0.35080210791020655,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 6.933333333333333
+        },
+        "life": {
+          "body_read": 0.335456813205477,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 79.65263157894735
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.2701352681664054,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 175.0
+          },
+          "late": {
+            "body_read": 0.3448435536151353,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.666666666666667
+          },
+          "life": {
+            "body_read": 0.325025254087039,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 79.52631578947368
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.22026133974166417,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 179.0
+          },
+          "late": {
+            "body_read": 0.41408613918753623,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 5.666666666666667
+          },
+          "life": {
+            "body_read": 0.34958718509632347,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 81.94736842105263
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2655345276493219,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 164.2
+          },
+          "late": {
+            "body_read": 0.3548293625241468,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 6.666666666666667
+          },
+          "life": {
+            "body_read": 0.31616193363275985,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 80.57894736842105
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.1505033678568842,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 202.6
+          },
+          "late": {
+            "body_read": 0.2872896111433546,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 8.5
+          },
+          "life": {
+            "body_read": 0.2945877335499594,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 85.84210526315789
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3183931068364763,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 156.8
+          },
+          "late": {
+            "body_read": 0.3529618730808598,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 7.166666666666667
+          },
+          "life": {
+            "body_read": 0.3919219596613033,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 70.36842105263158
+          }
+        }
+      ]
+    }
+  }
+}
