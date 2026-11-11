@@ -23,6 +23,8 @@ and every 1000 moments (about 4 minutes) it naps: words that were never used muc
 
 It lives while the app is open (the screen stays on). Closing the app, or **Sleep**, is sleep: its whole life is
 saved in the app's own folder and goes on next time. **New life** sets the present one aside (kept, not deleted).
+Before it begins, a checkbox, **It feels its own intentions** (experiment 29), gives the new life a felt trace
+of each intention it forms, whether the act is done or a guard refuses it. It is kept with that life.
 Everything stays on the phone: no network permission, and it writes only to its own sandbox.
 
 **The mirror.** Hold the phone facing a mirror. The front camera then sees its window and the microphone hears its

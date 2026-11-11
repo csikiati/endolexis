@@ -428,10 +428,18 @@ learned expectation per kind over its inner states.
 | `judge_after` | Moments after acting at which reading improvement is judged |
 | `answer_by` | `"all"`: change of all senses together; `"sense"`: the largest change of any one sense (so an answer seen by the eyes alone counts) |
 | `kinds` | The hands it is wired to, as indices into `KINDS`; `None` (default): all of them. `[]` makes a pure reader: pressure builds and is let go, nothing is asked |
+| `context` | `"felt"` (default): it chooses a kind from what it feels; `"felt+senses"`: from what it feels and senses now (experiment 21) |
+| `feel_intention` | `True`: each hand gets a felt inner state, 1 when an intention of that kind is formed, fading after; whether the act is done or refused, nothing else tells it (experiment 29) |
+| `intention_fade` | How much of the felt intention is left a moment later (default 0.8) |
 
 `live(inputs, felt)` → `(request, readings)`; `request` is `(kind, detail)` or `None`; pass it as
 `act=` to the next `Room.step`. Attributes: `W` (expectations, kinds × inner states + 1; the last
 column is the bias, "how much it expects an answer from this kind"), `requests`, `signals`.
+
+`hands.mind_report(mind, first_day, last_day)` → the observer's view of those days: `body_read` (the share of its
+body's changing inner states it read), `intention_share_of_unread`, `intentions_per_day`, and with `feel_intention`
+`intention_read_when_done` / `intention_read_when_refused` (the share of the 8 moments after an intention in which its
+felt trace was read) with the counts `intentions_done` / `intentions_refused`.
 
 ### 4.8 A full E.L.E.M.E.R. life
 

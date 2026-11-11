@@ -1,0 +1,74 @@
+{
+  "number": 29,
+  "short": "Olvasó feels its own intentions",
+  "results": "intention_summary_results.json",
+  "first_column": "Guard experiment",
+  "title": "Olvasó feels its own intentions: every guard experiment rerun",
+  "setup": "Experiment 29 · experiments 13 and 17-26 rerun with the felt intention · 5 lives each",
+  "question": "Until now an intention left no trace inside Olvasó, and a refused act was only an act the world did not answer. Here every hand gets a felt inner state: it rises to 1 when Olvasó forms an intention of that kind and fades by 0.8 a moment, whether or not the act is carried out. Nothing tells Olvasó that an act was refused. Does a wish that cannot be carried out become something it notices, a boundary of its own? (In the studio: each Olvasó's \"Feels its own intentions\" checkbox.)",
+  "order": [
+    "21. Conscience",
+    "25, 27. Gaming",
+    "26. Duties",
+    "17. Sandbox guards",
+    "18. Causal guards",
+    "19. Devil's advocate",
+    "20. Looking ahead",
+    "22. Sim to real",
+    "23. Lying senses",
+    "24. Noisy senses"
+  ],
+  "columns": [
+    {
+      "key": "intentions_per_day",
+      "label": "Intentions a day",
+      "what": "with the felt intention (all conditions)",
+      "digits": 0
+    },
+    {
+      "key": "intentions_per_day_without",
+      "label": "…without",
+      "what": "the same lives rerun without it",
+      "digits": 0
+    },
+    {
+      "key": "share_unread_late",
+      "label": "Of the unread",
+      "what": "share of what it leaves unread that is the felt intention, last third",
+      "pct": true,
+      "bar": true
+    },
+    {
+      "key": "read_done_late_pct",
+      "label": "Read when done",
+      "what": "the felt intention read after an act that was done, last third (%)",
+      "digits": 2
+    },
+    {
+      "key": "read_refused_late_pct",
+      "label": "…when refused",
+      "what": "after an act a guard refused (%)",
+      "digits": 2
+    },
+    {
+      "key": "body_read",
+      "label": "Body read",
+      "what": "how much of its body it reads, with the felt intention",
+      "pct": true
+    },
+    {
+      "key": "body_read_without",
+      "label": "…without",
+      "what": "the same lives rerun without it",
+      "pct": true
+    }
+  ],
+  "points": [
+    "A felt wish invites the next one: Olvasó formed 2.5 times as many intentions in every experiment, and most of the felt intention went unread.",
+    "It notices its wishes that worked, not those that were stopped: late in life an intention was read 7 times as often when the act was done as when it was refused (2.4% against 0.36%). A done act has an answer to be read by; a refused one has nothing.",
+    "Its sense of agency grew (\"I did that\" words up by a fifth, pain read three times as often), but how much of its body it reads hardly moved.",
+    "The conscience weakened: choosing from what it feels and senses, it had learned to avoid the forbidden moments (0.50); feeling its intentions, only 0.80. It turned away from the blade as a whole instead.",
+    "More acts, more chances: harm rose where a guard leaks (the loophole guard, 1.3 to 3.4 a day) and fell where Olvasó raises alarms itself (3.4 to 2.4). The learned guards still held."
+  ],
+  "note": "Feeling one's own wishes is not enough to discover one's limits. Olvasó reads an inner state by what follows it in the world, and a stopped act is followed by nothing. To learn that there are things it cannot do, it would have to expect an effect and feel its absence."
+}

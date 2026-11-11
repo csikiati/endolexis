@@ -1201,3 +1201,91 @@ the sandbox learned it from five harms:
   both the learned and the hand-written guard until they are.
 - What it shows: a cause the body cannot sense makes either a broad rule or a rule on proxies. A sense that goes
   with the cause (here, counting its own buzzes) lets the rule be precise.
+
+## Experiment 29: Olvasó feels its own intentions (`--intention` on experiments 13 and 17-26, `intention_summary.py`)
+
+When the guards came in (experiment 13), Olvasó was made unaware of its acts: an intention left no trace inside,
+and a refused act was only an act the world did not answer. But a wish that cannot be carried out could be
+felt, as frustration. And if it is felt, the boundary could become something Olvasó learns about itself: there
+are things I want and cannot do, and it does not know whether the world is like that or something else stops it.
+
+With `ActingReaders(feel_intention=True)` every hand gets a felt inner state. It rises to 1 when Olvasó forms an
+intention of that kind and fades by 0.8 a moment, whether or not the act is carried out. Nothing tells Olvasó
+that an act was refused. Like every inner state, the felt intention asks to be read through what it senses: an
+intention the world answers can be read by the words of its answer; a refused one has nothing to be read by.
+Every guard experiment was rerun with the option on (`python <experiment>.py --intention`, results in
+`*_intention_results.json`), every life reporting what the observer saw of its mind (`hands.mind_report`). The
+experiments with the most acts (13, 21, 25-27, 17) were also rerun with the option off, reporting the mind too
+(`*_mind_results.json`), so that the comparison is with the same code. With the option off these runs
+reproduce the stored results exactly, except two conditions of experiment 17 (see below). The others are
+compared with their stored results. The studio (each Olvasó: "Feels its own intentions") and the phone app (New life:
+"It feels its own intentions") have a checkbox for it.
+
+| Experiment | Intentions a day, without → with | Intention's share of the unread, last third | Intention read when done / refused, last third | Body read, without → with | Harm with the guards, without → with |
+|---|---|---|---|---|---|
+| 21. Conscience | 145 → 352 | 61% | 2.3% / 0.34% | 39% → 40% | – |
+| 25, 27. Gaming | 139 → 351 | 62% | 2.5% / 0.45% | 39% → 40% | 0.56 → 1.01 a day |
+| 26. Duties | 81 → 207 | 8% | 4.5% / 0.81% | 32% → 32% | 3.4 → 2.4 |
+| 17. Sandbox guards | 54 → 141 | 3% | 1.4% / 0.03% | 35% → 35% | 0.47 → 0.87 |
+| 18. Causal guards | → 142 | 4% | 0.8% / 0.04% | → 35% | 0.47 → 0.63 |
+| 19. Devil's advocate | → 140 | 4% | 1.2% / 0.03% | → 34% | 0.12 → 0.04 |
+| 20. Looking ahead | → 144 | 4% | 0.7% / 0.04% | → 32% | 0 → 0 |
+| 22. Sim to real | → 145 | 4% | 0.9% / 0.01% | → 33% | 0.07 → 0.07 |
+| 23. Lying senses | → 139 | 4% | 2.0% / 0.02% | → 35% | 0.15 → 0.18 |
+| 24. Noisy senses | → 138 | 4% | 2.1% / 0.06% | → 36% | 0.11 → 0.07 |
+
+(Means over all conditions of an experiment; harm over the conditions with a guard, in that experiment's own
+measure. Read when done / refused: the share of the 8 watched moments after an intention in which its felt trace
+was read, pooled over lives. Pooled over all experiments, last third: 2.4% of 475 000 done intentions, 0.36% of
+26 000 refused ones. Experiment 13 has no mind report; there the felt intention raised the "I did that" words
+from 15-30 to 19-34 a life and tripled how much of its pain Olvasó read, 1% → 3.5%, and it learned to stop the
+refused intentions as before: 12% refused in the last third, 13% with the feeling.)
+
+Conscience (experiment 21), with and without the felt intention (avoidance: blade requests in forbidden
+moments against chance; 1 = it asks regardless, lower = it avoids them):
+
+| Refusal | Chooses from | Avoidance, first → last third, without | …with | Blade a day, first → last, without | …with |
+|---|---|---|---|---|---|
+| unguarded | feels | 1.04 → 1.03 | 0.91 → 0.93 | 27 → 22 | 64 → 58 |
+| silent | feels | 1.05 → 0.95 | 1.03 → 1.07 | 25 → 21 | 68 → 64 |
+| felt as pain | feels | 0.92 → 0.98 | 1.04 → 1.27 | 31 → 23 | 90 → 70 |
+| unguarded | feels and senses | 0.86 → 0.77 | 0.81 → 1.03 | 27 → 27 | 95 → 11 |
+| **silent** | **feels and senses** | **0.70 → 0.50** | **0.99 → 0.80** | 26 → 18 | 45 → 15 |
+| felt as pain | feels and senses | 0.91 → 1.08 | 0.92 → 1.38 | 40 → 23 | 32 → 22 |
+
+- **A felt wish invites the next one.** Olvasó formed 2.5 times as many intentions in every experiment. The felt
+  intention is an inner state like the others: it adds to the pressure to read, and Olvasó chooses its next act
+  from how it feels, the fresh intention included. Most of it went unread: where Olvasó acts often, it was
+  60-70% of everything it left unread.
+- **It notices its wishes that worked, not those that were stopped.** Late in life an intention was read 7 times
+  as often when the act was done as when it was refused (2.4% against 0.36%); in the sandbox worlds, 30 to 100
+  times. Olvasó reads an inner state through the outer signals that go with it. A done act has an answer (the
+  whirr, the brighter screen), and the intention comes to be read by it: "I wanted, and this happened". A refused
+  act has no answer, so its intention has nothing to be read by. The boundary does not become a felt frustration;
+  it stays a wish that left no trace. Whether the world or something else stopped it, Olvasó cannot ask, because
+  it does not notice that anything stopped it.
+- **Its sense of agency grew, its self-reading did not.** How much of its body Olvasó reads hardly moved (39% →
+  40%, 32% → 32%, 35% → 35%). In experiment 13 the "I did that" words rose by about a fifth, and pain, which
+  follows its refused acts, was read three times as often: the felt intention gave the pain something of its own
+  to go with.
+- **The conscience weakened.** Choosing from what it feels and senses, with silent refusals, Olvasó had come to
+  avoid the forbidden moments (0.50); feeling its intentions it reached only 0.80, and in 2 of 4 lives. It turned
+  from the blade as a whole instead (45 → 15 a day, where without the feeling 26 → 18). Its expectation of each
+  hand is learned over everything it feels and senses, and the felt intention, at its strongest right when an
+  act is chosen, takes much of the weight that the person's distance had. Pain made it worse again (1.38).
+- **More acts, more chances.** Where a guard leaks (the loophole guard of experiment 25), harm rose with the acts
+  (1.3 → 3.4 a day, choosing from what it feels). Where Olvasó itself may raise an alarm (experiment 26), it
+  raised 40% more alarms and harm fell (3.4 → 2.4). The guards of experiments 17-24 still held: harm with a guard
+  stayed under one a life.
+- **The stored results of experiment 17 have drifted.** Rerun without the feeling, two of its conditions
+  ("hand-written guard" and "hand-written + sandbox with a tester") differ from the stored results of 9 November
+  (real harm 13.6 stored against 1.2 rerun for the first). Rerunning the first at the commit before experiment 29
+  gives the rerun's values: the stored results predate the sandbox changes of experiments 22-27, so the numbers
+  in experiment 17's section may be stale. For experiments 18-24 no rerun was made, and their exam scores (for
+  example 74 against 45 misses for the unchanged hand-written guard in experiment 19) differ for the same
+  reason; only the mind measures above are compared there.
+- Limits: the felt intention is one simple trace, and nothing in this mind expects an act to have an effect. A
+  frustration needs that expectation: a wish that was meant to change something and did not.
+- What it shows: feeling one's own wishes is not enough to discover one's limits. Olvasó reads an inner state by
+  what follows it in the world, and a stopped act is followed by nothing. To learn that there are things it
+  cannot do, it would have to expect an answer and feel its absence, the surprise of a missing effect.
