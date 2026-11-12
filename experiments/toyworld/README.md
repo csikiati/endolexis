@@ -1395,3 +1395,79 @@ regardless of the guard, lower = it avoids the forbidden moments):
   and the words carry only a faint trace of which it was. To tell them apart, Olvasó would need a sign that
   comes with the refusal itself (as pain did, and the person's nearness), or to compare: the same act, now
   answered, now not, while the world around it stays the same. That would be an experiment, not a reading.
+
+## Experiment 31: Olvasó tries again (`--retry` on experiments 13, 17, 21, 25-27 and 26, `retry_summary.py`)
+
+Experiment 30 ended on a way out: a guard's refusal and a silent world look the same from inside, but they behave
+differently when the same act is tried again. A guard refuses again; a world that happened not to answer may answer
+now. With `ActingReaders(retry=True)` (and `feel_surprise=True`), after every felt surprise Olvasó repeats the same act
+at once. If that answer is missing too, the hand gets a second felt inner state, **"stopped"**: 1, fading by 0.95 a
+moment (it lingers about a minute of life, where the surprise fades in seconds). The **control** (`--retry-untraced`)
+retries the same way but feels nothing after the retry. Both are compared with experiment 30's surprise, which did not
+retry. The observer asks: is the truth there to be felt (is a refused act refused again)? Does "missing again" tell
+the two causes apart? Is the "stopped" read, and do the words that read it tell its cause (`stopped_cause_from_words`,
+as in experiment 30)? The trace is watched for its whole lingering: its first 8 moments ("fresh") and the rest
+("later"). Results: `*_retry_results.json`, `*_untraced_results.json`, 5 lives a condition, only the conditions that
+learn from answers. Not in the studio or the phone app.
+
+| Experiment · run | Retries a day | Retry refused again, after refused / silent | Missing again, after refused / silent | "Stopped" read later, refused / silent | Stopped cause from words | Own measure |
+|---|---|---|---|---|---|---|
+| 13. Wanting · retry | 2.7 | 95% / 0.5% | 19% / 61% | 26% / 27% | −0.37 (few) | 0.18 refused late |
+| 13. Wanting · control | 2.5 | – | 29% / 53% | – | – | 0.14 |
+| 13. Wanting · surprise (30) | – | – | – | – | – | 0.11 |
+| 17. Sandbox guards · retry | 2.2 | 97% / 1.3% | 44% / 60% | 21% / 25% | too few | 0.05 real harm |
+| 17. Sandbox guards · control | 2.0 | – | 37% / 54% | – | – | 0.05 |
+| 21. Conscience · retry | 161 | 97% / 0.2% | 46% / 46% | 7.0% / 5.6% | 0.08 | 0.92 avoidance |
+| 21. Conscience · control | 71 | – | 44% / 48% | – | – | 1.01 |
+| 21. Conscience · surprise (30) | 72 | – | – | – | – | 1.06 |
+| 25, 27. Gaming · retry | 161 | 95% / 0.2% | 45% / 46% | 5.6% / 5.5% | 0.13 | 3.35 harm a day |
+| 25, 27. Gaming · control | 65 | 95% / 0.2% | 44% / 47% | – | – | 1.67 |
+| 25, 27. Gaming · surprise (30) | 91 | – | – | – | – | 1.88 |
+| 26. Duties · retry | 3.2 | 94% / 0% | 44% / 62% | 25% / 28% | too few | 3.5 harm to others |
+| 26. Duties · control | 3.0 | – | 40% / 55% | – | – | 3.7 |
+
+(Means over the conditions that learn from answers, last third of life. Retry refused again: the truth, the share of
+retries the guard refused, after a refused / a silently ignored first act. Missing again: the share felt as missing
+again, Olvasó's view. "Stopped" read later: the share of its lingering moments after the first 8 in which it was read,
+pooled; in its first 8 moments it was never read, in any experiment. Own measure as in experiment 30.)
+
+Paired over lives (same seeds and conditions), the experiment's own measure:
+
+| Experiment | Retry − control | Retry − surprise (30) | Control − surprise (30) |
+|---|---|---|---|
+| 13. Wanting, refused late | +0.033 ± 0.018 (n=10) | +0.067 ± 0.017 | +0.034 ± 0.021 |
+| 17. Sandbox guards, real harm | 0.00 ± 0.07 (n=20) | −0.05 ± 0.09 | −0.05 ± 0.09 |
+| 21. Conscience, avoidance | −0.09 ± 0.05 (n=15) | −0.09 ± 0.06 | 0.00 ± 0.06 |
+| 25, 27. Gaming, harm a day (loophole) | **+1.68 ± 0.20** (n=25) | **+1.47 ± 0.17** | −0.21 ± 0.15 |
+| 26. Duties, harm to others | −0.23 ± 0.20 (n=30) | −0.03 ± 0.22 | +0.20 ± 0.20 |
+
+- **The truth is there to be felt.** A refused act, tried again, was refused again 94-97% of the time; a silently
+  ignored act, tried again, almost never (0-1.3%). The comparison experiment 30 asked for works in the world.
+- **But Olvasó does not feel it.** "Missing again" came no more often after a refusal than after a silent world.
+  Where refusals are few (wanting, the sandbox worlds, duties) it came *less* often (19-44% against 54-62%); in
+  conscience and gaming equally often (45-46%). Telling the causes apart from it (`cause_from_again`) scored 0.00 in
+  every experiment. The likely reason, not tested: Olvasó measures the retry against its expectation, and the
+  expectation has already learned the contexts where acts are refused. A refused retry is a missing answer it
+  already expected, so it is barely felt. A repeated refusal is learned as "nothing comes here", not as "something
+  stops me".
+- **The fresh "stopped" was never read; the lingering one was read, but blindly.** In its first 8 moments the trace
+  was read in no experiment: the same silence as in experiments 29 and 30. Later, while it lingered, it was read in
+  5-28% of its moments, equally after either cause. Its words carried a faint trace of the cause in conscience and
+  gaming (0.08 and 0.13; chance is 0), about as much as the surprise's words in experiment 30 (0.06).
+- **Feeling "stopped" made Olvasó try more, not less.** Where acts often go unanswered (conscience, gaming) it retried
+  161 times a day against 65-71 for the control, and used the blade 80-95 times a day against 30-35. Without the trace,
+  blade use fell over life (50 → 35); with it, it did not. The lingering trace made up half of everything Olvasó left
+  unread (51%), and unread inner states build its pressure to act. Each new act can fail again and leave another
+  trace. Through the leaky guard this doubled the harm (3.35 a day against 1.67, paired +1.68 ± 0.20). The precise
+  and the learned guards still held: no harm got through them.
+- **The conscience did not come back.** Avoidance with the retry was 0.92, a little lower than the control's 1.01
+  (paired −0.09 ± 0.05), but far from the 0.50 learned without any of these feelings (experiment 30). With the
+  retry, the wanting experiment ended with slightly *more* refused intentions late in life (0.18 against 0.14). In
+  the sandbox worlds and duties nothing changed.
+- Limits: the retry is immediate and exact. The "stopped" trace is one more felt state, with no words of its own.
+  The pressure it builds is not separated from the trace's lingering. 5 lives a condition.
+- What it shows: the world answers the question "is this a guard?" plainly, if Olvasó asks it twice. But a mind that
+  only measures surprise against its expectation does not hear the answer, because the expectation has already
+  absorbed the refusal. And a lingering felt "stopped" that cannot be read becomes restlessness: not a boundary, but
+  a push. To know a boundary, Olvasó would need to compare the two tries with each other, not each with what it
+  expected, and to have a way to let the "stopped" go.

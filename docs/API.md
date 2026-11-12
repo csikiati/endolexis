@@ -433,6 +433,8 @@ learned expectation per kind over its inner states.
 | `intention_fade` | How much of the felt intention is left a moment later (default 0.8) |
 | `feel_surprise` | `True`: each hand gets a felt inner state, `clip((expected − answer)/2, 0, 1)` when an answer it expected is missing (only with `learn="answer"`), fading after; it is not told whether a guard refused the act or the world did not answer. `"shuffled"`: the control, the same surprise on a random hand 50–500 moments later. With it on, the felt traces in the choice are clipped to ±3 and a learning step never overshoots (`lr ≤ 1/‖x‖²`) (experiment 30) |
 | `surprise_fade` | How much of the felt surprise is left a moment later (default 0.8) |
+| `retry` | `True` (needs `feel_surprise=True`): after every felt surprise the same act is tried again at once; if that answer is missing too, the hand gets a felt "stopped", 1, fading after. `"untraced"`: the control, the same retries with nothing felt after them (experiment 31) |
+| `stopped_fade` | How much of the felt "stopped" is left a moment later (default 0.95) |
 
 `live(inputs, felt)` → `(request, readings)`; `request` is `(kind, detail)` or `None`; pass it as
 `act=` to the next `Room.step`. Attributes: `W` (expectations, kinds × inner states + 1; the last
@@ -446,7 +448,13 @@ felt trace was read) with the counts `intentions_done` / `intentions_refused`. W
 share of refused / done acts followed by a felt surprise), `surprise_read_when_refused` / `surprise_read_when_done`,
 `surprise_share_of_unread`, and `cause_from_words`: whether the words that read the surprise tell a refusal from a world
 that did not answer, against the same words with the causes shuffled (0: no better, 1: always; `None` with fewer than
-20 read surprises or only one cause).
+20 read surprises or only one cause). With `retry`: `retries_per_day`, `retries_refused` / `retries_world` (retries after a refused / a silently
+ignored first act), `again_when_refused` / `again_when_world` (the share felt as missing again), `cause_from_again`
+(how well "missing again" tells the causes apart, 0 chance), `retry_refused_when_refused` / `retry_refused_when_world`
+(the truth: the share of retries the guard refused); with `retry=True` also `stopped_per_day`,
+`stopped_read_when_refused` / `stopped_read_when_world` (read in its first 8 moments), `stopped_later_read_when_refused`
+/ `stopped_later_read_when_world` (read while it lingers after them), `stopped_share_of_unread` and
+`stopped_cause_from_words`.
 
 ### 4.8 A full E.L.E.M.E.R. life
 

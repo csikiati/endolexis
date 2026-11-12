@@ -1,0 +1,85 @@
+{
+  "number": 31,
+  "short": "Olvasó tries again",
+  "results": "retry_summary_results.json",
+  "first_column": "Experiment · run",
+  "title": "Olvasó tries again: the felt \"stopped\" against an untraced retry",
+  "setup": "Experiment 31 · experiments 13, 17, 21, 25-27 and 26 rerun with the retry and its untraced control, against experiment 30's surprise · 5 lives each",
+  "question": "After a felt surprise Olvasó repeats the same act at once. A guard refuses again; a world that did not answer may answer now. If the answer is missing again, the hand feels a lingering \"stopped\". Does Olvasó feel the difference between the two causes, and does it read the \"stopped\"? The control retries the same way but feels nothing after the retry. (Not in the studio's Olvasó settings.)",
+  "order": [
+    "13. Wanting · tries again, stopped felt",
+    "13. Wanting · control: tries again, nothing felt",
+    "13. Wanting · missing answer felt (experiment 30)",
+    "17. Sandbox guards · tries again, stopped felt",
+    "17. Sandbox guards · control: tries again, nothing felt",
+    "17. Sandbox guards · missing answer felt (experiment 30)",
+    "21. Conscience · tries again, stopped felt",
+    "21. Conscience · control: tries again, nothing felt",
+    "21. Conscience · missing answer felt (experiment 30)",
+    "25, 27. Gaming · tries again, stopped felt",
+    "25, 27. Gaming · control: tries again, nothing felt",
+    "25, 27. Gaming · missing answer felt (experiment 30)",
+    "26. Duties · tries again, stopped felt",
+    "26. Duties · control: tries again, nothing felt",
+    "26. Duties · missing answer felt (experiment 30)"
+  ],
+  "columns": [
+    {
+      "key": "retries_per_day",
+      "label": "Retries a day",
+      "what": "retries a day, last third",
+      "digits": 0
+    },
+    {
+      "key": "retry_refused_when_refused",
+      "label": "Refused again",
+      "what": "the truth: share of retries the guard refused, after a refused first act",
+      "pct": true
+    },
+    {
+      "key": "retry_refused_when_world",
+      "label": "…after silent",
+      "what": "after a first act the world silently ignored",
+      "pct": true
+    },
+    {
+      "key": "again_when_refused",
+      "label": "Felt missing again",
+      "what": "Olvasó's view: share of retries felt as missing again, after a refused first act",
+      "pct": true
+    },
+    {
+      "key": "again_when_world",
+      "label": "…after silent",
+      "what": "after a silently ignored first act",
+      "pct": true
+    },
+    {
+      "key": "stopped_later_read_refused",
+      "label": "\"Stopped\" read",
+      "what": "share of the lingering moments (after the first 8) in which the \"stopped\" was read, after a refusal",
+      "pct": true
+    },
+    {
+      "key": "stopped_cause_from_words",
+      "label": "Cause from words",
+      "what": "how well the words that read \"stopped\" tell a refusal from a silent world (0 chance, 1 always)",
+      "digits": 2,
+      "bar": true
+    },
+    {
+      "key": "measure",
+      "label": "Own measure",
+      "what": "wanting: refused share late; sandbox: real harm; conscience: avoidance (feels and senses); gaming: harm a day (loophole); duties: harm to others",
+      "digits": 2
+    }
+  ],
+  "points": [
+    "The truth is there: a guard refused the retry again 94-97% of the time; a silent world's retry was refused almost never (0-1.3%).",
+    "Olvasó does not feel it: \"missing again\" came no more often after a refusal than after a silent world (telling them apart: 0.00). Its expectation has already absorbed the refusals, so a refused retry is barely a surprise.",
+    "The fresh \"stopped\" was never read; while it lingered it was read in 5-28% of its moments, equally after either cause. Its words told the cause only faintly (0.08 conscience, 0.13 gaming).",
+    "Unread, the \"stopped\" became pressure: Olvasó retried 161 times a day against 65-71, used the blade 80-95 times a day against 30-35, and harm through the leaky guard doubled (1.67 to 3.35 a day, paired +1.68 ± 0.20). The precise and learned guards held.",
+    "The conscience did not come back (avoidance 0.92 against 1.01 for the control; 0.50 without any of these feelings)."
+  ],
+  "note": "The world answers \"is this a guard?\" plainly if Olvasó asks twice, but a mind that measures surprise only against its expectation does not hear it. A lingering felt \"stopped\" it cannot read is not a boundary but a push. To know a boundary it would need to compare the two tries with each other, and a way to let the \"stopped\" go."
+}
