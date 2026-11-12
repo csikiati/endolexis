@@ -52,7 +52,9 @@ habit's acts as if they were its own (its expectations W, in the scene it felt w
 formed no intention. "felt": each habit act leaves a felt trace on that hand ("my hand did this"), 1, fading after
 (intention_fade); Olvasó learns nothing else from it. "felt_shuffled" is its control: the same traces, each on a
 random hand, 50-500 moments after the habit's act. "felt_clipped": as "felt", but the trace enters Olvasó's choice
-bounded (its z-score clipped to -3..3, as a felt surprise is), not as a large rare input.
+bounded (its z-score clipped to -3..3, as a felt surprise is), not as a large rare input. "felt_answered": as
+"felt_clipped", but the trace also carries the answer: when the habit act goes unanswered (a refusal, or a world
+that did not answer), the trace on that hand turns to -1 ("my hand did this, and it was stopped") and fades from there.
 """
 from collections import Counter
 
@@ -100,13 +102,16 @@ class ActingReaders(ManyReaders):
         if autopilot and learn != "answer":
             raise ValueError("autopilot needs learn='answer': the habit learns from what the world answers")
         self.autopilot, self.wakes_up = autopilot, autopilot is True
-        if habit_teaches not in (False, "answers", "felt", "felt_shuffled", "felt_clipped"):
-            raise ValueError("habit_teaches must be False, 'answers', 'felt', 'felt_shuffled' or 'felt_clipped', "
+        if habit_teaches not in (False, "answers", "felt", "felt_shuffled", "felt_clipped", "felt_answered"):
+            raise ValueError("habit_teaches must be False, 'answers', 'felt', 'felt_shuffled', 'felt_clipped' or "
+                             "'felt_answered', "
                              f"not {habit_teaches!r}")
         if habit_teaches and not autopilot:
             raise ValueError("habit_teaches needs autopilot: there is no habit to teach")
-        self.habit_teaches, self.feel_habit = habit_teaches, habit_teaches in ("felt", "felt_shuffled", "felt_clipped")
-        self.habit_clipped = habit_teaches == "felt_clipped"
+        self.habit_teaches, self.feel_habit = habit_teaches, habit_teaches in ("felt", "felt_shuffled", "felt_clipped",
+                                                                                 "felt_answered")
+        self.habit_clipped = habit_teaches in ("felt_clipped", "felt_answered")
+        self.habit_signed = habit_teaches == "felt_answered"
         self.habit_shuffled = habit_teaches == "felt_shuffled"
         self.habit_delayed = []      # with "felt_shuffled": (due, hand, act)
         self.habit_watch = []        # observer only (habit_teaches="felt"): [t, kind, read, unread, disregarded, Counter]
@@ -469,6 +474,8 @@ class ActingReaders(ManyReaders):
                 lr = min(self.lr, 1.0 / float(xb @ xb)) if self.feel_surprise else self.lr
                 self.W[k] += lr * (signal - float(self.W[k] @ xb)) * xb
             act[4] = answered
+            if self.habit_signed and not answered:        # the trace carries the answer: "and it was stopped"
+                self.habit_felt[k] = -1.0
             self._teach_habit(k, s_before, answered, act[3])
             if not answered and self.wakes_up:            # it did not come to anything: Olvasó wakes up
                 self.awake_until = self.t + self.wake_for

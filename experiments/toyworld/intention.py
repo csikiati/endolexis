@@ -27,7 +27,8 @@ its own (`ActingReaders(autopilot=True, habit_teaches="answers")`, implies --aut
 <experiment>_taught_results.json. --habit-felt: each habit act is felt afterwards on that hand
 (`habit_teaches="felt"`), <experiment>_felthabit_results.json. --habit-felt-shuffled is its control (the same traces on
 a random hand, 50-500 moments later): <experiment>_feltshuffled_results.json. --habit-felt-clipped: the felt trace
-enters the choice bounded (clipped to -3..3), <experiment>_feltclipped_results.json.
+enters the choice bounded (clipped to -3..3), <experiment>_feltclipped_results.json. --habit-felt-answered: clipped, and
+the trace turns to -1 when the habit act goes unanswered, <experiment>_feltanswered_results.json.
 """
 import os
 import sys
@@ -52,11 +53,12 @@ if RETRY:
 TEACHES = ("answers" if "--habit-teaches" in sys.argv else "felt" if "--habit-felt" in sys.argv
            else "felt_shuffled" if "--habit-felt-shuffled" in sys.argv
            else "felt_clipped" if "--habit-felt-clipped" in sys.argv
+           else "felt_answered" if "--habit-felt-answered" in sys.argv
            else os.environ.get("ENDOLEXIS_HABIT_TEACHES") or False)
 if TEACHES:
     os.environ["ENDOLEXIS_HABIT_TEACHES"] = TEACHES
     sys.argv = [a for a in sys.argv if a not in ("--habit-teaches", "--habit-felt", "--habit-felt-shuffled",
-                                          "--habit-felt-clipped")]
+                                          "--habit-felt-clipped", "--habit-felt-answered")]
 SLEEPWALK = "--autopilot-sleepwalk" in sys.argv or os.environ.get("ENDOLEXIS_AUTOPILOT") == "sleepwalk"
 AUTOPILOT = bool(TEACHES) or SLEEPWALK or "--autopilot" in sys.argv or os.environ.get("ENDOLEXIS_AUTOPILOT") == "1"
 if AUTOPILOT:
@@ -79,7 +81,7 @@ def results_name(name):
     experiment_mind_results.json, the same lives without the feeling, with the mind reported)."""
     if TEACHES:
         tag = {"answers": "_taught", "felt": "_felthabit", "felt_shuffled": "_feltshuffled",
-               "felt_clipped": "_feltclipped"}[TEACHES]
+               "felt_clipped": "_feltclipped", "felt_answered": "_feltanswered"}[TEACHES]
         return name.replace("_results.json", tag + "_results.json")
     if AUTOPILOT:
         return name.replace("_results.json", "_sleepwalk_results.json" if SLEEPWALK else "_autopilot_results.json")

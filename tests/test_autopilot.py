@@ -104,6 +104,23 @@ def test_the_clipped_felt_habit_is_bounded_in_the_choice():
     assert seen["felt_clipped"] <= 3.0 < seen["felt"]
 
 
+def test_the_answered_felt_habit_turns_negative_when_stopped():
+    m = mind(True, habit_teaches="felt_answered")
+    low = []
+
+    class Watch(list):
+        def append(self, item):
+            low.append(float(np.min(m.habit_felt)))
+            list.append(self, item)
+    m.pending = Watch(m.pending)
+    live(m, n=4000, refuse=lambda req: m.rng.random() < 0.3)
+    unanswered = [a for a in m.habit_acts if a[4] is False]
+    assert unanswered and min(low) < 0                    # "my hand did this, and it was stopped"
+    plain = mind(True, habit_teaches="felt_clipped")
+    live(plain, n=4000, refuse=lambda req: plain.rng.random() < 0.3)
+    assert np.min(plain.habit_felt) >= 0
+
+
 def test_teaching_needs_a_habit():
     with pytest.raises(ValueError):
         mind(False, habit_teaches="answers")
