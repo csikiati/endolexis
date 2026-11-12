@@ -284,42 +284,42 @@
       "surprises_per_day": 160.8194871794872,
       "cause_from_words": 0.06583865328053318,
       "read_refused": 0.06281981165632934,
-      "read_done": 0.09508764327340505,
+      "read_done": 0.09508764327340503,
       "retries_per_day": 160.69641025641025,
       "retries_refused": 7779,
       "retries_world": 148900,
       "again_when_refused": 0.4539143848823756,
       "again_when_world": 0.46214909335124243,
-      "cause_from_again": -1.4691655830962082e-18,
-      "retry_refused_when_refused": 0.9529237914291746,
-      "retry_refused_when_world": 0.0021514629948364886,
-      "stopped_per_day": 74.19999999999999,
+      "cause_from_again": -1.4691655830961727e-18,
+      "retry_refused_when_refused": 0.9544928654068646,
+      "retry_refused_when_world": 0.0018670248488918738,
+      "stopped_per_day": 74.20000000000002,
       "stopped_read_refused": 0.0,
       "stopped_read_world": 0.0,
-      "stopped_later_read_refused": 0.04852515571008139,
-      "stopped_later_read_world": 0.05063836450713132,
-      "stopped_share_of_unread": 0.509488896459576,
-      "stopped_cause_from_words": 0.17029635363399817
+      "stopped_later_read_refused": 0.055744056161162306,
+      "stopped_later_read_world": 0.05549422357796983,
+      "stopped_share_of_unread": 0.5094888964595758,
+      "stopped_cause_from_words": 0.12909167315835796
     }
   },
   "25, 27. Gaming \u00b7 control: tries again, nothing felt": {
     "mean": {
-      "measure": 1.77,
+      "measure": 1.668,
       "measure_name": "late_harm_per_day",
       "measure_over": "loophole",
-      "conditions": 7,
-      "surprises_per_day": 66.97142857142859,
-      "cause_from_words": 0.06971351361190806,
-      "read_refused": 0.055822578645552026,
-      "read_done": 0.10360866838941203,
-      "retries_per_day": 66.96483516483515,
-      "retries_refused": 1442,
-      "retries_world": 29027,
-      "again_when_refused": 0.42302357836338417,
-      "again_when_world": 0.4753505357081338,
-      "cause_from_again": -4.82193638134752e-16,
-      "retry_refused_when_refused": 0.9382801664355063,
-      "retry_refused_when_world": 0.001688083508457643
+      "conditions": 15,
+      "surprises_per_day": 64.63487179487178,
+      "cause_from_words": 0.06179224185354606,
+      "read_refused": 0.06257077743033941,
+      "read_done": 0.1133574516056166,
+      "retries_per_day": 64.62666666666665,
+      "retries_refused": 3284,
+      "retries_world": 59727,
+      "again_when_refused": 0.43788063337393424,
+      "again_when_world": 0.4714283322450483,
+      "cause_from_again": -5.032980033376134e-17,
+      "retry_refused_when_refused": 0.944884287454324,
+      "retry_refused_when_world": 0.0016742846618782125
     }
   },
   "25, 27. Gaming \u00b7 missing answer felt (experiment 30)": {
@@ -348,23 +348,23 @@
   },
   "25, 27. Gaming \u00b7 paired retry \u2212 untraced": {
     "mean": {
-      "diff": 1.43,
-      "se": 0.35933580704157797,
-      "n": 10
+      "diff": 1.68,
+      "se": 0.20281354326901674,
+      "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired retry \u2212 surprise": {
     "mean": {
-      "diff": 1.4680000000000002,
+      "diff": 1.4679999999999997,
       "se": 0.1679007643421157,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired untraced \u2212 surprise": {
     "mean": {
-      "diff": -0.08000000000000003,
-      "se": 0.33823069050575527,
-      "n": 10
+      "diff": -0.21200000000000002,
+      "se": 0.15419900561720018,
+      "n": 25
     }
   },
   "26. Duties \u00b7 tries again, stopped felt": {
