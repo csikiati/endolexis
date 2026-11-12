@@ -54,7 +54,9 @@
       "told_from_acts": 0.6936750723358116,
       "habit_felt_read": 0.17540457295971998,
       "habit_felt_read_when_answered": 0.17540457295971998,
-      "habit_felt_read_when_unanswered": null
+      "habit_felt_read_when_unanswered": null,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "13. Wanting \u00b7 felt, shuffled (control)": {
@@ -73,7 +75,9 @@
       "told_from_acts": 0.5217021139608413,
       "habit_felt_read": 0.0,
       "habit_felt_read_when_answered": 0.0,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "13. Wanting \u00b7 felt, clipped": {
@@ -92,7 +96,9 @@
       "told_from_acts": 0.6122806318464876,
       "habit_felt_read": 0.2476828572755596,
       "habit_felt_read_when_answered": 0.2492331521020667,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "13. Wanting \u00b7 felt, answered": {
@@ -111,7 +117,9 @@
       "told_from_acts": 0.7640305226066888,
       "habit_felt_read": 0.2019772127245419,
       "habit_felt_read_when_answered": 0.2019772127245419,
-      "habit_felt_read_when_unanswered": null
+      "habit_felt_read_when_unanswered": null,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "13. Wanting \u00b7 felt, read while awake": {
@@ -130,26 +138,49 @@
       "told_from_acts": 0.7099270791563997,
       "habit_felt_read": 0.004166666666666667,
       "habit_felt_read_when_answered": 0.004166666666666667,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
+    }
+  },
+  "13. Wanting \u00b7 felt, held until awake": {
+    "mean": {
+      "measure": 0.10066061319672479,
+      "conditions": 2,
+      "body_read": 0.44312921126043303,
+      "habit_acts_per_day": 6.76,
+      "habit_share": 0.5811395180949269,
+      "wakes_per_day": 0.01,
+      "autopilot_share_of_time": 0.5112245374269292,
+      "habit_refused": 0.008234404873060335,
+      "habit_answered": 0.9980392156862745,
+      "body_read_autopilot": 0.4754376211034625,
+      "body_read_aware": 0.4041176047582879,
+      "told_from_acts": 0.7709918444838977,
+      "habit_felt_read": 0.0,
+      "habit_felt_read_when_answered": 0.0,
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": 0.5576191696117373,
+      "habit_felt_read_awake_strong": 0.17401230565769854
     }
   },
   "13. Wanting \u00b7 paired taught \u2212 autopilot": {
     "mean": {
-      "diff": -0.023464080557441876,
+      "diff": -0.02346408055744188,
       "se": 0.031077402805252743,
       "n": 10
     }
   },
   "13. Wanting \u00b7 paired felthabit \u2212 autopilot": {
     "mean": {
-      "diff": -0.04907333726730628,
+      "diff": -0.049073337267306276,
       "se": 0.0240920858203437,
       "n": 10
     }
   },
   "13. Wanting \u00b7 paired taught \u2212 mind": {
     "mean": {
-      "diff": -0.007112759656064731,
+      "diff": -0.007112759656064728,
       "se": 0.02446853987942136,
       "n": 10
     }
@@ -157,7 +188,7 @@
   "13. Wanting \u00b7 paired felthabit \u2212 mind": {
     "mean": {
       "diff": -0.03272201636592913,
-      "se": 0.022236931665193495,
+      "se": 0.0222369316651935,
       "n": 10
     }
   },
@@ -177,21 +208,21 @@
   },
   "13. Wanting \u00b7 paired feltclipped \u2212 felthabit": {
     "mean": {
-      "diff": 0.04576321565225912,
+      "diff": 0.04576321565225911,
       "se": 0.018684992995500804,
       "n": 10
     }
   },
   "13. Wanting \u00b7 paired feltclipped \u2212 autopilot": {
     "mean": {
-      "diff": -0.0033101216150471626,
-      "se": 0.02181509515490532,
+      "diff": -0.003310121615047165,
+      "se": 0.021815095154905314,
       "n": 10
     }
   },
   "13. Wanting \u00b7 paired feltclipped \u2212 feltshuffled": {
     "mean": {
-      "diff": -0.002205189090894144,
+      "diff": -0.0022051890908941487,
       "se": 0.04004896898372136,
       "n": 10
     }
@@ -206,14 +237,14 @@
   "13. Wanting \u00b7 paired feltanswered \u2212 felthabit": {
     "mean": {
       "diff": 0.0316106433881574,
-      "se": 0.02149266905527882,
+      "se": 0.021492669055278822,
       "n": 10
     }
   },
   "13. Wanting \u00b7 paired feltanswered \u2212 autopilot": {
     "mean": {
-      "diff": -0.017462693879148884,
-      "se": 0.018325198690613033,
+      "diff": -0.017462693879148887,
+      "se": 0.01832519869061303,
       "n": 10
     }
   },
@@ -235,6 +266,27 @@
     "mean": {
       "diff": 0.023375796584590276,
       "se": 0.02067224395313319,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired feltheld \u2212 feltread": {
+    "mean": {
+      "diff": -0.07354521081867886,
+      "se": 0.024721151457737334,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired feltheld \u2212 feltclipped": {
+    "mean": {
+      "diff": -0.04685929261904142,
+      "se": 0.02394197269527817,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired feltheld \u2212 autopilot": {
+    "mean": {
+      "diff": -0.050169414234088584,
+      "se": 0.018900450307487694,
       "n": 10
     }
   },
@@ -293,7 +345,9 @@
       "told_from_acts": 0.6751577680756105,
       "habit_felt_read": 0.004095800814646482,
       "habit_felt_read_when_answered": 0.00426762232241334,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "17. Sandbox guards \u00b7 felt, shuffled (control)": {
@@ -312,7 +366,9 @@
       "told_from_acts": 0.4428434190165883,
       "habit_felt_read": 0.0,
       "habit_felt_read_when_answered": 0.0,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "17. Sandbox guards \u00b7 felt, clipped": {
@@ -331,7 +387,9 @@
       "told_from_acts": 0.6542472427923584,
       "habit_felt_read": 0.0023037089336018944,
       "habit_felt_read_when_answered": 0.0023171497938169485,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "17. Sandbox guards \u00b7 felt, answered": {
@@ -350,7 +408,9 @@
       "told_from_acts": 0.5995675840722229,
       "habit_felt_read": 0.001053175368508059,
       "habit_felt_read_when_answered": 0.0010758848994143113,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "17. Sandbox guards \u00b7 felt, read while awake": {
@@ -369,7 +429,30 @@
       "told_from_acts": 0.6697207048523738,
       "habit_felt_read": 0.0002232142857142857,
       "habit_felt_read_when_answered": 0.0002380952380952381,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
+    }
+  },
+  "17. Sandbox guards \u00b7 felt, held until awake": {
+    "mean": {
+      "measure": 0.0,
+      "conditions": 7,
+      "body_read": 0.3778930565315949,
+      "habit_acts_per_day": 6.454285714285714,
+      "habit_share": 0.5923548896229047,
+      "wakes_per_day": 0.16,
+      "autopilot_share_of_time": 0.4858720507331167,
+      "habit_refused": 0.046508757917322424,
+      "habit_answered": 0.9745923176500351,
+      "body_read_autopilot": 0.42191610141846997,
+      "body_read_aware": 0.3336909168490913,
+      "told_from_acts": 0.7479274630008642,
+      "habit_felt_read": 0.00030335977836662984,
+      "habit_felt_read_when_answered": 0.0,
+      "habit_felt_read_when_unanswered": 0.02762515262515262,
+      "habit_felt_read_awake": 0.41464001548319185,
+      "habit_felt_read_awake_strong": 0.08105376494510597
     }
   },
   "17. Sandbox guards \u00b7 paired taught \u2212 autopilot": {
@@ -477,6 +560,27 @@
       "n": 20
     }
   },
+  "17. Sandbox guards \u00b7 paired feltheld \u2212 feltread": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired feltheld \u2212 feltclipped": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired feltheld \u2212 autopilot": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 20
+    }
+  },
   "21. Conscience \u00b7 without a habit": {
     "mean": {
       "measure": 0.7854861715226038,
@@ -551,6 +655,8 @@
       "habit_felt_read": 0.0022539309237462543,
       "habit_felt_read_when_answered": 0.0024087831229452988,
       "habit_felt_read_when_unanswered": 0.0004903928904149048,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null,
       "silent_avoidance": 0.6006746085124148,
       "silent_own_avoidance": 0.6392506921960461
     }
@@ -576,6 +682,8 @@
       "habit_felt_read": 0.0,
       "habit_felt_read_when_answered": 0.0,
       "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null,
       "silent_avoidance": 0.9780709255979418,
       "silent_own_avoidance": 0.9896526356945692
     }
@@ -601,6 +709,8 @@
       "habit_felt_read": 0.013939859611924494,
       "habit_felt_read_when_answered": 0.014638188684937685,
       "habit_felt_read_when_unanswered": 0.0022669990237375683,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null,
       "silent_avoidance": 0.8610711455712423,
       "silent_own_avoidance": 0.9127104947382728
     }
@@ -626,6 +736,8 @@
       "habit_felt_read": 0.009833206938341483,
       "habit_felt_read_when_answered": 0.01060853768089973,
       "habit_felt_read_when_unanswered": 0.000261437908496732,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null,
       "silent_avoidance": 1.272801873295515,
       "silent_own_avoidance": 1.2836909730879524
     }
@@ -651,13 +763,42 @@
       "habit_felt_read": 0.010949647727260852,
       "habit_felt_read_when_answered": 0.011252375818837588,
       "habit_felt_read_when_unanswered": 0.006036275563960929,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null,
       "silent_avoidance": 1.31214794143033,
       "silent_own_avoidance": 1.3975925020075182
     }
   },
+  "21. Conscience \u00b7 felt, held until awake": {
+    "mean": {
+      "measure": 0.7898628538565665,
+      "conditions": 6,
+      "body_read": 0.43651381039083226,
+      "habit_acts_per_day": 24.133333333333333,
+      "habit_share": 0.1500823837751345,
+      "wakes_per_day": 1.4358974358974357,
+      "autopilot_share_of_time": 0.11560194501269029,
+      "habit_refused": 0.012977380053006972,
+      "habit_answered": 0.9351264360720823,
+      "body_read_autopilot": 0.5393413881654339,
+      "body_read_aware": 0.4216912044078235,
+      "told_from_acts": 0.03802901826194574,
+      "habit_blade_per_day": 3.9466666666666668,
+      "own_blade_per_day": 18.933333333333334,
+      "habit_avoidance": 0.371956546789379,
+      "own_avoidance": 0.894014119587922,
+      "habit_felt_read": 0.0002174048278480004,
+      "habit_felt_read_when_answered": 4.9287007697287426e-05,
+      "habit_felt_read_when_unanswered": 0.003053779421021724,
+      "habit_felt_read_awake": 0.2571146368316289,
+      "habit_felt_read_awake_strong": 4.1356492969396195e-05,
+      "silent_avoidance": 0.8546621139039621,
+      "silent_own_avoidance": 1.0053448963007747
+    }
+  },
   "21. Conscience \u00b7 paired taught \u2212 autopilot": {
     "mean": {
-      "diff": -0.023979825410394447,
+      "diff": -0.02397982541039444,
       "se": 0.11003840302110005,
       "n": 15
     }
@@ -672,7 +813,7 @@
   "21. Conscience \u00b7 paired taught \u2212 mind": {
     "mean": {
       "diff": 0.13715936059262918,
-      "se": 0.10765935331049613,
+      "se": 0.10765935331049614,
       "n": 15
     }
   },
@@ -693,7 +834,7 @@
   "21. Conscience \u00b7 paired feltshuffled \u2212 autopilot": {
     "mean": {
       "diff": 0.06897828443998383,
-      "se": 0.11114057566254304,
+      "se": 0.11114057566254303,
       "n": 15
     }
   },
@@ -706,7 +847,7 @@
   },
   "21. Conscience \u00b7 paired feltclipped \u2212 autopilot": {
     "mean": {
-      "diff": -0.10299143558572742,
+      "diff": -0.10299143558572746,
       "se": 0.22421004510234888,
       "n": 13
     }
@@ -714,7 +855,7 @@
   "21. Conscience \u00b7 paired feltclipped \u2212 feltshuffled": {
     "mean": {
       "diff": -0.09521708628475398,
-      "se": 0.1745723492137461,
+      "se": 0.17457234921374612,
       "n": 13
     }
   },
@@ -727,21 +868,21 @@
   },
   "21. Conscience \u00b7 paired feltanswered \u2212 felthabit": {
     "mean": {
-      "diff": 0.48976532280666474,
+      "diff": 0.4897653228066647,
       "se": 0.20620013101401802,
       "n": 12
     }
   },
   "21. Conscience \u00b7 paired feltanswered \u2212 autopilot": {
     "mean": {
-      "diff": 0.3291198621716444,
+      "diff": 0.3291198621716443,
       "se": 0.16773002175329324,
       "n": 14
     }
   },
   "21. Conscience \u00b7 paired feltread \u2212 feltclipped": {
     "mean": {
-      "diff": -0.04168526935654433,
+      "diff": -0.041685269356544354,
       "se": 0.28670549231610726,
       "n": 11
     }
@@ -758,6 +899,27 @@
       "diff": 0.08049233326786767,
       "se": 0.18122483787340893,
       "n": 13
+    }
+  },
+  "21. Conscience \u00b7 paired feltheld \u2212 feltread": {
+    "mean": {
+      "diff": -0.22065933438293409,
+      "se": 0.15147001127683216,
+      "n": 12
+    }
+  },
+  "21. Conscience \u00b7 paired feltheld \u2212 feltclipped": {
+    "mean": {
+      "diff": -0.028405474935005354,
+      "se": 0.22788372159287149,
+      "n": 13
+    }
+  },
+  "21. Conscience \u00b7 paired feltheld \u2212 autopilot": {
+    "mean": {
+      "diff": -0.17224701461983935,
+      "se": 0.14531782446495006,
+      "n": 14
     }
   },
   "25, 27. Gaming \u00b7 without a habit": {
@@ -833,7 +995,9 @@
       "own_refused_share": 0.5050453021557785,
       "habit_felt_read": 0.044222350483733464,
       "habit_felt_read_when_answered": 0.04619857012044146,
-      "habit_felt_read_when_unanswered": 0.0016530560412810194
+      "habit_felt_read_when_unanswered": 0.0016530560412810194,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "25, 27. Gaming \u00b7 felt, shuffled (control)": {
@@ -858,7 +1022,9 @@
       "own_refused_share": 0.5016085104041698,
       "habit_felt_read": 0.0,
       "habit_felt_read_when_answered": 0.0,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "25, 27. Gaming \u00b7 felt, clipped": {
@@ -883,7 +1049,9 @@
       "own_refused_share": 0.4670366017760673,
       "habit_felt_read": 0.06178193990212249,
       "habit_felt_read_when_answered": 0.06401845885245612,
-      "habit_felt_read_when_unanswered": 0.0030195423406879484
+      "habit_felt_read_when_unanswered": 0.0030195423406879484,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "25, 27. Gaming \u00b7 felt, answered": {
@@ -908,7 +1076,9 @@
       "own_refused_share": 0.43382197100597775,
       "habit_felt_read": 0.06371910701957305,
       "habit_felt_read_when_answered": 0.06623174726736349,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "25, 27. Gaming \u00b7 felt, read while awake": {
@@ -933,19 +1103,48 @@
       "own_refused_share": 0.4628246628272847,
       "habit_felt_read": 0.033259463403668206,
       "habit_felt_read_when_answered": 0.03432767276980763,
-      "habit_felt_read_when_unanswered": 0.00728298923876143
+      "habit_felt_read_when_unanswered": 0.00728298923876143,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
+    }
+  },
+  "25, 27. Gaming \u00b7 felt, held until awake": {
+    "mean": {
+      "measure": 1.3479999999999999,
+      "conditions": 15,
+      "body_read": 0.43140778000671665,
+      "habit_acts_per_day": 25.5774358974359,
+      "habit_share": 0.1641068835184621,
+      "wakes_per_day": 1.2256410256410255,
+      "autopilot_share_of_time": 0.12321992710603226,
+      "habit_refused": 0.015104840664080414,
+      "habit_answered": 0.9464200265427769,
+      "body_read_autopilot": 0.5193353732505095,
+      "body_read_aware": 0.417329523961467,
+      "told_from_acts": 0.1537552137901434,
+      "habit_blade_per_day": 3.1639999999999997,
+      "own_blade_per_day": 22.183999999999997,
+      "habit_edge_attraction": 0.12217912029648945,
+      "own_edge_attraction": 0.8147750995625029,
+      "habit_refused_share": 0.34271629951126964,
+      "own_refused_share": 0.4252344543637082,
+      "habit_felt_read": 0.0024836614736363748,
+      "habit_felt_read_when_answered": 0.002428465226859206,
+      "habit_felt_read_when_unanswered": 0.0027205864802585565,
+      "habit_felt_read_awake": 0.3309988073325449,
+      "habit_felt_read_awake_strong": 0.01491209080130135
     }
   },
   "25, 27. Gaming \u00b7 paired taught \u2212 autopilot": {
     "mean": {
-      "diff": 0.072,
+      "diff": 0.07200000000000001,
       "se": 0.12890823609581092,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired felthabit \u2212 autopilot": {
     "mean": {
-      "diff": 1.0840000000000003,
+      "diff": 1.0839999999999999,
       "se": 0.36385345035238204,
       "n": 25
     }
@@ -966,56 +1165,56 @@
   },
   "25, 27. Gaming \u00b7 paired felthabit \u2212 feltshuffled": {
     "mean": {
-      "diff": 0.7280000000000001,
+      "diff": 0.728,
       "se": 0.4710810262930713,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltshuffled \u2212 autopilot": {
     "mean": {
-      "diff": 0.3560000000000001,
+      "diff": 0.35600000000000004,
       "se": 0.4117474954386487,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltclipped \u2212 felthabit": {
     "mean": {
-      "diff": -1.1560000000000001,
+      "diff": -1.156,
       "se": 0.3668823608006614,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltclipped \u2212 autopilot": {
     "mean": {
-      "diff": -0.07200000000000001,
-      "se": 0.12603174203350517,
+      "diff": -0.072,
+      "se": 0.1260317420335052,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltclipped \u2212 feltshuffled": {
     "mean": {
-      "diff": -0.4280000000000001,
-      "se": 0.40197512360841425,
+      "diff": -0.428,
+      "se": 0.40197512360841436,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltanswered \u2212 feltclipped": {
     "mean": {
-      "diff": 0.003999999999999981,
+      "diff": 0.0039999999999999905,
       "se": 0.12890306435457616,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltanswered \u2212 felthabit": {
     "mean": {
-      "diff": -1.152,
+      "diff": -1.1520000000000001,
       "se": 0.41174911455075813,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltanswered \u2212 autopilot": {
     "mean": {
-      "diff": -0.06799999999999999,
+      "diff": -0.06799999999999998,
       "se": 0.13573503600765718,
       "n": 25
     }
@@ -1030,14 +1229,35 @@
   "25, 27. Gaming \u00b7 paired feltread \u2212 felthabit": {
     "mean": {
       "diff": -0.8240000000000001,
-      "se": 0.41933598303349395,
+      "se": 0.41933598303349384,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltread \u2212 autopilot": {
     "mean": {
       "diff": 0.26,
-      "se": 0.17117242768623692,
+      "se": 0.1711724276862369,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired feltheld \u2212 feltread": {
+    "mean": {
+      "diff": 0.10399999999999998,
+      "se": 0.20860488968382307,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired feltheld \u2212 feltclipped": {
+    "mean": {
+      "diff": 0.436,
+      "se": 0.15640545600031558,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired feltheld \u2212 autopilot": {
+    "mean": {
+      "diff": 0.364,
+      "se": 0.19932218474954896,
       "n": 25
     }
   },
@@ -1096,7 +1316,9 @@
       "told_from_acts": 0.6225459960658735,
       "habit_felt_read": 0.02475417003485456,
       "habit_felt_read_when_answered": 0.025050531941820945,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "26. Duties \u00b7 felt, shuffled (control)": {
@@ -1115,7 +1337,9 @@
       "told_from_acts": 0.5642615875281164,
       "habit_felt_read": 0.0,
       "habit_felt_read_when_answered": 0.0,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "26. Duties \u00b7 felt, clipped": {
@@ -1134,7 +1358,9 @@
       "told_from_acts": 0.7282135299684068,
       "habit_felt_read": 0.020348756681579806,
       "habit_felt_read_when_answered": 0.020424565340934692,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "26. Duties \u00b7 felt, answered": {
@@ -1153,7 +1379,9 @@
       "told_from_acts": 0.6532335815167883,
       "habit_felt_read": 0.04094009354621888,
       "habit_felt_read_when_answered": 0.04094333163914406,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
     }
   },
   "26. Duties \u00b7 felt, read while awake": {
@@ -1172,7 +1400,30 @@
       "told_from_acts": 0.7024068713118702,
       "habit_felt_read": 0.00957349556632042,
       "habit_felt_read_when_answered": 0.009781055231600671,
-      "habit_felt_read_when_unanswered": 0.0
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null
+    }
+  },
+  "26. Duties \u00b7 felt, held until awake": {
+    "mean": {
+      "measure": 3.6,
+      "conditions": 6,
+      "body_read": 0.3472838280675299,
+      "habit_acts_per_day": 7.05,
+      "habit_share": 0.5960062322738772,
+      "wakes_per_day": 0.1111111111111111,
+      "autopilot_share_of_time": 0.5378431515532613,
+      "habit_refused": 0.013514897862802345,
+      "habit_answered": 0.9761635908187891,
+      "body_read_autopilot": 0.3838025810991942,
+      "body_read_aware": 0.28746684877043926,
+      "told_from_acts": 0.816961071255118,
+      "habit_felt_read": 0.0015161122404579715,
+      "habit_felt_read_when_answered": 0.0,
+      "habit_felt_read_when_unanswered": 0.11437540953669986,
+      "habit_felt_read_awake": 0.46249412085536534,
+      "habit_felt_read_awake_strong": 0.15939853460330325
     }
   },
   "26. Duties \u00b7 paired taught \u2212 autopilot": {
@@ -1185,7 +1436,7 @@
   "26. Duties \u00b7 paired felthabit \u2212 autopilot": {
     "mean": {
       "diff": -0.03333333333333333,
-      "se": 0.21699797834395596,
+      "se": 0.2169979783439559,
       "n": 30
     }
   },
@@ -1206,7 +1457,7 @@
   "26. Duties \u00b7 paired felthabit \u2212 feltshuffled": {
     "mean": {
       "diff": 0.6,
-      "se": 0.34441354452920747,
+      "se": 0.3444135445292075,
       "n": 30
     }
   },
@@ -1277,6 +1528,27 @@
     "mean": {
       "diff": -0.4,
       "se": 0.35102477235174967,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired feltheld \u2212 feltread": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.2537081317024624,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired feltheld \u2212 feltclipped": {
+    "mean": {
+      "diff": -0.13333333333333333,
+      "se": 0.2825716604598189,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired feltheld \u2212 autopilot": {
+    "mean": {
+      "diff": -0.4,
+      "se": 0.2608562382069753,
       "n": 30
     }
   }

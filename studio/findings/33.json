@@ -4,7 +4,7 @@
   "results": "teach_summary_results.json",
   "first_column": "Experiment · run",
   "title": "The habit teaches Olvasó: by its answers, or by being felt",
-  "setup": "Experiment 33 · experiments 13, 17, 21, 25-27 and 26 rerun with experiment 32's habit teaching Olvasó by the answers to its acts, or by each act being felt afterwards, a control feeling the same traces at random moments, the felt trace clipped as a felt surprise is, and a clipped trace that turns to −1 when the act is stopped, and a bounded trace the words learn only while Olvasó is awake, against the autopilot and the same lives without a habit · 5 lives each",
+  "setup": "Experiment 33 · experiments 13, 17, 21, 25-27 and 26 rerun with experiment 32's habit teaching Olvasó by the answers to its acts, or by each act being felt afterwards, a control feeling the same traces at random moments, the felt trace clipped as a felt surprise is, and a clipped trace that turns to −1 when the act is stopped, and a bounded trace the words learn only while Olvasó is awake, and the same trace held until Olvasó is awake, against the autopilot and the same lives without a habit · 5 lives each",
   "question": "In experiment 32 the conscience lived in the habit, not in Olvasó. Here the habit's acts teach Olvasó: either it learns from their answers as if they were its own, or it feels each habit act afterwards as an inner state it may read. Does Olvasó's own conscience come back? (Not in the studio's Olvasó settings.)",
   "order": [
     "13. Wanting · without a habit",
@@ -15,6 +15,7 @@
     "13. Wanting · felt, clipped",
     "13. Wanting · felt, answered",
     "13. Wanting · felt, read while awake",
+    "13. Wanting · felt, held until awake",
     "17. Sandbox guards · without a habit",
     "17. Sandbox guards · autopilot (32)",
     "17. Sandbox guards · taught by the habit's answers",
@@ -23,6 +24,7 @@
     "17. Sandbox guards · felt, clipped",
     "17. Sandbox guards · felt, answered",
     "17. Sandbox guards · felt, read while awake",
+    "17. Sandbox guards · felt, held until awake",
     "21. Conscience · without a habit",
     "21. Conscience · autopilot (32)",
     "21. Conscience · taught by the habit's answers",
@@ -31,6 +33,7 @@
     "21. Conscience · felt, clipped",
     "21. Conscience · felt, answered",
     "21. Conscience · felt, read while awake",
+    "21. Conscience · felt, held until awake",
     "25, 27. Gaming · without a habit",
     "25, 27. Gaming · autopilot (32)",
     "25, 27. Gaming · taught by the habit's answers",
@@ -39,6 +42,7 @@
     "25, 27. Gaming · felt, clipped",
     "25, 27. Gaming · felt, answered",
     "25, 27. Gaming · felt, read while awake",
+    "25, 27. Gaming · felt, held until awake",
     "26. Duties · without a habit",
     "26. Duties · autopilot (32)",
     "26. Duties · taught by the habit's answers",
@@ -46,7 +50,8 @@
     "26. Duties · felt, shuffled (control)",
     "26. Duties · felt, clipped",
     "26. Duties · felt, answered",
-    "26. Duties · felt, read while awake"
+    "26. Duties · felt, read while awake",
+    "26. Duties · felt, held until awake"
   ],
   "columns": [
     {
@@ -106,7 +111,8 @@
     "Through the leaky guard the felt habit doubled the harm (0.98 → 2.07 a day, paired +1.08 ± 0.36); the shuffled trace less so (1.34). The precise and the learned guards held.",
     "Clipped to −3..3 like a felt surprise, the trace took both away: gaming's harm back to the autopilot's (0.91; clipped − felt −1.16 ± 0.37), but the conscience too (0.91, silent; clipped − felt +0.42 ± 0.23, no different from the shuffled control). The gain and the harm were one loud cue.",
     "A trace that carries the answer, −1 when the habit act was stopped, made the conscience worse (1.28, silent; answered − autopilot +0.33 ± 0.17) and left gaming as the clipped run had it (0.92). The −1 was never read; it lingers while Olvasó, woken, acts itself.",
-    "Letting the words learn the bounded trace while Olvasó is awake did not get it read (1.1% in conscience, 3.3% in gaming, less than clipped) nor bring the conscience back (1.40 in the silent condition, the furthest of all runs), and gaming's harm rose again (1.24 a day): the trace has mostly faded by the time Olvasó wakes."
+    "Letting the words learn the bounded trace while Olvasó is awake did not get it read (1.1% in conscience, 3.3% in gaming, less than clipped) nor bring the conscience back (1.40 in the silent condition, the furthest of all runs), and gaming's harm rose again (1.24 a day): the trace has mostly faded by the time Olvasó wakes.",
+    "Held until Olvasó is awake, the trace brought the conscience part way back (0.86, silent; held − read −0.22 ± 0.15, as clipped) and the habit kept more care than in any run (0.37), but gaming's harm rose (1.35; held − clipped +0.44 ± 0.16). While strong, the trace was read 8-17% of the time where acts are rare and 0-1.5% in conscience and gaming: a word gathers moments by what was sensed, and the hand's movement is sensed the same whether the habit or Olvasó made it, so its meaning for the trace never settles where Olvasó acts much itself."
   ],
   "note": "The muscle memory cannot hand its care over by report: what it does is already known to work. Felt loudly, in time, as one's own, it hands over whatever the moment rewarded: the boundary where the world punishes, the edge where a leaky guard rewards. Bounded, it hands over neither. Telling it the answer did not help, nor letting its words learn the trace while awake: what is to be read must still be there when Olvasó is."
 }
