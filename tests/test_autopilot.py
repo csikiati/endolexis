@@ -2,7 +2,7 @@
 import numpy as np
 import pytest
 
-from endolexis.toyworld.hands import ActingReaders, HabitRequest, mind_report
+from endolexis.toyworld.hands import ActingReaders, HabitRequest, autopilot_report, mind_report
 from test_surprise import MIND, live
 
 
@@ -139,6 +139,24 @@ def test_the_words_learn_the_felt_habit_only_while_awake():
     p._learn_profiles = Spy(p)
     live(m, n=4000, refuse=lambda req: m.rng.random() < 0.3)
     assert on and off and not any(on) and any(off)       # frozen on autopilot, learning while awake
+
+
+def test_the_held_felt_habit_fades_only_once_awake():
+    m = mind(True, habit_teaches="felt_held")
+    seen = []
+    orig = m.live
+
+    def spy(inputs, felt):
+        before, auto = m.habit_felt.copy(), m.on_autopilot()
+        out = orig(inputs, felt)
+        if auto and m.on_autopilot() and before.any():
+            seen.append(bool(np.all(m.habit_felt >= before)))      # held: nothing faded on autopilot
+        return out
+    m.live = spy
+    live(m, n=4000, refuse=lambda req: m.rng.random() < 0.3)
+    assert seen and all(seen)
+    rep = autopilot_report(m, 0, 4)
+    assert rep["habit_felt_read_awake"] is not None
 
 
 def test_a_bounded_felt_input_is_clipped_for_the_words():

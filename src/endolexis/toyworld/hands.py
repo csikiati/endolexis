@@ -57,6 +57,8 @@ bounded (its z-score clipped to -3..3, as a felt surprise is), not as a large ra
 that did not answer), the trace on that hand turns to -1 ("my hand did this, and it was stopped") and fades from there.
 "felt_read": as "felt_clipped", and Olvasó's words feel the trace bounded too (its z-score clipped to -3..3, so that a
 meaning can fit it at all), and learn what it means only while Olvasó is awake, not while the hands are the habit's.
+"felt_held": as "felt_read", but the trace is held while the hands are the habit's and fades only once Olvasó is
+awake, so that it is still there when the words may learn it.
 """
 from collections import Counter
 
@@ -105,16 +107,19 @@ class ActingReaders(ManyReaders):
             raise ValueError("autopilot needs learn='answer': the habit learns from what the world answers")
         self.autopilot, self.wakes_up = autopilot, autopilot is True
         if habit_teaches not in (False, "answers", "felt", "felt_shuffled", "felt_clipped", "felt_answered",
-                                 "felt_read"):
+                                 "felt_read", "felt_held"):
             raise ValueError("habit_teaches must be False, 'answers', 'felt', 'felt_shuffled', 'felt_clipped', "
-                             "'felt_answered' or 'felt_read', "
+                             "'felt_answered', 'felt_read' or 'felt_held', "
                              f"not {habit_teaches!r}")
         if habit_teaches and not autopilot:
             raise ValueError("habit_teaches needs autopilot: there is no habit to teach")
         self.habit_teaches, self.feel_habit = habit_teaches, habit_teaches in ("felt", "felt_shuffled", "felt_clipped",
-                                                                                 "felt_answered", "felt_read")
-        self.habit_clipped = habit_teaches in ("felt_clipped", "felt_answered", "felt_read")
-        self.habit_words = habit_teaches == "felt_read"
+                                                                                 "felt_answered", "felt_read", "felt_held")
+        self.habit_clipped = habit_teaches in ("felt_clipped", "felt_answered", "felt_read", "felt_held")
+        self.habit_words = habit_teaches in ("felt_read", "felt_held")
+        self.habit_held = habit_teaches == "felt_held"
+        self.habit_awake = {}        # observer only: per day, [read, seen, read strong, seen strong] of the felt habit
+        #                              trace while Olvasó is awake (strong: 0.5 or more)
         self.habit_signed = habit_teaches == "felt_answered"
         self.habit_shuffled = habit_teaches == "felt_shuffled"
         self.habit_delayed = []      # with "felt_shuffled": (due, hand, act)
@@ -212,7 +217,8 @@ class ActingReaders(ManyReaders):
         if self.feel_stopped:
             self.stopped *= self.stopped_fade
         if self.feel_habit:
-            self.habit_felt *= self.intention_fade
+            if not (self.habit_held and self.on_autopilot()):     # held: it fades only once Olvasó is awake
+                self.habit_felt *= self.intention_fade
             while self.habit_delayed and self.habit_delayed[0][0] <= self.t:
                 _, k, act = self.habit_delayed.pop(0)
                 self.habit_felt[k] = 1.0
@@ -223,6 +229,8 @@ class ActingReaders(ManyReaders):
                 p.learning_off = self.habit_off if self.on_autopilot() else None
         readings = self.read(inputs, felt)
         self._account(readings)
+        if self.feel_habit and not self.on_autopilot():
+            self._watch_habit_awake(readings)
         if self.feel_intention:
             self._watch_intentions(readings)
         if self.feel_surprise:
@@ -416,6 +424,16 @@ class ActingReaders(ManyReaders):
                                              + int(self.feel_stopped)) + k
         return [c] + ([nf_in + c] if self.parts[0].nf > nf_in else [])
 
+    def _watch_habit_awake(self, readings):
+        """Observer only: while Olvasó is awake and a habit act's trace is still felt, is it read?"""
+        d = self.habit_awake.setdefault(self.t // 1000, [0, 0, 0, 0])
+        for k in np.flatnonzero(np.abs(self.habit_felt) > 0.05):
+            r = readings[self.habit_columns(k)]
+            i = 2 if abs(self.habit_felt[k]) >= 0.5 else 0
+            for j in {0, i}:
+                d[j] += int(np.sum(r >= 0))
+                d[j + 1] += int(np.sum(r >= -1))
+
     def _watch_habit(self, readings):
         for w in self.habit_watch[-4:]:
             if 0 < self.t - w[0] <= self.watch_for:
@@ -602,6 +620,11 @@ def autopilot_report(mind, first_day, last_day):
             out[f"habit_felt_read_when_{name}"] = float(sum(x[2] for x in w) / seen) if seen else None
         seen = sum(x[2] + x[3] for x in ws)
         out["habit_felt_read"] = float(sum(x[2] for x in ws) / seen) if seen else None
+        aw = [mind.habit_awake[d] for d in range(first_day, last_day) if d in mind.habit_awake]
+        seen = sum(a[1] for a in aw)
+        out["habit_felt_read_awake"] = float(sum(a[0] for a in aw) / seen) if seen else None
+        seen = sum(a[3] for a in aw)
+        out["habit_felt_read_awake_strong"] = float(sum(a[2] for a in aw) / seen) if seen else None
     ds = [mind.mode_daily[d] for d in range(first_day, last_day) if d in mind.mode_daily]
     if ds:
         s = np.sum(ds, axis=0)
