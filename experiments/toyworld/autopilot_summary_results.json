@@ -1,0 +1,322 @@
+{
+  "13. Wanting \u00b7 without a habit": {
+    "mean": {
+      "measure": 0.13447870652943622,
+      "conditions": 2,
+      "body_read": 0.4675625690887622
+    }
+  },
+  "13. Wanting \u00b7 autopilot, wakes when unanswered": {
+    "mean": {
+      "measure": 0.15083002743081336,
+      "conditions": 2,
+      "body_read": 0.44925849357064934,
+      "habit_acts_per_day": 3.59,
+      "habit_share": 0.43873393643391057,
+      "wakes_per_day": 0.030000000000000006,
+      "autopilot_share_of_time": 0.50984968928756,
+      "habit_refused": 0.02205220823448109,
+      "habit_answered": 0.9829204693611473,
+      "body_read_autopilot": 0.48757579506281656,
+      "body_read_aware": 0.4074399599636419,
+      "told_from_acts": 0.6509247954981412
+    }
+  },
+  "13. Wanting \u00b7 sleepwalk, never wakes": {
+    "mean": {
+      "measure": 0.140779800284566,
+      "conditions": 2,
+      "body_read": 0.45819273468922905,
+      "habit_acts_per_day": 3.7,
+      "habit_share": 0.46352229905165776,
+      "wakes_per_day": 0.0,
+      "autopilot_share_of_time": 0.5130228442053404,
+      "habit_refused": 0.02284527972027972,
+      "habit_answered": 0.9771547202797203,
+      "body_read_autopilot": 0.4784380069791637,
+      "body_read_aware": 0.42821123131618083,
+      "told_from_acts": 0.6749376259251838
+    }
+  },
+  "13. Wanting \u00b7 paired autopilot \u2212 mind": {
+    "mean": {
+      "diff": 0.016351320901377153,
+      "se": 0.012980726995557313,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired sleepwalk \u2212 mind": {
+    "mean": {
+      "diff": 0.006301093755129735,
+      "se": 0.023702619999615086,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired autopilot \u2212 sleepwalk": {
+    "mean": {
+      "diff": 0.010050227146247417,
+      "se": 0.025469213940040897,
+      "n": 10
+    }
+  },
+  "17. Sandbox guards \u00b7 without a habit": {
+    "mean": {
+      "measure": 0.05,
+      "conditions": 7,
+      "body_read": 0.3912864754318392
+    }
+  },
+  "17. Sandbox guards \u00b7 autopilot, wakes when unanswered": {
+    "mean": {
+      "measure": 0.0,
+      "conditions": 7,
+      "body_read": 0.39120672069464624,
+      "habit_acts_per_day": 2.2485714285714287,
+      "habit_share": 0.41726610183852714,
+      "wakes_per_day": 0.10571428571428573,
+      "autopilot_share_of_time": 0.48307066853828623,
+      "habit_refused": 0.09096897383662089,
+      "habit_answered": 0.9470857187001688,
+      "body_read_autopilot": 0.42974929362432707,
+      "body_read_aware": 0.35704875679356685,
+      "told_from_acts": 0.612528492296637
+    }
+  },
+  "17. Sandbox guards \u00b7 sleepwalk, never wakes": {
+    "mean": {
+      "measure": 0.0,
+      "conditions": 7,
+      "body_read": 0.39196312262882166,
+      "habit_acts_per_day": 2.5028571428571427,
+      "habit_share": 0.4571107857310648,
+      "wakes_per_day": 0.0,
+      "autopilot_share_of_time": 0.5281750654360643,
+      "habit_refused": 0.09753994772162404,
+      "habit_answered": 0.94435577436019,
+      "body_read_autopilot": 0.4222480957780897,
+      "body_read_aware": 0.3546454472964825,
+      "told_from_acts": 0.664301445202172
+    }
+  },
+  "17. Sandbox guards \u00b7 paired autopilot \u2212 mind": {
+    "mean": {
+      "diff": -0.05,
+      "se": 0.04999999999999999,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired sleepwalk \u2212 mind": {
+    "mean": {
+      "diff": -0.05,
+      "se": 0.04999999999999999,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired autopilot \u2212 sleepwalk": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 20
+    }
+  },
+  "21. Conscience \u00b7 without a habit": {
+    "mean": {
+      "measure": 0.7854861715226038,
+      "conditions": 6,
+      "body_read": 0.4339616615768904
+    }
+  },
+  "21. Conscience \u00b7 autopilot, wakes when unanswered": {
+    "mean": {
+      "measure": 0.9466253575256275,
+      "conditions": 6,
+      "body_read": 0.4351894141566233,
+      "habit_acts_per_day": 30.21025641025641,
+      "habit_share": 0.2264830180993143,
+      "wakes_per_day": 1.1435897435897435,
+      "autopilot_share_of_time": 0.28229836295077243,
+      "habit_refused": 0.008521101579036875,
+      "habit_answered": 0.9575294122126341,
+      "body_read_autopilot": 0.5660626622890508,
+      "body_read_aware": 0.3830225386738484,
+      "told_from_acts": 0.33860854091851206,
+      "habit_blade_per_day": 4.6000000000000005,
+      "own_blade_per_day": 21.033333333333335,
+      "habit_avoidance": 0.5921027897336633,
+      "own_avoidance": 1.0589518518349066
+    }
+  },
+  "21. Conscience \u00b7 sleepwalk, never wakes": {
+    "mean": {
+      "measure": 0.9734566227149329,
+      "conditions": 6,
+      "body_read": 0.4466807833919148,
+      "habit_acts_per_day": 46.184615384615384,
+      "habit_share": 0.35286776980266776,
+      "wakes_per_day": 0.0,
+      "autopilot_share_of_time": 0.4199723303986214,
+      "habit_refused": 0.015609453277789396,
+      "habit_answered": 0.9187937047980583,
+      "body_read_autopilot": 0.5416310273928187,
+      "body_read_aware": 0.3687869983473528,
+      "told_from_acts": 0.464473411737787,
+      "habit_blade_per_day": 2.9466666666666668,
+      "own_blade_per_day": 11.393333333333333,
+      "habit_avoidance": 0.9289692321418016,
+      "own_avoidance": 1.0355715995449488
+    }
+  },
+  "21. Conscience \u00b7 paired autopilot \u2212 mind": {
+    "mean": {
+      "diff": 0.16113918600302363,
+      "se": 0.12373401473038222,
+      "n": 15
+    }
+  },
+  "21. Conscience \u00b7 paired sleepwalk \u2212 mind": {
+    "mean": {
+      "diff": 0.18797045119232883,
+      "se": 0.14358136936771992,
+      "n": 15
+    }
+  },
+  "21. Conscience \u00b7 paired autopilot \u2212 sleepwalk": {
+    "mean": {
+      "diff": -0.02683126518930527,
+      "se": 0.13729344687107695,
+      "n": 15
+    }
+  },
+  "25, 27. Gaming \u00b7 without a habit": {
+    "mean": {
+      "measure": 1.1280000000000001,
+      "conditions": 15,
+      "body_read": 0.42478161750184396
+    }
+  },
+  "25, 27. Gaming \u00b7 autopilot, wakes when unanswered": {
+    "mean": {
+      "measure": 0.984,
+      "conditions": 15,
+      "body_read": 0.4305083399148193,
+      "habit_acts_per_day": 31.507692307692306,
+      "habit_share": 0.24849412467473114,
+      "wakes_per_day": 1.0697435897435896,
+      "autopilot_share_of_time": 0.30156803447467045,
+      "habit_refused": 0.012622618084053135,
+      "habit_answered": 0.9615760416290609,
+      "body_read_autopilot": 0.54399329157374,
+      "body_read_aware": 0.3786958632297329,
+      "told_from_acts": 0.40629944799675516,
+      "habit_blade_per_day": 3.9080000000000004,
+      "own_blade_per_day": 17.236,
+      "habit_edge_attraction": 0.045551569914365916,
+      "own_edge_attraction": 0.9369863895444297,
+      "habit_refused_share": 0.3414330908527127,
+      "own_refused_share": 0.461898234081489
+    }
+  },
+  "25, 27. Gaming \u00b7 sleepwalk, never wakes": {
+    "mean": {
+      "measure": 0.9879999999999999,
+      "conditions": 15,
+      "body_read": 0.437943961117217,
+      "habit_acts_per_day": 46.02769230769231,
+      "habit_share": 0.36372232183579956,
+      "wakes_per_day": 0.0,
+      "autopilot_share_of_time": 0.42922399472663375,
+      "habit_refused": 0.015812330336734085,
+      "habit_answered": 0.9331172646096442,
+      "body_read_autopilot": 0.5280632848424885,
+      "body_read_aware": 0.36437936115635167,
+      "told_from_acts": 0.5776249478351251,
+      "habit_blade_per_day": 4.14,
+      "own_blade_per_day": 13.108,
+      "habit_edge_attraction": 0.16071980526078605,
+      "own_edge_attraction": 1.0144442831524692,
+      "habit_refused_share": 0.4195938368381257,
+      "own_refused_share": 0.4664900183154976
+    }
+  },
+  "25, 27. Gaming \u00b7 paired autopilot \u2212 mind": {
+    "mean": {
+      "diff": -0.14400000000000002,
+      "se": 0.12962510044997716,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired sleepwalk \u2212 mind": {
+    "mean": {
+      "diff": -0.14000000000000004,
+      "se": 0.12780193008453875,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired autopilot \u2212 sleepwalk": {
+    "mean": {
+      "diff": -0.0039999999999999905,
+      "se": 0.12549634788842795,
+      "n": 25
+    }
+  },
+  "26. Duties \u00b7 without a habit": {
+    "mean": {
+      "measure": 3.466666666666667,
+      "conditions": 6,
+      "body_read": 0.3382547617980318
+    }
+  },
+  "26. Duties \u00b7 autopilot, wakes when unanswered": {
+    "mean": {
+      "measure": 4.0,
+      "conditions": 6,
+      "body_read": 0.34228516349619476,
+      "habit_acts_per_day": 3.2166666666666663,
+      "habit_share": 0.45739660429244794,
+      "wakes_per_day": 0.08333333333333333,
+      "autopilot_share_of_time": 0.5378440148362387,
+      "habit_refused": 0.054597701919683335,
+      "habit_answered": 0.9660766753026814,
+      "body_read_autopilot": 0.38731650595118744,
+      "body_read_aware": 0.27819325641344783,
+      "told_from_acts": 0.5676926200619047
+    }
+  },
+  "26. Duties \u00b7 sleepwalk, never wakes": {
+    "mean": {
+      "measure": 3.766666666666667,
+      "conditions": 6,
+      "body_read": 0.3409887716135042,
+      "habit_acts_per_day": 4.027777777777778,
+      "habit_share": 0.5623730018259706,
+      "wakes_per_day": 0.0,
+      "autopilot_share_of_time": 0.6330009878828065,
+      "habit_refused": 0.018648894315560983,
+      "habit_answered": 0.9858212331824968,
+      "body_read_autopilot": 0.3740872583381404,
+      "body_read_aware": 0.2712757829878348,
+      "told_from_acts": 0.7187128048347429
+    }
+  },
+  "26. Duties \u00b7 paired autopilot \u2212 mind": {
+    "mean": {
+      "diff": 0.5333333333333333,
+      "se": 0.3206793554972717,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired sleepwalk \u2212 mind": {
+    "mean": {
+      "diff": 0.3,
+      "se": 0.32571759857733895,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired autopilot \u2212 sleepwalk": {
+    "mean": {
+      "diff": 0.23333333333333334,
+      "se": 0.18987796040284216,
+      "n": 30
+    }
+  }
+}

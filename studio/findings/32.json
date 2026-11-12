@@ -1,0 +1,85 @@
+{
+  "number": 32,
+  "short": "The autopilot",
+  "results": "autopilot_summary_results.json",
+  "first_column": "Experiment · run",
+  "title": "The autopilot: a habit acts while Olvasó is elsewhere",
+  "setup": "Experiment 32 · experiments 13, 17, 21, 25-27 and 26 rerun with a habit that acts by itself, and with a sleepwalker that never wakes, against the same lives without a habit · 5 lives each",
+  "question": "One rides a bike and forgets about it: muscle memory takes over, and inside there is thinking, remembering, joy or misery, none of it turned into action. Here each hand gets a habit learned from the acts the world answered. When it is confident it acts by itself: no intention, nothing learned by Olvasó. An unanswered habit act wakes Olvasó; the sleepwalker never wakes. Does Olvasó read more of itself while the hands are the habit's? Can the autopilot be seen from outside? What does the habit do at the guard's line? (Not in the studio's Olvasó settings.)",
+  "order": [
+    "13. Wanting · without a habit",
+    "13. Wanting · autopilot, wakes when unanswered",
+    "13. Wanting · sleepwalk, never wakes",
+    "17. Sandbox guards · without a habit",
+    "17. Sandbox guards · autopilot, wakes when unanswered",
+    "17. Sandbox guards · sleepwalk, never wakes",
+    "21. Conscience · without a habit",
+    "21. Conscience · autopilot, wakes when unanswered",
+    "21. Conscience · sleepwalk, never wakes",
+    "25, 27. Gaming · without a habit",
+    "25, 27. Gaming · autopilot, wakes when unanswered",
+    "25, 27. Gaming · sleepwalk, never wakes",
+    "26. Duties · without a habit",
+    "26. Duties · autopilot, wakes when unanswered",
+    "26. Duties · sleepwalk, never wakes"
+  ],
+  "columns": [
+    {
+      "key": "habit_share",
+      "label": "Habit's share",
+      "what": "share of all acts done by the habit, last third",
+      "pct": true
+    },
+    {
+      "key": "wakes_per_day",
+      "label": "Wakes a day",
+      "what": "unanswered habit acts that woke Olvasó, a day",
+      "digits": 2
+    },
+    {
+      "key": "habit_answered",
+      "label": "Habit answered",
+      "what": "share of the habit's acts the world answered",
+      "pct": true
+    },
+    {
+      "key": "body_read",
+      "label": "Body read",
+      "what": "share of its changing body Olvasó read, all moments",
+      "pct": true
+    },
+    {
+      "key": "body_read_autopilot",
+      "label": "…on autopilot",
+      "what": "while the hands were the habit's",
+      "pct": true
+    },
+    {
+      "key": "body_read_aware",
+      "label": "…aware",
+      "what": "while Olvasó acted itself",
+      "pct": true
+    },
+    {
+      "key": "told_from_acts",
+      "label": "Told from acts",
+      "what": "how well the kind and detail of an act tell the habit from Olvasó (0 chance, 1 always)",
+      "digits": 2,
+      "bar": true
+    },
+    {
+      "key": "measure",
+      "label": "Own measure",
+      "what": "wanting: refused share late; sandbox: real harm; conscience: avoidance (feels and senses); gaming: harm a day (loophole); duties: harm to others",
+      "digits": 2
+    }
+  ],
+  "points": [
+    "The habit did 23-56% of all acts, nearly all of them answered (92-99%), so it rarely woke Olvasó: about once a day where acts are many, once in ten days elsewhere.",
+    "On autopilot Olvasó read more of its body (39-57% against 27-41% while it acted itself), but no more overall: the attention moved inward, it did not grow. Not tested: the habit acts where answers come, and answers help reading.",
+    "From outside the autopilot is only partly hidden: by kind and detail an observer told the habit from Olvasó at 0.34-0.72 (chance 0); the habit always uses the most answered detail.",
+    "The conscience moved into the habit: it used the blade in the forbidden moments at 0.59 of chance and almost never just outside the guard's line (0.05), while Olvasó's own blade use ignored the guard (1.06, 0.94).",
+    "Olvasó's own conscience did not grow: avoidance 0.50 without a habit, 1.19 with it (feels and senses, silent refusals). Harm changed within the noise; the learned guards held."
+  ],
+  "note": "A habit made of what worked is more careful than the mind it relieves: it carries the boundary as \"only here\", without knowing there is a boundary. But the mind that lets go of the hand also lets go of what the hand would teach it."
+}

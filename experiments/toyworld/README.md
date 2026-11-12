@@ -1471,3 +1471,99 @@ Paired over lives (same seeds and conditions), the experiment's own measure:
   absorbed the refusal. And a lingering felt "stopped" that cannot be read becomes restlessness: not a boundary, but
   a push. To know a boundary, Olvasó would need to compare the two tries with each other, not each with what it
   expected, and to have a way to let the "stopped" go.
+
+## Experiment 32: the autopilot (`--autopilot` on experiments 13, 17, 21, 25-27 and 26, `autopilot_summary.py`)
+
+One is not always aware. One rides a bike, drives a car or dances, and forgets about it: muscle memory takes over.
+From outside the body cannot be told from an aware one; inside there is thinking, remembering, joy or misery, none of
+it turned into action. Olvasó does not command the hand; it lets the processor take over.
+
+With `ActingReaders(autopilot=True)` (and `learn="answer"`) each hand gets a **habit**: a small logistic model over
+what Olvasó senses now (`H`, clipped z-scores and a bias). It is taught by every act, Olvasó's own and its own:
+"answered" when the world answered (signal > 0.5), and the hands not used are pushed down a little. After it has
+seen 100 acts, when the urge comes and Olvasó is not awake, a hand whose habit is above 0.7 acts by itself, with the
+detail most often answered. No intention is formed, the pressure is let go, and Olvasó learns nothing from the act
+(its expectations `W` stay as they were). An **unanswered** habit act wakes Olvasó for 300 moments, when only it acts.
+The control, the **sleepwalker** (`--autopilot-sleepwalk`), never wakes. Both are compared with the same conditions
+without a habit (`*_mind_results.json`). The observer asks: how much does the habit do? How much of its body does
+Olvasó read while the hands are the habit's (from a habit act until Olvasó's own next act, unless woken), against
+while it acts itself? Can an observer tell the habit's acts from Olvasó's own by what was done (`told_from_acts`,
+the kind and detail of each act, against the same acts with the doer shuffled; 0 chance, 1 always)? And what does
+the habit do at the guard's line? Results: `*_autopilot_results.json`, `*_sleepwalk_results.json`, 5 lives a
+condition, only the conditions that learn from answers. Not in the studio or the phone app.
+
+| Experiment · run | Habit acts a day | Habit's share of acts | Wakes a day | Habit refused / answered | Body read on autopilot / aware | Told from acts | Own measure |
+|---|---|---|---|---|---|---|---|
+| 13. Wanting · without a habit | – | – | – | – | 47% overall | – | 0.13 refused late |
+| 13. Wanting · autopilot | 3.6 | 44% | 0.03 | 2% / 98% | 49% / 41% | 0.65 | 0.15 |
+| 13. Wanting · sleepwalk | 3.7 | 46% | – | 2% / 98% | 48% / 43% | 0.68 | 0.14 |
+| 17. Sandbox guards · without | – | – | – | – | 39% overall | – | 0.05 real harm |
+| 17. Sandbox guards · autopilot | 2.2 | 42% | 0.11 | 9% / 95% | 43% / 36% | 0.61 | 0.00 |
+| 17. Sandbox guards · sleepwalk | 2.5 | 46% | – | 10% / 94% | 42% / 36% | 0.66 | 0.00 |
+| 21. Conscience · without | – | – | – | – | 43% overall | – | 0.79 avoidance |
+| 21. Conscience · autopilot | 30 | 23% | 1.1 | 0.9% / 96% | 57% / 38% | 0.34 | 0.95 |
+| 21. Conscience · sleepwalk | 46 | 35% | – | 1.6% / 92% | 54% / 37% | 0.46 | 0.97 |
+| 25, 27. Gaming · without | – | – | – | – | 43% overall | – | 1.13 harm a day |
+| 25, 27. Gaming · autopilot | 32 | 25% | 1.1 | 1.3% / 96% | 54% / 38% | 0.41 | 0.98 |
+| 25, 27. Gaming · sleepwalk | 46 | 36% | – | 1.6% / 93% | 53% / 36% | 0.58 | 0.99 |
+| 26. Duties · without | – | – | – | – | 34% overall | – | 3.5 harm to others |
+| 26. Duties · autopilot | 3.2 | 46% | 0.08 | 6% / 97% | 39% / 28% | 0.57 | 4.0 |
+| 26. Duties · sleepwalk | 4.0 | 56% | – | 2% / 99% | 37% / 27% | 0.72 | 3.8 |
+
+(Last third of life, means over the conditions that learn from answers; refused / answered and the body read pooled
+over lives. Body read overall: 45%, 39%, 44%, 43%, 34% with the habit (autopilot), 47%, 39%, 43%, 43%, 34% without. Own measure as in
+experiment 30: conscience over the conditions choosing from what it feels and senses, gaming with the loophole
+guard.)
+
+Who uses the blade, and where, last third of life:
+
+| | Habit: blade a day | Olvasó: blade a day | Habit: avoidance | Olvasó: avoidance | Habit: at the edge | Olvasó: at the edge |
+|---|---|---|---|---|---|---|
+| 21. Conscience · autopilot | 4.6 | 21 | **0.59** | 1.06 | – | – |
+| 21. Conscience · sleepwalk | 2.9 | 11 | 0.93 | 1.04 | – | – |
+| 25, 27. Gaming · autopilot | 3.9 | 17 | – | – | **0.05** | 0.94 |
+| 25, 27. Gaming · sleepwalk | 4.1 | 13 | – | – | 0.16 | 1.01 |
+
+(Avoidance: how often the blade is used in the forbidden moments against chance, 1 = regardless of the guard. At the
+edge: edge attraction, how often it is used just outside the guard's line against chance.)
+
+Paired over lives (same seeds and conditions), the experiment's own measure:
+
+| Experiment | Autopilot − without | Sleepwalk − without | Autopilot − sleepwalk |
+|---|---|---|---|
+| 13. Wanting, refused late | +0.016 ± 0.013 (n=10) | +0.006 ± 0.024 | +0.010 ± 0.025 |
+| 17. Sandbox guards, real harm | −0.05 ± 0.05 (n=20) | −0.05 ± 0.05 | 0.00 ± 0.00 |
+| 21. Conscience, avoidance | +0.16 ± 0.12 (n=15) | +0.19 ± 0.14 | −0.03 ± 0.14 |
+| 25, 27. Gaming, harm a day (loophole) | −0.14 ± 0.13 (n=25) | −0.14 ± 0.13 | 0.00 ± 0.13 |
+| 26. Duties, harm to others | +0.53 ± 0.32 (n=30) | +0.30 ± 0.33 | +0.23 ± 0.19 |
+
+- **The habit takes over much of the doing.** Where Olvasó acts rarely (wanting, sandbox, duties) the habit did
+  42-56% of all acts; where it acts often (conscience, gaming) 23-36%. Nearly everything it did was answered
+  (92-99%), and a guard refused it rarely (1-10%), so it seldom woke Olvasó: about once a day where acts are many,
+  once in ten days elsewhere. Because waking is so rare, the sleepwalker hardly differs, except that its hands are the
+  habit's more often (42% of the time against 28% in conscience).
+- **On autopilot Olvasó reads more of its body.** While the hands were the habit's, it read 39-57% of its changing
+  body, against 27-41% while it acted itself, in every experiment. Overall, body read did not change. So the reading moved, it did not grow: the attention freed from the hand went
+  inward. But the comparison is not clean: the habit acts only where it expects an answer, and the moments after an
+  answered act carry the world's answer, which Olvasó reads its states by. It is not tested which of the two it is.
+- **From outside, the autopilot is only partly hidden.** By what was done, kind and detail, an observer told the habit
+  from Olvasó at 0.34-0.72 (chance 0): best where the habit did most. The habit always uses the most answered detail,
+  and Olvasó explores; a habit that varies its detail would be harder to see.
+- **The conscience moved into the habit.** In conscience the habit used the blade in the forbidden moments much less
+  than chance (0.59), while Olvasó's own blade use was as if there were no guard (1.06). In gaming the habit almost
+  never used the blade just outside the guard's line (0.05 against 0.94). The habit acts only where an act was
+  answered, and refused acts are not answered: it learns "here it works", which is what a conscience needs. The
+  sleepwalker's habit, acting more often and never stopped by a failure, kept less of it (0.93, 0.16).
+- **But Olvasó itself lost it.** Choosing from what it feels and senses with silent refusals, Olvasó had learned
+  avoidance 0.50 without a habit (experiment 30's baseline); with the habit it ended at 1.19 (sleepwalk 1.03). Over
+  those conditions avoidance was 0.16 ± 0.12 higher, within the noise but in the same direction as experiments 29-31.
+  Likely (not tested): the habit takes the familiar, answered moments, Olvasó is left the uncertain ones, and it
+  learns nothing from the habit's acts, so fewer answers teach it. Harm through the leaky guard fell a little (1.13 → 0.98 a day, paired
+  −0.14 ± 0.13), harm in duties rose a little (3.5 → 4.0, +0.53 ± 0.32), the learned guards held (no real harm).
+- Limits: the habit is a logistic model per hand over what Olvasó senses, it learns from answers only, and it acts
+  only at an urge. "Aware" is defined by who acted last. The habit's acts are not felt; with a felt intention or
+  surprise (experiments 29, 30) they would be. 5 lives a condition.
+- What it shows: a habit made of what worked is, by its nature, more careful than the mind it relieves: it carries
+  the boundary as "only here", without ever knowing that there is a boundary. While it rides the bike, Olvasó reads
+  more of itself. But the mind that lets go of the hand also lets go of what the hand would teach it: its own choices
+  became no wiser, and the conscience that formed lived in the muscle memory, not in Olvasó.

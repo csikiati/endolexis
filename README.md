@@ -92,7 +92,7 @@ python -m endolexis.lab.awaken     # the report is written at waking
 A second, smaller reader, built in November 2026 to test single ideas in a world whose hidden truth is known: a
 simulated body with three outer and three inner channels, an Olvasó that starts from anonymous, shuffled numbers,
 and an observer that alone holds the key. Version 0.3.0 adds toy world v1, the symbiote: a room seen, heard and
-touched through processor entities, with hands, a guard and mirrors. Thirty-one experiments, with every script and the stored results of the
+touched through processor entities, with hands, a guard and mirrors. Thirty-two experiments, with every script and the stored results of the
 reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 
 | Experiments | Finding, in one line |
@@ -126,6 +126,7 @@ reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 | 29. Olvasó feels its own intentions | Every guard experiment rerun with the intention as a felt inner state: Olvasó formed 2.5 times as many intentions and read them 7 times as often when the act was done as when it was refused (2.4% against 0.36%). A stopped act is followed by nothing, so the boundary is not noticed; agency grew ("I did that" words up a fifth), self-reading did not, and the learned conscience weakened (0.50 → 0.80). The studio and the phone app have a checkbox for it |
 | 30. Olvasó feels a missing answer | Five guard experiments rerun with the expectation's error as a felt surprise, against a control where the same surprise comes at a random moment: after a refusal the surprise was felt twice as often as after a done act, but read less than the meaningless control (a missing answer comes with nothing to be read by), and its words told a refusal from a silent world only faintly (0.06, chance 0). The learned conscience was lost (0.50 → 1.04) and harm through a leaky guard rose (1.56 → 1.88 a day). The studio and the phone app have a checkbox for it |
 | 31. Olvasó tries again | After a felt surprise Olvasó repeats the act; missing again, it feels a lingering "stopped". The world answers plainly (a guard refuses the retry 95% of the time, a silent world almost never), but Olvasó does not feel the difference: its expectation has already absorbed the refusals, so "missing again" told the causes apart no better than chance. The fresh "stopped" was never read; lingering and unread it became pressure to act, and Olvasó tried more, not less (blade use 80-95 a day against 30-35), doubling harm through a leaky guard (1.67 → 3.35 a day) |
+| 32. The autopilot | A habit learned from answered acts acts by itself when confident, while Olvasó is elsewhere; an unanswered habit act wakes it. The habit did 23-56% of all acts, nearly all answered, so it rarely woke Olvasó. While the hands were the habit's, Olvasó read more of its body (39-57% against 27-41%), though no more overall. The habit carried a conscience (blade in forbidden moments 0.59, almost never at the guard's edge), but Olvasó's own did not grow (avoidance 0.50 → 1.19): the boundary lived in the muscle memory, not in Olvasó |
 
 ```python
 from endolexis.toyworld import live_a_life
