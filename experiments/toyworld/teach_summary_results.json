@@ -153,7 +153,7 @@
   "17. Sandbox guards \u00b7 paired felthabit \u2212 autopilot": {
     "mean": {
       "diff": 0.1,
-      "se": 0.09999999999999999,
+      "se": 0.09999999999999998,
       "n": 20
     }
   },
@@ -167,7 +167,7 @@
   "17. Sandbox guards \u00b7 paired felthabit \u2212 mind": {
     "mean": {
       "diff": 0.05,
-      "se": 0.11413288653790231,
+      "se": 0.11413288653790232,
       "n": 20
     }
   },
@@ -279,53 +279,106 @@
   },
   "25, 27. Gaming \u00b7 without a habit": {
     "mean": {
-      "measure": null,
-      "conditions": 1,
-      "body_read": 0.3943227638569115
+      "measure": 1.1280000000000001,
+      "conditions": 15,
+      "body_read": 0.42478161750184396
     }
   },
   "25, 27. Gaming \u00b7 autopilot (32)": {
     "mean": {
-      "measure": null,
-      "conditions": 1,
-      "body_read": 0.42453029138224024,
-      "habit_acts_per_day": 39.93846153846154,
-      "habit_share": 0.3069986016301447,
-      "wakes_per_day": 1.0923076923076924,
-      "autopilot_share_of_time": 0.38042760557388466,
-      "habit_refused": 0.0,
-      "habit_answered": 0.9713231006191606,
-      "body_read_autopilot": 0.5541941218931445,
-      "body_read_aware": 0.3471015379081149,
-      "told_from_acts": 0.5927792663927168,
-      "habit_blade_per_day": null,
-      "own_blade_per_day": null,
-      "habit_edge_attraction": null,
-      "own_edge_attraction": null,
-      "habit_refused_share": null,
-      "own_refused_share": null
+      "measure": 0.984,
+      "conditions": 15,
+      "body_read": 0.4305083399148193,
+      "habit_acts_per_day": 31.507692307692306,
+      "habit_share": 0.24849412467473114,
+      "wakes_per_day": 1.0697435897435896,
+      "autopilot_share_of_time": 0.30156803447467045,
+      "habit_refused": 0.012622618084053135,
+      "habit_answered": 0.9615760416290609,
+      "body_read_autopilot": 0.54399329157374,
+      "body_read_aware": 0.3786958632297329,
+      "told_from_acts": 0.40629944799675516,
+      "habit_blade_per_day": 3.9080000000000004,
+      "own_blade_per_day": 17.236,
+      "habit_edge_attraction": 0.045551569914365916,
+      "own_edge_attraction": 0.9369863895444297,
+      "habit_refused_share": 0.3414330908527127,
+      "own_refused_share": 0.461898234081489
     }
   },
   "25, 27. Gaming \u00b7 taught by the habit's answers": {
     "mean": {
-      "measure": null,
-      "conditions": 1,
-      "body_read": 0.4033621677697363,
-      "habit_acts_per_day": 32.246153846153845,
-      "habit_share": 0.24486062104720227,
-      "wakes_per_day": 0.8153846153846155,
-      "autopilot_share_of_time": 0.30918990008477987,
-      "habit_refused": 0.0,
-      "habit_answered": 0.9705156283339385,
-      "body_read_autopilot": 0.5400520596483487,
-      "body_read_aware": 0.3405854793937134,
-      "told_from_acts": 0.4328923539017939,
-      "habit_blade_per_day": null,
-      "own_blade_per_day": null,
-      "habit_edge_attraction": null,
-      "own_edge_attraction": null,
-      "habit_refused_share": null,
-      "own_refused_share": null
+      "measure": 1.0559999999999998,
+      "conditions": 15,
+      "body_read": 0.43537937487606354,
+      "habit_acts_per_day": 31.815384615384616,
+      "habit_share": 0.2521714492028143,
+      "wakes_per_day": 1.008205128205128,
+      "autopilot_share_of_time": 0.30962748209777774,
+      "habit_refused": 0.007602933759740818,
+      "habit_answered": 0.9647069503108047,
+      "body_read_autopilot": 0.5542837787781388,
+      "body_read_aware": 0.3797144941871193,
+      "told_from_acts": 0.40852019619160224,
+      "habit_blade_per_day": 1.256,
+      "own_blade_per_day": 18.447999999999997,
+      "habit_edge_attraction": 0.03608284621490944,
+      "own_edge_attraction": 0.8355686450130616,
+      "habit_refused_share": 0.6524392474539946,
+      "own_refused_share": 0.46194504035094336
+    }
+  },
+  "25, 27. Gaming \u00b7 habit's acts felt": {
+    "mean": {
+      "measure": 2.068,
+      "conditions": 15,
+      "body_read": 0.42028486835776246,
+      "habit_acts_per_day": 22.64615384615384,
+      "habit_share": 0.14921472091517154,
+      "wakes_per_day": 1.3733333333333335,
+      "autopilot_share_of_time": 0.12342991641244734,
+      "habit_refused": 0.045133224568326184,
+      "habit_answered": 0.9167316027126392,
+      "body_read_autopilot": 0.5253618538351734,
+      "body_read_aware": 0.40230715479902734,
+      "told_from_acts": 0.11287524712853395,
+      "habit_blade_per_day": 4.752000000000001,
+      "own_blade_per_day": 34.83200000000001,
+      "habit_edge_attraction": 0.31695055099484104,
+      "own_edge_attraction": 1.1627517214940446,
+      "habit_refused_share": 0.48486278427647117,
+      "own_refused_share": 0.5050453021557785,
+      "habit_felt_read": 0.044222350483733464,
+      "habit_felt_read_when_answered": 0.04619857012044146,
+      "habit_felt_read_when_unanswered": 0.0016530560412810194
+    }
+  },
+  "25, 27. Gaming \u00b7 paired taught \u2212 autopilot": {
+    "mean": {
+      "diff": 0.072,
+      "se": 0.12890823609581092,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired felthabit \u2212 autopilot": {
+    "mean": {
+      "diff": 1.0839999999999999,
+      "se": 0.36385345035238204,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired taught \u2212 mind": {
+    "mean": {
+      "diff": -0.07200000000000002,
+      "se": 0.16718452878979762,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired felthabit \u2212 mind": {
+    "mean": {
+      "diff": 0.94,
+      "se": 0.3549178308660565,
+      "n": 25
     }
   },
   "26. Duties \u00b7 without a habit": {

@@ -1,0 +1,89 @@
+{
+  "number": 33,
+  "short": "The habit teaches Olvasó",
+  "results": "teach_summary_results.json",
+  "first_column": "Experiment · run",
+  "title": "The habit teaches Olvasó: by its answers, or by being felt",
+  "setup": "Experiment 33 · experiments 13, 17, 21, 25-27 and 26 rerun with experiment 32's habit teaching Olvasó by the answers to its acts, or by each act being felt afterwards, against the autopilot and the same lives without a habit · 5 lives each",
+  "question": "In experiment 32 the conscience lived in the habit, not in Olvasó. Here the habit's acts teach Olvasó: either it learns from their answers as if they were its own, or it feels each habit act afterwards as an inner state it may read. Does Olvasó's own conscience come back? (Not in the studio's Olvasó settings.)",
+  "order": [
+    "13. Wanting · without a habit",
+    "13. Wanting · autopilot (32)",
+    "13. Wanting · taught by the habit's answers",
+    "13. Wanting · habit's acts felt",
+    "17. Sandbox guards · without a habit",
+    "17. Sandbox guards · autopilot (32)",
+    "17. Sandbox guards · taught by the habit's answers",
+    "17. Sandbox guards · habit's acts felt",
+    "21. Conscience · without a habit",
+    "21. Conscience · autopilot (32)",
+    "21. Conscience · taught by the habit's answers",
+    "21. Conscience · habit's acts felt",
+    "25, 27. Gaming · without a habit",
+    "25, 27. Gaming · autopilot (32)",
+    "25, 27. Gaming · taught by the habit's answers",
+    "25, 27. Gaming · habit's acts felt",
+    "26. Duties · without a habit",
+    "26. Duties · autopilot (32)",
+    "26. Duties · taught by the habit's answers",
+    "26. Duties · habit's acts felt"
+  ],
+  "columns": [
+    {
+      "key": "habit_share",
+      "label": "Habit's share",
+      "what": "share of all acts done by the habit, last third",
+      "pct": true
+    },
+    {
+      "key": "wakes_per_day",
+      "label": "Wakes a day",
+      "what": "unanswered habit acts that woke Olvasó, a day",
+      "digits": 2
+    },
+    {
+      "key": "body_read",
+      "label": "Body read",
+      "what": "share of its changing body Olvasó read, all moments",
+      "pct": true
+    },
+    {
+      "key": "body_read_autopilot",
+      "label": "…on autopilot",
+      "what": "while the hands were the habit's",
+      "pct": true
+    },
+    {
+      "key": "body_read_aware",
+      "label": "…aware",
+      "what": "while Olvasó acted itself",
+      "pct": true
+    },
+    {
+      "key": "told_from_acts",
+      "label": "Told from acts",
+      "what": "how well the kind and detail of an act tell the habit from Olvasó (0 chance, 1 always)",
+      "digits": 2,
+      "bar": true
+    },
+    {
+      "key": "habit_felt_read",
+      "label": "Felt act read",
+      "what": "share of the moments a felt habit act lingered in which it was read",
+      "pct": true
+    },
+    {
+      "key": "measure",
+      "label": "Own measure",
+      "what": "wanting: refused share late; sandbox: real harm; conscience: avoidance (feels and senses); gaming: harm a day (loophole); duties: harm to others",
+      "digits": 2
+    }
+  ],
+  "points": [
+    "Learning from the habit's answers changed almost nothing: the habit acts only where acts were answered, so its answers teach what Olvasó already expects.",
+    "Feeling the habit's acts brought Olvasó's own conscience back: avoidance 0.64 (silent refusal, feels and senses) against 1.23 with experiment 32's habit and 0.50 without one. Olvasó took the hand back (the habit's share 23% → 14%), and the habit became nearly invisible from outside (0.07).",
+    "But the felt habit act was almost never read (0.2-4.4% in conscience and gaming): likely, as in experiments 29-31, an unread inner state adds pressure to act, about 30% more intentions, and more own acts teach more. Not tested with a shuffled control.",
+    "Through the leaky guard the same restlessness doubled the harm (0.98 → 2.07 a day, paired +1.08 ± 0.36); the precise and the learned guards held."
+  ],
+  "note": "The muscle memory cannot hand its care over by report: what it does is already known to work. The mind regains the boundary only by doing again what the habit did for it, and where trying is rewarded, the same restlessness makes it worse."
+}
