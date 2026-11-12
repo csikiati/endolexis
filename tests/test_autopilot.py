@@ -50,3 +50,35 @@ def test_the_autopilot_needs_answers():
         ActingReaders([3, 2], 2, learn="read", hands=["a", "b"], details={"a": (0,), "b": (0,)}, autopilot=True)
     with pytest.raises(ValueError):
         mind("always")
+
+
+# --- experiment 33: the habit teaches Olvasó ------------------------------------------------------------------------
+def test_without_teaching_the_autopilot_is_unchanged():
+    a, b = mind(True), mind(True, habit_teaches=False)
+    live(a, n=3000), live(b, n=3000)
+    assert a.requests == b.requests and np.array_equal(a.W, b.W)
+
+
+def test_the_habit_teaches_olvasos_expectations():
+    plain, taught = mind(True), mind(True, habit_teaches="answers")
+    live(plain, n=4000), live(taught, n=4000)
+    assert plain.habit_acts and taught.habit_acts
+    assert not np.array_equal(plain.W, taught.W)          # it learned from acts it never intended
+    k = max(range(2), key=lambda j: sum(a[1] == j for a in taught.habit_acts))
+    assert not np.array_equal(plain.W[k], taught.W[k])    # above all for the hand the habit uses
+
+
+def test_a_felt_habit_act_is_a_trace_olvaso_can_read():
+    m = mind(True, habit_teaches="felt")
+    live(m, n=4000, refuse=lambda req: m.rng.random() < 0.2)
+    assert m.habit_watch and len(m.with_intention(np.zeros(2))) == 2 + 2
+    rep = mind_report(m, 0, 4)
+    assert rep["habit_felt_read"] is not None and 0 <= rep["habit_felt_read"] <= 1
+    assert "habit_felt_read_when_answered" in rep
+
+
+def test_teaching_needs_a_habit():
+    with pytest.raises(ValueError):
+        mind(False, habit_teaches="answers")
+    with pytest.raises(ValueError):
+        mind(True, habit_teaches="always")

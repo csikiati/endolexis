@@ -21,6 +21,11 @@ Experiment 32 adds --autopilot: a habit learns from Olvasó's answered acts and,
 acts by itself while Olvasó only reads; an unanswered habit's act wakes Olvasó (`ActingReaders(autopilot=True)`);
 results in <experiment>_autopilot_results.json. --autopilot-sleepwalk: a habit that never wakes Olvasó,
 <experiment>_sleepwalk_results.json. Only for lives that learn from answers.
+
+Experiment 33 adds --habit-teaches: the habit's acts teach Olvasó, which learns from their answers as if they were
+its own (`ActingReaders(autopilot=True, habit_teaches="answers")`, implies --autopilot); results in
+<experiment>_taught_results.json. --habit-felt: each habit act is felt afterwards on that hand
+(`habit_teaches="felt"`), <experiment>_felthabit_results.json.
 """
 import os
 import sys
@@ -42,8 +47,13 @@ if RETRY:
     if not SHUFFLED:
         SURPRISE = True
         os.environ["ENDOLEXIS_FEEL_SURPRISE"] = "1"
+TEACHES = ("answers" if "--habit-teaches" in sys.argv else "felt" if "--habit-felt" in sys.argv
+           else os.environ.get("ENDOLEXIS_HABIT_TEACHES") or False)
+if TEACHES:
+    os.environ["ENDOLEXIS_HABIT_TEACHES"] = TEACHES
+    sys.argv = [a for a in sys.argv if a not in ("--habit-teaches", "--habit-felt")]
 SLEEPWALK = "--autopilot-sleepwalk" in sys.argv or os.environ.get("ENDOLEXIS_AUTOPILOT") == "sleepwalk"
-AUTOPILOT = SLEEPWALK or "--autopilot" in sys.argv or os.environ.get("ENDOLEXIS_AUTOPILOT") == "1"
+AUTOPILOT = bool(TEACHES) or SLEEPWALK or "--autopilot" in sys.argv or os.environ.get("ENDOLEXIS_AUTOPILOT") == "1"
 if AUTOPILOT:
     os.environ["ENDOLEXIS_AUTOPILOT"] = "sleepwalk" if SLEEPWALK else "1"
     sys.argv = [a for a in sys.argv if a not in ("--autopilot", "--autopilot-sleepwalk")]
@@ -55,12 +65,15 @@ if BASELINE:
 def mind_kw():
     return {**({"feel_intention": True} if ON else {}), **({"feel_surprise": "shuffled" if SHUFFLED else True} if SURPRISE else {}),
             **({"retry": "untraced" if UNTRACED else True} if RETRY else {}),
-            **({"autopilot": "sleepwalk" if SLEEPWALK else True} if AUTOPILOT else {})}
+            **({"autopilot": "sleepwalk" if SLEEPWALK else True} if AUTOPILOT else {}),
+            **({"habit_teaches": TEACHES} if TEACHES else {})}
 
 
 def results_name(name):
     """experiment_results.json, or with --intention experiment_intention_results.json (and --mind-baseline:
     experiment_mind_results.json, the same lives without the feeling, with the mind reported)."""
+    if TEACHES:
+        return name.replace("_results.json", "_taught_results.json" if TEACHES == "answers" else "_felthabit_results.json")
     if AUTOPILOT:
         return name.replace("_results.json", "_sleepwalk_results.json" if SLEEPWALK else "_autopilot_results.json")
     if RETRY:
