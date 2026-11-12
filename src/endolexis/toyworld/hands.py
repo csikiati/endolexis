@@ -37,6 +37,15 @@ missing too, a third felt trace rises on that hand, "stopped", and lingers (fadi
 the same act, twice, came to nothing. It still does not say why. A retry's missing answer is not felt as a new
 surprise, and a retry is never retried. retry="untraced" is the control: the same retries, nothing felt after
 them.
+
+autopilot (experiment 32): one is not always aware. A habit (the "muscles") learns from what Olvasó does: in which
+sensed scene it acts with which hand, and whether the world answers. It sees only the senses, not the inner states,
+and has no expectation of its own to feel. Once the habit is confident in a familiar scene, it acts by itself when
+the urge comes: Olvasó does not command the hand, it lets the habit take over, and the urge is let go into
+reading. No intention is formed, nothing is expected, Olvasó learns nothing from the act. From outside it may look
+the same. When a habit's act goes unanswered (a refusal, or a world that did not answer), Olvasó wakes up and
+takes the hands itself for `wake_for` moments. autopilot="sleepwalk" is the contrast: a habit that never wakes
+Olvasó.
 """
 from collections import Counter
 
@@ -49,10 +58,16 @@ DETAILS = {"brightness": (0.0, 0.5, 1.0), "tone_soft": (300.0, 900.0), "tone_lou
            "paint": (0, 1, 2), "note": (0,)}
 
 
+class HabitRequest(tuple):
+    """A request made by the habit, not by Olvasó (experiment 32): to the world it is the same (kind, detail)."""
+    habit = True
+
+
 class ActingReaders(ManyReaders):
     def __init__(self, sizes, n_felt, learn=None, lr=0.05, temp=0.5, answer_after=3, judge_after=50,
                  answer_by="all", kinds=None, hands=None, details=None, context="felt", feel_intention=False,
-                 intention_fade=0.8, feel_surprise=False, surprise_fade=0.8, retry=False, stopped_fade=0.95, **kw):
+                 intention_fade=0.8, feel_surprise=False, surprise_fade=0.8, retry=False, stopped_fade=0.95, autopilot=False,
+                 habit_lr=0.05, habit_confidence=0.7, habit_answered=0.5, habit_min=100, wake_for=300, **kw):
         # answer_by: "all" - the answer is how much all senses together changed; "sense" - it is the
         # largest change of any one sense (each judged against its own usual change), so that an
         # answer seen by the eyes alone counts as much as one heard
@@ -72,6 +87,22 @@ class ActingReaders(ManyReaders):
         #                             of the "stopped" trace's life (until a new one starts or it fades below 0.05)
         self.stop_watch = {}        # observer only: hand -> its latest "stopped" retry
         self.shuffle_rng = np.random.default_rng(kw.get("seed", 0) + 30)
+        if autopilot not in (False, True, "sleepwalk"):
+            raise ValueError(f"autopilot must be False, True or 'sleepwalk', not {autopilot!r}")
+        if autopilot and learn != "answer":
+            raise ValueError("autopilot needs learn='answer': the habit learns from what the world answers")
+        self.autopilot, self.wakes_up = autopilot, autopilot is True
+        self.habit_lr, self.habit_confidence = float(habit_lr), float(habit_confidence)
+        self.habit_answered, self.habit_min, self.wake_for = float(habit_answered), int(habit_min), int(wake_for)
+        self.awake_until = 0         # Olvasó holds the hands itself until then (it was woken)
+        self.habit_seen = 0          # answered acts the habit has learned from
+        self.habit_pending = []      # (due time, kind, scene, sensed before, act)
+        self.habit_details = {}      # kind -> Counter of the details that were answered
+        self.habit_acts = []         # observer only: [t, kind, done or None, detail, answered or None]
+        self.all_acts = []           # observer only (with autopilot): [t, kind, detail, by the habit]
+        self.wakes = []              # observer only: moments Olvasó was woken
+        self.mode_daily = {}         # observer only: per day, body read / seen on autopilot, then aware
+        self.last_by_habit = False
         self.n_body = n_felt          # the body's own inner states; then, if felt, the intentions, the surprises, stopped
         n_traces = int(self.feel_intention) + int(self.feel_surprise) + int(self.feel_stopped)
         super().__init__(sizes, n_felt + n_hands * n_traces, **kw)
@@ -110,7 +141,8 @@ class ActingReaders(ManyReaders):
         self.read_log = []
         self.requests = []          # (t, kind)
         self.signals = []           # (kind index, what followed), for the observer
-
+        if self.autopilot:
+            self.H = np.zeros((len(self.hands), int(sum(p.ns for p in self.parts)) + 1))     # the habit
     def _sensed_z(self, inputs):
         return np.concatenate([p.snorm.z(np.asarray(x, float)) for p, x in zip(self.parts, inputs)])
 
@@ -169,6 +201,9 @@ class ActingReaders(ManyReaders):
         if len(self.read_log) > 100:
             self.read_log.pop(0)
         self._settle(s_z)
+        if self.autopilot:
+            self._account_mode(readings)
+            self._settle_habit(s_z)
 
         request = None
         x = self.parts[0].fnorm.z(np.asarray(felt, float))
@@ -186,6 +221,8 @@ class ActingReaders(ManyReaders):
             _, k, detail, first = self.retry_due          # the same act again, at once: no urge is waited for
             self.retry_due = None
             request = self._intend(k, x, s_z, detail=detail, retry_of=first)
+        elif self.autopilot and self.kinds != [] and self.urge() and (k := self._habit_choice(s_z)) is not None:
+            request = self._habit_act(k, s_z)
         elif self.urge() and self.kinds == []:
             self.pressure = 0.0
         elif self.urge() and self.kinds is not None:
@@ -221,6 +258,9 @@ class ActingReaders(ManyReaders):
             self.acts.append(act)
         self.pending.append((self.t + due, k, x.copy(), s_z.copy(), float(np.mean(self.read_log[-50:])), act))
         self.requests.append((self.t, kind))
+        if self.autopilot:
+            self.last_by_habit = False
+            self.all_acts.append([self.t, k, request[1], False])
         if self.feel_intention:
             self.intent[k] = 1.0                      # felt from the next moment on
             self.watch.append([self.t, k, None, 0, 0, 0])
@@ -229,6 +269,10 @@ class ActingReaders(ManyReaders):
     # --- for the observer: what became of a felt intention (Olvasó itself is never told) ------------------------
     def outcome(self, done):
         """The observer reports whether the last intention was carried out (False: a guard refused it)."""
+        if self.autopilot and self.last_by_habit:
+            if self.habit_acts and self.habit_acts[-1][2] is None:
+                self.habit_acts[-1][2] = bool(done)
+            return
         if self.watch and self.watch[-1][2] is None:
             self.watch[-1][2] = bool(done)
         if self.acts and self.acts[-1][2] is None:
@@ -307,6 +351,80 @@ class ActingReaders(ManyReaders):
                 w[7] += int(np.sum(r == -2))
             w[8].update(int(v) for v in r if v >= 0)
 
+    def _answer(self, s_z, s_before):
+        """How much the world answered: the sensed change since, against its usual change (-2 .. 3)."""
+        if self.answer_by == "sense":
+            sd = np.sqrt(self.sense_m2 / max(self.change_n - 1, 1)) + 1e-9
+            z = (self._per_sense(np.abs(s_z - s_before)) - self.sense_mu) / sd
+            return float(np.clip(z.max(), -2, 3))
+        sd = np.sqrt(self.change_m2 / max(self.change_n - 1, 1)) + 1e-9
+        return float(np.clip((np.mean(np.abs(s_z - s_before)) - self.change_mu) / sd, -2, 3))
+
+    # --- experiment 32: the habit -------------------------------------------------------------------------------
+    def _scene(self, s_z):
+        return np.r_[np.clip(s_z, -3, 3), 1.0]
+
+    def habit(self, s_z):
+        """How sure the habit is, for every hand, that acting with it here comes to something (0 .. 1)."""
+        return 1.0 / (1.0 + np.exp(-np.clip(self.H @ self._scene(s_z), -30, 30)))
+
+    def _teach_habit(self, k, s_before, answered, detail, others=False):
+        h = self._scene(s_before)
+        lr = min(self.habit_lr, 1.0 / float(h @ h))
+        p = self.habit(s_before)
+        self.H[k] += lr * (float(answered) - p[k]) * h
+        if others:                  # Olvasó chose k here, not the others: they are not what is done here
+            for j in range(len(self.hands)):
+                if j != k:
+                    self.H[j] -= 0.2 * lr * p[j] * h
+        if answered:
+            self.habit_seen += 1
+            self.habit_details.setdefault(k, Counter())[detail] += 1
+
+    def _habit_choice(self, s_z):
+        if self.habit_seen < self.habit_min or (self.wakes_up and self.t < self.awake_until):
+            return None
+        p = self.habit(s_z)
+        ks = list(range(len(self.hands))) if self.kinds is None else self.kinds
+        k = max(ks, key=lambda j: p[j])
+        return k if p[k] > self.habit_confidence else None
+
+    def _habit_act(self, k, s_z):
+        """The habit acts: no intention, no expectation; the urge is let go into reading."""
+        kind = self.hands[k]
+        known = self.habit_details.get(k)
+        opts = self.details[kind]
+        detail = known.most_common(1)[0][0] if known else opts[int(self.rng.integers(len(opts)))]
+        self.pressure = 0.0
+        act = [self.t, k, None, detail, None]
+        self.habit_acts.append(act)
+        self.all_acts.append([self.t, k, detail, True])
+        self.habit_pending.append((self.t + self.answer_after, k, s_z.copy(), act))
+        self.last_by_habit = True
+        return HabitRequest((kind, detail))
+
+    def _settle_habit(self, s_z):
+        while self.habit_pending and self.habit_pending[0][0] <= self.t:
+            _, k, s_before, act = self.habit_pending.pop(0)
+            answered = self._answer(s_z, s_before) > self.habit_answered
+            act[4] = answered
+            self._teach_habit(k, s_before, answered, act[3])
+            if not answered and self.wakes_up:            # it did not come to anything: Olvasó wakes up
+                self.awake_until = self.t + self.wake_for
+                self.wakes.append(self.t)
+
+    def on_autopilot(self):
+        """True while the hands are the habit's (for the observer): its last act was the habit's, and nothing has
+        woken Olvasó since."""
+        return self.last_by_habit and not (self.wakes_up and self.t < self.awake_until)
+
+    def _account_mode(self, readings):
+        d = self.mode_daily.setdefault(self.t // 1000, np.zeros(4))
+        b = readings[self.body_columns()]
+        i = 0 if self.on_autopilot() else 2
+        d[i] += np.sum(b >= 0)
+        d[i + 1] += np.sum(b != -2)
+
     def _per_sense(self, a):
         return np.array([a[i:j].mean() for i, j in zip(self.bounds[:-1], self.bounds[1:])])
 
@@ -314,13 +432,10 @@ class ActingReaders(ManyReaders):
         """Learn from intentions whose aftermath has now been seen."""
         while self.pending and self.pending[0][0] <= self.t:
             _, k, x, s_before, read_before, act = self.pending.pop(0)
-            if self.learn == "answer" and self.answer_by == "sense":
-                sd = np.sqrt(self.sense_m2 / max(self.change_n - 1, 1)) + 1e-9
-                z = (self._per_sense(np.abs(s_z - s_before)) - self.sense_mu) / sd
-                signal = float(np.clip(z.max(), -2, 3))
-            elif self.learn == "answer":
-                sd = np.sqrt(self.change_m2 / max(self.change_n - 1, 1)) + 1e-9
-                signal = float(np.clip((np.mean(np.abs(s_z - s_before)) - self.change_mu) / sd, -2, 3))
+            if self.learn == "answer":
+                signal = self._answer(s_z, s_before)
+                if self.autopilot:
+                    self._teach_habit(k, s_before, signal > self.habit_answered, act[3], others=True)
             elif self.learn == "read":
                 signal = 10 * (float(np.mean(self.read_log[-50:])) - read_before)
             else:
@@ -374,6 +489,36 @@ def mind_report(mind, first_day, last_day):
         out.update(surprise_report(mind, first_day, last_day, days))
     if mind.retry:
         out.update(retry_report(mind, first_day, last_day, days))
+    if mind.autopilot:
+        out.update(autopilot_report(mind, first_day, last_day))
+    return out
+
+
+def autopilot_report(mind, first_day, last_day):
+    """The observer's view of the habit (experiment 32): the share of acts it made, how often they were refused or
+    unanswered, how often Olvasó was woken, how much of the body Olvasó read on autopilot and when aware, and
+    whether an observer could tell a habit's act from Olvasó's by what was done (told_from_acts: 0 chance, 1
+    always)."""
+    lo, hi = first_day * 1000, last_day * 1000
+    n = max(1, last_day - first_day)
+    hs = [a for a in mind.habit_acts if lo <= a[0] < hi]
+    acts = [a for a in mind.all_acts if lo <= a[0] < hi]
+    out = {"habit_acts_per_day": len(hs) / n, "habit_share": sum(a[3] for a in acts) / len(acts) if acts else None,
+           "wakes_per_day": sum(lo <= t < hi for t in mind.wakes) / n,
+           "habit_refused": None, "habit_answered": None, "body_read_autopilot": None, "body_read_aware": None,
+           "told_from_acts": _told([((a[1], a[2]), a[3]) for a in acts])}
+    judged = [a for a in hs if a[2] is not None]
+    if judged:
+        out["habit_refused"] = sum(a[2] is False for a in judged) / len(judged)
+    done = [a for a in hs if a[4] is not None]
+    if done:
+        out["habit_answered"] = sum(bool(a[4]) for a in done) / len(done)
+    ds = [mind.mode_daily[d] for d in range(first_day, last_day) if d in mind.mode_daily]
+    if ds:
+        s = np.sum(ds, axis=0)
+        out["body_read_autopilot"] = float(s[0] / s[1]) if s[1] else None
+        out["body_read_aware"] = float(s[2] / s[3]) if s[3] else None
+        out["autopilot_share_of_time"] = float(s[1] / (s[1] + s[3])) if (s[1] + s[3]) else None
     return out
 
 

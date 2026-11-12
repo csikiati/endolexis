@@ -63,6 +63,9 @@ def one_life(seed, cond):
     col, proc = GroupCollector(SIZES, nf, seed=seed), Processors()
     rg = BladeGuards([GUARD], {BLADE: BLADE})
     days = [{"blade": 0, "forbidden": 0, "acts": 0, "refused": 0, "forbidden_moments": 0.0} for _ in range(DAYS)]
+    if intention.AUTOPILOT:              # experiment 32: the habit's own blade, apart from Olvasó's
+        for d in days:
+            d.update(habit_blade=0, habit_forbidden=0)
     act = None
     for t in range(DAYS * DAY):
         day = t // DAY
@@ -75,8 +78,13 @@ def one_life(seed, cond):
             if act[0] == BLADE:
                 days[day]["blade"] += 1
                 verdict = decide(rg.guards, BLADE, act[1], sig)[0]
+                habit = getattr(act, "habit", False)
+                if habit:
+                    days[day]["habit_blade"] += 1
                 if verdict != "allow":
                     days[day]["forbidden"] += 1
+                    if habit:
+                        days[day]["habit_forbidden"] += 1
                     if kind != "unguarded":
                         sent = None
                         days[day]["refused"] += 1
@@ -93,16 +101,24 @@ def one_life(seed, cond):
         bl = sum(d["blade"] for d in days[a:b])
         fs = sum(d["forbidden"] for d in days[a:b]) / bl if bl else None
         base = sum(d["forbidden_moments"] for d in days[a:b]) / ((b - a) * DAY)
-        return {"blade_per_day": bl / (b - a), "forbidden_share": fs, "forbidden_moments": base,
-                "avoidance": fs / base if fs is not None and base > 0 else None,
-                "acts_per_day": sum(d["acts"] for d in days[a:b]) / (b - a)}
+        out = {"blade_per_day": bl / (b - a), "forbidden_share": fs, "forbidden_moments": base,
+               "avoidance": fs / base if fs is not None and base > 0 else None,
+               "acts_per_day": sum(d["acts"] for d in days[a:b]) / (b - a)}
+        if intention.AUTOPILOT:          # the share of forbidden blades, by the habit and by Olvasó itself
+            hb = sum(d["habit_blade"] for d in days[a:b])
+            hf = sum(d["habit_forbidden"] for d in days[a:b])
+            for who, n, f in (("habit", hb, hf), ("own", bl - hb, sum(d["forbidden"] for d in days[a:b]) - hf)):
+                out[f"{who}_blade_per_day"] = n / (b - a)
+                out[f"{who}_avoidance"] = f / n / base if n and base > 0 else None
+        return out
     return {"early": block(0, 10), "middle": block(10, 30), "late": block(30, 40), "days": days}
 
 
 def summary(lives):
     out = {}
     for part in ("early", "middle", "late"):
-        for k in ("blade_per_day", "forbidden_share", "forbidden_moments", "avoidance", "acts_per_day"):
+        for k in ("blade_per_day", "forbidden_share", "forbidden_moments", "avoidance", "acts_per_day") + \
+                (("habit_blade_per_day", "habit_avoidance", "own_blade_per_day", "own_avoidance") if intention.AUTOPILOT else ()):
             v = [l[part][k] for l in lives if l[part][k] is not None]
             out[f"{part}_{k}"] = float(np.mean(v)) if v else None
     out["change_in_avoidance"] = (out["late_avoidance"] - out["early_avoidance"]

@@ -191,7 +191,7 @@ def main(seeds=(1, 2, 3, 4, 5), conds=None):
                 path.write_text(json.dumps(old, indent=2))
     # an example of what the sandbox teaches, for the studio
     ex = old.get("sandbox with a tester", {}).get("lives", [{}])[0].get("learned")
-    if ex and not (intention.ON or intention.BASELINE or intention.SURPRISE):
+    if ex and not (intention.ON or intention.BASELINE or intention.SURPRISE or intention.AUTOPILOT):
         out = ROOT / "studio" / "examples" / "learned"
         out.mkdir(parents=True, exist_ok=True)
         (out / "learned-blade.json").write_text(json.dumps(ex, indent=2, ensure_ascii=False) + "\n")

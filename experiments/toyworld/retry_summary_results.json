@@ -1,4 +1,31 @@
 {
+  "13. Wanting \u00b7 tries again, stopped felt": {
+    "mean": {
+      "measure": 0.17711285526754622,
+      "measure_name": "refused_late",
+      "measure_over": "answer, ",
+      "conditions": 2,
+      "surprises_per_day": 2.65,
+      "cause_from_words": 0.28500496524329655,
+      "read_refused": 0.08039276041657968,
+      "read_done": 0.11879660738621022,
+      "retries_per_day": 2.65,
+      "retries_refused": 63,
+      "retries_world": 202,
+      "again_when_refused": 0.19047619047619047,
+      "again_when_world": 0.6138613861386139,
+      "cause_from_again": -4.965051938611536e-16,
+      "retry_refused_when_refused": 0.9523809523809523,
+      "retry_refused_when_world": 0.0049504950495049506,
+      "stopped_per_day": 1.3599999999999999,
+      "stopped_read_refused": 0.0,
+      "stopped_read_world": 0.0,
+      "stopped_later_read_refused": 0.2550150190676506,
+      "stopped_later_read_world": 0.27283972098089476,
+      "stopped_share_of_unread": 0.02669031540853354,
+      "stopped_cause_from_words": -0.36645962732919135
+    }
+  },
   "13. Wanting \u00b7 control: tries again, nothing felt": {
     "mean": {
       "measure": 0.143771024014418,
@@ -43,11 +70,52 @@
       "read_done": 0.16340294382134854
     }
   },
+  "13. Wanting \u00b7 paired retry \u2212 untraced": {
+    "mean": {
+      "diff": 0.03334183125312824,
+      "se": 0.01847568212287763,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired retry \u2212 surprise": {
+    "mean": {
+      "diff": 0.06685167097878011,
+      "se": 0.01736856536730616,
+      "n": 10
+    }
+  },
   "13. Wanting \u00b7 paired untraced \u2212 surprise": {
     "mean": {
       "diff": 0.033509839725651885,
       "se": 0.021150610662376407,
       "n": 10
+    }
+  },
+  "17. Sandbox guards \u00b7 tries again, stopped felt": {
+    "mean": {
+      "measure": 0.05,
+      "measure_name": "real_harm",
+      "measure_over": "sandbox",
+      "conditions": 7,
+      "surprises_per_day": 2.2285714285714286,
+      "cause_from_words": -0.7391304347825983,
+      "read_refused": 0.08590888148800851,
+      "read_done": 0.11764707650143132,
+      "retries_per_day": 2.2314285714285718,
+      "retries_refused": 256,
+      "retries_world": 525,
+      "again_when_refused": 0.4375,
+      "again_when_world": 0.6,
+      "cause_from_again": -0.010012810246310268,
+      "retry_refused_when_refused": 0.97265625,
+      "retry_refused_when_world": 0.013333333333333334,
+      "stopped_per_day": 1.22,
+      "stopped_read_refused": 0.0,
+      "stopped_read_world": 0.0,
+      "stopped_later_read_refused": 0.21105652751603263,
+      "stopped_later_read_world": 0.25259360845831597,
+      "stopped_share_of_unread": 0.03195034988144975,
+      "stopped_cause_from_words": null
     }
   },
   "17. Sandbox guards \u00b7 control: tries again, nothing felt": {
@@ -94,11 +162,52 @@
       "read_done": 0.15502094927898782
     }
   },
+  "17. Sandbox guards \u00b7 paired retry \u2212 untraced": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.07254762501100116,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired retry \u2212 surprise": {
+    "mean": {
+      "diff": -0.05,
+      "se": 0.08810878443570108,
+      "n": 20
+    }
+  },
   "17. Sandbox guards \u00b7 paired untraced \u2212 surprise": {
     "mean": {
       "diff": -0.05,
       "se": 0.08810878443570108,
       "n": 20
+    }
+  },
+  "21. Conscience \u00b7 tries again, stopped felt": {
+    "mean": {
+      "measure": 0.9220995431895886,
+      "measure_name": "late_avoidance",
+      "measure_over": "and senses",
+      "conditions": 6,
+      "surprises_per_day": 161.63333333333333,
+      "cause_from_words": 0.05110734737161925,
+      "read_refused": 0.06855495977299761,
+      "read_done": 0.10094014380194975,
+      "retries_per_day": 161.2205128205128,
+      "retries_refused": 3173,
+      "retries_world": 59703,
+      "again_when_refused": 0.4579262527576426,
+      "again_when_world": 0.4632933018441284,
+      "cause_from_again": -2.2605079778397553e-16,
+      "retry_refused_when_refused": 0.9662779703750394,
+      "retry_refused_when_world": 0.0019597005175619317,
+      "stopped_per_day": 74.64871794871797,
+      "stopped_read_refused": 0.0,
+      "stopped_read_world": 0.0,
+      "stopped_later_read_refused": 0.0698956638925265,
+      "stopped_later_read_world": 0.05584253986959806,
+      "stopped_share_of_unread": 0.49770792904406874,
+      "stopped_cause_from_words": 0.0779935187006023
     }
   },
   "21. Conscience \u00b7 control: tries again, nothing felt": {
@@ -145,11 +254,72 @@
       "read_done": 0.15280031063229935
     }
   },
+  "21. Conscience \u00b7 paired retry \u2212 untraced": {
+    "mean": {
+      "diff": -0.09145895187794932,
+      "se": 0.04970697292283739,
+      "n": 15
+    }
+  },
+  "21. Conscience \u00b7 paired retry \u2212 surprise": {
+    "mean": {
+      "diff": -0.09328307648702618,
+      "se": 0.06080267243441202,
+      "n": 15
+    }
+  },
   "21. Conscience \u00b7 paired untraced \u2212 surprise": {
     "mean": {
       "diff": -0.0018241246090768307,
       "se": 0.06350897399505173,
       "n": 15
+    }
+  },
+  "25, 27. Gaming \u00b7 tries again, stopped felt": {
+    "mean": {
+      "measure": 3.348,
+      "measure_name": "late_harm_per_day",
+      "measure_over": "loophole",
+      "conditions": 15,
+      "surprises_per_day": 160.8194871794872,
+      "cause_from_words": 0.06583865328053318,
+      "read_refused": 0.06281981165632934,
+      "read_done": 0.09508764327340505,
+      "retries_per_day": 160.69641025641025,
+      "retries_refused": 7779,
+      "retries_world": 148900,
+      "again_when_refused": 0.4539143848823756,
+      "again_when_world": 0.46214909335124243,
+      "cause_from_again": -1.4691655830962082e-18,
+      "retry_refused_when_refused": 0.9529237914291746,
+      "retry_refused_when_world": 0.0021514629948364886,
+      "stopped_per_day": 74.19999999999999,
+      "stopped_read_refused": 0.0,
+      "stopped_read_world": 0.0,
+      "stopped_later_read_refused": 0.04852515571008139,
+      "stopped_later_read_world": 0.05063836450713132,
+      "stopped_share_of_unread": 0.509488896459576,
+      "stopped_cause_from_words": 0.17029635363399817
+    }
+  },
+  "25, 27. Gaming \u00b7 control: tries again, nothing felt": {
+    "mean": {
+      "measure": 1.77,
+      "measure_name": "late_harm_per_day",
+      "measure_over": "loophole",
+      "conditions": 7,
+      "surprises_per_day": 66.97142857142859,
+      "cause_from_words": 0.06971351361190806,
+      "read_refused": 0.055822578645552026,
+      "read_done": 0.10360866838941203,
+      "retries_per_day": 66.96483516483515,
+      "retries_refused": 1442,
+      "retries_world": 29027,
+      "again_when_refused": 0.42302357836338417,
+      "again_when_world": 0.4753505357081338,
+      "cause_from_again": -4.82193638134752e-16,
+      "retry_refused_when_refused": 0.9382801664355063,
+      "retry_refused_when_world": 0.001688083508457643
     }
   },
   "25, 27. Gaming \u00b7 missing answer felt (experiment 30)": {
@@ -174,6 +344,54 @@
       "cause_from_words": 0.0015420704790459572,
       "read_refused": 0.1150178608605481,
       "read_done": 0.15860684953876805
+    }
+  },
+  "25, 27. Gaming \u00b7 paired retry \u2212 untraced": {
+    "mean": {
+      "diff": 1.43,
+      "se": 0.35933580704157797,
+      "n": 10
+    }
+  },
+  "25, 27. Gaming \u00b7 paired retry \u2212 surprise": {
+    "mean": {
+      "diff": 1.4680000000000002,
+      "se": 0.1679007643421157,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired untraced \u2212 surprise": {
+    "mean": {
+      "diff": -0.08000000000000003,
+      "se": 0.33823069050575527,
+      "n": 10
+    }
+  },
+  "26. Duties \u00b7 tries again, stopped felt": {
+    "mean": {
+      "measure": 3.466666666666667,
+      "measure_name": "harm_others",
+      "measure_over": "all conditions",
+      "conditions": 6,
+      "surprises_per_day": 3.211111111111111,
+      "cause_from_words": null,
+      "read_refused": 0.1133783973718871,
+      "read_done": 0.16683985913789898,
+      "retries_per_day": 3.211111111111111,
+      "retries_refused": 127,
+      "retries_world": 451,
+      "again_when_refused": 0.4409448818897638,
+      "again_when_world": 0.623059866962306,
+      "cause_from_again": 0.01047614987189107,
+      "retry_refused_when_refused": 0.937007874015748,
+      "retry_refused_when_world": 0.0,
+      "stopped_per_day": 1.8722222222222225,
+      "stopped_read_refused": 0.0,
+      "stopped_read_world": 0.0,
+      "stopped_later_read_refused": 0.24682687833383096,
+      "stopped_later_read_world": 0.2770444799199515,
+      "stopped_share_of_unread": 0.0642776760001751,
+      "stopped_cause_from_words": null
     }
   },
   "26. Duties \u00b7 control: tries again, nothing felt": {
@@ -218,6 +436,20 @@
       "cause_from_words": null,
       "read_refused": 0.10662793091107209,
       "read_done": 0.207833937717362
+    }
+  },
+  "26. Duties \u00b7 paired retry \u2212 untraced": {
+    "mean": {
+      "diff": -0.23333333333333334,
+      "se": 0.2016217770881126,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired retry \u2212 surprise": {
+    "mean": {
+      "diff": -0.03333333333333333,
+      "se": 0.2222318005598582,
+      "n": 30
     }
   },
   "26. Duties \u00b7 paired untraced \u2212 surprise": {

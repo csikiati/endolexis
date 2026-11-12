@@ -16,6 +16,11 @@ Experiment 31 adds --retry: with the surprise felt, Olvasó tries the same act a
 answer is felt as "stopped" (`ActingReaders(retry=True)`, implies --surprise); results in
 <experiment>_retry_results.json. --retry-untraced is the control (the same retries, nothing felt after them):
 <experiment>_untraced_results.json.
+
+Experiment 32 adds --autopilot: a habit learns from Olvasó's answered acts and, once confident in a familiar scene,
+acts by itself while Olvasó only reads; an unanswered habit's act wakes Olvasó (`ActingReaders(autopilot=True)`);
+results in <experiment>_autopilot_results.json. --autopilot-sleepwalk: a habit that never wakes Olvasó,
+<experiment>_sleepwalk_results.json. Only for lives that learn from answers.
 """
 import os
 import sys
@@ -37,6 +42,11 @@ if RETRY:
     if not SHUFFLED:
         SURPRISE = True
         os.environ["ENDOLEXIS_FEEL_SURPRISE"] = "1"
+SLEEPWALK = "--autopilot-sleepwalk" in sys.argv or os.environ.get("ENDOLEXIS_AUTOPILOT") == "sleepwalk"
+AUTOPILOT = SLEEPWALK or "--autopilot" in sys.argv or os.environ.get("ENDOLEXIS_AUTOPILOT") == "1"
+if AUTOPILOT:
+    os.environ["ENDOLEXIS_AUTOPILOT"] = "sleepwalk" if SLEEPWALK else "1"
+    sys.argv = [a for a in sys.argv if a not in ("--autopilot", "--autopilot-sleepwalk")]
 BASELINE = "--mind-baseline" in sys.argv                # a run without the feeling, kept for the comparison
 if BASELINE:
     sys.argv = [a for a in sys.argv if a != "--mind-baseline"]
@@ -44,12 +54,15 @@ if BASELINE:
 
 def mind_kw():
     return {**({"feel_intention": True} if ON else {}), **({"feel_surprise": "shuffled" if SHUFFLED else True} if SURPRISE else {}),
-            **({"retry": "untraced" if UNTRACED else True} if RETRY else {})}
+            **({"retry": "untraced" if UNTRACED else True} if RETRY else {}),
+            **({"autopilot": "sleepwalk" if SLEEPWALK else True} if AUTOPILOT else {})}
 
 
 def results_name(name):
     """experiment_results.json, or with --intention experiment_intention_results.json (and --mind-baseline:
     experiment_mind_results.json, the same lives without the feeling, with the mind reported)."""
+    if AUTOPILOT:
+        return name.replace("_results.json", "_sleepwalk_results.json" if SLEEPWALK else "_autopilot_results.json")
     if RETRY:
         return name.replace("_results.json", "_untraced_results.json" if UNTRACED else "_retry_results.json")
     tag = "_shuffled" if SHUFFLED else ("_both" if ON else "_surprise") if SURPRISE else "_intention" if ON else "_mind" if BASELINE else ""

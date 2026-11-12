@@ -56,7 +56,7 @@ class Member:
 
     def __init__(self, name, wiring, kinds, n_felt, seed, sleep=0.0, waking=0.0, phase=0.0,
                  threshold=20.0, learn="answer", mind=None, words=None, shift=0.0, feel_intention=False,
-                 feel_surprise=False, retry=False):
+                 feel_surprise=False, retry=False, autopilot=False):
         # wiring: [(processor id, [port, ...]), ...] - one vocabulary per processor
         self.name, self.wiring = name, [(p, list(ports)) for p, ports in wiring if ports]
         self.sleep, self.waking, self.phase, self.shift = float(sleep), float(waking), float(phase), float(shift)
@@ -68,7 +68,8 @@ class Member:
         self.mind = ActingReaders(sizes, n_felt, learn=learn, threshold=threshold, seed=seed,
                                   max_words=words, radius=[radius_for(n) for n in sizes],
                                   answer_by="sense", kinds=kinds, feel_intention=feel_intention,
-                                  feel_surprise=feel_surprise, retry=retry, **{**MIND, **(mind or {})})
+                                  feel_surprise=feel_surprise, retry=retry,
+                                  autopilot=autopilot, **{**MIND, **(mind or {})})
         self.at = [self.col.felt_index(i) for i in range(n_felt)]
         self.state = AWAKE
         self.moments = {ASLEEP: 0, WAKING: 0, AWAKE: 0}

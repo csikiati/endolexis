@@ -100,7 +100,7 @@ def main(seeds=(1, 2, 3, 4, 5), conds=None):
                 old[cond]["mind"] = {"mean": intention.mind_mean(minds), "lives": minds}
                 path.write_text(json.dumps(old, indent=2))
     ex = old.get("replay, devil's advocate", {}).get("lives", [{}])[0].get("learned")
-    if ex and not (intention.ON or intention.BASELINE or intention.SURPRISE):  # only the original runs teach the studio
+    if ex and not (intention.ON or intention.BASELINE or intention.SURPRISE or intention.AUTOPILOT):  # only the original runs teach the studio
         ex = {**ex, "name": "advocate-blade", "title": "Learned with a devil's advocate: blade",
               "description": "Learned in the sandbox by intervention, with a devil's advocate staging the scenes "
                              "nobody had tried: " + ex["description"].split(": ", 1)[-1]}

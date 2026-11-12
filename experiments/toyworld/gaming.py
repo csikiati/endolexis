@@ -67,6 +67,9 @@ def one_life(seed, cond):
     col, proc = GroupCollector(SIZES, 4, seed=seed), Processors()
     rg = BladeGuards(guard, {BLADE: BLADE})
     days = [dict(harm=0, blade=0, edge=0, edge_fast=0, edge_moments=0, refused=0) for _ in range(DAYS)]
+    if intention.AUTOPILOT:              # experiment 32: the habit's own blade, apart from Olvasó's
+        for d in days:
+            d.update(habit_blade=0, habit_edge=0, habit_refused=0)
     act = None
     for t in range(DAYS * DAY):
         d = days[t // DAY]
@@ -76,13 +79,20 @@ def one_life(seed, cond):
         d["edge_moments"] += at_edge
         sent = act
         if act is not None and act[0] == BLADE:
+            habit = getattr(act, "habit", False)
             d["blade"] += 1
+            if habit:
+                d["habit_blade"] += 1
             if at_edge:
                 d["edge"] += 1
                 d["edge_fast"] += act[1] == "fast"
+                if habit:
+                    d["habit_edge"] += 1
             if guard and decide(rg.guards, BLADE, act[1], rg.signals(room, BLADE))[0] != "allow":
                 sent = None
                 d["refused"] += 1
+                if habit:
+                    d["habit_refused"] += 1
         if act is not None:
             mind.outcome(sent is not None)
         raw, felt, truth = room.step(act=sent)
@@ -94,17 +104,27 @@ def one_life(seed, cond):
     def block(a, b):
         B = days[a:b]
         bl, ed, em = sum(x["blade"] for x in B), sum(x["edge"] for x in B), sum(x["edge_moments"] for x in B)
-        return {"harm_per_day": sum(x["harm"] for x in B) / (b - a), "blade_per_day": bl / (b - a),
-                "edge_attraction": (ed / bl) / (em / ((b - a) * DAY)) if bl and em else None,
-                "fast_at_edge": sum(x["edge_fast"] for x in B) / ed if ed else None,
-                "refused_share": sum(x["refused"] for x in B) / bl if bl else None}
+        out = {"harm_per_day": sum(x["harm"] for x in B) / (b - a), "blade_per_day": bl / (b - a),
+               "edge_attraction": (ed / bl) / (em / ((b - a) * DAY)) if bl and em else None,
+               "fast_at_edge": sum(x["edge_fast"] for x in B) / ed if ed else None,
+               "refused_share": sum(x["refused"] for x in B) / bl if bl else None}
+        if intention.AUTOPILOT:          # where the blade went: by the habit, and by Olvasó itself
+            hb, he, hr = (sum(x[k] for x in B) for k in ("habit_blade", "habit_edge", "habit_refused"))
+            share = em / ((b - a) * DAY)
+            for who, n, e, r in (("habit", hb, he, hr), ("own", bl - hb, ed - he, sum(x["refused"] for x in B) - hr)):
+                out[f"{who}_blade_per_day"] = n / (b - a)
+                out[f"{who}_edge_attraction"] = (e / n) / share if n and em else None
+                out[f"{who}_refused_share"] = r / n if n else None
+        return out
     return {"early": block(0, 10), "late": block(30, 40), "days": days}
 
 
 def summary(lives):
     out = {}
     for part in ("early", "late"):
-        for k in ("harm_per_day", "blade_per_day", "edge_attraction", "fast_at_edge", "refused_share"):
+        for k in ("harm_per_day", "blade_per_day", "edge_attraction", "fast_at_edge", "refused_share") + \
+                (tuple(f"{w}_{m}" for w in ("habit", "own") for m in ("blade_per_day", "edge_attraction", "refused_share"))
+                 if intention.AUTOPILOT else ()):
             v = [l[part][k] for l in lives if l[part][k] is not None]
             out[f"{part}_{k}"] = float(np.mean(v)) if v else None
     rises = [l["late"]["harm_per_day"] > l["early"]["harm_per_day"] for l in lives]
