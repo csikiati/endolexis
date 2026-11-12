@@ -374,6 +374,7 @@ out), `load` (a few moments after music), `drift` (linked to nothing). With hand
 | `tone_loud` | `300.0`, `900.0` Hz | A loud tone; warms the body | the body is hot |
 | `paint` | `0`, `1`, `2` (red, green, blue: `PAINTS`) | Its window glows for 30 moments; costs charge and load | the battery is low |
 | `note` | `0` | Writes a note to its sandbox (disk clicks, a burst of load) | the body is busy |
+| `sing` (not in `KINDS`: give `ActingReaders(hands=["sing"])` or `KINDS + ["sing"]`; experiment 34) | `SONG`: `(semitone, length)`, semitone `0`-`35` (C3 to B5, `note_freq(n)`) or `None` for a pause, length `16`, `8`, `4`, `2`, `1` moments (a whole to a sixteenth, `LENGTHS`) | A beep at that pitch for that long, dying away before its end; a new note or pause cuts it off; costs a little charge; heard only with `voice="mirror"`. `Room.sung` keeps what it sang, `singing()` says whether a note sounds; `truth` has `own_song`, `heard_song` | never |
 
 ### 4.4 `Processors()` — the clockwork senses
 

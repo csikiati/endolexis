@@ -65,10 +65,10 @@ from collections import Counter
 import numpy as np
 
 from .readers import ManyReaders
-from .room import KINDS
+from .room import KINDS, SONG
 
 DETAILS = {"brightness": (0.0, 0.5, 1.0), "tone_soft": (300.0, 900.0), "tone_loud": (300.0, 900.0),
-           "paint": (0, 1, 2), "note": (0,)}
+           "paint": (0, 1, 2), "note": (0,), "sing": SONG}
 
 
 class HabitRequest(tuple):

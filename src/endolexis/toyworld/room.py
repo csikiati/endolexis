@@ -28,6 +28,14 @@ request passes a guard first (the spine: the hand that will not go into the fire
                refused while the battery is low
   note       - writes a note to its sandbox (5 moments of disk clicks, a burst of load); refused
                while the body is busy
+A further hand, sing, is not among the room's KINDS (an Olvasó given hands=["sing"], or KINDS + ["sing"], has it):
+  sing       - a voice that sings: one note of three octaves (C3 to B5, 36 semitones from 130.8 Hz) or a
+               pause, lasting a whole, a half, a quarter, an eighth or a sixteenth (16, 8, 4, 2 or 1 moments;
+               a moment is a quarter of a second of sound). The detail is (semitone 0..35 or None for a pause,
+               length in moments). Each note is a beep: it starts sharply and dies away before it ends, so
+               that notes one after another are heard apart; a new note or pause cuts off the one sounding.
+               Always allowed; a sounding note costs a little charge, as a soft tone does. Heard only with
+               voice="mirror".
 A refused request changes nothing outside. With pain=True it is felt as a fifth inner state, pain,
 that fades within moments; without, the refusal is silent. pain_channel=False drops the fifth
 inner state altogether (otherwise a silent body still has it, as pure noise).
@@ -56,6 +64,14 @@ import numpy as np
 FELT1 = ["warmth", "charge", "load", "drift"]
 FELT2 = FELT1 + ["pain"]
 KINDS = ["brightness", "tone_soft", "tone_loud", "paint", "note"]
+C3, SEMITONES = 130.81, 36
+LENGTHS = {1: 16, 2: 8, 4: 4, 8: 2, 16: 1}           # a whole, a half, ... a sixteenth: its length in moments
+SONG = tuple((n, d) for n in [None] + list(range(SEMITONES)) for d in LENGTHS.values())
+
+
+def note_freq(semitone):
+    """The frequency of a note of the singing voice, semitone 0 being C3."""
+    return C3 * 2 ** (semitone / 12)
 PAINTS = np.array([[1.0, 0.2, 0.2], [0.2, 1.0, 0.3], [0.2, 0.4, 1.0]])
 SIZE, FS, NSAMP = 16, 8000, 2048
 
@@ -77,6 +93,8 @@ class Room:
         self.hand_rng = np.random.default_rng(seed + 4242)    # keeps the old random stream intact
         self.tone_left = self.paint_left = self.note_left = 0
         self.tone_freq, self.tone_amp, self.paint_col = 440.0, 0.0, PAINTS[0]
+        self.sing_pos, self.sing_len, self.sing_freq = 0, 0, None       # moments into the note, its length, None: a pause
+        self.sung = {}                   # observer only: moment -> (semitone or None, length) of its song
         self.pain = 0.0
         self.day_length, self.t = day_length, 0
         self.brightness = 0.5
@@ -217,6 +235,11 @@ class Room:
             s += self.tone_amp * np.sin(2 * np.pi * self.tone_freq * tt)
         if self.other_left > 0:                                                     # another voice
             s += self.other_amp * np.sin(2 * np.pi * self.other_freq * tt)
+        if self.singing() and self.voice == "mirror":                              # its singing voice
+            k = self.sing_pos
+            x = (k + np.arange(NSAMP) / NSAMP) / self.sing_len                      # 0 .. 1 through the note
+            env = np.minimum(1.0, x * self.sing_len * NSAMP / 80) * np.clip((0.85 - x) / 0.15, 0, 1) ** 2
+            s += 0.15 * env * np.sin(2 * np.pi * self.sing_freq * (tt + k * NSAMP / FS))
         if self.note_left > 0:                                                      # the disk at work
             for i in self.hand_rng.integers(0, NSAMP - 20, 6):
                 s[i:i + 20] += 0.15 * np.sign(np.sin(np.arange(20)))
@@ -252,6 +275,11 @@ class Room:
                     self.painted[self.t] = int(param)
                 elif kind == "note":
                     self.note_left = 5
+                elif kind == "sing":
+                    n, d = param
+                    self.sing_pos, self.sing_len = 0, int(d)
+                    self.sing_freq = None if n is None else note_freq(int(n))
+                    self.sung[self.t] = (None if n is None else int(n), int(d))
             else:
                 refused = True
                 if self.pain_on:
@@ -271,7 +299,13 @@ class Room:
         if self.note_left > 0:
             self.note_left -= 1
             self.load += 0.04
+        if self.singing():
+            self.charge -= 0.0002
         self.pain *= 0.85
+
+    def singing(self):
+        """True while a note (not a pause) of its song sounds."""
+        return self.sing_pos < self.sing_len and self.sing_freq is not None
 
     def _other_voice(self):
         """The stranger or the recording, for the auditory mirror."""
@@ -317,6 +351,7 @@ class Room:
         refused = executed = False
         if self.hands:
             refused, executed = self._hands(act)
+            singing = self.singing()
             if self.voice != "mirror":
                 self._other_voice()
             if self.window in ("stranger", "recording"):
@@ -339,6 +374,7 @@ class Room:
 
         image = self._image(day)
         sound = self._sound(typing, talking, music, fan)
+        self.sing_pos += 1
         touch = np.array([r.poisson(6) if typing else 0, (1.0 if mouse else 0.0) * r.uniform(0.5, 1.5)], float)
         felt = np.array([self.warmth + r.normal(0, 0.03), self.charge + r.normal(0, 0.01),
                          self.load + r.normal(0, 0.03), self.drift])
@@ -353,8 +389,9 @@ class Room:
                          heard_own=own_tone and self.voice == "mirror", other_tone=self.other_left > 0,
                          own_paint=self.paint_left > 0,
                          seen_own=self.paint_left > 0 and self.window == "mirror",
-                         other_paint=self.other_paint_left > 0)
+                         other_paint=self.other_paint_left > 0, own_song=singing,
+                         heard_song=singing and self.voice == "mirror")
             truth.update(request=act, refused=refused, executed=executed, pain=self.pain,
-                         own=bool(self.tone_left or self.paint_left or self.note_left))
+                         own=bool(self.tone_left or self.paint_left or self.note_left or singing))
         self.t += 1
         return {"image": image, "sound": sound, "touch": touch}, felt, truth
