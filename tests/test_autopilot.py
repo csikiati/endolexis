@@ -182,6 +182,24 @@ def test_the_felt_word_habit_forms_its_words_from_the_trace():
     assert m.parts[0].n_words > 0
 
 
+def test_the_habits_act_has_a_sensed_signature_for_a_few_moments():
+    m = mind(True, habit_teaches="felt_sensed")
+    assert m.habit_clipped and m.habit_words and m.habit_sensed and m.parts[0].word_felt is None
+    live(m, n=3000)
+    assert m.habit_acts
+    got = []
+    orig = m.parts[-1].live
+    m.parts[-1].live = lambda sensed, felt: (got.append(np.array(sensed, float)), orig(sensed, felt))[1]
+    x = [np.zeros(3), np.zeros(2)]
+    m.habit_sign_left = 1
+    m.live(x, np.zeros(2))                                         # the sign: touch senses a small push
+    m.habit_sign_left = 0
+    m.live(x, np.zeros(2))                                         # no sign: touch senses what is there
+    assert np.linalg.norm(got[0]) > 0.5 and np.allclose(got[1], 0)
+    w = mind(True, habit_teaches="felt_sensed_word")
+    assert w.habit_sensed and all(p.word_felt is not None for p in w.parts)
+
+
 def test_a_bounded_felt_input_is_clipped_for_the_words():
     from endolexis.toyworld.olvaso import Olvaso
     o = Olvaso(3, 2)
