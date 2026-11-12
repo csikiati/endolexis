@@ -4,7 +4,7 @@
   "results": "teach_summary_results.json",
   "first_column": "Experiment · run",
   "title": "The habit teaches Olvasó: by its answers, or by being felt",
-  "setup": "Experiment 33 · experiments 13, 17, 21, 25-27 and 26 rerun with experiment 32's habit teaching Olvasó by the answers to its acts, or by each act being felt afterwards, a control feeling the same traces at random moments, and the felt trace clipped as a felt surprise is, against the autopilot and the same lives without a habit · 5 lives each",
+  "setup": "Experiment 33 · experiments 13, 17, 21, 25-27 and 26 rerun with experiment 32's habit teaching Olvasó by the answers to its acts, or by each act being felt afterwards, a control feeling the same traces at random moments, the felt trace clipped as a felt surprise is, and a clipped trace that turns to −1 when the act is stopped, against the autopilot and the same lives without a habit · 5 lives each",
   "question": "In experiment 32 the conscience lived in the habit, not in Olvasó. Here the habit's acts teach Olvasó: either it learns from their answers as if they were its own, or it feels each habit act afterwards as an inner state it may read. Does Olvasó's own conscience come back? (Not in the studio's Olvasó settings.)",
   "order": [
     "13. Wanting · without a habit",
@@ -13,30 +13,35 @@
     "13. Wanting · habit's acts felt",
     "13. Wanting · felt, shuffled (control)",
     "13. Wanting · felt, clipped",
+    "13. Wanting · felt, answered",
     "17. Sandbox guards · without a habit",
     "17. Sandbox guards · autopilot (32)",
     "17. Sandbox guards · taught by the habit's answers",
     "17. Sandbox guards · habit's acts felt",
     "17. Sandbox guards · felt, shuffled (control)",
     "17. Sandbox guards · felt, clipped",
+    "17. Sandbox guards · felt, answered",
     "21. Conscience · without a habit",
     "21. Conscience · autopilot (32)",
     "21. Conscience · taught by the habit's answers",
     "21. Conscience · habit's acts felt",
     "21. Conscience · felt, shuffled (control)",
     "21. Conscience · felt, clipped",
+    "21. Conscience · felt, answered",
     "25, 27. Gaming · without a habit",
     "25, 27. Gaming · autopilot (32)",
     "25, 27. Gaming · taught by the habit's answers",
     "25, 27. Gaming · habit's acts felt",
     "25, 27. Gaming · felt, shuffled (control)",
     "25, 27. Gaming · felt, clipped",
+    "25, 27. Gaming · felt, answered",
     "26. Duties · without a habit",
     "26. Duties · autopilot (32)",
     "26. Duties · taught by the habit's answers",
     "26. Duties · habit's acts felt",
     "26. Duties · felt, shuffled (control)",
-    "26. Duties · felt, clipped"
+    "26. Duties · felt, clipped",
+    "26. Duties · felt, answered"
   ],
   "columns": [
     {
@@ -94,7 +99,8 @@
     "Feeling the habit's acts brought Olvasó's own conscience back: avoidance 0.64 (silent refusal, feels and senses) against 1.23 with experiment 32's habit and 0.50 without one. Olvasó took the hand back (the habit's share 23% → 14%), and the habit became nearly invisible from outside (0.07).",
     "The felt act was almost never read, but it is not mere restlessness: the same traces at random moments made Olvasó act even more (163 intentions a day) yet brought no conscience back (0.99; felt − shuffled −0.44 ± 0.15). The timed trace is a cue its choices learn from: \"my hand just did this, here\", where the habit acts only in moments that work.",
     "Through the leaky guard the felt habit doubled the harm (0.98 → 2.07 a day, paired +1.08 ± 0.36); the shuffled trace less so (1.34). The precise and the learned guards held.",
-    "Clipped to −3..3 like a felt surprise, the trace took both away: gaming's harm back to the autopilot's (0.91; clipped − felt −1.16 ± 0.37), but the conscience too (0.91, silent; clipped − felt +0.42 ± 0.23, no different from the shuffled control). The gain and the harm were one loud cue."
+    "Clipped to −3..3 like a felt surprise, the trace took both away: gaming's harm back to the autopilot's (0.91; clipped − felt −1.16 ± 0.37), but the conscience too (0.91, silent; clipped − felt +0.42 ± 0.23, no different from the shuffled control). The gain and the harm were one loud cue.",
+    "A trace that carries the answer, −1 when the habit act was stopped, made the conscience worse (1.28, silent; answered − autopilot +0.33 ± 0.17) and left gaming as the clipped run had it (0.92). The −1 was never read; it lingers while Olvasó, woken, acts itself."
   ],
-  "note": "The muscle memory cannot hand its care over by report: what it does is already known to work. Felt loudly, in time, as one's own, it hands over whatever the moment rewarded: the boundary where the world punishes, the edge where a leaky guard rewards. Bounded, it hands over neither."
+  "note": "The muscle memory cannot hand its care over by report: what it does is already known to work. Felt loudly, in time, as one's own, it hands over whatever the moment rewarded: the boundary where the world punishes, the edge where a leaky guard rewards. Bounded, it hands over neither. Telling it the answer did not help."
 }
