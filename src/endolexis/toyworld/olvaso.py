@@ -63,6 +63,9 @@ class Olvaso:
         # many spreads from its usual level, and no meaning can fit it). learning_off: a mask over the felt
         # dimensions whose meanings do not learn this moment (set from outside, e.g. while on autopilot).
         self.bounded, self.learning_off = None, None
+        # word_felt: felt dimensions (input columns) that words are formed from as well as from the sensed bundle (see
+        # words_feel); a word may not read them at delays inside its own window, where it is made of them.
+        self.word_felt, self.word_felt_weight = None, 1.0
         self.prev_word, self.run = -1, 0
         self.memory = memory
         self.adapt, self.adapt_mode, self.salience = adapt, adapt_mode, salience
@@ -108,6 +111,15 @@ class Olvaso:
         self.read_log = []      # recent fraction-read values
 
     # --- words -------------------------------------------------------------
+    def words_feel(self, cols, weight=1.0):
+        """Words are formed from these felt dimensions too (their bounded z, times weight), not only from what is
+        sensed: the same movement felt differently is another word. Must be set before the first word is born."""
+        if self.n_words:
+            raise ValueError("words_feel must be set before the first word is born")
+        self.word_felt, self.word_felt_weight = np.asarray(cols, int), float(weight)
+        self.word_felt_blind = self.window      # delays at which a word does not read what it is made of
+        self.centroids = np.zeros((self.max_words, self.window * (self.ns + len(self.word_felt))))
+
     def _word(self, s_z):
         self.sbuf.append(s_z)
         if len(self.sbuf) > self.window:
@@ -217,6 +229,8 @@ class Olvaso:
         self.fnorm.update(felt)
         s_z, f_z = self.snorm.z(sensed), self._feel(self._bound(self.fnorm.z(felt)))
 
+        if self.word_felt is not None:
+            s_z = np.concatenate([s_z, self.word_felt_weight * f_z[self.word_felt]])
         w = self._word(s_z)
         self.sensed_word = -1 if w is None else w
         if w is not None:
@@ -246,7 +260,12 @@ class Olvaso:
         included). Time still passes: each moment without a word pushes an empty slot into the
         delay line."""
         f_z = self._feel(self._bound(self.fnorm.z(felt)), learn=False)
-        w = self._word(self.snorm.z(sensed)) if sensed is not None else None
+        w = None
+        if sensed is not None:
+            s_z = self.snorm.z(sensed)
+            if self.word_felt is not None:
+                s_z = np.concatenate([s_z, self.word_felt_weight * f_z[self.word_felt]])
+            w = self._word(s_z)
         if dream_word is not None:
             w = int(dream_word)
         self.history.insert(0, -1 if w is None else w)
@@ -352,6 +371,8 @@ class Olvaso:
         err = (mu - f_z[None, :]) ** 2
         if self.slow_fit and self.doubt_memory is not None:
             eligible &= (self.dmean[words, lags] - f_z[None, :]) ** 2 < self.fit
+        if self.word_felt is not None:               # a word cannot read what it is made of
+            eligible[np.ix_(lags < self.word_felt_blind, self.word_felt)] = False
         err = np.where(eligible, err, np.inf)
         if getattr(self, "lt_mean", None) is not None:
             lt_ok = self.lt_used[words, lags] & (self.lt_var[words, lags] < self.consistency)

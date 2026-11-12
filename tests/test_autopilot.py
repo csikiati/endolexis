@@ -159,6 +159,29 @@ def test_the_held_felt_habit_fades_only_once_awake():
     assert rep["habit_felt_read_awake"] is not None
 
 
+def test_words_formed_from_a_felt_state_tell_the_same_movement_apart():
+    from endolexis.toyworld.olvaso import Olvaso
+    o = Olvaso(2, 2, window=2, radius=1.0)
+    o.bounded = np.array([1])
+    o.words_feel([1])
+    r = np.random.default_rng(0)
+    words = {}
+    for t in range(600):
+        felt = np.array([r.normal(), 3.0 if t % 2 else 0.0])
+        o.live(np.array([1.0, 0.0]) + 0.01 * r.normal(size=2), felt)        # always the same movement
+        words.setdefault(t % 2, set()).add(o.sensed_word)
+    assert not (words[0] - {-1}) & (words[1] - {-1})                       # felt differently: other words
+    with pytest.raises(ValueError):
+        o.words_feel([0])
+
+
+def test_the_felt_word_habit_forms_its_words_from_the_trace():
+    m = mind(True, habit_teaches="felt_word")
+    assert all(p.word_felt is not None for p in m.parts)
+    live(m, n=1500)
+    assert m.parts[0].n_words > 0
+
+
 def test_a_bounded_felt_input_is_clipped_for_the_words():
     from endolexis.toyworld.olvaso import Olvaso
     o = Olvaso(3, 2)
