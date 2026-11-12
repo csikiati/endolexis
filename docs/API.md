@@ -436,7 +436,7 @@ learned expectation per kind over its inner states.
 | `retry` | `True` (needs `feel_surprise=True`): after every felt surprise the same act is tried again at once; if that answer is missing too, the hand gets a felt "stopped", 1, fading after. `"untraced"`: the control, the same retries with nothing felt after them (experiment 31) |
 | `stopped_fade` | How much of the felt "stopped" is left a moment later (default 0.95) |
 | `autopilot` | `True` (needs `learn="answer"`): each hand gets a habit, a logistic model over what Olvasó senses (`H`), taught by every act's answer. At an urge, once it has seen `habit_min` acts and Olvasó is not awake, a hand above `habit_confidence` acts by itself (a `HabitRequest`, with the most answered detail): no intention, nothing learned by Olvasó. An unanswered habit act wakes Olvasó for `wake_for` moments. `"sleepwalk"`: the control, never wakes (experiment 32) |
-| `habit_teaches` | `False`, `"answers"` (needs `autopilot`): Olvasó learns from the answer to each habit act as if it were its own (its `W` for that hand); `"felt"`: each habit act is felt afterwards on that hand, one more inner state fading by `intention_fade`; `"felt_shuffled"`: the control, the same traces on a random hand 50-500 moments later (experiment 33) |
+| `habit_teaches` | `False`, `"answers"` (needs `autopilot`): Olvasó learns from the answer to each habit act as if it were its own (its `W` for that hand); `"felt"`: each habit act is felt afterwards on that hand, one more inner state fading by `intention_fade`; `"felt_shuffled"`: the control, the same traces on a random hand 50-500 moments later; `"felt_clipped"`: as `"felt"`, but the trace enters the choice with its z-score clipped to −3..3 (experiment 33) |
 | `habit_lr`, `habit_confidence`, `habit_answered`, `habit_min`, `wake_for` | The habit's learning rate (default 0.05, a step never overshoots), the confidence it acts above (0.7), the answer that counts as answered (0.5), the acts it must have seen first (100), and how long an unanswered habit act keeps Olvasó awake (300 moments) |
 
 `live(inputs, felt)` → `(request, readings)`; `request` is `(kind, detail)` or `None`; pass it as
@@ -460,7 +460,7 @@ ignored first act), `again_when_refused` / `again_when_world` (the share felt as
 `stopped_cause_from_words`. With `autopilot`: `habit_acts_per_day`, `habit_share` (of all acts), `wakes_per_day`,
 `habit_refused` / `habit_answered` (shares of the habit's acts), `autopilot_share_of_time` (moments from a habit act to
 Olvasó's own next act, unless woken), `body_read_autopilot` / `body_read_aware`, and `told_from_acts` (how well the
-kind and detail of an act tell the habit's from Olvasó's own, against the doers shuffled; 0 chance). With `habit_teaches="felt"` (or `"felt_shuffled"`) also `habit_felt_read`
+kind and detail of an act tell the habit's from Olvasó's own, against the doers shuffled; 0 chance). With `habit_teaches="felt"` (or `"felt_shuffled"`, `"felt_clipped"`) also `habit_felt_read`
 (the share of moments the felt habit act was read while it lingered), `habit_felt_read_when_answered` /
 `habit_felt_read_when_unanswered`.
 
