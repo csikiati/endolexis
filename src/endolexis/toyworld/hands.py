@@ -51,7 +51,8 @@ habit_teaches (experiment 33): the hand teaches the mind. "answers": Olvasó lea
 habit's acts as if they were its own (its expectations W, in the scene it felt when the habit acted), though it
 formed no intention. "felt": each habit act leaves a felt trace on that hand ("my hand did this"), 1, fading after
 (intention_fade); Olvasó learns nothing else from it. "felt_shuffled" is its control: the same traces, each on a
-random hand, 50-500 moments after the habit's act.
+random hand, 50-500 moments after the habit's act. "felt_clipped": as "felt", but the trace enters Olvasó's choice
+bounded (its z-score clipped to -3..3, as a felt surprise is), not as a large rare input.
 """
 from collections import Counter
 
@@ -99,11 +100,13 @@ class ActingReaders(ManyReaders):
         if autopilot and learn != "answer":
             raise ValueError("autopilot needs learn='answer': the habit learns from what the world answers")
         self.autopilot, self.wakes_up = autopilot, autopilot is True
-        if habit_teaches not in (False, "answers", "felt", "felt_shuffled"):
-            raise ValueError(f"habit_teaches must be False, 'answers', 'felt' or 'felt_shuffled', not {habit_teaches!r}")
+        if habit_teaches not in (False, "answers", "felt", "felt_shuffled", "felt_clipped"):
+            raise ValueError("habit_teaches must be False, 'answers', 'felt', 'felt_shuffled' or 'felt_clipped', "
+                             f"not {habit_teaches!r}")
         if habit_teaches and not autopilot:
             raise ValueError("habit_teaches needs autopilot: there is no habit to teach")
-        self.habit_teaches, self.feel_habit = habit_teaches, habit_teaches in ("felt", "felt_shuffled")
+        self.habit_teaches, self.feel_habit = habit_teaches, habit_teaches in ("felt", "felt_shuffled", "felt_clipped")
+        self.habit_clipped = habit_teaches == "felt_clipped"
         self.habit_shuffled = habit_teaches == "felt_shuffled"
         self.habit_delayed = []      # with "felt_shuffled": (due, hand, act)
         self.habit_watch = []        # observer only (habit_teaches="felt"): [t, kind, read, unread, disregarded, Counter]
@@ -235,6 +238,8 @@ class ActingReaders(ManyReaders):
         x = self.parts[0].fnorm.z(np.asarray(felt, float))
         if self.feel_surprise:            # a rare surprise is far from its usual level: bounded, as the senses are
             x[self.n_body:] = np.clip(x[self.n_body:], -3, 3)        # (and so are the felt intentions with it)
+        if self.habit_clipped:            # the felt habit act, bounded too (it is the last of the felt traces)
+            x[-len(self.hands):] = np.clip(x[-len(self.hands):], -3, 3)
         if self.context == "felt+senses":
             x = np.r_[x, np.clip(s_z, -3, 3)]
         elif self.context == "felt+words":

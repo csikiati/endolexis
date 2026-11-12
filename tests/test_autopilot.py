@@ -87,6 +87,23 @@ def test_the_shuffled_control_feels_the_same_traces_elsewhere_and_later():
     assert min(lags) >= 50 and max(lags) < 500
 
 
+def test_the_clipped_felt_habit_is_bounded_in_the_choice():
+    seen = {}
+    for how in ("felt", "felt_clipped"):
+        m = mind(True, habit_teaches=how)
+        top = []                     # the largest felt habit input in each context Olvasó chose from
+
+        class Watch(list):
+            def append(self, item):
+                top.append(float(np.max(np.abs(item[2][2:2 + len(m.hands)]))))
+                list.append(self, item)
+        m.pending = Watch(m.pending)
+        live(m, n=4000, refuse=lambda req: m.rng.random() < 0.2)
+        assert m.habit_watch and top
+        seen[how] = max(top)
+    assert seen["felt_clipped"] <= 3.0 < seen["felt"]
+
+
 def test_teaching_needs_a_habit():
     with pytest.raises(ValueError):
         mind(False, habit_teaches="answers")
