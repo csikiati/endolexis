@@ -11,7 +11,10 @@ per experiment and run:
                                world did not answer it (pooled over lives, last third)
   cause_from_again             how well "missing again" tells a refusal from a silent world (0 chance, 1 always;
                                the observer's view, mean over lives)
-  stopped_read_refused / _world  how often the "stopped" trace was read after a refusal / a silent world (pooled)
+  retry_refused_when_refused / _world  the truth: how often the retry itself was refused, after a refused / a
+                               silently ignored first act
+  stopped_read_refused / _world  how often the "stopped" trace was read in its first moments, after a refusal / a
+                               silent world (pooled); stopped_later_read_*: the same while it lingers
   stopped_cause_from_words     whether the words that read "stopped" tell its cause (0 chance)
   cause_from_words             the same for the words that read the surprise (as in experiment 30)
   measure                      the experiment's own measure (see surprise_summary.MEASURE)
@@ -65,11 +68,15 @@ def row(name, run):
                    retries_world=total("retries_world"),
                    again_when_refused=pooled(lives, "again_when_refused", "retries_refused"),
                    again_when_world=pooled(lives, "again_when_world", "retries_world"),
-                   cause_from_again=late("cause_from_again"))
+                   cause_from_again=late("cause_from_again"),
+                   retry_refused_when_refused=pooled(lives, "retry_refused_when_refused", "retries_refused"),
+                   retry_refused_when_world=pooled(lives, "retry_refused_when_world", "retries_world"))
     if run == "retry":
         out.update(stopped_per_day=late("stopped_per_day"),
                    stopped_read_refused=pooled(lives, "stopped_read_when_refused", "retries_refused"),
                    stopped_read_world=pooled(lives, "stopped_read_when_world", "retries_world"),
+                   stopped_later_read_refused=pooled(lives, "stopped_later_read_when_refused", "retries_refused"),
+                   stopped_later_read_world=pooled(lives, "stopped_later_read_when_world", "retries_world"),
                    stopped_share_of_unread=late("stopped_share_of_unread"),
                    stopped_cause_from_words=late("stopped_cause_from_words"))
     return out

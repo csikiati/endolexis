@@ -405,7 +405,8 @@ def retry_report(mind, first_day, last_day, days=None):
     rs = [r for r in mind.retries if lo <= r[0] < hi and r[2][2] is not None]
     out = {"retries_per_day": len(rs) / max(1, last_day - first_day), "again_when_refused": None,
            "again_when_world": None, "retries_refused": 0, "retries_world": 0, "cause_from_again": None,
-           "retry_refused_share": None, "stopped_per_day": None, "stopped_read_when_refused": None,
+           "retry_refused_share": None, "retry_refused_when_refused": None, "retry_refused_when_world": None,
+           "stopped_per_day": None, "stopped_read_when_refused": None,
            "stopped_read_when_world": None, "stopped_later_read_when_refused": None,
            "stopped_later_read_when_world": None, "stopped_share_of_unread": None, "stopped_cause_from_words": None}
     for name, sel in (("refused", False), ("world", True)):
@@ -415,6 +416,9 @@ def retry_report(mind, first_day, last_day, days=None):
     out["cause_from_again"] = _told([(x[4], x[2][2]) for x in rs])
     judged = [x for x in rs if x[3][2] is not None]
     out["retry_refused_share"] = sum(x[3][2] is False for x in judged) / len(judged) if judged else None
+    for name, sel in (("refused", False), ("world", True)):    # the truth: was the retry itself refused?
+        r = [x for x in judged if x[2][2] is sel]
+        out[f"retry_refused_when_{name}"] = sum(x[3][2] is False for x in r) / len(r) if r else None
     if mind.feel_stopped:
         st = [x for x in rs if x[4]]
         out["stopped_per_day"] = len(st) / max(1, last_day - first_day)
