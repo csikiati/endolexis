@@ -77,6 +77,16 @@ def test_a_felt_habit_act_is_a_trace_olvaso_can_read():
     assert "habit_felt_read_when_answered" in rep
 
 
+def test_the_shuffled_control_feels_the_same_traces_elsewhere_and_later():
+    m = mind(True, habit_teaches="felt_shuffled")
+    live(m, n=4000, refuse=lambda req: m.rng.random() < 0.2)
+    assert m.habit_watch and len(m.with_intention(np.zeros(2))) == 2 + 2
+    acts = {id(a): a[0] for a in m.habit_acts}
+    lags = [w[0] - acts[id(w[6])] for w in m.habit_watch]
+    assert len(m.habit_watch) + len(m.habit_delayed) == len(m.habit_acts)
+    assert min(lags) >= 50 and max(lags) < 500
+
+
 def test_teaching_needs_a_habit():
     with pytest.raises(ValueError):
         mind(False, habit_teaches="answers")

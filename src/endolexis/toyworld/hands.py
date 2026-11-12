@@ -50,7 +50,8 @@ Olvasó.
 habit_teaches (experiment 33): the hand teaches the mind. "answers": Olvasó learns from the world's answers to the
 habit's acts as if they were its own (its expectations W, in the scene it felt when the habit acted), though it
 formed no intention. "felt": each habit act leaves a felt trace on that hand ("my hand did this"), 1, fading after
-(intention_fade); Olvasó learns nothing else from it.
+(intention_fade); Olvasó learns nothing else from it. "felt_shuffled" is its control: the same traces, each on a
+random hand, 50-500 moments after the habit's act.
 """
 from collections import Counter
 
@@ -98,11 +99,13 @@ class ActingReaders(ManyReaders):
         if autopilot and learn != "answer":
             raise ValueError("autopilot needs learn='answer': the habit learns from what the world answers")
         self.autopilot, self.wakes_up = autopilot, autopilot is True
-        if habit_teaches not in (False, "answers", "felt"):
-            raise ValueError(f"habit_teaches must be False, 'answers' or 'felt', not {habit_teaches!r}")
+        if habit_teaches not in (False, "answers", "felt", "felt_shuffled"):
+            raise ValueError(f"habit_teaches must be False, 'answers', 'felt' or 'felt_shuffled', not {habit_teaches!r}")
         if habit_teaches and not autopilot:
             raise ValueError("habit_teaches needs autopilot: there is no habit to teach")
-        self.habit_teaches, self.feel_habit = habit_teaches, habit_teaches == "felt"
+        self.habit_teaches, self.feel_habit = habit_teaches, habit_teaches in ("felt", "felt_shuffled")
+        self.habit_shuffled = habit_teaches == "felt_shuffled"
+        self.habit_delayed = []      # with "felt_shuffled": (due, hand, act)
         self.habit_watch = []        # observer only (habit_teaches="felt"): [t, kind, read, unread, disregarded, Counter]
         self.habit_lr, self.habit_confidence = float(habit_lr), float(habit_confidence)
         self.habit_answered, self.habit_min, self.wake_for = float(habit_answered), int(habit_min), int(wake_for)
@@ -192,6 +195,10 @@ class ActingReaders(ManyReaders):
             self.stopped *= self.stopped_fade
         if self.feel_habit:
             self.habit_felt *= self.intention_fade
+            while self.habit_delayed and self.habit_delayed[0][0] <= self.t:
+                _, k, act = self.habit_delayed.pop(0)
+                self.habit_felt[k] = 1.0
+                self.habit_watch.append([self.t, k, 0, 0, 0, Counter(), act])
         felt = self.with_intention(felt)
         readings = self.read(inputs, felt)
         self._account(readings)
@@ -438,7 +445,11 @@ class ActingReaders(ManyReaders):
         self.habit_pending.append((self.t + self.answer_after, k, s_z.copy(), act,
                                    None if x is None else np.array(x, float)))
         self.last_by_habit = True
-        if self.feel_habit:
+        if self.habit_shuffled:                       # the control: the same trace, elsewhere and later
+            due = self.t + int(self.shuffle_rng.integers(50, 500))
+            self.habit_delayed.append((due, int(self.shuffle_rng.integers(len(self.hands))), act))
+            self.habit_delayed.sort(key=lambda d: d[0])
+        elif self.feel_habit:
             self.habit_felt[k] = 1.0                  # felt from the next moment on
             self.habit_watch.append([self.t, k, 0, 0, 0, Counter(), act])
         return HabitRequest((kind, detail))
