@@ -59,6 +59,10 @@ class Olvaso:
         # slow_fit: a meaning may read only if it fits the present both as it stands now and as it
         # stood over the last days (the doubt memory's slow average): it must have held before.
         self.slow_fit = slow_fit
+        # bounded: felt inputs whose z-score is clipped to -3..3 before Olvasó feels them (a rare trace is otherwise
+        # many spreads from its usual level, and no meaning can fit it). learning_off: a mask over the felt
+        # dimensions whose meanings do not learn this moment (set from outside, e.g. while on autopilot).
+        self.bounded, self.learning_off = None, None
         self.prev_word, self.run = -1, 0
         self.memory = memory
         self.adapt, self.adapt_mode, self.salience = adapt, adapt_mode, salience
@@ -211,7 +215,7 @@ class Olvaso:
         readings[d] = word index that read felt dimension d, or -1 if unread."""
         self.snorm.update(sensed)
         self.fnorm.update(felt)
-        s_z, f_z = self.snorm.z(sensed), self._feel(self.fnorm.z(felt))
+        s_z, f_z = self.snorm.z(sensed), self._feel(self._bound(self.fnorm.z(felt)))
 
         w = self._word(s_z)
         self.sensed_word = -1 if w is None else w
@@ -241,7 +245,7 @@ class Olvaso:
         memory, as if sensed. `learn` lets meanings learn from whatever the night brings (dreams
         included). Time still passes: each moment without a word pushes an empty slot into the
         delay line."""
-        f_z = self._feel(self.fnorm.z(felt), learn=False)
+        f_z = self._feel(self._bound(self.fnorm.z(felt)), learn=False)
         w = self._word(self.snorm.z(sensed)) if sensed is not None else None
         if dream_word is not None:
             w = int(dream_word)
@@ -253,6 +257,12 @@ class Olvaso:
             self._learn_profiles(f_z)
         self.t += 1
         return readings, f_z
+
+    def _bound(self, z):
+        if self.bounded is not None:
+            z = z.copy()
+            z[self.bounded] = np.clip(z[self.bounded], -3, 3)
+        return z
 
     def _feel(self, f_z, learn=True):
         """What the inner states feel like: levels, or changes against an adapting baseline."""
@@ -363,6 +373,18 @@ class Olvaso:
         words, lags = self._candidates()
         if words is None:
             return
+        off = self.learning_off
+        if off is None or not off.any():
+            return self._update_profiles(words, lags, f_z)
+        stats = (self.cnt, self.mean, self.m2, self.dn, self.dmean, self.dvar)
+        keep = [a[words, lags][:, off].copy() for a in stats]
+        self._update_profiles(words, lags, f_z)
+        for a, k in zip(stats, keep):            # these meanings do not learn this moment
+            sub = a[words, lags]
+            sub[:, off] = k
+            a[words, lags] = sub
+
+    def _update_profiles(self, words, lags, f_z):
         if self.memory is not None:
             c = self.cnt[words, lags]
             full = c >= self.memory

@@ -55,6 +55,8 @@ random hand, 50-500 moments after the habit's act. "felt_clipped": as "felt", bu
 bounded (its z-score clipped to -3..3, as a felt surprise is), not as a large rare input. "felt_answered": as
 "felt_clipped", but the trace also carries the answer: when the habit act goes unanswered (a refusal, or a world
 that did not answer), the trace on that hand turns to -1 ("my hand did this, and it was stopped") and fades from there.
+"felt_read": as "felt_clipped", and Olvasó's words feel the trace bounded too (its z-score clipped to -3..3, so that a
+meaning can fit it at all), and learn what it means only while Olvasó is awake, not while the hands are the habit's.
 """
 from collections import Counter
 
@@ -102,15 +104,17 @@ class ActingReaders(ManyReaders):
         if autopilot and learn != "answer":
             raise ValueError("autopilot needs learn='answer': the habit learns from what the world answers")
         self.autopilot, self.wakes_up = autopilot, autopilot is True
-        if habit_teaches not in (False, "answers", "felt", "felt_shuffled", "felt_clipped", "felt_answered"):
-            raise ValueError("habit_teaches must be False, 'answers', 'felt', 'felt_shuffled', 'felt_clipped' or "
-                             "'felt_answered', "
+        if habit_teaches not in (False, "answers", "felt", "felt_shuffled", "felt_clipped", "felt_answered",
+                                 "felt_read"):
+            raise ValueError("habit_teaches must be False, 'answers', 'felt', 'felt_shuffled', 'felt_clipped', "
+                             "'felt_answered' or 'felt_read', "
                              f"not {habit_teaches!r}")
         if habit_teaches and not autopilot:
             raise ValueError("habit_teaches needs autopilot: there is no habit to teach")
         self.habit_teaches, self.feel_habit = habit_teaches, habit_teaches in ("felt", "felt_shuffled", "felt_clipped",
-                                                                                 "felt_answered")
-        self.habit_clipped = habit_teaches in ("felt_clipped", "felt_answered")
+                                                                                 "felt_answered", "felt_read")
+        self.habit_clipped = habit_teaches in ("felt_clipped", "felt_answered", "felt_read")
+        self.habit_words = habit_teaches == "felt_read"
         self.habit_signed = habit_teaches == "felt_answered"
         self.habit_shuffled = habit_teaches == "felt_shuffled"
         self.habit_delayed = []      # with "felt_shuffled": (due, hand, act)
@@ -147,6 +151,12 @@ class ActingReaders(ManyReaders):
         self.hands = list(hands or KINDS)
         self.details = dict(details or DETAILS)
         self.bounds = np.cumsum([0] + [p.ns for p in self.parts])
+        if self.habit_words:              # the words feel the habit's trace bounded, and learn it only while awake
+            cols = [self.habit_columns(k) for k in range(len(self.hands))]
+            self.habit_off = np.zeros(self.parts[0].nf, bool)
+            self.habit_off[[c for cs in cols for c in cs]] = True
+            for p in self.parts:
+                p.bounded = np.array([cs[0] for cs in cols])
         k = len(self.parts)
         self.sense_mu, self.sense_m2 = np.zeros(k), np.zeros(k)
         self.learn, self.lr, self.temp = learn, lr, temp
@@ -208,6 +218,9 @@ class ActingReaders(ManyReaders):
                 self.habit_felt[k] = 1.0
                 self.habit_watch.append([self.t, k, 0, 0, 0, Counter(), act])
         felt = self.with_intention(felt)
+        if self.habit_words:
+            for p in self.parts:
+                p.learning_off = self.habit_off if self.on_autopilot() else None
         readings = self.read(inputs, felt)
         self._account(readings)
         if self.feel_intention:

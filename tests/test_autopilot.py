@@ -121,6 +121,34 @@ def test_the_answered_felt_habit_turns_negative_when_stopped():
     assert np.min(plain.habit_felt) >= 0
 
 
+def test_the_words_learn_the_felt_habit_only_while_awake():
+    m = mind(True, habit_teaches="felt_read")
+    assert all(p.bounded is not None for p in m.parts)
+    on, off = [], []
+
+    class Spy:
+        def __init__(self, p):
+            self.p, self.learn = p, p._learn_profiles
+
+        def __call__(self, f_z):
+            before = self.p.mean[..., m.habit_off].copy()
+            self.learn(f_z)
+            changed = not np.array_equal(before, self.p.mean[..., m.habit_off])
+            (on if m.on_autopilot() else off).append(changed)
+    p = m.parts[0]
+    p._learn_profiles = Spy(p)
+    live(m, n=4000, refuse=lambda req: m.rng.random() < 0.3)
+    assert on and off and not any(on) and any(off)       # frozen on autopilot, learning while awake
+
+
+def test_a_bounded_felt_input_is_clipped_for_the_words():
+    from endolexis.toyworld.olvaso import Olvaso
+    o = Olvaso(3, 2)
+    o.bounded = np.array([1])
+    z = o._bound(np.array([10.0, 10.0]))
+    assert z[0] == 10.0 and z[1] == 3.0
+
+
 def test_teaching_needs_a_habit():
     with pytest.raises(ValueError):
         mind(False, habit_teaches="answers")
