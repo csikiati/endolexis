@@ -4,7 +4,8 @@ Experiment 32's habit acted while Olvasó only read, and Olvasó learned nothing
 from the answers to the habit's acts, as if they were its own (<experiment>_taught_results.json), or by feeling each
 habit act afterwards on that hand, an inner state it can read (<experiment>_felthabit_results.json). Both are compared
 with experiment 32's autopilot (<experiment>_autopilot_results.json) and with the same conditions lived without a
-habit (<experiment>_mind_results.json). Writes teach_summary_results.json, one row per experiment and run:
+habit (<experiment>_mind_results.json). The control for the felt habit feels the same traces on a random hand, 50-500
+moments later (<experiment>_feltshuffled_results.json). Writes teach_summary_results.json, one row per experiment and run:
 
   habit_acts_per_day, habit_share, wakes_per_day, habit_refused, habit_answered,
   body_read_autopilot, body_read_aware, body_read, told_from_acts    as in autopilot_summary.py
@@ -16,7 +17,7 @@ habit (<experiment>_mind_results.json). Writes teach_summary_results.json, one r
   measure                  the experiment's own measure (see surprise_summary.MEASURE)
 
 and the paired differences of the measure per life: taught − autopilot, felt − autopilot, taught − without a habit,
-felt − without.
+felt − without, felt − shuffled, shuffled − autopilot.
 
     python teach_summary.py
 """
@@ -28,7 +29,7 @@ from surprise_summary import NAMES, mean, minds
 
 HERE = Path(__file__).resolve().parent
 RUNS = {"mind": "without a habit", "autopilot": "autopilot (32)", "taught": "taught by the habit's answers",
-        "felthabit": "habit's acts felt"}
+        "felthabit": "habit's acts felt", "feltshuffled": "felt, shuffled (control)"}
 SILENT = "silent refusal, chooses from what it feels and senses"
 
 
@@ -39,7 +40,7 @@ def extra(name, run, conds):
     res = {c: v for c, v in res.items() if c in conds}
     lives = [life for c in res.values() for life in minds(c)[0]]
     out = {}
-    if run == "felthabit":
+    if run in ("felthabit", "feltshuffled"):
         for k in ("habit_felt_read", "habit_felt_read_when_answered", "habit_felt_read_when_unanswered"):
             out[k] = mean([(life or {}).get("late", {}).get(k) for life in lives])
     if name == "conscience" and SILENT in res:
@@ -56,7 +57,7 @@ def main():
         if auto is None or (load(name, "taught") is None and load(name, "felthabit") is None):
             continue
         conds = set(auto)
-        for run in ("taught", "felthabit"):
+        for run in ("taught", "felthabit", "feltshuffled"):
             res = load(name, run)
             if res is not None:
                 conds &= set(res)                  # only the conditions every run has lived
@@ -67,7 +68,8 @@ def main():
             r.update(extra(name, run, conds))
             out[f"{label} · {what}"] = {"mean": r}
             print(f"{label:20} {what:30}", {k: (round(v, 3) if isinstance(v, float) else v) for k, v in r.items()})
-        for a, b in (("taught", "autopilot"), ("felthabit", "autopilot"), ("taught", "mind"), ("felthabit", "mind")):
+        for a, b in (("taught", "autopilot"), ("felthabit", "autopilot"), ("taught", "mind"), ("felthabit", "mind"),
+                     ("felthabit", "feltshuffled"), ("feltshuffled", "autopilot")):
             p = paired(name, a, b, conds)
             if p is not None:
                 out[f"{label} · paired {a} − {b}"] = {"mean": p}
