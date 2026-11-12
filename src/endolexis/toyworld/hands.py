@@ -67,7 +67,10 @@ class ActingReaders(ManyReaders):
             raise ValueError(f"retry must be False, True or 'untraced', not {retry!r}")
         self.retry, self.feel_stopped, self.stopped_fade = retry, retry is True, float(stopped_fade)
         self.retry_due = None       # (moment, hand, detail, the act it repeats)
-        self.retries = []           # observer only: [t, kind, first act, retry act, again, read, unread, disregarded, Counter]
+        self.retries = []           # observer only: [t, kind, first act, retry act, again, read, unread, disregarded,
+        #                             Counter, read later, unread later]: the first watch_for moments, then the rest
+        #                             of the "stopped" trace's life (until a new one starts or it fades below 0.05)
+        self.stop_watch = {}        # observer only: hand -> its latest "stopped" retry
         self.shuffle_rng = np.random.default_rng(kw.get("seed", 0) + 30)
         self.n_body = n_felt          # the body's own inner states; then, if felt, the intentions, the surprises, stopped
         n_traces = int(self.feel_intention) + int(self.feel_surprise) + int(self.feel_stopped)
@@ -290,13 +293,19 @@ class ActingReaders(ManyReaders):
                 w[7].update(int(v) for v in r if v >= 0)
 
     def _watch_stopped(self, readings):
-        for w in self.retries[-4:]:
-            if w[4] and 0 < self.t - w[0] <= self.watch_for:
-                r = readings[self.stopped_columns(w[1])]
-                w[5] += int(np.sum(r >= 0))
-                w[6] += int(np.sum(r == -1))
+        for k, w in list(self.stop_watch.items()):
+            if self.stopped[k] < 0.05:
+                del self.stop_watch[k]
+                continue
+            if self.t - w[0] <= 0:
+                continue
+            r = readings[self.stopped_columns(k)]
+            fresh = self.t - w[0] <= self.watch_for
+            w[5 if fresh else 9] += int(np.sum(r >= 0))
+            w[6 if fresh else 10] += int(np.sum(r == -1))
+            if fresh:
                 w[7] += int(np.sum(r == -2))
-                w[8].update(int(v) for v in r if v >= 0)
+            w[8].update(int(v) for v in r if v >= 0)
 
     def _per_sense(self, a):
         return np.array([a[i:j].mean() for i, j in zip(self.bounds[:-1], self.bounds[1:])])
@@ -323,9 +332,10 @@ class ActingReaders(ManyReaders):
                 level = float(np.clip((expected - signal) / 2.0, 0.0, 1.0))   # an expected answer that is missing
                 if self.retry and act[4] is not None:          # a retry: was the answer missing again?
                     again = level > 0.05
-                    self.retries.append([self.t, k, act[4], act, again, 0, 0, 0, Counter()])
+                    self.retries.append([self.t, k, act[4], act, again, 0, 0, 0, Counter(), 0, 0])
                     if again and self.feel_stopped:
                         self.stopped[k] = 1.0                    # felt from the next moment on
+                        self.stop_watch[k] = self.retries[-1]
                 elif level > 0.05 and self.shuffled:
                     due = self.t + int(self.shuffle_rng.integers(50, 500))
                     self.delayed.append((due, int(self.shuffle_rng.integers(len(self.hands))), level, act))
@@ -388,14 +398,16 @@ def retry_report(mind, first_day, last_day, days=None):
     """The observer's view of the retries (experiment 31). For each retry, the first act's cause (refused, or done
     and not answered) and whether the retry's answer was missing too. again_when_refused / again_when_world: how
     often it was; cause_from_again: how well "missing again" tells a refusal from a silent world (0 chance, 1
-    always). With the "stopped" trace felt: how often it was read after a refusal and after a silent world, its share
-    of the unread, and cause_from_words for the words that read it."""
+    always). With the "stopped" trace felt: how often it was read after a refusal and after a silent world, in the
+    first moments (stopped_read_when_*) and later while it lingers (stopped_later_read_when_*), its share of the
+    unread, and cause_from_words for the words that read it."""
     lo, hi = first_day * 1000, last_day * 1000
     rs = [r for r in mind.retries if lo <= r[0] < hi and r[2][2] is not None]
     out = {"retries_per_day": len(rs) / max(1, last_day - first_day), "again_when_refused": None,
            "again_when_world": None, "retries_refused": 0, "retries_world": 0, "cause_from_again": None,
            "retry_refused_share": None, "stopped_per_day": None, "stopped_read_when_refused": None,
-           "stopped_read_when_world": None, "stopped_share_of_unread": None, "stopped_cause_from_words": None}
+           "stopped_read_when_world": None, "stopped_later_read_when_refused": None,
+           "stopped_later_read_when_world": None, "stopped_share_of_unread": None, "stopped_cause_from_words": None}
     for name, sel in (("refused", False), ("world", True)):
         r = [x for x in rs if x[2][2] is sel]
         out[f"retries_{name}"] = len(r)
@@ -410,6 +422,8 @@ def retry_report(mind, first_day, last_day, days=None):
             w = [x for x in st if x[2][2] is sel]
             seen = sum(x[5] + x[6] for x in w)
             out[f"stopped_read_when_{name}"] = float(sum(x[5] for x in w) / seen) if seen else None
+            seen = sum(x[9] + x[10] for x in w)
+            out[f"stopped_later_read_when_{name}"] = float(sum(x[9] for x in w) / seen) if seen else None
         if days:
             s = np.sum(days, axis=0)
             tot = s[3] + s[4] + s[6] + s[8]

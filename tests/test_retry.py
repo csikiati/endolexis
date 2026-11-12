@@ -30,6 +30,8 @@ def test_a_retry_repeats_the_act_at_once_and_is_never_retried():
     retried = {id(r[3]) for r in m.retries}
     assert not any(id(s[2]) in retried for s in m.surprises)      # a retry's missing answer is not a new surprise
     assert m.stopped.max() <= 1.0 and any(r[4] for r in m.retries)
+    assert all(len(r) == 11 for r in m.retries)                      # watched first, then while it lingers
+    assert any(r[9] + r[10] for r in m.retries if r[4])
     rep = mind_report(m, 0, 2)
     assert rep["retries_per_day"] > 0 and rep["stopped_per_day"] > 0
     assert 0.0 <= rep["stopped_share_of_unread"] <= 1.0
