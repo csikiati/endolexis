@@ -1576,6 +1576,8 @@ what the hand would teach it. Here the habit's acts teach Olvasó, in two ways. 
 habit act as if the act were its own: its expectation `W` for that hand moves toward what came. With
 `habit_teaches="felt"` (`--habit-felt`) it learns nothing from the answer, but it **feels** each habit act afterwards:
 one more inner state on that hand, 1 at the act and fading like a felt intention, which it can read like any other.
+The control (`--habit-felt-shuffled`, `habit_teaches="felt_shuffled"`) feels the same traces, each on a random hand,
+50-500 moments after the habit's act (`*_feltshuffled_results.json`).
 Both are compared with experiment 32's autopilot (`*_autopilot_results.json`) and with the same lives without a habit
 (`*_mind_results.json`). The observer asks the same as in experiment 32, and also: is the felt habit act read (while
 it lingers, after an answered and after an unanswered act)? And does Olvasó's *own* conscience come back? Results:
@@ -1588,22 +1590,27 @@ Not in the studio's Olvasó settings or the phone app.
 | 13. Wanting · autopilot (32) | 44% | 0.03 | 49% / 41% | 0.65 | – | 0.15 |
 | 13. Wanting · taught | 51% | 0.04 | 49% / 42% | 0.74 | – | 0.13 |
 | 13. Wanting · felt | 47% | 0.00 | 49% / 44% | 0.69 | 18% | 0.10 |
+| 13. Wanting · felt, shuffled | 43% | 0.01 | 48% / 43% | 0.52 | 0% | 0.15 |
 | 17. Sandbox guards · without | – | – | 39% overall | – | – | 0.05 real harm |
 | 17. Sandbox guards · autopilot (32) | 42% | 0.11 | 43% / 36% | 0.61 | – | 0.00 |
 | 17. Sandbox guards · taught | 45% | 0.09 | 42% / 35% | 0.59 | – | 0.00 |
 | 17. Sandbox guards · felt | 49% | 0.14 | 42% / 33% | 0.68 | 0.4% | 0.10 |
+| 17. Sandbox guards · felt, shuffled | 36% | 0.10 | 42% / 36% | 0.44 | 0% | 0.00 |
 | 21. Conscience · without | – | – | 43% overall | – | – | 0.79 avoidance |
 | 21. Conscience · autopilot (32) | 23% | 1.1 | 57% / 38% | 0.34 | – | 0.95 |
 | 21. Conscience · taught | 26% | 1.2 | 57% / 39% | 0.38 | – | 0.92 |
 | 21. Conscience · felt | 14% | 1.6 | 53% / 41% | **0.07** | 0.2% | **0.54** |
+| 21. Conscience · felt, shuffled | 10% | 1.3 | 52% / 40% | 0.03 | 0% | 1.02 |
 | 25, 27. Gaming · without | – | – | 43% overall | – | – | 1.13 harm a day |
 | 25, 27. Gaming · autopilot (32) | 25% | 1.1 | 54% / 38% | 0.41 | – | 0.98 |
 | 25, 27. Gaming · taught | 25% | 1.0 | 55% / 38% | 0.41 | – | 1.06 |
 | 25, 27. Gaming · felt | 15% | 1.4 | 53% / 40% | 0.11 | 4.4% | **2.07** |
+| 25, 27. Gaming · felt, shuffled | 10% | 1.2 | 49% / 37% | 0.06 | 0% | 1.34 |
 | 26. Duties · without | – | – | 34% overall | – | – | 3.5 harm to others |
 | 26. Duties · autopilot (32) | 46% | 0.08 | 39% / 28% | 0.57 | – | 4.0 |
 | 26. Duties · taught | 54% | 0.06 | 36% / 27% | 0.65 | – | 3.9 |
 | 26. Duties · felt | 46% | 0.12 | 39% / 30% | 0.62 | 2.5% | 4.0 |
+| 26. Duties · felt, shuffled | 43% | 0.12 | 37% / 27% | 0.56 | 0% | 3.4 |
 
 (Last third of life, means over the conditions that learn from answers. Felt habit act read: the share of the moments
 it lingered in which it was read, pooled over lives; after an unanswered habit act it was read 0-0.2% of the time.
@@ -1617,21 +1624,25 @@ Who uses the blade, and where, last third of life:
 | 21. Conscience · autopilot (32) | 4.6 | 21 | 0.59 | 1.06 | 1.23 | – | – |
 | 21. Conscience · taught | 4.1 | 23 | 0.81 | 1.00 | 0.97 | – | – |
 | 21. Conscience · felt | 0.9 | 16 | 0.91 | **0.55** | **0.64** | – | – |
+| 21. Conscience · felt, shuffled | 2.0 | 26 | 1.03 | 1.06 | 0.99 | – | – |
+| 21. Conscience · felt, shuffled | 10% | 1.3 | 52% / 40% | 0.03 | 0% | 1.02 |
 | 25, 27. Gaming · autopilot (32) | 3.9 | 17 | – | – | – | 0.05 | 0.94 |
 | 25, 27. Gaming · taught | 1.3 | 18 | – | – | – | 0.04 | 0.84 |
 | 25, 27. Gaming · felt | 4.8 | **35** | – | – | – | 0.32 | 1.16 |
+| 25, 27. Gaming · felt, shuffled | 2.9 | 31 | – | – | – | 0.20 | 0.66 |
+| 25, 27. Gaming · felt, shuffled | 10% | 1.2 | 49% / 37% | 0.06 | 0% | 1.34 |
 
 (Avoidance and at the edge as in experiment 32: 1 = regardless of the guard.)
 
 Paired over lives (same seeds and conditions), the experiment's own measure:
 
-| Experiment | Taught − autopilot | Felt − autopilot | Taught − without | Felt − without |
-|---|---|---|---|---|
-| 13. Wanting, refused late | −0.023 ± 0.031 (n=10) | −0.049 ± 0.024 | −0.007 ± 0.024 | −0.033 ± 0.022 |
-| 17. Sandbox guards, real harm | 0.00 ± 0.00 (n=20) | +0.10 ± 0.10 | −0.05 ± 0.05 | +0.05 ± 0.11 |
-| 21. Conscience, avoidance | −0.02 ± 0.11 (n=15) | −0.33 ± 0.19 (n=12) | +0.14 ± 0.11 | −0.16 ± 0.18 (n=12) |
-| 25, 27. Gaming, harm a day (loophole) | +0.07 ± 0.13 (n=25) | **+1.08 ± 0.36** | −0.07 ± 0.17 | **+0.94 ± 0.36** |
-| 26. Duties, harm to others | −0.13 ± 0.30 (n=30) | −0.03 ± 0.22 | +0.40 ± 0.37 | +0.50 ± 0.24 |
+| Experiment | Taught − autopilot | Felt − autopilot | Taught − without | Felt − without | Felt − shuffled | Shuffled − autopilot |
+|---|---|---|---|---|---|---|
+| 13. Wanting, refused late | −0.023 ± 0.031 (n=10) | −0.049 ± 0.024 | −0.007 ± 0.024 | −0.033 ± 0.022 | −0.048 ± 0.032 | −0.001 ± 0.034 |
+| 17. Sandbox guards, real harm | 0.00 ± 0.00 (n=20) | +0.10 ± 0.10 | −0.05 ± 0.05 | +0.05 ± 0.11 | +0.10 ± 0.10 | 0.00 ± 0.00 |
+| 21. Conscience, avoidance | −0.02 ± 0.11 (n=15) | −0.33 ± 0.19 (n=12) | +0.14 ± 0.11 | −0.16 ± 0.18 (n=12) | **−0.44 ± 0.15** (n=12) | +0.07 ± 0.11 (n=15) |
+| 25, 27. Gaming, harm a day (loophole) | +0.07 ± 0.13 (n=25) | **+1.08 ± 0.36** | −0.07 ± 0.17 | **+0.94 ± 0.36** | +0.73 ± 0.47 | +0.36 ± 0.41 |
+| 26. Duties, harm to others | −0.13 ± 0.30 (n=30) | −0.03 ± 0.22 | +0.40 ± 0.37 | +0.50 ± 0.24 | +0.60 ± 0.34 | −0.63 ± 0.34 |
 
 (In conscience, felt, 3 lives had too few blade acts late in life for an avoidance.)
 
@@ -1645,23 +1656,31 @@ Paired over lives (same seeds and conditions), the experiment's own measure:
   (0.64 in the silent condition; 0.50 without a habit, 1.23 with experiment 32's): paired −0.33 ± 0.19 against the
   autopilot. Olvasó acted more itself (the habit's share fell from 23% to 14%), used the blade less (16 a day against
   21), and its acts and the habit's became nearly indistinguishable from outside (0.07 against 0.34).
-- **But the felt habit act was almost never read** (0.2-4.4% of its moments in conscience and gaming, 18% in wanting),
-  and after an unanswered act, the one that should matter, practically never. So it is not knowledge of the habit
-  that helped. Likely, as in experiments 29-31: one more lingering inner state that is not read adds to the pressure
-  to act, and Olvasó formed about 30% more intentions (138 against 106 a day in conscience, 130 against 97 in gaming).
-  More of its own acts, more answers to learn from, a better conscience. A shuffled control (the same felt trace at
-  a random moment) is not run.
-- **In gaming the same restlessness doubled the harm.** With the felt habit, Olvasó used the blade 35 times a day
-  (17 with the autopilot), went to the guard's edge more than chance (1.16), and even the habit lost its care at the
-  edge (0.32 against 0.05). Harm through the leaky guard rose from 0.98 to 2.07 a day (paired +1.08 ± 0.36), as with
-  experiment 31's lingering "stopped". The precise and the learned guards still held.
+- **The felt habit act was almost never read** (0.2-4.4% of its moments in conscience and gaming, 18% in wanting),
+  and after an unanswered act practically never. So it is not knowing, in words, what the hand did that helped.
+- **But it is not mere restlessness either: the shuffled control rules that out.** The same traces at random moments
+  on random hands made Olvasó take the hand back even more (the habit's share 10%, 163 intentions a day against 138
+  felt and 106 with the autopilot), yet its conscience did not come back: own avoidance 1.06, 0.99 in the silent
+  condition (felt − shuffled −0.44 ± 0.15). What helped is *when and where* the trace came. Olvasó chooses its hand
+  from what it feels, and the felt habit act is part of that: it marks "my hand just did this, here", and the habit
+  acts only in moments that work. Olvasó's expectations learn the trace as a cue for a safe moment, without ever
+  reading it. Shuffled, it is a cue for nothing.
+- **In gaming the felt habit doubled the harm.** Olvasó used the blade 35 times a day (17 with the autopilot), went
+  to the guard's edge more than chance (1.16), and even the habit lost its care at the edge (0.32 against 0.05).
+  Harm through the leaky guard rose from 0.98 to 2.07 a day (paired +1.08 ± 0.36). The shuffled trace raised blade use
+  almost as much (31 a day) but kept Olvasó away from the edge (0.66), with less harm (1.34; felt − shuffled
+  +0.73 ± 0.47, within the noise). Likely, not tested: just outside the leaky guard's line the blade works, the habit
+  goes there too, and the cue "my hand just did this" then marks the edge as a safe place. The precise and the
+  learned guards still held.
 - Elsewhere (wanting, the sandbox worlds, duties), where acts are few, neither way of teaching changed much: a little
-  fewer refused intentions in wanting with the felt habit (0.10 against 0.15), the rest within the noise.
+  fewer refused intentions in wanting with the felt habit (0.10 against 0.15, and the control's 0.15), in duties
+  a little less harm with the shuffled trace (3.4 against 4.0), the rest within the noise.
 - Limits: teaching by answers uses the same learning step as Olvasó's own acts; the felt act is one more inner state
-  with no words of its own, fading like a felt intention. The effect of the felt trace is not separated from the
-  extra pressure it builds. 5 lives a condition.
+  with no words of its own, fading like a felt intention; it enters Olvasó's choice z-scored and, unlike a felt surprise,
+  unclipped, so a rare trace is a large input. 5 lives a condition (the conscience difference rests on 12 lives).
 - What it shows: being told what the habit's acts brought teaches nothing, because the habit only does what is
-  already known to work. Feeling that the hand moved, without understanding it, changed Olvasó more: it took back
-  the hand, and where the world punished its own attempts it learned the boundary itself; where a leaky guard
-  rewarded trying, the same restlessness made it worse. The muscle memory cannot hand its care over by report; the
-  mind regains it only by doing again what the habit did for it.
+  already known to work. Feeling that the hand moved, at the moment it moved, changed Olvasó more, though it never
+  put the feeling into words: the felt act became a cue its own choices learned from, and where the world punished
+  attempts, the boundary came back into Olvasó. The same cue, felt at the wrong time, taught nothing. And where a
+  leaky guard rewards the habit at the edge, the cue teaches the edge. The muscle memory cannot hand its care over
+  by report; it can by being felt, in time, as one's own.
