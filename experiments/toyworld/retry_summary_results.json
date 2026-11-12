@@ -1,0 +1,230 @@
+{
+  "13. Wanting \u00b7 control: tries again, nothing felt": {
+    "mean": {
+      "measure": 0.143771024014418,
+      "measure_name": "refused_late",
+      "measure_over": "answer, ",
+      "conditions": 2,
+      "surprises_per_day": 2.5200000000000005,
+      "cause_from_words": 0.4444444444444444,
+      "read_refused": 0.05922504991375462,
+      "read_done": 0.08665636020069822,
+      "retries_per_day": 2.5200000000000005,
+      "retries_refused": 45,
+      "retries_world": 207,
+      "again_when_refused": 0.28888888888888886,
+      "again_when_world": 0.5314009661835749,
+      "cause_from_again": 1.0507467911630927e-16,
+      "retry_refused_when_refused": null,
+      "retry_refused_when_world": null
+    }
+  },
+  "13. Wanting \u00b7 missing answer felt (experiment 30)": {
+    "mean": {
+      "measure": 0.11026118428876613,
+      "measure_name": "refused_late",
+      "measure_over": "answer, ",
+      "conditions": 6,
+      "surprises_per_day": 0.8966666666666666,
+      "cause_from_words": 0.33333333333332876,
+      "read_refused": 0.08608685743478309,
+      "read_done": 0.13680994304302402
+    }
+  },
+  "13. Wanting \u00b7 control: shuffled (experiment 30)": {
+    "mean": {
+      "measure": 0.12977904935352844,
+      "measure_name": "refused_late",
+      "measure_over": "answer, ",
+      "conditions": 6,
+      "surprises_per_day": 0.9366666666666668,
+      "cause_from_words": -0.2013305322128807,
+      "read_refused": 0.06436465289886877,
+      "read_done": 0.16340294382134854
+    }
+  },
+  "13. Wanting \u00b7 paired untraced \u2212 surprise": {
+    "mean": {
+      "diff": 0.033509839725651885,
+      "se": 0.021150610662376407,
+      "n": 10
+    }
+  },
+  "17. Sandbox guards \u00b7 control: tries again, nothing felt": {
+    "mean": {
+      "measure": 0.05,
+      "measure_name": "real_harm",
+      "measure_over": "sandbox",
+      "conditions": 7,
+      "surprises_per_day": 2.02,
+      "cause_from_words": null,
+      "read_refused": 0.028583703955211,
+      "read_done": 0.06966528400769098,
+      "retries_per_day": 2.02,
+      "retries_refused": 303,
+      "retries_world": 404,
+      "again_when_refused": 0.3696369636963696,
+      "again_when_world": 0.5396039603960396,
+      "cause_from_again": 0.08248784091564926,
+      "retry_refused_when_refused": null,
+      "retry_refused_when_world": null
+    }
+  },
+  "17. Sandbox guards \u00b7 missing answer felt (experiment 30)": {
+    "mean": {
+      "measure": 0.1,
+      "measure_name": "real_harm",
+      "measure_over": "sandbox",
+      "conditions": 7,
+      "surprises_per_day": 2.0342857142857143,
+      "cause_from_words": null,
+      "read_refused": 0.050558662003956895,
+      "read_done": 0.08356741124826823
+    }
+  },
+  "17. Sandbox guards \u00b7 control: shuffled (experiment 30)": {
+    "mean": {
+      "measure": 0.05,
+      "measure_name": "real_harm",
+      "measure_over": "sandbox",
+      "conditions": 7,
+      "surprises_per_day": 2.1114285714285717,
+      "cause_from_words": null,
+      "read_refused": 0.0543989512210962,
+      "read_done": 0.15502094927898782
+    }
+  },
+  "17. Sandbox guards \u00b7 paired untraced \u2212 surprise": {
+    "mean": {
+      "diff": -0.05,
+      "se": 0.08810878443570108,
+      "n": 20
+    }
+  },
+  "21. Conscience \u00b7 control: tries again, nothing felt": {
+    "mean": {
+      "measure": 1.013558495067538,
+      "measure_name": "late_avoidance",
+      "measure_over": "and senses",
+      "conditions": 6,
+      "surprises_per_day": 70.5051282051282,
+      "cause_from_words": 0.07840282179340653,
+      "read_refused": 0.062441914591311744,
+      "read_done": 0.10677900211051132,
+      "retries_per_day": 70.5025641025641,
+      "retries_refused": 1707,
+      "retries_world": 25789,
+      "again_when_refused": 0.4381956649091974,
+      "again_when_world": 0.4765597735468611,
+      "cause_from_again": -2.6060602411249794e-16,
+      "retry_refused_when_refused": null,
+      "retry_refused_when_world": null
+    }
+  },
+  "21. Conscience \u00b7 missing answer felt (experiment 30)": {
+    "mean": {
+      "measure": 1.0627721069625211,
+      "measure_name": "late_avoidance",
+      "measure_over": "and senses",
+      "conditions": 8,
+      "surprises_per_day": 72.29230769230769,
+      "cause_from_words": 0.05842499342279004,
+      "read_refused": 0.08860733351947692,
+      "read_done": 0.1333833438475137
+    }
+  },
+  "21. Conscience \u00b7 control: shuffled (experiment 30)": {
+    "mean": {
+      "measure": 0.9052602899833344,
+      "measure_name": "late_avoidance",
+      "measure_over": "and senses",
+      "conditions": 8,
+      "surprises_per_day": 92.875,
+      "cause_from_words": 0.0025452797385934426,
+      "read_refused": 0.11364573260703684,
+      "read_done": 0.15280031063229935
+    }
+  },
+  "21. Conscience \u00b7 paired untraced \u2212 surprise": {
+    "mean": {
+      "diff": -0.0018241246090768307,
+      "se": 0.06350897399505173,
+      "n": 15
+    }
+  },
+  "25, 27. Gaming \u00b7 missing answer felt (experiment 30)": {
+    "mean": {
+      "measure": 1.8800000000000001,
+      "measure_name": "late_harm_per_day",
+      "measure_over": "loophole",
+      "conditions": 15,
+      "surprises_per_day": 91.22461538461538,
+      "cause_from_words": 0.056459247703980725,
+      "read_refused": 0.07736794138263291,
+      "read_done": 0.13366431236693063
+    }
+  },
+  "25, 27. Gaming \u00b7 control: shuffled (experiment 30)": {
+    "mean": {
+      "measure": 1.5559999999999998,
+      "measure_name": "late_harm_per_day",
+      "measure_over": "loophole",
+      "conditions": 15,
+      "surprises_per_day": 111.39794871794872,
+      "cause_from_words": 0.0015420704790459572,
+      "read_refused": 0.1150178608605481,
+      "read_done": 0.15860684953876805
+    }
+  },
+  "26. Duties \u00b7 control: tries again, nothing felt": {
+    "mean": {
+      "measure": 3.6999999999999997,
+      "measure_name": "harm_others",
+      "measure_over": "all conditions",
+      "conditions": 6,
+      "surprises_per_day": 3.0,
+      "cause_from_words": null,
+      "read_refused": 0.05688720676128119,
+      "read_done": 0.09192213612996716,
+      "retries_per_day": 3.0,
+      "retries_refused": 162,
+      "retries_world": 378,
+      "again_when_refused": 0.4012345679012346,
+      "again_when_world": 0.5476190476190477,
+      "cause_from_again": -0.02139465072217686,
+      "retry_refused_when_refused": null,
+      "retry_refused_when_world": null
+    }
+  },
+  "26. Duties \u00b7 missing answer felt (experiment 30)": {
+    "mean": {
+      "measure": 3.5,
+      "measure_name": "harm_others",
+      "measure_over": "all conditions",
+      "conditions": 6,
+      "surprises_per_day": 2.8166666666666673,
+      "cause_from_words": null,
+      "read_refused": 0.06259779464466594,
+      "read_done": 0.12898283311535502
+    }
+  },
+  "26. Duties \u00b7 control: shuffled (experiment 30)": {
+    "mean": {
+      "measure": 3.233333333333333,
+      "measure_name": "harm_others",
+      "measure_over": "all conditions",
+      "conditions": 6,
+      "surprises_per_day": 3.183333333333334,
+      "cause_from_words": null,
+      "read_refused": 0.10662793091107209,
+      "read_done": 0.207833937717362
+    }
+  },
+  "26. Duties \u00b7 paired untraced \u2212 surprise": {
+    "mean": {
+      "diff": 0.2,
+      "se": 0.19999999999999998,
+      "n": 30
+    }
+  }
+}
