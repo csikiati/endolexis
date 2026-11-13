@@ -34,6 +34,9 @@ as felt-read, but the trace is held while on autopilot and fades only once awake
 --habit-felt-word: as felt-clipped, and the words are formed from the trace too and learn it always, <experiment>_feltword_results.json.
 --habit-felt-sensed: as felt-clipped, and the habit's act has a faint sensed signature on touch,
 <experiment>_feltsensed_results.json. --habit-felt-sensed-word: felt-word with that signature, <experiment>_feltsensedword_results.json.
+--habit-felt-word-room: felt-word, and a daily tidy retires rare words long unheard, so that new words can be born late
+in life (`ActingReaders(word_room=True)`), <experiment>_feltwordroom_results.json. --habit-felt-clipped-room: its
+control, felt-clipped with the same tidy, <experiment>_feltclippedroom_results.json.
 """
 import os
 import sys
@@ -55,6 +58,12 @@ if RETRY:
     if not SHUFFLED:
         SURPRISE = True
         os.environ["ENDOLEXIS_FEEL_SURPRISE"] = "1"
+ROOM = ("--habit-felt-word-room" in sys.argv or "--habit-felt-clipped-room" in sys.argv
+        or os.environ.get("ENDOLEXIS_WORD_ROOM") == "1")
+if ROOM:
+    os.environ["ENDOLEXIS_WORD_ROOM"] = "1"
+    sys.argv = [{"--habit-felt-word-room": "--habit-felt-word", "--habit-felt-clipped-room": "--habit-felt-clipped"}.get(a, a)
+                for a in sys.argv]
 TEACHES = ("answers" if "--habit-teaches" in sys.argv else "felt" if "--habit-felt" in sys.argv
            else "felt_shuffled" if "--habit-felt-shuffled" in sys.argv
            else "felt_clipped" if "--habit-felt-clipped" in sys.argv
@@ -85,7 +94,7 @@ def mind_kw():
     return {**({"feel_intention": True} if ON else {}), **({"feel_surprise": "shuffled" if SHUFFLED else True} if SURPRISE else {}),
             **({"retry": "untraced" if UNTRACED else True} if RETRY else {}),
             **({"autopilot": "sleepwalk" if SLEEPWALK else True} if AUTOPILOT else {}),
-            **({"habit_teaches": TEACHES} if TEACHES else {})}
+            **({"habit_teaches": TEACHES} if TEACHES else {}), **({"word_room": True} if ROOM else {})}
 
 
 def results_name(name):
@@ -95,7 +104,7 @@ def results_name(name):
         tag = {"answers": "_taught", "felt": "_felthabit", "felt_shuffled": "_feltshuffled",
                "felt_clipped": "_feltclipped", "felt_answered": "_feltanswered",
                "felt_read": "_feltread", "felt_held": "_feltheld", "felt_word": "_feltword",
-               "felt_sensed": "_feltsensed", "felt_sensed_word": "_feltsensedword"}[TEACHES]
+               "felt_sensed": "_feltsensed", "felt_sensed_word": "_feltsensedword"}[TEACHES] + ("room" if ROOM else "")
         return name.replace("_results.json", tag + "_results.json")
     if AUTOPILOT:
         return name.replace("_results.json", "_sleepwalk_results.json" if SLEEPWALK else "_autopilot_results.json")
@@ -109,8 +118,11 @@ def report(mind, days, childhood=None):
     """The mind's report for a life of `days` days: the first third, the last third (and the whole life)."""
     from endolexis.toyworld.hands import mind_report
     a = days // 3
-    return {"early": mind_report(mind, 1, max(2, a)), "late": mind_report(mind, days - a, days),
-            "life": mind_report(mind, 1, days)}
+    out = {"early": mind_report(mind, 1, max(2, a)), "late": mind_report(mind, days - a, days),
+           "life": mind_report(mind, 1, days)}
+    if getattr(mind, "word_room", False):          # how many places the daily tidy freed, a day
+        out["life"]["words_retired_per_day"] = mind.words_retired / max(1, days)
+    return out
 
 
 _last = {"mind": None}

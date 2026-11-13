@@ -200,6 +200,16 @@ def test_the_habits_act_has_a_sensed_signature_for_a_few_moments():
     assert w.habit_sensed and all(p.word_felt is not None for p in w.parts)
 
 
+def test_word_room_tidies_the_words_once_a_day_and_frees_places():
+    from endolexis.toyworld import hands
+    m, plain = mind(True, habit_teaches="felt_word", word_room=True), mind(True, habit_teaches="felt_word")
+    live(m, n=hands.DAY_TIDY * 4)
+    live(plain, n=hands.DAY_TIDY * 4)
+    assert plain.parts[0].alive.all() and plain.words_retired == 0      # full, and nothing is ever freed
+    assert m.words_retired > 0                                          # the tidy retired rare, long-unheard words
+    assert m.parts[0].alive.all()                                       # and new words were born in their places
+
+
 def test_a_bounded_felt_input_is_clipped_for_the_words():
     from endolexis.toyworld.olvaso import Olvaso
     o = Olvaso(3, 2)

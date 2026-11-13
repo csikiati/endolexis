@@ -69,10 +69,17 @@ habit_sign_len (6) moments after it, the last vocabulary (touch) senses a fixed 
 spreads long, in a direction of its own for each hand, as if the hand moved a little differently when the habit
 moves it. "felt_sensed_word": as "felt_word",
 with the same signature.
+
+word_room (experiment 33): room for new words late in life. A vocabulary is full within the first day, and from
+then on a moment unlike every word falls to the nearest one. With word_room=True, once a day (every `DAY_TIDY`
+moments) Olvasó tidies its words as in sleep (`Olvaso.housekeeping`, retire only, no merges): a word heard fewer than
+`TIDY_KEEP` (1000) times and not met for `TIDY_AFTER` (2000) moments is retired, and its place is free for a new word.
 """
 from collections import Counter
 
 import numpy as np
+
+DAY_TIDY, TIDY_AFTER, TIDY_KEEP = 1000, 2000, 1000      # word_room: a tidy a day; retire the rare words long unheard
 
 from .readers import ManyReaders
 from .room import KINDS, SONG
@@ -91,7 +98,7 @@ class ActingReaders(ManyReaders):
                  answer_by="all", kinds=None, hands=None, details=None, context="felt", feel_intention=False,
                  intention_fade=0.8, feel_surprise=False, surprise_fade=0.8, retry=False, stopped_fade=0.95, autopilot=False,
                  habit_lr=0.05, habit_confidence=0.7, habit_answered=0.5, habit_min=100, wake_for=300, habit_teaches=False,
-                 **kw):
+                 word_room=False, **kw):
         # answer_by: "all" - the answer is how much all senses together changed; "sense" - it is the
         # largest change of any one sense (each judged against its own usual change), so that an
         # answer seen by the eyes alone counts as much as one heard
@@ -137,6 +144,7 @@ class ActingReaders(ManyReaders):
         self.habit_sign_dir = d / np.linalg.norm(d, axis=1, keepdims=True)       # one sign for each hand
         self.habit_awake_only = habit_teaches in ("felt_read", "felt_held")   # the words learn it only while awake
         self.habit_held = habit_teaches == "felt_held"
+        self.word_room, self.words_retired = bool(word_room), 0      # a daily tidy frees places for new words
         self.habit_awake = {}        # observer only: per day, [read, seen, read strong, seen strong] of the felt habit
         #                              trace while Olvasó is awake (strong: 0.5 or more)
         self.habit_signed = habit_teaches == "felt_answered"
@@ -227,6 +235,8 @@ class ActingReaders(ManyReaders):
         return super().read(inputs, self.with_intention(felt))
 
     def live(self, inputs, felt):
+        if self.word_room and self.t and self.t % DAY_TIDY == 0:
+            self.words_retired += self.housekeeping(retire_after=TIDY_AFTER, keep_uses=TIDY_KEEP, merge_dist=0)[0]
         if self.feel_intention:
             self.intent *= self.intention_fade
         if self.feel_surprise:
