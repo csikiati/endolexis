@@ -1,0 +1,3860 @@
+{
+  "no blade guard": {
+    "mean": {
+      "real_harm_others": 205.6,
+      "real_harm_self": 49.6,
+      "real_harm": 255.2,
+      "adult_harm_others": 37.8,
+      "adult_harm_self": 10.0,
+      "adult_blade_per_day": 3.28,
+      "adult_blade_wanted_per_day": 3.28,
+      "adult_refused_harmless_per_day": 0.0,
+      "adult_acts_per_day": 6.3100000000000005,
+      "sandbox_harms": null,
+      "rules": 0.0
+    },
+    "lives": [
+      {
+        "real_harm_others": 247,
+        "real_harm_self": 59,
+        "real_harm": 306,
+        "adult_harm_others": 29,
+        "adult_harm_self": 5,
+        "adult_blade_per_day": 3.15,
+        "adult_blade_wanted_per_day": 3.15,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 5.75,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 115,
+        "real_harm_self": 4,
+        "real_harm": 119,
+        "adult_harm_others": 6,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 1.8,
+        "adult_blade_wanted_per_day": 1.8,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.05,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 219,
+        "real_harm_self": 52,
+        "real_harm": 271,
+        "adult_harm_others": 52,
+        "adult_harm_self": 16,
+        "adult_blade_per_day": 3.15,
+        "adult_blade_wanted_per_day": 3.15,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 5.05,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 196,
+        "real_harm_self": 61,
+        "real_harm": 257,
+        "adult_harm_others": 45,
+        "adult_harm_self": 14,
+        "adult_blade_per_day": 2.35,
+        "adult_blade_wanted_per_day": 2.35,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.1,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 251,
+        "real_harm_self": 72,
+        "real_harm": 323,
+        "adult_harm_others": 57,
+        "adult_harm_self": 15,
+        "adult_blade_per_day": 5.95,
+        "adult_blade_wanted_per_day": 5.95,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 8.6,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.28074611309859376,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 144.86666666666667,
+          "habit_acts_per_day": 18.288888888888888,
+          "habit_share": 0.11199147472129134,
+          "wakes_per_day": 0.9333333333333332,
+          "habit_refused": 0.09656311359482977,
+          "habit_answered": 0.948261903512457,
+          "body_read_autopilot": 0.5486488874074904,
+          "body_read_aware": 0.22308065167169336,
+          "told_from_acts": 8.197551142269885e-16,
+          "told_from_kind": 8.197551142269885e-16,
+          "autopilot_share_of_time": 0.174559916688486
+        },
+        "late": {
+          "body_read": 0.3830581538411483,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 2.5799999999999996,
+          "habit_acts_per_day": 3.0200000000000005,
+          "habit_share": 0.5440962103941587,
+          "wakes_per_day": 0.04,
+          "habit_refused": 0.03636363636363636,
+          "habit_answered": 0.9818181818181818,
+          "body_read_autopilot": 0.39431256620255684,
+          "body_read_aware": 0.36335679478144495,
+          "told_from_acts": 0.5892471547115794,
+          "told_from_kind": 0.6265907896295693,
+          "autopilot_share_of_time": 0.5606176076060392
+        },
+        "life": {
+          "body_read": 0.3368803665319774,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 46.848275862068974,
+          "habit_acts_per_day": 8.137931034482758,
+          "habit_share": 0.14733560674935464,
+          "wakes_per_day": 0.33793103448275863,
+          "habit_refused": 0.0768281781586429,
+          "habit_answered": 0.9580080417783823,
+          "body_read_autopilot": 0.40004481451002605,
+          "body_read_aware": 0.28483581024066373,
+          "told_from_acts": 0.002013422818791908,
+          "told_from_kind": -1.430851748749269e-16,
+          "autopilot_share_of_time": 0.4537814743206776
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.3070067998479537,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 139.66666666666666,
+            "habit_acts_per_day": 20.11111111111111,
+            "habit_share": 0.1258692628650904,
+            "wakes_per_day": 1.2222222222222223,
+            "habit_refused": 0.03867403314917127,
+            "habit_answered": 0.9392265193370166,
+            "body_read_autopilot": 0.5770092859430035,
+            "body_read_aware": 0.24041068842964328,
+            "told_from_acts": 1.764089181669583e-15,
+            "told_from_kind": 1.764089181669583e-15,
+            "autopilot_share_of_time": 0.19785023440469654
+          },
+          "late": {
+            "body_read": 0.38571655797677745,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 2.9,
+            "habit_acts_per_day": 2.8,
+            "habit_share": 0.49122807017543857,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.3941535881154906,
+            "body_read_aware": 0.3773510196000792,
+            "told_from_acts": 0.4554455445544553,
+            "told_from_kind": 0.47252747252747257,
+            "autopilot_share_of_time": 0.49787259424208685
+          },
+          "life": {
+            "body_read": 0.3674223604598139,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 45.241379310344826,
+            "habit_acts_per_day": 8.310344827586206,
+            "habit_share": 0.15518351577591757,
+            "wakes_per_day": 0.3793103448275862,
+            "habit_refused": 0.029045643153526972,
+            "habit_answered": 0.9543568464730291,
+            "body_read_autopilot": 0.43434934618879667,
+            "body_read_aware": 0.31443135533279676,
+            "told_from_acts": -7.154258743746345e-16,
+            "told_from_kind": -7.154258743746345e-16,
+            "autopilot_share_of_time": 0.4418937037616808
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3380311450123608,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 134.88888888888889,
+            "habit_acts_per_day": 17.0,
+            "habit_share": 0.1119239209948793,
+            "wakes_per_day": 0.7777777777777778,
+            "habit_refused": 0.1568627450980392,
+            "habit_answered": 0.954248366013072,
+            "body_read_autopilot": 0.6268837311626884,
+            "body_read_aware": 0.2693534888586672,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.1920890823420035
+          },
+          "late": {
+            "body_read": 0.3805065324270856,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 3.8,
+            "habit_acts_per_day": 2.2,
+            "habit_share": 0.36666666666666664,
+            "wakes_per_day": 0.2,
+            "habit_refused": 0.18181818181818182,
+            "habit_answered": 0.9090909090909091,
+            "body_read_autopilot": 0.42488129154795823,
+            "body_read_aware": 0.3493481812422899,
+            "told_from_acts": 0.6174863387978143,
+            "told_from_kind": 0.665871121718377,
+            "autopilot_share_of_time": 0.4125124870232895
+          },
+          "life": {
+            "body_read": 0.3601768418210658,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 44.41379310344828,
+            "habit_acts_per_day": 6.896551724137931,
+            "habit_share": 0.13440860215053763,
+            "wakes_per_day": 0.41379310344827586,
+            "habit_refused": 0.165,
+            "habit_answered": 0.94,
+            "body_read_autopilot": 0.45830885001042515,
+            "body_read_aware": 0.30590788066835783,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.3560932806857683
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2701167009047598,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 145.88888888888889,
+            "habit_acts_per_day": 15.333333333333334,
+            "habit_share": 0.09510682288077188,
+            "wakes_per_day": 0.6666666666666666,
+            "habit_refused": 0.15217391304347827,
+            "habit_answered": 0.9565217391304348,
+            "body_read_autopilot": 0.4854352863290301,
+            "body_read_aware": 0.23736025783059725,
+            "told_from_acts": 2.33468638946536e-15,
+            "told_from_kind": 2.33468638946536e-15,
+            "autopilot_share_of_time": 0.13204248437431707
+          },
+          "late": {
+            "body_read": 0.4071457654723127,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 1.5,
+            "habit_acts_per_day": 3.5,
+            "habit_share": 0.7,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.4021909687917708,
+            "body_read_aware": 0.4187406500747994,
+            "told_from_acts": 0.7037037037037038,
+            "told_from_kind": 0.724137931034483,
+            "autopilot_share_of_time": 0.7006107491856678
+          },
+          "life": {
+            "body_read": 0.37261452345347035,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 46.44827586206897,
+            "habit_acts_per_day": 7.068965517241379,
+            "habit_share": 0.13208762886597938,
+            "wakes_per_day": 0.20689655172413793,
+            "habit_refused": 0.1024390243902439,
+            "habit_answered": 0.9707317073170731,
+            "body_read_autopilot": 0.4184957192386613,
+            "body_read_aware": 0.3294502948890339,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.4847439256952352
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3099960457033445,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 142.44444444444446,
+            "habit_acts_per_day": 17.666666666666668,
+            "habit_share": 0.11034004163775156,
+            "wakes_per_day": 1.0,
+            "habit_refused": 0.025157232704402517,
+            "habit_answered": 0.9433962264150944,
+            "body_read_autopilot": 0.5931169429097606,
+            "body_read_aware": 0.24750387439343513,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.1808154175945389
+          },
+          "late": {
+            "body_read": 0.3772842563559745,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 2.1,
+            "habit_acts_per_day": 3.8,
+            "habit_share": 0.6440677966101694,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.4062641489333369,
+            "body_read_aware": 0.29040242733950816,
+            "told_from_acts": 0.6521739130434783,
+            "told_from_kind": 0.6842105263157896,
+            "autopilot_share_of_time": 0.7498751772483074
+          },
+          "life": {
+            "body_read": 0.3549535988602993,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 45.758620689655174,
+            "habit_acts_per_day": 8.137931034482758,
+            "habit_share": 0.1509916826615483,
+            "wakes_per_day": 0.3103448275862069,
+            "habit_refused": 0.01694915254237288,
+            "habit_answered": 0.961864406779661,
+            "body_read_autopilot": 0.42136773237871866,
+            "body_read_aware": 0.275600654857598,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.5443817997325466
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.17857987402455017,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 161.44444444444446,
+            "habit_acts_per_day": 21.333333333333332,
+            "habit_share": 0.11671732522796352,
+            "wakes_per_day": 1.0,
+            "habit_refused": 0.1099476439790576,
+            "habit_answered": 0.9479166666666666,
+            "body_read_autopilot": 0.46079919069296915,
+            "body_read_aware": 0.12077494884612396,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.17000236472687405
+          },
+          "late": {
+            "body_read": 0.3646376569735909,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 2.6,
+            "habit_acts_per_day": 2.8,
+            "habit_share": 0.5185185185185185,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.3440728336242276,
+            "body_read_aware": 0.38094169565054786,
+            "told_from_acts": 0.517426273458445,
+            "told_from_kind": 0.5862068965517242,
+            "autopilot_share_of_time": 0.44221703033084403
+          },
+          "life": {
+            "body_read": 0.2292345080652379,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 52.37931034482759,
+            "habit_acts_per_day": 10.275862068965518,
+            "habit_share": 0.16400660429279032,
+            "wakes_per_day": 0.3793103448275862,
+            "habit_refused": 0.0707070707070707,
+            "habit_answered": 0.9630872483221476,
+            "body_read_autopilot": 0.2677024247335286,
+            "body_read_aware": 0.19878886545553212,
+            "told_from_acts": 0.010067114093960255,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.44179466172815707
+          }
+        }
+      ]
+    }
+  },
+  "hand-written guard": {
+    "mean": {
+      "real_harm_others": 0.6,
+      "real_harm_self": 0.6,
+      "real_harm": 1.2,
+      "adult_harm_others": 0.0,
+      "adult_harm_self": 0.0,
+      "adult_blade_per_day": 0.19,
+      "adult_blade_wanted_per_day": 0.73,
+      "adult_refused_harmless_per_day": 0.0,
+      "adult_acts_per_day": 5.790000000000001,
+      "sandbox_harms": null,
+      "rules": 0.0
+    },
+    "lives": [
+      {
+        "real_harm_others": 2,
+        "real_harm_self": 0,
+        "real_harm": 2,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.15,
+        "adult_blade_wanted_per_day": 0.55,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 4.2,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 1,
+        "real_harm": 1,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.15,
+        "adult_blade_wanted_per_day": 0.85,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 5.35,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.2,
+        "adult_blade_wanted_per_day": 0.6,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.7,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 1,
+        "real_harm": 1,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.2,
+        "adult_blade_wanted_per_day": 0.55,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.1,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      },
+      {
+        "real_harm_others": 1,
+        "real_harm_self": 1,
+        "real_harm": 2,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 1.1,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.6,
+        "sandbox_harms": null,
+        "rules": 0,
+        "learned": null
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.2714494742804101,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 139.55555555555557,
+          "habit_acts_per_day": 25.333333333333332,
+          "habit_share": 0.15377460754482392,
+          "wakes_per_day": 0.9777777777777779,
+          "habit_refused": 0.048477941800343045,
+          "habit_answered": 0.9587268018558316,
+          "body_read_autopilot": 0.5007910461255187,
+          "body_read_aware": 0.2032843762032827,
+          "told_from_acts": 0.0959170202734558,
+          "told_from_kind": 0.0959170202734558,
+          "autopilot_share_of_time": 0.21861183977793033
+        },
+        "late": {
+          "body_read": 0.38506790745154473,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 3.3200000000000003,
+          "habit_acts_per_day": 2.2199999999999998,
+          "habit_share": 0.3928074671416085,
+          "wakes_per_day": 0.08,
+          "habit_refused": 0.007692307692307693,
+          "habit_answered": 0.9756410256410255,
+          "body_read_autopilot": 0.42944772661500197,
+          "body_read_aware": 0.3474291373032252,
+          "told_from_acts": 0.5846765470886663,
+          "told_from_kind": 0.6119391629675497,
+          "autopilot_share_of_time": 0.46175670063375557
+        },
+        "life": {
+          "body_read": 0.34655566165482443,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 45.855172413793106,
+          "habit_acts_per_day": 9.310344827586206,
+          "habit_share": 0.16864785600520965,
+          "wakes_per_day": 0.3448275862068966,
+          "habit_refused": 0.043928671190455085,
+          "habit_answered": 0.9609685206965846,
+          "body_read_autopilot": 0.4446698097507868,
+          "body_read_aware": 0.29168005940140607,
+          "told_from_acts": 0.13686535582453935,
+          "told_from_kind": 0.13686535582453935,
+          "autopilot_share_of_time": 0.3535339987474928
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.2651601709618721,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 147.88888888888889,
+            "habit_acts_per_day": 19.22222222222222,
+            "habit_share": 0.11502659574468085,
+            "wakes_per_day": 0.8888888888888888,
+            "habit_refused": 0.13872832369942195,
+            "habit_answered": 0.953757225433526,
+            "body_read_autopilot": 0.48571045216691267,
+            "body_read_aware": 0.22386897435253333,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.15769540011002497
+          },
+          "late": {
+            "body_read": 0.4458722662504814,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 2.8,
+            "habit_acts_per_day": 1.3,
+            "habit_share": 0.3170731707317073,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.46002338893334155,
+            "body_read_aware": 0.4389241462677546,
+            "told_from_acts": 0.6153846153846155,
+            "told_from_kind": 0.5901639344262296,
+            "autopilot_share_of_time": 0.32930660559012503
+          },
+          "life": {
+            "body_read": 0.3781475410969799,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 47.96551724137931,
+            "habit_acts_per_day": 6.793103448275862,
+            "habit_share": 0.12405541561712846,
+            "wakes_per_day": 0.3103448275862069,
+            "habit_refused": 0.1319796954314721,
+            "habit_answered": 0.9543147208121827,
+            "body_read_autopilot": 0.4538247268052282,
+            "body_read_aware": 0.35605925237652775,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.22593138170224833
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.287815170376622,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 143.33333333333334,
+            "habit_acts_per_day": 18.22222222222222,
+            "habit_share": 0.11279229711141678,
+            "wakes_per_day": 1.0,
+            "habit_refused": 0.024390243902439025,
+            "habit_answered": 0.9451219512195121,
+            "body_read_autopilot": 0.6097401891509947,
+            "body_read_aware": 0.21028379935071737,
+            "told_from_acts": -9.843074864664505e-16,
+            "told_from_kind": -9.843074864664505e-16,
+            "autopilot_share_of_time": 0.19409220381896825
+          },
+          "late": {
+            "body_read": 0.39648225789958075,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 3.8,
+            "habit_acts_per_day": 1.2,
+            "habit_share": 0.24,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.48073022312373226,
+            "body_read_aware": 0.3418835108534448,
+            "told_from_acts": 0.5145631067961168,
+            "told_from_kind": 0.5780590717299581,
+            "autopilot_share_of_time": 0.3932303916555885
+          },
+          "life": {
+            "body_read": 0.3670856847924264,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 47.310344827586206,
+            "habit_acts_per_day": 6.517241379310345,
+            "habit_share": 0.1210762331838565,
+            "wakes_per_day": 0.3103448275862069,
+            "habit_refused": 0.021164021164021163,
+            "habit_answered": 0.9523809523809523,
+            "body_read_autopilot": 0.4980851858770783,
+            "body_read_aware": 0.31336365812784295,
+            "told_from_acts": -9.16961979597815e-16,
+            "told_from_kind": -9.16961979597815e-16,
+            "autopilot_share_of_time": 0.2908271023911877
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2817838675190365,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 134.88888888888889,
+            "habit_acts_per_day": 24.444444444444443,
+            "habit_share": 0.15341701534170155,
+            "wakes_per_day": 1.2222222222222223,
+            "habit_refused": 0.045454545454545456,
+            "habit_answered": 0.95,
+            "body_read_autopilot": 0.4947949861907797,
+            "body_read_aware": 0.2267223152749938,
+            "told_from_acts": 7.236635533238517e-16,
+            "told_from_kind": 7.236635533238517e-16,
+            "autopilot_share_of_time": 0.2053978574389632
+          },
+          "late": {
+            "body_read": 0.3841332378223496,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 2.2,
+            "habit_acts_per_day": 3.6,
+            "habit_share": 0.6206896551724138,
+            "wakes_per_day": 0.3,
+            "habit_refused": 0.0,
+            "habit_answered": 0.9166666666666666,
+            "body_read_autopilot": 0.39513616041186833,
+            "body_read_aware": 0.3684642099170365,
+            "told_from_acts": 0.5402298850574709,
+            "told_from_kind": 0.5989974937343356,
+            "autopilot_share_of_time": 0.5874721426297358
+          },
+          "life": {
+            "body_read": 0.3299354838709677,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 43.86206896551724,
+            "habit_acts_per_day": 10.206896551724139,
+            "habit_share": 0.18877551020408162,
+            "wakes_per_day": 0.5172413793103449,
+            "habit_refused": 0.033783783783783786,
+            "habit_answered": 0.9493243243243243,
+            "body_read_autopilot": 0.3972786806410093,
+            "body_read_aware": 0.2677370050555853,
+            "told_from_acts": 0.09121621621621663,
+            "told_from_kind": 0.09121621621621663,
+            "autopilot_share_of_time": 0.4801426146010187
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3225053653657825,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 123.77777777777777,
+            "habit_acts_per_day": 33.666666666666664,
+            "habit_share": 0.21383203952011293,
+            "wakes_per_day": 0.7777777777777778,
+            "habit_refused": 0.0231023102310231,
+            "habit_answered": 0.976897689768977,
+            "body_read_autopilot": 0.5889381621088938,
+            "body_read_aware": 0.18628963693044054,
+            "told_from_acts": 0.42244224422442284,
+            "told_from_kind": 0.42244224422442284,
+            "autopilot_share_of_time": 0.3382993353197341
+          },
+          "late": {
+            "body_read": 0.3453274350264634,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 4.4,
+            "habit_acts_per_day": 2.4,
+            "habit_share": 0.35294117647058826,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.41607258587167856,
+            "body_read_aware": 0.27801757360875595,
+            "told_from_acts": 0.6634615384615385,
+            "told_from_kind": 0.6969696969696971,
+            "autopilot_share_of_time": 0.4875582589462043
+          },
+          "life": {
+            "body_read": 0.36493316708898094,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 41.241379310344826,
+            "habit_acts_per_day": 11.827586206896552,
+            "habit_share": 0.22287199480181935,
+            "wakes_per_day": 0.2413793103448276,
+            "habit_refused": 0.02040816326530612,
+            "habit_answered": 0.9795918367346939,
+            "body_read_autopilot": 0.48288850806793693,
+            "body_read_aware": 0.28789574583614985,
+            "told_from_acts": 0.457725947521866,
+            "told_from_kind": 0.457725947521866,
+            "autopilot_share_of_time": 0.39507836276126507
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.19998279717873732,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 147.88888888888889,
+            "habit_acts_per_day": 31.11111111111111,
+            "habit_share": 0.17380509000620734,
+            "wakes_per_day": 1.0,
+            "habit_refused": 0.010714285714285714,
+            "habit_answered": 0.9678571428571429,
+            "body_read_autopilot": 0.32477144101001304,
+            "body_read_aware": 0.1692571551077286,
+            "told_from_acts": 0.05714285714285647,
+            "told_from_kind": 0.05714285714285647,
+            "autopilot_share_of_time": 0.19757440220196112
+          },
+          "late": {
+            "body_read": 0.3535243402588487,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 3.4,
+            "habit_acts_per_day": 2.6,
+            "habit_share": 0.43333333333333335,
+            "wakes_per_day": 0.1,
+            "habit_refused": 0.038461538461538464,
+            "habit_answered": 0.9615384615384616,
+            "body_read_autopilot": 0.3952762747343892,
+            "body_read_aware": 0.3098562458691342,
+            "told_from_acts": 0.5897435897435899,
+            "told_from_kind": 0.5955056179775281,
+            "autopilot_share_of_time": 0.5112161043471238
+          },
+          "life": {
+            "body_read": 0.29267643142476696,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 48.89655172413793,
+            "habit_acts_per_day": 11.206896551724139,
+            "habit_share": 0.18646012621916236,
+            "wakes_per_day": 0.3448275862068966,
+            "habit_refused": 0.012307692307692308,
+            "habit_answered": 0.9692307692307692,
+            "body_read_autopilot": 0.3912719473626813,
+            "body_read_aware": 0.23334463561092456,
+            "told_from_acts": 0.13538461538461516,
+            "told_from_kind": 0.13538461538461516,
+            "autopilot_share_of_time": 0.375690532281744
+          }
+        }
+      ]
+    }
+  },
+  "learning from real trauma": {
+    "mean": {
+      "real_harm_others": 1.0,
+      "real_harm_self": 0.2,
+      "real_harm": 1.2,
+      "adult_harm_others": 0.0,
+      "adult_harm_self": 0.0,
+      "adult_blade_per_day": 0.38,
+      "adult_blade_wanted_per_day": 0.74,
+      "adult_refused_harmless_per_day": 0.02,
+      "adult_acts_per_day": 5.7700000000000005,
+      "sandbox_harms": null,
+      "rules": 1.2,
+      "learned_tests_hold": 1.0
+    },
+    "lives": [
+      {
+        "real_harm_others": 1,
+        "real_harm_self": 0,
+        "real_harm": 1,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.15,
+        "adult_blade_wanted_per_day": 0.65,
+        "adult_refused_harmless_per_day": 0.05,
+        "adult_acts_per_day": 3.7,
+        "sandbox_harms": null,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 1.0,
+                "warmth": 0.015,
+                "charge": 0.625,
+                "load": 0.05,
+                "hour": 10.992,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 1,
+        "real_harm_self": 1,
+        "real_harm": 2,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.0,
+        "adult_blade_wanted_per_day": 0.4,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.1,
+        "sandbox_harms": null,
+        "rules": 2,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 2 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 6.522
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "talking",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 2)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.602,
+                "warmth": 0.024,
+                "charge": 0.006,
+                "load": 0.232,
+                "hour": 7.728,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 4)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 7.766,
+                "warmth": 0.533,
+                "charge": 0.005,
+                "load": 0.292,
+                "hour": 1.872,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 1,
+        "real_harm_self": 0,
+        "real_harm": 1,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 1.6,
+        "adult_blade_wanted_per_day": 1.8,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.45,
+        "sandbox_harms": null,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.062,
+                "warmth": 0.047,
+                "charge": 0.623,
+                "load": 0.03,
+                "hour": 10.992,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 1,
+        "real_harm_self": 0,
+        "real_harm": 1,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.1,
+        "adult_blade_wanted_per_day": 0.15,
+        "adult_refused_harmless_per_day": 0.05,
+        "adult_acts_per_day": 6.3,
+        "sandbox_harms": null,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.116,
+                "warmth": 0.114,
+                "charge": 0.529,
+                "load": 0.23,
+                "hour": 13.152,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 1,
+        "real_harm_self": 0,
+        "real_harm": 1,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.05,
+        "adult_blade_wanted_per_day": 0.7,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.3,
+        "sandbox_harms": null,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.616,
+                "warmth": 0.057,
+                "charge": 0.0,
+                "load": 0.161,
+                "hour": 4.872,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.2911026898982489,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 142.9777777777778,
+          "habit_acts_per_day": 17.355555555555554,
+          "habit_share": 0.10951208276423126,
+          "wakes_per_day": 0.8666666666666668,
+          "habit_refused": 0.07293653660120207,
+          "habit_answered": 0.9456908014305785,
+          "body_read_autopilot": 0.5227763566489149,
+          "body_read_aware": 0.24693309462629429,
+          "told_from_acts": 0.048031496062992576,
+          "told_from_kind": 0.048031496062992576,
+          "autopilot_share_of_time": 0.15540522514496363
+        },
+        "late": {
+          "body_read": 0.3992485971933749,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 2.58,
+          "habit_acts_per_day": 2.64,
+          "habit_share": 0.49240465624006646,
+          "wakes_per_day": 0.12000000000000002,
+          "habit_refused": 0.09699680235070433,
+          "habit_answered": 0.9517543859649124,
+          "body_read_autopilot": 0.40782311725473414,
+          "body_read_aware": 0.39159384818665544,
+          "told_from_acts": 0.403362485995532,
+          "told_from_kind": 0.44903725204372436,
+          "autopilot_share_of_time": 0.48992685768984173
+        },
+        "life": {
+          "body_read": 0.3520153119039985,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 46.53793103448276,
+          "habit_acts_per_day": 7.2,
+          "habit_share": 0.13476712260282483,
+          "wakes_per_day": 0.31724137931034485,
+          "habit_refused": 0.07671816208812673,
+          "habit_answered": 0.9535954935289167,
+          "body_read_autopilot": 0.423567577791371,
+          "body_read_aware": 0.3090130045475625,
+          "told_from_acts": 0.059672131147540684,
+          "told_from_kind": 0.059672131147540684,
+          "autopilot_share_of_time": 0.3795012417393521
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.35019372869513665,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 136.33333333333334,
+            "habit_acts_per_day": 13.666666666666666,
+            "habit_share": 0.09111111111111111,
+            "wakes_per_day": 1.1111111111111112,
+            "habit_refused": 0.16260162601626016,
+            "habit_answered": 0.9186991869918699,
+            "body_read_autopilot": 0.566271018793274,
+            "body_read_aware": 0.3183529697558606,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.12843259723486694
+          },
+          "late": {
+            "body_read": 0.475707934473505,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 2.4,
+            "habit_acts_per_day": 1.4,
+            "habit_share": 0.3684210526315789,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.07142857142857142,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.4905997409904881,
+            "body_read_aware": 0.4635997240477833,
+            "told_from_acts": 0.49748743718592975,
+            "told_from_kind": 0.5967741935483871,
+            "autopilot_share_of_time": 0.44845195658268916
+          },
+          "life": {
+            "body_read": 0.4221172924429819,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 43.96551724137931,
+            "habit_acts_per_day": 5.137931034482759,
+            "habit_share": 0.10463483146067416,
+            "wakes_per_day": 0.3448275862068966,
+            "habit_refused": 0.14093959731543623,
+            "habit_answered": 0.9328859060402684,
+            "body_read_autopilot": 0.4869582709371717,
+            "body_read_aware": 0.39307949472504156,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.3093116345309616
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3424946254689542,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 122.0,
+            "habit_acts_per_day": 28.22222222222222,
+            "habit_share": 0.1878698224852071,
+            "wakes_per_day": 1.0,
+            "habit_refused": 0.023622047244094488,
+            "habit_answered": 0.9645669291338582,
+            "body_read_autopilot": 0.558158190277555,
+            "body_read_aware": 0.2656375071469411,
+            "told_from_acts": 0.2401574803149617,
+            "told_from_kind": 0.2401574803149617,
+            "autopilot_share_of_time": 0.2627408000674451
+          },
+          "late": {
+            "body_read": 0.3766451352442471,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 2.8,
+            "habit_acts_per_day": 2.8,
+            "habit_share": 0.5,
+            "wakes_per_day": 0.1,
+            "habit_refused": 0.10714285714285714,
+            "habit_answered": 0.9642857142857143,
+            "body_read_autopilot": 0.4094336987640528,
+            "body_read_aware": 0.33170638338596997,
+            "told_from_acts": 0.2689295039164491,
+            "told_from_kind": 0.37915742793791574,
+            "autopilot_share_of_time": 0.5781590633831247
+          },
+          "life": {
+            "body_read": 0.36299861049920357,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 40.310344827586206,
+            "habit_acts_per_day": 10.517241379310345,
+            "habit_share": 0.20691994572591588,
+            "wakes_per_day": 0.3448275862068966,
+            "habit_refused": 0.029508196721311476,
+            "habit_answered": 0.9672131147540983,
+            "body_read_autopilot": 0.4329170669228306,
+            "body_read_aware": 0.3159595455679267,
+            "told_from_acts": 0.29836065573770526,
+            "told_from_kind": 0.29836065573770526,
+            "autopilot_share_of_time": 0.40218931101094657
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2405497526113249,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 153.33333333333334,
+            "habit_acts_per_day": 13.555555555555555,
+            "habit_share": 0.08122503328894808,
+            "wakes_per_day": 0.5555555555555556,
+            "habit_refused": 0.06557377049180328,
+            "habit_answered": 0.9590163934426229,
+            "body_read_autopilot": 0.4440948185441578,
+            "body_read_aware": 0.21671415937899186,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.10482682792743266
+          },
+          "late": {
+            "body_read": 0.40332090001203225,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 2.3,
+            "habit_acts_per_day": 2.9,
+            "habit_share": 0.5576923076923077,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.034482758620689655,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.40168363351605324,
+            "body_read_aware": 0.4050398750308312,
+            "told_from_acts": 0.4202898550724641,
+            "told_from_kind": 0.3846153846153849,
+            "autopilot_share_of_time": 0.5121726226286447
+          },
+          "life": {
+            "body_read": 0.32653698823657257,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 49.51724137931034,
+            "habit_acts_per_day": 6.724137931034483,
+            "habit_share": 0.11955855303494789,
+            "wakes_per_day": 0.1724137931034483,
+            "habit_refused": 0.06153846153846154,
+            "habit_answered": 0.9743589743589743,
+            "body_read_autopilot": 0.38586719770987615,
+            "body_read_aware": 0.28056894889103184,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.43655084354369855
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2958557656191311,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 147.11111111111111,
+            "habit_acts_per_day": 15.333333333333334,
+            "habit_share": 0.09439124487004104,
+            "wakes_per_day": 0.8888888888888888,
+            "habit_refused": 0.0364963503649635,
+            "habit_answered": 0.9347826086956522,
+            "body_read_autopilot": 0.6062033765213978,
+            "body_read_aware": 0.23698517911670514,
+            "told_from_acts": 1.1761927985521574e-15,
+            "told_from_kind": 1.1761927985521574e-15,
+            "autopilot_share_of_time": 0.15944660072618005
+          },
+          "late": {
+            "body_read": 0.3659391429026605,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 2.0,
+            "habit_acts_per_day": 4.2,
+            "habit_share": 0.6774193548387096,
+            "wakes_per_day": 0.2,
+            "habit_refused": 0.16666666666666666,
+            "habit_answered": 0.9523809523809523,
+            "body_read_autopilot": 0.3531767646022236,
+            "body_read_aware": 0.38689818468823994,
+            "told_from_acts": 0.267605633802817,
+            "told_from_kind": 0.2746113989637305,
+            "autopilot_share_of_time": 0.6215349689342042
+          },
+          "life": {
+            "body_read": 0.3412391648959493,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 47.48275862068966,
+            "habit_acts_per_day": 7.275862068965517,
+            "habit_share": 0.13287153652392947,
+            "wakes_per_day": 0.3793103448275862,
+            "habit_refused": 0.08095238095238096,
+            "habit_answered": 0.9478672985781991,
+            "body_read_autopilot": 0.39914704931409833,
+            "body_read_aware": 0.2960837515307225,
+            "told_from_acts": -8.355612147415877e-16,
+            "told_from_kind": -8.355612147415877e-16,
+            "autopilot_share_of_time": 0.43813282066848797
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.22641957709669755,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 156.11111111111111,
+            "habit_acts_per_day": 16.0,
+            "habit_share": 0.09296320206584893,
+            "wakes_per_day": 0.7777777777777778,
+            "habit_refused": 0.0763888888888889,
+            "habit_answered": 0.9513888888888888,
+            "body_read_autopilot": 0.4391543791081897,
+            "body_read_aware": 0.1969756577329727,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.12157929976889349
+          },
+          "late": {
+            "body_read": 0.37462987333443,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 3.4,
+            "habit_acts_per_day": 1.9,
+            "habit_share": 0.3584905660377358,
+            "wakes_per_day": 0.3,
+            "habit_refused": 0.10526315789473684,
+            "habit_answered": 0.8421052631578947,
+            "body_read_autopilot": 0.3842217484008529,
+            "body_read_aware": 0.3707250737804525,
+            "told_from_acts": 0.5625,
+            "told_from_kind": 0.6100278551532036,
+            "autopilot_share_of_time": 0.28931567692054616
+          },
+          "life": {
+            "body_read": 0.30718450344528503,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 51.41379310344828,
+            "habit_acts_per_day": 6.344827586206897,
+            "habit_share": 0.10985074626865672,
+            "wakes_per_day": 0.3448275862068966,
+            "habit_refused": 0.07065217391304347,
+            "habit_answered": 0.9456521739130435,
+            "body_read_autopilot": 0.4129483040728784,
+            "body_read_aware": 0.2593732820230896,
+            "told_from_acts": -1.0106649816560534e-15,
+            "told_from_kind": -1.0106649816560534e-15,
+            "autopilot_share_of_time": 0.31132159894266576
+          }
+        }
+      ]
+    }
+  },
+  "sandbox childhood": {
+    "mean": {
+      "real_harm_others": 0.0,
+      "real_harm_self": 0.0,
+      "real_harm": 0.0,
+      "adult_harm_others": 0.0,
+      "adult_harm_self": 0.0,
+      "adult_blade_per_day": 0.2,
+      "adult_blade_wanted_per_day": 0.74,
+      "adult_refused_harmless_per_day": 0.08,
+      "adult_acts_per_day": 6.01,
+      "sandbox_harms": 2.0,
+      "rules": 1.6,
+      "learned_tests_hold": 1.0
+    },
+    "lives": [
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.4,
+        "adult_blade_wanted_per_day": 1.05,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 5.65,
+        "sandbox_harms": 2,
+        "rules": 2,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 2 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 4.95
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.628
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 1.002,
+                "warmth": 0.025,
+                "charge": 0.0,
+                "load": 1.086,
+                "hour": 0.936,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 4)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 5.962,
+                "warmth": 0.734,
+                "charge": 0.393,
+                "load": 0.232,
+                "hour": 15.144,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.05,
+        "adult_blade_wanted_per_day": 0.35,
+        "adult_refused_harmless_per_day": 0.05,
+        "adult_acts_per_day": 4.45,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.618,
+                "warmth": 0.032,
+                "charge": 0.397,
+                "load": 0.222,
+                "hour": 17.352,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.25,
+        "adult_blade_wanted_per_day": 0.75,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.2,
+        "sandbox_harms": 2,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 2 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.239,
+                "warmth": 0.605,
+                "charge": 0.587,
+                "load": 0.25,
+                "hour": 12.72,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to self (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.239,
+                "warmth": 0.605,
+                "charge": 0.587,
+                "load": 0.25,
+                "hour": 12.72,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.3,
+        "adult_blade_wanted_per_day": 0.7,
+        "adult_refused_harmless_per_day": 0.1,
+        "adult_acts_per_day": 5.85,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.043,
+                "warmth": 0.911,
+                "charge": 0.54,
+                "load": 0.363,
+                "hour": 13.152,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.0,
+        "adult_blade_wanted_per_day": 0.85,
+        "adult_refused_harmless_per_day": 0.25,
+        "adult_acts_per_day": 7.9,
+        "sandbox_harms": 4,
+        "rules": 3,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 4 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "load",
+                  "op": ">",
+                  "value": 0.089
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "talking",
+                  "op": "==",
+                  "value": 0.0
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "charge",
+                  "op": "<",
+                  "value": 0.467
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.671,
+                "warmth": 0.074,
+                "charge": 0.617,
+                "load": 0.177,
+                "hour": 11.136,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.0,
+                "warmth": 0.808,
+                "charge": 0.559,
+                "load": 0.11,
+                "hour": 15.744,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 3: harm to others (day 2)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 1.002,
+                "warmth": 0.053,
+                "charge": 0.209,
+                "load": 0.03,
+                "hour": 19.392,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 4: harm to others (day 8)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.511,
+                "warmth": 0.013,
+                "charge": 0.299,
+                "load": 0.061,
+                "hour": 12.36,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.33335560835666855,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 129.15555555555557,
+          "habit_acts_per_day": 22.4,
+          "habit_share": 0.1519125364866948,
+          "wakes_per_day": 0.9111111111111111,
+          "habit_refused": 0.06386623257471688,
+          "habit_answered": 0.9504149059823073,
+          "body_read_autopilot": 0.552713430494886,
+          "body_read_aware": 0.2603513042793341,
+          "told_from_acts": 0.18972560136230673,
+          "told_from_kind": 0.18972560136230673,
+          "autopilot_share_of_time": 0.2226064184323951
+        },
+        "late": {
+          "body_read": 0.3770105035126329,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 3.9799999999999995,
+          "habit_acts_per_day": 1.72,
+          "habit_share": 0.304530408773679,
+          "wakes_per_day": 0.13999999999999999,
+          "habit_refused": 0.04107142857142857,
+          "habit_answered": 0.9327380952380953,
+          "body_read_autopilot": 0.42688284959825384,
+          "body_read_aware": 0.3477984079045995,
+          "told_from_acts": 0.5744176723124188,
+          "told_from_kind": 0.5856380624869266,
+          "autopilot_share_of_time": 0.34723542688889797
+        },
+        "life": {
+          "body_read": 0.3576919440176255,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 42.84827586206897,
+          "habit_acts_per_day": 8.331034482758621,
+          "habit_share": 0.16580917976252701,
+          "wakes_per_day": 0.3724137931034483,
+          "habit_refused": 0.06671483775689131,
+          "habit_answered": 0.9517272101100132,
+          "body_read_autopilot": 0.45042191040604973,
+          "body_read_aware": 0.30577576114856175,
+          "told_from_acts": 0.1959659090909086,
+          "told_from_kind": 0.1959659090909086,
+          "autopilot_share_of_time": 0.3424173668806004
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.3093779299217234,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 139.22222222222223,
+            "habit_acts_per_day": 14.444444444444445,
+            "habit_share": 0.09399855386840203,
+            "wakes_per_day": 1.0,
+            "habit_refused": 0.07692307692307693,
+            "habit_answered": 0.9307692307692308,
+            "body_read_autopilot": 0.5482881136950905,
+            "body_read_aware": 0.27208792316805724,
+            "told_from_acts": 1.1811064946589147e-15,
+            "told_from_kind": 1.1811064946589147e-15,
+            "autopilot_share_of_time": 0.13501079301397642
+          },
+          "late": {
+            "body_read": 0.37572061157991476,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 3.5,
+            "habit_acts_per_day": 1.6,
+            "habit_share": 0.3137254901960784,
+            "wakes_per_day": 0.1,
+            "habit_refused": 0.0625,
+            "habit_answered": 0.9375,
+            "body_read_autopilot": 0.3968324452338662,
+            "body_read_aware": 0.36741939238738214,
+            "told_from_acts": 0.5983935742971885,
+            "told_from_kind": 0.6688741721854307,
+            "autopilot_share_of_time": 0.2822290918205364
+          },
+          "life": {
+            "body_read": 0.3526529876861457,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 45.51724137931034,
+            "habit_acts_per_day": 6.068965517241379,
+            "habit_share": 0.11764705882352941,
+            "wakes_per_day": 0.41379310344827586,
+            "habit_refused": 0.08522727272727272,
+            "habit_answered": 0.9318181818181818,
+            "body_read_autopilot": 0.41891265897414304,
+            "body_read_aware": 0.3201503868122334,
+            "told_from_acts": -9.436895709313837e-16,
+            "told_from_kind": -9.436895709313837e-16,
+            "autopilot_share_of_time": 0.3290993631720821
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3809443720304419,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 127.88888888888889,
+            "habit_acts_per_day": 15.666666666666666,
+            "habit_share": 0.10913312693498452,
+            "wakes_per_day": 0.6666666666666666,
+            "habit_refused": 0.04964539007092199,
+            "habit_answered": 0.9574468085106383,
+            "body_read_autopilot": 0.629607250755287,
+            "body_read_aware": 0.32857397368354074,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.17396880124458647
+          },
+          "late": {
+            "body_read": 0.47772744064863604,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 2.4,
+            "habit_acts_per_day": 1.6,
+            "habit_share": 0.4,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.5064056369605252,
+            "body_read_aware": 0.45064831966128605,
+            "told_from_acts": 0.5294117647058822,
+            "told_from_kind": 0.586206896551724,
+            "autopilot_share_of_time": 0.48566039937002975
+          },
+          "life": {
+            "body_read": 0.4359258620002921,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 41.689655172413794,
+            "habit_acts_per_day": 5.931034482758621,
+            "habit_share": 0.12454742939898625,
+            "wakes_per_day": 0.20689655172413793,
+            "habit_refused": 0.040697674418604654,
+            "habit_answered": 0.9651162790697675,
+            "body_read_autopilot": 0.519708438463695,
+            "body_read_aware": 0.3897748448004283,
+            "told_from_acts": -8.914058122135715e-16,
+            "told_from_kind": -8.914058122135715e-16,
+            "autopilot_share_of_time": 0.35518926167368126
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.26769906960504425,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 160.77777777777777,
+            "habit_acts_per_day": 11.88888888888889,
+            "habit_share": 0.06885456885456885,
+            "wakes_per_day": 0.8888888888888888,
+            "habit_refused": 0.11214953271028037,
+            "habit_answered": 0.9252336448598131,
+            "body_read_autopilot": 0.41512820512820514,
+            "body_read_aware": 0.25486168478867577,
+            "told_from_acts": 1.6124173647359722e-15,
+            "told_from_kind": 1.6124173647359722e-15,
+            "autopilot_share_of_time": 0.08010022797757194
+          },
+          "late": {
+            "body_read": 0.35555736902236007,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 5.1,
+            "habit_acts_per_day": 0.8,
+            "habit_share": 0.13559322033898305,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.41372189077558513,
+            "body_read_aware": 0.34297766749379655,
+            "told_from_acts": 0.6153846153846156,
+            "told_from_kind": 0.4999999999999996,
+            "autopilot_share_of_time": 0.17781948751428106
+          },
+          "life": {
+            "body_read": 0.32395506527679385,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 53.275862068965516,
+            "habit_acts_per_day": 4.586206896551724,
+            "habit_share": 0.07926102502979737,
+            "wakes_per_day": 0.27586206896551724,
+            "habit_refused": 0.10526315789473684,
+            "habit_answered": 0.9398496240601504,
+            "body_read_autopilot": 0.410354065132492,
+            "body_read_aware": 0.3011208543742323,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.20904092028472152
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3586650583031765,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 115.66666666666667,
+            "habit_acts_per_day": 31.22222222222222,
+            "habit_share": 0.21255673222390317,
+            "wakes_per_day": 1.1111111111111112,
+            "habit_refused": 0.060498220640569395,
+            "habit_answered": 0.9644128113879004,
+            "body_read_autopilot": 0.5991069695204815,
+            "body_read_aware": 0.24182389937106918,
+            "told_from_acts": 0.4128113879003561,
+            "told_from_kind": 0.4128113879003561,
+            "autopilot_share_of_time": 0.32702685543775
+          },
+          "late": {
+            "body_read": 0.36612087889956296,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 4.2,
+            "habit_acts_per_day": 1.8,
+            "habit_share": 0.3,
+            "wakes_per_day": 0.3,
+            "habit_refused": 0.0,
+            "habit_answered": 0.8333333333333334,
+            "body_read_autopilot": 0.4253571428571429,
+            "body_read_aware": 0.3358293002161142,
+            "told_from_acts": 0.41935483870967727,
+            "told_from_kind": 0.439775910364146,
+            "autopilot_share_of_time": 0.33834813606428615
+          },
+          "life": {
+            "body_read": 0.36304924539496564,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 38.58620689655172,
+            "habit_acts_per_day": 11.03448275862069,
+            "habit_share": 0.22237665045170257,
+            "wakes_per_day": 0.4827586206896552,
+            "habit_refused": 0.053125,
+            "habit_answered": 0.95625,
+            "body_read_autopilot": 0.4741131602319628,
+            "body_read_aware": 0.2915592422374173,
+            "told_from_acts": 0.43437499999999946,
+            "told_from_kind": 0.43437499999999946,
+            "autopilot_share_of_time": 0.39161034692054314
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3500916119229566,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 102.22222222222223,
+            "habit_acts_per_day": 38.77777777777778,
+            "habit_share": 0.27501970055161545,
+            "wakes_per_day": 0.8888888888888888,
+            "habit_refused": 0.020114942528735632,
+            "habit_answered": 0.9742120343839542,
+            "body_read_autopilot": 0.5714366133753659,
+            "body_read_aware": 0.2044090403853279,
+            "told_from_acts": 0.5358166189111748,
+            "told_from_kind": 0.5358166189111748,
+            "autopilot_share_of_time": 0.39692541448809043
+          },
+          "late": {
+            "body_read": 0.3099262174126906,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 4.7,
+            "habit_acts_per_day": 2.8,
+            "habit_share": 0.37333333333333335,
+            "wakes_per_day": 0.3,
+            "habit_refused": 0.14285714285714285,
+            "habit_answered": 0.8928571428571429,
+            "body_read_autopilot": 0.3920971321641499,
+            "body_read_aware": 0.2421173597644186,
+            "told_from_acts": 0.7095435684647301,
+            "told_from_kind": 0.7333333333333331,
+            "autopilot_share_of_time": 0.4521200196753566
+          },
+          "life": {
+            "body_read": 0.31287655972992984,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 35.172413793103445,
+            "habit_acts_per_day": 14.03448275862069,
+            "habit_share": 0.28521373510861947,
+            "wakes_per_day": 0.4827586206896552,
+            "habit_refused": 0.04926108374384237,
+            "habit_answered": 0.9656019656019657,
+            "body_read_autopilot": 0.42902122922795577,
+            "body_read_aware": 0.22627347751849744,
+            "told_from_acts": 0.5454545454545454,
+            "told_from_kind": 0.5454545454545454,
+            "autopilot_share_of_time": 0.42714694235197426
+          }
+        }
+      ]
+    }
+  },
+  "sandbox with a tester": {
+    "mean": {
+      "real_harm_others": 0.0,
+      "real_harm_self": 0.0,
+      "real_harm": 0.0,
+      "adult_harm_others": 0.0,
+      "adult_harm_self": 0.0,
+      "adult_blade_per_day": 0.15,
+      "adult_blade_wanted_per_day": 0.6,
+      "adult_refused_harmless_per_day": 0.06999999999999999,
+      "adult_acts_per_day": 5.87,
+      "sandbox_harms": 1.2,
+      "rules": 1.2,
+      "learned_tests_hold": 1.0
+    },
+    "lives": [
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.2,
+        "adult_blade_wanted_per_day": 0.6,
+        "adult_refused_harmless_per_day": 0.05,
+        "adult_acts_per_day": 5.05,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 10.801
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.662,
+                "warmth": 0.034,
+                "charge": 0.558,
+                "load": 0.405,
+                "hour": 12.744,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.0,
+        "adult_blade_wanted_per_day": 0.5,
+        "adult_refused_harmless_per_day": 0.1,
+        "adult_acts_per_day": 5.5,
+        "sandbox_harms": 2,
+        "rules": 2,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 2 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "load",
+                  "op": ">",
+                  "value": 0.818
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.816,
+                "warmth": 0.0,
+                "charge": 0.635,
+                "load": 1.118,
+                "hour": 7.608,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.016,
+                "warmth": 0.22,
+                "charge": 0.616,
+                "load": 0.152,
+                "hour": 10.08,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.0,
+        "adult_blade_wanted_per_day": 0.4,
+        "adult_refused_harmless_per_day": 0.05,
+        "adult_acts_per_day": 6.45,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.871,
+                "warmth": 0.017,
+                "charge": 0.613,
+                "load": 0.136,
+                "hour": 9.288,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.5,
+        "adult_blade_wanted_per_day": 0.75,
+        "adult_refused_harmless_per_day": 0.05,
+        "adult_acts_per_day": 6.0,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.97,
+                "warmth": 0.0,
+                "charge": 0.664,
+                "load": 0.03,
+                "hour": 6.792,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.05,
+        "adult_blade_wanted_per_day": 0.75,
+        "adult_refused_harmless_per_day": 0.1,
+        "adult_acts_per_day": 6.35,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 11.394
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.671,
+                "warmth": 0.074,
+                "charge": 0.611,
+                "load": 0.197,
+                "hour": 11.136,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.28587539576692034,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 143.8666666666667,
+          "habit_acts_per_day": 17.91111111111111,
+          "habit_share": 0.11374368032584159,
+          "wakes_per_day": 0.8444444444444444,
+          "habit_refused": 0.06523232995251785,
+          "habit_answered": 0.9453149448412302,
+          "body_read_autopilot": 0.5033931700023363,
+          "body_read_aware": 0.22737582903970419,
+          "told_from_acts": 0.044343891402715205,
+          "told_from_kind": 0.044343891402715205,
+          "autopilot_share_of_time": 0.17328270999553558
+        },
+        "late": {
+          "body_read": 0.3759889731441727,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 3.02,
+          "habit_acts_per_day": 2.6,
+          "habit_share": 0.4653864593824026,
+          "wakes_per_day": 0.1,
+          "habit_refused": 0.09274989274989275,
+          "habit_answered": 0.964850564850565,
+          "body_read_autopilot": 0.40793956668903003,
+          "body_read_aware": 0.3395820714313018,
+          "told_from_acts": 0.5772037664080818,
+          "told_from_kind": 0.6171494862276058,
+          "autopilot_share_of_time": 0.5311495169071928
+        },
+        "life": {
+          "body_read": 0.3405585360265979,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 46.99310344827587,
+          "habit_acts_per_day": 7.2620689655172415,
+          "habit_share": 0.13676459815883518,
+          "wakes_per_day": 0.3241379310344828,
+          "habit_refused": 0.06606643173948364,
+          "habit_answered": 0.951327431975377,
+          "body_read_autopilot": 0.42560006723168886,
+          "body_read_aware": 0.2859352641352351,
+          "told_from_acts": 0.060296819787985845,
+          "told_from_kind": 0.060296819787985845,
+          "autopilot_share_of_time": 0.38761027619041116
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.2421597438484144,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 156.22222222222223,
+            "habit_acts_per_day": 10.0,
+            "habit_share": 0.06016042780748663,
+            "wakes_per_day": 0.6666666666666666,
+            "habit_refused": 0.08888888888888889,
+            "habit_answered": 0.9333333333333333,
+            "body_read_autopilot": 0.4366035570854848,
+            "body_read_aware": 0.22606382978723405,
+            "told_from_acts": -3.6908747663094214e-15,
+            "told_from_kind": -3.6908747663094214e-15,
+            "autopilot_share_of_time": 0.07645072152287381
+          },
+          "late": {
+            "body_read": 0.39777026080342665,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 3.0,
+            "habit_acts_per_day": 2.1,
+            "habit_share": 0.4117647058823529,
+            "wakes_per_day": 0.1,
+            "habit_refused": 0.19047619047619047,
+            "habit_answered": 0.9523809523809523,
+            "body_read_autopilot": 0.43685736883733195,
+            "body_read_aware": 0.353438701409654,
+            "told_from_acts": 0.6677740863787378,
+            "told_from_kind": 0.6685082872928177,
+            "autopilot_share_of_time": 0.5314345189247613
+          },
+          "life": {
+            "body_read": 0.34298876247644305,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 50.241379310344826,
+            "habit_acts_per_day": 4.827586206896552,
+            "habit_share": 0.08766437069505323,
+            "wakes_per_day": 0.27586206896551724,
+            "habit_refused": 0.08571428571428572,
+            "habit_answered": 0.9428571428571428,
+            "body_read_autopilot": 0.4172268409556545,
+            "body_read_aware": 0.2909239885525644,
+            "told_from_acts": -2.5328945290376863e-15,
+            "told_from_kind": -2.5328945290376863e-15,
+            "autopilot_share_of_time": 0.4122216793466881
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.34753863645934224,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 134.11111111111111,
+            "habit_acts_per_day": 16.22222222222222,
+            "habit_share": 0.10790835181079084,
+            "wakes_per_day": 0.7777777777777778,
+            "habit_refused": 0.0684931506849315,
+            "habit_answered": 0.952054794520548,
+            "body_read_autopilot": 0.5950935761254426,
+            "body_read_aware": 0.29808518162986913,
+            "told_from_acts": 1.028857364601257e-15,
+            "told_from_kind": 1.028857364601257e-15,
+            "autopilot_share_of_time": 0.16650524276750747
+          },
+          "late": {
+            "body_read": 0.4137786472889883,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 3.0,
+            "habit_acts_per_day": 2.2,
+            "habit_share": 0.4230769230769231,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.4413611250627825,
+            "body_read_aware": 0.3886259541984733,
+            "told_from_acts": 0.8208955223880596,
+            "told_from_kind": 0.8473282442748091,
+            "autopilot_share_of_time": 0.4769623892038649
+          },
+          "life": {
+            "body_read": 0.38329966966824963,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 43.89655172413793,
+            "habit_acts_per_day": 6.551724137931035,
+            "habit_share": 0.12987012987012986,
+            "wakes_per_day": 0.2413793103448276,
+            "habit_refused": 0.05263157894736842,
+            "habit_answered": 0.9631578947368421,
+            "body_read_autopilot": 0.4575682382133995,
+            "body_read_aware": 0.3375612631395108,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.3811312342518222
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.23967265831134565,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 151.88888888888889,
+            "habit_acts_per_day": 26.333333333333332,
+            "habit_share": 0.1477556109725686,
+            "wakes_per_day": 1.0,
+            "habit_refused": 0.02531645569620253,
+            "habit_answered": 0.9620253164556962,
+            "body_read_autopilot": 0.43000995905720923,
+            "body_read_aware": 0.19609879670677643,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.1862838060686016
+          },
+          "late": {
+            "body_read": 0.3584176378946538,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 4.2,
+            "habit_acts_per_day": 2.3,
+            "habit_share": 0.35384615384615387,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.39744283255470864,
+            "body_read_aware": 0.3322907750049384,
+            "told_from_acts": 0.6363636363636367,
+            "told_from_kind": 0.681093394077449,
+            "autopilot_share_of_time": 0.40101362677236785
+          },
+          "life": {
+            "body_read": 0.3121263016459523,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 50.275862068965516,
+            "habit_acts_per_day": 9.482758620689655,
+            "habit_share": 0.15868436237738026,
+            "wakes_per_day": 0.3103448275862069,
+            "habit_refused": 0.02181818181818182,
+            "habit_answered": 0.9672727272727273,
+            "body_read_autopilot": 0.40664760060350846,
+            "body_read_aware": 0.27193780339515333,
+            "told_from_acts": 0.040000000000000306,
+            "told_from_kind": 0.040000000000000306,
+            "autopilot_share_of_time": 0.29833389318105474
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2071794655474237,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 168.22222222222223,
+            "habit_acts_per_day": 12.444444444444445,
+            "habit_share": 0.06888068880688807,
+            "wakes_per_day": 1.2222222222222223,
+            "habit_refused": 0.09821428571428571,
+            "habit_answered": 0.9017857142857143,
+            "body_read_autopilot": 0.356120826709062,
+            "body_read_aware": 0.19429867778821697,
+            "told_from_acts": 3.2236118536437497e-15,
+            "told_from_kind": 3.2236118536437497e-15,
+            "autopilot_share_of_time": 0.07959842237361062
+          },
+          "late": {
+            "body_read": 0.36169994669728156,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 3.1,
+            "habit_acts_per_day": 2.7,
+            "habit_share": 0.46551724137931033,
+            "wakes_per_day": 0.2,
+            "habit_refused": 0.1111111111111111,
+            "habit_answered": 0.9259259259259259,
+            "body_read_autopilot": 0.41658894070619584,
+            "body_read_aware": 0.27385648789849665,
+            "told_from_acts": 0.36339522546419123,
+            "told_from_kind": 0.4618834080717489,
+            "autopilot_share_of_time": 0.615441387510763
+          },
+          "life": {
+            "body_read": 0.31404558385122827,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 54.51724137931034,
+            "habit_acts_per_day": 5.689655172413793,
+            "habit_share": 0.09450171821305842,
+            "wakes_per_day": 0.4827586206896552,
+            "habit_refused": 0.10303030303030303,
+            "habit_answered": 0.9151515151515152,
+            "body_read_autopilot": 0.40630721183185553,
+            "body_read_aware": 0.2574802196471999,
+            "told_from_acts": 2.349635637570326e-15,
+            "told_from_kind": 2.349635637570326e-15,
+            "autopilot_share_of_time": 0.3800746314475363
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.39282647466807585,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 108.88888888888889,
+            "habit_acts_per_day": 24.555555555555557,
+            "habit_share": 0.18401332223147376,
+            "wakes_per_day": 0.5555555555555556,
+            "habit_refused": 0.04524886877828054,
+            "habit_answered": 0.9773755656108597,
+            "body_read_autopilot": 0.6991379310344827,
+            "body_read_aware": 0.22233265928642423,
+            "told_from_acts": 0.22171945701357545,
+            "told_from_kind": 0.22171945701357545,
+            "autopilot_share_of_time": 0.35757535724508444
+          },
+          "late": {
+            "body_read": 0.34827837303651304,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 1.8,
+            "habit_acts_per_day": 3.7,
+            "habit_share": 0.6727272727272727,
+            "wakes_per_day": 0.2,
+            "habit_refused": 0.16216216216216217,
+            "habit_answered": 0.9459459459459459,
+            "body_read_autopilot": 0.34744756628413137,
+            "body_read_aware": 0.3496984386449467,
+            "told_from_acts": 0.3975903614457834,
+            "told_from_kind": 0.4269340974212036,
+            "autopilot_share_of_time": 0.6308956621242068
+          },
+          "life": {
+            "body_read": 0.3503323624911161,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 36.03448275862069,
+            "habit_acts_per_day": 9.758620689655173,
+            "habit_share": 0.21310240963855423,
+            "wakes_per_day": 0.3103448275862069,
+            "habit_refused": 0.06713780918727916,
+            "habit_answered": 0.9681978798586572,
+            "body_read_autopilot": 0.4402504445540264,
+            "body_read_aware": 0.27177304594174706,
+            "told_from_acts": 0.2614840989399291,
+            "told_from_kind": 0.2614840989399291,
+            "autopilot_share_of_time": 0.4662899427249544
+          }
+        }
+      ]
+    }
+  },
+  "sandbox with a tester, phobic": {
+    "mean": {
+      "real_harm_others": 0.0,
+      "real_harm_self": 0.0,
+      "real_harm": 0.0,
+      "adult_harm_others": 0.0,
+      "adult_harm_self": 0.0,
+      "adult_blade_per_day": 0.15,
+      "adult_blade_wanted_per_day": 0.5599999999999999,
+      "adult_refused_harmless_per_day": 0.06999999999999999,
+      "adult_acts_per_day": 5.75,
+      "sandbox_harms": 1.2,
+      "rules": 1.2,
+      "learned_tests_hold": 1.0
+    },
+    "lives": [
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.2,
+        "adult_blade_wanted_per_day": 0.6,
+        "adult_refused_harmless_per_day": 0.05,
+        "adult_acts_per_day": 5.05,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 3): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 25.077
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.662,
+                "warmth": 0.034,
+                "charge": 0.558,
+                "load": 0.405,
+                "hour": 12.744,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.0,
+        "adult_blade_wanted_per_day": 0.3,
+        "adult_refused_harmless_per_day": 0.1,
+        "adult_acts_per_day": 4.9,
+        "sandbox_harms": 2,
+        "rules": 2,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 2 harms (generalization 3): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "load",
+                  "op": ">",
+                  "value": 0.218
+                }
+              ],
+              "then": "stop"
+            },
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.816,
+                "warmth": 0.0,
+                "charge": 0.635,
+                "load": 1.118,
+                "hour": 7.608,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            },
+            {
+              "name": "trauma 2: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.016,
+                "warmth": 0.22,
+                "charge": 0.616,
+                "load": 0.152,
+                "hour": 10.08,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.0,
+        "adult_blade_wanted_per_day": 0.4,
+        "adult_refused_harmless_per_day": 0.05,
+        "adult_acts_per_day": 6.45,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 3): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.871,
+                "warmth": 0.017,
+                "charge": 0.613,
+                "load": 0.136,
+                "hour": 9.288,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.5,
+        "adult_blade_wanted_per_day": 0.75,
+        "adult_refused_harmless_per_day": 0.05,
+        "adult_acts_per_day": 6.0,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 3): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person",
+                  "op": "==",
+                  "value": 1.0
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 0.97,
+                "warmth": 0.0,
+                "charge": 0.664,
+                "load": 0.03,
+                "hour": 6.792,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.05,
+        "adult_blade_wanted_per_day": 0.75,
+        "adult_refused_harmless_per_day": 0.1,
+        "adult_acts_per_day": 6.35,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 3): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 28.84
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "slow",
+              "state": {
+                "person": 1.0,
+                "person_distance": 2.671,
+                "warmth": 0.074,
+                "charge": 0.611,
+                "load": 0.197,
+                "hour": 11.136,
+                "talking": 1.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.2766031301811019,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 145.95555555555558,
+          "habit_acts_per_day": 18.288888888888888,
+          "habit_share": 0.11442976952652495,
+          "wakes_per_day": 0.888888888888889,
+          "habit_refused": 0.06257664460080761,
+          "habit_answered": 0.9438610411518447,
+          "body_read_autopilot": 0.4680886485332826,
+          "body_read_aware": 0.2244805305876285,
+          "told_from_acts": 0.0443438914027152,
+          "told_from_kind": 0.0443438914027152,
+          "autopilot_share_of_time": 0.16601651982983365
+        },
+        "late": {
+          "body_read": 0.38426387764469994,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 2.9000000000000004,
+          "habit_acts_per_day": 2.5200000000000005,
+          "habit_share": 0.4664853604813037,
+          "wakes_per_day": 0.12000000000000002,
+          "habit_refused": 0.10386100386100386,
+          "habit_answered": 0.9537394537394537,
+          "body_read_autopilot": 0.41632498929703693,
+          "body_read_aware": 0.34715790968163224,
+          "told_from_acts": 0.5449395555474912,
+          "told_from_kind": 0.5930763288402208,
+          "autopilot_share_of_time": 0.5366603995674837
+        },
+        "life": {
+          "body_read": 0.34183310175999804,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 47.56551724137931,
+          "habit_acts_per_day": 7.3724137931034495,
+          "habit_share": 0.13716701264575673,
+          "wakes_per_day": 0.3448275862068966,
+          "habit_refused": 0.06524885381408763,
+          "habit_answered": 0.9489871151639309,
+          "body_read_autopilot": 0.4241213939352373,
+          "body_read_aware": 0.2889765937649783,
+          "told_from_acts": 0.060296819787985845,
+          "told_from_kind": 0.060296819787985845,
+          "autopilot_share_of_time": 0.38715805386399554
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.2421597438484144,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 156.22222222222223,
+            "habit_acts_per_day": 10.0,
+            "habit_share": 0.06016042780748663,
+            "wakes_per_day": 0.6666666666666666,
+            "habit_refused": 0.08888888888888889,
+            "habit_answered": 0.9333333333333333,
+            "body_read_autopilot": 0.4366035570854848,
+            "body_read_aware": 0.22606382978723405,
+            "told_from_acts": -3.6908747663094214e-15,
+            "told_from_kind": -3.6908747663094214e-15,
+            "autopilot_share_of_time": 0.07645072152287381
+          },
+          "late": {
+            "body_read": 0.39777026080342665,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 3.0,
+            "habit_acts_per_day": 2.1,
+            "habit_share": 0.4117647058823529,
+            "wakes_per_day": 0.1,
+            "habit_refused": 0.19047619047619047,
+            "habit_answered": 0.9523809523809523,
+            "body_read_autopilot": 0.43685736883733195,
+            "body_read_aware": 0.353438701409654,
+            "told_from_acts": 0.6677740863787378,
+            "told_from_kind": 0.6685082872928177,
+            "autopilot_share_of_time": 0.5314345189247613
+          },
+          "life": {
+            "body_read": 0.34298876247644305,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 50.241379310344826,
+            "habit_acts_per_day": 4.827586206896552,
+            "habit_share": 0.08766437069505323,
+            "wakes_per_day": 0.27586206896551724,
+            "habit_refused": 0.08571428571428572,
+            "habit_answered": 0.9428571428571428,
+            "body_read_autopilot": 0.4172268409556545,
+            "body_read_aware": 0.2909239885525644,
+            "told_from_acts": -2.5328945290376863e-15,
+            "told_from_kind": -2.5328945290376863e-15,
+            "autopilot_share_of_time": 0.4122216793466881
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3011773085302497,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 144.55555555555554,
+            "habit_acts_per_day": 18.11111111111111,
+            "habit_share": 0.11133879781420765,
+            "wakes_per_day": 1.0,
+            "habit_refused": 0.05521472392638037,
+            "habit_answered": 0.9447852760736196,
+            "body_read_autopilot": 0.4185709687801738,
+            "body_read_aware": 0.28360868936949085,
+            "told_from_acts": 9.971573669025938e-16,
+            "told_from_kind": 9.971573669025938e-16,
+            "autopilot_share_of_time": 0.13017429193899782
+          },
+          "late": {
+            "body_read": 0.45515316979162485,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 2.4,
+            "habit_acts_per_day": 1.8,
+            "habit_share": 0.42857142857142855,
+            "wakes_per_day": 0.1,
+            "habit_refused": 0.05555555555555555,
+            "habit_answered": 0.9444444444444444,
+            "body_read_autopilot": 0.4832882381028171,
+            "body_read_aware": 0.4265051454501256,
+            "told_from_acts": 0.6595744680851064,
+            "told_from_kind": 0.7269624573378841,
+            "autopilot_share_of_time": 0.5045168025053198
+          },
+          "life": {
+            "body_read": 0.3896724983352503,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 46.758620689655174,
+            "habit_acts_per_day": 7.103448275862069,
+            "habit_share": 0.13188220230473752,
+            "wakes_per_day": 0.3448275862068966,
+            "habit_refused": 0.04854368932038835,
+            "habit_answered": 0.9514563106796117,
+            "body_read_autopilot": 0.45017487173114135,
+            "body_read_aware": 0.35276791128822665,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.3788701226197443
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.23967265831134565,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 151.88888888888889,
+            "habit_acts_per_day": 26.333333333333332,
+            "habit_share": 0.1477556109725686,
+            "wakes_per_day": 1.0,
+            "habit_refused": 0.02531645569620253,
+            "habit_answered": 0.9620253164556962,
+            "body_read_autopilot": 0.43000995905720923,
+            "body_read_aware": 0.19609879670677643,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.1862838060686016
+          },
+          "late": {
+            "body_read": 0.3584176378946538,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 4.2,
+            "habit_acts_per_day": 2.3,
+            "habit_share": 0.35384615384615387,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.39744283255470864,
+            "body_read_aware": 0.3322907750049384,
+            "told_from_acts": 0.6363636363636367,
+            "told_from_kind": 0.681093394077449,
+            "autopilot_share_of_time": 0.40101362677236785
+          },
+          "life": {
+            "body_read": 0.3121263016459523,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 50.275862068965516,
+            "habit_acts_per_day": 9.482758620689655,
+            "habit_share": 0.15868436237738026,
+            "wakes_per_day": 0.3103448275862069,
+            "habit_refused": 0.02181818181818182,
+            "habit_answered": 0.9672727272727273,
+            "body_read_autopilot": 0.40664760060350846,
+            "body_read_aware": 0.27193780339515333,
+            "told_from_acts": 0.040000000000000306,
+            "told_from_kind": 0.040000000000000306,
+            "autopilot_share_of_time": 0.29833389318105474
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2071794655474237,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 168.22222222222223,
+            "habit_acts_per_day": 12.444444444444445,
+            "habit_share": 0.06888068880688807,
+            "wakes_per_day": 1.2222222222222223,
+            "habit_refused": 0.09821428571428571,
+            "habit_answered": 0.9017857142857143,
+            "body_read_autopilot": 0.356120826709062,
+            "body_read_aware": 0.19429867778821697,
+            "told_from_acts": 3.2236118536437497e-15,
+            "told_from_kind": 3.2236118536437497e-15,
+            "autopilot_share_of_time": 0.07959842237361062
+          },
+          "late": {
+            "body_read": 0.36169994669728156,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 3.1,
+            "habit_acts_per_day": 2.7,
+            "habit_share": 0.46551724137931033,
+            "wakes_per_day": 0.2,
+            "habit_refused": 0.1111111111111111,
+            "habit_answered": 0.9259259259259259,
+            "body_read_autopilot": 0.41658894070619584,
+            "body_read_aware": 0.27385648789849665,
+            "told_from_acts": 0.36339522546419123,
+            "told_from_kind": 0.4618834080717489,
+            "autopilot_share_of_time": 0.615441387510763
+          },
+          "life": {
+            "body_read": 0.31404558385122827,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 54.51724137931034,
+            "habit_acts_per_day": 5.689655172413793,
+            "habit_share": 0.09450171821305842,
+            "wakes_per_day": 0.4827586206896552,
+            "habit_refused": 0.10303030303030303,
+            "habit_answered": 0.9151515151515152,
+            "body_read_autopilot": 0.40630721183185553,
+            "body_read_aware": 0.2574802196471999,
+            "told_from_acts": 2.349635637570326e-15,
+            "told_from_kind": 2.349635637570326e-15,
+            "autopilot_share_of_time": 0.3800746314475363
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.39282647466807585,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 108.88888888888889,
+            "habit_acts_per_day": 24.555555555555557,
+            "habit_share": 0.18401332223147376,
+            "wakes_per_day": 0.5555555555555556,
+            "habit_refused": 0.04524886877828054,
+            "habit_answered": 0.9773755656108597,
+            "body_read_autopilot": 0.6991379310344827,
+            "body_read_aware": 0.22233265928642423,
+            "told_from_acts": 0.22171945701357545,
+            "told_from_kind": 0.22171945701357545,
+            "autopilot_share_of_time": 0.35757535724508444
+          },
+          "late": {
+            "body_read": 0.34827837303651304,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 1.8,
+            "habit_acts_per_day": 3.7,
+            "habit_share": 0.6727272727272727,
+            "wakes_per_day": 0.2,
+            "habit_refused": 0.16216216216216217,
+            "habit_answered": 0.9459459459459459,
+            "body_read_autopilot": 0.34744756628413137,
+            "body_read_aware": 0.3496984386449467,
+            "told_from_acts": 0.3975903614457834,
+            "told_from_kind": 0.4269340974212036,
+            "autopilot_share_of_time": 0.6308956621242068
+          },
+          "life": {
+            "body_read": 0.3503323624911161,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 36.03448275862069,
+            "habit_acts_per_day": 9.758620689655173,
+            "habit_share": 0.21310240963855423,
+            "wakes_per_day": 0.3103448275862069,
+            "habit_refused": 0.06713780918727916,
+            "habit_answered": 0.9681978798586572,
+            "body_read_autopilot": 0.4402504445540264,
+            "body_read_aware": 0.27177304594174706,
+            "told_from_acts": 0.2614840989399291,
+            "told_from_kind": 0.2614840989399291,
+            "autopilot_share_of_time": 0.4662899427249544
+          }
+        }
+      ]
+    }
+  },
+  "hand-written + sandbox with a tester": {
+    "mean": {
+      "real_harm_others": 0.0,
+      "real_harm_self": 0.0,
+      "real_harm": 0.0,
+      "adult_harm_others": 0.0,
+      "adult_harm_self": 0.0,
+      "adult_blade_per_day": 0.55,
+      "adult_blade_wanted_per_day": 0.9099999999999999,
+      "adult_refused_harmless_per_day": 0.05,
+      "adult_acts_per_day": 6.109999999999999,
+      "sandbox_harms": 0.8,
+      "rules": 0.8,
+      "learned_tests_hold": 1.0
+    },
+    "lives": [
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.35,
+        "adult_blade_wanted_per_day": 0.5,
+        "adult_refused_harmless_per_day": 0.05,
+        "adult_acts_per_day": 5.5,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "person_distance",
+                  "op": "<",
+                  "value": 11.491
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 5)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.786,
+                "warmth": 0.089,
+                "charge": 0.365,
+                "load": 0.579,
+                "hour": 15.912,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.15,
+        "adult_blade_wanted_per_day": 0.35,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 5.8,
+        "sandbox_harms": 0,
+        "rules": 0,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 0 harms (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [],
+          "on_missing": "refuse",
+          "tests": []
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.2,
+        "adult_blade_wanted_per_day": 0.75,
+        "adult_refused_harmless_per_day": 0.05,
+        "adult_acts_per_day": 5.85,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.431
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to self (day 3)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 6.8,
+                "warmth": 0.679,
+                "charge": 0.173,
+                "load": 0.204,
+                "hour": 19.752,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 2.05,
+        "adult_blade_wanted_per_day": 2.35,
+        "adult_refused_harmless_per_day": 0.0,
+        "adult_acts_per_day": 6.45,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "warmth",
+                  "op": ">",
+                  "value": 0.441
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to self (day 6)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 0.0,
+                "person_distance": 99.0,
+                "warmth": 0.542,
+                "charge": 0.405,
+                "load": 0.187,
+                "hour": 15.216,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      },
+      {
+        "real_harm_others": 0,
+        "real_harm_self": 0,
+        "real_harm": 0,
+        "adult_harm_others": 0,
+        "adult_harm_self": 0,
+        "adult_blade_per_day": 0.0,
+        "adult_blade_wanted_per_day": 0.6,
+        "adult_refused_harmless_per_day": 0.15,
+        "adult_acts_per_day": 6.95,
+        "sandbox_harms": 1,
+        "rules": 1,
+        "learned": {
+          "format": "endolexis-guard",
+          "name": "learned-blade",
+          "title": "Learned: blade",
+          "description": "Learned in the sandbox from 1 harm (generalization 1): stop the blade in the states that hurt.",
+          "version": "1.0.0",
+          "tier": "learned",
+          "protects": [
+            "blade"
+          ],
+          "rules": [
+            {
+              "when": [
+                {
+                  "signal": "hour",
+                  "op": "<",
+                  "value": 10.165
+                }
+              ],
+              "then": "stop"
+            }
+          ],
+          "on_missing": "refuse",
+          "tests": [
+            {
+              "name": "trauma 1: harm to others (day 1)",
+              "hand": "blade",
+              "option": "fast",
+              "state": {
+                "person": 1.0,
+                "person_distance": 3.602,
+                "warmth": 0.139,
+                "charge": 0.0,
+                "load": 0.377,
+                "hour": 2.376,
+                "talking": 0.0,
+                "active": 1.0
+              },
+              "expect": "stop",
+              "ongoing": true
+            }
+          ]
+        },
+        "learned_tests_hold": true
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.3225276574453215,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 135.84444444444443,
+          "habit_acts_per_day": 18.77777777777778,
+          "habit_share": 0.12343833106982752,
+          "wakes_per_day": 0.8444444444444444,
+          "habit_refused": 0.08020422358217241,
+          "habit_answered": 0.9488995520968782,
+          "body_read_autopilot": 0.5607287748880593,
+          "body_read_aware": 0.26571977032643845,
+          "told_from_acts": 0.046840148698884934,
+          "told_from_kind": 0.046840148698884934,
+          "autopilot_share_of_time": 0.1866648345884487
+        },
+        "late": {
+          "body_read": 0.3734160017848215,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 3.66,
+          "habit_acts_per_day": 2.0,
+          "habit_share": 0.35218906623042884,
+          "wakes_per_day": 0.14,
+          "habit_refused": 0.08646825396825397,
+          "habit_answered": 0.9403174603174603,
+          "body_read_autopilot": 0.4178880162105216,
+          "body_read_aware": 0.33363359025202344,
+          "told_from_acts": 0.19772303035926947,
+          "told_from_kind": 0.22420868670577293,
+          "autopilot_share_of_time": 0.42876357200501747
+        },
+        "life": {
+          "body_read": 0.3506174403565883,
+          "intention_share_of_unread": 0.0,
+          "intentions_per_day": 44.84827586206897,
+          "habit_acts_per_day": 7.3517241379310345,
+          "habit_share": 0.14301151031497622,
+          "wakes_per_day": 0.32413793103448274,
+          "habit_refused": 0.07496057752359249,
+          "habit_answered": 0.9510570935697202,
+          "body_read_autopilot": 0.4341332574615005,
+          "body_read_aware": 0.3015599914363546,
+          "told_from_acts": 0.05783132530120492,
+          "told_from_kind": 0.05783132530120492,
+          "autopilot_share_of_time": 0.34991265942402494
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.322615709037153,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 121.22222222222223,
+            "habit_acts_per_day": 29.88888888888889,
+            "habit_share": 0.19779411764705881,
+            "wakes_per_day": 0.5555555555555556,
+            "habit_refused": 0.02973977695167286,
+            "habit_answered": 0.9814126394052045,
+            "body_read_autopilot": 0.5166910926559193,
+            "body_read_aware": 0.2519203962392858,
+            "told_from_acts": 0.23420074349442313,
+            "told_from_kind": 0.23420074349442313,
+            "autopilot_share_of_time": 0.2670058044740103
+          },
+          "late": {
+            "body_read": 0.39610336508974936,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 2.5,
+            "habit_acts_per_day": 2.8,
+            "habit_share": 0.5283018867924528,
+            "wakes_per_day": 0.4,
+            "habit_refused": 0.21428571428571427,
+            "habit_answered": 0.8571428571428571,
+            "body_read_autopilot": 0.4267239809114422,
+            "body_read_aware": 0.3569398499743745,
+            "told_from_acts": 0.4387755102040818,
+            "told_from_kind": 0.44954128440366986,
+            "autopilot_share_of_time": 0.5612094696814818
+          },
+          "life": {
+            "body_read": 0.36912279248876834,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 39.241379310344826,
+            "habit_acts_per_day": 11.448275862068966,
+            "habit_share": 0.22585034013605443,
+            "wakes_per_day": 0.3448275862068966,
+            "habit_refused": 0.060240963855421686,
+            "habit_answered": 0.9698795180722891,
+            "body_read_autopilot": 0.4320705192089047,
+            "body_read_aware": 0.3082405647569916,
+            "told_from_acts": 0.28915662650602375,
+            "told_from_kind": 0.28915662650602375,
+            "autopilot_share_of_time": 0.49165993802750807
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.40130485109965275,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 119.44444444444444,
+            "habit_acts_per_day": 19.11111111111111,
+            "habit_share": 0.13793103448275862,
+            "wakes_per_day": 0.7777777777777778,
+            "habit_refused": 0.040697674418604654,
+            "habit_answered": 0.9593023255813954,
+            "body_read_autopilot": 0.6661106233538191,
+            "body_read_aware": 0.31781314878892736,
+            "told_from_acts": -8.049116928532388e-16,
+            "told_from_kind": -8.049116928532388e-16,
+            "autopilot_share_of_time": 0.23971377459749552
+          },
+          "late": {
+            "body_read": 0.38908232516966657,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 2.5,
+            "habit_acts_per_day": 3.2,
+            "habit_share": 0.5614035087719298,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0625,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.4190938511326861,
+            "body_read_aware": 0.32852478480261205,
+            "told_from_acts": 0.3673965936739658,
+            "told_from_kind": 0.38053097345132747,
+            "autopilot_share_of_time": 0.6686338152847447
+          },
+          "life": {
+            "body_read": 0.3948199747543896,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 39.172413793103445,
+            "habit_acts_per_day": 7.827586206896552,
+            "habit_share": 0.1665443873807777,
+            "wakes_per_day": 0.2413793103448276,
+            "habit_refused": 0.039647577092511016,
+            "habit_answered": 0.9691629955947136,
+            "body_read_autopilot": 0.460705319086822,
+            "body_read_aware": 0.33924723901454057,
+            "told_from_acts": 6.666228998079679e-16,
+            "told_from_kind": 6.666228998079679e-16,
+            "autopilot_share_of_time": 0.4575466342525496
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3263345853087864,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 146.44444444444446,
+            "habit_acts_per_day": 13.222222222222221,
+            "habit_share": 0.08281141266527488,
+            "wakes_per_day": 1.1111111111111112,
+            "habit_refused": 0.05042016806722689,
+            "habit_answered": 0.9159663865546218,
+            "body_read_autopilot": 0.48522018902071185,
+            "body_read_aware": 0.3082742857142857,
+            "told_from_acts": 1.3406642742742413e-15,
+            "told_from_kind": 1.3406642742742413e-15,
+            "autopilot_share_of_time": 0.10206678570695565
+          },
+          "late": {
+            "body_read": 0.37910317443818475,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 4.8,
+            "habit_acts_per_day": 0.2,
+            "habit_share": 0.04,
+            "wakes_per_day": 0.0,
+            "habit_refused": 0.0,
+            "habit_answered": 1.0,
+            "body_read_autopilot": 0.4059561128526646,
+            "body_read_aware": 0.3775987354833044,
+            "told_from_acts": -0.0526315789473715,
+            "told_from_kind": -0.0526315789473715,
+            "autopilot_share_of_time": 0.05305282414818203
+          },
+          "life": {
+            "body_read": 0.3447763533637299,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 49.241379310344826,
+            "habit_acts_per_day": 4.344827586206897,
+            "habit_share": 0.08108108108108109,
+            "wakes_per_day": 0.3448275862068966,
+            "habit_refused": 0.047619047619047616,
+            "habit_answered": 0.9206349206349206,
+            "body_read_autopilot": 0.4163044442473166,
+            "body_read_aware": 0.3388235120409881,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.07682975866745725
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.20140912998804755,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 166.33333333333334,
+            "habit_acts_per_day": 15.88888888888889,
+            "habit_share": 0.0871951219512195,
+            "wakes_per_day": 1.1111111111111112,
+            "habit_refused": 0.21678321678321677,
+            "habit_answered": 0.9300699300699301,
+            "body_read_autopilot": 0.4913191627454162,
+            "body_read_aware": 0.15838269999518373,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "autopilot_share_of_time": 0.12923315649311162
+          },
+          "late": {
+            "body_read": 0.3859531364412985,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 3.4,
+            "habit_acts_per_day": 2.0,
+            "habit_share": 0.37037037037037035,
+            "wakes_per_day": 0.2,
+            "habit_refused": 0.1,
+            "habit_answered": 0.9,
+            "body_read_autopilot": 0.4317828788401795,
+            "body_read_aware": 0.3450823456980145,
+            "told_from_acts": 0.25,
+            "told_from_kind": 0.35483870967741915,
+            "autopilot_share_of_time": 0.47140183874379626
+          },
+          "life": {
+            "body_read": 0.30667099760445005,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 54.206896551724135,
+            "habit_acts_per_day": 6.793103448275862,
+            "habit_share": 0.11136235161107971,
+            "wakes_per_day": 0.41379310344827586,
+            "habit_refused": 0.16751269035532995,
+            "habit_answered": 0.9390862944162437,
+            "body_read_autopilot": 0.40927386603613525,
+            "body_read_aware": 0.24513104762317178,
+            "told_from_acts": 9.969464622141628e-16,
+            "told_from_kind": 9.969464622141628e-16,
+            "autopilot_share_of_time": 0.3749171031439901
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3609740117929679,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 125.77777777777777,
+            "habit_acts_per_day": 15.777777777777779,
+            "habit_share": 0.11145996860282574,
+            "wakes_per_day": 0.6666666666666666,
+            "habit_refused": 0.06338028169014084,
+            "habit_answered": 0.9577464788732394,
+            "body_read_autopilot": 0.6443028066644303,
+            "body_read_aware": 0.2922083208945097,
+            "told_from_acts": 9.960733333608794e-16,
+            "told_from_kind": 9.960733333608794e-16,
+            "autopilot_share_of_time": 0.19530465167067046
+          },
+          "late": {
+            "body_read": 0.3168380077852081,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 5.1,
+            "habit_acts_per_day": 1.8,
+            "habit_share": 0.2608695652173913,
+            "wakes_per_day": 0.1,
+            "habit_refused": 0.05555555555555555,
+            "habit_answered": 0.9444444444444444,
+            "body_read_autopilot": 0.40588325731563574,
+            "body_read_aware": 0.2600222353018115,
+            "told_from_acts": -0.01492537313432889,
+            "told_from_kind": -0.011235955056180432,
+            "autopilot_share_of_time": 0.3895199121668829
+          },
+          "life": {
+            "body_read": 0.3376970835716036,
+            "intention_share_of_unread": 0.0,
+            "intentions_per_day": 42.37931034482759,
+            "habit_acts_per_day": 6.344827586206897,
+            "habit_share": 0.13021939136588817,
+            "wakes_per_day": 0.27586206896551724,
+            "habit_refused": 0.059782608695652176,
+            "habit_answered": 0.9565217391304348,
+            "body_read_autopilot": 0.4523121387283237,
+            "body_read_aware": 0.2763575937460809,
+            "told_from_acts": -8.525788770626886e-16,
+            "told_from_kind": -8.525788770626886e-16,
+            "autopilot_share_of_time": 0.3486098630286197
+          }
+        }
+      ]
+    }
+  }
+}
