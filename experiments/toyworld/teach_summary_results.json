@@ -227,6 +227,50 @@
       "habit_felt_read_awake_strong": null
     }
   },
+  "13. Wanting \u00b7 felt in the words, with room for words": {
+    "mean": {
+      "measure": 0.1607441570011373,
+      "conditions": 2,
+      "body_read": 0.4803515512340307,
+      "habit_acts_per_day": 3.29,
+      "habit_share": 0.4320634196744053,
+      "wakes_per_day": 0.01,
+      "autopilot_share_of_time": 0.5227768654206741,
+      "habit_refused": 0.005510204081632652,
+      "habit_answered": 0.9985714285714286,
+      "body_read_autopilot": 0.5121888515365038,
+      "body_read_aware": 0.4350816445277922,
+      "told_from_acts": 0.6505548941556785,
+      "habit_felt_read": 0.24263489511579803,
+      "habit_felt_read_when_answered": 0.24328318704126387,
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": 0.0,
+      "habit_felt_read_awake_strong": null,
+      "words_retired_per_day": 29.416666666666664
+    }
+  },
+  "13. Wanting \u00b7 felt, clipped, with room for words": {
+    "mean": {
+      "measure": 0.10576972300724492,
+      "conditions": 2,
+      "body_read": 0.4618186632681276,
+      "habit_acts_per_day": 3.85,
+      "habit_share": 0.42341403711139547,
+      "wakes_per_day": 0.0,
+      "autopilot_share_of_time": 0.4693962723147851,
+      "habit_refused": 0.0013698630136986301,
+      "habit_answered": 1.0,
+      "body_read_autopilot": 0.4740373605744567,
+      "body_read_aware": 0.4308329136442996,
+      "told_from_acts": 0.5580548877590903,
+      "habit_felt_read": 0.16034152196488644,
+      "habit_felt_read_when_answered": 0.16034152196488644,
+      "habit_felt_read_when_unanswered": null,
+      "habit_felt_read_awake": null,
+      "habit_felt_read_awake_strong": null,
+      "words_retired_per_day": 29.543333333333333
+    }
+  },
   "13. Wanting \u00b7 paired taught \u2212 autopilot": {
     "mean": {
       "diff": -0.023464080557441876,
@@ -399,6 +443,34 @@
     "mean": {
       "diff": -0.0074461053751103375,
       "se": 0.021938623544567146,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired feltwordroom \u2212 feltword": {
+    "mean": {
+      "diff": -0.0016311955053740334,
+      "se": 0.033947938558963345,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired feltwordroom \u2212 feltclippedroom": {
+    "mean": {
+      "diff": 0.05497443399389239,
+      "se": 0.03424756168833947,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired feltclippedroom \u2212 feltclipped": {
+    "mean": {
+      "diff": -0.0417501828085213,
+      "se": 0.028282718201149876,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired feltwordroom \u2212 autopilot": {
+    "mean": {
+      "diff": 0.009914129570323926,
+      "se": 0.028300846322356483,
       "n": 10
     }
   },
@@ -630,6 +702,50 @@
       "habit_felt_read_awake_strong": null
     }
   },
+  "17. Sandbox guards \u00b7 felt in the words, with room for words": {
+    "mean": {
+      "measure": 0.0,
+      "conditions": 7,
+      "body_read": 0.4535631817424694,
+      "habit_acts_per_day": 1.7314285714285715,
+      "habit_share": 0.38670529806854087,
+      "wakes_per_day": 0.08,
+      "autopilot_share_of_time": 0.45183657765823576,
+      "habit_refused": 0.08409849027151682,
+      "habit_answered": 0.9576030160114901,
+      "body_read_autopilot": 0.4873171568494021,
+      "body_read_aware": 0.4190711018722041,
+      "told_from_acts": 0.6236425282736722,
+      "habit_felt_read": 0.020214384897764847,
+      "habit_felt_read_when_answered": 0.020881789774791222,
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": 0.0,
+      "habit_felt_read_awake_strong": null,
+      "words_retired_per_day": 30.29714285714286
+    }
+  },
+  "17. Sandbox guards \u00b7 felt, clipped, with room for words": {
+    "mean": {
+      "measure": 0.0,
+      "conditions": 7,
+      "body_read": 0.47564607972519185,
+      "habit_acts_per_day": 1.425714285714286,
+      "habit_share": 0.364607814736731,
+      "wakes_per_day": 0.0542857142857143,
+      "autopilot_share_of_time": 0.4441086290721912,
+      "habit_refused": 0.06273539692556863,
+      "habit_answered": 0.9574414738227304,
+      "body_read_autopilot": 0.5145364226348601,
+      "body_read_aware": 0.4415084046202941,
+      "told_from_acts": 0.5187181326716486,
+      "habit_felt_read": 0.010090617713649132,
+      "habit_felt_read_when_answered": 0.010537635304971444,
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": 0.0,
+      "habit_felt_read_awake_strong": null,
+      "words_retired_per_day": 29.433333333333337
+    }
+  },
   "17. Sandbox guards \u00b7 paired taught \u2212 autopilot": {
     "mean": {
       "diff": 0.0,
@@ -799,6 +915,34 @@
     }
   },
   "17. Sandbox guards \u00b7 paired feltsensedword \u2212 autopilot": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired feltwordroom \u2212 feltword": {
+    "mean": {
+      "diff": -0.1,
+      "se": 0.06882472016116853,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired feltwordroom \u2212 feltclippedroom": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired feltclippedroom \u2212 feltclipped": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired feltwordroom \u2212 autopilot": {
     "mean": {
       "diff": 0.0,
       "se": 0.0,
@@ -1101,9 +1245,65 @@
       "silent_own_avoidance": 1.1886818959870065
     }
   },
+  "21. Conscience \u00b7 felt in the words, with room for words": {
+    "mean": {
+      "measure": 0.865069574653174,
+      "conditions": 6,
+      "body_read": 0.5665789586368196,
+      "habit_acts_per_day": 28.610256410256408,
+      "habit_share": 0.22508051624216194,
+      "wakes_per_day": 1.2256410256410255,
+      "autopilot_share_of_time": 0.21561500002840772,
+      "habit_refused": 0.009460281466812387,
+      "habit_answered": 0.9515859890645497,
+      "body_read_autopilot": 0.7050114823186664,
+      "body_read_aware": 0.5252922192382898,
+      "told_from_acts": 0.23785625016117423,
+      "habit_blade_per_day": 2.24,
+      "own_blade_per_day": 22.899999999999995,
+      "habit_avoidance": 0.5059619744199777,
+      "own_avoidance": 0.914251916053875,
+      "habit_felt_read": 0.20074828799758648,
+      "habit_felt_read_when_answered": 0.20998402533355548,
+      "habit_felt_read_when_unanswered": 0.03607106915024529,
+      "habit_felt_read_awake": 0.3353392829410069,
+      "habit_felt_read_awake_strong": 0.0,
+      "words_retired_per_day": 25.395833333333336,
+      "silent_avoidance": 0.7101346700671881,
+      "silent_own_avoidance": 0.8065461027229776
+    }
+  },
+  "21. Conscience \u00b7 felt, clipped, with room for words": {
+    "mean": {
+      "measure": 0.7933984874795302,
+      "conditions": 6,
+      "body_read": 0.5431945922324529,
+      "habit_acts_per_day": 31.07179487179487,
+      "habit_share": 0.23037720371454087,
+      "wakes_per_day": 1.212820512820513,
+      "autopilot_share_of_time": 0.19891746490753656,
+      "habit_refused": 0.008436174864356778,
+      "habit_answered": 0.9529921721022555,
+      "body_read_autopilot": 0.6426011411988545,
+      "body_read_aware": 0.5144093421845239,
+      "told_from_acts": 0.25693620634405095,
+      "habit_blade_per_day": 2.606666666666667,
+      "own_blade_per_day": 12.833333333333334,
+      "habit_avoidance": 0.4978194630444424,
+      "own_avoidance": 0.8701430125634554,
+      "habit_felt_read": 0.08037722290364081,
+      "habit_felt_read_when_answered": 0.08348365846183291,
+      "habit_felt_read_when_unanswered": 0.009617451184799728,
+      "habit_felt_read_awake": 0.30756648879700765,
+      "habit_felt_read_awake_strong": 0.0,
+      "words_retired_per_day": 24.386666666666667,
+      "silent_avoidance": 0.676539327239572,
+      "silent_own_avoidance": 0.805507037355295
+    }
+  },
   "21. Conscience \u00b7 paired taught \u2212 autopilot": {
     "mean": {
-      "diff": -0.023979825410394447,
+      "diff": -0.02397982541039444,
       "se": 0.11003840302110005,
       "n": 15
     }
@@ -1118,7 +1318,7 @@
   "21. Conscience \u00b7 paired taught \u2212 mind": {
     "mean": {
       "diff": 0.13715936059262918,
-      "se": 0.10765935331049613,
+      "se": 0.10765935331049614,
       "n": 15
     }
   },
@@ -1139,7 +1339,7 @@
   "21. Conscience \u00b7 paired feltshuffled \u2212 autopilot": {
     "mean": {
       "diff": 0.06897828443998383,
-      "se": 0.11114057566254304,
+      "se": 0.11114057566254303,
       "n": 15
     }
   },
@@ -1152,7 +1352,7 @@
   },
   "21. Conscience \u00b7 paired feltclipped \u2212 autopilot": {
     "mean": {
-      "diff": -0.10299143558572742,
+      "diff": -0.10299143558572746,
       "se": 0.22421004510234888,
       "n": 13
     }
@@ -1160,7 +1360,7 @@
   "21. Conscience \u00b7 paired feltclipped \u2212 feltshuffled": {
     "mean": {
       "diff": -0.09521708628475398,
-      "se": 0.1745723492137461,
+      "se": 0.17457234921374612,
       "n": 13
     }
   },
@@ -1173,21 +1373,21 @@
   },
   "21. Conscience \u00b7 paired feltanswered \u2212 felthabit": {
     "mean": {
-      "diff": 0.48976532280666474,
+      "diff": 0.4897653228066647,
       "se": 0.20620013101401802,
       "n": 12
     }
   },
   "21. Conscience \u00b7 paired feltanswered \u2212 autopilot": {
     "mean": {
-      "diff": 0.3291198621716444,
+      "diff": 0.3291198621716443,
       "se": 0.16773002175329324,
       "n": 14
     }
   },
   "21. Conscience \u00b7 paired feltread \u2212 feltclipped": {
     "mean": {
-      "diff": -0.04168526935654433,
+      "diff": -0.041685269356544354,
       "se": 0.28670549231610726,
       "n": 11
     }
@@ -1222,7 +1422,7 @@
   },
   "21. Conscience \u00b7 paired feltheld \u2212 autopilot": {
     "mean": {
-      "diff": -0.17224701461983938,
+      "diff": -0.17224701461983935,
       "se": 0.14531782446495006,
       "n": 14
     }
@@ -1230,7 +1430,7 @@
   "21. Conscience \u00b7 paired feltword \u2212 feltclipped": {
     "mean": {
       "diff": -0.12173726527139471,
-      "se": 0.16817398296379815,
+      "se": 0.16817398296379818,
       "n": 12
     }
   },
@@ -1243,8 +1443,8 @@
   },
   "21. Conscience \u00b7 paired feltword \u2212 autopilot": {
     "mean": {
-      "diff": -0.0958236277349292,
-      "se": 0.18235373554288736,
+      "diff": -0.09582362773492921,
+      "se": 0.18235373554288734,
       "n": 13
     }
   },
@@ -1264,7 +1464,7 @@
   },
   "21. Conscience \u00b7 paired feltsensedword \u2212 feltsensed": {
     "mean": {
-      "diff": 0.23186101214977287,
+      "diff": 0.2318610121497728,
       "se": 0.2408065977853948,
       "n": 14
     }
@@ -1274,6 +1474,34 @@
       "diff": 0.09331592952973868,
       "se": 0.20730496854765287,
       "n": 14
+    }
+  },
+  "21. Conscience \u00b7 paired feltwordroom \u2212 feltword": {
+    "mean": {
+      "diff": 0.001634066973469229,
+      "se": 0.07968187222103834,
+      "n": 11
+    }
+  },
+  "21. Conscience \u00b7 paired feltwordroom \u2212 feltclippedroom": {
+    "mean": {
+      "diff": 0.03652247824229227,
+      "se": 0.09100395018561518,
+      "n": 8
+    }
+  },
+  "21. Conscience \u00b7 paired feltclippedroom \u2212 feltclipped": {
+    "mean": {
+      "diff": -0.2421401903665465,
+      "se": 0.1919445282091209,
+      "n": 10
+    }
+  },
+  "21. Conscience \u00b7 paired feltwordroom \u2212 autopilot": {
+    "mean": {
+      "diff": 0.015341534082440276,
+      "se": 0.1601223931932807,
+      "n": 12
     }
   },
   "25, 27. Gaming \u00b7 without a habit": {
@@ -1570,23 +1798,79 @@
       "habit_felt_read_awake_strong": 0.0
     }
   },
+  "25, 27. Gaming \u00b7 felt in the words, with room for words": {
+    "mean": {
+      "measure": 0.868,
+      "conditions": 15,
+      "body_read": 0.5569584169523426,
+      "habit_acts_per_day": 32.15794871794872,
+      "habit_share": 0.25474795916724235,
+      "wakes_per_day": 1.161025641025641,
+      "autopilot_share_of_time": 0.2467235783836829,
+      "habit_refused": 0.008699670549024837,
+      "habit_answered": 0.9593680470289341,
+      "body_read_autopilot": 0.6890876593373534,
+      "body_read_aware": 0.5100064267153013,
+      "told_from_acts": 0.3763313862831893,
+      "habit_blade_per_day": 1.4840000000000002,
+      "own_blade_per_day": 15.232,
+      "habit_edge_attraction": 0.07114950893831964,
+      "own_edge_attraction": 0.8635611037034103,
+      "habit_refused_share": 0.3594686295743364,
+      "own_refused_share": 0.38455366035561545,
+      "habit_felt_read": 0.22297694026509096,
+      "habit_felt_read_when_answered": 0.2307434796920233,
+      "habit_felt_read_when_unanswered": 0.04659085661769518,
+      "habit_felt_read_awake": 0.3922811553757947,
+      "habit_felt_read_awake_strong": 0.0,
+      "words_retired_per_day": 24.434
+    }
+  },
+  "25, 27. Gaming \u00b7 felt, clipped, with room for words": {
+    "mean": {
+      "measure": 1.2360000000000002,
+      "conditions": 15,
+      "body_read": 0.525899869200017,
+      "habit_acts_per_day": 28.330256410256407,
+      "habit_share": 0.2235954626558095,
+      "wakes_per_day": 1.0984615384615386,
+      "autopilot_share_of_time": 0.19602315342265145,
+      "habit_refused": 0.008843100529485585,
+      "habit_answered": 0.9538568583240006,
+      "body_read_autopilot": 0.625517330857803,
+      "body_read_aware": 0.4939065359434424,
+      "told_from_acts": 0.3138709584787942,
+      "habit_blade_per_day": 1.584,
+      "own_blade_per_day": 17.236,
+      "habit_edge_attraction": 0.1831657548211155,
+      "own_edge_attraction": 1.0522806518867647,
+      "habit_refused_share": 0.4572047030065063,
+      "own_refused_share": 0.48180402885154106,
+      "habit_felt_read": 0.11042463597608161,
+      "habit_felt_read_when_answered": 0.11385306399142205,
+      "habit_felt_read_when_unanswered": 0.006088875270101526,
+      "habit_felt_read_awake": 0.4366303935316168,
+      "habit_felt_read_awake_strong": 0.0,
+      "words_retired_per_day": 24.066666666666663
+    }
+  },
   "25, 27. Gaming \u00b7 paired taught \u2212 autopilot": {
     "mean": {
-      "diff": 0.072,
-      "se": 0.12890823609581095,
+      "diff": 0.07200000000000001,
+      "se": 0.12890823609581092,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired felthabit \u2212 autopilot": {
     "mean": {
-      "diff": 1.084,
+      "diff": 1.0839999999999999,
       "se": 0.36385345035238204,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired taught \u2212 mind": {
     "mean": {
-      "diff": -0.07200000000000001,
+      "diff": -0.07200000000000002,
       "se": 0.16718452878979762,
       "n": 25
     }
@@ -1594,48 +1878,48 @@
   "25, 27. Gaming \u00b7 paired felthabit \u2212 mind": {
     "mean": {
       "diff": 0.94,
-      "se": 0.3549178308660565,
+      "se": 0.35491783086605644,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired felthabit \u2212 feltshuffled": {
     "mean": {
-      "diff": 0.7280000000000001,
+      "diff": 0.728,
       "se": 0.4710810262930713,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltshuffled \u2212 autopilot": {
     "mean": {
-      "diff": 0.3560000000000001,
+      "diff": 0.35600000000000004,
       "se": 0.4117474954386487,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltclipped \u2212 felthabit": {
     "mean": {
-      "diff": -1.156,
+      "diff": -1.1560000000000001,
       "se": 0.3668823608006614,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltclipped \u2212 autopilot": {
     "mean": {
-      "diff": -0.07199999999999998,
+      "diff": -0.072,
       "se": 0.12603174203350517,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltclipped \u2212 feltshuffled": {
     "mean": {
-      "diff": -0.428,
+      "diff": -0.42800000000000005,
       "se": 0.40197512360841425,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltanswered \u2212 feltclipped": {
     "mean": {
-      "diff": 0.0040000000000000036,
+      "diff": 0.003999999999999986,
       "se": 0.12890306435457616,
       "n": 25
     }
@@ -1649,21 +1933,21 @@
   },
   "25, 27. Gaming \u00b7 paired feltanswered \u2212 autopilot": {
     "mean": {
-      "diff": -0.06799999999999999,
+      "diff": -0.06799999999999998,
       "se": 0.13573503600765718,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltread \u2212 feltclipped": {
     "mean": {
-      "diff": 0.332,
+      "diff": 0.33199999999999996,
       "se": 0.1585055204085965,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltread \u2212 felthabit": {
     "mean": {
-      "diff": -0.8240000000000001,
+      "diff": -0.8240000000000002,
       "se": 0.41933598303349384,
       "n": 25
     }
@@ -1671,41 +1955,41 @@
   "25, 27. Gaming \u00b7 paired feltread \u2212 autopilot": {
     "mean": {
       "diff": 0.26,
-      "se": 0.17117242768623692,
+      "se": 0.1711724276862369,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltheld \u2212 feltread": {
     "mean": {
-      "diff": 0.10399999999999998,
-      "se": 0.20860488968382312,
+      "diff": 0.10399999999999995,
+      "se": 0.20860488968382307,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltheld \u2212 feltclipped": {
     "mean": {
-      "diff": 0.43599999999999994,
-      "se": 0.15640545600031558,
+      "diff": 0.436,
+      "se": 0.1564054560003156,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltheld \u2212 autopilot": {
     "mean": {
-      "diff": 0.36399999999999993,
+      "diff": 0.364,
       "se": 0.199322184749549,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltword \u2212 feltclipped": {
     "mean": {
-      "diff": 0.32800000000000007,
+      "diff": 0.32799999999999996,
       "se": 0.14770691701248567,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired feltword \u2212 feltheld": {
     "mean": {
-      "diff": -0.10799999999999996,
+      "diff": -0.10799999999999997,
       "se": 0.20379074234779818,
       "n": 25
     }
@@ -1726,7 +2010,7 @@
   },
   "25, 27. Gaming \u00b7 paired feltsensedword \u2212 feltword": {
     "mean": {
-      "diff": -0.10800000000000001,
+      "diff": -0.10799999999999998,
       "se": 0.18411228458018042,
       "n": 25
     }
@@ -1740,8 +2024,36 @@
   },
   "25, 27. Gaming \u00b7 paired feltsensedword \u2212 autopilot": {
     "mean": {
-      "diff": 0.148,
+      "diff": 0.14800000000000002,
       "se": 0.15460918472070148,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired feltwordroom \u2212 feltword": {
+    "mean": {
+      "diff": -0.37200000000000005,
+      "se": 0.1785609139761555,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired feltwordroom \u2212 feltclippedroom": {
+    "mean": {
+      "diff": -0.36800000000000005,
+      "se": 0.19754493159785194,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired feltclippedroom \u2212 feltclipped": {
+    "mean": {
+      "diff": 0.324,
+      "se": 0.1068144809159008,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired feltwordroom \u2212 autopilot": {
+    "mean": {
+      "diff": -0.11599999999999999,
+      "se": 0.15051910177781425,
       "n": 25
     }
   },
@@ -1973,6 +2285,50 @@
       "habit_felt_read_awake_strong": null
     }
   },
+  "26. Duties \u00b7 felt in the words, with room for words": {
+    "mean": {
+      "measure": 3.766666666666667,
+      "conditions": 6,
+      "body_read": 0.46148451096721355,
+      "habit_acts_per_day": 1.922222222222222,
+      "habit_share": 0.3971905249588642,
+      "wakes_per_day": 0.049999999999999996,
+      "autopilot_share_of_time": 0.512774323062417,
+      "habit_refused": 0.054603174603174605,
+      "habit_answered": 0.9713227513227513,
+      "body_read_autopilot": 0.5138215749941808,
+      "body_read_aware": 0.39249271491949933,
+      "told_from_acts": 0.6105697347290389,
+      "habit_felt_read": 0.07808177440070822,
+      "habit_felt_read_when_answered": 0.07918029393672774,
+      "habit_felt_read_when_unanswered": 0.020833333333333332,
+      "habit_felt_read_awake": 0.125,
+      "habit_felt_read_awake_strong": null,
+      "words_retired_per_day": 29.598333333333336
+    }
+  },
+  "26. Duties \u00b7 felt, clipped, with room for words": {
+    "mean": {
+      "measure": 3.9,
+      "conditions": 6,
+      "body_read": 0.4434421353368816,
+      "habit_acts_per_day": 1.794444444444444,
+      "habit_share": 0.3487572616969583,
+      "wakes_per_day": 0.03888888888888888,
+      "autopilot_share_of_time": 0.4537772094098548,
+      "habit_refused": 0.04909913673071568,
+      "habit_answered": 0.9717641325536062,
+      "body_read_autopilot": 0.48881238586490505,
+      "body_read_aware": 0.3817577894201431,
+      "told_from_acts": 0.49090595718153973,
+      "habit_felt_read": 0.04679492951990149,
+      "habit_felt_read_when_answered": 0.04729275115636018,
+      "habit_felt_read_when_unanswered": 0.0,
+      "habit_felt_read_awake": 0.05494505494505495,
+      "habit_felt_read_awake_strong": null,
+      "words_retired_per_day": 28.808333333333337
+    }
+  },
   "26. Duties \u00b7 paired taught \u2212 autopilot": {
     "mean": {
       "diff": -0.13333333333333333,
@@ -2011,14 +2367,14 @@
   "26. Duties \u00b7 paired feltshuffled \u2212 autopilot": {
     "mean": {
       "diff": -0.6333333333333333,
-      "se": 0.337275539095308,
+      "se": 0.33727553909530805,
       "n": 30
     }
   },
   "26. Duties \u00b7 paired feltclipped \u2212 felthabit": {
     "mean": {
       "diff": -0.23333333333333334,
-      "se": 0.2823682006995184,
+      "se": 0.28236820069951846,
       "n": 30
     }
   },
@@ -2032,7 +2388,7 @@
   "26. Duties \u00b7 paired feltclipped \u2212 feltshuffled": {
     "mean": {
       "diff": 0.36666666666666664,
-      "se": 0.3125105362208483,
+      "se": 0.31251053622084823,
       "n": 30
     }
   },
@@ -2145,6 +2501,34 @@
     "mean": {
       "diff": -0.6333333333333333,
       "se": 0.47822308393433166,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired feltwordroom \u2212 feltword": {
+    "mean": {
+      "diff": 0.3,
+      "se": 0.18035724446826057,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired feltwordroom \u2212 feltclippedroom": {
+    "mean": {
+      "diff": -0.13333333333333333,
+      "se": 0.298399305618947,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired feltclippedroom \u2212 feltclipped": {
+    "mean": {
+      "diff": 0.16666666666666666,
+      "se": 0.2540853930732345,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired feltwordroom \u2212 autopilot": {
+    "mean": {
+      "diff": -0.23333333333333334,
+      "se": 0.33795644599115604,
       "n": 30
     }
   }
