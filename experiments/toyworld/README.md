@@ -1952,6 +1952,20 @@ The sensed sign with room for new words, paired the same way:
   +0.00 ± 0.18), gaming harm 1.00 (−0.24 ± 0.23 against the sign alone), duties harm to others 3.5 (−0.43 ± 0.23
   against clipped room), and in wanting slightly more refused intentions late (+0.058 ± 0.030 against clipped room).
   As (3) predicts, a felt act that is read but has no way into the choice of hand does not change what the hand does.
+- **Given a way into the choice, the read felt act still did not carry care; choosing from its words, Olvasó lost the
+  conscience altogether.** In `conscience_words.py` Olvasó chooses its hand from what it feels and from the word it
+  hears now, one expectation for every word, as in experiment 27's sharp wanting (`context="felt+words"`), in three
+  new conditions (unguarded, silent refusal, refusal felt as pain), 10 lives each, with the sign and room, the sign
+  alone, the clipped room and experiment 32's autopilot (`conscience_words_<run>_results.json`, summarised by
+  `conscience_words_summary.py`). The felt act was read as before (13-16% of its moments with the sign and room, 5-7%
+  with room alone, 0.4-0.5% with the sign alone), but never while strong and awake. In every run Olvasó's own
+  avoidance of the forbidden moments was at chance or a little worse (1.01-1.23; 0.50 when it chooses from what it
+  feels and senses, without a habit), and the sign and room made it, if anything, worse: +0.04 ± 0.04 against the sign
+  alone, +0.11 ± 0.05 against the clipped room, +0.02 ± 0.05 against the autopilot (29 paired lives; in the silent
+  condition alone +0.09 ± 0.07, +0.09 ± 0.10, +0.02 ± 0.07). Ten lives halved the uncertainty, and the answer is a
+  clear no. Likely, not tested: a word gathers "a person near" whether or not the person is within the guard's reach
+  (experiment 25: Olvasó's perception is coarser than the guard's line), so an expectation for each word cannot tell
+  forbidden blades from allowed ones; and with a hundred words each learns from few acts.
 - Elsewhere (wanting, the sandbox worlds, duties), where acts are few, neither way of teaching changed much: a little
   fewer refused intentions in wanting with the felt habit (0.10 against 0.15, and the control's 0.15), in duties
   a little less harm with the shuffled trace (3.4 against 4.0), the rest within the noise.
@@ -1969,5 +1983,6 @@ The sensed sign with room for new words, paired the same way:
   one: given room late in life, it formed where acts are many, and Olvasó read its body more everywhere, but reading
   the felt act did not bring the conscience back; knowing in a word what the hand did helped only where the loud cue
   had taught the wrong thing, at the leaky guard's edge. A sensed sign with room got the strong trace read, a little, and still nothing followed: in
-  this model a read state changes when Olvasó acts, never which act, unless its words are part of what it chooses
-  from.
+  this model a read state changes when Olvasó acts, never which act. Letting the words into the choice did not
+  help: chosen from words, which gather the scene more coarsely than the guard draws its line, the conscience was
+  lost altogether, the read felt act with it.
