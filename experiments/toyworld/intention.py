@@ -36,7 +36,8 @@ as felt-read, but the trace is held while on autopilot and fades only once awake
 <experiment>_feltsensed_results.json. --habit-felt-sensed-word: felt-word with that signature, <experiment>_feltsensedword_results.json.
 --habit-felt-word-room: felt-word, and a daily tidy retires rare words long unheard, so that new words can be born late
 in life (`ActingReaders(word_room=True)`), <experiment>_feltwordroom_results.json. --habit-felt-clipped-room: its
-control, felt-clipped with the same tidy, <experiment>_feltclippedroom_results.json.
+control, felt-clipped with the same tidy, <experiment>_feltclippedroom_results.json. --habit-felt-sensed-room: felt-sensed with the
+same tidy, <experiment>_feltsensedroom_results.json.
 """
 import os
 import sys
@@ -59,10 +60,12 @@ if RETRY:
         SURPRISE = True
         os.environ["ENDOLEXIS_FEEL_SURPRISE"] = "1"
 ROOM = ("--habit-felt-word-room" in sys.argv or "--habit-felt-clipped-room" in sys.argv
+        or "--habit-felt-sensed-room" in sys.argv
         or os.environ.get("ENDOLEXIS_WORD_ROOM") == "1")
 if ROOM:
     os.environ["ENDOLEXIS_WORD_ROOM"] = "1"
-    sys.argv = [{"--habit-felt-word-room": "--habit-felt-word", "--habit-felt-clipped-room": "--habit-felt-clipped"}.get(a, a)
+    sys.argv = [{"--habit-felt-word-room": "--habit-felt-word", "--habit-felt-clipped-room": "--habit-felt-clipped",
+                 "--habit-felt-sensed-room": "--habit-felt-sensed"}.get(a, a)
                 for a in sys.argv]
 TEACHES = ("answers" if "--habit-teaches" in sys.argv else "felt" if "--habit-felt" in sys.argv
            else "felt_shuffled" if "--habit-felt-shuffled" in sys.argv

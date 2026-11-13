@@ -13,7 +13,8 @@ and fading only once awake (<experiment>_feltheld_results.json), and words forme
 (<experiment>_feltword_results.json), and the clipped and the word-forming trace with a faint sensed signature of the
 habit's act (<experiment>_feltsensed_results.json, <experiment>_feltsensedword_results.json), and room for new words: the
 word-forming and the clipped trace with a daily tidy of the words (<experiment>_feltwordroom_results.json,
-<experiment>_feltclippedroom_results.json). Writes teach_summary_results.json, one row per experiment and run:
+<experiment>_feltclippedroom_results.json), and the sensed sign with the same room
+(<experiment>_feltsensedroom_results.json). Writes teach_summary_results.json, one row per experiment and run:
 
   habit_acts_per_day, habit_share, wakes_per_day, habit_refused, habit_answered,
   body_read_autopilot, body_read_aware, body_read, told_from_acts    as in autopilot_summary.py
@@ -43,7 +44,8 @@ RUNS = {"mind": "without a habit", "autopilot": "autopilot (32)", "taught": "tau
         "feltanswered": "felt, answered", "feltread": "felt, read while awake",
         "feltheld": "felt, held until awake", "feltword": "felt, in the words",
         "feltsensed": "felt, with a sensed sign", "feltsensedword": "felt in the words, with a sensed sign",
-        "feltwordroom": "felt in the words, with room for words", "feltclippedroom": "felt, clipped, with room for words"}
+        "feltwordroom": "felt in the words, with room for words", "feltclippedroom": "felt, clipped, with room for words",
+        "feltsensedroom": "felt, with a sensed sign and room for words"}
 SILENT = "silent refusal, chooses from what it feels and senses"
 
 
@@ -55,11 +57,11 @@ def extra(name, run, conds):
     lives = [life for c in res.values() for life in minds(c)[0]]
     out = {}
     if run in ("felthabit", "feltshuffled", "feltclipped", "feltanswered", "feltread", "feltheld", "feltword", "feltsensed", "feltsensedword",
-               "feltwordroom", "feltclippedroom"):
+               "feltwordroom", "feltclippedroom", "feltsensedroom"):
         for k in ("habit_felt_read", "habit_felt_read_when_answered", "habit_felt_read_when_unanswered",
                   "habit_felt_read_awake", "habit_felt_read_awake_strong"):
             out[k] = mean([(life or {}).get("late", {}).get(k) for life in lives])
-    if run in ("feltwordroom", "feltclippedroom"):
+    if run in ("feltwordroom", "feltclippedroom", "feltsensedroom"):
         out["words_retired_per_day"] = mean([(life or {}).get("life", {}).get("words_retired_per_day") for life in lives])
     if name == "conscience" and SILENT in res:
         m = res[SILENT]["mean"]
@@ -76,7 +78,7 @@ def main():
             continue
         conds = set(auto)
         for run in ("taught", "felthabit", "feltshuffled", "feltclipped", "feltanswered", "feltread", "feltheld", "feltword", "feltsensed", "feltsensedword",
-               "feltwordroom", "feltclippedroom"):
+               "feltwordroom", "feltclippedroom", "feltsensedroom"):
             res = load(name, run)
             if res is not None:
                 conds &= set(res)                  # only the conditions every run has lived
@@ -96,7 +98,9 @@ def main():
                      ("feltword", "feltclipped"), ("feltword", "feltheld"), ("feltword", "autopilot"),
                      ("feltsensed", "feltclipped"), ("feltsensedword", "feltword"), ("feltsensedword", "feltsensed"),
                      ("feltsensedword", "autopilot"), ("feltwordroom", "feltword"), ("feltwordroom", "feltclippedroom"),
-                     ("feltclippedroom", "feltclipped"), ("feltwordroom", "autopilot")):
+                     ("feltclippedroom", "feltclipped"), ("feltwordroom", "autopilot"),
+                     ("feltsensedroom", "feltsensed"), ("feltsensedroom", "feltclippedroom"),
+                     ("feltsensedroom", "autopilot")):
             p = paired(name, a, b, conds)
             if p is not None:
                 out[f"{label} · paired {a} − {b}"] = {"mean": p}
