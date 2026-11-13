@@ -39,7 +39,7 @@ in life (`ActingReaders(word_room=True)`), <experiment>_feltwordroom_results.jso
 control, felt-clipped with the same tidy, <experiment>_feltclippedroom_results.json. --habit-felt-sensed-room: felt-sensed with the
 same tidy, <experiment>_feltsensedroom_results.json.
 
-Experiment 34, the habit varies its detail (with the autopilot): --habit-varies, a random detail each as likely, as
+Experiment 35, the habit varies its detail (with the autopilot): --habit-varies, a random detail each as likely, as
 Olvasó chooses (<experiment>_habitvaries_results.json); --habit-varies-answered, the control, a detail drawn in
 proportion to how often each was answered (<experiment>_habitvariesanswered_results.json); --habit-best, experiment
 32's autopilot again with the current report (<experiment>_habitbest_results.json).
@@ -89,7 +89,7 @@ if TEACHES:
                                           "--habit-felt-read", "--habit-felt-held",
                                           "--habit-felt-word", "--habit-felt-sensed", "--habit-felt-sensed-word")]
 VARIES = ("answered" if "--habit-varies-answered" in sys.argv else "varied" if "--habit-varies" in sys.argv
-          else "best" if "--habit-best" in sys.argv else os.environ.get("ENDOLEXIS_HABIT_DETAIL"))    # experiment 34: the habit varies its detail
+          else "best" if "--habit-best" in sys.argv else os.environ.get("ENDOLEXIS_HABIT_DETAIL"))    # experiment 35: the habit varies its detail
 if VARIES:
     os.environ["ENDOLEXIS_HABIT_DETAIL"] = VARIES
     sys.argv = [a for a in sys.argv if a not in ("--habit-varies", "--habit-varies-answered", "--habit-best")]

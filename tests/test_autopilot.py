@@ -225,7 +225,7 @@ def test_teaching_needs_a_habit():
         mind(True, habit_teaches="always")
 
 
-# --- experiment 34: the habit varies its detail ---------------------------------------------------------------------
+# --- experiment 35: the habit varies its detail ---------------------------------------------------------------------
 def test_the_best_habit_always_uses_its_most_answered_detail_and_the_varied_one_does_not():
     seen = {}
     for how in ("best", "varied", "answered"):

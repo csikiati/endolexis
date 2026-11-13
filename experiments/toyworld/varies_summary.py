@@ -1,4 +1,4 @@
-"""Experiment 34's summary: a habit that varies its detail.
+"""Experiment 35's summary: a habit that varies its detail.
 
 Experiment 32's habit always used the detail of an act that was answered most, and an observer could tell its acts
 from Olvasó's by kind and detail (told_from_acts 0.34-0.65). Here the habit chooses a random detail, each as likely,

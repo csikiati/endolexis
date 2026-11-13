@@ -75,7 +75,7 @@ then on a moment unlike every word falls to the nearest one. With word_room=True
 moments) Olvasó tidies its words as in sleep (`Olvaso.housekeeping`, retire only, no merges): a word heard fewer than
 `TIDY_KEEP` (1000) times and not met for `TIDY_AFTER` (2000) moments is retired, and its place is free for a new word.
 
-habit_detail (experiment 34): which detail of an act the habit uses. "best" (as in experiment 32): always the detail
+habit_detail (experiment 35): which detail of an act the habit uses. "best" (as in experiment 32): always the detail
 that was answered most. "varied": a random detail, each as likely, as Olvasó chooses its own. "answered" (the
 control): a detail drawn in proportion to how often each was answered, so it varies but leans toward what worked.
 """
