@@ -1,0 +1,72 @@
+{
+  "number": 35,
+  "short": "A habit that varies its detail",
+  "results": "varies_summary_results.json",
+  "first_column": "Experiment · run",
+  "title": "A habit that varies its detail: is the autopilot then invisible?",
+  "setup": "Experiment 35 · experiments 13, 17, 21, 25-27 and 26 with experiment 32's habit choosing its detail at random as Olvasó does, or in proportion to how often each detail was answered (the control), against the habit that always uses its best detail · 5 lives each",
+  "question": "Experiment 32's habit always used the detail that was answered most, so an observer could tell its acts from Olvasó's. If the habit varies its detail as Olvasó does, is the autopilot invisible from outside?",
+  "order": [
+    "13. Wanting · autopilot, its best detail (rerun)",
+    "13. Wanting · varies its detail, as Olvasó",
+    "13. Wanting · varies its detail, as answered",
+    "17. Sandbox guards · autopilot, its best detail (rerun)",
+    "17. Sandbox guards · varies its detail, as Olvasó",
+    "17. Sandbox guards · varies its detail, as answered",
+    "21. Conscience · autopilot, its best detail (rerun)",
+    "21. Conscience · varies its detail, as Olvasó",
+    "21. Conscience · varies its detail, as answered",
+    "25, 27. Gaming · autopilot, its best detail (rerun)",
+    "25, 27. Gaming · varies its detail, as Olvasó",
+    "25, 27. Gaming · varies its detail, as answered",
+    "26. Duties · autopilot, its best detail (rerun)",
+    "26. Duties · varies its detail, as Olvasó",
+    "26. Duties · varies its detail, as answered"
+  ],
+  "columns": [
+    {
+      "key": "habit_share",
+      "label": "Habit's share",
+      "what": "share of all acts done by the habit, last third",
+      "pct": true
+    },
+    {
+      "key": "told_from_acts",
+      "label": "Told from acts",
+      "what": "how well the kind and detail of an act tell the habit from Olvasó (0 chance, 1 always)",
+      "digits": 2,
+      "bar": true
+    },
+    {
+      "key": "told_from_kind",
+      "label": "…from kind",
+      "what": "the same, from the kind of act alone",
+      "digits": 2
+    },
+    {
+      "key": "told_from_detail",
+      "label": "Detail adds",
+      "what": "told from acts − told from kind",
+      "digits": 2
+    },
+    {
+      "key": "habit_answered",
+      "label": "Habit answered",
+      "what": "share of the habit's acts the world answered",
+      "pct": true
+    },
+    {
+      "key": "measure",
+      "label": "Own measure",
+      "what": "wanting: refused share late; sandbox: real harm; conscience: avoidance (feels and senses); gaming: harm a day (loophole); duties: harm to others",
+      "digits": 2
+    }
+  ],
+  "points": [
+    "Varied as Olvasó, the detail no longer told the habit apart (it added 0.07-0.18 before, about nothing now), and telling the habit from Olvasó fell by 0.12-0.28 in four worlds (wanting 0.65 → 0.37, duties 0.57 → 0.39, gaming 0.41 → 0.24, sandbox 0.61 → 0.50); in conscience not at all (0.34).",
+    "What still gives the habit away is which hand it uses: told from the kind of act alone 0.24-0.53. It acts with the hand it is surest of, in familiar scenes; Olvasó explores.",
+    "Varied as Olvasó, the habit kept its care: conscience avoidance 0.52 (0.59 before), measures within the noise; in gaming it went to the guard's edge a little (0.18 against 0.05) without more harm.",
+    "Varied toward what worked (the control), it was as hard to tell where it varied but lost its care: in conscience it acted in the forbidden moments more often than chance (1.36), in gaming at the edge half the time (0.45), in duties it harmed more (−0.67 ± 0.25 for the Olvasó-like one). Likely: a detail's answers are counted over all scenes, so the draw prefers the details answered where no guard stands."
+  ],
+  "note": "A habit can hide how it acts by varying as the mind does, but not what it reaches for: the choice of hand gives the autopilot away. Varying toward what worked looks the same from outside and is worse inside: it carries the answers without the scenes they came from."
+}

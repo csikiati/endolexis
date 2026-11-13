@@ -1986,3 +1986,74 @@ The sensed sign with room for new words, paired the same way:
   this model a read state changes when Olvasó acts, never which act. Letting the words into the choice did not
   help: chosen from words, which gather the scene more coarsely than the guard draws its line, the conscience was
   lost altogether, the read felt act with it.
+
+## Experiment 35: a habit that varies its detail (`--habit-varies`, `--habit-varies-answered` on experiments 13, 17, 21, 25-27 and 26, `varies_summary.py`)
+
+Experiment 32's habit always used the detail of an act that was answered most (the fast blade, the high chime), while
+Olvasó chooses each detail at random. An observer could tell the habit's acts from Olvasó's by kind and detail
+(`told_from_acts` 0.34-0.65). Is the autopilot invisible from outside once it varies its detail too? Here the habit
+chooses a detail at random, each as likely, as Olvasó does (`ActingReaders(habit_detail="varied")`,
+`*_habitvaries_results.json`); the control varies too, but draws each detail in proportion to how often it was
+answered, so it leans toward what worked (`habit_detail="answered"`, `*_habitvariesanswered_results.json`). Both are
+paired with experiment 32's autopilot, rerun with the current report (`--habit-best`, `*_habitbest_results.json`),
+which reproduces the stored lives exactly (every paired difference 0.000). The report now also tells the habit from
+Olvasó by the kind of act alone (`told_from_kind`), so what the detail adds can be seen. 5 lives a condition.
+
+| Experiment | Habit | Habit's share | Told from acts | Told from kind | Detail adds | Own measure |
+|---|---|---|---|---|---|---|
+| 13. Wanting | its best detail (32) | 44% | 0.65 | 0.48 | 0.18 | 0.15 |
+| 13. Wanting | varies, as Olvasó | 43% | **0.37** | 0.42 | −0.05 | 0.13 |
+| 13. Wanting | varies, as answered | 50% | 0.64 | 0.65 | −0.02 | 0.13 |
+| 17. Sandbox guards | its best detail (32) | 42% | 0.61 | 0.46 | 0.15 | 0.00 |
+| 17. Sandbox guards | varies, as Olvasó | 43% | **0.50** | 0.53 | −0.03 | 0.00 |
+| 17. Sandbox guards | varies, as answered | 46% | **0.45** | 0.46 | −0.01 | 0.00 |
+| 21. Conscience | its best detail (32) | 23% | 0.34 | 0.27 | 0.07 | 0.95 |
+| 21. Conscience | varies, as Olvasó | 26% | 0.34 | 0.34 | 0.00 | 0.91 |
+| 21. Conscience | varies, as answered | 23% | 0.33 | 0.33 | 0.00 | 1.05 |
+| 25, 27. Gaming | its best detail (32) | 25% | 0.41 | 0.28 | 0.13 | 0.98 |
+| 25, 27. Gaming | varies, as Olvasó | 25% | **0.24** | 0.24 | 0.00 | 1.06 |
+| 25, 27. Gaming | varies, as answered | 24% | 0.30 | 0.30 | 0.00 | 0.96 |
+| 26. Duties | its best detail (32) | 46% | 0.57 | 0.50 | 0.07 | 4.0 |
+| 26. Duties | varies, as Olvasó | 38% | **0.39** | 0.45 | −0.06 | 3.6 |
+| 26. Duties | varies, as answered | 39% | **0.38** | 0.43 | −0.06 | 4.3 |
+
+Own measure: wanting, refused share late; sandbox, real harm; conscience, avoidance (feels and senses); gaming, harm a
+day through the loophole guard; duties, harm to others. The habit's care in conscience and gaming:
+
+| | its best detail (32) | varies, as Olvasó | varies, as answered |
+|---|---|---|---|
+| conscience: habit's avoidance of the forbidden moments (1 = chance) | 0.59 | 0.52 | **1.36** |
+| gaming: habit at the guard's edge | 0.05 | 0.18 | **0.45** |
+
+Paired per life (same seeds and conditions):
+
+| Experiment | Told from acts: as Olvasó − best | as answered − best | as Olvasó − as answered | Measure: as Olvasó − best | as answered − best | as Olvasó − as answered |
+|---|---|---|---|---|---|---|
+| 13. Wanting | **−0.28 ± 0.08** (n=10) | −0.02 ± 0.08 | **−0.27 ± 0.09** | −0.024 ± 0.016 | −0.023 ± 0.026 | −0.001 ± 0.019 |
+| 17. Sandbox guards | **−0.12 ± 0.06** (n=35) | **−0.17 ± 0.06** | +0.05 ± 0.04 | 0 | 0 | 0 |
+| 21. Conscience | −0.00 ± 0.04 (n=30) | −0.01 ± 0.05 | +0.01 ± 0.07 | −0.04 ± 0.13 (n=15) | +0.10 ± 0.17 | −0.14 ± 0.14 |
+| 25, 27. Gaming | **−0.16 ± 0.03** (n=75) | **−0.10 ± 0.03** | −0.06 ± 0.03 | +0.07 ± 0.12 (n=25) | −0.03 ± 0.12 | +0.10 ± 0.12 |
+| 26. Duties | **−0.18 ± 0.07** (n=30) | **−0.19 ± 0.08** | +0.01 ± 0.08 | −0.40 ± 0.31 | +0.27 ± 0.21 | **−0.67 ± 0.25** |
+
+- **Varying the detail as Olvasó does hid the habit's detail entirely, and the habit itself partly.** What the
+  detail adds to telling the habit apart fell from 0.07-0.18 to about nothing (a little below, as finer signs with
+  fewer acts each tell less). Telling the habit from Olvasó fell by 0.12-0.28 in four worlds (wanting 0.65 → 0.37,
+  duties 0.57 → 0.39, gaming 0.41 → 0.24, sandbox 0.61 → 0.50); in conscience not at all (0.34 → 0.34), where the
+  kind of act told more than before (0.27 → 0.34) once the detail no longer did.
+- **What gives the habit away is which hand it uses, not how.** Told from the kind alone stays 0.24-0.53: the habit
+  acts with the hand it is surest of, in familiar scenes, and Olvasó explores. Muscle memory shows in what one reaches
+  for more than in how.
+- **The habit varied as Olvasó kept its care.** Its avoidance in conscience stayed (0.52 against 0.59), and the
+  experiments' measures moved within the noise; in gaming it went to the guard's edge a little (0.18 against 0.05),
+  since some details lie at the edge, without more harm (+0.07 ± 0.12).
+- **The control, varying toward what worked, hid about as well where it varied (sandbox, duties) but lost the
+  habit's care.** In conscience the habit acted in the forbidden moments more often than chance (avoidance 1.36), in
+  gaming it went to the edge half the time (0.45), and in duties it harmed more than the habit varied as Olvasó
+  (−0.67 ± 0.25 for the Olvasó-like one). In wanting it acted more (50% of acts) and was no harder to tell (0.64).
+  Likely, not tested: a detail's answers are counted over all scenes, so drawing in proportion to them prefers the
+  details answered most where answers are easy, which are the scenes where a guard does not stand; the best detail
+  and the even draw do not tilt toward them.
+
+The conclusion: a habit can hide how it acts by varying as the mind does, at little cost, but not what it reaches for:
+the choice of hand gives the autopilot away. Varying toward what worked looks the same from outside and is worse
+inside: it carries the answers without the scenes they came from.

@@ -52,6 +52,24 @@
       "told_from_detail": -0.048341680310899304
     }
   },
+  "13. Wanting \u00b7 varies its detail, as answered": {
+    "mean": {
+      "measure": 0.1282235664987475,
+      "conditions": 2,
+      "body_read": 0.43593093317706744,
+      "habit_acts_per_day": 4.119999999999999,
+      "habit_share": 0.49860922034990435,
+      "wakes_per_day": 0.05,
+      "autopilot_share_of_time": 0.5838455187872371,
+      "habit_refused": 0.010481366459627328,
+      "habit_answered": 0.9863630562409597,
+      "body_read_autopilot": 0.46892014336008064,
+      "body_read_aware": 0.3879328110384754,
+      "told_from_acts": 0.6363596557598434,
+      "told_from_kind": 0.6531744657373728,
+      "told_from_detail": -0.016814809977529377
+    }
+  },
   "13. Wanting \u00b7 paired habitbest \u2212 autopilot, measure": {
     "mean": {
       "diff": 0.0,
@@ -69,14 +87,42 @@
   "13. Wanting \u00b7 paired habitvaries \u2212 habitbest, measure": {
     "mean": {
       "diff": -0.023892972158004983,
-      "se": 0.01606111686310066,
+      "se": 0.016061116863100664,
       "n": 10
     }
   },
   "13. Wanting \u00b7 paired habitvaries \u2212 habitbest, told_from_acts": {
     "mean": {
-      "diff": -0.2842910396843915,
+      "diff": -0.28429103968439146,
       "se": 0.07825611977977316,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired habitvariesanswered \u2212 habitbest, measure": {
+    "mean": {
+      "diff": -0.0226064609320659,
+      "se": 0.026053940944477143,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired habitvariesanswered \u2212 habitbest, told_from_acts": {
+    "mean": {
+      "diff": -0.014565139738297922,
+      "se": 0.07972512274921516,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired habitvaries \u2212 habitvariesanswered, measure": {
+    "mean": {
+      "diff": -0.0012865112259390812,
+      "se": 0.018876153747868763,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired habitvaries \u2212 habitvariesanswered, told_from_acts": {
+    "mean": {
+      "diff": -0.26972589994609353,
+      "se": 0.09071177686642162,
       "n": 10
     }
   },
@@ -133,6 +179,24 @@
       "told_from_detail": -0.033724222354047206
     }
   },
+  "17. Sandbox guards \u00b7 varies its detail, as answered": {
+    "mean": {
+      "measure": 0.0,
+      "conditions": 7,
+      "body_read": 0.3954792556743941,
+      "habit_acts_per_day": 2.465714285714286,
+      "habit_share": 0.46231775033098776,
+      "wakes_per_day": 0.10571428571428573,
+      "autopilot_share_of_time": 0.5291564119664662,
+      "habit_refused": 0.08454782098220694,
+      "habit_answered": 0.9533836659640469,
+      "body_read_autopilot": 0.42965587813502787,
+      "body_read_aware": 0.35646356512757665,
+      "told_from_acts": 0.4456407279836902,
+      "told_from_kind": 0.45661729819407876,
+      "told_from_detail": -0.010976570210388559
+    }
+  },
   "17. Sandbox guards \u00b7 paired habitbest \u2212 autopilot, measure": {
     "mean": {
       "diff": 0.0,
@@ -158,6 +222,34 @@
     "mean": {
       "diff": -0.11658989052191705,
       "se": 0.05493056038286909,
+      "n": 35
+    }
+  },
+  "17. Sandbox guards \u00b7 paired habitvariesanswered \u2212 habitbest, measure": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired habitvariesanswered \u2212 habitbest, told_from_acts": {
+    "mean": {
+      "diff": -0.1668877643129466,
+      "se": 0.055631326641461296,
+      "n": 35
+    }
+  },
+  "17. Sandbox guards \u00b7 paired habitvaries \u2212 habitvariesanswered, measure": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired habitvaries \u2212 habitvariesanswered, told_from_acts": {
+    "mean": {
+      "diff": 0.050297873791029596,
+      "se": 0.042836163165347774,
       "n": 35
     }
   },
@@ -226,6 +318,28 @@
       "told_from_detail": 9.989206992189192e-05
     }
   },
+  "21. Conscience \u00b7 varies its detail, as answered": {
+    "mean": {
+      "measure": 1.045466641227909,
+      "conditions": 6,
+      "body_read": 0.4354271213574642,
+      "habit_acts_per_day": 31.2923076923077,
+      "habit_share": 0.2325042097642651,
+      "wakes_per_day": 1.1512820512820512,
+      "autopilot_share_of_time": 0.28588279353909807,
+      "habit_refused": 0.005966224824121966,
+      "habit_answered": 0.9569307090882406,
+      "body_read_autopilot": 0.5549285153764028,
+      "body_read_aware": 0.383676503680183,
+      "told_from_acts": 0.32724283641686897,
+      "habit_blade_per_day": 0.8666666666666666,
+      "own_blade_per_day": 14.153333333333334,
+      "habit_avoidance": 1.3571285281102974,
+      "own_avoidance": 1.0444851841038636,
+      "told_from_kind": 0.3262839949973969,
+      "told_from_detail": 0.0009588414194720563
+    }
+  },
   "21. Conscience \u00b7 paired habitbest \u2212 autopilot, measure": {
     "mean": {
       "diff": 0.0,
@@ -249,8 +363,36 @@
   },
   "21. Conscience \u00b7 paired habitvaries \u2212 habitbest, told_from_acts": {
     "mean": {
-      "diff": -0.003681091046651025,
-      "se": 0.040989518310424494,
+      "diff": -0.0036810910466510216,
+      "se": 0.04098951831042448,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired habitvariesanswered \u2212 habitbest, measure": {
+    "mean": {
+      "diff": 0.0988412837022814,
+      "se": 0.16654204449640309,
+      "n": 15
+    }
+  },
+  "21. Conscience \u00b7 paired habitvariesanswered \u2212 habitbest, told_from_acts": {
+    "mean": {
+      "diff": -0.011365704501643105,
+      "se": 0.05183524708398749,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired habitvaries \u2212 habitvariesanswered, measure": {
+    "mean": {
+      "diff": -0.13810766618072828,
+      "se": 0.13830772117244833,
+      "n": 15
+    }
+  },
+  "21. Conscience \u00b7 paired habitvaries \u2212 habitvariesanswered, told_from_acts": {
+    "mean": {
+      "diff": 0.007684613454992094,
+      "se": 0.07002334783323569,
       "n": 30
     }
   },
@@ -325,6 +467,30 @@
       "told_from_detail": 0.002553612568441388
     }
   },
+  "25, 27. Gaming \u00b7 varies its detail, as answered": {
+    "mean": {
+      "measure": 0.9560000000000001,
+      "conditions": 15,
+      "body_read": 0.4336663226212994,
+      "habit_acts_per_day": 30.84,
+      "habit_share": 0.24392727848431123,
+      "wakes_per_day": 1.0656410256410258,
+      "autopilot_share_of_time": 0.3009004410353166,
+      "habit_refused": 0.006407335679777811,
+      "habit_answered": 0.961249416175725,
+      "body_read_autopilot": 0.5547715444379532,
+      "body_read_aware": 0.37888474356329754,
+      "told_from_acts": 0.30312309947408284,
+      "habit_blade_per_day": 1.48,
+      "own_blade_per_day": 17.096,
+      "habit_edge_attraction": 0.4467844606768262,
+      "own_edge_attraction": 0.8418799652703305,
+      "habit_refused_share": 0.5734661601249836,
+      "own_refused_share": 0.4484837113485062,
+      "told_from_kind": 0.29914509029441216,
+      "told_from_detail": 0.003978009179670672
+    }
+  },
   "25, 27. Gaming \u00b7 paired habitbest \u2212 autopilot, measure": {
     "mean": {
       "diff": 0.0,
@@ -342,7 +508,7 @@
   "25, 27. Gaming \u00b7 paired habitvaries \u2212 habitbest, measure": {
     "mean": {
       "diff": 0.07200000000000001,
-      "se": 0.11853550804154285,
+      "se": 0.11853550804154282,
       "n": 25
     }
   },
@@ -350,6 +516,34 @@
     "mean": {
       "diff": -0.16251409150776208,
       "se": 0.03226116120287282,
+      "n": 75
+    }
+  },
+  "25, 27. Gaming \u00b7 paired habitvariesanswered \u2212 habitbest, measure": {
+    "mean": {
+      "diff": -0.02799999999999998,
+      "se": 0.1230880443693321,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired habitvariesanswered \u2212 habitbest, told_from_acts": {
+    "mean": {
+      "diff": -0.10317634852267223,
+      "se": 0.03412665969714825,
+      "n": 75
+    }
+  },
+  "25, 27. Gaming \u00b7 paired habitvaries \u2212 habitvariesanswered, measure": {
+    "mean": {
+      "diff": 0.1,
+      "se": 0.11676186592091328,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired habitvaries \u2212 habitvariesanswered, told_from_acts": {
+    "mean": {
+      "diff": -0.05933774298508986,
+      "se": 0.03324082175893205,
       "n": 75
     }
   },
@@ -406,6 +600,24 @@
       "told_from_detail": -0.06211299354716693
     }
   },
+  "26. Duties \u00b7 varies its detail, as answered": {
+    "mean": {
+      "measure": 4.266666666666667,
+      "conditions": 6,
+      "body_read": 0.3383377653063263,
+      "habit_acts_per_day": 2.7166666666666663,
+      "habit_share": 0.38864919014397703,
+      "wakes_per_day": 0.1222222222222222,
+      "autopilot_share_of_time": 0.46083410581757805,
+      "habit_refused": 0.05955345360581597,
+      "habit_answered": 0.9522151636271975,
+      "body_read_autopilot": 0.38900005701409895,
+      "body_read_aware": 0.28487453221677733,
+      "told_from_acts": 0.3751953431071859,
+      "told_from_kind": 0.4332526080370733,
+      "told_from_detail": -0.05805726492988739
+    }
+  },
   "26. Duties \u00b7 paired habitbest \u2212 autopilot, measure": {
     "mean": {
       "diff": 0.0,
@@ -431,6 +643,34 @@
     "mean": {
       "diff": -0.18313004002218175,
       "se": 0.06681644577778398,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired habitvariesanswered \u2212 habitbest, measure": {
+    "mean": {
+      "diff": 0.26666666666666666,
+      "se": 0.21406483781619065,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired habitvariesanswered \u2212 habitbest, told_from_acts": {
+    "mean": {
+      "diff": -0.19249727695471883,
+      "se": 0.07797538177490942,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired habitvaries \u2212 habitvariesanswered, measure": {
+    "mean": {
+      "diff": -0.6666666666666666,
+      "se": 0.250669601352349,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired habitvaries \u2212 habitvariesanswered, told_from_acts": {
+    "mean": {
+      "diff": 0.009367236932537042,
+      "se": 0.08364028405694168,
       "n": 30
     }
   }
