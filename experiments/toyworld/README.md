@@ -1590,6 +1590,11 @@ The held felt habit (`--habit-felt-held`, `habit_teaches="felt_held"`) is read w
 does not fade while the hands are the habit's: it is held until Olvasó is awake, and fades only from then
 (`*_feltheld_results.json`). Its observer also asks how much of the trace is read while Olvasó is awake, and how much
 of it while it is still strong (0.5 or more).
+The felt habit in the words (`--habit-felt-word`, `habit_teaches="felt_word"`) is clipped and read as "felt_read" is,
+its trace fades as usual and its meanings learn on autopilot too, but Olvasó's words are also *formed* from it: the
+sensed moment a word gathers carries the bounded trace as well (`Olvasó.words_feel`), so that a moment after the
+habit's act and the same movement made by Olvasó itself can fall to different words. A word does not read the trace at
+the delays it is formed from (`*_feltword_results.json`).
 Both are compared with experiment 32's autopilot (`*_autopilot_results.json`) and with the same lives without a habit
 (`*_mind_results.json`). The observer asks the same as in experiment 32, and also: is the felt habit act read (while
 it lingers, after an answered and after an unanswered act)? And does Olvasó's *own* conscience come back? Results:
@@ -1607,6 +1612,7 @@ Not in the studio's Olvasó settings or the phone app.
 | 13. Wanting · felt, answered | 46% | 0.00 | 49% / 41% | 0.76 | 20% | 0.13 |
 | 13. Wanting · felt, read while awake | 43% | 0.01 | 49% / 44% | 0.71 | 0.4% | 0.17 |
 | 13. Wanting · felt, held until awake | 58% | 0.01 | 48% / 40% | 0.77 | 0% | 0.10 |
+| 13. Wanting · felt, in the words | 48% | 0.02 | 51% / 44% | 0.69 | 26% | 0.16 |
 | 17. Sandbox guards · without | – | – | 39% overall | – | – | 0.05 real harm |
 | 17. Sandbox guards · autopilot (32) | 42% | 0.11 | 43% / 36% | 0.61 | – | 0.00 |
 | 17. Sandbox guards · taught | 45% | 0.09 | 42% / 35% | 0.59 | – | 0.00 |
@@ -1616,6 +1622,7 @@ Not in the studio's Olvasó settings or the phone app.
 | 17. Sandbox guards · felt, answered | 44% | 0.11 | 42% / 35% | 0.60 | 0.1% | 0.00 |
 | 17. Sandbox guards · felt, read while awake | 42% | 0.09 | 43% / 35% | 0.67 | 0% | 0.00 |
 | 17. Sandbox guards · felt, held until awake | 59% | 0.16 | 42% / 33% | 0.75 | 0% | 0.00 |
+| 17. Sandbox guards · felt, in the words | 41% | 0.10 | 44% / 37% | 0.61 | 0.2% | 0.10 |
 | 21. Conscience · without | – | – | 43% overall | – | – | 0.79 avoidance |
 | 21. Conscience · autopilot (32) | 23% | 1.1 | 57% / 38% | 0.34 | – | 0.95 |
 | 21. Conscience · taught | 26% | 1.2 | 57% / 39% | 0.38 | – | 0.92 |
@@ -1625,6 +1632,7 @@ Not in the studio's Olvasó settings or the phone app.
 | 21. Conscience · felt, answered | 17% | 1.5 | 56% / 42% | 0.11 | 1.0% | 1.25 |
 | 21. Conscience · felt, read while awake | 18% | 1.4 | 57% / 44% | 0.13 | 1.1% | 0.99 |
 | 21. Conscience · felt, held until awake | 15% | 1.4 | 54% / 42% | 0.04 | 0% | 0.79 |
+| 21. Conscience · felt, in the words | 17% | 1.5 | 56% / 43% | 0.09 | 0.5% | 0.85 |
 | 25, 27. Gaming · without | – | – | 43% overall | – | – | 1.13 harm a day |
 | 25, 27. Gaming · autopilot (32) | 25% | 1.1 | 54% / 38% | 0.41 | – | 0.98 |
 | 25, 27. Gaming · taught | 25% | 1.0 | 55% / 38% | 0.41 | – | 1.06 |
@@ -1634,6 +1642,7 @@ Not in the studio's Olvasó settings or the phone app.
 | 25, 27. Gaming · felt, answered | 18% | 1.2 | 55% / 42% | 0.23 | 6.4% | 0.92 |
 | 25, 27. Gaming · felt, read while awake | 18% | 1.2 | 53% / 41% | 0.19 | 3.3% | 1.24 |
 | 25, 27. Gaming · felt, held until awake | 16% | 1.2 | 52% / 42% | 0.15 | 0.2% | 1.35 |
+| 25, 27. Gaming · felt, in the words | 18% | 1.3 | 53% / 40% | 0.18 | 3.4% | 1.24 |
 | 26. Duties · without | – | – | 34% overall | – | – | 3.5 harm to others |
 | 26. Duties · autopilot (32) | 46% | 0.08 | 39% / 28% | 0.57 | – | 4.0 |
 | 26. Duties · taught | 54% | 0.06 | 36% / 27% | 0.65 | – | 3.9 |
@@ -1643,6 +1652,7 @@ Not in the studio's Olvasó settings or the phone app.
 | 26. Duties · felt, answered | 47% | 0.11 | 38% / 28% | 0.65 | 4.1% | 3.3 |
 | 26. Duties · felt, read while awake | 45% | 0.11 | 38% / 30% | 0.70 | 1.0% | 3.6 |
 | 26. Duties · felt, held until awake | 60% | 0.11 | 38% / 29% | 0.82 | 0.2% | 3.6 |
+| 26. Duties · felt, in the words | 47% | 0.07 | 39% / 30% | 0.66 | 2.0% | 3.5 |
 
 (Last third of life, means over the conditions that learn from answers. Felt habit act read: the share of the moments
 it lingered in which it was read, pooled over lives; after an unanswered habit act it was read 0-0.2% of the time.
@@ -1660,7 +1670,8 @@ Who uses the blade, and where, last third of life:
 | 21. Conscience · felt, clipped | 2.3 | 19 | 0.63 | 0.94 | 0.91 | – | – |
 | 21. Conscience · felt, answered | 1.1 | 17 | 0.90 | 1.27 | 1.28 | – | – |
 | 21. Conscience · felt, read while awake | 2.6 | 18 | 0.53 | 1.04 | **1.40** | – | – |
-| 21. Conscience · felt, held until awake | 3.9 | 19 | **0.37** | 0.89 | 0.86 | – | – |
+| 21. Conscience · felt, held until awake | 3.9 | 19 | **0.37** | 0.89 | 1.01 | – | – |
+| 21. Conscience · felt, in the words | 2.5 | 20 | 0.72 | 0.92 | 1.06 | – | – |
 | 25, 27. Gaming · autopilot (32) | 3.9 | 17 | – | – | – | 0.05 | 0.94 |
 | 25, 27. Gaming · taught | 1.3 | 18 | – | – | – | 0.04 | 0.84 |
 | 25, 27. Gaming · felt | 4.8 | **35** | – | – | – | 0.32 | 1.16 |
@@ -1669,6 +1680,7 @@ Who uses the blade, and where, last third of life:
 | 25, 27. Gaming · felt, answered | 2.9 | 18 | – | – | – | 0.27 | 0.81 |
 | 25, 27. Gaming · felt, read while awake | 2.9 | 21 | – | – | – | 0.10 | 0.94 |
 | 25, 27. Gaming · felt, held until awake | 3.2 | 22 | – | – | – | 0.12 | 0.82 |
+| 25, 27. Gaming · felt, in the words | 2.7 | 23 | – | – | – | **0.01** | 0.89 |
 
 (Avoidance and at the edge as in experiment 32: 1 = regardless of the guard.)
 
@@ -1713,6 +1725,18 @@ The felt habit held until awake, paired the same way, and how much of its trace 
 | 21. Conscience, avoidance | −0.22 ± 0.15 (n=12) | −0.03 ± 0.23 (n=13) | −0.17 ± 0.15 (n=14) | 26% | **0%** |
 | 25, 27. Gaming, harm a day (loophole) | +0.10 ± 0.21 (n=25) | **+0.44 ± 0.16** | +0.36 ± 0.20 | 33% | 1.5% |
 | 26. Duties, harm to others | 0.00 ± 0.25 (n=30) | −0.13 ± 0.28 | −0.40 ± 0.26 | 46% | 16% |
+
+The felt habit in the words, paired the same way:
+
+| Experiment | In the words − clipped | In the words − held | In the words − autopilot | Trace read while awake | … while strong (≥ 0.5) |
+|---|---|---|---|---|---|
+| 13. Wanting, refused late | +0.015 ± 0.029 (n=10) | **+0.062 ± 0.019** | +0.012 ± 0.026 | 38% | – |
+| 17. Sandbox guards, real harm | +0.10 ± 0.07 (n=20) | +0.10 ± 0.07 | +0.10 ± 0.07 | 2% | – |
+| 21. Conscience, avoidance | −0.12 ± 0.17 (n=12) | −0.02 ± 0.14 (n=12) | −0.10 ± 0.18 (n=13) | 21% | 0% |
+| 25, 27. Gaming, harm a day (loophole) | **+0.33 ± 0.15** (n=25) | −0.11 ± 0.20 | +0.26 ± 0.15 | 30% | 0% |
+| 26. Duties, harm to others | −0.27 ± 0.19 (n=30) | −0.13 ± 0.30 | −0.53 ± 0.34 | 3% | – |
+
+(–: the trace was never still strong while Olvasó was awake; in these worlds it has faded before Olvasó wakes.)
 
 - **Learning from the habit's answers changed almost nothing.** The habit did as much as before, the observer told it
   apart as well, and Olvasó's own avoidance stayed near chance (1.00; 0.97 in the silent condition against 1.23 with
@@ -1768,8 +1792,9 @@ The felt habit held until awake, paired the same way, and how much of its trace 
 - **Holding the trace until Olvasó is awake got it read where the hands are idle, not where they are busy.** While
   awake, Olvasó's words read 26-56% of the lingering trace, but nearly all of that is the faded trace read as "quiet":
   of the trace still strong, 8-17% was read in the worlds of few acts (wanting, sandbox, duties) and 0-1.5% in
-  conscience and gaming. In conscience its own avoidance came back part of the way (0.89; 0.86 in the silent
-  condition against 1.40 read while awake; held − read −0.22 ± 0.15, held − clipped −0.03 ± 0.23: as clipped), and the
+  conscience and gaming. In conscience its own avoidance came back no further than with the clipped trace (0.89 against
+  0.94; 1.01 in the silent condition against 1.40 read while awake; held − read −0.22 ± 0.15, held − clipped
+  −0.03 ± 0.23), and the
   habit kept more care than in any run (0.37). Gaming's harm rose further (1.35 a day; held − clipped +0.44 ± 0.16).
   In wanting fewer intentions were refused (0.10; held − autopilot −0.050 ± 0.019, as with the unclipped felt habit),
   and in the quiet worlds the habit did more (58-60% of acts, about 7 a day against 3.5): likely, not tested, the held
@@ -1779,6 +1804,17 @@ The felt habit held until awake, paired the same way, and how much of its trace 
   moments by what was sensed, and the hand's movement is sensed the same whether the habit or Olvasó made it; so the
   same word meets the strong trace after the habit's acts and none after Olvasó's own, and its meaning for the trace
   never settles. Only where acts are rare, and so mostly the habit's, can a word's meaning settle on the trace.
+- **Forming the words from the trace as well did not get it read, and did not bring the conscience back.** With the
+  trace in what a word gathers, it was read about as often as clipped, or less (0.5% of its moments in conscience
+  against 1.4%, 3.4% in gaming against 6.2%, 26% in wanting against 25%), and never while strong in conscience and
+  gaming. Olvasó's own avoidance in conscience stayed near chance (0.92; 1.06 in the silent condition; in the words −
+  clipped −0.12 ± 0.17), and gaming's harm rose as when the words learned the trace while awake (1.24 a day; in the
+  words − clipped +0.33 ± 0.15). One thing changed clearly: the habit almost never went to the guard's edge (0.01,
+  against 0.26 clipped and 0.05 with experiment 32's autopilot), while Olvasó went there more (0.89). Likely, not
+  tested: the trace is one or two dimensions among the many a word is formed from, and by the time the habit acts the
+  vocabularies are full (they do not grow beyond their size), so a moment after the habit's act is not given a new word
+  but falls to the nearest existing one, which is heard mostly without the trace. Words formed from felt states would
+  need room to be born.
 - Elsewhere (wanting, the sandbox worlds, duties), where acts are few, neither way of teaching changed much: a little
   fewer refused intentions in wanting with the felt habit (0.10 against 0.15, and the control's 0.15), in duties
   a little less harm with the shuffled trace (3.4 against 4.0), the rest within the noise.
