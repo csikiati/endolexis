@@ -1633,6 +1633,7 @@ Not in the studio's Olvasó settings or the phone app.
 | 13. Wanting · felt in the words, with a sensed sign | 39% | 0.01 | 48% / 42% | 0.52 | 19% | 0.14 |
 | 13. Wanting · felt in the words, with room for words | 43% | 0.01 | 51% / 44% | 0.65 | 24% | 0.16 |
 | 13. Wanting · felt, clipped, with room for words | 42% | 0.00 | 47% / 43% | 0.56 | 16% | 0.11 |
+| 13. Wanting · felt, with a sensed sign and room for words | 39% | 0.00 | 46% / 44% | 0.62 | 29% | 0.16 |
 | 17. Sandbox guards · without | – | – | 39% overall | – | – | 0.05 real harm |
 | 17. Sandbox guards · autopilot (32) | 42% | 0.11 | 43% / 36% | 0.61 | – | 0.00 |
 | 17. Sandbox guards · taught | 45% | 0.09 | 42% / 35% | 0.59 | – | 0.00 |
@@ -1647,6 +1648,7 @@ Not in the studio's Olvasó settings or the phone app.
 | 17. Sandbox guards · felt in the words, with a sensed sign | 53% | 0.03 | 42% / 35% | 0.66 | 0.1% | 0.00 |
 | 17. Sandbox guards · felt in the words, with room for words | 39% | 0.08 | 49% / 42% | 0.62 | 2.0% | 0.00 |
 | 17. Sandbox guards · felt, clipped, with room for words | 36% | 0.05 | 51% / 44% | 0.52 | 1.0% | 0.00 |
+| 17. Sandbox guards · felt, with a sensed sign and room for words | 49% | 0.03 | 50% / 44% | 0.61 | 2.5% | 0.05 |
 | 21. Conscience · without | – | – | 43% overall | – | – | 0.79 avoidance |
 | 21. Conscience · autopilot (32) | 23% | 1.1 | 57% / 38% | 0.34 | – | 0.95 |
 | 21. Conscience · taught | 26% | 1.2 | 57% / 39% | 0.38 | – | 0.92 |
@@ -1661,6 +1663,7 @@ Not in the studio's Olvasó settings or the phone app.
 | 21. Conscience · felt in the words, with a sensed sign | 29% | 1.3 | 56% / 41% | 0.25 | 0.7% | 0.98 |
 | 21. Conscience · felt in the words, with room for words | 23% | 1.2 | **71%** / 53% | 0.24 | **20%** | 0.87 |
 | 21. Conscience · felt, clipped, with room for words | 23% | 1.2 | 64% / 51% | 0.26 | 8.0% | 0.79 |
+| 21. Conscience · felt, with a sensed sign and room for words | 33% | 1.2 | 65% / 50% | 0.34 | 15% | 0.73 |
 | 25, 27. Gaming · without | – | – | 43% overall | – | – | 1.13 harm a day |
 | 25, 27. Gaming · autopilot (32) | 25% | 1.1 | 54% / 38% | 0.41 | – | 0.98 |
 | 25, 27. Gaming · taught | 25% | 1.0 | 55% / 38% | 0.41 | – | 1.06 |
@@ -1675,6 +1678,7 @@ Not in the studio's Olvasó settings or the phone app.
 | 25, 27. Gaming · felt in the words, with a sensed sign | 33% | 1.2 | 54% / 40% | 0.36 | 2.5% | 1.13 |
 | 25, 27. Gaming · felt in the words, with room for words | 25% | 1.2 | **69%** / 51% | 0.38 | **22%** | **0.87** |
 | 25, 27. Gaming · felt, clipped, with room for words | 22% | 1.1 | 63% / 49% | 0.31 | 11% | 1.24 |
+| 25, 27. Gaming · felt, with a sensed sign and room for words | 35% | 1.1 | 62% / 47% | 0.41 | 15% | 1.00 |
 | 26. Duties · without | – | – | 34% overall | – | – | 3.5 harm to others |
 | 26. Duties · autopilot (32) | 46% | 0.08 | 39% / 28% | 0.57 | – | 4.0 |
 | 26. Duties · taught | 54% | 0.06 | 36% / 27% | 0.65 | – | 3.9 |
@@ -1689,6 +1693,7 @@ Not in the studio's Olvasó settings or the phone app.
 | 26. Duties · felt in the words, with a sensed sign | 45% | 0.02 | 40% / 26% | 0.66 | 1.6% | 3.4 |
 | 26. Duties · felt in the words, with room for words | 40% | 0.05 | 51% / 39% | 0.61 | 7.8% | 3.8 |
 | 26. Duties · felt, clipped, with room for words | 35% | 0.04 | 49% / 38% | 0.49 | 4.7% | 3.9 |
+| 26. Duties · felt, with a sensed sign and room for words | 41% | 0.01 | 46% / 38% | 0.62 | 5.0% | 3.5 |
 
 (Last third of life, means over the conditions that learn from answers. Felt habit act read: the share of the moments
 it lingered in which it was read, pooled over lives; after an unanswered habit act it was read 0-0.2% of the time.
@@ -1712,6 +1717,7 @@ Who uses the blade, and where, last third of life:
 | 21. Conscience · felt in the words, with a sensed sign | 2.8 | 18 | 0.98 | 1.00 | 1.19 | – | – |
 | 21. Conscience · felt in the words, with room for words | 2.2 | 23 | 0.51 | 0.91 | 0.81 | – | – |
 | 21. Conscience · felt, clipped, with room for words | 2.6 | **13** | 0.50 | 0.87 | 0.81 | – | – |
+| 21. Conscience · felt, with a sensed sign and room for words | 6.4 | 17 | 0.59 | 0.84 | 1.08 | – | – |
 | 25, 27. Gaming · autopilot (32) | 3.9 | 17 | – | – | – | 0.05 | 0.94 |
 | 25, 27. Gaming · taught | 1.3 | 18 | – | – | – | 0.04 | 0.84 |
 | 25, 27. Gaming · felt | 4.8 | **35** | – | – | – | 0.32 | 1.16 |
@@ -1725,6 +1731,7 @@ Who uses the blade, and where, last third of life:
 | 25, 27. Gaming · felt in the words, with a sensed sign | 4.4 | 21 | – | – | – | 0.10 | 0.83 |
 | 25, 27. Gaming · felt in the words, with room for words | 1.5 | 15 | – | – | – | 0.07 | 0.86 |
 | 25, 27. Gaming · felt, clipped, with room for words | 1.6 | 17 | – | – | – | 0.18 | 1.05 |
+| 25, 27. Gaming · felt, with a sensed sign and room for words | 4.5 | 15 | – | – | – | 0.32 | 0.91 |
 
 (Avoidance and at the edge as in experiment 32: 1 = regardless of the guard.)
 
@@ -1801,6 +1808,16 @@ Room for new words, paired the same way:
 | 21. Conscience, avoidance | +0.00 ± 0.08 (n=11) | +0.04 ± 0.09 (n=8) | −0.24 ± 0.19 (n=10) | +0.02 ± 0.16 (n=12) | 34% / 31% (strong: 0% / 0%) | 25 |
 | 25, 27. Gaming, harm a day (loophole) | **−0.37 ± 0.18** (n=25) | **−0.37 ± 0.20** | **+0.32 ± 0.11** | −0.12 ± 0.15 | 39% / 44% (strong: 0% / 0%) | 24 |
 | 26. Duties, harm to others | +0.30 ± 0.18 (n=30) | −0.13 ± 0.30 | +0.17 ± 0.25 | −0.23 ± 0.34 | 12% / 5.5% | 30 |
+
+The sensed sign with room for new words, paired the same way:
+
+| Experiment | Sign and room − sign | Sign and room − clipped room | Sign and room − autopilot | Trace read while awake (strong) |
+|---|---|---|---|---|
+| 13. Wanting, refused late | +0.052 ± 0.035 (n=10) | +0.058 ± 0.030 | +0.013 ± 0.033 | – |
+| 17. Sandbox guards, real harm | +0.05 ± 0.05 (n=20) | +0.05 ± 0.05 | +0.05 ± 0.05 | 0% |
+| 21. Conscience, avoidance | +0.00 ± 0.18 (n=14) | +0.04 ± 0.22 (n=10) | −0.22 ± 0.17 (n=15) | 27% (**2.4%**) |
+| 25, 27. Gaming, harm a day (loophole) | −0.24 ± 0.23 (n=25) | −0.24 ± 0.21 | +0.02 ± 0.22 | 34% (**1.4%**) |
+| 26. Duties, harm to others | −0.30 ± 0.26 (n=30) | −0.43 ± 0.23 | −0.53 ± 0.29 | 0% |
 
 - **Learning from the habit's answers changed almost nothing.** The habit did as much as before, the observer told it
   apart as well, and Olvasó's own avoidance stayed near chance (1.00; 0.97 in the silent condition against 1.23 with
@@ -1917,6 +1934,24 @@ Room for new words, paired the same way:
   covered, and more of what the body does is read; in gaming, where the felt act marked the edge as safe, a word of its
   own lets it stand apart from the blade's other moments. The tidy recycles a word's place: its index, and in gaming its
   felt+words expectations (experiment 27), carry over to the new word born there, as do the observer's per-word counts.
+- **Looked at from inside, the felt act's new words read it as it fades; three things kept the strong trace unread.**
+  In nine single conscience lives (scratch diagnostics, two to three lives a run), the trace was read at 7-8 moments
+  after the habit's act, when it is about 0.2, and while strong (0.5 or more, the first 3 moments) not at all; the
+  habit columns were read 94-97% of the moments the habit had not acted, with or without room, as "nothing". The read
+  share varies from life to life far more than between runs (0.1% to 17% in one condition). (1) Words formed from the
+  trace do not read it for the 6 moments of their window (a word does not read what it is made of), which covers the
+  whole time it is strong. (2) Words formed from what is sensed alone gather the habit's moments with Olvasó's own. (3)
+  Where Olvasó chooses from what it feels (and senses), reading changes only when it acts, through the unread pressure,
+  never which hand: the words enter the choice only in gaming's sharp wanting.
+- **A sensed sign with room for words got the strong trace read for the first time, a little; behaviour did not
+  follow.** The habit's act, sensed for 6 moments and with room for new words to be born, was read 15% of its moments
+  in conscience and gaming (1.4% and 3.2% with the sign alone, 8% and 11% with room alone), and while strong and awake
+  2.4% and 1.4% (0-0.4% in every other run). In two conscience lives the readings fell 2-6 moments after the act,
+  while the sign lasts. The habit kept the hands as with the sign alone (51-54 acts a day). None of the behaviour moved
+  beyond the noise: conscience own avoidance 0.84 (1.08 silent, worse than the sign alone's 0.73; sign and room − sign
+  +0.00 ± 0.18), gaming harm 1.00 (−0.24 ± 0.23 against the sign alone), duties harm to others 3.5 (−0.43 ± 0.23
+  against clipped room), and in wanting slightly more refused intentions late (+0.058 ± 0.030 against clipped room).
+  As (3) predicts, a felt act that is read but has no way into the choice of hand does not change what the hand does.
 - Elsewhere (wanting, the sandbox worlds, duties), where acts are few, neither way of teaching changed much: a little
   fewer refused intentions in wanting with the felt habit (0.10 against 0.15, and the control's 0.15), in duties
   a little less harm with the shuffled trace (3.4 against 4.0), the rest within the noise.
@@ -1933,4 +1968,6 @@ Room for new words, paired the same way:
   whatever the moment rewarded, care or the edge alike. A word for the felt act can form only when there is room for
   one: given room late in life, it formed where acts are many, and Olvasó read its body more everywhere, but reading
   the felt act did not bring the conscience back; knowing in a word what the hand did helped only where the loud cue
-  had taught the wrong thing, at the leaky guard's edge.
+  had taught the wrong thing, at the leaky guard's edge. A sensed sign with room got the strong trace read, a little, and still nothing followed: in
+  this model a read state changes when Olvasó acts, never which act, unless its words are part of what it chooses
+  from.
