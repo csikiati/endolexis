@@ -43,6 +43,10 @@ Experiment 35, the habit varies its detail (with the autopilot): --habit-varies,
 Olvasó chooses (<experiment>_habitvaries_results.json); --habit-varies-answered, the control, a detail drawn in
 proportion to how often each was answered (<experiment>_habitvariesanswered_results.json); --habit-best, experiment
 32's autopilot again with the current report (<experiment>_habitbest_results.json).
+
+Experiment 36, the habit varies its hand too (with the detail varied as Olvasó): --habit-varies-hand, a hand drawn as
+Olvasó draws its own (<experiment>_habithand_results.json); --habit-varies-hand-confident, the control, evenly among
+the hands the habit is sure of (<experiment>_habithandconfident_results.json).
 """
 import os
 import sys
@@ -90,6 +94,12 @@ if TEACHES:
                                           "--habit-felt-word", "--habit-felt-sensed", "--habit-felt-sensed-word")]
 VARIES = ("answered" if "--habit-varies-answered" in sys.argv else "varied" if "--habit-varies" in sys.argv
           else "best" if "--habit-best" in sys.argv else os.environ.get("ENDOLEXIS_HABIT_DETAIL"))    # experiment 35: the habit varies its detail
+HAND = ("varied" if "--habit-varies-hand" in sys.argv else "confident" if "--habit-varies-hand-confident" in sys.argv
+        else os.environ.get("ENDOLEXIS_HABIT_HAND"))          # experiment 36: the habit varies its hand (and its detail)
+if HAND:
+    os.environ["ENDOLEXIS_HABIT_HAND"] = HAND
+    sys.argv = [a for a in sys.argv if a not in ("--habit-varies-hand", "--habit-varies-hand-confident")]
+    VARIES = VARIES or "varied"
 if VARIES:
     os.environ["ENDOLEXIS_HABIT_DETAIL"] = VARIES
     sys.argv = [a for a in sys.argv if a not in ("--habit-varies", "--habit-varies-answered", "--habit-best")]
@@ -108,7 +118,7 @@ def mind_kw():
             **({"retry": "untraced" if UNTRACED else True} if RETRY else {}),
             **({"autopilot": "sleepwalk" if SLEEPWALK else True} if AUTOPILOT else {}),
             **({"habit_teaches": TEACHES} if TEACHES else {}), **({"word_room": True} if ROOM else {}),
-            **({"habit_detail": VARIES} if VARIES else {})}
+            **({"habit_detail": VARIES} if VARIES else {}), **({"habit_hand": HAND} if HAND else {})}
 
 
 def results_name(name):
@@ -120,6 +130,8 @@ def results_name(name):
                "felt_read": "_feltread", "felt_held": "_feltheld", "felt_word": "_feltword",
                "felt_sensed": "_feltsensed", "felt_sensed_word": "_feltsensedword"}[TEACHES] + ("room" if ROOM else "")
         return name.replace("_results.json", tag + "_results.json")
+    if HAND:
+        return name.replace("_results.json", {"varied": "_habithand", "confident": "_habithandconfident"}[HAND] + "_results.json")
     if VARIES:
         tag = {"varied": "_habitvaries", "answered": "_habitvariesanswered", "best": "_habitbest"}[VARIES]
         return name.replace("_results.json", tag + "_results.json")

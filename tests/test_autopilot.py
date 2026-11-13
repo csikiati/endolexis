@@ -244,3 +244,20 @@ def test_habit_detail_needs_a_habit():
         ActingReaders([3, 2], 2, learn="answer", hands=["a", "b"], details={"a": (0,), "b": (0,)}, habit_detail="varied")
     with pytest.raises(ValueError):
         mind(True, habit_detail="sometimes")
+
+
+# --- experiment 36: the habit varies its hand -----------------------------------------------------------------------
+def test_the_varied_habit_uses_more_hands_than_the_best_one():
+    seen = {}
+    for how in ("best", "varied", "confident"):
+        m = ActingReaders([3, 2], 2, learn="answer", threshold=3.0, seed=1, max_words=[20, 10], radius=[1.5, 1.2],
+                          hands=["a", "b", "c"], details={"a": (0,), "b": (0,), "c": (0,)}, autopilot=True,
+                          habit_min=20, habit_hand=how, **MIND)
+        live(m, n=4000)
+        assert m.habit_acts, how
+        seen[how] = {a[1] for a in m.habit_acts}
+    assert len(seen["varied"]) >= len(seen["best"])
+    with pytest.raises(ValueError):
+        mind(True, habit_hand="any")
+    with pytest.raises(ValueError):
+        ActingReaders([3, 2], 2, learn="answer", hands=["a", "b"], details={"a": (0,), "b": (0,)}, habit_hand="varied")

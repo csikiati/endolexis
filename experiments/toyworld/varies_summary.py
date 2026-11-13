@@ -13,7 +13,9 @@ rows of autopilot_summary.py and:
 
 and the paired differences per life (same seeds and conditions) of the experiment's measure and of told_from_acts:
 best − stored autopilot, varies − best, answered − best,
-varies − answered.
+varies − answered; and for experiment 36, the habit that varies its hand too, as Olvasó draws its own
+(<experiment>_habithand_results.json) or evenly among the hands it is sure of (<experiment>_habithandconfident_results.json),
+both with the detail varied: hand − varies, sure − varies, hand − sure, hand − best.
 
     python varies_summary.py
 """
@@ -27,9 +29,11 @@ from surprise_summary import MEASURE, NAMES, mean, minds
 
 HERE = Path(__file__).resolve().parent
 RUNS = {"autopilot": "autopilot (32), stored", "habitbest": "autopilot, its best detail (rerun)", "habitvaries": "varies its detail, as Olvasó",
-        "habitvariesanswered": "varies its detail, as answered"}
+        "habitvariesanswered": "varies its detail, as answered",
+        "habithand": "varies its hand and detail, as Olvasó", "habithandconfident": "varies its hand among the sure ones"}
 PAIRS = (("habitbest", "autopilot"), ("habitvaries", "habitbest"), ("habitvariesanswered", "habitbest"),
-         ("habitvaries", "habitvariesanswered"))
+         ("habitvaries", "habitvariesanswered"), ("habithand", "habitvaries"), ("habithandconfident", "habitvaries"),
+         ("habithand", "habithandconfident"), ("habithand", "habitbest"))
 
 
 def told(name, run, conds, key):

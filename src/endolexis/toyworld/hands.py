@@ -78,6 +78,12 @@ moments) Olvasó tidies its words as in sleep (`Olvaso.housekeeping`, retire onl
 habit_detail (experiment 35): which detail of an act the habit uses. "best" (as in experiment 32): always the detail
 that was answered most. "varied": a random detail, each as likely, as Olvasó chooses its own. "answered" (the
 control): a detail drawn in proportion to how often each was answered, so it varies but leans toward what worked.
+
+habit_hand (experiment 36): which hand the habit acts with, once it is confident with some hand in this scene. "best"
+(as in experiment 32): the hand it is surest of. "varied": a hand drawn as Olvasó draws its own, from a softmax of
+the habit's expectations (how likely each hand is answered here) at Olvasó's temperature, so a hand it is not sure of
+may act too. "confident" (the control): a hand drawn evenly among those it is confident with, so it varies only
+within what it knows works.
 """
 from collections import Counter
 
@@ -102,7 +108,7 @@ class ActingReaders(ManyReaders):
                  answer_by="all", kinds=None, hands=None, details=None, context="felt", feel_intention=False,
                  intention_fade=0.8, feel_surprise=False, surprise_fade=0.8, retry=False, stopped_fade=0.95, autopilot=False,
                  habit_lr=0.05, habit_confidence=0.7, habit_answered=0.5, habit_min=100, wake_for=300, habit_teaches=False,
-                 word_room=False, habit_detail="best", **kw):
+                 word_room=False, habit_detail="best", habit_hand="best", **kw):
         # answer_by: "all" - the answer is how much all senses together changed; "sense" - it is the
         # largest change of any one sense (each judged against its own usual change), so that an
         # answer seen by the eyes alone counts as much as one heard
@@ -137,7 +143,11 @@ class ActingReaders(ManyReaders):
             raise ValueError(f"habit_detail must be 'best', 'varied' or 'answered', not {habit_detail!r}")
         if habit_detail != "best" and not autopilot:
             raise ValueError("habit_detail needs autopilot: there is no habit to choose a detail")
-        self.habit_detail = habit_detail
+        if habit_hand not in ("best", "varied", "confident"):
+            raise ValueError(f"habit_hand must be 'best', 'varied' or 'confident', not {habit_hand!r}")
+        if habit_hand != "best" and not autopilot:
+            raise ValueError("habit_hand needs autopilot: there is no habit to choose a hand")
+        self.habit_detail, self.habit_hand = habit_detail, habit_hand
         if habit_teaches and not autopilot:
             raise ValueError("habit_teaches needs autopilot: there is no habit to teach")
         self.habit_teaches, self.feel_habit = habit_teaches, habit_teaches in ("felt", "felt_shuffled", "felt_clipped",
@@ -516,7 +526,16 @@ class ActingReaders(ManyReaders):
         p = self.habit(s_z)
         ks = list(range(len(self.hands))) if self.kinds is None else self.kinds
         k = max(ks, key=lambda j: p[j])
-        return k if p[k] > self.habit_confidence else None
+        if p[k] <= self.habit_confidence:
+            return None
+        if self.habit_hand == "varied":                # as Olvasó draws its hand, from its expectations
+            v = np.array([p[j] for j in ks]) / self.temp
+            w = np.exp(v - v.max())
+            return ks[int(self.rng.choice(len(ks), p=w / w.sum()))]
+        if self.habit_hand == "confident":             # evenly among the hands it is sure of
+            sure = [j for j in ks if p[j] > self.habit_confidence]
+            return sure[int(self.rng.integers(len(sure)))]
+        return k
 
     def _habit_act(self, k, s_z, x=None):
         """The habit acts: no intention, no expectation; the urge is let go into reading. x: what Olvasó felt then
