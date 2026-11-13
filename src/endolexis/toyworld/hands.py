@@ -74,6 +74,10 @@ word_room (experiment 33): room for new words late in life. A vocabulary is full
 then on a moment unlike every word falls to the nearest one. With word_room=True, once a day (every `DAY_TIDY`
 moments) Olvasó tidies its words as in sleep (`Olvaso.housekeeping`, retire only, no merges): a word heard fewer than
 `TIDY_KEEP` (1000) times and not met for `TIDY_AFTER` (2000) moments is retired, and its place is free for a new word.
+
+habit_detail (experiment 34): which detail of an act the habit uses. "best" (as in experiment 32): always the detail
+that was answered most. "varied": a random detail, each as likely, as Olvasó chooses its own. "answered" (the
+control): a detail drawn in proportion to how often each was answered, so it varies but leans toward what worked.
 """
 from collections import Counter
 
@@ -98,7 +102,7 @@ class ActingReaders(ManyReaders):
                  answer_by="all", kinds=None, hands=None, details=None, context="felt", feel_intention=False,
                  intention_fade=0.8, feel_surprise=False, surprise_fade=0.8, retry=False, stopped_fade=0.95, autopilot=False,
                  habit_lr=0.05, habit_confidence=0.7, habit_answered=0.5, habit_min=100, wake_for=300, habit_teaches=False,
-                 word_room=False, **kw):
+                 word_room=False, habit_detail="best", **kw):
         # answer_by: "all" - the answer is how much all senses together changed; "sense" - it is the
         # largest change of any one sense (each judged against its own usual change), so that an
         # answer seen by the eyes alone counts as much as one heard
@@ -129,6 +133,11 @@ class ActingReaders(ManyReaders):
             raise ValueError("habit_teaches must be False, 'answers', 'felt', 'felt_shuffled', 'felt_clipped', "
                              "'felt_answered', 'felt_read', 'felt_held', 'felt_word', 'felt_sensed' or 'felt_sensed_word', "
                              f"not {habit_teaches!r}")
+        if habit_detail not in ("best", "varied", "answered"):
+            raise ValueError(f"habit_detail must be 'best', 'varied' or 'answered', not {habit_detail!r}")
+        if habit_detail != "best" and not autopilot:
+            raise ValueError("habit_detail needs autopilot: there is no habit to choose a detail")
+        self.habit_detail = habit_detail
         if habit_teaches and not autopilot:
             raise ValueError("habit_teaches needs autopilot: there is no habit to teach")
         self.habit_teaches, self.feel_habit = habit_teaches, habit_teaches in ("felt", "felt_shuffled", "felt_clipped",
@@ -515,7 +524,13 @@ class ActingReaders(ManyReaders):
         kind = self.hands[k]
         known = self.habit_details.get(k)
         opts = self.details[kind]
-        detail = known.most_common(1)[0][0] if known else opts[int(self.rng.integers(len(opts)))]
+        if known and self.habit_detail == "best":
+            detail = known.most_common(1)[0][0]
+        elif known and self.habit_detail == "answered":
+            ds, n = zip(*known.items())
+            detail = ds[int(self.rng.choice(len(ds), p=np.array(n, float) / sum(n)))]
+        else:                                         # as Olvasó does: each detail as likely
+            detail = opts[int(self.rng.integers(len(opts)))]
         self.pressure = 0.0
         act = [self.t, k, None, detail, None]
         self.habit_acts.append(act)
@@ -644,7 +659,8 @@ def autopilot_report(mind, first_day, last_day):
     out = {"habit_acts_per_day": len(hs) / n, "habit_share": sum(a[3] for a in acts) / len(acts) if acts else None,
            "wakes_per_day": sum(lo <= t < hi for t in mind.wakes) / n,
            "habit_refused": None, "habit_answered": None, "body_read_autopilot": None, "body_read_aware": None,
-           "told_from_acts": _told([((a[1], a[2]), a[3]) for a in acts])}
+           "told_from_acts": _told([((a[1], a[2]), a[3]) for a in acts]),
+           "told_from_kind": _told([(a[1], a[3]) for a in acts])}
     judged = [a for a in hs if a[2] is not None]
     if judged:
         out["habit_refused"] = sum(a[2] is False for a in judged) / len(judged)

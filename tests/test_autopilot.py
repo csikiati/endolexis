@@ -223,3 +223,24 @@ def test_teaching_needs_a_habit():
         mind(False, habit_teaches="answers")
     with pytest.raises(ValueError):
         mind(True, habit_teaches="always")
+
+
+# --- experiment 34: the habit varies its detail ---------------------------------------------------------------------
+def test_the_best_habit_always_uses_its_most_answered_detail_and_the_varied_one_does_not():
+    seen = {}
+    for how in ("best", "varied", "answered"):
+        m = ActingReaders([3, 2], 2, learn="answer", threshold=3.0, seed=1, max_words=[20, 10], radius=[1.5, 1.2],
+                          hands=["a", "b"], details={"a": ("x", "y", "z"), "b": ("x", "y", "z")}, autopilot=True,
+                          habit_min=20, habit_detail=how, **MIND)
+        live(m, n=4000)
+        assert m.habit_acts, how
+        seen[how] = {a[3] for a in m.habit_acts[len(m.habit_acts) // 2:]}
+        assert "told_from_kind" in autopilot_report(m, 0, 4)
+    assert len(seen["best"]) == 1 and len(seen["varied"]) == 3 and len(seen["answered"]) >= 2
+
+
+def test_habit_detail_needs_a_habit():
+    with pytest.raises(ValueError):
+        ActingReaders([3, 2], 2, learn="answer", hands=["a", "b"], details={"a": (0,), "b": (0,)}, habit_detail="varied")
+    with pytest.raises(ValueError):
+        mind(True, habit_detail="sometimes")

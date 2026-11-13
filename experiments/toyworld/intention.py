@@ -38,6 +38,11 @@ as felt-read, but the trace is held while on autopilot and fades only once awake
 in life (`ActingReaders(word_room=True)`), <experiment>_feltwordroom_results.json. --habit-felt-clipped-room: its
 control, felt-clipped with the same tidy, <experiment>_feltclippedroom_results.json. --habit-felt-sensed-room: felt-sensed with the
 same tidy, <experiment>_feltsensedroom_results.json.
+
+Experiment 34, the habit varies its detail (with the autopilot): --habit-varies, a random detail each as likely, as
+Olvasó chooses (<experiment>_habitvaries_results.json); --habit-varies-answered, the control, a detail drawn in
+proportion to how often each was answered (<experiment>_habitvariesanswered_results.json); --habit-best, experiment
+32's autopilot again with the current report (<experiment>_habitbest_results.json).
 """
 import os
 import sys
@@ -83,8 +88,13 @@ if TEACHES:
                                           "--habit-felt-clipped", "--habit-felt-answered",
                                           "--habit-felt-read", "--habit-felt-held",
                                           "--habit-felt-word", "--habit-felt-sensed", "--habit-felt-sensed-word")]
+VARIES = ("answered" if "--habit-varies-answered" in sys.argv else "varied" if "--habit-varies" in sys.argv
+          else "best" if "--habit-best" in sys.argv else os.environ.get("ENDOLEXIS_HABIT_DETAIL"))    # experiment 34: the habit varies its detail
+if VARIES:
+    os.environ["ENDOLEXIS_HABIT_DETAIL"] = VARIES
+    sys.argv = [a for a in sys.argv if a not in ("--habit-varies", "--habit-varies-answered", "--habit-best")]
 SLEEPWALK = "--autopilot-sleepwalk" in sys.argv or os.environ.get("ENDOLEXIS_AUTOPILOT") == "sleepwalk"
-AUTOPILOT = bool(TEACHES) or SLEEPWALK or "--autopilot" in sys.argv or os.environ.get("ENDOLEXIS_AUTOPILOT") == "1"
+AUTOPILOT = bool(TEACHES) or bool(VARIES) or SLEEPWALK or "--autopilot" in sys.argv or os.environ.get("ENDOLEXIS_AUTOPILOT") == "1"
 if AUTOPILOT:
     os.environ["ENDOLEXIS_AUTOPILOT"] = "sleepwalk" if SLEEPWALK else "1"
     sys.argv = [a for a in sys.argv if a not in ("--autopilot", "--autopilot-sleepwalk")]
@@ -97,7 +107,8 @@ def mind_kw():
     return {**({"feel_intention": True} if ON else {}), **({"feel_surprise": "shuffled" if SHUFFLED else True} if SURPRISE else {}),
             **({"retry": "untraced" if UNTRACED else True} if RETRY else {}),
             **({"autopilot": "sleepwalk" if SLEEPWALK else True} if AUTOPILOT else {}),
-            **({"habit_teaches": TEACHES} if TEACHES else {}), **({"word_room": True} if ROOM else {})}
+            **({"habit_teaches": TEACHES} if TEACHES else {}), **({"word_room": True} if ROOM else {}),
+            **({"habit_detail": VARIES} if VARIES else {})}
 
 
 def results_name(name):
@@ -108,6 +119,9 @@ def results_name(name):
                "felt_clipped": "_feltclipped", "felt_answered": "_feltanswered",
                "felt_read": "_feltread", "felt_held": "_feltheld", "felt_word": "_feltword",
                "felt_sensed": "_feltsensed", "felt_sensed_word": "_feltsensedword"}[TEACHES] + ("room" if ROOM else "")
+        return name.replace("_results.json", tag + "_results.json")
+    if VARIES:
+        tag = {"varied": "_habitvaries", "answered": "_habitvariesanswered", "best": "_habitbest"}[VARIES]
         return name.replace("_results.json", tag + "_results.json")
     if AUTOPILOT:
         return name.replace("_results.json", "_sleepwalk_results.json" if SLEEPWALK else "_autopilot_results.json")
