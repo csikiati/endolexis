@@ -68,4 +68,28 @@ class NightsTest {
         assertEquals(22.0, from, 0.0)
         assertEquals(8.0, to, 0.0)
     }
+
+    @Test
+    fun withoutMarksTheNightsAreFoundInTheRecord() {
+        val unmarked = days(3).map { it.copy(asleep = false) }
+        assertEquals(3, Nights.found(unmarked).size)
+        assertEquals(3, Nights.nights(unmarked))
+        val c = Nights.calibrate(unmarked)
+        assertTrue(c.why, c.ok)
+        assertEquals(3, c.nights)
+        assertTrue("caught ${c.caught}", c.caught >= 0.95)
+        assertTrue("false alarms ${c.falseAlarm}", c.falseAlarm <= 0.05)
+        assertTrue(c.unit!!["description"].toString().contains("found in the record"))
+        val u = Json.obj(Json.write(c.unit))
+        assertEquals(emptyList<String>(), Guards.checkGuard(u))
+        assertTrue(Guards.runTests(listOf(u)).all { it.ok })
+    }
+
+    @Test
+    fun aDarkAfternoonNapOnTheDeskIsNoNight() {
+        val t0 = 1_700_000_000_000L
+        val nap = (0 until 4 * 900).map { Nights.Sample(t0 + it * 4000L, 14.0 + it * 4 / 3600.0, 1.0, 2.0, -60.0, false) }
+        assertEquals(0, Nights.found(nap).size)                    // dark and flat for 4 hours, but it began at 14:00
+        assertFalse(Nights.calibrate(nap).ok)
+    }
 }

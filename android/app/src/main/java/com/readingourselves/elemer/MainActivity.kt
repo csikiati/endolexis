@@ -232,12 +232,14 @@ class MainActivity : ComponentActivity() {
             else "Not recording.\n\n")
         text.append("The night log learns what your nights look like to the phone, so that Olvasó never buzzes you awake. " +
             "Start it in the evening and put the phone where it spends the night; you can lock it or use other apps. " +
-            "Tap \"Going to sleep\" in its notification at bedtime and \"Awake\" in the morning. Every 4 seconds it notes " +
+            "Tap \"Going to sleep\" in its notification at bedtime and \"Awake\" in the morning; without these marks it finds " +
+            "your nights itself (the phone lying flat in the dark for three hours or more). Every 4 seconds it notes " +
             "whether the phone lies flat, the light, and how loud it is (a number, never the sound), in the app's own folder only. " +
             "Olvasó sleeps while it records.\n\nAfter two nights or more, Calibrate makes a guard of your own from them; " +
             "you see its rules and numbers before you add it.\n\n")
-        text.append("Recorded: ${samples.size} moments, ${Nights.nights(samples)} nights, " +
-            "${samples.count { it.asleep }} moments marked asleep.")
+        val marked = samples.count { it.asleep }
+        text.append("Recorded: ${samples.size} moments, ${Nights.nights(samples)} nights" +
+            (if (marked > 0) ", $marked moments marked asleep." else " found in the record (none marked)."))
         val b = AlertDialog.Builder(this).setTitle("Nights").setMessage(text.toString())
             .setPositiveButton(if (running) "Stop" else "Start") { _, _ -> if (running) { NightLog.stop(this); sleepButton.postDelayed({ wake() }, 1500) } else startNightLog() }
             .setNeutralButton("Calibrate") { _, _ -> calibrate(samples) }
