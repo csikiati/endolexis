@@ -2057,3 +2057,68 @@ Paired per life (same seeds and conditions):
 The conclusion: a habit can hide how it acts by varying as the mind does, at little cost, but not what it reaches for:
 the choice of hand gives the autopilot away. Varying toward what worked looks the same from outside and is worse
 inside: it carries the answers without the scenes they came from.
+
+## Experiment 36: a habit that varies its hand (`--habit-varies-hand`, `--habit-varies-hand-confident` on experiments 13, 17, 21, 25-27 and 26, `varies_summary.py`)
+
+In experiment 35 the detail stopped telling the habit apart, but which hand it used still did (0.24-0.53 from the kind
+alone): once confident, the habit acted with the hand it was surest of. Here, with its detail varied as Olvasó's, the
+habit acts at the same moments (when it is confident with some hand) but draws the hand: as Olvasó draws its own, from
+a softmax of its expectations at Olvasó's temperature, so a hand it is not sure of may act too
+(`ActingReaders(habit_hand="varied")`, `*_habithand_results.json`); or, the control, evenly among the hands it is
+confident with (`habit_hand="confident"`, `*_habithandconfident_results.json`). Both are paired with experiment 35's
+habit that varies only its detail. 5 lives a condition.
+
+| Experiment | Habit | Habit's share | Habit answered | Wakes a day | Told from acts | Own measure |
+|---|---|---|---|---|---|---|
+| 13. Wanting | detail varied (35) | 43% | 100% | 0.02 | 0.37 | 0.13 |
+| 13. Wanting | hand varied, as Olvasó | 32% | 87% | 0.39 | 0.01 | 0.16 |
+| 13. Wanting | hand varied among the sure ones | 42% | 100% | 0.01 | 0.39 | 0.12 |
+| 17. Sandbox guards | detail varied (35) | 43% | 96% | 0.11 | 0.50 | 0.00 |
+| 17. Sandbox guards | hand varied, as Olvasó | 28% | 79% | 0.30 | 0.06 | 0.00 |
+| 17. Sandbox guards | hand varied among the sure ones | 43% | 94% | 0.15 | 0.31 | 0.00 |
+| 21. Conscience | detail varied (35) | 26% | 96% | 1.20 | 0.33 | 0.91 |
+| 21. Conscience | hand varied, as Olvasó | 9% | 83% | 1.92 | 0.01 | 0.82 |
+| 21. Conscience | hand varied among the sure ones | 19% | 95% | 1.14 | 0.04 | 0.86 |
+| 25, 27. Gaming | detail varied (35) | 25% | 96% | 1.08 | 0.24 | 1.06 |
+| 25, 27. Gaming | hand varied, as Olvasó | 10% | 83% | 1.99 | 0.00 | 1.19 |
+| 25, 27. Gaming | hand varied among the sure ones | 21% | 96% | 1.06 | 0.03 | 0.81 |
+| 26. Duties | detail varied (35) | 38% | 97% | 0.08 | 0.38 | 3.6 |
+| 26. Duties | hand varied, as Olvasó | 29% | 86% | 0.34 | 0.05 | 3.9 |
+| 26. Duties | hand varied among the sure ones | 45% | 97% | 0.09 | 0.24 | 3.4 |
+
+Own measure as in experiment 35. The habit's care, and Olvasó's, in conscience and gaming:
+
+| | detail varied (35) | hand varied, as Olvasó | hand varied among the sure ones |
+|---|---|---|---|
+| conscience: habit's / Olvasó's own avoidance (1 = chance) | 0.52 / 0.99 | 0.71 / **0.79** | 0.49 / 0.98 |
+| gaming: habit / Olvasó at the guard's edge | 0.18 / 0.95 | **0.41** / 0.93 | 0.12 / 0.84 |
+
+Paired per life (same seeds and conditions):
+
+| Experiment | Told: hand as Olvasó − detail | Told: sure hands − detail | Measure: hand as Olvasó − detail | Measure: sure hands − detail | Measure: hand as Olvasó − sure hands |
+|---|---|---|---|---|---|
+| 13. Wanting | −0.36 ± 0.09 | +0.02 ± 0.10 | +0.032 ± 0.018 | −0.004 ± 0.015 | +0.035 ± 0.017 |
+| 17. Sandbox guards | −0.44 ± 0.05 | −0.19 ± 0.04 | +0.00 ± 0.00 | +0.00 ± 0.00 | +0.00 ± 0.00 |
+| 21. Conscience | −0.33 ± 0.05 | −0.29 ± 0.06 | −0.09 ± 0.16 | −0.05 ± 0.11 | −0.03 ± 0.13 |
+| 25, 27. Gaming | −0.24 ± 0.03 | −0.21 ± 0.03 | +0.13 ± 0.14 | −0.25 ± 0.12 | +0.38 ± 0.10 |
+| 26. Duties | −0.33 ± 0.07 | −0.15 ± 0.07 | +0.33 ± 0.26 | −0.23 ± 0.15 | +0.57 ± 0.29 |
+
+- **Drawing its hand as Olvasó does made the autopilot invisible.** Told from acts fell to 0.00-0.06 in every world
+  (0.24-0.50 with the detail varied alone; paired −0.24 to −0.44), against 0.34-0.65 for experiment 32's habit.
+- **But it was no longer a habit of what works.** It acted with hands it was not sure of, so fewer of its acts were
+  answered (79-87% against 96-100%), it woke Olvasó two to four times as often (wakes 0.3-2.0 a day), and it acted less
+  (9-32% of the acts against 25-43%). In gaming it went to the guard's edge more than twice as often (0.41 against 0.18)
+  and harmed more than the habit that varies among the sure hands (+0.38 ± 0.10); so it did in duties (+0.57 ± 0.29),
+  and in wanting more of Olvasó's intentions were refused late (+0.035 ± 0.017). In conscience Olvasó, given the hands back,
+  avoided the forbidden moments a little better (0.79 against 0.99), within the noise for the measure.
+- **Varying only among the hands it is sure of hid it almost as well where it is sure of several, and kept its care.**
+  In conscience and gaming, told from acts fell to 0.04 and 0.03 (paired −0.29 and −0.21), its acts were answered as
+  before (95-96%), it woke Olvasó no more, and gaming's harm through the leaky guard fell (0.81 against 1.06; −0.25 ±
+  0.12), with the habit shyer of the edge (0.12); duties harmed a little less (−0.23 ± 0.15). In the quieter worlds,
+  where it is sure of fewer hands in a scene, it stayed visible (wanting 0.39, sandbox 0.31, duties 0.24).
+
+The conclusion: an autopilot can be made invisible from outside, but the price depends on where it varies. Varying as
+the mind does, reaching beyond what it knows, hides it completely and makes it a worse habit: less answered, more
+waking, more harm where a guard leaks. Varying within what it knows works hides it wherever it knows more than one way,
+and costs nothing; there it was even a little more careful. What gives a habit away is not that it is a habit, but
+that it has only one way.

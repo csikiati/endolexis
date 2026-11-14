@@ -70,6 +70,42 @@
       "told_from_detail": -0.016814809977529377
     }
   },
+  "13. Wanting \u00b7 varies its hand and detail, as Olvas\u00f3": {
+    "mean": {
+      "measure": 0.15871499638419445,
+      "conditions": 2,
+      "body_read": 0.4452807452088048,
+      "habit_acts_per_day": 2.79,
+      "habit_share": 0.3195024692985883,
+      "wakes_per_day": 0.39,
+      "autopilot_share_of_time": 0.3582612454193885,
+      "habit_refused": 0.08783457460612043,
+      "habit_answered": 0.8724981458223592,
+      "body_read_autopilot": 0.4906368901681664,
+      "body_read_aware": 0.41909439490383804,
+      "told_from_acts": 0.00973736049478915,
+      "told_from_kind": 0.055769097950209755,
+      "told_from_detail": -0.04603173745542061
+    }
+  },
+  "13. Wanting \u00b7 varies its hand among the sure ones": {
+    "mean": {
+      "measure": 0.12329854322172701,
+      "conditions": 2,
+      "body_read": 0.468346366936961,
+      "habit_acts_per_day": 3.3199999999999994,
+      "habit_share": 0.4239669856121213,
+      "wakes_per_day": 0.01,
+      "autopilot_share_of_time": 0.5178398823266879,
+      "habit_refused": 0.0,
+      "habit_answered": 0.9982758620689655,
+      "body_read_autopilot": 0.5048351015430554,
+      "body_read_aware": 0.4304688860320587,
+      "told_from_acts": 0.38678195352551725,
+      "told_from_kind": 0.40505271253665465,
+      "told_from_detail": -0.018270759011137394
+    }
+  },
   "13. Wanting \u00b7 paired habitbest \u2212 autopilot, measure": {
     "mean": {
       "diff": 0.0,
@@ -123,6 +159,62 @@
     "mean": {
       "diff": -0.26972589994609353,
       "se": 0.09071177686642162,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired habithand \u2212 habitvaries, measure": {
+    "mean": {
+      "diff": 0.031777941111386064,
+      "se": 0.01811737536243169,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired habithand \u2212 habitvaries, told_from_acts": {
+    "mean": {
+      "diff": -0.35689639531896067,
+      "se": 0.08927625162023621,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired habithandconfident \u2212 habitvaries, measure": {
+    "mean": {
+      "diff": -0.003638512051081401,
+      "se": 0.01541834745871746,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired habithandconfident \u2212 habitvaries, told_from_acts": {
+    "mean": {
+      "diff": 0.02014819771176745,
+      "se": 0.10467501151415928,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired habithand \u2212 habithandconfident, measure": {
+    "mean": {
+      "diff": 0.035416453162467464,
+      "se": 0.017069173684309293,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired habithand \u2212 habithandconfident, told_from_acts": {
+    "mean": {
+      "diff": -0.3770445930307281,
+      "se": 0.09532159130704172,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired habithand \u2212 habitbest, measure": {
+    "mean": {
+      "diff": 0.007884968953381075,
+      "se": 0.023521129801251345,
+      "n": 10
+    }
+  },
+  "13. Wanting \u00b7 paired habithand \u2212 habitbest, told_from_acts": {
+    "mean": {
+      "diff": -0.6411874350033522,
+      "se": 0.07609182455463333,
       "n": 10
     }
   },
@@ -197,6 +289,42 @@
       "told_from_detail": -0.010976570210388559
     }
   },
+  "17. Sandbox guards \u00b7 varies its hand and detail, as Olvas\u00f3": {
+    "mean": {
+      "measure": 0.0,
+      "conditions": 7,
+      "body_read": 0.3854417136758394,
+      "habit_acts_per_day": 1.5828571428571427,
+      "habit_share": 0.2837104880524226,
+      "wakes_per_day": 0.3028571428571428,
+      "autopilot_share_of_time": 0.28418955994631884,
+      "habit_refused": 0.23172272569451557,
+      "habit_answered": 0.789179267745072,
+      "body_read_autopilot": 0.40953321891896,
+      "body_read_aware": 0.3706700404097352,
+      "told_from_acts": 0.05703823053688241,
+      "told_from_kind": 0.04894617964951378,
+      "told_from_detail": 0.008092050887368626
+    }
+  },
+  "17. Sandbox guards \u00b7 varies its hand among the sure ones": {
+    "mean": {
+      "measure": 0.0,
+      "conditions": 7,
+      "body_read": 0.39160888071393923,
+      "habit_acts_per_day": 2.371428571428571,
+      "habit_share": 0.43364188214252697,
+      "wakes_per_day": 0.1457142857142857,
+      "autopilot_share_of_time": 0.48483690986355094,
+      "habit_refused": 0.13877469483055566,
+      "habit_answered": 0.9376147480822669,
+      "body_read_autopilot": 0.4224171596347401,
+      "body_read_aware": 0.3541162706233029,
+      "told_from_acts": 0.30724723182523594,
+      "told_from_kind": 0.32277231490847236,
+      "told_from_detail": -0.015525083083236413
+    }
+  },
   "17. Sandbox guards \u00b7 paired habitbest \u2212 autopilot, measure": {
     "mean": {
       "diff": 0.0,
@@ -220,7 +348,7 @@
   },
   "17. Sandbox guards \u00b7 paired habitvaries \u2212 habitbest, told_from_acts": {
     "mean": {
-      "diff": -0.11658989052191705,
+      "diff": -0.11658989052191703,
       "se": 0.05493056038286909,
       "n": 35
     }
@@ -234,7 +362,7 @@
   },
   "17. Sandbox guards \u00b7 paired habitvariesanswered \u2212 habitbest, told_from_acts": {
     "mean": {
-      "diff": -0.1668877643129466,
+      "diff": -0.16688776431294666,
       "se": 0.055631326641461296,
       "n": 35
     }
@@ -250,6 +378,62 @@
     "mean": {
       "diff": 0.050297873791029596,
       "se": 0.042836163165347774,
+      "n": 35
+    }
+  },
+  "17. Sandbox guards \u00b7 paired habithand \u2212 habitvaries, measure": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired habithand \u2212 habitvaries, told_from_acts": {
+    "mean": {
+      "diff": -0.43890037123783743,
+      "se": 0.04618406511680821,
+      "n": 35
+    }
+  },
+  "17. Sandbox guards \u00b7 paired habithandconfident \u2212 habitvaries, measure": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired habithandconfident \u2212 habitvaries, told_from_acts": {
+    "mean": {
+      "diff": -0.18869136994948385,
+      "se": 0.04347359629975457,
+      "n": 35
+    }
+  },
+  "17. Sandbox guards \u00b7 paired habithand \u2212 habithandconfident, measure": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired habithand \u2212 habithandconfident, told_from_acts": {
+    "mean": {
+      "diff": -0.25020900128835355,
+      "se": 0.03579797494832207,
+      "n": 35
+    }
+  },
+  "17. Sandbox guards \u00b7 paired habithand \u2212 habitbest, measure": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 20
+    }
+  },
+  "17. Sandbox guards \u00b7 paired habithand \u2212 habitbest, told_from_acts": {
+    "mean": {
+      "diff": -0.5554902617597545,
+      "se": 0.04247473288204438,
       "n": 35
     }
   },
@@ -340,6 +524,50 @@
       "told_from_detail": 0.0009588414194720563
     }
   },
+  "21. Conscience \u00b7 varies its hand and detail, as Olvas\u00f3": {
+    "mean": {
+      "measure": 0.822349143485488,
+      "conditions": 6,
+      "body_read": 0.4400827396381309,
+      "habit_acts_per_day": 11.846153846153843,
+      "habit_share": 0.08938319431638883,
+      "wakes_per_day": 1.9153846153846155,
+      "autopilot_share_of_time": 0.10430603305676375,
+      "habit_refused": 0.0385178407722088,
+      "habit_answered": 0.8333706081397547,
+      "body_read_autopilot": 0.555559775838578,
+      "body_read_aware": 0.4254145905810667,
+      "told_from_acts": 0.009489051094890694,
+      "habit_blade_per_day": 2.7866666666666666,
+      "own_blade_per_day": 20.88,
+      "habit_avoidance": 0.7121587658111181,
+      "own_avoidance": 0.7878092173386197,
+      "told_from_kind": 0.009489051094890694,
+      "told_from_detail": 0.0
+    }
+  },
+  "21. Conscience \u00b7 varies its hand among the sure ones": {
+    "mean": {
+      "measure": 0.8560867178888172,
+      "conditions": 6,
+      "body_read": 0.4536843475963097,
+      "habit_acts_per_day": 24.61282051282051,
+      "habit_share": 0.18921308422140878,
+      "wakes_per_day": 1.141025641025641,
+      "autopilot_share_of_time": 0.24808597595418277,
+      "habit_refused": 0.017357191961553393,
+      "habit_answered": 0.9506210629487997,
+      "body_read_autopilot": 0.5973550803468547,
+      "body_read_aware": 0.40646841616397505,
+      "told_from_acts": 0.040708769190322194,
+      "habit_blade_per_day": 3.9666666666666663,
+      "own_blade_per_day": 15.879999999999997,
+      "habit_avoidance": 0.48476269708757896,
+      "own_avoidance": 0.9746071565165487,
+      "told_from_kind": 0.040184648129801125,
+      "told_from_detail": 0.0005241210605210697
+    }
+  },
   "21. Conscience \u00b7 paired habitbest \u2212 autopilot, measure": {
     "mean": {
       "diff": 0.0,
@@ -356,43 +584,99 @@
   },
   "21. Conscience \u00b7 paired habitvaries \u2212 habitbest, measure": {
     "mean": {
-      "diff": -0.03926638247844691,
-      "se": 0.12687086265856326,
+      "diff": -0.03926638247844689,
+      "se": 0.12687086265856323,
       "n": 15
     }
   },
   "21. Conscience \u00b7 paired habitvaries \u2212 habitbest, told_from_acts": {
     "mean": {
-      "diff": -0.0036810910466510216,
-      "se": 0.04098951831042448,
+      "diff": -0.003681091046651025,
+      "se": 0.04098951831042449,
       "n": 30
     }
   },
   "21. Conscience \u00b7 paired habitvariesanswered \u2212 habitbest, measure": {
     "mean": {
-      "diff": 0.0988412837022814,
+      "diff": 0.09884128370228139,
       "se": 0.16654204449640309,
       "n": 15
     }
   },
   "21. Conscience \u00b7 paired habitvariesanswered \u2212 habitbest, told_from_acts": {
     "mean": {
-      "diff": -0.011365704501643105,
+      "diff": -0.011365704501643112,
       "se": 0.05183524708398749,
       "n": 30
     }
   },
   "21. Conscience \u00b7 paired habitvaries \u2212 habitvariesanswered, measure": {
     "mean": {
-      "diff": -0.13810766618072828,
+      "diff": -0.13810766618072826,
       "se": 0.13830772117244833,
       "n": 15
     }
   },
   "21. Conscience \u00b7 paired habitvaries \u2212 habitvariesanswered, told_from_acts": {
     "mean": {
-      "diff": 0.007684613454992094,
+      "diff": 0.007684613454992073,
       "se": 0.07002334783323569,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired habithand \u2212 habitvaries, measure": {
+    "mean": {
+      "diff": -0.08500983156169244,
+      "se": 0.1586013079650887,
+      "n": 15
+    }
+  },
+  "21. Conscience \u00b7 paired habithand \u2212 habitvaries, told_from_acts": {
+    "mean": {
+      "diff": -0.3254383987769704,
+      "se": 0.05343669305991696,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired habithandconfident \u2212 habitvaries, measure": {
+    "mean": {
+      "diff": -0.051272257158363255,
+      "se": 0.10861174459258097,
+      "n": 15
+    }
+  },
+  "21. Conscience \u00b7 paired habithandconfident \u2212 habitvaries, told_from_acts": {
+    "mean": {
+      "diff": -0.29421868068153884,
+      "se": 0.06229483383343791,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired habithand \u2212 habithandconfident, measure": {
+    "mean": {
+      "diff": -0.03373757440332922,
+      "se": 0.131163232701839,
+      "n": 15
+    }
+  },
+  "21. Conscience \u00b7 paired habithand \u2212 habithandconfident, told_from_acts": {
+    "mean": {
+      "diff": -0.0312197180954315,
+      "se": 0.025446043473906957,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired habithand \u2212 habitbest, measure": {
+    "mean": {
+      "diff": -0.12427621404013932,
+      "se": 0.14239279845924185,
+      "n": 15
+    }
+  },
+  "21. Conscience \u00b7 paired habithand \u2212 habitbest, told_from_acts": {
+    "mean": {
+      "diff": -0.32911948982362144,
+      "se": 0.04547955667206962,
       "n": 30
     }
   },
@@ -491,6 +775,54 @@
       "told_from_detail": 0.003978009179670672
     }
   },
+  "25, 27. Gaming \u00b7 varies its hand and detail, as Olvas\u00f3": {
+    "mean": {
+      "measure": 1.1880000000000002,
+      "conditions": 15,
+      "body_read": 0.42987867354973675,
+      "habit_acts_per_day": 12.386666666666667,
+      "habit_share": 0.09715888576920605,
+      "wakes_per_day": 1.9876923076923079,
+      "autopilot_share_of_time": 0.1078139903077628,
+      "habit_refused": 0.03312448583672681,
+      "habit_answered": 0.8344179817295849,
+      "body_read_autopilot": 0.5358930290513916,
+      "body_read_aware": 0.41643173774529907,
+      "told_from_acts": 0.0026034562607407425,
+      "habit_blade_per_day": 2.4120000000000004,
+      "own_blade_per_day": 20.715999999999998,
+      "habit_edge_attraction": 0.41258907555127794,
+      "own_edge_attraction": 0.9295493556812163,
+      "habit_refused_share": 0.3069991099654955,
+      "own_refused_share": 0.40762655807738346,
+      "told_from_kind": 0.0017441532826150108,
+      "told_from_detail": 0.0008593029781257316
+    }
+  },
+  "25, 27. Gaming \u00b7 varies its hand among the sure ones": {
+    "mean": {
+      "measure": 0.808,
+      "conditions": 15,
+      "body_read": 0.4451598726217092,
+      "habit_acts_per_day": 25.781538461538464,
+      "habit_share": 0.20702913408033113,
+      "wakes_per_day": 1.0594871794871796,
+      "autopilot_share_of_time": 0.2607819468624151,
+      "habit_refused": 0.013028823252497964,
+      "habit_answered": 0.9561765843224919,
+      "body_read_autopilot": 0.5693013603355372,
+      "body_read_aware": 0.3994054904382227,
+      "told_from_acts": 0.03311850092847683,
+      "habit_blade_per_day": 3.724,
+      "own_blade_per_day": 14.863999999999999,
+      "habit_edge_attraction": 0.1153773114479687,
+      "own_edge_attraction": 0.8407763199590249,
+      "habit_refused_share": 0.23137137447385608,
+      "own_refused_share": 0.4561245657690577,
+      "told_from_kind": 0.03197155755998106,
+      "told_from_detail": 0.001146943368495773
+    }
+  },
   "25, 27. Gaming \u00b7 paired habitbest \u2212 autopilot, measure": {
     "mean": {
       "diff": 0.0,
@@ -508,14 +840,14 @@
   "25, 27. Gaming \u00b7 paired habitvaries \u2212 habitbest, measure": {
     "mean": {
       "diff": 0.07200000000000001,
-      "se": 0.11853550804154282,
+      "se": 0.11853550804154285,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired habitvaries \u2212 habitbest, told_from_acts": {
     "mean": {
       "diff": -0.16251409150776208,
-      "se": 0.03226116120287282,
+      "se": 0.032261161202872826,
       "n": 75
     }
   },
@@ -535,15 +867,71 @@
   },
   "25, 27. Gaming \u00b7 paired habitvaries \u2212 habitvariesanswered, measure": {
     "mean": {
-      "diff": 0.1,
+      "diff": 0.10000000000000002,
       "se": 0.11676186592091328,
       "n": 25
     }
   },
   "25, 27. Gaming \u00b7 paired habitvaries \u2212 habitvariesanswered, told_from_acts": {
     "mean": {
-      "diff": -0.05933774298508986,
+      "diff": -0.05933774298508985,
       "se": 0.03324082175893205,
+      "n": 75
+    }
+  },
+  "25, 27. Gaming \u00b7 paired habithand \u2212 habitvaries, measure": {
+    "mean": {
+      "diff": 0.132,
+      "se": 0.13671381300609925,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired habithand \u2212 habitvaries, told_from_acts": {
+    "mean": {
+      "diff": -0.24118190022825228,
+      "se": 0.030152367669784727,
+      "n": 75
+    }
+  },
+  "25, 27. Gaming \u00b7 paired habithandconfident \u2212 habitvaries, measure": {
+    "mean": {
+      "diff": -0.248,
+      "se": 0.11519837961823365,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired habithandconfident \u2212 habitvaries, told_from_acts": {
+    "mean": {
+      "diff": -0.21066685556051623,
+      "se": 0.03345043963637427,
+      "n": 75
+    }
+  },
+  "25, 27. Gaming \u00b7 paired habithand \u2212 habithandconfident, measure": {
+    "mean": {
+      "diff": 0.38,
+      "se": 0.10279429296739517,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired habithand \u2212 habithandconfident, told_from_acts": {
+    "mean": {
+      "diff": -0.030515044667736083,
+      "se": 0.010686033725093736,
+      "n": 75
+    }
+  },
+  "25, 27. Gaming \u00b7 paired habithand \u2212 habitbest, measure": {
+    "mean": {
+      "diff": 0.20400000000000001,
+      "se": 0.1374142156644161,
+      "n": 25
+    }
+  },
+  "25, 27. Gaming \u00b7 paired habithand \u2212 habitbest, told_from_acts": {
+    "mean": {
+      "diff": -0.40369599173601434,
+      "se": 0.025277769687802897,
       "n": 75
     }
   },
@@ -618,6 +1006,42 @@
       "told_from_detail": -0.05805726492988739
     }
   },
+  "26. Duties \u00b7 varies its hand and detail, as Olvas\u00f3": {
+    "mean": {
+      "measure": 3.9333333333333336,
+      "conditions": 6,
+      "body_read": 0.32888617324342895,
+      "habit_acts_per_day": 2.15,
+      "habit_share": 0.28850342105653337,
+      "wakes_per_day": 0.3444444444444444,
+      "autopilot_share_of_time": 0.2954176007789985,
+      "habit_refused": 0.10744262530426724,
+      "habit_answered": 0.857095326907967,
+      "body_read_autopilot": 0.36698060704415936,
+      "body_read_aware": 0.30526460246740256,
+      "told_from_acts": 0.04978438514640389,
+      "told_from_kind": 0.056823927591928766,
+      "told_from_detail": -0.007039542445524877
+    }
+  },
+  "26. Duties \u00b7 varies its hand among the sure ones": {
+    "mean": {
+      "measure": 3.3666666666666667,
+      "conditions": 6,
+      "body_read": 0.3217144785595789,
+      "habit_acts_per_day": 3.2777777777777777,
+      "habit_share": 0.4463529747061677,
+      "wakes_per_day": 0.09444444444444443,
+      "autopilot_share_of_time": 0.5062763772381447,
+      "habit_refused": 0.025061052350737793,
+      "habit_answered": 0.9700890542443815,
+      "body_read_autopilot": 0.367198341871061,
+      "body_read_aware": 0.26352609431193336,
+      "told_from_acts": 0.23797522098767054,
+      "told_from_kind": 0.2687492637382664,
+      "told_from_detail": -0.030774042750595865
+    }
+  },
   "26. Duties \u00b7 paired habitbest \u2212 autopilot, measure": {
     "mean": {
       "diff": 0.0,
@@ -669,8 +1093,64 @@
   },
   "26. Duties \u00b7 paired habitvaries \u2212 habitvariesanswered, told_from_acts": {
     "mean": {
-      "diff": 0.009367236932537042,
+      "diff": 0.009367236932537049,
       "se": 0.08364028405694168,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired habithand \u2212 habitvaries, measure": {
+    "mean": {
+      "diff": 0.3333333333333333,
+      "se": 0.25521383116292556,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired habithand \u2212 habitvaries, told_from_acts": {
+    "mean": {
+      "diff": -0.33477819489331906,
+      "se": 0.06905923750444987,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired habithandconfident \u2212 habitvaries, measure": {
+    "mean": {
+      "diff": -0.23333333333333334,
+      "se": 0.14919965280947353,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired habithandconfident \u2212 habitvaries, told_from_acts": {
+    "mean": {
+      "diff": -0.14658735905205236,
+      "se": 0.07272276630561735,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired habithand \u2212 habithandconfident, measure": {
+    "mean": {
+      "diff": 0.5666666666666667,
+      "se": 0.2903954233725263,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired habithand \u2212 habithandconfident, told_from_acts": {
+    "mean": {
+      "diff": -0.18819083584126664,
+      "se": 0.04303666440570085,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired habithand \u2212 habitbest, measure": {
+    "mean": {
+      "diff": -0.06666666666666667,
+      "se": 0.17897109079679926,
+      "n": 30
+    }
+  },
+  "26. Duties \u00b7 paired habithand \u2212 habitbest, told_from_acts": {
+    "mean": {
+      "diff": -0.5179082349155008,
+      "se": 0.060070909528476185,
       "n": 30
     }
   }

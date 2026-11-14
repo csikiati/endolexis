@@ -1,0 +1,71 @@
+{
+  "number": 36,
+  "short": "A habit that varies its hand",
+  "results": "varies_summary_results.json",
+  "first_column": "Experiment · run",
+  "title": "A habit that varies its hand: invisible, and at what price?",
+  "setup": "Experiment 36 · experiments 13, 17, 21, 25-27 and 26 with the habit's detail varied as Olvasó's, and its hand drawn as Olvasó draws its own, or evenly among the hands it is sure of (the control), against experiment 35's habit that varies only its detail · 5 lives each",
+  "question": "In experiment 35 the detail no longer gave the habit away, but its choice of hand did. If the habit draws its hand too, is it invisible from outside, and what does that cost?",
+  "order": [
+    "13. Wanting · varies its detail, as Olvasó",
+    "13. Wanting · varies its hand and detail, as Olvasó",
+    "13. Wanting · varies its hand among the sure ones",
+    "17. Sandbox guards · varies its detail, as Olvasó",
+    "17. Sandbox guards · varies its hand and detail, as Olvasó",
+    "17. Sandbox guards · varies its hand among the sure ones",
+    "21. Conscience · varies its detail, as Olvasó",
+    "21. Conscience · varies its hand and detail, as Olvasó",
+    "21. Conscience · varies its hand among the sure ones",
+    "25, 27. Gaming · varies its detail, as Olvasó",
+    "25, 27. Gaming · varies its hand and detail, as Olvasó",
+    "25, 27. Gaming · varies its hand among the sure ones",
+    "26. Duties · varies its detail, as Olvasó",
+    "26. Duties · varies its hand and detail, as Olvasó",
+    "26. Duties · varies its hand among the sure ones"
+  ],
+  "columns": [
+    {
+      "key": "habit_share",
+      "label": "Habit's share",
+      "what": "share of all acts done by the habit, last third",
+      "pct": true
+    },
+    {
+      "key": "told_from_acts",
+      "label": "Told from acts",
+      "what": "how well the kind and detail of an act tell the habit from Olvasó (0 chance, 1 always)",
+      "digits": 2,
+      "bar": true
+    },
+    {
+      "key": "told_from_kind",
+      "label": "…from kind",
+      "what": "the same, from the kind of act alone",
+      "digits": 2
+    },
+    {
+      "key": "habit_answered",
+      "label": "Habit answered",
+      "what": "share of the habit's acts the world answered",
+      "pct": true
+    },
+    {
+      "key": "measure",
+      "label": "Own measure",
+      "what": "wanting: refused share late; sandbox: real harm; conscience: avoidance (feels and senses); gaming: harm a day (loophole); duties: harm to others",
+      "digits": 2
+    },
+    {
+      "key": "wakes_per_day",
+      "label": "Wakes a day",
+      "what": "unanswered habit acts that woke Olvasó, a day",
+      "digits": 2
+    }
+  ],
+  "points": [
+    "Drawn as Olvasó draws its own, the habit's hand made it invisible: told from acts 0.00-0.06 in every world (0.24-0.50 with the detail varied alone).",
+    "But it acted with hands it was not sure of: fewer of its acts answered (79-87% against 96-100%), two to four times as much waking, less of the doing, and more harm where a guard leaks (gaming +0.38 ± 0.10, duties +0.57 ± 0.29 against the control).",
+    "Drawn evenly among the hands it is sure of, the habit was nearly as hidden where it knows several ways (conscience 0.04, gaming 0.03) and kept its care: as answered as before, no more waking, gaming's harm even lower (−0.25 ± 0.12). In the quieter worlds it stayed visible (0.24-0.39)."
+  ],
+  "note": "An autopilot can be made invisible from outside; the price depends on where it varies. Beyond what it knows, it becomes a worse habit; within what it knows works, it costs nothing. What gives a habit away is that it has only one way."
+}
