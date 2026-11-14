@@ -179,7 +179,8 @@ class ActingReaders(ManyReaders):
         self.habit_acts = []         # observer only: [t, kind, done or None, detail, answered or None]
         self.all_acts = []           # observer only (with autopilot): [t, kind, detail, by the habit]
         self.inside = []             # observer only (experiment 37): what Olvasó itself held after each act:
-        self.inside_open = []        # [t, kind, by the habit, words sensed, body readings, intention read, read by]
+        self.inside_open = []        # [t, kind, by the habit, words sensed, body readings, intention read, read by,
+        self.inside_answers = {}     #  words sensed when it acted]; and act time -> whether the world answered
         self.wakes = []              # observer only: moments Olvasó was woken
         self.mode_daily = {}         # observer only: per day, body read / seen on autopilot, then aware
         self.last_by_habit = False
@@ -378,7 +379,7 @@ class ActingReaders(ManyReaders):
         if self.autopilot:
             self.last_by_habit = False
             self.all_acts.append([self.t, k, request[1], False])
-            self.inside_open.append([self.t, k, False, None, None, False, -1])
+            self.inside_open.append([self.t, k, False, None, None, False, -1, tuple(self.words_now())])
         if self.feel_intention:
             self.intent[k] = 1.0                      # felt from the next moment on
             self.watch.append([self.t, k, None, 0, 0, 0])
@@ -582,7 +583,7 @@ class ActingReaders(ManyReaders):
         act = [self.t, k, None, detail, None]
         self.habit_acts.append(act)
         self.all_acts.append([self.t, k, detail, True])
-        self.inside_open.append([self.t, k, True, None, None, False, -1])
+        self.inside_open.append([self.t, k, True, None, None, False, -1, tuple(self.words_now())])
         self.habit_pending.append((self.t + self.answer_after, k, s_z.copy(), act,
                                    None if x is None else np.array(x, float)))
         self.last_by_habit = True
@@ -607,6 +608,7 @@ class ActingReaders(ManyReaders):
                 lr = min(self.lr, 1.0 / float(xb @ xb)) if self.feel_surprise else self.lr
                 self.W[k] += lr * (signal - float(self.W[k] @ xb)) * xb
             act[4] = answered
+            self.inside_answers[act[0]] = bool(answered)
             if self.habit_signed and not answered:        # the trace carries the answer: "and it was stopped"
                 self.habit_felt[k] = -1.0
             self._teach_habit(k, s_before, answered, act[3])
@@ -636,6 +638,7 @@ class ActingReaders(ManyReaders):
             if self.learn == "answer":
                 signal = self._answer(s_z, s_before)
                 if self.autopilot:
+                    self.inside_answers[act[0]] = bool(signal > self.habit_answered)
                     self._teach_habit(k, s_before, signal > self.habit_answered, act[3], others=True)
             elif self.learn == "read":
                 signal = 10 * (float(np.mean(self.read_log[-50:])) - read_before)
@@ -715,6 +718,28 @@ def autopilot_report(mind, first_day, last_day):
         out["told_inside_kind_words"] = _told([((e[1], e[3]), e[2]) for e in ins])
         out["told_inside_body"] = _told([(e[4], e[2]) for e in ins])
         out["told_inside_kind_body"] = _told([((e[1], e[4]), e[2]) for e in ins])
+        # the checks: is it the scene the act was made in, or the world's answer, that tells them apart? And does the
+        # telling hold for acts not seen before (told_ahead_*: learned on the earlier half, asked on the later)?
+        out["told_inside_before"] = _told([(e[7], e[2]) for e in ins])
+        out["told_ahead_from_acts"] = _told_ahead([((a[1], a[2]), a[3]) for a in acts])
+        out["told_ahead_before"] = _told_ahead([(e[7], e[2]) for e in ins])
+        out["told_ahead_words"] = _told_ahead([(e[3], e[2]) for e in ins])
+        out["told_ahead_body"] = _told_ahead([(e[4], e[2]) for e in ins])
+        for i, name in ((3, "words"), (4, "body")):       # a sense's word at a time, so a sign comes back often
+            scores = [_told_ahead([(e[i][j], e[2]) for e in ins]) for j in range(len(ins[0][i]))]
+            scores = [x for x in scores if x is not None]
+            out[f"told_ahead_one_{name}"] = max(scores) if scores else None
+        scores = [_told_ahead([(e[7][j], e[2]) for e in ins]) for j in range(len(ins[0][7]))]
+        scores = [x for x in scores if x is not None]
+        out["told_ahead_one_before"] = max(scores) if scores else None
+        ans = [e for e in ins if mind.inside_answers.get(e[0]) is True]
+        out["inside_answered_share_own"] = (sum(mind.inside_answers.get(e[0]) is True for e in ins if not e[2])
+                                            / max(1, sum(not e[2] for e in ins)))
+        out["inside_answered_share_habit"] = (sum(mind.inside_answers.get(e[0]) is True for e in ins if e[2])
+                                              / max(1, sum(bool(e[2]) for e in ins)))
+        out["told_ahead_words_answered"] = _told_ahead([(e[3], e[2]) for e in ans])
+        out["told_ahead_body_answered"] = _told_ahead([(e[4], e[2]) for e in ans])
+        out["told_ahead_before_answered"] = _told_ahead([(e[7], e[2]) for e in ans])
         if mind.feel_intention:
             own, hab = [e for e in ins if not e[2]], [e for e in ins if e[2]]
             out["intention_read_after_own"] = sum(e[5] for e in own) / len(own) if own else None
@@ -765,6 +790,24 @@ def _told(pairs):
     signs, causes = [s for s, _ in pairs], [c for _, c in pairs]
     chance = np.mean([accuracy(list(zip(signs, rng.permutation(causes)))) for _ in range(20)])
     return float((accuracy(pairs) - chance) / (1 - chance)) if chance < 1 else 0.0
+
+
+def _told_ahead(pairs):
+    """As _told, but asked of acts not seen: for each sign the more frequent cause is learned on the earlier half
+    (in the order given), and the later half is told by it (a sign not seen before: the more frequent cause overall).
+    Against always saying the later half's more frequent cause: 0 no better, 1 always right; it can be below 0.
+    None with fewer than 40 pairs or only one cause in either half."""
+    half = len(pairs) // 2
+    first, later = pairs[:half], pairs[half:]
+    if len(pairs) < 40 or any(not 0 < sum(bool(c) for _, c in ps) < len(ps) for ps in (first, later)):
+        return None
+    by = {}
+    for sign, cause in first:
+        by.setdefault(sign, Counter())[bool(cause)] += 1
+    overall = Counter(bool(c) for _, c in first).most_common(1)[0][0]
+    right = sum((by[s].most_common(1)[0][0] if s in by else overall) == bool(c) for s, c in later) / len(later)
+    base = Counter(bool(c) for _, c in later).most_common(1)[0][1] / len(later)
+    return float((right - base) / (1 - base))
 
 
 def retry_report(mind, first_day, last_day, days=None):

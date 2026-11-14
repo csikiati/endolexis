@@ -273,6 +273,20 @@ def test_the_inside_view_records_what_olvaso_held_after_each_act():
     rep = autopilot_report(m, 0, 4)
     for k in ("told_inside_words", "told_inside_body", "told_inside_intention", "intention_read_after_own"):
         assert k in rep
+    assert all(len(e[7]) == len(m.parts) for e in m.inside)          # the scene each act was made in
+    assert set(m.inside_answers.values()) <= {True, False} and m.inside_answers
+    for k in ("told_inside_before", "told_ahead_words", "told_ahead_before", "told_ahead_one_words",
+              "told_ahead_words_answered", "inside_answered_share_habit"):
+        assert k in rep
     plain = mind(True)
     live(plain, n=3000)
     assert "told_inside_intention" not in autopilot_report(plain, 0, 3)
+
+
+def test_told_ahead_scores_only_what_holds_for_acts_not_seen():
+    from endolexis.toyworld.hands import _told_ahead
+    clear = [(i % 2, i % 2 == 0) for i in range(100)]                # the sign tells the cause
+    assert _told_ahead(clear) == 1.0
+    unique = [(i, i % 2 == 0) for i in range(100)]                   # every sign new: nothing to tell by
+    assert _told_ahead(unique) <= 0.0
+    assert _told_ahead(clear[:30]) is None
