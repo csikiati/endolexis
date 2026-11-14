@@ -13,6 +13,7 @@ import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
@@ -79,7 +80,8 @@ class MainActivity : ComponentActivity() {
             text = label; isAllCaps = false; setOnClickListener { onClick() }
             bar.addView(this, LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f))
         }
-        sleepButton = button("Sleep") { if (asleep) wake() else sleep() }
+        // while the night log records, Olvasó sleeps and this button is your mark: "Going to sleep" / "Awake"
+        sleepButton = button("Sleep") { if (NightLog.isRunning) toggleMark() else if (asleep) wake() else sleep() }
         button("Diary") { showDiary() }
         button("Nights") { showNights() }
         button("New life") { confirmNewLife() }
@@ -97,7 +99,7 @@ class MainActivity : ComponentActivity() {
     override fun onStart() {
         super.onStart()
         val missing = listOf(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO).filter { !has(it) }
-        if (NightLog.isRunning) { sleepButton.text = "Wake"; asleep = true; return }   // the night log has the microphone
+        if (NightLog.isRunning) { sleepButton.text = markLabel(); asleep = true; return }   // the night log has the microphone
         if (missing.isNotEmpty()) ask.launch(missing.toTypedArray()) else { bindCamera(); wake() }
     }
 
@@ -120,6 +122,16 @@ class MainActivity : ComponentActivity() {
     }
 
     private var lifeRunning = false
+
+    private fun markLabel() = if (NightLog.isAsleep(this)) "Awake" else "Going to sleep"
+
+    /** Your mark in the night log, from the app's own button (the notification has the same one). */
+    private fun toggleMark() {
+        val now = !NightLog.isAsleep(this)
+        NightLog.setAsleep(this, now)
+        sleepButton.text = markLabel()
+        Toast.makeText(this, if (now) "Marked asleep. Good night." else "Marked awake. Good morning.", Toast.LENGTH_SHORT).show()
+    }
 
     private fun sleep() {
         if (!lifeRunning) return
@@ -232,7 +244,7 @@ class MainActivity : ComponentActivity() {
             else "Not recording.\n\n")
         text.append("The night log learns what your nights look like to the phone, so that Olvasó never buzzes you awake. " +
             "Start it in the evening and put the phone where it spends the night; you can lock it or use other apps. " +
-            "Tap \"Going to sleep\" in its notification at bedtime and \"Awake\" in the morning; without these marks it finds " +
+            "Tap \"Going to sleep\" at bedtime and \"Awake\" in the morning (the left button below, or in the notification); without these marks it finds " +
             "your nights itself (the phone lying flat in the dark for three hours or more). Every 4 seconds it notes " +
             "whether the phone lies flat, the light, and how loud it is (a number, never the sound), in the app's own folder only. " +
             "Olvasó sleeps while it records.\n\nAfter two nights or more, Calibrate makes a guard of your own from them; " +
@@ -260,6 +272,7 @@ class MainActivity : ComponentActivity() {
         }
         sleep()                                       // Olvasó sleeps; the log takes the microphone
         NightLog.start(this)
+        sleepButton.text = "Going to sleep"
     }
 
     private var askedNotify = false

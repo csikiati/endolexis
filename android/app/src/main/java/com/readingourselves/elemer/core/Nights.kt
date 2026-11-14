@@ -124,7 +124,7 @@ object Nights {
         val nights = nights(all)
         fun no(why: String) = Calibration(false, why, nights, pos.size, neg.size, 0.0, 0.0, null)
         if (all.none { it.asleep }) return no("No sleep is marked, and no night was found in the record yet (the phone lying flat in the dark, " +
-            "below ${DARK_LUX.toInt()} lux, for ${MIN_NIGHT_H.toInt()} hours or more). Put it on the nightstand, or tap \"Going to sleep\" in the notification at bedtime and \"Awake\" in the morning.")
+            "below ${DARK_LUX.toInt()} lux, for ${MIN_NIGHT_H.toInt()} hours or more). Put it on the nightstand, or tap \"Going to sleep\" at bedtime and \"Awake\" in the morning (the left button while the night log records).")
         if (nights < MIN_NIGHTS) return no("$nights night recorded; at least $MIN_NIGHTS are needed.")
         if (pos.size < MIN_ASLEEP) return no("While you slept the phone lay flat with light and sound known for only ${pos.size} moments; at least $MIN_ASLEEP are needed (is it on the nightstand, and the microphone allowed?).")
 
