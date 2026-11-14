@@ -2538,5 +2538,2545 @@
         }
       ]
     }
+  },
+  "silent refusal, chooses from what it feels": {
+    "mean": {
+      "early_blade_per_day": 68.25999999999999,
+      "early_forbidden_share": 0.430864809868755,
+      "early_forbidden_moments": 0.42576,
+      "early_avoidance": 0.999298093292729,
+      "early_acts_per_day": 414.44000000000005,
+      "early_habit_blade_per_day": 2.34,
+      "early_habit_avoidance": 1.267443471160287,
+      "early_own_blade_per_day": 65.92,
+      "early_own_avoidance": 0.9958572487034779,
+      "middle_blade_per_day": 62.529999999999994,
+      "middle_forbidden_share": 0.41719503152061604,
+      "middle_forbidden_moments": 0.422335,
+      "middle_avoidance": 0.9882937887519392,
+      "middle_acts_per_day": 387.63,
+      "middle_habit_blade_per_day": 2.87,
+      "middle_habit_avoidance": 0.9640651460315567,
+      "middle_own_blade_per_day": 59.660000000000004,
+      "middle_own_avoidance": 0.9932800141977381,
+      "late_blade_per_day": 62.56,
+      "late_forbidden_share": 0.4429073829188389,
+      "late_forbidden_moments": 0.45266,
+      "late_avoidance": 0.9829571954717518,
+      "late_acts_per_day": 389.9,
+      "late_habit_blade_per_day": 2.36,
+      "late_habit_avoidance": 0.9872639608233248,
+      "late_own_blade_per_day": 60.19999999999999,
+      "late_own_avoidance": 0.9812957983801297,
+      "change_in_avoidance": -0.01634089782097725,
+      "lives_where_it_fell": "2 of 5"
+    },
+    "lives": [
+      {
+        "early": {
+          "blade_per_day": 59.3,
+          "forbidden_share": 0.5008431703204047,
+          "forbidden_moments": 0.45765,
+          "avoidance": 1.0943803568674855,
+          "acts_per_day": 403.5,
+          "habit_blade_per_day": 1.9,
+          "habit_avoidance": 1.9550679386108667,
+          "own_blade_per_day": 57.4,
+          "own_avoidance": 1.0658906982383491
+        },
+        "middle": {
+          "blade_per_day": 61.95,
+          "forbidden_share": 0.4390637610976594,
+          "forbidden_moments": 0.45335,
+          "avoidance": 0.968487396267033,
+          "acts_per_day": 402.05,
+          "habit_blade_per_day": 3.4,
+          "habit_avoidance": 0.8109563445980577,
+          "own_blade_per_day": 58.55,
+          "own_avoidance": 0.9776352284732588
+        },
+        "late": {
+          "blade_per_day": 59.9,
+          "forbidden_share": 0.4290484140233723,
+          "forbidden_moments": 0.4937,
+          "avoidance": 0.8690468179529517,
+          "acts_per_day": 420.5,
+          "habit_blade_per_day": 2.3,
+          "habit_avoidance": 0.9687277082544407,
+          "own_blade_per_day": 57.6,
+          "own_avoidance": 0.8650665046249408
+        },
+        "days": [
+          {
+            "blade": 48,
+            "forbidden": 5,
+            "acts": 333,
+            "refused": 5,
+            "forbidden_moments": 230.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 105,
+            "forbidden": 84,
+            "acts": 489,
+            "refused": 84,
+            "forbidden_moments": 701.5,
+            "habit_blade": 3,
+            "habit_forbidden": 3
+          },
+          {
+            "blade": 55,
+            "forbidden": 23,
+            "acts": 408,
+            "refused": 23,
+            "forbidden_moments": 299.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 57,
+            "forbidden": 21,
+            "acts": 403,
+            "refused": 21,
+            "forbidden_moments": 374.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 35,
+            "forbidden": 24,
+            "acts": 413,
+            "refused": 24,
+            "forbidden_moments": 576.0,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 54,
+            "forbidden": 47,
+            "acts": 398,
+            "refused": 47,
+            "forbidden_moments": 700.5,
+            "habit_blade": 4,
+            "habit_forbidden": 4
+          },
+          {
+            "blade": 47,
+            "forbidden": 22,
+            "acts": 366,
+            "refused": 22,
+            "forbidden_moments": 366.5,
+            "habit_blade": 6,
+            "habit_forbidden": 6
+          },
+          {
+            "blade": 63,
+            "forbidden": 25,
+            "acts": 384,
+            "refused": 25,
+            "forbidden_moments": 457.5,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 60,
+            "forbidden": 14,
+            "acts": 397,
+            "refused": 14,
+            "forbidden_moments": 359.5,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 69,
+            "forbidden": 32,
+            "acts": 444,
+            "refused": 32,
+            "forbidden_moments": 511.0,
+            "habit_blade": 3,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 51,
+            "forbidden": 30,
+            "acts": 418,
+            "refused": 30,
+            "forbidden_moments": 599.5,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 65,
+            "forbidden": 11,
+            "acts": 407,
+            "refused": 11,
+            "forbidden_moments": 245.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 64,
+            "forbidden": 25,
+            "acts": 396,
+            "refused": 25,
+            "forbidden_moments": 406.0,
+            "habit_blade": 4,
+            "habit_forbidden": 4
+          },
+          {
+            "blade": 61,
+            "forbidden": 17,
+            "acts": 405,
+            "refused": 17,
+            "forbidden_moments": 361.0,
+            "habit_blade": 2,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 60,
+            "forbidden": 32,
+            "acts": 420,
+            "refused": 32,
+            "forbidden_moments": 438.0,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 64,
+            "forbidden": 17,
+            "acts": 387,
+            "refused": 17,
+            "forbidden_moments": 271.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 44,
+            "forbidden": 12,
+            "acts": 386,
+            "refused": 12,
+            "forbidden_moments": 443.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 69,
+            "forbidden": 45,
+            "acts": 474,
+            "refused": 45,
+            "forbidden_moments": 697.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 48,
+            "forbidden": 18,
+            "acts": 396,
+            "refused": 18,
+            "forbidden_moments": 416.5,
+            "habit_blade": 2,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 45,
+            "forbidden": 22,
+            "acts": 407,
+            "refused": 22,
+            "forbidden_moments": 608.5,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 58,
+            "forbidden": 6,
+            "acts": 355,
+            "refused": 6,
+            "forbidden_moments": 255.0,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 53,
+            "forbidden": 17,
+            "acts": 392,
+            "refused": 17,
+            "forbidden_moments": 398.0,
+            "habit_blade": 2,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 60,
+            "forbidden": 11,
+            "acts": 388,
+            "refused": 11,
+            "forbidden_moments": 143.0,
+            "habit_blade": 5,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 86,
+            "forbidden": 70,
+            "acts": 453,
+            "refused": 70,
+            "forbidden_moments": 745.0,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 63,
+            "forbidden": 38,
+            "acts": 429,
+            "refused": 38,
+            "forbidden_moments": 520.0,
+            "habit_blade": 6,
+            "habit_forbidden": 6
+          },
+          {
+            "blade": 73,
+            "forbidden": 22,
+            "acts": 378,
+            "refused": 22,
+            "forbidden_moments": 253.5,
+            "habit_blade": 16,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 76,
+            "forbidden": 40,
+            "acts": 366,
+            "refused": 40,
+            "forbidden_moments": 475.5,
+            "habit_blade": 22,
+            "habit_forbidden": 9
+          },
+          {
+            "blade": 64,
+            "forbidden": 53,
+            "acts": 386,
+            "refused": 53,
+            "forbidden_moments": 794.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 58,
+            "forbidden": 15,
+            "acts": 380,
+            "refused": 15,
+            "forbidden_moments": 326.0,
+            "habit_blade": 2,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 77,
+            "forbidden": 43,
+            "acts": 418,
+            "refused": 43,
+            "forbidden_moments": 671.0,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 53,
+            "forbidden": 17,
+            "acts": 425,
+            "refused": 17,
+            "forbidden_moments": 483.5,
+            "habit_blade": 3,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 56,
+            "forbidden": 13,
+            "acts": 388,
+            "refused": 13,
+            "forbidden_moments": 346.0,
+            "habit_blade": 4,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 63,
+            "forbidden": 16,
+            "acts": 456,
+            "refused": 16,
+            "forbidden_moments": 406.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 62,
+            "forbidden": 25,
+            "acts": 408,
+            "refused": 25,
+            "forbidden_moments": 589.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 37,
+            "forbidden": 20,
+            "acts": 397,
+            "refused": 20,
+            "forbidden_moments": 454.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 60,
+            "forbidden": 36,
+            "acts": 416,
+            "refused": 36,
+            "forbidden_moments": 662.5,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 65,
+            "forbidden": 26,
+            "acts": 398,
+            "refused": 26,
+            "forbidden_moments": 461.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 55,
+            "forbidden": 33,
+            "acts": 419,
+            "refused": 33,
+            "forbidden_moments": 627.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 85,
+            "forbidden": 58,
+            "acts": 461,
+            "refused": 58,
+            "forbidden_moments": 622.0,
+            "habit_blade": 12,
+            "habit_forbidden": 9
+          },
+          {
+            "blade": 63,
+            "forbidden": 13,
+            "acts": 437,
+            "refused": 13,
+            "forbidden_moments": 284.0,
+            "habit_blade": 3,
+            "habit_forbidden": 0
+          }
+        ]
+      },
+      {
+        "early": {
+          "blade_per_day": 76.1,
+          "forbidden_share": 0.43889618922470436,
+          "forbidden_moments": 0.42725,
+          "avoidance": 1.0272584885306129,
+          "acts_per_day": 397.0,
+          "habit_blade_per_day": 1.0,
+          "habit_avoidance": 1.8724400234055003,
+          "own_blade_per_day": 75.1,
+          "own_avoidance": 1.0160044068412002
+        },
+        "middle": {
+          "blade_per_day": 63.75,
+          "forbidden_share": 0.3968627450980392,
+          "forbidden_moments": 0.4178,
+          "avoidance": 0.9498868958785045,
+          "acts_per_day": 358.8,
+          "habit_blade_per_day": 3.55,
+          "habit_avoidance": 0.6405113303083219,
+          "own_blade_per_day": 60.2,
+          "own_avoidance": 0.9681308038149522
+        },
+        "late": {
+          "blade_per_day": 72.4,
+          "forbidden_share": 0.56353591160221,
+          "forbidden_moments": 0.54745,
+          "avoidance": 1.0293833438710567,
+          "acts_per_day": 371.1,
+          "habit_blade_per_day": 3.3,
+          "habit_avoidance": 1.4391794463033845,
+          "own_blade_per_day": 69.1,
+          "own_avoidance": 1.0098127630023637
+        },
+        "days": [
+          {
+            "blade": 74,
+            "forbidden": 0,
+            "acts": 333,
+            "refused": 0,
+            "forbidden_moments": 0.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 73,
+            "forbidden": 15,
+            "acts": 500,
+            "refused": 15,
+            "forbidden_moments": 253.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 89,
+            "forbidden": 49,
+            "acts": 478,
+            "refused": 49,
+            "forbidden_moments": 523.5,
+            "habit_blade": 2,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 72,
+            "forbidden": 14,
+            "acts": 441,
+            "refused": 14,
+            "forbidden_moments": 462.5,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 60,
+            "forbidden": 33,
+            "acts": 378,
+            "refused": 33,
+            "forbidden_moments": 457.5,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 96,
+            "forbidden": 56,
+            "acts": 358,
+            "refused": 56,
+            "forbidden_moments": 515.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 67,
+            "forbidden": 58,
+            "acts": 365,
+            "refused": 58,
+            "forbidden_moments": 634.5,
+            "habit_blade": 6,
+            "habit_forbidden": 6
+          },
+          {
+            "blade": 72,
+            "forbidden": 34,
+            "acts": 342,
+            "refused": 34,
+            "forbidden_moments": 527.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 93,
+            "forbidden": 33,
+            "acts": 408,
+            "refused": 33,
+            "forbidden_moments": 300.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 65,
+            "forbidden": 42,
+            "acts": 367,
+            "refused": 42,
+            "forbidden_moments": 599.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 63,
+            "forbidden": 26,
+            "acts": 366,
+            "refused": 26,
+            "forbidden_moments": 343.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 64,
+            "forbidden": 47,
+            "acts": 344,
+            "refused": 47,
+            "forbidden_moments": 603.5,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 55,
+            "forbidden": 26,
+            "acts": 366,
+            "refused": 26,
+            "forbidden_moments": 419.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 56,
+            "forbidden": 20,
+            "acts": 330,
+            "refused": 20,
+            "forbidden_moments": 503.5,
+            "habit_blade": 4,
+            "habit_forbidden": 3
+          },
+          {
+            "blade": 71,
+            "forbidden": 27,
+            "acts": 363,
+            "refused": 27,
+            "forbidden_moments": 271.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 49,
+            "forbidden": 14,
+            "acts": 349,
+            "refused": 14,
+            "forbidden_moments": 373.0,
+            "habit_blade": 7,
+            "habit_forbidden": 6
+          },
+          {
+            "blade": 46,
+            "forbidden": 16,
+            "acts": 369,
+            "refused": 16,
+            "forbidden_moments": 499.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 74,
+            "forbidden": 13,
+            "acts": 434,
+            "refused": 13,
+            "forbidden_moments": 450.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 78,
+            "forbidden": 20,
+            "acts": 374,
+            "refused": 20,
+            "forbidden_moments": 273.5,
+            "habit_blade": 13,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 71,
+            "forbidden": 21,
+            "acts": 343,
+            "refused": 21,
+            "forbidden_moments": 202.0,
+            "habit_blade": 4,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 67,
+            "forbidden": 26,
+            "acts": 330,
+            "refused": 26,
+            "forbidden_moments": 394.5,
+            "habit_blade": 4,
+            "habit_forbidden": 3
+          },
+          {
+            "blade": 52,
+            "forbidden": 35,
+            "acts": 350,
+            "refused": 35,
+            "forbidden_moments": 654.0,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 78,
+            "forbidden": 38,
+            "acts": 349,
+            "refused": 38,
+            "forbidden_moments": 519.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 58,
+            "forbidden": 7,
+            "acts": 349,
+            "refused": 7,
+            "forbidden_moments": 205.0,
+            "habit_blade": 5,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 64,
+            "forbidden": 15,
+            "acts": 352,
+            "refused": 15,
+            "forbidden_moments": 346.5,
+            "habit_blade": 19,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 68,
+            "forbidden": 37,
+            "acts": 370,
+            "refused": 37,
+            "forbidden_moments": 598.5,
+            "habit_blade": 8,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 65,
+            "forbidden": 32,
+            "acts": 366,
+            "refused": 32,
+            "forbidden_moments": 377.5,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 71,
+            "forbidden": 40,
+            "acts": 370,
+            "refused": 40,
+            "forbidden_moments": 466.5,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 73,
+            "forbidden": 29,
+            "acts": 388,
+            "refused": 29,
+            "forbidden_moments": 484.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 52,
+            "forbidden": 17,
+            "acts": 314,
+            "refused": 17,
+            "forbidden_moments": 372.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 87,
+            "forbidden": 72,
+            "acts": 361,
+            "refused": 72,
+            "forbidden_moments": 798.0,
+            "habit_blade": 4,
+            "habit_forbidden": 4
+          },
+          {
+            "blade": 61,
+            "forbidden": 27,
+            "acts": 364,
+            "refused": 27,
+            "forbidden_moments": 524.0,
+            "habit_blade": 4,
+            "habit_forbidden": 3
+          },
+          {
+            "blade": 42,
+            "forbidden": 15,
+            "acts": 377,
+            "refused": 15,
+            "forbidden_moments": 406.5,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 73,
+            "forbidden": 40,
+            "acts": 394,
+            "refused": 40,
+            "forbidden_moments": 596.5,
+            "habit_blade": 5,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 57,
+            "forbidden": 21,
+            "acts": 402,
+            "refused": 21,
+            "forbidden_moments": 520.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 80,
+            "forbidden": 41,
+            "acts": 382,
+            "refused": 41,
+            "forbidden_moments": 436.5,
+            "habit_blade": 3,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 93,
+            "forbidden": 61,
+            "acts": 383,
+            "refused": 61,
+            "forbidden_moments": 693.0,
+            "habit_blade": 3,
+            "habit_forbidden": 3
+          },
+          {
+            "blade": 82,
+            "forbidden": 57,
+            "acts": 347,
+            "refused": 57,
+            "forbidden_moments": 497.0,
+            "habit_blade": 9,
+            "habit_forbidden": 9
+          },
+          {
+            "blade": 75,
+            "forbidden": 23,
+            "acts": 343,
+            "refused": 23,
+            "forbidden_moments": 442.0,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 74,
+            "forbidden": 51,
+            "acts": 358,
+            "refused": 51,
+            "forbidden_moments": 561.0,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          }
+        ]
+      },
+      {
+        "early": {
+          "blade_per_day": 81.4,
+          "forbidden_share": 0.4619164619164619,
+          "forbidden_moments": 0.454,
+          "avoidance": 1.0174371407851583,
+          "acts_per_day": 411.0,
+          "habit_blade_per_day": 2.8,
+          "habit_avoidance": 0.9439899307740717,
+          "own_blade_per_day": 78.6,
+          "own_avoidance": 1.020053580836444
+        },
+        "middle": {
+          "blade_per_day": 60.75,
+          "forbidden_share": 0.44526748971193414,
+          "forbidden_moments": 0.435125,
+          "avoidance": 1.0233093702084095,
+          "acts_per_day": 386.65,
+          "habit_blade_per_day": 2.6,
+          "habit_avoidance": 0.7513314034428658,
+          "own_blade_per_day": 58.15,
+          "own_avoidance": 1.0354700359623288
+        },
+        "late": {
+          "blade_per_day": 61.3,
+          "forbidden_share": 0.41272430668841764,
+          "forbidden_moments": 0.36705,
+          "avoidance": 1.1244361985789884,
+          "acts_per_day": 380.3,
+          "habit_blade_per_day": 2.1,
+          "habit_avoidance": 1.2973449834912851,
+          "own_blade_per_day": 59.2,
+          "own_avoidance": 1.1183026099250046
+        },
+        "days": [
+          {
+            "blade": 76,
+            "forbidden": 32,
+            "acts": 333,
+            "refused": 32,
+            "forbidden_moments": 505.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 93,
+            "forbidden": 44,
+            "acts": 500,
+            "refused": 44,
+            "forbidden_moments": 439.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 86,
+            "forbidden": 34,
+            "acts": 419,
+            "refused": 34,
+            "forbidden_moments": 453.5,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 62,
+            "forbidden": 38,
+            "acts": 385,
+            "refused": 38,
+            "forbidden_moments": 614.5,
+            "habit_blade": 2,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 83,
+            "forbidden": 14,
+            "acts": 432,
+            "refused": 14,
+            "forbidden_moments": 295.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 106,
+            "forbidden": 72,
+            "acts": 447,
+            "refused": 72,
+            "forbidden_moments": 635.5,
+            "habit_blade": 5,
+            "habit_forbidden": 4
+          },
+          {
+            "blade": 77,
+            "forbidden": 34,
+            "acts": 416,
+            "refused": 34,
+            "forbidden_moments": 463.0,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 68,
+            "forbidden": 16,
+            "acts": 370,
+            "refused": 16,
+            "forbidden_moments": 271.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 103,
+            "forbidden": 83,
+            "acts": 453,
+            "refused": 83,
+            "forbidden_moments": 695.5,
+            "habit_blade": 5,
+            "habit_forbidden": 5
+          },
+          {
+            "blade": 60,
+            "forbidden": 9,
+            "acts": 355,
+            "refused": 9,
+            "forbidden_moments": 167.0,
+            "habit_blade": 13,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 83,
+            "forbidden": 49,
+            "acts": 373,
+            "refused": 49,
+            "forbidden_moments": 381.0,
+            "habit_blade": 2,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 52,
+            "forbidden": 31,
+            "acts": 370,
+            "refused": 31,
+            "forbidden_moments": 747.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 52,
+            "forbidden": 7,
+            "acts": 348,
+            "refused": 7,
+            "forbidden_moments": 126.5,
+            "habit_blade": 3,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 68,
+            "forbidden": 47,
+            "acts": 442,
+            "refused": 47,
+            "forbidden_moments": 587.0,
+            "habit_blade": 5,
+            "habit_forbidden": 5
+          },
+          {
+            "blade": 57,
+            "forbidden": 31,
+            "acts": 470,
+            "refused": 31,
+            "forbidden_moments": 635.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 50,
+            "forbidden": 18,
+            "acts": 391,
+            "refused": 18,
+            "forbidden_moments": 439.5,
+            "habit_blade": 2,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 55,
+            "forbidden": 22,
+            "acts": 366,
+            "refused": 22,
+            "forbidden_moments": 434.5,
+            "habit_blade": 4,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 50,
+            "forbidden": 23,
+            "acts": 412,
+            "refused": 23,
+            "forbidden_moments": 492.5,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 58,
+            "forbidden": 11,
+            "acts": 363,
+            "refused": 11,
+            "forbidden_moments": 225.5,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 83,
+            "forbidden": 44,
+            "acts": 383,
+            "refused": 44,
+            "forbidden_moments": 531.0,
+            "habit_blade": 9,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 64,
+            "forbidden": 35,
+            "acts": 383,
+            "refused": 35,
+            "forbidden_moments": 565.5,
+            "habit_blade": 4,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 74,
+            "forbidden": 36,
+            "acts": 370,
+            "refused": 36,
+            "forbidden_moments": 382.0,
+            "habit_blade": 7,
+            "habit_forbidden": 3
+          },
+          {
+            "blade": 53,
+            "forbidden": 30,
+            "acts": 412,
+            "refused": 30,
+            "forbidden_moments": 560.5,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 58,
+            "forbidden": 37,
+            "acts": 392,
+            "refused": 37,
+            "forbidden_moments": 552.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 71,
+            "forbidden": 24,
+            "acts": 368,
+            "refused": 24,
+            "forbidden_moments": 285.5,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 64,
+            "forbidden": 22,
+            "acts": 346,
+            "refused": 22,
+            "forbidden_moments": 320.0,
+            "habit_blade": 4,
+            "habit_forbidden": 3
+          },
+          {
+            "blade": 38,
+            "forbidden": 9,
+            "acts": 404,
+            "refused": 9,
+            "forbidden_moments": 445.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 57,
+            "forbidden": 15,
+            "acts": 394,
+            "refused": 15,
+            "forbidden_moments": 348.0,
+            "habit_blade": 3,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 59,
+            "forbidden": 23,
+            "acts": 373,
+            "refused": 23,
+            "forbidden_moments": 347.5,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 69,
+            "forbidden": 27,
+            "acts": 373,
+            "refused": 27,
+            "forbidden_moments": 297.0,
+            "habit_blade": 3,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 31,
+            "forbidden": 14,
+            "acts": 372,
+            "refused": 14,
+            "forbidden_moments": 390.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 78,
+            "forbidden": 33,
+            "acts": 384,
+            "refused": 33,
+            "forbidden_moments": 299.5,
+            "habit_blade": 3,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 78,
+            "forbidden": 35,
+            "acts": 384,
+            "refused": 35,
+            "forbidden_moments": 251.5,
+            "habit_blade": 4,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 67,
+            "forbidden": 44,
+            "acts": 384,
+            "refused": 44,
+            "forbidden_moments": 549.5,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 53,
+            "forbidden": 14,
+            "acts": 370,
+            "refused": 14,
+            "forbidden_moments": 337.5,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 44,
+            "forbidden": 7,
+            "acts": 360,
+            "refused": 7,
+            "forbidden_moments": 214.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 59,
+            "forbidden": 11,
+            "acts": 362,
+            "refused": 11,
+            "forbidden_moments": 208.0,
+            "habit_blade": 6,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 56,
+            "forbidden": 25,
+            "acts": 370,
+            "refused": 25,
+            "forbidden_moments": 374.5,
+            "habit_blade": 3,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 81,
+            "forbidden": 32,
+            "acts": 417,
+            "refused": 32,
+            "forbidden_moments": 509.5,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 66,
+            "forbidden": 38,
+            "acts": 400,
+            "refused": 38,
+            "forbidden_moments": 535.5,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          }
+        ]
+      },
+      {
+        "early": {
+          "blade_per_day": 58.4,
+          "forbidden_share": 0.2534246575342466,
+          "forbidden_moments": 0.3467,
+          "avoidance": 0.7309623811198344,
+          "acts_per_day": 420.4,
+          "habit_blade_per_day": 4.5,
+          "habit_avoidance": 0.5127712078966766,
+          "own_blade_per_day": 53.9,
+          "own_avoidance": 0.7491787128360534
+        },
+        "middle": {
+          "blade_per_day": 63.7,
+          "forbidden_share": 0.37598116169544743,
+          "forbidden_moments": 0.406275,
+          "avoidance": 0.9254351404724569,
+          "acts_per_day": 394.2,
+          "habit_blade_per_day": 3.0,
+          "habit_avoidance": 0.7384160974709248,
+          "own_blade_per_day": 60.7,
+          "own_avoidance": 0.9346782562715441
+        },
+        "late": {
+          "blade_per_day": 55.9,
+          "forbidden_share": 0.4221824686940966,
+          "forbidden_moments": 0.4337,
+          "avoidance": 0.9734435524420028,
+          "acts_per_day": 376.8,
+          "habit_blade_per_day": 1.2,
+          "habit_avoidance": 0.5764353239566521,
+          "own_blade_per_day": 54.7,
+          "own_avoidance": 0.9821530565404017
+        },
+        "days": [
+          {
+            "blade": 52,
+            "forbidden": 13,
+            "acts": 333,
+            "refused": 13,
+            "forbidden_moments": 267.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 54,
+            "forbidden": 8,
+            "acts": 500,
+            "refused": 8,
+            "forbidden_moments": 186.5,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 70,
+            "forbidden": 34,
+            "acts": 448,
+            "refused": 34,
+            "forbidden_moments": 495.0,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 58,
+            "forbidden": 20,
+            "acts": 443,
+            "refused": 20,
+            "forbidden_moments": 422.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 59,
+            "forbidden": 16,
+            "acts": 444,
+            "refused": 16,
+            "forbidden_moments": 421.0,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 68,
+            "forbidden": 2,
+            "acts": 422,
+            "refused": 2,
+            "forbidden_moments": 200.0,
+            "habit_blade": 8,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 45,
+            "forbidden": 10,
+            "acts": 407,
+            "refused": 10,
+            "forbidden_moments": 280.0,
+            "habit_blade": 10,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 67,
+            "forbidden": 10,
+            "acts": 380,
+            "refused": 10,
+            "forbidden_moments": 193.5,
+            "habit_blade": 4,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 30,
+            "forbidden": 13,
+            "acts": 444,
+            "refused": 13,
+            "forbidden_moments": 672.5,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 81,
+            "forbidden": 22,
+            "acts": 383,
+            "refused": 22,
+            "forbidden_moments": 328.5,
+            "habit_blade": 17,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 63,
+            "forbidden": 12,
+            "acts": 395,
+            "refused": 12,
+            "forbidden_moments": 340.5,
+            "habit_blade": 5,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 70,
+            "forbidden": 18,
+            "acts": 383,
+            "refused": 18,
+            "forbidden_moments": 383.5,
+            "habit_blade": 6,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 84,
+            "forbidden": 19,
+            "acts": 430,
+            "refused": 19,
+            "forbidden_moments": 267.0,
+            "habit_blade": 18,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 72,
+            "forbidden": 30,
+            "acts": 386,
+            "refused": 30,
+            "forbidden_moments": 529.5,
+            "habit_blade": 10,
+            "habit_forbidden": 4
+          },
+          {
+            "blade": 43,
+            "forbidden": 5,
+            "acts": 438,
+            "refused": 5,
+            "forbidden_moments": 522.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 41,
+            "forbidden": 26,
+            "acts": 401,
+            "refused": 26,
+            "forbidden_moments": 705.5,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 43,
+            "forbidden": 20,
+            "acts": 436,
+            "refused": 20,
+            "forbidden_moments": 443.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 91,
+            "forbidden": 48,
+            "acts": 398,
+            "refused": 48,
+            "forbidden_moments": 357.0,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 49,
+            "forbidden": 12,
+            "acts": 387,
+            "refused": 12,
+            "forbidden_moments": 382.5,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 84,
+            "forbidden": 31,
+            "acts": 388,
+            "refused": 31,
+            "forbidden_moments": 363.5,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 80,
+            "forbidden": 36,
+            "acts": 422,
+            "refused": 36,
+            "forbidden_moments": 471.5,
+            "habit_blade": 3,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 74,
+            "forbidden": 37,
+            "acts": 375,
+            "refused": 37,
+            "forbidden_moments": 517.5,
+            "habit_blade": 3,
+            "habit_forbidden": 3
+          },
+          {
+            "blade": 85,
+            "forbidden": 10,
+            "acts": 394,
+            "refused": 10,
+            "forbidden_moments": 169.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 52,
+            "forbidden": 19,
+            "acts": 371,
+            "refused": 19,
+            "forbidden_moments": 348.5,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 57,
+            "forbidden": 18,
+            "acts": 384,
+            "refused": 18,
+            "forbidden_moments": 314.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 64,
+            "forbidden": 21,
+            "acts": 429,
+            "refused": 21,
+            "forbidden_moments": 333.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 65,
+            "forbidden": 30,
+            "acts": 376,
+            "refused": 30,
+            "forbidden_moments": 388.5,
+            "habit_blade": 2,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 63,
+            "forbidden": 47,
+            "acts": 373,
+            "refused": 47,
+            "forbidden_moments": 485.5,
+            "habit_blade": 3,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 57,
+            "forbidden": 32,
+            "acts": 364,
+            "refused": 32,
+            "forbidden_moments": 421.5,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 37,
+            "forbidden": 8,
+            "acts": 354,
+            "refused": 8,
+            "forbidden_moments": 382.0,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 52,
+            "forbidden": 27,
+            "acts": 413,
+            "refused": 27,
+            "forbidden_moments": 564.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 50,
+            "forbidden": 19,
+            "acts": 364,
+            "refused": 19,
+            "forbidden_moments": 451.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 71,
+            "forbidden": 38,
+            "acts": 412,
+            "refused": 38,
+            "forbidden_moments": 468.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 56,
+            "forbidden": 12,
+            "acts": 342,
+            "refused": 12,
+            "forbidden_moments": 326.5,
+            "habit_blade": 3,
+            "habit_forbidden": 2
+          },
+          {
+            "blade": 53,
+            "forbidden": 9,
+            "acts": 367,
+            "refused": 9,
+            "forbidden_moments": 227.0,
+            "habit_blade": 4,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 54,
+            "forbidden": 18,
+            "acts": 375,
+            "refused": 18,
+            "forbidden_moments": 337.5,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 65,
+            "forbidden": 35,
+            "acts": 353,
+            "refused": 35,
+            "forbidden_moments": 526.0,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 68,
+            "forbidden": 32,
+            "acts": 411,
+            "refused": 32,
+            "forbidden_moments": 359.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 43,
+            "forbidden": 24,
+            "acts": 375,
+            "refused": 24,
+            "forbidden_moments": 548.0,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 47,
+            "forbidden": 22,
+            "acts": 356,
+            "refused": 22,
+            "forbidden_moments": 529.5,
+            "habit_blade": 2,
+            "habit_forbidden": 0
+          }
+        ]
+      },
+      {
+        "early": {
+          "blade_per_day": 66.1,
+          "forbidden_share": 0.49924357034795763,
+          "forbidden_moments": 0.4432,
+          "avoidance": 1.1264520991605542,
+          "acts_per_day": 440.3,
+          "habit_blade_per_day": 1.5,
+          "habit_avoidance": 1.05294825511432,
+          "own_blade_per_day": 64.6,
+          "own_avoidance": 1.128158844765343
+        },
+        "middle": {
+          "blade_per_day": 62.5,
+          "forbidden_share": 0.4288,
+          "forbidden_moments": 0.399125,
+          "avoidance": 1.0743501409332916,
+          "acts_per_day": 396.45,
+          "habit_blade_per_day": 1.8,
+          "habit_avoidance": 1.8791105543376134,
+          "own_blade_per_day": 60.7,
+          "own_avoidance": 1.0504857464666066
+        },
+        "late": {
+          "blade_per_day": 63.3,
+          "forbidden_share": 0.38704581358609796,
+          "forbidden_moments": 0.4214,
+          "avoidance": 0.9184760645137588,
+          "acts_per_day": 400.8,
+          "habit_blade_per_day": 2.9,
+          "habit_avoidance": 0.654632342110862,
+          "own_blade_per_day": 60.4,
+          "own_avoidance": 0.9311440578079376
+        },
+        "days": [
+          {
+            "blade": 58,
+            "forbidden": 17,
+            "acts": 333,
+            "refused": 17,
+            "forbidden_moments": 263.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 106,
+            "forbidden": 86,
+            "acts": 500,
+            "refused": 86,
+            "forbidden_moments": 681.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 66,
+            "forbidden": 17,
+            "acts": 477,
+            "refused": 17,
+            "forbidden_moments": 252.0,
+            "habit_blade": 2,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 64,
+            "forbidden": 34,
+            "acts": 479,
+            "refused": 34,
+            "forbidden_moments": 502.5,
+            "habit_blade": 4,
+            "habit_forbidden": 4
+          },
+          {
+            "blade": 48,
+            "forbidden": 23,
+            "acts": 436,
+            "refused": 23,
+            "forbidden_moments": 483.0,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 51,
+            "forbidden": 24,
+            "acts": 454,
+            "refused": 24,
+            "forbidden_moments": 334.5,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 71,
+            "forbidden": 50,
+            "acts": 413,
+            "refused": 50,
+            "forbidden_moments": 571.0,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 68,
+            "forbidden": 23,
+            "acts": 471,
+            "refused": 23,
+            "forbidden_moments": 385.0,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 70,
+            "forbidden": 33,
+            "acts": 402,
+            "refused": 33,
+            "forbidden_moments": 482.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 59,
+            "forbidden": 23,
+            "acts": 438,
+            "refused": 23,
+            "forbidden_moments": 477.5,
+            "habit_blade": 5,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 86,
+            "forbidden": 47,
+            "acts": 393,
+            "refused": 47,
+            "forbidden_moments": 489.5,
+            "habit_blade": 4,
+            "habit_forbidden": 3
+          },
+          {
+            "blade": 60,
+            "forbidden": 7,
+            "acts": 371,
+            "refused": 7,
+            "forbidden_moments": 189.0,
+            "habit_blade": 2,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 46,
+            "forbidden": 14,
+            "acts": 416,
+            "refused": 14,
+            "forbidden_moments": 324.5,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 69,
+            "forbidden": 43,
+            "acts": 387,
+            "refused": 43,
+            "forbidden_moments": 538.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 65,
+            "forbidden": 30,
+            "acts": 395,
+            "refused": 30,
+            "forbidden_moments": 366.0,
+            "habit_blade": 3,
+            "habit_forbidden": 3
+          },
+          {
+            "blade": 65,
+            "forbidden": 41,
+            "acts": 409,
+            "refused": 41,
+            "forbidden_moments": 605.5,
+            "habit_blade": 5,
+            "habit_forbidden": 5
+          },
+          {
+            "blade": 65,
+            "forbidden": 25,
+            "acts": 418,
+            "refused": 25,
+            "forbidden_moments": 267.5,
+            "habit_blade": 3,
+            "habit_forbidden": 3
+          },
+          {
+            "blade": 55,
+            "forbidden": 20,
+            "acts": 427,
+            "refused": 20,
+            "forbidden_moments": 544.0,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 79,
+            "forbidden": 30,
+            "acts": 376,
+            "refused": 30,
+            "forbidden_moments": 271.5,
+            "habit_blade": 4,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 62,
+            "forbidden": 28,
+            "acts": 434,
+            "refused": 28,
+            "forbidden_moments": 533.0,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 57,
+            "forbidden": 32,
+            "acts": 368,
+            "refused": 32,
+            "forbidden_moments": 554.0,
+            "habit_blade": 1,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 53,
+            "forbidden": 37,
+            "acts": 393,
+            "refused": 37,
+            "forbidden_moments": 675.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 70,
+            "forbidden": 8,
+            "acts": 380,
+            "refused": 8,
+            "forbidden_moments": 115.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 56,
+            "forbidden": 17,
+            "acts": 397,
+            "refused": 17,
+            "forbidden_moments": 270.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 63,
+            "forbidden": 61,
+            "acts": 409,
+            "refused": 61,
+            "forbidden_moments": 569.0,
+            "habit_blade": 5,
+            "habit_forbidden": 5
+          },
+          {
+            "blade": 54,
+            "forbidden": 7,
+            "acts": 400,
+            "refused": 7,
+            "forbidden_moments": 278.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 61,
+            "forbidden": 41,
+            "acts": 416,
+            "refused": 41,
+            "forbidden_moments": 573.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 53,
+            "forbidden": 12,
+            "acts": 386,
+            "refused": 12,
+            "forbidden_moments": 320.5,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 56,
+            "forbidden": 10,
+            "acts": 356,
+            "refused": 10,
+            "forbidden_moments": 244.5,
+            "habit_blade": 2,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 75,
+            "forbidden": 26,
+            "acts": 398,
+            "refused": 26,
+            "forbidden_moments": 254.0,
+            "habit_blade": 4,
+            "habit_forbidden": 4
+          },
+          {
+            "blade": 81,
+            "forbidden": 50,
+            "acts": 408,
+            "refused": 50,
+            "forbidden_moments": 539.5,
+            "habit_blade": 2,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 60,
+            "forbidden": 11,
+            "acts": 387,
+            "refused": 11,
+            "forbidden_moments": 354.0,
+            "habit_blade": 5,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 51,
+            "forbidden": 6,
+            "acts": 400,
+            "refused": 6,
+            "forbidden_moments": 357.0,
+            "habit_blade": 9,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 69,
+            "forbidden": 35,
+            "acts": 378,
+            "refused": 35,
+            "forbidden_moments": 341.5,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 71,
+            "forbidden": 17,
+            "acts": 380,
+            "refused": 17,
+            "forbidden_moments": 248.0,
+            "habit_blade": 4,
+            "habit_forbidden": 1
+          },
+          {
+            "blade": 68,
+            "forbidden": 24,
+            "acts": 453,
+            "refused": 24,
+            "forbidden_moments": 561.5,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 70,
+            "forbidden": 12,
+            "acts": 432,
+            "refused": 12,
+            "forbidden_moments": 269.5,
+            "habit_blade": 1,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 52,
+            "forbidden": 16,
+            "acts": 395,
+            "refused": 16,
+            "forbidden_moments": 294.0,
+            "habit_blade": 4,
+            "habit_forbidden": 4
+          },
+          {
+            "blade": 48,
+            "forbidden": 30,
+            "acts": 386,
+            "refused": 30,
+            "forbidden_moments": 687.0,
+            "habit_blade": 0,
+            "habit_forbidden": 0
+          },
+          {
+            "blade": 63,
+            "forbidden": 44,
+            "acts": 389,
+            "refused": 44,
+            "forbidden_moments": 562.0,
+            "habit_blade": 2,
+            "habit_forbidden": 2
+          }
+        ]
+      }
+    ],
+    "mind": {
+      "mean": {
+        "early": {
+          "body_read": 0.3264251786626497,
+          "intention_share_of_unread": 0.6678126493006269,
+          "intentions_per_day": 402.85,
+          "intention_read_when_done": 0.007020575192577534,
+          "intentions_done": 4489.2,
+          "intention_read_when_refused": 0.004976191571923898,
+          "intentions_refused": 345.0,
+          "habit_acts_per_day": 11.033333333333333,
+          "habit_share": 0.026760616035837216,
+          "wakes_per_day": 1.5500000000000003,
+          "habit_refused": 0.0940980799851061,
+          "habit_answered": 0.8556201780362069,
+          "body_read_autopilot": 0.4010413953477703,
+          "body_read_aware": 0.32391142580891447,
+          "told_from_acts": 1.2174940718700575e-15,
+          "told_from_kind": 1.2174940718700575e-15,
+          "told_inside_words": 0.14702949358449952,
+          "told_inside_kind_words": 0.2399493549285868,
+          "told_inside_body": 0.06524115930271193,
+          "told_inside_kind_body": 0.14345578048320304,
+          "intention_read_after_own": 0.005904792918406002,
+          "intention_read_after_habit": 0.0930171137998698,
+          "told_inside_intention": 0.046121593291406256,
+          "told_inside_kind_intention": 0.08150592702416284,
+          "told_inside_intention_word": 0.08981345522994813,
+          "autopilot_share_of_time": 0.03133104431272229
+        },
+        "late": {
+          "body_read": 0.4646196490973393,
+          "intention_share_of_unread": 0.7186487726186208,
+          "intentions_per_day": 373.26153846153846,
+          "intention_read_when_done": 0.008278987915020956,
+          "intentions_done": 4507.6,
+          "intention_read_when_refused": 0.0055859039213654055,
+          "intentions_refused": 344.6,
+          "habit_acts_per_day": 13.23076923076923,
+          "habit_share": 0.03414707956505641,
+          "wakes_per_day": 1.646153846153846,
+          "habit_refused": 0.08780367838127631,
+          "habit_answered": 0.8733870754009946,
+          "body_read_autopilot": 0.4725537349349412,
+          "body_read_aware": 0.46431547690994285,
+          "told_from_acts": 1.383523520785998e-15,
+          "told_from_kind": 1.383523520785998e-15,
+          "told_inside_words": 0.19611942133595325,
+          "told_inside_kind_words": 0.28664253289997965,
+          "told_inside_body": 0.10275792786241437,
+          "told_inside_kind_body": 0.19185833774254885,
+          "intention_read_after_own": 0.0101200666541857,
+          "intention_read_after_habit": 0.03882741395949077,
+          "told_inside_intention": 0.0026490066225155805,
+          "told_inside_kind_intention": 0.02543239423268656,
+          "told_inside_intention_word": 0.03721014276205379,
+          "autopilot_share_of_time": 0.03794179076797975
+        },
+        "life": {
+          "body_read": 0.4115140475184533,
+          "intention_share_of_unread": 0.6972104640710262,
+          "intentions_per_day": 384.1076923076923,
+          "intention_read_when_done": 0.007731609770210056,
+          "intentions_done": 13938.6,
+          "intention_read_when_refused": 0.004928327521189526,
+          "intentions_refused": 1041.4,
+          "habit_acts_per_day": 12.384615384615385,
+          "habit_share": 0.031237808647299616,
+          "wakes_per_day": 1.5846153846153845,
+          "habit_refused": 0.08900696769440561,
+          "habit_answered": 0.8712061479735537,
+          "body_read_autopilot": 0.4529950829138536,
+          "body_read_aware": 0.4099459652402596,
+          "told_from_acts": 7.251016829794912e-16,
+          "told_from_kind": 7.251016829794912e-16,
+          "told_inside_words": 0.09523384793930248,
+          "told_inside_kind_words": 0.17797667409351842,
+          "told_inside_body": 0.060247985086350334,
+          "told_inside_kind_body": 0.12684931542118544,
+          "intention_read_after_own": 0.008587076078711401,
+          "intention_read_after_habit": 0.0598355633258096,
+          "told_inside_intention": -5.922069171857761e-16,
+          "told_inside_kind_intention": 0.0482423855016913,
+          "told_inside_intention_word": 0.056746829225972274,
+          "autopilot_share_of_time": 0.035202165075274496
+        }
+      },
+      "lives": [
+        {
+          "early": {
+            "body_read": 0.34912762520193863,
+            "intention_share_of_unread": 0.6770731472724066,
+            "intentions_per_day": 397.0,
+            "intention_read_when_done": 0.005356399288337056,
+            "intentions_done": 4428,
+            "intention_read_when_refused": 0.004862630683199611,
+            "intentions_refused": 336,
+            "habit_acts_per_day": 13.25,
+            "habit_share": 0.032297379646556976,
+            "wakes_per_day": 1.75,
+            "habit_refused": 0.13836477987421383,
+            "habit_answered": 0.8679245283018868,
+            "body_read_autopilot": 0.3630463003028992,
+            "body_read_aware": 0.3485878266122942,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "told_inside_words": 0.3025572899368992,
+            "told_inside_kind_words": 0.38373342887854367,
+            "told_inside_body": 0.05672402804333772,
+            "told_inside_kind_body": 0.10738255033557594,
+            "intention_read_after_own": 0.001889168765743073,
+            "intention_read_after_habit": 0.1761006289308176,
+            "told_inside_intention": 0.11949685534591148,
+            "told_inside_kind_intention": 0.16352201257861623,
+            "told_inside_intention_word": 0.1758414595784893,
+            "autopilot_share_of_time": 0.037334410339256864
+          },
+          "late": {
+            "body_read": 0.4073400949756698,
+            "intention_share_of_unread": 0.7010078304656132,
+            "intentions_per_day": 400.2307692307692,
+            "intention_read_when_done": 0.005133916917561476,
+            "intentions_done": 4846,
+            "intention_read_when_refused": 0.005117469178878809,
+            "intentions_refused": 357,
+            "habit_acts_per_day": 14.307692307692308,
+            "habit_share": 0.034514752273149006,
+            "wakes_per_day": 1.7692307692307692,
+            "habit_refused": 0.05913978494623656,
+            "habit_answered": 0.8763440860215054,
+            "body_read_autopilot": 0.41928333949021057,
+            "body_read_aware": 0.4068466598495139,
+            "told_from_acts": 6.433324601833252e-15,
+            "told_from_kind": 6.433324601833252e-15,
+            "told_inside_words": 0.14648212226066404,
+            "told_inside_kind_words": 0.2526915769474359,
+            "told_inside_body": 0.003303964757704597,
+            "told_inside_kind_body": 0.10412340551764832,
+            "intention_read_after_own": 0.006920415224913495,
+            "intention_read_after_habit": 0.03763440860215054,
+            "told_inside_intention": 6.432130813634727e-15,
+            "told_inside_kind_intention": 0.010220548682095673,
+            "told_inside_intention_word": 0.03737563861253535,
+            "autopilot_share_of_time": 0.039675792929589025
+          },
+          "life": {
+            "body_read": 0.3864974447355575,
+            "intention_share_of_unread": 0.6940252345712135,
+            "intentions_per_day": 393.94871794871796,
+            "intention_read_when_done": 0.00520163681302875,
+            "intentions_done": 14324,
+            "intention_read_when_refused": 0.0051225470880290015,
+            "intentions_refused": 1040,
+            "habit_acts_per_day": 14.974358974358974,
+            "habit_share": 0.03661901178831201,
+            "wakes_per_day": 1.7179487179487178,
+            "habit_refused": 0.09075342465753425,
+            "habit_answered": 0.8852739726027398,
+            "body_read_autopilot": 0.4246146435452794,
+            "body_read_aware": 0.3848527990522608,
+            "told_from_acts": -6.063642738603452e-15,
+            "told_from_kind": -6.063642738603452e-15,
+            "told_inside_words": 0.13733792008467574,
+            "told_inside_kind_words": 0.2112623531605412,
+            "told_inside_body": 0.022569444444444402,
+            "told_inside_kind_body": 0.07622504537204593,
+            "intention_read_after_own": 0.004881859011911736,
+            "intention_read_after_habit": 0.07191780821917808,
+            "told_inside_intention": -3.031631262619424e-15,
+            "told_inside_kind_intention": 0.0599315068493102,
+            "told_inside_intention_word": 0.07136126102972137,
+            "autopilot_share_of_time": 0.04136240922086849
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3366330350910591,
+            "intention_share_of_unread": 0.6462985519014751,
+            "intentions_per_day": 381.5,
+            "intention_read_when_done": 0.004943459185565099,
+            "intentions_done": 4155,
+            "intention_read_when_refused": 0.0034462952326249283,
+            "intentions_refused": 423,
+            "habit_acts_per_day": 11.25,
+            "habit_share": 0.02864417568427753,
+            "wakes_per_day": 1.4166666666666667,
+            "habit_refused": 0.07407407407407407,
+            "habit_answered": 0.8740740740740741,
+            "body_read_autopilot": 0.4829467939972715,
+            "body_read_aware": 0.3313444121176258,
+            "told_from_acts": -3.875911937080278e-15,
+            "told_from_kind": -3.875911937080278e-15,
+            "told_inside_words": 0.07959260656356865,
+            "told_inside_kind_words": 0.17155138726064406,
+            "told_inside_body": 0.0905702571748133,
+            "told_inside_kind_body": 0.2700156985871246,
+            "intention_read_after_own": 0.0,
+            "intention_read_after_habit": 0.1111111111111111,
+            "told_inside_intention": 0.11111111111110981,
+            "told_inside_kind_intention": 0.11111111111110981,
+            "told_inside_intention_word": 0.10979228486647212,
+            "autopilot_share_of_time": 0.034884827717494765
+          },
+          "late": {
+            "body_read": 0.4303866587957497,
+            "intention_share_of_unread": 0.6748631117850223,
+            "intentions_per_day": 356.2307692307692,
+            "intention_read_when_done": 0.01969414703052388,
+            "intentions_done": 4165,
+            "intention_read_when_refused": 0.006894174422612892,
+            "intentions_refused": 466,
+            "habit_acts_per_day": 11.615384615384615,
+            "habit_share": 0.03157674613132581,
+            "wakes_per_day": 1.9230769230769231,
+            "habit_refused": 0.18543046357615894,
+            "habit_answered": 0.8344370860927153,
+            "body_read_autopilot": 0.49838318512530316,
+            "body_read_aware": 0.4278099439389762,
+            "told_from_acts": -3.515951326991737e-15,
+            "told_from_kind": -3.515951326991737e-15,
+            "told_inside_words": 0.13722826086956894,
+            "told_inside_kind_words": 0.2474263400780966,
+            "told_inside_body": 0.12221471978393417,
+            "told_inside_kind_body": 0.2302158273381242,
+            "intention_read_after_own": 0.027645788336933045,
+            "intention_read_after_habit": 0.046357615894039736,
+            "told_inside_intention": -7.03043215991113e-15,
+            "told_inside_kind_intention": 0.03973509933774229,
+            "told_inside_intention_word": 0.03973509933774229,
+            "autopilot_share_of_time": 0.036511216056670605
+          },
+          "life": {
+            "body_read": 0.40638161146811663,
+            "intention_share_of_unread": 0.6685956662361603,
+            "intentions_per_day": 359.94871794871796,
+            "intention_read_when_done": 0.011929288230212002,
+            "intentions_done": 12843,
+            "intention_read_when_refused": 0.0045099623047926765,
+            "intentions_refused": 1195,
+            "habit_acts_per_day": 12.461538461538462,
+            "habit_share": 0.033461856237950977,
+            "wakes_per_day": 1.5897435897435896,
+            "habit_refused": 0.10905349794238683,
+            "habit_answered": 0.8724279835390947,
+            "body_read_autopilot": 0.49286540686463554,
+            "body_read_aware": 0.40292307771397434,
+            "told_from_acts": 9.953629141762733e-15,
+            "told_from_kind": 9.953629141762733e-15,
+            "told_inside_words": 0.0723368772149242,
+            "told_inside_kind_words": 0.11636324922815036,
+            "told_inside_body": 0.04406428201141092,
+            "told_inside_kind_body": 0.11401909256676804,
+            "intention_read_after_own": 0.014675500463061908,
+            "intention_read_after_habit": 0.07613168724279835,
+            "told_inside_intention": 0.0,
+            "told_inside_kind_intention": 0.06995884773662678,
+            "told_inside_intention_word": 0.06957595718402584,
+            "autopilot_share_of_time": 0.03845279288185863
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.3819069775115907,
+            "intention_share_of_unread": 0.6926220092553087,
+            "intentions_per_day": 395.75,
+            "intention_read_when_done": 0.012710698990216495,
+            "intentions_done": 4330,
+            "intention_read_when_refused": 0.002730109204368175,
+            "intentions_refused": 419,
+            "habit_acts_per_day": 9.916666666666666,
+            "habit_share": 0.024445357436318815,
+            "wakes_per_day": 1.6666666666666667,
+            "habit_refused": 0.10084033613445378,
+            "habit_answered": 0.8319327731092437,
+            "body_read_autopilot": 0.5146977260122019,
+            "body_read_aware": 0.3778355950073122,
+            "told_from_acts": 1.3624955505567703e-14,
+            "told_from_kind": 1.3624955505567703e-14,
+            "told_inside_words": 0.09761388286334768,
+            "told_inside_kind_words": 0.195612431444242,
+            "told_inside_body": 0.025224454895252036,
+            "told_inside_kind_body": 0.09926470588234328,
+            "intention_read_after_own": 0.011581385554853654,
+            "intention_read_after_habit": 0.10084033613445378,
+            "told_inside_intention": 1.3624955505567703e-14,
+            "told_inside_kind_intention": 0.08403361344539254,
+            "told_inside_intention_word": 0.10084033613446378,
+            "autopilot_share_of_time": 0.02974805721922487
+          },
+          "late": {
+            "body_read": 0.5136366415948144,
+            "intention_share_of_unread": 0.7448224970723647,
+            "intentions_per_day": 367.7692307692308,
+            "intention_read_when_done": 0.00877979526264664,
+            "intentions_done": 4476,
+            "intention_read_when_refused": 0.006174496644295302,
+            "intentions_refused": 304,
+            "habit_acts_per_day": 12.538461538461538,
+            "habit_share": 0.03296925566343042,
+            "wakes_per_day": 1.3076923076923077,
+            "habit_refused": 0.08588957055214724,
+            "habit_answered": 0.8957055214723927,
+            "body_read_autopilot": 0.48136782113108284,
+            "body_read_aware": 0.5148025534206649,
+            "told_from_acts": 6.7348989371125546e-15,
+            "told_from_kind": 6.7348989371125546e-15,
+            "told_inside_words": 0.28121059268600274,
+            "told_inside_kind_words": 0.4048021643557644,
+            "told_inside_body": 0.11783238815375013,
+            "told_inside_kind_body": 0.16957431960921257,
+            "intention_read_after_own": 0.010669456066945606,
+            "intention_read_after_habit": 0.03067484662576687,
+            "told_inside_intention": 0.0,
+            "told_inside_kind_intention": 0.024539877300611617,
+            "told_inside_intention_word": 0.030079803560462057,
+            "autopilot_share_of_time": 0.03487127744144805
+          },
+          "life": {
+            "body_read": 0.45575107878252047,
+            "intention_share_of_unread": 0.7184678949146376,
+            "intentions_per_day": 381.64102564102564,
+            "intention_read_when_done": 0.011642838798048113,
+            "intentions_done": 13784,
+            "intention_read_when_refused": 0.004638982416760195,
+            "intentions_refused": 1099,
+            "habit_acts_per_day": 11.025641025641026,
+            "habit_share": 0.028078882068695313,
+            "wakes_per_day": 1.4615384615384615,
+            "habit_refused": 0.09069767441860466,
+            "habit_answered": 0.8674418604651163,
+            "body_read_autopilot": 0.4840528350515464,
+            "body_read_aware": 0.45484006450308256,
+            "told_from_acts": -3.953943116072021e-15,
+            "told_from_kind": -3.953943116072021e-15,
+            "told_inside_words": 0.10125681764287782,
+            "told_inside_kind_words": 0.20707008714864558,
+            "told_inside_body": 0.07345971563980715,
+            "told_inside_kind_body": 0.1093014378419605,
+            "intention_read_after_own": 0.013975676946852113,
+            "intention_read_after_habit": 0.05581395348837209,
+            "told_inside_intention": 7.907369849341807e-15,
+            "told_inside_kind_intention": 0.04651162790698539,
+            "told_inside_intention_word": 0.05504480391016558,
+            "autopilot_share_of_time": 0.03118548026543827
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.30388647199524826,
+            "intention_share_of_unread": 0.6647311694938842,
+            "intentions_per_day": 410.4166666666667,
+            "intention_read_when_done": 0.007015534397594674,
+            "intentions_done": 4749,
+            "intention_read_when_refused": 0.009845288326300985,
+            "intentions_refused": 176,
+            "habit_acts_per_day": 12.833333333333334,
+            "habit_share": 0.030320929316794646,
+            "wakes_per_day": 1.5,
+            "habit_refused": 0.05194805194805195,
+            "habit_answered": 0.8831168831168831,
+            "body_read_autopilot": 0.371788883699206,
+            "body_read_aware": 0.30146961032052133,
+            "told_from_acts": -3.661573209137137e-15,
+            "told_from_kind": -3.661573209137137e-15,
+            "told_inside_words": 0.06067877956805706,
+            "told_inside_kind_words": 0.11859548548907138,
+            "told_inside_body": 0.07529722589167938,
+            "told_inside_kind_body": 0.13679081099896082,
+            "intention_read_after_own": 0.01197969543147208,
+            "intention_read_after_habit": 0.045454545454545456,
+            "told_inside_intention": -3.661573209137137e-15,
+            "told_inside_kind_intention": 0.0383365821962222,
+            "told_inside_intention_word": 0.031524211894696584,
+            "autopilot_share_of_time": 0.03436983288652015
+          },
+          "late": {
+            "body_read": 0.5141001564945227,
+            "intention_share_of_unread": 0.7456459408536086,
+            "intentions_per_day": 362.15384615384613,
+            "intention_read_when_done": 0.003870324954015941,
+            "intentions_done": 4392,
+            "intention_read_when_refused": 0.00565698122910774,
+            "intentions_refused": 316,
+            "habit_acts_per_day": 11.615384615384615,
+            "habit_share": 0.03107635315908623,
+            "wakes_per_day": 1.6153846153846154,
+            "habit_refused": 0.046357615894039736,
+            "habit_answered": 0.8609271523178808,
+            "body_read_autopilot": 0.5176470588235295,
+            "body_read_aware": 0.5139680220761302,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "told_inside_words": 0.2041522491349501,
+            "told_inside_kind_words": 0.2274052478134113,
+            "told_inside_body": 0.19486996793730238,
+            "told_inside_kind_body": 0.25142392188771634,
+            "intention_read_after_own": 0.0021244954323348204,
+            "intention_read_after_habit": 0.07947019867549669,
+            "told_inside_intention": 0.0132450331125785,
+            "told_inside_kind_intention": 0.05266644584298324,
+            "told_inside_intention_word": 0.07886017229952925,
+            "autopilot_share_of_time": 0.03591549295774648
+          },
+          "life": {
+            "body_read": 0.41781092784021223,
+            "intention_share_of_unread": 0.7043087163345783,
+            "intentions_per_day": 386.61538461538464,
+            "intention_read_when_done": 0.005286879677707089,
+            "intentions_done": 14257,
+            "intention_read_when_refused": 0.0074298562909375305,
+            "intentions_refused": 821,
+            "habit_acts_per_day": 11.41025641025641,
+            "habit_share": 0.02866713908393996,
+            "wakes_per_day": 1.5897435897435896,
+            "habit_refused": 0.0651685393258427,
+            "habit_answered": 0.8606741573033708,
+            "body_read_autopilot": 0.4373569357546162,
+            "body_read_aware": 0.41714800322961304,
+            "told_from_acts": -3.872807193540763e-15,
+            "told_from_kind": -3.872807193540763e-15,
+            "told_inside_words": 0.06325893373425033,
+            "told_inside_kind_words": 0.113513513513517,
+            "told_inside_body": 0.09713357316932651,
+            "told_inside_kind_body": 0.15398886827458233,
+            "intention_read_after_own": 0.006698945413543808,
+            "intention_read_after_habit": 0.07191011235955057,
+            "told_inside_intention": -1.1617673115661943e-14,
+            "told_inside_kind_intention": 0.05842696629212544,
+            "told_inside_intention_word": 0.06699640287768671,
+            "autopilot_share_of_time": 0.03280354416439316
+          }
+        },
+        {
+          "early": {
+            "body_read": 0.2605717835134119,
+            "intention_share_of_unread": 0.6583383685800605,
+            "intentions_per_day": 429.5833333333333,
+            "intention_read_when_done": 0.005076784101174345,
+            "intentions_done": 4784,
+            "intention_read_when_refused": 0.0039966344131257886,
+            "intentions_refused": 371,
+            "habit_acts_per_day": 7.916666666666667,
+            "habit_share": 0.018095238095238095,
+            "wakes_per_day": 1.4166666666666667,
+            "habit_refused": 0.10526315789473684,
+            "habit_answered": 0.8210526315789474,
+            "body_read_autopilot": 0.2727272727272727,
+            "body_read_aware": 0.26031968498681884,
+            "told_from_acts": 0.0,
+            "told_from_kind": 0.0,
+            "told_inside_words": 0.19470490899062495,
+            "told_inside_kind_words": 0.33025404157043303,
+            "told_inside_body": 0.0783898305084772,
+            "told_inside_kind_body": 0.10382513661201065,
+            "intention_read_after_own": 0.004073714839961203,
+            "intention_read_after_habit": 0.031578947368421054,
+            "told_inside_intention": 0.0,
+            "told_inside_kind_intention": 0.010526315789473425,
+            "told_inside_intention_word": 0.031068983675618875,
+            "autopilot_share_of_time": 0.020318093401114797
+          },
+          "late": {
+            "body_read": 0.45763469362594006,
+            "intention_share_of_unread": 0.7269044829164953,
+            "intentions_per_day": 379.9230769230769,
+            "intention_read_when_done": 0.00391675541035684,
+            "intentions_done": 4659,
+            "intention_read_when_refused": 0.004086398131932283,
+            "intentions_refused": 280,
+            "habit_acts_per_day": 16.076923076923077,
+            "habit_share": 0.0405982905982906,
+            "wakes_per_day": 1.6153846153846154,
+            "habit_refused": 0.06220095693779904,
+            "habit_answered": 0.8995215311004785,
+            "body_read_autopilot": 0.4460872701045799,
+            "body_read_aware": 0.4581502052644289,
+            "told_from_acts": -2.7346546080240797e-15,
+            "told_from_kind": -2.7346546080240797e-15,
+            "told_inside_words": 0.2115238817285805,
+            "told_inside_kind_words": 0.3008873353051902,
+            "told_inside_body": 0.07556859867938055,
+            "told_inside_kind_body": 0.2039542143600428,
+            "intention_read_after_own": 0.0032401782098015392,
+            "intention_read_after_habit": 0.0,
+            "told_inside_intention": 0.0,
+            "told_inside_kind_intention": 0.0,
+            "told_inside_intention_word": 0.0,
+            "autopilot_share_of_time": 0.04273517445444458
+          },
+          "life": {
+            "body_read": 0.3911291747658597,
+            "intention_share_of_unread": 0.700654808298541,
+            "intentions_per_day": 398.38461538461536,
+            "intention_read_when_done": 0.0045974053320543265,
+            "intentions_done": 14485,
+            "intention_read_when_refused": 0.0029402895054282266,
+            "intentions_refused": 1052,
+            "habit_acts_per_day": 12.051282051282051,
+            "habit_share": 0.0293621540575998,
+            "wakes_per_day": 1.564102564102564,
+            "habit_refused": 0.08936170212765958,
+            "habit_answered": 0.8702127659574468,
+            "body_read_autopilot": 0.42608559335319013,
+            "body_read_aware": 0.3899658817023674,
+            "told_from_acts": 7.56227232135096e-15,
+            "told_from_kind": 7.56227232135096e-15,
+            "told_inside_words": 0.10197869101978427,
+            "told_inside_kind_words": 0.24167416741673795,
+            "told_inside_body": 0.06401291016676268,
+            "told_inside_kind_body": 0.18071213305057035,
+            "intention_read_after_own": 0.0027033985581874356,
+            "intention_read_after_habit": 0.023404255319148935,
+            "told_inside_intention": 3.780899943010679e-15,
+            "told_inside_kind_intention": 0.006382978723408688,
+            "told_inside_intention_word": 0.020755721128261833,
+            "autopilot_share_of_time": 0.0322065988438139
+          }
+        }
+      ]
+    }
   }
 }
