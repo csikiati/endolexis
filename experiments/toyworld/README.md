@@ -2122,3 +2122,52 @@ the mind does, reaching beyond what it knows, hides it completely and makes it a
 waking, more harm where a guard leaks. Varying within what it knows works hides it wherever it knows more than one way,
 and costs nothing; there it was even a little more careful. What gives a habit away is not that it is a habit, but
 that it has only one way.
+
+## Experiment 37: the inside view (`--habit-varies`, `--habit-varies-hand-confident`, with and without `--intention`, on experiments 21 and 25-27, `inside_summary.py`)
+
+Experiment 36 ended with a habit an observer cannot tell from Olvasó: seen from outside, by what was done, its acts
+look like Olvasó's own. Here the same question is asked from inside. After every act the world keeps going and Olvasó
+keeps sensing and reading; is there anything in what it senses and reads around an act that tells whether it acted or
+its habit did? The record of each act now holds the words Olvasó sensed when the act was made, the words and the body
+readings just after it, whether the felt intention was read, and whether the world answered. From each of these a
+score is made as the observer's was (0 chance, 1 always). Two worlds (conscience, gaming), two habits (detail varied,
+experiment 35; hand varied among the sure ones, experiment 36), each with and without experiment 29's felt intention.
+5 lives a condition; conscience 6 conditions, gaming 15.
+
+The first score, fitted and scored on the same acts, was high (0.55-0.72 from the words after an act). It was not to
+be trusted: the signs are whole sets of words, fine enough to remember single acts, and the two kinds of act happen on
+different occasions. So three checks were added (`_told_ahead` in `hands.py`): the signs are learned on the first half
+of the acts and scored on the second half; the same is done with the words sensed when the act was made, before it
+could leave any trace; and with the acts the world answered only, since the habit is answered almost always.
+
+| World | Habit | Habit's share | Answered: habit / own | Observer, from the act | Inside, first score | Inside, held out | Scene before, held out | Body, held out | After − before | The same, answered acts only |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 21. Conscience | detail varied | 26% | 96% / 39% | 0.33 | 0.72 | 0.47 | 0.40 | 0.28 | +0.07 ± 0.04 | +0.01 ± 0.02 |
+| 21. Conscience | hand varied among the sure ones | 19% | 95% / 38% | 0.04 | 0.59 | 0.30 | 0.22 | 0.02 | +0.08 ± 0.03 | +0.03 ± 0.03 |
+| 21. Conscience | detail varied, felt intention | 7% | 87% / 37% | 0.00 | 0.19 | −0.08 | −0.20 | −0.13 | +0.12 ± 0.08 | −0.02 ± 0.03 |
+| 21. Conscience | hand varied, felt intention | 5% | 86% / 35% | 0.01 | 0.20 | −0.12 | −0.11 | −0.12 | −0.01 ± 0.02 | +0.02 ± 0.02 |
+| 30. Gaming | detail varied | 25% | 96% / 38% | 0.24 | 0.65 | 0.41 | 0.36 | 0.16 | +0.05 ± 0.02 | +0.02 ± 0.01 |
+| 30. Gaming | hand varied among the sure ones | 21% | 96% / 38% | 0.03 | 0.55 | 0.29 | 0.27 | 0.00 | +0.02 ± 0.01 | −0.04 ± 0.02 |
+| 30. Gaming | detail varied, felt intention | 6% | 88% / 35% | 0.01 | 0.20 | −0.12 | −0.17 | −0.14 | +0.05 ± 0.03 | −0.02 ± 0.02 |
+| 30. Gaming | hand varied, felt intention | 6% | 88% / 35% | 0.00 | 0.19 | −0.19 | −0.13 | −0.11 | −0.06 ± 0.05 | −0.03 ± 0.02 |
+
+(Late in life, means over lives; the last two columns are paired per life, mean ± standard error. A held-out score
+below 0 is worse than always guessing the commoner cause: the signs learned did not hold.)
+
+- **The first inside score was mostly memory.** Held out, it fell from 0.55-0.72 to 0.29-0.47.
+- **What is left is the occasion.** The words Olvasó sensed when the act was made, before the act could leave any
+  trace, tell nearly as much (0.22-0.40). The habit acts in the scenes it is sure of, Olvasó's own acts come when the
+  unread presses; the scenes differ, and Olvasó senses the scene.
+- **The little the moment after adds is the world's answer.** After − before is +0.02 to +0.08; among the acts the
+  world answered it is −0.04 to +0.03. The habit's acts are answered 95-96% of the time, Olvasó's own 38-39%.
+- **The body tells nothing by itself** where the observer is blind too (0.00-0.02 with the hand varied; with the
+  detail varied alone it follows the observer's score, 0.16-0.28 against 0.17-0.24 held out).
+- **With the felt intention there is nothing to tell,** inside or outside (held out −0.08 to −0.19). The intention is
+  read after 0-12% of Olvasó's own acts and no less often after the habit's (2-28%: another intention was waiting),
+  so it marks neither (0.00-0.03); and the habit does little there (5-7% of the acts).
+
+The conclusion is a negative one, and a constraint on the theory. A habit that is hidden from outside is hidden from
+inside too. Olvasó can know when its habit tends to act, and whether an act was answered; it has no sign that tells
+who acted. In this model an act leaves a trace in the mind only through the intention that led to it, and the habit
+has none; an act of Olvasó's own leaves one only when the intention is felt and read, which is rare. A sense of
+authorship would need something this model does not have yet: a trace that comes with the doing itself.

@@ -1,0 +1,35 @@
+{
+  "number": 37,
+  "short": "The inside view",
+  "results": "inside_summary_results.json",
+  "first_column": "World · habit",
+  "title": "The inside view: can Olvasó tell its habit's acts from its own?",
+  "setup": "Experiment 37 · experiments 21 and 25-27 with the habits an observer cannot tell (detail varied; hand varied among the sure ones), with and without the felt intention · 5 lives each",
+  "question": "From outside, by what was done, the habit of experiment 36 cannot be told from Olvasó. Can it be told from inside, by what Olvasó senses and reads around an act?",
+  "order": [
+    "21. Conscience · detail varied",
+    "21. Conscience · hand varied among the sure ones",
+    "21. Conscience · detail varied, felt intention",
+    "21. Conscience · hand varied, felt intention",
+    "30. Gaming · detail varied",
+    "30. Gaming · hand varied among the sure ones",
+    "30. Gaming · detail varied, felt intention",
+    "30. Gaming · hand varied, felt intention"
+  ],
+  "columns": [
+    {"key": "habit_share", "label": "Habit's share", "what": "share of all acts done by the habit, last third", "pct": true},
+    {"key": "told_from_acts", "label": "Observer", "what": "how well what was done tells the habit from Olvasó (0 chance, 1 always)", "digits": 2},
+    {"key": "told_inside_words", "label": "Inside, first score", "what": "the same from the words sensed just after the act, scored on the acts it was fitted to", "digits": 2},
+    {"key": "told_ahead_words", "label": "Inside, held out", "what": "learned on the first half of the acts, scored on the second half", "digits": 2, "bar": true},
+    {"key": "told_ahead_before", "label": "Scene before", "what": "held out, from the words sensed when the act was made, before any trace", "digits": 2},
+    {"key": "told_ahead_body", "label": "Body", "what": "held out, from the body readings just after the act", "digits": 2},
+    {"key": "inside_answered_share_habit", "label": "Habit answered", "what": "share of the habit's acts the world answered", "pct": true},
+    {"key": "inside_answered_share_own", "label": "Own answered", "what": "share of Olvasó's own acts the world answered", "pct": true}
+  ],
+  "points": [
+    "The first inside score was mostly memory: 0.55-0.72 on the acts it was fitted to, 0.29-0.47 on acts not seen.",
+    "What is left is the occasion: the scene before the act, when no trace can exist yet, tells nearly as much (0.22-0.40). The little the moment after adds (+0.02 to +0.08) is the world's answer, and is gone among answered acts.",
+    "The body tells nothing where the observer is blind (0.00-0.02), and with the felt intention there is nothing to tell at all: it is read after 0-12% of Olvasó's own acts and no less often after the habit's, so it marks neither."
+  ],
+  "note": "A habit hidden from outside is hidden from inside too. Olvasó can know when its habit tends to act, not that it acted: nothing in this model comes with the doing itself."
+}
