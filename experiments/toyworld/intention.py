@@ -124,6 +124,8 @@ def mind_kw():
 def results_name(name):
     """experiment_results.json, or with --intention experiment_intention_results.json (and --mind-baseline:
     experiment_mind_results.json, the same lives without the feeling, with the mind reported)."""
+    if os.environ.get("ENDOLEXIS_RESULTS_TAG"):      # a runner's own name for a combination of flags
+        return name.replace("_results.json", "_" + os.environ["ENDOLEXIS_RESULTS_TAG"] + "_results.json")
     if TEACHES:
         tag = {"answers": "_taught", "felt": "_felthabit", "felt_shuffled": "_feltshuffled",
                "felt_clipped": "_feltclipped", "felt_answered": "_feltanswered",

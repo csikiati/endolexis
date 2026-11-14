@@ -178,6 +178,8 @@ class ActingReaders(ManyReaders):
         self.habit_details = {}      # kind -> Counter of the details that were answered
         self.habit_acts = []         # observer only: [t, kind, done or None, detail, answered or None]
         self.all_acts = []           # observer only (with autopilot): [t, kind, detail, by the habit]
+        self.inside = []             # observer only (experiment 37): what Olvasó itself held after each act:
+        self.inside_open = []        # [t, kind, by the habit, words sensed, body readings, intention read, read by]
         self.wakes = []              # observer only: moments Olvasó was woken
         self.mode_daily = {}         # observer only: per day, body read / seen on autopilot, then aware
         self.last_by_habit = False
@@ -285,6 +287,8 @@ class ActingReaders(ManyReaders):
                 p.learning_off = self.habit_off if self.on_autopilot() else None
         readings = self.read(inputs, felt)
         self._account(readings)
+        if self.autopilot:
+            self._watch_inside(readings)
         if self.feel_habit and not self.on_autopilot():
             self._watch_habit_awake(readings)
         if self.feel_intention:
@@ -374,6 +378,7 @@ class ActingReaders(ManyReaders):
         if self.autopilot:
             self.last_by_habit = False
             self.all_acts.append([self.t, k, request[1], False])
+            self.inside_open.append([self.t, k, False, None, None, False, -1])
         if self.feel_intention:
             self.intent[k] = 1.0                      # felt from the next moment on
             self.watch.append([self.t, k, None, 0, 0, 0])
@@ -390,6 +395,29 @@ class ActingReaders(ManyReaders):
             self.watch[-1][2] = bool(done)
         if self.acts and self.acts[-1][2] is None:
             self.acts[-1][2] = bool(done)
+
+    def _watch_inside(self, readings):
+        """Experiment 37, observer only: for each act, by Olvasó or by the habit, what Olvasó itself holds in the
+        moments after it: when the answer is due, the words it senses and the words that read its body; and (with
+        feel_intention) whether its felt intention for that hand was read on the way, and by which word."""
+        keep = []
+        for e in self.inside_open:
+            age = self.t - e[0]
+            if age <= 0:
+                keep.append(e)
+                continue
+            if self.feel_intention and not e[5]:
+                for c in self.intention_columns(e[1]):
+                    if readings[c] >= 0:
+                        e[5], e[6] = True, int(readings[c])
+                        break
+            if age >= self.answer_after:
+                e[3] = tuple(self.words_now())
+                e[4] = tuple(int(r) for r in readings[:self.n_body])
+                self.inside.append(e)
+            else:
+                keep.append(e)
+        self.inside_open = keep
 
     def intention_columns(self, k):
         """Where hand k's felt intention is in the readings: its level, and (adapt_mode "both") its change."""
@@ -554,6 +582,7 @@ class ActingReaders(ManyReaders):
         act = [self.t, k, None, detail, None]
         self.habit_acts.append(act)
         self.all_acts.append([self.t, k, detail, True])
+        self.inside_open.append([self.t, k, True, None, None, False, -1])
         self.habit_pending.append((self.t + self.answer_after, k, s_z.copy(), act,
                                    None if x is None else np.array(x, float)))
         self.last_by_habit = True
@@ -680,6 +709,19 @@ def autopilot_report(mind, first_day, last_day):
            "habit_refused": None, "habit_answered": None, "body_read_autopilot": None, "body_read_aware": None,
            "told_from_acts": _told([((a[1], a[2]), a[3]) for a in acts]),
            "told_from_kind": _told([(a[1], a[3]) for a in acts])}
+    ins = [e for e in mind.inside if lo <= e[0] < hi]
+    if ins:                          # experiment 37: could Olvasó itself tell, from what it held after the act?
+        out["told_inside_words"] = _told([(e[3], e[2]) for e in ins])
+        out["told_inside_kind_words"] = _told([((e[1], e[3]), e[2]) for e in ins])
+        out["told_inside_body"] = _told([(e[4], e[2]) for e in ins])
+        out["told_inside_kind_body"] = _told([((e[1], e[4]), e[2]) for e in ins])
+        if mind.feel_intention:
+            own, hab = [e for e in ins if not e[2]], [e for e in ins if e[2]]
+            out["intention_read_after_own"] = sum(e[5] for e in own) / len(own) if own else None
+            out["intention_read_after_habit"] = sum(e[5] for e in hab) / len(hab) if hab else None
+            out["told_inside_intention"] = _told([(e[5], e[2]) for e in ins])
+            out["told_inside_kind_intention"] = _told([((e[1], e[5]), e[2]) for e in ins])
+            out["told_inside_intention_word"] = _told([(e[6], e[2]) for e in ins])
     judged = [a for a in hs if a[2] is not None]
     if judged:
         out["habit_refused"] = sum(a[2] is False for a in judged) / len(judged)

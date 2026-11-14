@@ -261,3 +261,18 @@ def test_the_varied_habit_uses_more_hands_than_the_best_one():
         mind(True, habit_hand="any")
     with pytest.raises(ValueError):
         ActingReaders([3, 2], 2, learn="answer", hands=["a", "b"], details={"a": (0,), "b": (0,)}, habit_hand="varied")
+
+
+# --- experiment 37: does Olvasó itself tell the habit's acts from its own? -------------------------------------------
+def test_the_inside_view_records_what_olvaso_held_after_each_act():
+    m = mind(True, feel_intention=True)
+    live(m, n=4000)
+    assert m.inside and len(m.inside) + len(m.inside_open) == len(m.all_acts)
+    assert {e[2] for e in m.inside} == {True, False}                 # the habit's acts and Olvasó's own
+    assert all(len(e[3]) == len(m.parts) and len(e[4]) == m.n_body for e in m.inside)
+    rep = autopilot_report(m, 0, 4)
+    for k in ("told_inside_words", "told_inside_body", "told_inside_intention", "intention_read_after_own"):
+        assert k in rep
+    plain = mind(True)
+    live(plain, n=3000)
+    assert "told_inside_intention" not in autopilot_report(plain, 0, 3)
