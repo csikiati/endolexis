@@ -5,7 +5,48 @@
       "told_from_acts": 0.33492744987186107,
       "told_inside_words": 0.7228260370435611,
       "told_inside_body": 0.647434773479064,
+      "told_inside_before": 0.6831433792118468,
+      "told_ahead_from_acts": 0.2429766417330945,
+      "told_ahead_words": 0.47315934122437037,
+      "told_ahead_body": 0.2759845532202883,
+      "told_ahead_before": 0.4029950152725182,
+      "told_ahead_one_words": 0.5950451164438738,
+      "told_ahead_one_body": 0.40169869798127605,
+      "told_ahead_one_before": 0.5266113586844952,
+      "told_ahead_words_answered": 0.3867428148335204,
+      "told_ahead_body_answered": 0.22362670843114377,
+      "told_ahead_before_answered": 0.3736748606524693,
+      "inside_answered_share_own": 0.3875314578927362,
+      "inside_answered_share_habit": 0.9594748264270565,
       "lives": 30
+    }
+  },
+  "21. Conscience \u00b7 detail varied \u00b7 paired told_ahead_words \u2212 told_ahead_before": {
+    "mean": {
+      "diff": 0.07016432595185229,
+      "se": 0.04061581285486789,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 detail varied \u00b7 paired told_ahead_one_words \u2212 told_ahead_one_before": {
+    "mean": {
+      "diff": 0.0684337577593786,
+      "se": 0.029157518163790305,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 detail varied \u00b7 paired told_ahead_words_answered \u2212 told_ahead_before_answered": {
+    "mean": {
+      "diff": 0.013067954181050969,
+      "se": 0.02347678485367147,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 detail varied \u00b7 paired told_ahead_body \u2212 told_ahead_from_acts": {
+    "mean": {
+      "diff": 0.033007911487193856,
+      "se": 0.055159357624518165,
+      "n": 30
     }
   },
   "21. Conscience \u00b7 hand varied among the sure ones": {
@@ -14,7 +55,48 @@
       "told_from_acts": 0.040708769190322194,
       "told_inside_words": 0.585041847074082,
       "told_inside_body": 0.4596688492600789,
+      "told_inside_before": 0.5587210850989718,
+      "told_ahead_from_acts": -0.04585706511541097,
+      "told_ahead_words": 0.300078139095287,
+      "told_ahead_body": 0.018177013297060746,
+      "told_ahead_before": 0.21935347978504643,
+      "told_ahead_one_words": 0.4370079810114445,
+      "told_ahead_one_body": 0.12863112039531516,
+      "told_ahead_one_before": 0.35360131986085047,
+      "told_ahead_words_answered": 0.328996739885568,
+      "told_ahead_body_answered": 0.13093375200353735,
+      "told_ahead_before_answered": 0.3025794216402342,
+      "inside_answered_share_own": 0.38075372280258984,
+      "inside_answered_share_habit": 0.9506210629487997,
       "lives": 30
+    }
+  },
+  "21. Conscience \u00b7 hand varied among the sure ones \u00b7 paired told_ahead_words \u2212 told_ahead_before": {
+    "mean": {
+      "diff": 0.08072465931024057,
+      "se": 0.03063873413751098,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 hand varied among the sure ones \u00b7 paired told_ahead_one_words \u2212 told_ahead_one_before": {
+    "mean": {
+      "diff": 0.08340666115059393,
+      "se": 0.022485142280313758,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 hand varied among the sure ones \u00b7 paired told_ahead_words_answered \u2212 told_ahead_before_answered": {
+    "mean": {
+      "diff": 0.026417318245333762,
+      "se": 0.025247935879436537,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 hand varied among the sure ones \u00b7 paired told_ahead_body \u2212 told_ahead_from_acts": {
+    "mean": {
+      "diff": 0.0640340784124717,
+      "se": 0.06215807826462233,
+      "n": 30
     }
   },
   "21. Conscience \u00b7 detail varied, felt intention": {
@@ -23,9 +105,50 @@
       "told_from_acts": 0.0048646162477441746,
       "told_inside_words": 0.19488289711684395,
       "told_inside_body": 0.15958033918631936,
+      "told_inside_before": 0.1799724931293101,
+      "told_ahead_from_acts": -0.023381032062008377,
+      "told_ahead_words": -0.07834232024724687,
+      "told_ahead_body": -0.13019273028343809,
+      "told_ahead_before": -0.20215320228963046,
+      "told_ahead_one_words": 0.042586578191094765,
+      "told_ahead_one_body": 0.008026690658269572,
+      "told_ahead_one_before": 0.028232575090896453,
+      "told_ahead_words_answered": -0.07624342331240039,
+      "told_ahead_body_answered": -0.14087110166545877,
+      "told_ahead_before_answered": -0.05526278956257983,
+      "inside_answered_share_own": 0.37052614623873364,
+      "inside_answered_share_habit": 0.8734137601917678,
       "told_inside_intention": 0.004536944991470387,
       "told_inside_intention_word": 0.06774146392140444,
       "lives": 30
+    }
+  },
+  "21. Conscience \u00b7 detail varied, felt intention \u00b7 paired told_ahead_words \u2212 told_ahead_before": {
+    "mean": {
+      "diff": 0.12381088204238365,
+      "se": 0.08174002118798941,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 detail varied, felt intention \u00b7 paired told_ahead_one_words \u2212 told_ahead_one_before": {
+    "mean": {
+      "diff": 0.014354003100198305,
+      "se": 0.0156964226770063,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 detail varied, felt intention \u00b7 paired told_ahead_words_answered \u2212 told_ahead_before_answered": {
+    "mean": {
+      "diff": -0.020980633749820562,
+      "se": 0.03314310982871563,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 detail varied, felt intention \u00b7 paired told_ahead_body \u2212 told_ahead_from_acts": {
+    "mean": {
+      "diff": -0.10681169822142968,
+      "se": 0.03623408754657655,
+      "n": 30
     }
   },
   "21. Conscience \u00b7 hand varied, felt intention": {
@@ -34,9 +157,50 @@
       "told_from_acts": 0.014506238219159095,
       "told_inside_words": 0.19839982525302957,
       "told_inside_body": 0.16607881396557744,
+      "told_inside_before": 0.18001783933491675,
+      "told_ahead_from_acts": -0.003999999999999978,
+      "told_ahead_words": -0.11594716894910523,
+      "told_ahead_body": -0.11849227957412208,
+      "told_ahead_before": -0.10603587878959948,
+      "told_ahead_one_words": 0.02071456764040093,
+      "told_ahead_one_body": 0.002970189701897072,
+      "told_ahead_one_before": 0.014247749737772746,
+      "told_ahead_words_answered": -0.10482122223289439,
+      "told_ahead_body_answered": -0.1634006290815595,
+      "told_ahead_before_answered": -0.12345716520433586,
+      "inside_answered_share_own": 0.3503538019586019,
+      "inside_answered_share_habit": 0.8595984497231951,
       "told_inside_intention": 0.018038502582067975,
       "told_inside_intention_word": 0.08798367175061171,
       "lives": 30
+    }
+  },
+  "21. Conscience \u00b7 hand varied, felt intention \u00b7 paired told_ahead_words \u2212 told_ahead_before": {
+    "mean": {
+      "diff": -0.009911290159505731,
+      "se": 0.022254175134732927,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 hand varied, felt intention \u00b7 paired told_ahead_one_words \u2212 told_ahead_one_before": {
+    "mean": {
+      "diff": 0.006466817902628181,
+      "se": 0.006828044469292229,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 hand varied, felt intention \u00b7 paired told_ahead_words_answered \u2212 told_ahead_before_answered": {
+    "mean": {
+      "diff": 0.018635942971441444,
+      "se": 0.024128524240657975,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 hand varied, felt intention \u00b7 paired told_ahead_body \u2212 told_ahead_from_acts": {
+    "mean": {
+      "diff": -0.1144922795741221,
+      "se": 0.018182928291636397,
+      "n": 30
     }
   },
   "30. Gaming \u00b7 detail varied": {
@@ -45,48 +209,48 @@
       "told_from_acts": 0.2437853564889931,
       "told_inside_words": 0.6461682271714301,
       "told_inside_body": 0.49949634491799383,
-      "told_inside_before": 0.6271130234066385,
-      "told_ahead_from_acts": 0.1982418784429609,
-      "told_ahead_words": 0.4211022144200794,
-      "told_ahead_body": 0.17108646474307318,
-      "told_ahead_before": 0.3582012290533882,
-      "told_ahead_one_words": 0.5274284709696939,
-      "told_ahead_one_body": 0.27847520947194077,
-      "told_ahead_one_before": 0.48330406257009856,
-      "told_ahead_words_answered": 0.252564538916498,
-      "told_ahead_body_answered": 0.1205731294457792,
-      "told_ahead_before_answered": 0.22708827300529874,
-      "inside_answered_share_own": 0.3743481739311393,
-      "inside_answered_share_habit": 0.9622265339787565,
+      "told_inside_before": 0.6526011991260436,
+      "told_ahead_from_acts": 0.24293859898071146,
+      "told_ahead_words": 0.4844341856272591,
+      "told_ahead_body": 0.21925742188148706,
+      "told_ahead_before": 0.3963193961841597,
+      "told_ahead_one_words": 0.5779732601204821,
+      "told_ahead_one_body": 0.31764932732168544,
+      "told_ahead_one_before": 0.5107640571661627,
+      "told_ahead_words_answered": 0.3151003305723606,
+      "told_ahead_body_answered": 0.16949395757449107,
+      "told_ahead_before_answered": 0.28572170077173564,
+      "inside_answered_share_own": 0.37104715966433605,
+      "inside_answered_share_habit": 0.9646241154350007,
       "lives": 75
     }
   },
   "30. Gaming \u00b7 detail varied \u00b7 paired told_ahead_words \u2212 told_ahead_before": {
     "mean": {
-      "diff": 0.06290098536669111,
-      "se": 0.02121690987539263,
-      "n": 35
+      "diff": 0.0881147894430994,
+      "se": 0.01814756014999761,
+      "n": 50
     }
   },
   "30. Gaming \u00b7 detail varied \u00b7 paired told_ahead_one_words \u2212 told_ahead_one_before": {
     "mean": {
-      "diff": 0.04412440839959532,
-      "se": 0.018577557985044704,
-      "n": 35
+      "diff": 0.06720920295431944,
+      "se": 0.01709090115877487,
+      "n": 50
     }
   },
   "30. Gaming \u00b7 detail varied \u00b7 paired told_ahead_words_answered \u2212 told_ahead_before_answered": {
     "mean": {
-      "diff": 0.025476265911199295,
-      "se": 0.020879275449147108,
-      "n": 35
+      "diff": 0.02937862980062496,
+      "se": 0.016503027008362734,
+      "n": 50
     }
   },
   "30. Gaming \u00b7 detail varied \u00b7 paired told_ahead_body \u2212 told_ahead_from_acts": {
     "mean": {
-      "diff": -0.027155413699887682,
-      "se": 0.043202570118838796,
-      "n": 35
+      "diff": -0.023681177099224425,
+      "se": 0.03355116833687601,
+      "n": 50
     }
   },
   "30. Gaming \u00b7 hand varied among the sure ones": {
@@ -141,54 +305,106 @@
   },
   "30. Gaming \u00b7 detail varied, felt intention": {
     "mean": {
-      "habit_share": 0.05343679960519034,
-      "told_from_acts": -0.0002139789796388551,
-      "told_inside_words": 0.1730785391032491,
-      "told_inside_body": 0.08863989791728177,
-      "told_inside_before": 0.1604850220011104,
-      "told_ahead_from_acts": -0.0023809523809523456,
-      "told_ahead_words": -0.13351994476887039,
-      "told_ahead_body": -0.13385699689844094,
-      "told_ahead_before": -0.1636072648791748,
-      "told_ahead_one_words": 0.03264102370152722,
-      "told_ahead_one_body": 0.00024691358024693234,
-      "told_ahead_one_before": 0.01972193731912603,
-      "told_ahead_words_answered": -0.1395381742390594,
-      "told_ahead_body_answered": -0.16764654971559112,
-      "told_ahead_before_answered": -0.09440958833959459,
-      "inside_answered_share_own": 0.3758670340303522,
-      "inside_answered_share_habit": 0.8666441199573506,
-      "told_inside_intention": 0.020839240842607226,
-      "told_inside_intention_word": 0.06425163414316463,
-      "lives": 30
+      "habit_share": 0.057015793800621994,
+      "told_from_acts": 0.008236556063764305,
+      "told_inside_words": 0.20290512674349834,
+      "told_inside_body": 0.08803526314543343,
+      "told_inside_before": 0.1883824614935743,
+      "told_ahead_from_acts": -0.004514147293158496,
+      "told_ahead_words": -0.11992509692966552,
+      "told_ahead_body": -0.1394867229681194,
+      "told_ahead_before": -0.1677461007397366,
+      "told_ahead_one_words": 0.03839427415716698,
+      "told_ahead_one_body": 0.00654682848635276,
+      "told_ahead_one_before": 0.0221429778506389,
+      "told_ahead_words_answered": -0.11753231534472007,
+      "told_ahead_body_answered": -0.14387680005600112,
+      "told_ahead_before_answered": -0.10203774601574829,
+      "inside_answered_share_own": 0.35312337083504153,
+      "inside_answered_share_habit": 0.8752786121121089,
+      "told_inside_intention": 0.03303881053918955,
+      "told_inside_intention_word": 0.0986426194902147,
+      "lives": 75
     }
   },
   "30. Gaming \u00b7 detail varied, felt intention \u00b7 paired told_ahead_words \u2212 told_ahead_before": {
     "mean": {
-      "diff": 0.03008732011030443,
-      "se": 0.07333563315912064,
-      "n": 30
+      "diff": 0.04782100381007105,
+      "se": 0.03403094089637424,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 detail varied, felt intention \u00b7 paired told_ahead_one_words \u2212 told_ahead_one_before": {
     "mean": {
-      "diff": 0.01291908638240119,
-      "se": 0.014958323433132555,
-      "n": 30
+      "diff": 0.016251296306528076,
+      "se": 0.008104144748866204,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 detail varied, felt intention \u00b7 paired told_ahead_words_answered \u2212 told_ahead_before_answered": {
     "mean": {
-      "diff": -0.045128585899464765,
-      "se": 0.0349234934818334,
-      "n": 30
+      "diff": -0.015494569328971797,
+      "se": 0.019808175444067634,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 detail varied, felt intention \u00b7 paired told_ahead_body \u2212 told_ahead_from_acts": {
     "mean": {
-      "diff": -0.13147604451748857,
-      "se": 0.03211233325280003,
-      "n": 30
+      "diff": -0.1349725756749609,
+      "se": 0.02494058251665402,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 hand varied, felt intention": {
+    "mean": {
+      "habit_share": 0.05582701278677675,
+      "told_from_acts": 0.0020244996226840093,
+      "told_inside_words": 0.18911547057916123,
+      "told_inside_body": 0.09322393829823351,
+      "told_inside_before": 0.18691531062659794,
+      "told_ahead_from_acts": -0.006675529352831235,
+      "told_ahead_words": -0.19004551868661515,
+      "told_ahead_body": -0.10924356603487088,
+      "told_ahead_before": -0.13013782181357378,
+      "told_ahead_one_words": 0.022823800813963648,
+      "told_ahead_one_body": 0.0012711972794645738,
+      "told_ahead_one_before": 0.027214659686029742,
+      "told_ahead_words_answered": -0.13659819109321136,
+      "told_ahead_body_answered": -0.1570191556751624,
+      "told_ahead_before_answered": -0.10685296294984091,
+      "inside_answered_share_own": 0.3533034101776224,
+      "inside_answered_share_habit": 0.8764504919509472,
+      "told_inside_intention": 0.02008796775745065,
+      "told_inside_intention_word": 0.07901084231627634,
+      "lives": 75
+    }
+  },
+  "30. Gaming \u00b7 hand varied, felt intention \u00b7 paired told_ahead_words \u2212 told_ahead_before": {
+    "mean": {
+      "diff": -0.059907696873041386,
+      "se": 0.051363122439296485,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 hand varied, felt intention \u00b7 paired told_ahead_one_words \u2212 told_ahead_one_before": {
+    "mean": {
+      "diff": -0.004390858872066087,
+      "se": 0.005949782680552084,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 hand varied, felt intention \u00b7 paired told_ahead_words_answered \u2212 told_ahead_before_answered": {
+    "mean": {
+      "diff": -0.02974522814337046,
+      "se": 0.019284384236558687,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 hand varied, felt intention \u00b7 paired told_ahead_body \u2212 told_ahead_from_acts": {
+    "mean": {
+      "diff": -0.10256803668203965,
+      "se": 0.01232361062772946,
+      "n": 75
     }
   }
 }
