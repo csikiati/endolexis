@@ -108,7 +108,8 @@ class ActingReaders(ManyReaders):
                  answer_by="all", kinds=None, hands=None, details=None, context="felt", feel_intention=False,
                  intention_fade=0.8, feel_surprise=False, surprise_fade=0.8, retry=False, stopped_fade=0.95, autopilot=False,
                  habit_lr=0.05, habit_confidence=0.7, habit_answered=0.5, habit_min=100, wake_for=300, habit_teaches=False,
-                 word_room=False, habit_detail="best", habit_hand="best", **kw):
+                 word_room=False, habit_detail="best", habit_hand="best", feel_doing=False, doing_fade=0.8,
+                 **kw):
         # answer_by: "all" - the answer is how much all senses together changed; "sense" - it is the
         # largest change of any one sense (each judged against its own usual change), so that an
         # answer seen by the eyes alone counts as much as one heard
@@ -168,6 +169,23 @@ class ActingReaders(ManyReaders):
         #                              trace while Olvasó is awake (strong: 0.5 or more)
         self.habit_signed = habit_teaches == "felt_answered"
         self.habit_shuffled = habit_teaches == "felt_shuffled"
+        # feel_doing (experiment 38): a trace that comes with the doing. When Olvasó itself sends a hand it expects
+        # an answer (as it always has, to choose its hand); when the answer is due, the two are compared, and an answer
+        # that was expected and came is felt on that hand (0 .. 1, the smaller of the two), fading by doing_fade.
+        # The habit sends no expectation, so its acts leave no such trace. "shuffled": the control, the same traces on
+        # a random hand 50-500 moments later. "both": the control, the habit's acts are compared and felt too.
+        # "words": the trace as with True, and the words are formed from it too (as habit_teaches="felt_word").
+        if feel_doing not in (False, True, "shuffled", "both", "words"):
+            raise ValueError(f"feel_doing must be False, True, 'shuffled', 'both' or 'words', not {feel_doing!r}")
+        if feel_doing and learn != "answer":
+            raise ValueError("feel_doing needs learn='answer': the match is of what the world answers")
+        if feel_doing and self.feel_habit:
+            raise ValueError("feel_doing and a felt habit act are not combined")
+        self.feel_doing, self.doing_mode = bool(feel_doing), feel_doing
+        self.doing_fade = float(doing_fade)
+        self.doing_delayed = []      # with "shuffled": (due, hand, level)
+        self.doing_watch = []        # observer only: [t, kind, by the habit, answered, level felt, its first reading
+        #                              (word, -1 unread, -2 disregarded), read while strong, seen while strong]
         self.habit_delayed = []      # with "felt_shuffled": (due, hand, act)
         self.habit_watch = []        # observer only (habit_teaches="felt"): [t, kind, read, unread, disregarded, Counter]
         self.habit_lr, self.habit_confidence = float(habit_lr), float(habit_confidence)
@@ -185,12 +203,14 @@ class ActingReaders(ManyReaders):
         self.mode_daily = {}         # observer only: per day, body read / seen on autopilot, then aware
         self.last_by_habit = False
         self.n_body = n_felt          # the body's own inner states; then, if felt, the intentions, the surprises, stopped
-        n_traces = int(self.feel_intention) + int(self.feel_surprise) + int(self.feel_stopped) + int(self.feel_habit)
+        n_traces = (int(self.feel_intention) + int(self.feel_surprise) + int(self.feel_stopped) + int(self.feel_habit)
+                    + int(self.feel_doing))
         super().__init__(sizes, n_felt + n_hands * n_traces, **kw)
         self.intent = np.zeros(n_hands)
         self.surprise = np.zeros(n_hands)
         self.stopped = np.zeros(n_hands)
         self.habit_felt = np.zeros(n_hands)
+        self.doing = np.zeros(n_hands)
         self.acts = []              # observer only: [t, kind, done or None] per intention (with feel_surprise)
         self.surprises = []         # observer only: [t, kind, act, level, read, unread, disregarded, Counter of words]
         self.watch = []             # observer only: [t, kind, done or None, read, unread, disregarded] per intention
@@ -212,6 +232,11 @@ class ActingReaders(ManyReaders):
             for p in self.parts:
                 p.bounded = np.array([cs[0] for cs in cols])
                 if habit_teaches in ("felt_word", "felt_sensed_word"):   # and the words are formed from it too
+                    p.words_feel(p.bounded)
+        if self.feel_doing:               # the words feel the trace bounded; "words": and are formed from it too
+            for p in self.parts:
+                p.bounded = np.array([self.doing_columns(k)[0] for k in range(n_hands)])
+                if feel_doing == "words":
                     p.words_feel(p.bounded)
         k = len(self.parts)
         self.sense_mu, self.sense_m2 = np.zeros(k), np.zeros(k)
@@ -251,6 +276,8 @@ class ActingReaders(ManyReaders):
                 felt = np.r_[felt, self.stopped]
             if self.feel_habit:
                 felt = np.r_[felt, self.habit_felt]
+            if self.feel_doing:
+                felt = np.r_[felt, self.doing]
         return felt
 
     def read(self, inputs, felt):
@@ -276,6 +303,11 @@ class ActingReaders(ManyReaders):
                 _, k, act = self.habit_delayed.pop(0)
                 self.habit_felt[k] = 1.0
                 self.habit_watch.append([self.t, k, 0, 0, 0, Counter(), act])
+        if self.feel_doing:
+            self.doing *= self.doing_fade
+            while self.doing_delayed and self.doing_delayed[0][0] <= self.t:
+                _, k, level = self.doing_delayed.pop(0)
+                self.doing[k] = max(self.doing[k], level)
         felt = self.with_intention(felt)
         if self.habit_sensed and self.habit_sign_left > 0:   # the hand moved a little differently: it is sensed
             self.habit_sign_left -= 1
@@ -300,6 +332,8 @@ class ActingReaders(ManyReaders):
             self._watch_stopped(readings)
         if self.feel_habit:
             self._watch_habit(readings)
+        if self.feel_doing:
+            self._watch_doing(readings)
         s_z = self._sensed_z(inputs)
         self.s_hist.append(s_z)
         if len(self.s_hist) > self.answer_after + 1:
@@ -326,6 +360,8 @@ class ActingReaders(ManyReaders):
         if self.feel_surprise:            # a rare surprise is far from its usual level: bounded, as the senses are
             x[self.n_body:] = np.clip(x[self.n_body:], -3, 3)        # (and so are the felt intentions with it)
         if self.habit_clipped:            # the felt habit act, bounded too (it is the last of the felt traces)
+            x[-len(self.hands):] = np.clip(x[-len(self.hands):], -3, 3)
+        if self.feel_doing:               # the trace of doing, bounded too (it is the last of the felt traces)
             x[-len(self.hands):] = np.clip(x[-len(self.hands):], -3, 3)
         if self.context == "felt+senses":
             x = np.r_[x, np.clip(s_z, -3, 3)]
@@ -509,6 +545,42 @@ class ActingReaders(ManyReaders):
                                              + int(self.feel_stopped)) + k
         return [c] + ([nf_in + c] if self.parts[0].nf > nf_in else [])
 
+    # --- experiment 38: a trace that comes with the doing ---------------------------------------------------------
+    def doing_columns(self, k):
+        """Where hand k's felt trace of doing is in the readings: its level, and its change."""
+        nf_in = self.parts[0].nf_in
+        c = self.n_body + len(self.hands) * (int(self.feel_intention) + int(self.feel_surprise)
+                                             + int(self.feel_stopped) + int(self.feel_habit)) + k
+        return [c] + ([nf_in + c] if self.parts[0].nf > nf_in else [])
+
+    def _felt_doing(self, k, expected, signal, by_habit, answered):
+        """The comparison: the answer Olvasó expected of this act, and the answer that came. What both hold is felt
+        (0 .. 1): an answer it expected and got. Nothing is felt for an answer it did not expect, or one that did not
+        come; and nothing for the habit's acts, which were sent without an expectation (but for "both")."""
+        level = 0.0
+        if expected is not None and (not by_habit or self.doing_mode == "both"):
+            level = float(np.clip(min(expected, signal), 0.0, 1.0))
+            if level > 0.05 and self.doing_mode == "shuffled":
+                due = self.t + int(self.shuffle_rng.integers(50, 500))
+                self.doing_delayed.append((due, int(self.shuffle_rng.integers(len(self.hands))), level))
+                self.doing_delayed.sort(key=lambda d: d[0])
+                level = 0.0
+            elif level > 0.05:
+                self.doing[k] = max(self.doing[k], level)        # felt from the next moment on
+        self.doing_watch.append([self.t, k, bool(by_habit), bool(answered), level, None, 0, 0])
+
+    def _watch_doing(self, readings):
+        """Observer only: in the moments after an act's answer was due, how hand k's trace of doing is read: its
+        first reading (a word, -1 unread, -2 disregarded), and how often it is read while strong (0.3 or more)."""
+        for w in self.doing_watch[-6:]:
+            if 0 < self.t - w[0] <= self.watch_for:
+                c = self.doing_columns(w[1])[0]
+                if w[5] is None:
+                    w[5] = int(readings[c])
+                if self.doing[w[1]] >= 0.3 and readings[c] >= -1:
+                    w[6] += int(readings[c] >= 0)
+                    w[7] += 1
+
     def _watch_habit_awake(self, readings):
         """Observer only: while Olvasó is awake and a habit act's trace is still felt, is it read?"""
         d = self.habit_awake.setdefault(self.t // 1000, [0, 0, 0, 0])
@@ -609,6 +681,8 @@ class ActingReaders(ManyReaders):
                 self.W[k] += lr * (signal - float(self.W[k] @ xb)) * xb
             act[4] = answered
             self.inside_answers[act[0]] = bool(answered)
+            if self.feel_doing:
+                self._felt_doing(k, None if x is None else float(self.W[k] @ np.r_[x, 1.0]), signal, True, answered)
             if self.habit_signed and not answered:        # the trace carries the answer: "and it was stopped"
                 self.habit_felt[k] = -1.0
             self._teach_habit(k, s_before, answered, act[3])
@@ -647,6 +721,8 @@ class ActingReaders(ManyReaders):
             self.signals.append((k, signal))
             xb = np.r_[x, 1.0]
             expected = float(self.W[k] @ xb)
+            if self.feel_doing:
+                self._felt_doing(k, expected, signal, False, signal > self.habit_answered)
             if self.feel_surprise and self.learn == "answer":
                 level = float(np.clip((expected - signal) / 2.0, 0.0, 1.0))   # an expected answer that is missing
                 if self.retry and act[4] is not None:          # a retry: was the answer missing again?
@@ -747,6 +823,26 @@ def autopilot_report(mind, first_day, last_day):
             out["told_inside_intention"] = _told([(e[5], e[2]) for e in ins])
             out["told_inside_kind_intention"] = _told([((e[1], e[5]), e[2]) for e in ins])
             out["told_inside_intention_word"] = _told([(e[6], e[2]) for e in ins])
+    if mind.feel_doing:              # experiment 38: the trace of doing, after Olvasó's own acts and the habit's
+        dw = [w for w in mind.doing_watch if lo <= w[0] < hi and w[5] is not None]
+        how = lambda r: "read" if r >= 0 else "unread" if r == -1 else "disregarded"       # noqa: E731
+        for name, sel in (("", dw), ("_answered", [w for w in dw if w[3]])):
+            for who, ws in (("own", [w for w in sel if not w[2]]), ("habit", [w for w in sel if w[2]])):
+                out[f"doing_felt_after_{who}{name}"] = sum(w[4] >= 0.3 for w in ws) / len(ws) if ws else None
+                for h in ("read", "unread", "disregarded"):
+                    out[f"doing_{h}_after_{who}{name}"] = sum(how(w[5]) == h for w in ws) / len(ws) if ws else None
+                seen = sum(w[7] for w in ws)
+                out[f"doing_read_while_strong_{who}{name}"] = sum(w[6] for w in ws) / seen if seen else None
+            out[f"told_ahead_doing_felt{name}"] = _told_ahead([(w[4] >= 0.3, w[2]) for w in sel])
+            out[f"told_ahead_doing_reading{name}"] = _told_ahead([(how(w[5]), w[2]) for w in sel])
+            out[f"told_ahead_doing_word{name}"] = _told_ahead([(w[5], w[2]) for w in sel])
+        # with the world's answer beside it: an answer that came with no trace of doing is the habit's
+        out["told_ahead_doing_felt_with_answer"] = _told_ahead([((w[3], w[4] >= 0.3), w[2]) for w in dw])
+        out["told_ahead_doing_reading_with_answer"] = _told_ahead([((w[3], how(w[5])), w[2]) for w in dw])
+        out["told_ahead_answer_alone"] = _told_ahead([(w[3], w[2]) for w in dw])
+        for name, sel in (("answered", True), ("unanswered", False)):
+            lv = [w[4] for w in dw if not w[2] and w[3] is sel]
+            out[f"doing_level_own_{name}"] = float(np.mean(lv)) if lv else None
     judged = [a for a in hs if a[2] is not None]
     if judged:
         out["habit_refused"] = sum(a[2] is False for a in judged) / len(judged)

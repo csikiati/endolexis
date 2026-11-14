@@ -108,6 +108,13 @@ AUTOPILOT = bool(TEACHES) or bool(VARIES) or SLEEPWALK or "--autopilot" in sys.a
 if AUTOPILOT:
     os.environ["ENDOLEXIS_AUTOPILOT"] = "sleepwalk" if SLEEPWALK else "1"
     sys.argv = [a for a in sys.argv if a not in ("--autopilot", "--autopilot-sleepwalk")]
+DOING = next((v for f, v in (("--doing-shuffled", "shuffled"), ("--doing-both", "both"), ("--doing-words", "words"),
+                             ("--doing", True)) if f in sys.argv), None)      # experiment 38: a trace of the doing
+if DOING is None and os.environ.get("ENDOLEXIS_FEEL_DOING"):
+    DOING = {"1": True}.get(os.environ["ENDOLEXIS_FEEL_DOING"], os.environ["ENDOLEXIS_FEEL_DOING"])
+if DOING:
+    os.environ["ENDOLEXIS_FEEL_DOING"] = "1" if DOING is True else DOING
+    sys.argv = [a for a in sys.argv if a not in ("--doing", "--doing-shuffled", "--doing-both", "--doing-words")]
 BASELINE = "--mind-baseline" in sys.argv                # a run without the feeling, kept for the comparison
 if BASELINE:
     sys.argv = [a for a in sys.argv if a != "--mind-baseline"]
@@ -118,7 +125,8 @@ def mind_kw():
             **({"retry": "untraced" if UNTRACED else True} if RETRY else {}),
             **({"autopilot": "sleepwalk" if SLEEPWALK else True} if AUTOPILOT else {}),
             **({"habit_teaches": TEACHES} if TEACHES else {}), **({"word_room": True} if ROOM else {}),
-            **({"habit_detail": VARIES} if VARIES else {}), **({"habit_hand": HAND} if HAND else {})}
+            **({"habit_detail": VARIES} if VARIES else {}), **({"habit_hand": HAND} if HAND else {}),
+            **({"feel_doing": DOING, **({"word_room": True} if DOING == "words" else {})} if DOING else {})}
 
 
 def results_name(name):
