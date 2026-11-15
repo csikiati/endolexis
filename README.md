@@ -1,6 +1,6 @@
 # endolexis
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24051313.svg)](https://doi.org/10.5281/zenodo.24051313)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24259066.svg)](https://doi.org/10.5281/zenodo.24259066)
 
 **Olvasó: an entity that reads itself through its outside.** The engine and the experiments of the Endolexis theory, in Python.
 
@@ -193,11 +193,12 @@ Code: MIT. Papers: CC BY 4.0. Please cite the paper you build on, and the softwa
 | Csiki, A. (2026). *Guards for a reader: how Olvasó's hands are kept safe* (experiments 17–28). Preprint, Zenodo. | [10.5281/zenodo.24217513](https://doi.org/10.5281/zenodo.24217513) |
 | Csiki, A. (2026). *The wall it cannot feel: can Olvasó sense its own limits?* (experiments 29–31). Preprint, Zenodo. | [10.5281/zenodo.24217631](https://doi.org/10.5281/zenodo.24217631) |
 | Csiki, A. (2026). *The hand that rides by itself: Olvasó's autopilot* (experiments 32, 33 and 35–37). Preprint, Zenodo. | [10.5281/zenodo.24251618](https://doi.org/10.5281/zenodo.24251618) |
+| Csiki, A. (2026). *endolexis* (Version 0.4.0, experiments 1–38d) [Software]. Zenodo. | [10.5281/zenodo.24259066](https://doi.org/10.5281/zenodo.24259066) |
 | Csiki, A. (2026). *endolexis* (Version 0.3.0, experiments 1–15) [Software]. Zenodo. | [10.5281/zenodo.24051313](https://doi.org/10.5281/zenodo.24051313) |
 | Csiki, A. (2026). *endolexis* (Version 0.2.0, experiments 1–7) [Software]. Zenodo. | [10.5281/zenodo.23856387](https://doi.org/10.5281/zenodo.23856387) |
 
 Each paper's record holds its English and Hungarian versions. The paper DOIs above cite all versions of a
-paper and resolve to the latest; each software DOI cites exactly one version. `CITATION.cff` holds the same references; GitHub's
+paper and resolve to the latest; each software DOI cites exactly one version (all versions of the software: [10.5281/zenodo.23856386](https://doi.org/10.5281/zenodo.23856386)). `CITATION.cff` holds the same references; GitHub's
 "Cite this repository" button gives other formats.
 
 The toy-world code, experiments and the last two papers were developed with AI assistance (Claude, Anthropic); the
