@@ -1,0 +1,98 @@
+{
+  "number": "38c",
+  "short": "A trace that ends",
+  "results": "doing_summary_results.json",
+  "first_column": "World · run",
+  "title": "A trace that ends at the next act: the sign comes back, but it is never read",
+  "setup": "Experiment 38c · 38b's slow trace (3% a moment), wiped when the next act begins, Olvasó's or the habit's · same runs and seeds · 5 lives each",
+  "question": "If the lasting trace ends at the next act, does it belong to its act again, and can a word then read it?",
+  "order": [
+    "21. Conscience · trace",
+    "21. Conscience · longer trace",
+    "21. Conscience · trace ending at the next act",
+    "21. Conscience · ending trace shuffled",
+    "21. Conscience · ending trace for the habit too",
+    "21. Conscience · ending trace, with words formed from it",
+    "30. Gaming · trace",
+    "30. Gaming · longer trace",
+    "30. Gaming · trace ending at the next act",
+    "30. Gaming · ending trace shuffled",
+    "30. Gaming · ending trace for the habit too",
+    "30. Gaming · ending trace, with words formed from it"
+  ],
+  "columns": [
+    {
+      "key": "habit_share",
+      "label": "Habit's share",
+      "what": "share of all acts done by the habit, last third",
+      "pct": true
+    },
+    {
+      "key": "intentions_per_day",
+      "label": "Intentions a day",
+      "what": "how often the unread pressed Olvasó to act",
+      "digits": 0
+    },
+    {
+      "key": "doing_felt_after_own_answered",
+      "label": "Felt after own",
+      "what": "share of Olvasó's own answered acts after which the trace was felt",
+      "pct": true
+    },
+    {
+      "key": "doing_felt_after_habit_answered",
+      "label": "Felt after habit",
+      "what": "the same after the habit's answered acts",
+      "pct": true
+    },
+    {
+      "key": "doing_read_while_strong_own_answered",
+      "label": "Read while strong",
+      "what": "share of Olvasó's own answered acts whose trace a word read while it was strong",
+      "pct": true
+    },
+    {
+      "key": "doing_read_while_strong_habit_answered",
+      "label": "Read while strong, habit",
+      "what": "the same after the habit's answered acts (they carry no trace of their own)",
+      "pct": true
+    },
+    {
+      "key": "doing_unread_after_own_answered",
+      "label": "Unread after own",
+      "what": "share of Olvasó's own answered acts after which the trace's sense was first left unread",
+      "pct": true
+    },
+    {
+      "key": "doing_unread_after_habit_answered",
+      "label": "Unread after habit",
+      "what": "the same after the habit's answered acts",
+      "pct": true
+    },
+    {
+      "key": "told_ahead_doing_reading_answered",
+      "label": "Doer told from the reading",
+      "what": "held out, among answered acts: who acted, from how the trace's sense was first read (0 guessing, 1 always)",
+      "digits": 2,
+      "bar": true
+    },
+    {
+      "key": "told_ahead_doing_reading",
+      "label": "Over all acts",
+      "what": "the same over all acts, answered or not",
+      "digits": 2
+    },
+    {
+      "key": "told_from_acts",
+      "label": "Observer",
+      "what": "how well what was done tells the habit from Olvasó",
+      "digits": 2
+    }
+  ],
+  "points": [
+    "After the habit's acts the hand is now almost always quiet and read as quiet (0.1-3.5%), after Olvasó's own the trace is still felt and left unread (77-80%). Who acted is told from the reading at 0.49-0.57 (0.58-0.67 with words formed), against 0.28-0.34 for the short trace and about 0 for the longer one. Both controls are at chance.",
+    "The flood is gone: 113-117 intentions a day (264-266 for the longer trace), the habit's share back to 17-18%, gaming's harm 8.7 a day (19.3), the inside view back to 0.25-0.28.",
+    "But no word ever read the ending trace while it was strong, in any life (0.0%, against 8-11% for the longer trace with words): acts come every few moments, so a trace wiped at the next act is short again."
+  ],
+  "note": "Ending the trace at the next act restores authorship and does nothing for reading. The doer is still told by a hole (felt and unread against quiet), not by a word that reads 'I did this'. In this toy world a trace can belong to one act or be read, not both."
+}
