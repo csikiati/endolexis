@@ -19,7 +19,7 @@ The later experiments in this folder are reported in four more papers (each in E
 - *The hand that rides by itself: Olvasó's autopilot* (experiments 32, 33 and 35-37),
   [doi:10.5281/zenodo.24251618](https://doi.org/10.5281/zenodo.24251618)
 
-Experiments 16 onwards came after version 0.3.0 and are not yet archived as a software version.
+Experiments 16-38d came after version 0.3.0 and are part of version 0.4.0.
 
 Every script below runs from a clone without installing (`python experiments/toyworld/<script>.py`), or after
 `pip install -e .`. Each takes about one to five minutes on a laptop and writes its results as JSON beside itself;

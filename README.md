@@ -92,8 +92,9 @@ python -m endolexis.lab.awaken     # the report is written at waking
 A second, smaller reader, built in November 2026 to test single ideas in a world whose hidden truth is known: a
 simulated body with three outer and three inner channels, an Olvasó that starts from anonymous, shuffled numbers,
 and an observer that alone holds the key. Version 0.3.0 adds toy world v1, the symbiote: a room seen, heard and
-touched through processor entities, with hands, a guard and mirrors. Thirty-three experiments, with every script and the stored results of the
-reported runs, are in [`experiments/toyworld/`](experiments/toyworld/README.md):
+touched through processor entities, with hands, a guard and mirrors. Version 0.4.0 adds experiments 16-38d: many minds,
+guards learned in a sandbox, the conscience, the limits it cannot feel, the autopilot and authorship. Every script and
+the stored results of the reported runs are in [`experiments/toyworld/`](experiments/toyworld/README.md):
 
 | Experiments | Finding, in one line |
 |---|---|

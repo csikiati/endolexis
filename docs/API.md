@@ -1,6 +1,6 @@
 # endolexis — reference
 
-Everything in the `endolexis` package (version 0.3.0): what each module is for, every public
+Everything in the `endolexis` package (version 0.4.0): what each module is for, every public
 class and function with its parameters, and how to call them. The package has four parts:
 
 | Part | Module | What it is | Experiments |
@@ -14,8 +14,8 @@ class and function with its parameters, and how to call them. The package has fo
 Install from GitHub (or work from a clone; every script also runs without installing):
 
 ```bash
-pip install "git+https://github.com/csikiati/endolexis@v0.3.0"
-pip install "endolexis[lab] @ git+https://github.com/csikiati/endolexis@v0.3.0"   # adds matplotlib for the lab figures
+pip install "git+https://github.com/csikiati/endolexis@v0.4.0"
+pip install "endolexis[lab] @ git+https://github.com/csikiati/endolexis@v0.4.0"   # adds matplotlib for the lab figures
 ```
 
 Conventions used throughout:
@@ -442,6 +442,10 @@ learned expectation per kind over its inner states.
 | `word_room` | `False`; `True`: room for new words late in life. Once a day (every 1000 moments) Olvasó tidies its words as in sleep (`Olvaso.housekeeping`, retire only, no merges): a word heard fewer than 1000 times and not met for 2000 moments is retired, and its place is free for a new word (`words_retired` counts them; experiment 33) |
 | `habit_detail` | `"best"` (experiment 32): the habit always uses the detail of an act that was answered most; `"varied"`: a random detail, each as likely, as Olvasó chooses its own; `"answered"`: a detail drawn in proportion to how often each was answered. Needs `autopilot` (experiment 35) |
 | `habit_hand` | `"best"` (experiment 32): once confident with some hand, the habit acts with the hand it is surest of; `"varied"`: a hand drawn as Olvasó draws its own, from a softmax of the habit's expectations at Olvasó's temperature; `"confident"`: a hand drawn evenly among those it is confident with. Needs `autopilot` (experiment 36) |
+| `feel_doing` | `False`; `True` (needs `learn="answer"`, not combined with a felt habit act): a trace that comes with the doing. When Olvasó sends a hand it expects an answer from, and the answer comes, the smaller of the expected and the received answer (0 to 1) is felt on that hand, fading by `doing_fade`. The habit sends no expectation, so its acts leave no trace. `"shuffled"`: the control, the same traces on a random hand 50-500 moments later; `"both"`: the control, the habit's answered acts are felt too; `"words"`: as `True`, and the words are formed from the trace as well (with `word_room`); `"both_words"`: `"both"` with words formed from the trace, the control for `doing_choice` (experiments 38-38d) |
+| `doing_fade` | How much of the trace of doing is left a moment later (default 0.8; 0.97 is experiment 38b's longer trace) |
+| `doing_ends` | `True` (needs `feel_doing`): the trace ends when the next act begins, whoever makes it, and an answer that arrives after another act has begun leaves no trace (experiment 38c) |
+| `doing_choice` | `True` (needs `feel_doing`): how the trace is read now becomes part of what the hand is chosen from: for each hand, whether its trace is left unread, and which words are reading a trace (`n_in` grows by hands + words; experiment 38d) |
 | `habit_lr`, `habit_confidence`, `habit_answered`, `habit_min`, `wake_for` | The habit's learning rate (default 0.05, a step never overshoots), the confidence it acts above (0.7), the answer that counts as answered (0.5), the acts it must have seen first (100), and how long an unanswered habit act keeps Olvasó awake (300 moments) |
 
 `live(inputs, felt)` → `(request, readings)`; `request` is `(kind, detail)` or `None`; pass it as
@@ -467,7 +471,7 @@ ignored first act), `again_when_refused` / `again_when_world` (the share felt as
 Olvasó's own next act, unless woken), `body_read_autopilot` / `body_read_aware`, and `told_from_acts` (how well the
 kind and detail of an act tell the habit's from Olvasó's own, against the doers shuffled; 0 chance). With `habit_teaches="felt"` (or `"felt_shuffled"`, `"felt_clipped"`, `"felt_answered"`, `"felt_read"`, `"felt_held"`, `"felt_word"`, `"felt_sensed"`, `"felt_sensed_word"`) also `habit_felt_read`
 (the share of moments the felt habit act was read while it lingered), `habit_felt_read_when_answered` /
-`habit_felt_read_when_unanswered`, and `habit_felt_read_awake` / `habit_felt_read_awake_strong` (the share of the trace above 0.05, and of the trace at 0.5 or more, read while Olvasó is awake).
+`habit_felt_read_when_unanswered`, and `habit_felt_read_awake` / `habit_felt_read_awake_strong` (the share of the trace above 0.05, and of the trace at 0.5 or more, read while Olvasó is awake). With `feel_doing`: `doing_felt_after_own` / `doing_felt_after_habit` (the share of Olvasó's own / the habit's acts after which the trace was felt), `doing_read_after_*`, `doing_unread_after_*`, `doing_disregarded_after_*` (how the trace's sense was first read after the act), `doing_read_while_strong_own` / `_habit` (read by a word while 0.3 or more), and the held-out scores `told_ahead_doing_felt`, `told_ahead_doing_reading`, `told_ahead_doing_word` (who acted, told from whether the trace was felt / how it was first read / which word read it; learned on the first half of the acts, scored on the second; 0 = always guessing the commoner cause); each also with `_answered` (answered acts only).
 
 ### 4.8 A full E.L.E.M.E.R. life
 

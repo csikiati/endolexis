@@ -5,16 +5,15 @@ type: software
 authors:
   - family-names: Csiki
     given-names: Attila
-version: 0.3.0
-doi: 10.5281/zenodo.24051313
+version: 0.4.0
 identifiers:
   - type: doi
     value: 10.5281/zenodo.24051313
-    description: "Version 0.3.0 archived on Zenodo"
+    description: "The previous version, 0.3.0 (experiments 1-15), archived on Zenodo"
   - type: doi
     value: 10.5281/zenodo.23856387
-    description: "The previous version, 0.2.0, archived on Zenodo"
-date-released: 2026-11-08
+    description: "Version 0.2.0 (experiments 1-7), archived on Zenodo"
+date-released: 2026-11-15
 license: MIT
 repository-code: "https://github.com/csikiati/endolexis"
 url: "https://readingourselves.com"
@@ -27,6 +26,8 @@ keywords:
   - self-recognition
   - mirror test
   - artificial life
+  - AI safety
+  - sense of agency
 abstract: >-
   Engine and experiments of the Endolexis theory: the outside world is the dictionary with which a mind
   reads its own inside. Includes the stage engine of "Olvasó: an entity that reads itself" and, from
@@ -34,7 +35,11 @@ abstract: >-
   doubt, sealed sleep and dream recall, and a response to "Language Models Need Sleep" (consolidation and
   dreaming). Version 0.3.0 adds toy world v1, the symbiote: a room seen, heard and touched through processor
   entities, a vocabulary per processor, actions through a guard, and the auditory and visual mirror tests
-  (experiments 12-15).
+  (experiments 12-15). Version 0.4.0 adds experiments 16-38d: many Olvasós taking turns to sleep; guards
+  learned in a sandbox by replay with a devil's advocate, duties and conflicting laws, and a learned guard
+  for a phone's vibration motor; the conscience; felt intentions, surprises and retries at a limit that
+  cannot be felt; a habit that acts by itself (the autopilot); and a trace of one's own doing (authorship).
+  It also holds the Olvasó Studio and E.L.E.M.E.R. for Android.
 references:
   - type: article
     title: 'Reading Ourselves: An External Dictionary for Internal States'
