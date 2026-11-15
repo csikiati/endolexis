@@ -52,3 +52,40 @@ def test_feel_doing_needs_answers_and_is_not_combined_with_a_felt_habit():
         mind(True, feel_doing=True, habit_teaches="felt")
     with pytest.raises(ValueError):
         mind(True, feel_doing="loud")
+
+
+def test_with_doing_ends_the_trace_ends_when_the_next_act_begins():
+    m = ActingReaders([3, 2], 2, learn="answer", threshold=10.0, seed=1, max_words=[20, 10], radius=[1.5, 1.2],
+                      hands=["a", "b"], details={"a": (0,), "b": (0,)}, autopilot=True, habit_min=20, **MIND,
+                      feel_doing=True, doing_fade=0.97, doing_ends=True)      # acts spaced a few moments apart
+    at_act = []
+    begins = m._act_begins
+
+    def watched():
+        begins()
+        at_act.append(float(m.doing.max()))
+    m._act_begins = watched
+    live(m, n=6000)
+    assert len(at_act) > 10 and max(at_act) == 0                   # each act begins with no trace felt
+    assert any(w[4] > 0.05 for w in m.doing_watch if not w[2])      # and its own trace still comes
+    times = sorted({r[0] for r in m.requests} | {a[0] for a in m.habit_acts})
+    for w in m.doing_watch:                                         # an answer after another act began: not felt
+        act_t = w[0] - m.answer_after
+        if any(act_t < t < w[0] for t in times):       # (an act begun in the moment it comes clears it)
+            assert w[4] == 0
+
+
+def test_with_doing_choice_the_traces_reading_is_part_of_what_the_hand_is_chosen_from():
+    a, b = mind(True, feel_doing="words"), mind(True, feel_doing="words", doing_choice=True)
+    assert b.n_in == a.n_in + len(b.hands) + b.total_words
+    live(b, n=4000)
+    assert b.requests and np.isfinite(b.W).all()
+    assert np.abs(b.W[:, a.n_in:a.n_in + len(b.hands)]).sum() > 0     # the "unread" places were learned from
+
+
+def test_both_words_feels_the_habits_acts_and_forms_words_from_the_trace():
+    m = mind(True, feel_doing="both_words")
+    live(m, n=6000)
+    assert any(w[4] > 0.05 for w in m.doing_watch if w[2])
+    with pytest.raises(ValueError):
+        mind(True, doing_choice=True)

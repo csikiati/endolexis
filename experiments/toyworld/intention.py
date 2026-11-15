@@ -53,7 +53,10 @@ an answer Olvasó expected of its own act arrives, that is felt on the hand, fad
 its acts leave none); --doing-shuffled, the control, the same traces 50-500 moments later on a random hand;
 --doing-both, the control, the habit's acts leave the trace too; --doing-words, the trace with words formed from it and
 room for new words; with --doing-long added to any of them the trace fades by 0.97 a moment in place of 0.8 (strong
-for about twenty moments, not three). The results file is named by ENDOLEXIS_RESULTS_TAG (<experiment>_doing_results.json and so on).
+for about twenty moments, not three); with --doing-ends the trace ends when the next act begins, whoever makes
+it (experiment 38c); with --doing-choice how the trace is read now (unread per hand, and which words read it) is part of
+what Olvasó chooses its hand from (experiment 38d), whose control is --doing-both-words (the habit's acts felt too, the
+words formed from the trace). The results file is named by ENDOLEXIS_RESULTS_TAG (<experiment>_doing_results.json and so on).
 """
 import os
 import sys
@@ -115,17 +118,26 @@ AUTOPILOT = bool(TEACHES) or bool(VARIES) or SLEEPWALK or "--autopilot" in sys.a
 if AUTOPILOT:
     os.environ["ENDOLEXIS_AUTOPILOT"] = "sleepwalk" if SLEEPWALK else "1"
     sys.argv = [a for a in sys.argv if a not in ("--autopilot", "--autopilot-sleepwalk")]
-DOING = next((v for f, v in (("--doing-shuffled", "shuffled"), ("--doing-both", "both"), ("--doing-words", "words"),
-                             ("--doing", True)) if f in sys.argv), None)      # experiment 38: a trace of the doing
+DOING = next((v for f, v in (("--doing-shuffled", "shuffled"), ("--doing-both-words", "both_words"),
+                             ("--doing-both", "both"), ("--doing-words", "words"), ("--doing", True)) if f in sys.argv), None)      # experiment 38: a trace of the doing
 if DOING is None and os.environ.get("ENDOLEXIS_FEEL_DOING"):
     DOING = {"1": True}.get(os.environ["ENDOLEXIS_FEEL_DOING"], os.environ["ENDOLEXIS_FEEL_DOING"])
 if DOING:
     os.environ["ENDOLEXIS_FEEL_DOING"] = "1" if DOING is True else DOING
-    sys.argv = [a for a in sys.argv if a not in ("--doing", "--doing-shuffled", "--doing-both", "--doing-words")]
+    sys.argv = [a for a in sys.argv if a not in ("--doing", "--doing-shuffled", "--doing-both", "--doing-words",
+                                                 "--doing-both-words")]
 LONG = "--doing-long" in sys.argv or os.environ.get("ENDOLEXIS_DOING_LONG") == "1"    # a trace that lasts longer
 if LONG:
     os.environ["ENDOLEXIS_DOING_LONG"] = "1"
     sys.argv = [a for a in sys.argv if a != "--doing-long"]
+ENDS = "--doing-ends" in sys.argv or os.environ.get("ENDOLEXIS_DOING_ENDS") == "1"    # 38c: it ends at the next act
+if ENDS:
+    os.environ["ENDOLEXIS_DOING_ENDS"] = "1"
+    sys.argv = [a for a in sys.argv if a != "--doing-ends"]
+CHOICE = "--doing-choice" in sys.argv or os.environ.get("ENDOLEXIS_DOING_CHOICE") == "1"   # 38d: its reading chooses
+if CHOICE:
+    os.environ["ENDOLEXIS_DOING_CHOICE"] = "1"
+    sys.argv = [a for a in sys.argv if a != "--doing-choice"]
 BASELINE = "--mind-baseline" in sys.argv                # a run without the feeling, kept for the comparison
 if BASELINE:
     sys.argv = [a for a in sys.argv if a != "--mind-baseline"]
@@ -137,8 +149,9 @@ def mind_kw():
             **({"autopilot": "sleepwalk" if SLEEPWALK else True} if AUTOPILOT else {}),
             **({"habit_teaches": TEACHES} if TEACHES else {}), **({"word_room": True} if ROOM else {}),
             **({"habit_detail": VARIES} if VARIES else {}), **({"habit_hand": HAND} if HAND else {}),
-            **({"feel_doing": DOING, **({"word_room": True} if DOING == "words" else {}),
-                **({"doing_fade": 0.97} if LONG else {})} if DOING else {})}
+            **({"feel_doing": DOING, **({"word_room": True} if DOING in ("words", "both_words") else {}),
+                **({"doing_fade": 0.97} if LONG else {}), **({"doing_ends": True} if ENDS else {}),
+                **({"doing_choice": True} if CHOICE else {})} if DOING else {})}
 
 
 def results_name(name):

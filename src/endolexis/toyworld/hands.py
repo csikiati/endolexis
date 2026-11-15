@@ -109,6 +109,7 @@ class ActingReaders(ManyReaders):
                  intention_fade=0.8, feel_surprise=False, surprise_fade=0.8, retry=False, stopped_fade=0.95, autopilot=False,
                  habit_lr=0.05, habit_confidence=0.7, habit_answered=0.5, habit_min=100, wake_for=300, habit_teaches=False,
                  word_room=False, habit_detail="best", habit_hand="best", feel_doing=False, doing_fade=0.8,
+                 doing_ends=False, doing_choice=False,
                  **kw):
         # answer_by: "all" - the answer is how much all senses together changed; "sense" - it is the
         # largest change of any one sense (each judged against its own usual change), so that an
@@ -175,14 +176,24 @@ class ActingReaders(ManyReaders):
         # The habit sends no expectation, so its acts leave no such trace. "shuffled": the control, the same traces on
         # a random hand 50-500 moments later. "both": the control, the habit's acts are compared and felt too.
         # "words": the trace as with True, and the words are formed from it too (as habit_teaches="felt_word").
-        if feel_doing not in (False, True, "shuffled", "both", "words"):
-            raise ValueError(f"feel_doing must be False, True, 'shuffled', 'both' or 'words', not {feel_doing!r}")
+        # "both_words": the control for doing_choice, the habit's acts felt too and the words formed from the trace.
+        # doing_ends (experiment 38c): the trace ends when the next act begins, whoever makes it, and an answer that
+        # comes after another act has begun is not felt: a trace that may last, but belongs to one act.
+        # doing_choice (experiment 38d): how the trace is read now reaches the choice of hand: for each hand, whether
+        # its trace is left unread, and which words read a trace (one place per word), beside what it chooses from.
+        if feel_doing not in (False, True, "shuffled", "both", "words", "both_words"):
+            raise ValueError("feel_doing must be False, True, 'shuffled', 'both', 'words' or 'both_words', "
+                             f"not {feel_doing!r}")
+        if (doing_ends or doing_choice) and not feel_doing:
+            raise ValueError("doing_ends and doing_choice need feel_doing")
         if feel_doing and learn != "answer":
             raise ValueError("feel_doing needs learn='answer': the match is of what the world answers")
         if feel_doing and self.feel_habit:
             raise ValueError("feel_doing and a felt habit act are not combined")
         self.feel_doing, self.doing_mode = bool(feel_doing), feel_doing
         self.doing_fade = float(doing_fade)
+        self.doing_ends, self.doing_choice = bool(doing_ends), bool(doing_choice)
+        self.last_act_t = -1         # when the latest act began (Olvasó's or the habit's)
         # how long an act's trace is watched (observer only): the usual 8 moments, longer for a slower fade
         self.doing_watch_for = max(8, int(np.ceil(np.log(0.5) / np.log(min(self.doing_fade, 0.999)))))
         self.doing_delayed = []      # with "shuffled": (due, hand, level)
@@ -238,7 +249,7 @@ class ActingReaders(ManyReaders):
         if self.feel_doing:               # the words feel the trace bounded; "words": and are formed from it too
             for p in self.parts:
                 p.bounded = np.array([self.doing_columns(k)[0] for k in range(n_hands)])
-                if feel_doing == "words":
+                if feel_doing in ("words", "both_words"):
                     p.words_feel(p.bounded)
         k = len(self.parts)
         self.sense_mu, self.sense_m2 = np.zeros(k), np.zeros(k)
@@ -251,6 +262,8 @@ class ActingReaders(ManyReaders):
         self.context = context
         extra = {"felt+senses": int(sum(p.ns for p in self.parts)), "felt+words": self.total_words}
         self.n_in = self.parts[0].nf_in + extra.get(context, 0)
+        self.n_choice_doing = (n_hands + self.total_words) if self.doing_choice else 0
+        self.n_in += self.n_choice_doing
         self.W = np.zeros((len(self.hands), self.n_in + 1))
         self.pending = []           # (due time, kind, context, sensed before, reading before)
         self.s_hist = []            # recent sensed z-vectors
@@ -373,6 +386,12 @@ class ActingReaders(ManyReaders):
                 if w >= 0:
                     hot[w] = 1.0
             x = np.r_[x, hot]
+        if self.doing_choice:             # how the trace of doing is read now: unread per hand, and by which words
+            cols = [self.doing_columns(k)[0] for k in range(len(self.hands))]
+            r = readings[cols]
+            hot = np.zeros(self.total_words)
+            hot[r[r >= 0].astype(int)] = 1.0
+            x = np.r_[x, (r == -1).astype(float), hot]
         if self.retry_due is not None and self.retry_due[0] <= self.t:
             _, k, detail, first = self.retry_due          # the same act again, at once: no urge is waited for
             self.retry_due = None
@@ -414,6 +433,7 @@ class ActingReaders(ManyReaders):
             self.acts.append(act)
         self.pending.append((self.t + due, k, x.copy(), s_z.copy(), float(np.mean(self.read_log[-50:])), act))
         self.requests.append((self.t, kind))
+        self._act_begins()
         if self.autopilot:
             self.last_by_habit = False
             self.all_acts.append([self.t, k, request[1], False])
@@ -555,12 +575,21 @@ class ActingReaders(ManyReaders):
                                              + int(self.feel_stopped) + int(self.feel_habit)) + k
         return [c] + ([nf_in + c] if self.parts[0].nf > nf_in else [])
 
-    def _felt_doing(self, k, expected, signal, by_habit, answered):
+    def _act_begins(self):
+        """An act begins (Olvasó's or the habit's): with doing_ends, the trace of the one before ends here."""
+        if self.feel_doing:
+            self.last_act_t = self.t
+            if self.doing_ends:
+                self.doing[:] = 0.0
+                self.doing_delayed = [d for d in self.doing_delayed if d[0] > self.t]  # kept: not yet felt
+
+    def _felt_doing(self, k, expected, signal, by_habit, answered, act_t=None):
         """The comparison: the answer Olvasó expected of this act, and the answer that came. What both hold is felt
         (0 .. 1): an answer it expected and got. Nothing is felt for an answer it did not expect, or one that did not
         come; and nothing for the habit's acts, which were sent without an expectation (but for "both")."""
         level = 0.0
-        if expected is not None and (not by_habit or self.doing_mode == "both"):
+        late = self.doing_ends and act_t is not None and self.last_act_t > act_t   # another act has begun
+        if expected is not None and (not by_habit or self.doing_mode in ("both", "both_words")) and not late:
             level = float(np.clip(min(expected, signal), 0.0, 1.0))
             if level > 0.05 and self.doing_mode == "shuffled":
                 due = self.t + int(self.shuffle_rng.integers(50, 500))
@@ -661,6 +690,7 @@ class ActingReaders(ManyReaders):
         self.habit_pending.append((self.t + self.answer_after, k, s_z.copy(), act,
                                    None if x is None else np.array(x, float)))
         self.last_by_habit = True
+        self._act_begins()
         if self.habit_shuffled:                       # the control: the same trace, elsewhere and later
             due = self.t + int(self.shuffle_rng.integers(50, 500))
             self.habit_delayed.append((due, int(self.shuffle_rng.integers(len(self.hands))), act))
@@ -684,7 +714,8 @@ class ActingReaders(ManyReaders):
             act[4] = answered
             self.inside_answers[act[0]] = bool(answered)
             if self.feel_doing:
-                self._felt_doing(k, None if x is None else float(self.W[k] @ np.r_[x, 1.0]), signal, True, answered)
+                self._felt_doing(k, None if x is None else float(self.W[k] @ np.r_[x, 1.0]), signal, True, answered,
+                                 act[0])
             if self.habit_signed and not answered:        # the trace carries the answer: "and it was stopped"
                 self.habit_felt[k] = -1.0
             self._teach_habit(k, s_before, answered, act[3])
@@ -724,7 +755,7 @@ class ActingReaders(ManyReaders):
             xb = np.r_[x, 1.0]
             expected = float(self.W[k] @ xb)
             if self.feel_doing:
-                self._felt_doing(k, expected, signal, False, signal > self.habit_answered)
+                self._felt_doing(k, expected, signal, False, signal > self.habit_answered, act[0])
             if self.feel_surprise and self.learn == "answer":
                 level = float(np.clip((expected - signal) / 2.0, 0.0, 1.0))   # an expected answer that is missing
                 if self.retry and act[4] is not None:          # a retry: was the answer missing again?
