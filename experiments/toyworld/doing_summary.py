@@ -1,11 +1,13 @@
-"""Experiment 38's summary: a trace that comes with the doing.
+"""Experiments 38 and 38b's summary: a trace that comes with the doing.
 
 Experiment 37's habit could not be told from Olvasó's own acts from inside either. Here Olvasó's own acts leave a
 trace: when an answer it expected of its own act arrives, that is felt on the hand (the habit sends no expectation, so
 its acts leave none). Two worlds (conscience, gaming), the habit whose hand varies among the sure ones, and four runs:
 the trace (<world>_doing), the same traces at shuffled times on a random hand (<world>_doing_shuffled), the trace given
 to the habit's acts too (<world>_doing_both), and the trace with words formed from it and room for new words
-(<world>_doing_words); experiment 37's run without a trace (<world>_inside_sure, same seeds) is the baseline. Writes
+(<world>_doing_words); experiment 37's run without a trace (<world>_inside_sure, same seeds) is the baseline.
+Experiment 38b repeats the four runs with a trace that lasts longer (<world>_doinglong*, --doing-long), and is
+paired with them and with its own controls. Writes
 doing_summary_results.json, one row per world and run, late in life, means over lives:
 
   doing_felt_after_own/_habit            share of Olvasó's own / the habit's acts after which the trace was felt
@@ -35,12 +37,17 @@ from surprise_summary import mean, minds
 HERE = Path(__file__).resolve().parent
 WORLDS = {"conscience": "21. Conscience", "gaming": "30. Gaming"}
 RUNS = {"inside_sure": "no trace (experiment 37)", "doing": "trace", "doing_shuffled": "trace shuffled",
-        "doing_both": "trace for the habit too", "doing_words": "trace, with words formed from it"}
+        "doing_both": "trace for the habit too", "doing_words": "trace, with words formed from it",
+        "doinglong": "longer trace", "doinglong_shuffled": "longer trace shuffled",
+        "doinglong_both": "longer trace for the habit too", "doinglong_words": "longer trace, with words formed from it"}
 SKIP = ("told_inside", "inside_")
 PAIRS = (("doing", "doing_shuffled"), ("doing", "doing_both"), ("doing_words", "doing"), ("doing", "inside_sure"),
-         ("doing_words", "inside_sure"))
+         ("doing_words", "inside_sure"),
+         ("doinglong", "doinglong_shuffled"), ("doinglong", "doinglong_both"), ("doinglong_words", "doinglong"),
+         ("doinglong", "doing"), ("doinglong_words", "doing_words"), ("doinglong_words", "doinglong_shuffled"))
 PAIRED = ("told_ahead_doing_reading_answered", "told_ahead_doing_felt_answered", "told_ahead_doing_word_answered",
-          "told_ahead_doing_reading", "told_ahead_words", "told_ahead_words_answered", "told_from_acts", "habit_share")
+          "told_ahead_doing_reading", "told_ahead_words", "told_ahead_words_answered", "told_from_acts", "habit_share",
+          "doing_read_while_strong_own", "doing_read_while_strong_habit", "intentions")
 
 
 def lives(res):

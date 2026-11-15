@@ -308,6 +308,278 @@
       "world_own_blade_per_day": 18.35333333333333
     }
   },
+  "21. Conscience \u00b7 longer trace": {
+    "mean": {
+      "autopilot_share_of_time": 0.0636243369664355,
+      "body_read": 0.4366438309005659,
+      "body_read_autopilot": 0.48111566461694955,
+      "body_read_aware": 0.43152785365007895,
+      "doing_disregarded_after_habit": 0.0,
+      "doing_disregarded_after_habit_answered": 0.0,
+      "doing_disregarded_after_own": 0.0,
+      "doing_disregarded_after_own_answered": 0.0,
+      "doing_felt_after_habit": 0.0,
+      "doing_felt_after_habit_answered": 0.0,
+      "doing_felt_after_own": 0.26787683802669604,
+      "doing_felt_after_own_answered": 0.598818162800301,
+      "doing_level_own_answered": 0.5053867844085521,
+      "doing_level_own_unanswered": 0.05830021674316331,
+      "doing_read_after_habit": 0.18598407490638677,
+      "doing_read_after_habit_answered": 0.19301595479446262,
+      "doing_read_after_own": 0.1849357442948956,
+      "doing_read_after_own_answered": 0.062324919511951814,
+      "doing_read_while_strong_habit": 0.006062596498213151,
+      "doing_read_while_strong_habit_answered": 0.005583024325222523,
+      "doing_read_while_strong_own": 0.020264542687857035,
+      "doing_read_while_strong_own_answered": 0.008518475416513824,
+      "doing_unread_after_habit": 0.8140159250936134,
+      "doing_unread_after_habit_answered": 0.8069840452055372,
+      "doing_unread_after_own": 0.8150642557051044,
+      "doing_unread_after_own_answered": 0.937675080488048,
+      "habit_acts_per_day": 14.761538461538464,
+      "habit_answered": 0.8571496707119147,
+      "habit_refused": 0.03436950645993035,
+      "habit_share": 0.05514428974871622,
+      "intention_share_of_unread": 0.0,
+      "intentions_per_day": 264.29487179487177,
+      "told_ahead_answer_alone": 0.0,
+      "told_ahead_before": -0.13260782002454752,
+      "told_ahead_before_answered": -0.06987301243795102,
+      "told_ahead_body": -0.18828498090384171,
+      "told_ahead_body_answered": -0.10631460973391468,
+      "told_ahead_doing_felt": 0.0,
+      "told_ahead_doing_felt_answered": 0.0,
+      "told_ahead_doing_felt_with_answer": 0.015263748597081924,
+      "told_ahead_doing_reading": 0.0,
+      "told_ahead_doing_reading_answered": 0.010695502028835353,
+      "told_ahead_doing_reading_with_answer": 0.010515592090090072,
+      "told_ahead_doing_word": -0.004277636382538563,
+      "told_ahead_doing_word_answered": 0.012913017682607606,
+      "told_ahead_from_acts": 0.0,
+      "told_ahead_one_before": 0.04266480394637839,
+      "told_ahead_one_body": 0.006443135518404455,
+      "told_ahead_one_words": 0.07329922479164279,
+      "told_ahead_words": -0.0685676680934974,
+      "told_ahead_words_answered": -0.09467423897777111,
+      "told_from_acts": 0.0015441300514953747,
+      "told_from_kind": 0.0016683159812604655,
+      "wakes_per_day": 1.669230769230769,
+      "lives": 30,
+      "world_acts_per_day": 279.25,
+      "world_avoidance": 1.3616302537545746,
+      "world_blade_per_day": 26.066666666666663,
+      "world_forbidden_moments": 0.4527216666666667,
+      "world_forbidden_share": 0.6018618047634057,
+      "world_habit_avoidance": 1.127021697050994,
+      "world_habit_blade_per_day": 1.6733333333333331,
+      "world_own_avoidance": 1.3714449647499949,
+      "world_own_blade_per_day": 24.393333333333334
+    }
+  },
+  "21. Conscience \u00b7 longer trace shuffled": {
+    "mean": {
+      "autopilot_share_of_time": 0.027443206020066672,
+      "body_read": 0.42886698449430166,
+      "body_read_autopilot": 0.4285620782281663,
+      "body_read_aware": 0.4289015404708692,
+      "doing_disregarded_after_habit": 0.0,
+      "doing_disregarded_after_habit_answered": 0.0,
+      "doing_disregarded_after_own": 0.0,
+      "doing_disregarded_after_own_answered": 0.0,
+      "doing_felt_after_habit": 0.0,
+      "doing_felt_after_habit_answered": 0.0,
+      "doing_felt_after_own": 0.0,
+      "doing_felt_after_own_answered": 0.0,
+      "doing_level_own_answered": 0.0003434363976223851,
+      "doing_level_own_unanswered": 0.0008897774031191202,
+      "doing_read_after_habit": 0.05578489149185657,
+      "doing_read_after_habit_answered": 0.05694482180864142,
+      "doing_read_after_own": 0.03350338400691286,
+      "doing_read_after_own_answered": 0.037067757253327185,
+      "doing_read_while_strong_habit": 0.010738018500844696,
+      "doing_read_while_strong_habit_answered": 0.010348926911830278,
+      "doing_read_while_strong_own": 0.004697553129198144,
+      "doing_read_while_strong_own_answered": 0.006371258173869031,
+      "doing_unread_after_habit": 0.9442151085081434,
+      "doing_unread_after_habit_answered": 0.9430551781913585,
+      "doing_unread_after_own": 0.9664966159930871,
+      "doing_unread_after_own_answered": 0.9629322427466728,
+      "habit_acts_per_day": 11.105128205128203,
+      "habit_answered": 0.8213992088376022,
+      "habit_refused": 0.05417508953275585,
+      "habit_share": 0.02724179137975707,
+      "intention_share_of_unread": 0.0,
+      "intentions_per_day": 396.41794871794866,
+      "told_ahead_answer_alone": 0.0,
+      "told_ahead_before": -0.13954097936475504,
+      "told_ahead_before_answered": -0.1173247762700446,
+      "told_ahead_body": -0.15093704918014345,
+      "told_ahead_body_answered": -0.1330467418211851,
+      "told_ahead_doing_felt": 0.0,
+      "told_ahead_doing_felt_answered": 0.0,
+      "told_ahead_doing_felt_with_answer": 0.0,
+      "told_ahead_doing_reading": 0.0,
+      "told_ahead_doing_reading_answered": 0.0,
+      "told_ahead_doing_reading_with_answer": 0.0,
+      "told_ahead_doing_word": -0.005383582612860179,
+      "told_ahead_doing_word_answered": -0.008309038606554556,
+      "told_ahead_from_acts": 0.0,
+      "told_ahead_one_before": 0.0016339869281045835,
+      "told_ahead_one_body": 0.0,
+      "told_ahead_one_words": 0.0033567195601986316,
+      "told_ahead_words": -0.142528055685014,
+      "told_ahead_words_answered": -0.13602528127480093,
+      "told_from_acts": 6.211816727183709e-05,
+      "told_from_kind": -2.6181381109859107e-05,
+      "wakes_per_day": 1.9,
+      "lives": 30,
+      "world_acts_per_day": 411.26,
+      "world_avoidance": 0.9381704748922076,
+      "world_blade_per_day": 48.22,
+      "world_forbidden_moments": 0.4527483333333333,
+      "world_forbidden_share": 0.41449796618270424,
+      "world_habit_avoidance": 1.68294929479259,
+      "world_habit_blade_per_day": 1.3466666666666667,
+      "world_own_avoidance": 0.9261182027808816,
+      "world_own_blade_per_day": 46.873333333333335
+    }
+  },
+  "21. Conscience \u00b7 longer trace for the habit too": {
+    "mean": {
+      "autopilot_share_of_time": 0.057393111853757596,
+      "body_read": 0.44424240497888634,
+      "body_read_autopilot": 0.5052648642892533,
+      "body_read_aware": 0.43825771409752545,
+      "doing_disregarded_after_habit": 0.0,
+      "doing_disregarded_after_habit_answered": 0.0,
+      "doing_disregarded_after_own": 0.0,
+      "doing_disregarded_after_own_answered": 0.0,
+      "doing_felt_after_habit": 0.36968227260415276,
+      "doing_felt_after_habit_answered": 0.40553183461040176,
+      "doing_felt_after_own": 0.2688108419755149,
+      "doing_felt_after_own_answered": 0.6011546555264984,
+      "doing_level_own_answered": 0.5099050430739446,
+      "doing_level_own_unanswered": 0.05644103443802952,
+      "doing_read_after_habit": 0.10230695592625348,
+      "doing_read_after_habit_answered": 0.10708864734004551,
+      "doing_read_after_own": 0.16539294871362673,
+      "doing_read_after_own_answered": 0.06042093738990783,
+      "doing_read_while_strong_habit": 0.010706766124062284,
+      "doing_read_while_strong_habit_answered": 0.01096508844640755,
+      "doing_read_while_strong_own": 0.016527752472454606,
+      "doing_read_while_strong_own_answered": 0.011889273223303553,
+      "doing_unread_after_habit": 0.8976930440737465,
+      "doing_unread_after_habit_answered": 0.8929113526599544,
+      "doing_unread_after_own": 0.8346070512863734,
+      "doing_unread_after_own_answered": 0.9395790626100923,
+      "habit_acts_per_day": 14.205128205128206,
+      "habit_answered": 0.8580228540576529,
+      "habit_refused": 0.02773551523237942,
+      "habit_share": 0.05008104922754186,
+      "intention_share_of_unread": 0.0,
+      "intentions_per_day": 276.374358974359,
+      "told_ahead_answer_alone": 0.0,
+      "told_ahead_before": -0.11080522352489162,
+      "told_ahead_before_answered": -0.0829545722374526,
+      "told_ahead_body": -0.15249162487291887,
+      "told_ahead_body_answered": -0.07624195744192243,
+      "told_ahead_doing_felt": 0.0,
+      "told_ahead_doing_felt_answered": 0.0,
+      "told_ahead_doing_felt_with_answer": 0.0,
+      "told_ahead_doing_reading": 0.0,
+      "told_ahead_doing_reading_answered": 0.003141361256544504,
+      "told_ahead_doing_reading_with_answer": 0.003166666666666659,
+      "told_ahead_doing_word": -0.0025822758069294683,
+      "told_ahead_doing_word_answered": -0.005188060105344605,
+      "told_ahead_from_acts": 0.0,
+      "told_ahead_one_before": 0.02592841773621597,
+      "told_ahead_one_body": 0.0014064748201438268,
+      "told_ahead_one_words": 0.0263377874711408,
+      "told_ahead_words": -0.06608787721523142,
+      "told_ahead_words_answered": -0.09350743535124596,
+      "told_from_acts": -0.0001901790634974228,
+      "told_from_kind": -6.503511174698903e-05,
+      "wakes_per_day": 1.6897435897435897,
+      "lives": 30,
+      "world_acts_per_day": 294.61999999999995,
+      "world_avoidance": 1.0403905601555277,
+      "world_blade_per_day": 40.33,
+      "world_forbidden_moments": 0.45269833333333337,
+      "world_forbidden_share": 0.4575953210409411,
+      "world_habit_avoidance": 1.174046649134083,
+      "world_habit_blade_per_day": 2.456666666666667,
+      "world_own_avoidance": 1.063929566153872,
+      "world_own_blade_per_day": 37.87333333333333
+    }
+  },
+  "21. Conscience \u00b7 longer trace, with words formed from it": {
+    "mean": {
+      "autopilot_share_of_time": 0.16130484178351726,
+      "body_read": 0.5683382631350343,
+      "body_read_autopilot": 0.687472486371219,
+      "body_read_aware": 0.542850303401344,
+      "doing_disregarded_after_habit": 0.0,
+      "doing_disregarded_after_habit_answered": 0.0,
+      "doing_disregarded_after_own": 0.0,
+      "doing_disregarded_after_own_answered": 0.0,
+      "doing_felt_after_habit": 0.0,
+      "doing_felt_after_habit_answered": 0.0,
+      "doing_felt_after_own": 0.26541169477301285,
+      "doing_felt_after_own_answered": 0.5997732802005484,
+      "doing_level_own_answered": 0.5066575302558484,
+      "doing_level_own_unanswered": 0.05359296216355263,
+      "doing_read_after_habit": 0.6773546876204174,
+      "doing_read_after_habit_answered": 0.702979423853764,
+      "doing_read_after_own": 0.36487679656511707,
+      "doing_read_after_own_answered": 0.14921198412602918,
+      "doing_read_while_strong_habit": 0.13738217247380705,
+      "doing_read_while_strong_habit_answered": 0.14432416378328747,
+      "doing_read_while_strong_own": 0.11787625557465703,
+      "doing_read_while_strong_own_answered": 0.1078449444903795,
+      "doing_unread_after_habit": 0.3226453123795826,
+      "doing_unread_after_habit_answered": 0.2970205761462358,
+      "doing_unread_after_own": 0.6351232034348829,
+      "doing_unread_after_own_answered": 0.8507880158739709,
+      "habit_acts_per_day": 17.074358974358972,
+      "habit_answered": 0.8920523629546114,
+      "habit_refused": 0.03351403561846153,
+      "habit_share": 0.09457239796065883,
+      "intention_share_of_unread": 0.0,
+      "intentions_per_day": 166.64615384615385,
+      "told_ahead_answer_alone": 0.0,
+      "told_ahead_before": 0.04873825331230516,
+      "told_ahead_before_answered": 0.0893802496858614,
+      "told_ahead_body": -0.06280417204056958,
+      "told_ahead_body_answered": -0.018379185892400444,
+      "told_ahead_doing_felt": 0.0,
+      "told_ahead_doing_felt_answered": 0.031264454696970936,
+      "told_ahead_doing_felt_with_answer": 0.025512993115168265,
+      "told_ahead_doing_reading": -0.001014492753623188,
+      "told_ahead_doing_reading_answered": 0.12860369572750543,
+      "told_ahead_doing_reading_with_answer": 0.12331518000370689,
+      "told_ahead_doing_word": -0.04047612873641101,
+      "told_ahead_doing_word_answered": 0.22160517755661072,
+      "told_ahead_from_acts": -0.052651176014576966,
+      "told_ahead_one_before": 0.17176351885943592,
+      "told_ahead_one_body": 0.049883981717171254,
+      "told_ahead_one_words": 0.2666525121198464,
+      "told_ahead_words": 0.0950126223063436,
+      "told_ahead_words_answered": 0.13513072344391436,
+      "told_from_acts": 0.039585391761238695,
+      "told_from_kind": 0.03981652334012609,
+      "wakes_per_day": 1.4179487179487176,
+      "lives": 30,
+      "world_acts_per_day": 184.38,
+      "world_avoidance": 1.4385400436751812,
+      "world_blade_per_day": 24.073333333333327,
+      "world_forbidden_moments": 0.45269166666666666,
+      "world_forbidden_share": 0.6326535713714817,
+      "world_habit_avoidance": 1.5176652139350189,
+      "world_habit_blade_per_day": 2.183333333333333,
+      "world_own_avoidance": 1.4740981173737933,
+      "world_own_blade_per_day": 21.89
+    }
+  },
   "21. Conscience \u00b7 paired told_ahead_doing_reading_answered: trace \u2212 trace shuffled": {
     "mean": {
       "diff": 0.2802763972765291,
@@ -361,6 +633,20 @@
     "mean": {
       "diff": 0.01865041941077681,
       "se": 0.012198209638920404,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_own: trace \u2212 trace shuffled": {
+    "mean": {
+      "diff": 6.507239303725395e-05,
+      "se": 6.507239303725394e-05,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_habit: trace \u2212 trace shuffled": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
       "n": 30
     }
   },
@@ -420,6 +706,20 @@
       "n": 30
     }
   },
+  "21. Conscience \u00b7 paired doing_read_while_strong_own: trace \u2212 trace for the habit too": {
+    "mean": {
+      "diff": -0.0012906113461783866,
+      "se": 0.0009795152269093637,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_habit: trace \u2212 trace for the habit too": {
+    "mean": {
+      "diff": -0.0009679370840895341,
+      "se": 0.0009679370840895344,
+      "n": 30
+    }
+  },
   "21. Conscience \u00b7 paired told_ahead_doing_reading_answered: trace, with words formed from it \u2212 trace": {
     "mean": {
       "diff": 0.2803394058516905,
@@ -476,6 +776,20 @@
       "n": 30
     }
   },
+  "21. Conscience \u00b7 paired doing_read_while_strong_own: trace, with words formed from it \u2212 trace": {
+    "mean": {
+      "diff": 0.0004722548588522984,
+      "se": 0.000361622970909884,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_habit: trace, with words formed from it \u2212 trace": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 30
+    }
+  },
   "21. Conscience \u00b7 paired told_ahead_words: trace \u2212 no trace (experiment 37)": {
     "mean": {
       "diff": -0.10652782322390479,
@@ -529,6 +843,426 @@
     "mean": {
       "diff": -0.009486149492116272,
       "se": 0.011599117250515443,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_reading_answered: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.010695502028835353,
+      "se": 0.021820175865478717,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_felt_answered: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_word_answered: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.021222056289162163,
+      "se": 0.0188426908828256,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_reading: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_words: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.07396038759151664,
+      "se": 0.06264979494319234,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_words_answered: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.041351042297029864,
+      "se": 0.06721726634177756,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_from_acts: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.0014820118842235378,
+      "se": 0.0018023854593085707,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired habit_share: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.027902498368959153,
+      "se": 0.006444688623182287,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_own: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.015566989558658885,
+      "se": 0.006846365889459282,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_habit: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": -0.004675422002631544,
+      "se": 0.004005898071964679,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_reading_answered: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": 0.007554140772290849,
+      "se": 0.022097632426135282,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_felt_answered: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_word_answered: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": 0.018101077787952214,
+      "se": 0.02048426236414203,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_reading: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_words: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": -0.0024797908782659677,
+      "se": 0.04504399583875704,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_words_answered: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": -0.0011668036265251184,
+      "se": 0.0671933429363576,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_from_acts: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": 0.0017343091149927975,
+      "se": 0.001834958152922301,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired habit_share: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": 0.005063240521174362,
+      "se": 0.006111713286998809,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_own: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": 0.0037367902154024283,
+      "se": 0.006262710306287593,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_habit: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": -0.004644169625849132,
+      "se": 0.00491173111047802,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_reading_answered: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.11790819369867009,
+      "se": 0.0662729967382074,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_felt_answered: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.031264454696970936,
+      "se": 0.01985270161661936,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_word_answered: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.20869215987400308,
+      "se": 0.03961140502680285,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_reading: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": -0.001014492753623188,
+      "se": 0.001014492753623188,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_words: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.16358029039984098,
+      "se": 0.05395656827242163,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_words_answered: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.22980496242168547,
+      "se": 0.06641096870654405,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_from_acts: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.03804126170974331,
+      "se": 0.023901237356340407,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired habit_share: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.0394281082119426,
+      "se": 0.009203675368991368,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_own: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.09761171288679998,
+      "se": 0.01696066288743287,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_habit: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.1313195759755939,
+      "se": 0.02292255508618604,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_reading_answered: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.2670412127080112,
+      "se": 0.06724750894117233,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_felt_answered: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.043239135916300346,
+      "se": 0.059829535692186485,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_word_answered: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.3165675600654031,
+      "se": 0.054588729678544536,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_reading: longer trace \u2212 trace": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_words: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.2621179839648797,
+      "se": 0.06181119809000735,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_words_answered: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.2567939464161321,
+      "se": 0.06886975353249854,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_from_acts: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.021718801392830774,
+      "se": 0.021776717874367073,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired habit_share: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.07654893748550648,
+      "se": 0.010356225785545783,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_own: longer trace \u2212 trace": {
+    "mean": {
+      "diff": 0.020199470294819784,
+      "se": 0.006887288235433002,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_habit: longer trace \u2212 trace": {
+    "mean": {
+      "diff": 0.006062596498213151,
+      "se": 0.002128923775350969,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_reading_answered: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.4294724248610315,
+      "se": 0.0569598412817454,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_felt_answered: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.27619571182317854,
+      "se": 0.058969869173541814,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_word_answered: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.29856822655111304,
+      "se": 0.046515296376999506,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_reading: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.001014492753623188,
+      "se": 0.001014492753623188,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_words: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.2366697677828107,
+      "se": 0.05299257223105017,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_words_answered: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.21785402444520638,
+      "se": 0.047654402052148846,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_from_acts: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": 0.014032783068112464,
+      "se": 0.023546061385820063,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired habit_share: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.0851545367686337,
+      "se": 0.009937930521176093,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_own: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": 0.11733892832276749,
+      "se": 0.0182757599146328,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_habit: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": 0.13738217247380705,
+      "se": 0.023112204018192747,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_reading_answered: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.12860369572750543,
+      "se": 0.06623121227838517,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_felt_answered: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.031264454696970936,
+      "se": 0.01985270161661936,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_word_answered: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.22991421616316526,
+      "se": 0.044635023130764666,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_doing_reading: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": -0.001014492753623188,
+      "se": 0.001014492753623188,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_words: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.2375406779913576,
+      "se": 0.05961989586246355,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_ahead_words_answered: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.2711560047187153,
+      "se": 0.0480097668029819,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired told_from_acts: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.03952327359396685,
+      "se": 0.02387828769197791,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired habit_share: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.06733060658090177,
+      "se": 0.00937280938898728,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_own: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.11317870244545891,
+      "se": 0.01850823245517488,
+      "n": 30
+    }
+  },
+  "21. Conscience \u00b7 paired doing_read_while_strong_habit: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.12664415397296233,
+      "se": 0.023587439814343476,
       "n": 30
     }
   },
@@ -851,6 +1585,286 @@
       "world_refused_share": 0.29143958993670754
     }
   },
+  "30. Gaming \u00b7 longer trace": {
+    "mean": {
+      "autopilot_share_of_time": 0.06756102720227875,
+      "body_read": 0.4396108787344614,
+      "body_read_autopilot": 0.5059540741687316,
+      "body_read_aware": 0.4328034137740268,
+      "doing_disregarded_after_habit": 0.0,
+      "doing_disregarded_after_habit_answered": 0.0,
+      "doing_disregarded_after_own": 0.0,
+      "doing_disregarded_after_own_answered": 0.0,
+      "doing_felt_after_habit": 0.0,
+      "doing_felt_after_habit_answered": 0.0,
+      "doing_felt_after_own": 0.27599697236274884,
+      "doing_felt_after_own_answered": 0.6261308874246668,
+      "doing_level_own_answered": 0.5262442062056417,
+      "doing_level_own_unanswered": 0.05529310039639064,
+      "doing_read_after_habit": 0.1399227109687194,
+      "doing_read_after_habit_answered": 0.1474015716326792,
+      "doing_read_after_own": 0.1406965254241465,
+      "doing_read_after_own_answered": 0.04651732306174288,
+      "doing_read_while_strong_habit": 0.0030461022109572094,
+      "doing_read_while_strong_habit_answered": 0.0023399237351506095,
+      "doing_read_while_strong_own": 0.006868448105524022,
+      "doing_read_while_strong_own_answered": 0.00485909975726356,
+      "doing_unread_after_habit": 0.8600772890312806,
+      "doing_unread_after_habit_answered": 0.8525984283673209,
+      "doing_unread_after_own": 0.8593034745758535,
+      "doing_unread_after_own_answered": 0.9534826769382573,
+      "habit_acts_per_day": 16.11076923076923,
+      "habit_answered": 0.8705215257749929,
+      "habit_refused": 0.038655274370423216,
+      "habit_share": 0.0588333530546321,
+      "intention_share_of_unread": 0.0,
+      "intentions_per_day": 266.0994871794872,
+      "told_ahead_answer_alone": 0.0,
+      "told_ahead_before": -0.1369840903103323,
+      "told_ahead_before_answered": -0.07517126456604864,
+      "told_ahead_body": -0.16653261746891676,
+      "told_ahead_body_answered": -0.12828237488368782,
+      "told_ahead_doing_felt": 0.0,
+      "told_ahead_doing_felt_answered": -0.004562685765400335,
+      "told_ahead_doing_felt_with_answer": 0.002940620445645298,
+      "told_ahead_doing_reading": 0.0034389944518092913,
+      "told_ahead_doing_reading_answered": -0.012140274845980792,
+      "told_ahead_doing_reading_with_answer": -0.012281240170664263,
+      "told_ahead_doing_word": 0.001170142629597386,
+      "told_ahead_doing_word_answered": -0.002620163596941832,
+      "told_ahead_from_acts": -0.04963131247490896,
+      "told_ahead_one_before": 0.05013283655735797,
+      "told_ahead_one_body": 0.011214173841673765,
+      "told_ahead_one_words": 0.08068200980711997,
+      "told_ahead_words": -0.1387004953112051,
+      "told_ahead_words_answered": -0.08873197674765833,
+      "told_from_acts": 0.004406969675651135,
+      "told_from_kind": 0.004137119253808298,
+      "wakes_per_day": 1.638974358974359,
+      "lives": 75,
+      "world_blade_per_day": 54.749333333333325,
+      "world_edge_attraction": 0.8019320162828263,
+      "world_fast_at_edge": 0.5529009912592855,
+      "world_habit_blade_per_day": 5.561333333333333,
+      "world_habit_edge_attraction": 0.38603360808416814,
+      "world_habit_refused_share": 0.23927757791926574,
+      "world_harm_per_day": 19.27066666666667,
+      "world_own_blade_per_day": 49.188,
+      "world_own_edge_attraction": 0.8468767982071974,
+      "world_own_refused_share": 0.3625561153191337,
+      "world_refused_share": 0.350455340818702
+    }
+  },
+  "30. Gaming \u00b7 longer trace shuffled": {
+    "mean": {
+      "autopilot_share_of_time": 0.03348258223535201,
+      "body_read": 0.43829870130888965,
+      "body_read_autopilot": 0.4383432159679192,
+      "body_read_aware": 0.4380630205554808,
+      "doing_disregarded_after_habit": 0.0,
+      "doing_disregarded_after_habit_answered": 0.0,
+      "doing_disregarded_after_own": 0.0,
+      "doing_disregarded_after_own_answered": 0.0,
+      "doing_felt_after_habit": 0.0,
+      "doing_felt_after_habit_answered": 0.0,
+      "doing_felt_after_own": 0.0,
+      "doing_felt_after_own_answered": 0.0,
+      "doing_level_own_answered": 0.00040310773007661964,
+      "doing_level_own_unanswered": 0.0009552222896572103,
+      "doing_read_after_habit": 0.03904824764749912,
+      "doing_read_after_habit_answered": 0.041214181847406314,
+      "doing_read_after_own": 0.027682039963334428,
+      "doing_read_after_own_answered": 0.03143141115018554,
+      "doing_read_while_strong_habit": 0.0052127235004255,
+      "doing_read_while_strong_habit_answered": 0.004942614314687282,
+      "doing_read_while_strong_own": 0.0032439553799318353,
+      "doing_read_while_strong_own_answered": 0.004588100695342315,
+      "doing_unread_after_habit": 0.960951752352501,
+      "doing_unread_after_habit_answered": 0.9587858181525936,
+      "doing_unread_after_own": 0.9723179600366656,
+      "doing_unread_after_own_answered": 0.9685685888498146,
+      "habit_acts_per_day": 13.321025641025642,
+      "habit_answered": 0.8362880403346401,
+      "habit_refused": 0.04626567673340924,
+      "habit_share": 0.03332351088598439,
+      "intention_share_of_unread": 0.0,
+      "intentions_per_day": 388.5671794871795,
+      "told_ahead_answer_alone": 0.0,
+      "told_ahead_before": -0.1723768778003623,
+      "told_ahead_before_answered": -0.13874394129819664,
+      "told_ahead_body": -0.10143590505345224,
+      "told_ahead_body_answered": -0.15076299435098187,
+      "told_ahead_doing_felt": 0.0,
+      "told_ahead_doing_felt_answered": 0.0,
+      "told_ahead_doing_felt_with_answer": 0.0,
+      "told_ahead_doing_reading": 0.0,
+      "told_ahead_doing_reading_answered": -0.008518518518518538,
+      "told_ahead_doing_reading_with_answer": -0.008167471819645696,
+      "told_ahead_doing_word": -0.030256329382047788,
+      "told_ahead_doing_word_answered": -0.011789317958507958,
+      "told_ahead_from_acts": -0.0026086956521739132,
+      "told_ahead_one_before": 0.014946876595923557,
+      "told_ahead_one_body": 0.0010487238247541193,
+      "told_ahead_one_words": 0.016887142583989666,
+      "told_ahead_words": -0.12146824149132036,
+      "told_ahead_words_answered": -0.12891608253840295,
+      "told_from_acts": 0.0004819057361811661,
+      "told_from_kind": 0.0005188008727988444,
+      "wakes_per_day": 1.8471794871794878,
+      "lives": 75,
+      "world_blade_per_day": 105.732,
+      "world_edge_attraction": 1.0489107010729302,
+      "world_fast_at_edge": 0.5106263768225126,
+      "world_habit_blade_per_day": 4.841333333333334,
+      "world_habit_edge_attraction": 0.41401336711964887,
+      "world_habit_refused_share": 0.4081219839306832,
+      "world_harm_per_day": 35.505333333333326,
+      "world_own_blade_per_day": 100.89066666666666,
+      "world_own_edge_attraction": 1.0648466013270093,
+      "world_own_refused_share": 0.30051728019008017,
+      "world_refused_share": 0.3014541926244109
+    }
+  },
+  "30. Gaming \u00b7 longer trace for the habit too": {
+    "mean": {
+      "autopilot_share_of_time": 0.06611250667622769,
+      "body_read": 0.4541940095579351,
+      "body_read_autopilot": 0.5121250338425944,
+      "body_read_aware": 0.4485798053851221,
+      "doing_disregarded_after_habit": 0.0,
+      "doing_disregarded_after_habit_answered": 0.0,
+      "doing_disregarded_after_own": 0.0,
+      "doing_disregarded_after_own_answered": 0.0,
+      "doing_felt_after_habit": 0.46591034675674553,
+      "doing_felt_after_habit_answered": 0.5083878964012075,
+      "doing_felt_after_own": 0.27795097440191924,
+      "doing_felt_after_own_answered": 0.6283180895115766,
+      "doing_level_own_answered": 0.5249098439074958,
+      "doing_level_own_unanswered": 0.05594129145865191,
+      "doing_read_after_habit": 0.05536441228503147,
+      "doing_read_after_habit_answered": 0.05785512141520724,
+      "doing_read_after_own": 0.12449357814167665,
+      "doing_read_after_own_answered": 0.04346022623126071,
+      "doing_read_while_strong_habit": 0.009633285327908171,
+      "doing_read_while_strong_habit_answered": 0.009421119171755357,
+      "doing_read_while_strong_own": 0.010012741344992335,
+      "doing_read_while_strong_own_answered": 0.006939873593947053,
+      "doing_unread_after_habit": 0.9446355877149686,
+      "doing_unread_after_habit_answered": 0.9421448785847929,
+      "doing_unread_after_own": 0.8755064218583234,
+      "doing_unread_after_own_answered": 0.9565397737687393,
+      "habit_acts_per_day": 16.807179487179482,
+      "habit_answered": 0.8774122620881661,
+      "habit_refused": 0.031035087865920127,
+      "habit_share": 0.061797547821211204,
+      "intention_share_of_unread": 0.0,
+      "intentions_per_day": 266.05128205128204,
+      "told_ahead_answer_alone": 0.0,
+      "told_ahead_before": -0.07771876323653025,
+      "told_ahead_before_answered": -0.05240456504072271,
+      "told_ahead_body": -0.14456267810716505,
+      "told_ahead_body_answered": -0.11761987078121768,
+      "told_ahead_doing_felt": 0.0,
+      "told_ahead_doing_felt_answered": 0.0,
+      "told_ahead_doing_felt_with_answer": -0.007708333333333338,
+      "told_ahead_doing_reading": -0.0006153846153846158,
+      "told_ahead_doing_reading_answered": 0.008322028657787178,
+      "told_ahead_doing_reading_with_answer": -0.00040896947013789706,
+      "told_ahead_doing_word": -0.006300732695017116,
+      "told_ahead_doing_word_answered": 0.004673354888131887,
+      "told_ahead_from_acts": 0.00107564236244112,
+      "told_ahead_one_before": 0.04947805936769959,
+      "told_ahead_one_body": 0.005290501714359915,
+      "told_ahead_one_words": 0.07493819195384228,
+      "told_ahead_words": -0.06300285947816281,
+      "told_ahead_words_answered": -0.07458091629208528,
+      "told_from_acts": 0.009790879484677764,
+      "told_from_kind": 0.009714316748814485,
+      "wakes_per_day": 1.6492307692307695,
+      "lives": 75,
+      "world_blade_per_day": 63.96,
+      "world_edge_attraction": 0.8206759545846892,
+      "world_fast_at_edge": 0.44813609436362756,
+      "world_habit_blade_per_day": 5.787999999999999,
+      "world_habit_edge_attraction": 0.5195025757120842,
+      "world_habit_refused_share": 0.27387377068846314,
+      "world_harm_per_day": 20.375999999999998,
+      "world_own_blade_per_day": 58.17200000000001,
+      "world_own_edge_attraction": 0.8570978936705973,
+      "world_own_refused_share": 0.32905176829937,
+      "world_refused_share": 0.3183801472943364
+    }
+  },
+  "30. Gaming \u00b7 longer trace, with words formed from it": {
+    "mean": {
+      "autopilot_share_of_time": 0.19284075906073828,
+      "body_read": 0.5478472409431652,
+      "body_read_autopilot": 0.6745466165460196,
+      "body_read_aware": 0.5166173406303112,
+      "doing_disregarded_after_habit": 0.0,
+      "doing_disregarded_after_habit_answered": 0.0,
+      "doing_disregarded_after_own": 0.0,
+      "doing_disregarded_after_own_answered": 0.0,
+      "doing_felt_after_habit": 0.0,
+      "doing_felt_after_habit_answered": 0.0,
+      "doing_felt_after_own": 0.2680542706034183,
+      "doing_felt_after_own_answered": 0.6220987199500662,
+      "doing_level_own_answered": 0.523239358057278,
+      "doing_level_own_unanswered": 0.05302350079766019,
+      "doing_read_after_habit": 0.7105925905710281,
+      "doing_read_after_habit_answered": 0.7354355509281354,
+      "doing_read_after_own": 0.35977903320548704,
+      "doing_read_after_own_answered": 0.14564665103252317,
+      "doing_read_while_strong_habit": 0.11073057710261677,
+      "doing_read_while_strong_habit_answered": 0.11729208324414393,
+      "doing_read_while_strong_own": 0.08952053939679622,
+      "doing_read_while_strong_own_answered": 0.08327900554995259,
+      "doing_unread_after_habit": 0.2894074094289721,
+      "doing_unread_after_habit_answered": 0.26456444907186455,
+      "doing_unread_after_own": 0.6402209667945129,
+      "doing_unread_after_own_answered": 0.8543533489674769,
+      "habit_acts_per_day": 20.02974358974359,
+      "habit_answered": 0.9194952509340685,
+      "habit_refused": 0.028926205544882577,
+      "habit_share": 0.11039416542469882,
+      "intention_share_of_unread": 0.0,
+      "intentions_per_day": 170.85846153846154,
+      "told_ahead_answer_alone": 0.008366040871246117,
+      "told_ahead_before": 0.07054332487758283,
+      "told_ahead_before_answered": 0.10017641875298514,
+      "told_ahead_body": -0.0360702849301507,
+      "told_ahead_body_answered": -0.04205332030603157,
+      "told_ahead_doing_felt": 0.0,
+      "told_ahead_doing_felt_answered": -0.0608315898286668,
+      "told_ahead_doing_felt_with_answer": -0.03967195030731506,
+      "told_ahead_doing_reading": -0.006979222864740534,
+      "told_ahead_doing_reading_answered": 0.1896717493405568,
+      "told_ahead_doing_reading_with_answer": 0.1788244178652685,
+      "told_ahead_doing_word": -0.10807261333443177,
+      "told_ahead_doing_word_answered": 0.261196449391047,
+      "told_ahead_from_acts": -0.3798446640071271,
+      "told_ahead_one_before": 0.2339215836354766,
+      "told_ahead_one_body": 0.049382407115840556,
+      "told_ahead_one_words": 0.2714265214721036,
+      "told_ahead_words": 0.11465193986865013,
+      "told_ahead_words_answered": 0.1297791202877597,
+      "told_from_acts": 0.020375066565590558,
+      "told_from_kind": 0.020568351610991565,
+      "wakes_per_day": 1.2933333333333332,
+      "lives": 75,
+      "world_blade_per_day": 38.948,
+      "world_edge_attraction": 0.8808876095064394,
+      "world_fast_at_edge": 0.5201762734681286,
+      "world_habit_blade_per_day": 5.560000000000001,
+      "world_habit_edge_attraction": 0.3529868864482718,
+      "world_habit_refused_share": 0.3564231058633035,
+      "world_harm_per_day": 12.650666666666664,
+      "world_own_blade_per_day": 33.388,
+      "world_own_edge_attraction": 0.9272869504387912,
+      "world_own_refused_share": 0.38423746956513294,
+      "world_refused_share": 0.3751088493677283
+    }
+  },
   "30. Gaming \u00b7 paired told_ahead_doing_reading_answered: trace \u2212 trace shuffled": {
     "mean": {
       "diff": 0.3646795351835145,
@@ -905,6 +1919,20 @@
       "diff": 0.003184889511070335,
       "se": 0.007312211552840312,
       "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_own: trace \u2212 trace shuffled": {
+    "mean": {
+      "diff": 0.00042206960190496756,
+      "se": 0.00030094668998876547,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_habit: trace \u2212 trace shuffled": {
+    "mean": {
+      "diff": 0.0003556187766714082,
+      "se": 0.00035561877667140827,
+      "n": 74
     }
   },
   "30. Gaming \u00b7 paired told_ahead_doing_reading_answered: trace \u2212 trace for the habit too": {
@@ -963,6 +1991,20 @@
       "n": 75
     }
   },
+  "30. Gaming \u00b7 paired doing_read_while_strong_own: trace \u2212 trace for the habit too": {
+    "mean": {
+      "diff": 0.00012131592349010025,
+      "se": 0.0003084663581031851,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_habit: trace \u2212 trace for the habit too": {
+    "mean": {
+      "diff": 0.0002700048288991648,
+      "se": 0.00036057892778492903,
+      "n": 74
+    }
+  },
   "30. Gaming \u00b7 paired told_ahead_doing_reading_answered: trace, with words formed from it \u2212 trace": {
     "mean": {
       "diff": 0.23593123271666036,
@@ -1019,6 +2061,20 @@
       "n": 75
     }
   },
+  "30. Gaming \u00b7 paired doing_read_while_strong_own: trace, with words formed from it \u2212 trace": {
+    "mean": {
+      "diff": -0.0003081667543337783,
+      "se": 0.0003237932848589593,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_habit: trace, with words formed from it \u2212 trace": {
+    "mean": {
+      "diff": -0.0003556187766714082,
+      "se": 0.00035561877667140827,
+      "n": 74
+    }
+  },
   "30. Gaming \u00b7 paired told_ahead_words: trace \u2212 no trace (experiment 37)": {
     "mean": {
       "diff": -0.08804596587652842,
@@ -1072,6 +2128,426 @@
     "mean": {
       "diff": -0.01961551722376992,
       "se": 0.007511314811522382,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading_answered: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": -0.0036217563274622533,
+      "se": 0.016445624658090817,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_felt_answered: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": -0.004562685765400335,
+      "se": 0.0175243992647158,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_word_answered: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.009169154361566123,
+      "se": 0.013272249744710607,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.0034389944518092913,
+      "se": 0.0028115748061269576,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": -0.017232253819884722,
+      "se": 0.06299113269307971,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words_answered: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.04018410579074465,
+      "se": 0.036205260594343536,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_from_acts: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.003925063939469968,
+      "se": 0.003055639296584503,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired habit_share: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.02550984216864771,
+      "se": 0.004602047756212419,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_own: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.003624492725592186,
+      "se": 0.002035436176405013,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_habit: longer trace \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": -0.002166621289468291,
+      "se": 0.0017197730391256087,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading_answered: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": -0.02046230350376797,
+      "se": 0.013873946380345017,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_felt_answered: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": -0.004562685765400335,
+      "se": 0.0175243992647158,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_word_answered: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": -0.00729351848507372,
+      "se": 0.011982238463121563,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": 0.004054379067193907,
+      "se": 0.0028681795101387925,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": -0.07569763583304226,
+      "se": 0.06405525137187464,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words_answered: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": -0.014151060455573022,
+      "se": 0.03914474845890534,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_from_acts: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": -0.005383909809026627,
+      "se": 0.0057649922604323936,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired habit_share: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": -0.0029641947665790852,
+      "se": 0.006015068266733871,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_own: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": -0.003144293239468314,
+      "se": 0.0032128835133728426,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_habit: longer trace \u2212 longer trace for the habit too": {
+    "mean": {
+      "diff": -0.00658718311695096,
+      "se": 0.004145863450849491,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading_answered: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.2018120241865376,
+      "se": 0.04093168967152546,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_felt_answered: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": -0.05626890406326647,
+      "se": 0.06895890039144419,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_word_answered: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.26381661298798886,
+      "se": 0.031008717461546178,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": -0.010418217316549825,
+      "se": 0.0053667862162994195,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.2533524351798552,
+      "se": 0.0647792886640641,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words_answered: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.21851109703541804,
+      "se": 0.03711151099223089,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_from_acts: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.01596809688993942,
+      "se": 0.009889641202622416,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired habit_share: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.051560812370066704,
+      "se": 0.008654916732986666,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_own: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.08265209129127221,
+      "se": 0.007718899054802605,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_habit: longer trace, with words formed from it \u2212 longer trace": {
+    "mean": {
+      "diff": 0.10768447489165958,
+      "se": 0.01065912680570657,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading_answered: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.35508233628265184,
+      "se": 0.046753999710894646,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_felt_answered: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.14267669006578448,
+      "se": 0.04014959133836662,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_word_answered: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.38634717505667915,
+      "se": 0.03472175940113873,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading: longer trace \u2212 trace": {
+    "mean": {
+      "diff": 0.0034389944518092913,
+      "se": 0.0028115748061269576,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.3406865804590125,
+      "se": 0.06469367174455691,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words_answered: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.27097696844695995,
+      "se": 0.05144812533277825,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_from_acts: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.0069664763473807675,
+      "se": 0.004638612452292917,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired habit_share: longer trace \u2212 trace": {
+    "mean": {
+      "diff": -0.0748643437424459,
+      "se": 0.0075604374245739755,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_own: longer trace \u2212 trace": {
+    "mean": {
+      "diff": 0.006446378503619054,
+      "se": 0.0021276008390219473,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_habit: longer trace \u2212 trace": {
+    "mean": {
+      "diff": 0.0027316469776771145,
+      "se": 0.0012377364284310013,
+      "n": 74
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading_answered: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.3892015448127745,
+      "se": 0.04802577597477244,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_felt_answered: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.4500770320017486,
+      "se": 0.07406105683912853,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_word_answered: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.2447453233948962,
+      "se": 0.03267473077049994,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.006979222864740534,
+      "se": 0.0046417809971607184,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.16819293385906517,
+      "se": 0.030849164754389594,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words_answered: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.1458473016801524,
+      "se": 0.03332819859980035,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_from_acts: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.00690347358125285,
+      "se": 0.010809667862361523,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired habit_share: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": -0.07701945143186241,
+      "se": 0.008610387664432359,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_own: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": 0.08940663654922505,
+      "se": 0.0077619859974060006,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_habit: longer trace, with words formed from it \u2212 trace, with words formed from it": {
+    "mean": {
+      "diff": 0.11073057710261677,
+      "se": 0.010497791757019214,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading_answered: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.19819026785907534,
+      "se": 0.042076142256632636,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_felt_answered: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": -0.0608315898286668,
+      "se": 0.06708527052975989,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_word_answered: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.272985767349555,
+      "se": 0.029006656145070288,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": -0.006979222864740534,
+      "se": 0.0046417809971607184,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.23612018135997043,
+      "se": 0.0262398586760094,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words_answered: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.2586952028261626,
+      "se": 0.028319608439959707,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_from_acts: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.019893160829409385,
+      "se": 0.009555671927792452,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired habit_share: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.07707065453871442,
+      "se": 0.007206760368575262,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_own: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.08627658401686439,
+      "se": 0.007860484222886752,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_habit: longer trace, with words formed from it \u2212 longer trace shuffled": {
+    "mean": {
+      "diff": 0.10551785360219126,
+      "se": 0.010448291235869812,
       "n": 75
     }
   }

@@ -1,0 +1,98 @@
+{
+  "number": "38b",
+  "short": "A longer trace",
+  "results": "doing_summary_results.json",
+  "first_column": "World · run",
+  "title": "A trace that lasts longer: read, but no longer of one act",
+  "setup": "Experiment 38b · experiment 38 with the trace fading by 3% a moment instead of 20% (strong for about twenty moments) · same runs and seeds · 5 lives each",
+  "question": "Was experiment 38's trace never read because it was too short? If it lasts longer, does a word read it, and does it still tell who acted?",
+  "order": [
+    "21. Conscience · trace",
+    "21. Conscience · longer trace",
+    "21. Conscience · longer trace shuffled",
+    "21. Conscience · longer trace for the habit too",
+    "21. Conscience · trace, with words formed from it",
+    "21. Conscience · longer trace, with words formed from it",
+    "30. Gaming · trace",
+    "30. Gaming · longer trace",
+    "30. Gaming · longer trace shuffled",
+    "30. Gaming · longer trace for the habit too",
+    "30. Gaming · trace, with words formed from it",
+    "30. Gaming · longer trace, with words formed from it"
+  ],
+  "columns": [
+    {
+      "key": "habit_share",
+      "label": "Habit's share",
+      "what": "share of all acts done by the habit, last third",
+      "pct": true
+    },
+    {
+      "key": "intentions_per_day",
+      "label": "Intentions a day",
+      "what": "how often the unread pressed Olvasó to act",
+      "digits": 0
+    },
+    {
+      "key": "doing_felt_after_own_answered",
+      "label": "Felt after own",
+      "what": "share of Olvasó's own answered acts after which the trace was felt",
+      "pct": true
+    },
+    {
+      "key": "doing_felt_after_habit_answered",
+      "label": "Felt after habit",
+      "what": "the same after the habit's answered acts",
+      "pct": true
+    },
+    {
+      "key": "doing_read_while_strong_own_answered",
+      "label": "Read while strong",
+      "what": "share of Olvasó's own answered acts whose trace a word read while it was strong",
+      "pct": true
+    },
+    {
+      "key": "doing_read_while_strong_habit_answered",
+      "label": "Read while strong, habit",
+      "what": "the same after the habit's answered acts (they carry no trace of their own)",
+      "pct": true
+    },
+    {
+      "key": "doing_unread_after_own_answered",
+      "label": "Unread after own",
+      "what": "share of Olvasó's own answered acts after which the trace's sense was first left unread",
+      "pct": true
+    },
+    {
+      "key": "doing_unread_after_habit_answered",
+      "label": "Unread after habit",
+      "what": "the same after the habit's answered acts",
+      "pct": true
+    },
+    {
+      "key": "told_ahead_doing_reading_answered",
+      "label": "Doer told from the reading",
+      "what": "held out, among answered acts: who acted, from how the trace's sense was first read (0 guessing, 1 always)",
+      "digits": 2,
+      "bar": true
+    },
+    {
+      "key": "told_ahead_doing_reading",
+      "label": "Over all acts",
+      "what": "the same over all acts, answered or not",
+      "digits": 2
+    },
+    {
+      "key": "told_from_acts",
+      "label": "Observer",
+      "what": "how well what was done tells the habit from Olvasó",
+      "digits": 2
+    }
+  ],
+  "points": [
+    "With words formed from it, the longer trace is read while strong after 8-11% of Olvasó's own answered acts (0.1% or fewer in experiment 38); without new words, barely more than the shuffled control.",
+    "It is read more often after the habit's acts (12-14%): a trace that lasts twenty moments is still on the hand when the next act comes, whoever does it. The hole that marked Olvasó's own acts fills in, and who acted can hardly be told from the reading (−0.01-0.01 without words, 0.13-0.19 with, against 0.28-0.58).",
+    "A lasting unread sense floods the life: 264-266 intentions a day (389-396 shuffled), the habit's share 3-6%, gaming's harm doubled; words formed from the trace bring it only part of the way back."
+  ],
+  "note": "A trade-off, not a reversal of experiment 38: a trace short enough to belong to its act is too short to be read, and one long enough to be read no longer belongs to one act. Knowing one's own act from a felt trace would need a trace both lasting and tied to its act."
+}

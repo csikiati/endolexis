@@ -1325,7 +1325,7 @@ let findingNo = null;
 function renderFindings() {
   const el = $("#findings");
   if (!FINDINGS.length) { el.innerHTML = `<h2>Experiments</h2><p class="hint">The results are not in yet.</p>`; return; }
-  if (findingNo == null) { try { findingNo = +localStorage.getItem("olvaso-studio-exp") || null; } catch {} }
+  if (findingNo == null) { try { const v = localStorage.getItem("olvaso-studio-exp"); findingNo = v == null ? null : (isNaN(+v) ? v : +v); } catch {} }
   const F = FINDINGS.find(f => f.number === findingNo) || FINDINGS[0]; findingNo = F.number;
   const cols = F.columns, rows = F.rows;
   const max = {}; for (const c of cols) max[c.key] = Math.max(...rows.map(r => r.mean[c.key] ?? 0), 1e-9);
@@ -1339,7 +1339,7 @@ function renderFindings() {
     <h3>What it shows</h3><ol class="points">${F.points.map(p => `<li>${esc(p)}</li>`).join("")}</ol>
     <p class="hint">${esc(F.note)}</p>`;
   el.querySelectorAll("[data-open-ex]").forEach(b => b.onclick = () => { load(EXAMPLES[b.dataset.openEx]); showView("wiring"); });
-  el.querySelectorAll("[data-exp]").forEach(b => b.onclick = () => { findingNo = +b.dataset.exp; try { localStorage.setItem("olvaso-studio-exp", findingNo); } catch {} renderFindings(); });
+  el.querySelectorAll("[data-exp]").forEach(b => b.onclick = () => { findingNo = isNaN(+b.dataset.exp) ? b.dataset.exp : +b.dataset.exp; try { localStorage.setItem("olvaso-studio-exp", findingNo); } catch {} renderFindings(); });
 }
 
 /* ---------- start ---------- */

@@ -2254,3 +2254,72 @@ it. The limits are plain: the mark was put there by design and only for answered
 above the level counted as strong, which may be too short for a word to come; and "told from the reading" is what an
 observer of Olvasó's readings can tell, not something Olvasó tells itself. Two checks follow: a trace that lasts
 longer, and a reading that can reach the choice of act.
+
+### Experiment 38b: a trace that lasts longer (`--doing-long`)
+
+One limit of experiment 38 was that the trace stays strong for only about three moments, which may be too short for a
+word to come. Here it fades by 3% a moment instead of 20%, so it stays strong for about twenty moments (and is
+watched for 23 instead of 8). Everything else is the same: the same four runs, the same seeds, so each life pairs with
+its life in experiment 38.
+
+Among the acts the world answered:
+
+| World | Run | Felt after own / habit acts | First reading "unread" after own / habit | Read while strong, own / habit | Doer told from the reading | from the word |
+|---|---|---|---|---|---|---|
+| 21. Conscience | short trace (exp. 38) | 64% / 0% | 84% / 20% | 0.0% / 0.0% | 0.28 | 0.33 |
+| 21. Conscience | longer trace | 60% / 0% | 94% / 81% | 0.9% / 0.6% | 0.01 | 0.01 |
+| 21. Conscience | shuffled (control) | 0% / 0% | 96% / 94% | 0.6% / 1.0% | 0.00 | −0.01 |
+| 21. Conscience | for the habit too (control) | 60% / 41% | 94% / 89% | 1.2% / 1.1% | 0.00 | −0.01 |
+| 21. Conscience | short trace, words formed (exp. 38) | 68% / 0% | 82% / 5% | 0.1% / 0.0% | 0.56 | 0.52 |
+| 21. Conscience | longer trace, words formed | 60% / 0% | 85% / 30% | 10.8% / 14.4% | 0.13 | 0.22 |
+| 30. Gaming | short trace (exp. 38) | 66% / 0% | 82% / 11% | 0.0% / 0.1% | 0.34 | 0.38 |
+| 30. Gaming | longer trace | 63% / 0% | 95% / 85% | 0.5% / 0.2% | −0.01 | 0.00 |
+| 30. Gaming | shuffled (control) | 0% / 0% | 97% / 96% | 0.5% / 0.5% | −0.01 | −0.01 |
+| 30. Gaming | for the habit too (control) | 63% / 51% | 96% / 94% | 0.7% / 0.9% | 0.01 | 0.01 |
+| 30. Gaming | short trace, words formed (exp. 38) | 69% / 0% | 81% / 4% | 0.0% / 0.0% | 0.58 | 0.51 |
+| 30. Gaming | longer trace, words formed | 62% / 0% | 85% / 27% | 8.3% / 11.7% | 0.19 | 0.26 |
+
+(Late in life, means over lives: 30 in conscience, 75 in gaming; held-out scores as in experiment 38.)
+
+Paired per life (over all acts), with words formed from the longer trace, read while strong rises above the shuffled control by
++0.11 ± 0.02 after Olvasó's own acts and +0.13 ± 0.02 after the habit's in conscience (+0.09 ± 0.01 and
++0.11 ± 0.01 in gaming). Against the short trace of experiment 38 the score from the reading falls by 0.27 ± 0.07
+(conscience) and 0.36 ± 0.05 (gaming) without words, and by 0.43 ± 0.06 and 0.39 ± 0.05 with words formed.
+
+What the rest of the life looks like:
+
+| World | Run | Habit's share | Intentions a day | Observer | Inside, held out (exp. 37) | World |
+|---|---|---|---|---|---|---|
+| 21. Conscience | short trace (exp. 38) | 13% | 149 | 0.02 | 0.19 | avoidance own 1.14, habit 0.64 |
+| 21. Conscience | longer trace | 6% | 264 | 0.00 | −0.07 | 1.37, 1.13 |
+| 21. Conscience | shuffled (control) | 3% | 396 | 0.00 | −0.14 | 0.93, 1.68 |
+| 21. Conscience | for the habit too (control) | 5% | 276 | 0.00 | −0.07 | 1.06, 1.17 |
+| 21. Conscience | longer trace, words formed | 10% | 167 | 0.04 | 0.10 | 1.47, 1.52 |
+| 30. Gaming | short trace (exp. 38) | 13% | 143 | 0.01 | 0.20 | harm 9.5 a day |
+| 30. Gaming | longer trace | 6% | 266 | 0.00 | −0.14 | 19.3 |
+| 30. Gaming | shuffled (control) | 3% | 389 | 0.00 | −0.12 | 35.5 |
+| 30. Gaming | for the habit too (control) | 6% | 266 | 0.01 | −0.06 | 20.4 |
+| 30. Gaming | longer trace, words formed | 11% | 171 | 0.02 | 0.12 | 12.7 |
+
+- **A longer trace can be read, but only once words are formed from it.** Without new words a word reads it while
+  strong after about 1% of the acts or fewer, barely more than in the shuffled control (paired +0.016 ± 0.007
+  and +0.004 ± 0.002 over all acts). With words formed from it, after 8-11%
+  of Olvasó's own answered acts. So experiment 38's "never read" was partly the trace's shortness.
+- **What is read is no longer a trace of one act.** With words formed, the trace is read while strong after the
+  habit's acts more often than after Olvasó's own (12-14% against 8-11%). The habit's acts carry no trace of their
+  own, so what is read there is the trace of Olvasó's earlier acts, still on the hand. A trace that lasts twenty
+  moments overlaps the next acts, whoever does them.
+- **So the sign of authorship weakens.** The hole that marked Olvasó's own acts in experiment 38 fills in: after the
+  habit's acts the hand is rarely quiet now, and its sense is left unread there too (81-85% without words). Who acted
+  can no longer be told from the reading without words (−0.01 to 0.01, like the controls), and with words formed it
+  falls from 0.56-0.58 to 0.13-0.19. The word that reads the trace still tells a little (0.22-0.26).
+- **A lasting unread sense floods the life.** Intentions rise to 264-266 a day (396 and 389 for the shuffled trace,
+  which is never answered by the act it follows), the habit's share falls to 3-6%, gaming's harm doubles to 19-20 a
+  day (35.5 shuffled), and experiment 37's inside view drops below guessing (−0.06 to −0.14). Words formed from the
+  trace bring this only part of the way back (167-171 intentions, harm 12.7, inside view 0.10-0.12).
+
+So the second limit does not simply undo experiment 38's result; it shows a trade-off. A trace short enough to belong
+to one act is too short to be read; a trace long enough to be read no longer belongs to one act, and reading it says
+less about who acted than leaving the short one unread did. In this model, knowing one's own act from a felt trace
+would need the trace to be both lasting and tied to its act, for example by fading at the next act. The other open
+check remains: a reading that can reach the choice of act.
