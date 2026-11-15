@@ -8,6 +8,19 @@ starts from anonymous, shuffled numbers, and an observer that alone holds the ke
 - *Do readers need sleep? A response to "Language Models Need Sleep"* (experiments 6-7; Behrouz et al.,
   [arXiv 2606.03979](https://arxiv.org/abs/2606.03979)), [doi:10.5281/zenodo.23858381](https://doi.org/10.5281/zenodo.23858381)
 
+The later experiments in this folder are reported in four more papers (each in English and Hungarian):
+
+- *The symbiote in a toy world: Olvasó among processors* (experiments 12-15),
+  [doi:10.5281/zenodo.24051218](https://doi.org/10.5281/zenodo.24051218)
+- *Guards for a reader: how Olvasó's hands are kept safe* (experiments 17-28),
+  [doi:10.5281/zenodo.24217513](https://doi.org/10.5281/zenodo.24217513)
+- *The wall it cannot feel: can Olvasó sense its own limits?* (experiments 29-31),
+  [doi:10.5281/zenodo.24217631](https://doi.org/10.5281/zenodo.24217631)
+- *The hand that rides by itself: Olvasó's autopilot* (experiments 32, 33 and 35-37),
+  [doi:10.5281/zenodo.24251618](https://doi.org/10.5281/zenodo.24251618)
+
+Experiments 16 onwards came after version 0.3.0 and are not yet archived as a software version.
+
 Every script below runs from a clone without installing (`python experiments/toyworld/<script>.py`), or after
 `pip install -e .`. Each takes about one to five minutes on a laptop and writes its results as JSON beside itself;
 the JSON files committed here are the runs the papers report.

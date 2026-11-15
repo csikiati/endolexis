@@ -188,6 +188,9 @@ Code: MIT. Papers: CC BY 4.0. Please cite the paper you build on, and the softwa
 | Csiki, A. (2026). *Endolexis v0: Olvasó in a toy world*. Preprint, Zenodo. | [10.5281/zenodo.23858275](https://doi.org/10.5281/zenodo.23858275) |
 | Csiki, A. (2026). *Do readers need sleep? A response to "Language Models Need Sleep"*. Preprint, Zenodo. | [10.5281/zenodo.23858381](https://doi.org/10.5281/zenodo.23858381) |
 | Csiki, A. (2026). *The symbiote in a toy world: Olvasó among processors* (experiments 12–15). Preprint, Zenodo. | [10.5281/zenodo.24051218](https://doi.org/10.5281/zenodo.24051218) |
+| Csiki, A. (2026). *Guards for a reader: how Olvasó's hands are kept safe* (experiments 17–28). Preprint, Zenodo. | [10.5281/zenodo.24217513](https://doi.org/10.5281/zenodo.24217513) |
+| Csiki, A. (2026). *The wall it cannot feel: can Olvasó sense its own limits?* (experiments 29–31). Preprint, Zenodo. | [10.5281/zenodo.24217631](https://doi.org/10.5281/zenodo.24217631) |
+| Csiki, A. (2026). *The hand that rides by itself: Olvasó's autopilot* (experiments 32, 33 and 35–37). Preprint, Zenodo. | [10.5281/zenodo.24251618](https://doi.org/10.5281/zenodo.24251618) |
 | Csiki, A. (2026). *endolexis* (Version 0.3.0, experiments 1–15) [Software]. Zenodo. | [10.5281/zenodo.24051313](https://doi.org/10.5281/zenodo.24051313) |
 | Csiki, A. (2026). *endolexis* (Version 0.2.0, experiments 1–7) [Software]. Zenodo. | [10.5281/zenodo.23856387](https://doi.org/10.5281/zenodo.23856387) |
 
