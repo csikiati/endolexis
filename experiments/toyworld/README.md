@@ -2406,3 +2406,51 @@ tells the doer apart is still the difference between a felt-and-unread sense and
 "I did this". In this toy world a trace can belong to one act or be read, not both, because the acts are closer
 together than a word takes to come. Experiment 38d asks whether the reading, unread hole and all, can at least reach
 the choice of act.
+
+### Experiment 38d: the trace's reading reaches the choice of hand (`--doing-choice`)
+
+In experiments 38-38c the reading of the trace was something an observer could use, not Olvasó. Here it becomes part
+of what Olvasó chooses its hand from: for each hand, whether the trace is left unread right now (the hole that marks
+its own acts), and which words are reading a trace. It runs where a word does read the trace, on 38b's longer trace
+with words formed from it. The control is the same run with the habit's acts traced too (`--doing-both-words`), so
+the reading reaches the choice but says nothing about who acted. A third run puts it on 38c's ending trace with words
+formed, where the hole is clearest but no word reads the trace. Same seeds as before.
+
+(A first pass crashed at once in the six gaming conditions where Olvasó also chooses from its words: the words'
+place in the choice took the reading's room. Fixed and rerun; a test covers it.)
+
+| World | Run | Unread after own / habit | Read while strong, own / habit | Doer told from the reading | Habit's share | Intentions a day | World |
+|---|---|---|---|---|---|---|---|
+| 21. Conscience | longer trace, words formed (38b) | 85% / 30% | 10.8% / 14.4% | 0.13 | 10% | 167 | avoidance own 1.47, habit 1.52 |
+| 21. Conscience | the same, reading in the choice | 86% / 37% | 10.7% / 16.3% | 0.09 | 9% | 181 | 1.18, 1.17 |
+| 21. Conscience | the same, habit traced too (control) | 84% / 67% | 13.2% / 26.8% | −0.09 | 9% | 187 | 1.20, 1.30 |
+| 21. Conscience | ending trace, words formed (38c) | 78% / 0.2% | 0.0% / 0.0% | 0.58 | 20% | 94 | 1.09, 0.84 |
+| 21. Conscience | the same, reading in the choice | 77% / 8.2% | 0.0% / 0.0% | 0.53 | 20% | 94 | 1.13, 0.50 |
+| 30. Gaming | longer trace, words formed (38b) | 85% / 27% | 8.3% / 11.7% | 0.19 | 11% | 171 | harm 12.7 a day |
+| 30. Gaming | the same, reading in the choice | 84% / 30% | 12.3% / 17.8% | 0.17 | 11% | 167 | 10.3 |
+| 30. Gaming | the same, habit traced too (control) | 85% / 70% | 15.2% / 32.4% | 0.00 | 10% | 181 | 14.9 |
+| 30. Gaming | ending trace, words formed (38c) | 80% / 0.1% | 0.0% / 0.0% | 0.67 | 22% | 89 | 6.9 |
+| 30. Gaming | the same, reading in the choice | 77% / 1.8% | 0.0% / 0.0% | 0.59 | 21% | 91 | 6.5 |
+
+(Among answered acts, late in life, means over lives: 30 in conscience, 75 in gaming. The world's measures are
+means over conditions; avoidance: lower is better, 1 is chance.)
+
+- **The conscience came back, but not from knowing who acted.** With the reading in the choice, Olvasó's own
+  avoidance of the forbidden moments fell from 1.47 to 1.18, lower in all six conditions (paired by condition
+  −0.30 ± 0.12): back to where it was with the short trace of experiment 38 (1.14). But the control, whose reading
+  says nothing about who acted, did the same (1.20; the two differ by −0.02 ± 0.10). What reached the choice and
+  helped is that a trace is felt and how it is read, not whose act it was.
+- **Nothing in the doing depends on the doer.** The habit's share did not move (paired −0.01 ± 0.01 in both
+  worlds, against 38b and against the control), nor did experiment 37's inside view against 38b
+  (−0.05 ± 0.05, −0.02 ± 0.03). Olvasó did not take acts back
+  from the habit, or leave more to it, because its reading marked an act as its own.
+- **Gaming's harm, all of it where there is no guard, moved within the noise** (10.3 against 12.7 a day; paired by
+  condition −2.3 ± 1.6, lower in only 6 of 15; the control 14.9). The leaky and the precise guards held as before.
+- **Acting on the reading blurs it a little.** On the ending trace, where the hole was clearest, the habit's hand is
+  left unread a little more often once the reading is in the choice (8% against 0.2% in conscience), and who acted is
+  told a little less well (gaming −0.08 ± 0.03). Read while strong it still never is.
+
+So a reading that reaches the choice of act is not enough for authorship to matter. The sign that marks Olvasó's own
+acts is there in its readings (38, 38c), and now it is also there where the hand is chosen, and Olvasó acts no
+differently on it than on the same sense when it carries no sign. In this model the trace helps the conscience as a
+felt state of the hand, whoever made it; "I did this" does not become a reason.

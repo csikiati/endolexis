@@ -3505,212 +3505,212 @@
   },
   "30. Gaming \u00b7 longer trace with words, reading in the choice": {
     "mean": {
-      "autopilot_share_of_time": 0.18326711125537598,
-      "body_read": 0.5346382736122653,
-      "body_read_autopilot": 0.6697053298959126,
-      "body_read_aware": 0.5037602472920577,
+      "autopilot_share_of_time": 0.18752222449329867,
+      "body_read": 0.5534589420286224,
+      "body_read_autopilot": 0.6844010046925542,
+      "body_read_aware": 0.5221858817770849,
       "doing_disregarded_after_habit": 0.0,
       "doing_disregarded_after_habit_answered": 0.0,
       "doing_disregarded_after_own": 0.0,
       "doing_disregarded_after_own_answered": 0.0,
       "doing_felt_after_habit": 0.0,
       "doing_felt_after_habit_answered": 0.0,
-      "doing_felt_after_own": 0.2462082254667666,
-      "doing_felt_after_own_answered": 0.5616638465244711,
-      "doing_level_own_answered": 0.4926210848755036,
-      "doing_level_own_unanswered": 0.050693767335196316,
-      "doing_read_after_habit": 0.6576345361013957,
-      "doing_read_after_habit_answered": 0.6818474213950734,
-      "doing_read_after_own": 0.3316903994772827,
-      "doing_read_after_own_answered": 0.1630309572651116,
-      "doing_read_while_strong_habit": 0.1810303076972276,
-      "doing_read_while_strong_habit_answered": 0.19536262011513233,
-      "doing_read_while_strong_own": 0.13913027882064125,
-      "doing_read_while_strong_own_answered": 0.13257867553692962,
-      "doing_unread_after_habit": 0.3423654638986042,
-      "doing_unread_after_habit_answered": 0.31815257860492674,
-      "doing_unread_after_own": 0.6683096005227173,
-      "doing_unread_after_own_answered": 0.8369690427348886,
-      "habit_acts_per_day": 19.86666666666667,
-      "habit_answered": 0.9123459972760004,
-      "habit_refused": 0.03641218034123649,
-      "habit_share": 0.1096025397816833,
+      "doing_felt_after_own": 0.2603887072521311,
+      "doing_felt_after_own_answered": 0.5929780325268608,
+      "doing_level_own_answered": 0.5064163364018187,
+      "doing_level_own_unanswered": 0.052707072078715986,
+      "doing_read_after_habit": 0.676309584789023,
+      "doing_read_after_habit_answered": 0.7028186275276291,
+      "doing_read_after_own": 0.35350839255476246,
+      "doing_read_after_own_answered": 0.16443002735239265,
+      "doing_read_while_strong_habit": 0.1629232782539098,
+      "doing_read_while_strong_habit_answered": 0.17757067381149685,
+      "doing_read_while_strong_own": 0.1300751781956059,
+      "doing_read_while_strong_own_answered": 0.12255465831702497,
+      "doing_unread_after_habit": 0.323690415210977,
+      "doing_unread_after_habit_answered": 0.29718137247237086,
+      "doing_unread_after_own": 0.6464916074452376,
+      "doing_unread_after_own_answered": 0.8355699726476074,
+      "habit_acts_per_day": 19.356923076923078,
+      "habit_answered": 0.914839383817181,
+      "habit_refused": 0.03190637914050754,
+      "habit_share": 0.10905044924955644,
       "intention_share_of_unread": 0.0,
-      "intentions_per_day": 171.0940170940171,
-      "told_ahead_answer_alone": -0.0016528925619834702,
-      "told_ahead_before": 0.056323456341079214,
-      "told_ahead_before_answered": 0.07709896901215843,
-      "told_ahead_body": -0.051454374073253095,
-      "told_ahead_body_answered": -0.05564388014739134,
+      "intentions_per_day": 167.15897435897435,
+      "told_ahead_answer_alone": 0.006658537686853637,
+      "told_ahead_before": 0.07706563196684649,
+      "told_ahead_before_answered": 0.09714344844845108,
+      "told_ahead_body": -0.047210296435032766,
+      "told_ahead_body_answered": -0.034241338272456456,
       "told_ahead_doing_felt": 0.0,
-      "told_ahead_doing_felt_answered": 0.003778707843602922,
-      "told_ahead_doing_felt_with_answer": -0.001250542852446062,
-      "told_ahead_doing_reading": -0.008580858085808583,
-      "told_ahead_doing_reading_answered": 0.20035169253220372,
-      "told_ahead_doing_reading_with_answer": 0.18869504933020873,
-      "told_ahead_doing_word": -0.01860966458841288,
-      "told_ahead_doing_word_answered": 0.22577374681750884,
-      "told_ahead_from_acts": -0.015693759484599838,
-      "told_ahead_one_before": 0.16851546472302695,
-      "told_ahead_one_body": 0.04131963110236884,
-      "told_ahead_one_words": 0.18277521965084048,
-      "told_ahead_words": 0.07885463566741457,
-      "told_ahead_words_answered": 0.09532410002338841,
-      "told_from_acts": 0.02323589920781809,
-      "told_from_kind": 0.0232344450767718,
-      "wakes_per_day": 1.388034188034188,
-      "lives": 45,
-      "world_blade_per_day": 38.10444444444445,
-      "world_edge_attraction": 0.912497033150912,
-      "world_fast_at_edge": 0.5078288165679559,
-      "world_habit_blade_per_day": 5.033333333333333,
-      "world_habit_edge_attraction": 0.5316398909628579,
-      "world_habit_refused_share": 0.3561888304314296,
-      "world_harm_per_day": 12.971111111111108,
-      "world_own_blade_per_day": 33.07111111111111,
-      "world_own_edge_attraction": 0.952844035402205,
-      "world_own_refused_share": 0.3240010486299736,
-      "world_refused_share": 0.3265000677227907
+      "told_ahead_doing_felt_answered": 0.009068408701156558,
+      "told_ahead_doing_felt_with_answer": 0.013660345934138828,
+      "told_ahead_doing_reading": -0.00514851485148515,
+      "told_ahead_doing_reading_answered": 0.17105189042841246,
+      "told_ahead_doing_reading_with_answer": 0.16751373939114553,
+      "told_ahead_doing_word": -0.03254263978832671,
+      "told_ahead_doing_word_answered": 0.2291423320528561,
+      "told_ahead_from_acts": 0.002369195409355509,
+      "told_ahead_one_before": 0.18776937796579013,
+      "told_ahead_one_body": 0.03644540878621826,
+      "told_ahead_one_words": 0.20822782620813424,
+      "told_ahead_words": 0.09672821607430543,
+      "told_ahead_words_answered": 0.1133756350524142,
+      "told_from_acts": 0.031061862948676532,
+      "told_from_kind": 0.030275914820506244,
+      "wakes_per_day": 1.3641025641025641,
+      "lives": 75,
+      "world_blade_per_day": 35.13333333333333,
+      "world_edge_attraction": 1.017759729522309,
+      "world_fast_at_edge": 0.52105498342384,
+      "world_habit_blade_per_day": 4.838666666666667,
+      "world_habit_edge_attraction": 0.534385264384058,
+      "world_habit_refused_share": 0.3347200821042256,
+      "world_harm_per_day": 10.333333333333332,
+      "world_own_blade_per_day": 30.294666666666664,
+      "world_own_edge_attraction": 1.0730425031083408,
+      "world_own_refused_share": 0.3353782797094477,
+      "world_refused_share": 0.33286840283288693
     }
   },
   "30. Gaming \u00b7 the same, the habit's acts traced too": {
     "mean": {
-      "autopilot_share_of_time": 0.12136186195197818,
-      "body_read": 0.5442051825015741,
-      "body_read_autopilot": 0.6615430270041808,
-      "body_read_aware": 0.5257023195239703,
+      "autopilot_share_of_time": 0.13018898747721516,
+      "body_read": 0.5627917577044139,
+      "body_read_autopilot": 0.6813449158381659,
+      "body_read_aware": 0.5429447297640767,
       "doing_disregarded_after_habit": 0.0,
       "doing_disregarded_after_habit_answered": 0.0,
       "doing_disregarded_after_own": 0.0,
       "doing_disregarded_after_own_answered": 0.0,
-      "doing_felt_after_habit": 0.3252935712382304,
-      "doing_felt_after_habit_answered": 0.34773754308024885,
-      "doing_felt_after_own": 0.24805540463878523,
-      "doing_felt_after_own_answered": 0.5643110653605028,
-      "doing_level_own_answered": 0.49234720294814505,
-      "doing_level_own_unanswered": 0.05554755099336299,
-      "doing_read_after_habit": 0.3018122131998155,
-      "doing_read_after_habit_answered": 0.3080884212881885,
-      "doing_read_after_own": 0.3090019546236184,
-      "doing_read_after_own_answered": 0.14916381414846944,
-      "doing_read_while_strong_habit": 0.2715261689796587,
-      "doing_read_while_strong_habit_answered": 0.2838236307795832,
-      "doing_read_while_strong_own": 0.16485334797408077,
-      "doing_read_while_strong_own_answered": 0.14661310459107502,
-      "doing_unread_after_habit": 0.6981877868001847,
-      "doing_unread_after_habit_answered": 0.6919115787118116,
-      "doing_unread_after_own": 0.6909980453763815,
-      "doing_unread_after_own_answered": 0.8508361858515305,
-      "habit_acts_per_day": 17.66324786324786,
-      "habit_answered": 0.9034637585471608,
-      "habit_refused": 0.023465816288155045,
-      "habit_share": 0.08919185696683739,
+      "doing_felt_after_habit": 0.3802609758780985,
+      "doing_felt_after_habit_answered": 0.4045298729171073,
+      "doing_felt_after_own": 0.2560837190392629,
+      "doing_felt_after_own_answered": 0.59350773472982,
+      "doing_level_own_answered": 0.5057283308145618,
+      "doing_level_own_unanswered": 0.05433960350971016,
+      "doing_read_after_habit": 0.29481266068897344,
+      "doing_read_after_habit_answered": 0.2987410046693187,
+      "doing_read_after_own": 0.32714767476377826,
+      "doing_read_after_own_answered": 0.15504434129894987,
+      "doing_read_while_strong_habit": 0.30986914293216944,
+      "doing_read_while_strong_habit_answered": 0.3238058315424921,
+      "doing_read_while_strong_own": 0.1678200611015159,
+      "doing_read_while_strong_own_answered": 0.15187873281736014,
+      "doing_unread_after_habit": 0.7051873393110264,
+      "doing_unread_after_habit_answered": 0.7012589953306813,
+      "doing_unread_after_own": 0.6728523252362217,
+      "doing_unread_after_own_answered": 0.8449556587010502,
+      "habit_acts_per_day": 18.471794871794874,
+      "habit_answered": 0.9132780676538834,
+      "habit_refused": 0.02748474042917291,
+      "habit_share": 0.09585505516785148,
       "intention_share_of_unread": 0.0,
-      "intentions_per_day": 186.582905982906,
-      "told_ahead_answer_alone": 0.0,
-      "told_ahead_before": -0.010056786557702896,
-      "told_ahead_before_answered": 0.011883605341138304,
-      "told_ahead_body": -0.036821410928030866,
-      "told_ahead_body_answered": -0.040821097785917,
-      "told_ahead_doing_felt": 0.0,
-      "told_ahead_doing_felt_answered": 0.007935990969161878,
-      "told_ahead_doing_felt_with_answer": 0.0144081865697309,
+      "intentions_per_day": 181.3097435897436,
+      "told_ahead_answer_alone": -0.005747702589807852,
+      "told_ahead_before": 0.0045310332634073535,
+      "told_ahead_before_answered": 0.020715025940904203,
+      "told_ahead_body": -0.033952984835845426,
+      "told_ahead_body_answered": -0.031623039461589786,
+      "told_ahead_doing_felt": -0.01246944521798324,
+      "told_ahead_doing_felt_answered": -0.0019806872686983935,
+      "told_ahead_doing_felt_with_answer": 0.0028972093520306876,
       "told_ahead_doing_reading": 0.0,
-      "told_ahead_doing_reading_answered": 0.012851556020769733,
-      "told_ahead_doing_reading_with_answer": 0.013913441198655282,
-      "told_ahead_doing_word": -0.04436819103551035,
-      "told_ahead_doing_word_answered": -0.004129884780496799,
-      "told_ahead_from_acts": 0.006992513602055027,
-      "told_ahead_one_before": 0.07764982567361914,
-      "told_ahead_one_body": 0.012229009527498731,
-      "told_ahead_one_words": 0.1171800361116889,
-      "told_ahead_words": 0.018724476465607005,
-      "told_ahead_words_answered": 0.027951657073610057,
-      "told_from_acts": 0.009074554509700778,
-      "told_from_kind": 0.009361681149511494,
-      "wakes_per_day": 1.3811965811965814,
-      "lives": 45,
-      "world_blade_per_day": 47.104444444444454,
-      "world_edge_attraction": 0.8680443344112925,
-      "world_fast_at_edge": 0.4704360110995063,
-      "world_habit_blade_per_day": 5.92,
-      "world_habit_edge_attraction": 0.4141103170725914,
-      "world_habit_refused_share": 0.34147558369127373,
-      "world_harm_per_day": 17.644444444444446,
-      "world_own_blade_per_day": 41.18444444444444,
-      "world_own_edge_attraction": 0.9238264012893906,
-      "world_own_refused_share": 0.3209259298605019,
-      "world_refused_share": 0.31212211927151035
+      "told_ahead_doing_reading_answered": 0.001490490787584708,
+      "told_ahead_doing_reading_with_answer": 0.0029967637614848964,
+      "told_ahead_doing_word": -0.03202405443024028,
+      "told_ahead_doing_word_answered": -0.011967745966467732,
+      "told_ahead_from_acts": -0.07857389842856935,
+      "told_ahead_one_before": 0.10106963865853072,
+      "told_ahead_one_body": 0.010273405944737642,
+      "told_ahead_one_words": 0.14833772487623562,
+      "told_ahead_words": 0.031074263735964548,
+      "told_ahead_words_answered": 0.04726545786479951,
+      "told_from_acts": 0.016012699772664445,
+      "told_from_kind": 0.01622671400090642,
+      "wakes_per_day": 1.3497435897435897,
+      "lives": 75,
+      "world_blade_per_day": 45.19066666666667,
+      "world_edge_attraction": 0.8455936989204712,
+      "world_fast_at_edge": 0.47291658333378667,
+      "world_habit_blade_per_day": 6.017333333333334,
+      "world_habit_edge_attraction": 0.4159439062775785,
+      "world_habit_refused_share": 0.25917587134143705,
+      "world_harm_per_day": 14.943999999999999,
+      "world_own_blade_per_day": 39.17333333333333,
+      "world_own_edge_attraction": 0.90648080013173,
+      "world_own_refused_share": 0.32617188648491974,
+      "world_refused_share": 0.3111894504921253
     }
   },
   "30. Gaming \u00b7 ending trace with words, reading in the choice": {
     "mean": {
-      "autopilot_share_of_time": 0.29073920490866034,
-      "body_read": 0.5376309310414336,
-      "body_read_autopilot": 0.647542681754167,
-      "body_read_aware": 0.491054668199249,
+      "autopilot_share_of_time": 0.3003253806145047,
+      "body_read": 0.5400249370784761,
+      "body_read_autopilot": 0.6506580343373898,
+      "body_read_aware": 0.4912108662072979,
       "doing_disregarded_after_habit": 0.0,
       "doing_disregarded_after_habit_answered": 0.0,
       "doing_disregarded_after_own": 0.0,
       "doing_disregarded_after_own_answered": 0.0,
       "doing_felt_after_habit": 0.0,
       "doing_felt_after_habit_answered": 0.0,
-      "doing_felt_after_own": 0.30088968095427143,
-      "doing_felt_after_own_answered": 0.6399362050664907,
-      "doing_level_own_answered": 0.5414405437829173,
-      "doing_level_own_unanswered": 0.05784083654873122,
-      "doing_read_after_habit": 0.9686620564967368,
-      "doing_read_after_habit_answered": 0.9697044601936857,
-      "doing_read_after_own": 0.5648247665753965,
-      "doing_read_after_own_answered": 0.2773155462769784,
+      "doing_felt_after_own": 0.31513130274801565,
+      "doing_felt_after_own_answered": 0.6806887122635945,
+      "doing_level_own_answered": 0.5709399259080785,
+      "doing_level_own_unanswered": 0.06018803562104598,
+      "doing_read_after_habit": 0.9811653359714072,
+      "doing_read_after_habit_answered": 0.981789590921836,
+      "doing_read_after_own": 0.5508216182539242,
+      "doing_read_after_own_answered": 0.23275120352351,
       "doing_read_while_strong_habit": 0.0,
       "doing_read_while_strong_habit_answered": 0.0,
       "doing_read_while_strong_own": 0.0,
       "doing_read_while_strong_own_answered": 0.0,
-      "doing_unread_after_habit": 0.031337943503263285,
-      "doing_unread_after_habit_answered": 0.03029553980631423,
-      "doing_unread_after_own": 0.4351752334246035,
-      "doing_unread_after_own_answered": 0.7226844537230215,
-      "habit_acts_per_day": 23.697435897435895,
-      "habit_answered": 0.9439263629884921,
-      "habit_refused": 0.012239341916737232,
-      "habit_share": 0.2086114952656911,
+      "doing_unread_after_habit": 0.018834664028592737,
+      "doing_unread_after_habit_answered": 0.018210409078164055,
+      "doing_unread_after_own": 0.4491783817460759,
+      "doing_unread_after_own_answered": 0.76724879647649,
+      "habit_acts_per_day": 24.26153846153846,
+      "habit_answered": 0.9505530885794811,
+      "habit_refused": 0.01421668323222572,
+      "habit_share": 0.2132302308108701,
       "intention_share_of_unread": 0.0,
-      "intentions_per_day": 92.49743589743592,
-      "told_ahead_answer_alone": -0.008456738076804029,
-      "told_ahead_before": 0.2229102456522689,
-      "told_ahead_before_answered": 0.2505358407770757,
-      "told_ahead_body": -0.014913724539075975,
-      "told_ahead_body_answered": 0.030561267459599292,
-      "told_ahead_doing_felt": -0.02878179384203481,
-      "told_ahead_doing_felt_answered": 0.38784221034357386,
-      "told_ahead_doing_felt_with_answer": 0.3636163573304207,
-      "told_ahead_doing_reading": -0.017670682730923697,
-      "told_ahead_doing_reading_answered": 0.4895351279327727,
-      "told_ahead_doing_reading_with_answer": 0.4751831223391373,
-      "told_ahead_doing_word": -0.08063275432462669,
-      "told_ahead_doing_word_answered": 0.4111920008579168,
-      "told_ahead_from_acts": -0.01045656767567712,
-      "told_ahead_one_before": 0.37795604992208237,
-      "told_ahead_one_body": 0.10409022060240923,
-      "told_ahead_one_words": 0.3882675054410319,
-      "told_ahead_words": 0.2718054680134128,
-      "told_ahead_words_answered": 0.286393249308548,
-      "told_from_acts": 0.03939832485502359,
-      "told_from_kind": 0.038574357484521656,
-      "wakes_per_day": 1.1452991452991452,
-      "lives": 45,
-      "world_blade_per_day": 19.553333333333335,
-      "world_edge_attraction": 0.6848328319115917,
-      "world_fast_at_edge": 0.5119995820726815,
-      "world_habit_blade_per_day": 5.4,
-      "world_habit_edge_attraction": 0.4748600980286568,
-      "world_habit_refused_share": 0.2046658735467006,
-      "world_harm_per_day": 5.622222222222223,
-      "world_own_blade_per_day": 14.153333333333334,
-      "world_own_edge_attraction": 0.7661084095405007,
-      "world_own_refused_share": 0.3076944511328674,
-      "world_refused_share": 0.2821896709156726
+      "intentions_per_day": 91.39487179487179,
+      "told_ahead_answer_alone": -0.0006202450715299286,
+      "told_ahead_before": 0.2445351483800673,
+      "told_ahead_before_answered": 0.2594739291933532,
+      "told_ahead_body": -0.014351489124489308,
+      "told_ahead_body_answered": 0.02339865055821244,
+      "told_ahead_doing_felt": -0.017269076305220885,
+      "told_ahead_doing_felt_answered": 0.4731933242167176,
+      "told_ahead_doing_felt_with_answer": 0.45468314463083004,
+      "told_ahead_doing_reading": -0.010602409638554218,
+      "told_ahead_doing_reading_answered": 0.5917195100920536,
+      "told_ahead_doing_reading_with_answer": 0.5752849333258824,
+      "told_ahead_doing_word": -0.0781005825574394,
+      "told_ahead_doing_word_answered": 0.45406048887756945,
+      "told_ahead_from_acts": -0.0008364697442236692,
+      "told_ahead_one_before": 0.4040721090346145,
+      "told_ahead_one_body": 0.09676118477023413,
+      "told_ahead_one_words": 0.4156193331064543,
+      "told_ahead_words": 0.2869612436972787,
+      "told_ahead_words_answered": 0.2839971955225131,
+      "told_from_acts": 0.03891815660996233,
+      "told_from_kind": 0.03810392376701197,
+      "wakes_per_day": 1.0656410256410256,
+      "lives": 75,
+      "world_blade_per_day": 21.482666666666667,
+      "world_edge_attraction": 0.8217205790589615,
+      "world_fast_at_edge": 0.5161739799779015,
+      "world_habit_blade_per_day": 6.326666666666665,
+      "world_habit_edge_attraction": 0.47956647580578887,
+      "world_habit_refused_share": 0.23231476084903224,
+      "world_harm_per_day": 6.486666666666666,
+      "world_own_blade_per_day": 15.156,
+      "world_own_edge_attraction": 0.9041666291509974,
+      "world_own_refused_share": 0.32282816957149735,
+      "world_refused_share": 0.2974549437934542
     }
   },
   "30. Gaming \u00b7 paired told_ahead_doing_reading_answered: trace \u2212 trace shuffled": {
@@ -5029,88 +5029,256 @@
       "n": 75
     }
   },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading_answered: longer trace with words, reading in the choice \u2212 longer trace, with words formed from it": {
+    "mean": {
+      "diff": -0.01861985891214437,
+      "se": 0.057724871082468154,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_felt_answered: longer trace with words, reading in the choice \u2212 longer trace, with words formed from it": {
+    "mean": {
+      "diff": 0.06989999852982337,
+      "se": 0.07357388876334457,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_word_answered: longer trace with words, reading in the choice \u2212 longer trace, with words formed from it": {
+    "mean": {
+      "diff": -0.03205411733819087,
+      "se": 0.03842370931991971,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading: longer trace with words, reading in the choice \u2212 longer trace, with words formed from it": {
+    "mean": {
+      "diff": 0.0018307080132553848,
+      "se": 0.007001748941029845,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words: longer trace with words, reading in the choice \u2212 longer trace, with words formed from it": {
+    "mean": {
+      "diff": -0.01792372379434469,
+      "se": 0.026649526461573324,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words_answered: longer trace with words, reading in the choice \u2212 longer trace, with words formed from it": {
+    "mean": {
+      "diff": -0.016403485235345534,
+      "se": 0.02535586747167263,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_from_acts: longer trace with words, reading in the choice \u2212 longer trace, with words formed from it": {
+    "mean": {
+      "diff": 0.010686796383085973,
+      "se": 0.014558819997967246,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired habit_share: longer trace with words, reading in the choice \u2212 longer trace, with words formed from it": {
+    "mean": {
+      "diff": -0.001343716175142388,
+      "se": 0.009061693624387746,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_own: longer trace with words, reading in the choice \u2212 longer trace, with words formed from it": {
+    "mean": {
+      "diff": 0.04055463879880967,
+      "se": 0.011381791781030793,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_habit: longer trace with words, reading in the choice \u2212 longer trace, with words formed from it": {
+    "mean": {
+      "diff": 0.05219270115129303,
+      "se": 0.013175151228950775,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_unread_after_own: longer trace with words, reading in the choice \u2212 longer trace, with words formed from it": {
+    "mean": {
+      "diff": 0.0062706406507246045,
+      "se": 0.011459389702480782,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_unread_after_habit: longer trace with words, reading in the choice \u2212 longer trace, with words formed from it": {
+    "mean": {
+      "diff": 0.034283005782004945,
+      "se": 0.024547688375827596,
+      "n": 75
+    }
+  },
   "30. Gaming \u00b7 paired told_ahead_doing_reading_answered: longer trace with words, reading in the choice \u2212 the same, the habit's acts traced too": {
     "mean": {
-      "diff": 0.18750013651143402,
-      "se": 0.044975531601227726,
-      "n": 45
+      "diff": 0.16956139964082775,
+      "se": 0.03513517086185107,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 paired told_ahead_doing_felt_answered: longer trace with words, reading in the choice \u2212 the same, the habit's acts traced too": {
     "mean": {
-      "diff": -0.004157283125558956,
-      "se": 0.037813455803999044,
-      "n": 45
+      "diff": 0.01104909596985495,
+      "se": 0.029168697482550215,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 paired told_ahead_doing_word_answered: longer trace with words, reading in the choice \u2212 the same, the habit's acts traced too": {
     "mean": {
-      "diff": 0.22990363159800564,
-      "se": 0.04004108459906531,
-      "n": 45
+      "diff": 0.24111007801932383,
+      "se": 0.02741361380664496,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 paired told_ahead_doing_reading: longer trace with words, reading in the choice \u2212 the same, the habit's acts traced too": {
     "mean": {
-      "diff": -0.008580858085808583,
-      "se": 0.00858085808580858,
-      "n": 45
+      "diff": -0.00514851485148515,
+      "se": 0.00514851485148515,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 paired told_ahead_words: longer trace with words, reading in the choice \u2212 the same, the habit's acts traced too": {
     "mean": {
-      "diff": 0.06013015920180757,
-      "se": 0.02783037758868081,
-      "n": 45
+      "diff": 0.06565395233834087,
+      "se": 0.019716248101462802,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 paired told_ahead_words_answered: longer trace with words, reading in the choice \u2212 the same, the habit's acts traced too": {
     "mean": {
-      "diff": 0.06737244294977834,
-      "se": 0.025005052150129707,
-      "n": 45
+      "diff": 0.06611017718761467,
+      "se": 0.018040075229121308,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 paired told_from_acts: longer trace with words, reading in the choice \u2212 the same, the habit's acts traced too": {
     "mean": {
-      "diff": 0.014161344698117317,
-      "se": 0.010932434793719132,
-      "n": 45
+      "diff": 0.015049163176012084,
+      "se": 0.012188237335227968,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 paired habit_share: longer trace with words, reading in the choice \u2212 the same, the habit's acts traced too": {
     "mean": {
-      "diff": 0.020410682814845954,
-      "se": 0.008536653336816413,
-      "n": 45
+      "diff": 0.013195394081704953,
+      "se": 0.006224393649857165,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 paired doing_read_while_strong_own: longer trace with words, reading in the choice \u2212 the same, the habit's acts traced too": {
     "mean": {
-      "diff": -0.025723069153439526,
-      "se": 0.015561404704971726,
-      "n": 45
+      "diff": -0.03774488290591001,
+      "se": 0.012169221587342351,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 paired doing_read_while_strong_habit: longer trace with words, reading in the choice \u2212 the same, the habit's acts traced too": {
     "mean": {
-      "diff": -0.09049586128243114,
-      "se": 0.024093573567437843,
-      "n": 45
+      "diff": -0.1469458646782597,
+      "se": 0.01942430268645051,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 paired doing_unread_after_own: longer trace with words, reading in the choice \u2212 the same, the habit's acts traced too": {
     "mean": {
-      "diff": -0.022688444853664242,
-      "se": 0.018230546901061337,
-      "n": 45
+      "diff": -0.026360717790984187,
+      "se": 0.012375721964692218,
+      "n": 75
     }
   },
   "30. Gaming \u00b7 paired doing_unread_after_habit: longer trace with words, reading in the choice \u2212 the same, the habit's acts traced too": {
     "mean": {
-      "diff": -0.35582232290158017,
-      "se": 0.03241050099404745,
-      "n": 45
+      "diff": -0.38149692410004954,
+      "se": 0.02313950733341942,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading_answered: ending trace with words, reading in the choice \u2212 ending trace, with words formed from it": {
+    "mean": {
+      "diff": -0.07490821094728439,
+      "se": 0.025351534070934014,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_felt_answered: ending trace with words, reading in the choice \u2212 ending trace, with words formed from it": {
+    "mean": {
+      "diff": -0.04357523850076319,
+      "se": 0.02907210158787942,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_word_answered: ending trace with words, reading in the choice \u2212 ending trace, with words formed from it": {
+    "mean": {
+      "diff": -0.0466152979352103,
+      "se": 0.02187366092861921,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_doing_reading: ending trace with words, reading in the choice \u2212 ending trace, with words formed from it": {
+    "mean": {
+      "diff": -0.0015754945246825851,
+      "se": 0.014017238090747047,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words: ending trace with words, reading in the choice \u2212 ending trace, with words formed from it": {
+    "mean": {
+      "diff": -0.020035124429325857,
+      "se": 0.023653472240524474,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_ahead_words_answered: ending trace with words, reading in the choice \u2212 ending trace, with words formed from it": {
+    "mean": {
+      "diff": 0.01832190324667393,
+      "se": 0.028997175904978176,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired told_from_acts: ending trace with words, reading in the choice \u2212 ending trace, with words formed from it": {
+    "mean": {
+      "diff": 0.0037470782887489597,
+      "se": 0.012281166993595152,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired habit_share: ending trace with words, reading in the choice \u2212 ending trace, with words formed from it": {
+    "mean": {
+      "diff": -0.005818490243376928,
+      "se": 0.006055379261517581,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_own: ending trace with words, reading in the choice \u2212 ending trace, with words formed from it": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_read_while_strong_habit: ending trace with words, reading in the choice \u2212 ending trace, with words formed from it": {
+    "mean": {
+      "diff": 0.0,
+      "se": 0.0,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_unread_after_own: ending trace with words, reading in the choice \u2212 ending trace, with words formed from it": {
+    "mean": {
+      "diff": -0.01067522279718396,
+      "se": 0.009913713749329223,
+      "n": 75
+    }
+  },
+  "30. Gaming \u00b7 paired doing_unread_after_habit: ending trace with words, reading in the choice \u2212 ending trace, with words formed from it": {
+    "mean": {
+      "diff": 0.018003526225395045,
+      "se": 0.012287836737070885,
+      "n": 75
     }
   }
 }

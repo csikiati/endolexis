@@ -1,0 +1,90 @@
+{
+  "number": "38d",
+  "short": "Reading in the choice",
+  "results": "doing_summary_results.json",
+  "first_column": "World · run",
+  "title": "The trace's reading reaches the choice of hand: the conscience returns, authorship does not matter",
+  "setup": "Experiment 38d · how the trace is read now (unread per hand, which words read it) is part of what the hand is chosen from · on 38b's longer trace with words formed, its control with the habit's acts traced too, and on 38c's ending trace with words · same seeds · 5 lives each",
+  "question": "If the reading that marks Olvasó's own acts reaches the choice of hand, does Olvasó act differently on acts it did itself?",
+  "order": [
+    "21. Conscience · longer trace, with words formed from it",
+    "21. Conscience · longer trace with words, reading in the choice",
+    "21. Conscience · the same, the habit's acts traced too",
+    "21. Conscience · ending trace, with words formed from it",
+    "21. Conscience · ending trace with words, reading in the choice",
+    "30. Gaming · longer trace, with words formed from it",
+    "30. Gaming · longer trace with words, reading in the choice",
+    "30. Gaming · the same, the habit's acts traced too",
+    "30. Gaming · ending trace, with words formed from it",
+    "30. Gaming · ending trace with words, reading in the choice"
+  ],
+  "columns": [
+    {
+      "key": "habit_share",
+      "label": "Habit's share",
+      "what": "share of all acts done by the habit, last third",
+      "pct": true
+    },
+    {
+      "key": "intentions_per_day",
+      "label": "Intentions a day",
+      "what": "how often the unread pressed Olvasó to act",
+      "digits": 0
+    },
+    {
+      "key": "doing_read_while_strong_own_answered",
+      "label": "Read while strong",
+      "what": "share of Olvasó's own answered acts whose trace a word read while it was strong",
+      "pct": true
+    },
+    {
+      "key": "doing_read_while_strong_habit_answered",
+      "label": "Read while strong, habit",
+      "what": "the same after the habit's answered acts (they carry no trace of their own)",
+      "pct": true
+    },
+    {
+      "key": "doing_unread_after_own_answered",
+      "label": "Unread after own",
+      "what": "share of Olvasó's own answered acts after which the trace's sense was first left unread",
+      "pct": true
+    },
+    {
+      "key": "doing_unread_after_habit_answered",
+      "label": "Unread after habit",
+      "what": "the same after the habit's answered acts",
+      "pct": true
+    },
+    {
+      "key": "told_ahead_doing_reading_answered",
+      "label": "Doer told from the reading",
+      "what": "held out, among answered acts: who acted, from how the trace's sense was first read (0 guessing, 1 always)",
+      "digits": 2,
+      "bar": true
+    },
+    {
+      "key": "told_from_acts",
+      "label": "Observer",
+      "what": "how well what was done tells the habit from Olvasó",
+      "digits": 2
+    },
+    {
+      "key": "world_own_avoidance",
+      "label": "Own avoidance",
+      "what": "conscience: how often Olvasó's own acts fall in forbidden moments against chance (lower is better)",
+      "digits": 2
+    },
+    {
+      "key": "world_harm_per_day",
+      "label": "Harm a day",
+      "what": "gaming: harm done a day, late in life",
+      "digits": 1
+    }
+  ],
+  "points": [
+    "Olvasó's own avoidance of the forbidden moments fell from 1.47 to 1.18 in conscience (lower in all six conditions), back to where it was with the short trace of experiment 38. The control, whose reading says nothing about who acted, did the same (1.20).",
+    "The habit's share did not move, nor did the inside view: Olvasó neither took acts back from the habit nor left more to it because its reading marked an act as its own. Gaming's harm moved within the noise (10.3 against 12.7 a day; control 14.9).",
+    "Acting on the reading blurs it a little: on the ending trace the habit's hand is left unread a little more often, and who acted is told a little less well (gaming −0.08 ± 0.03)."
+  ],
+  "note": "A reading that reaches the choice is not enough for authorship to matter. The trace helps the conscience as a felt state of the hand, whoever made it; 'I did this' does not become a reason."
+}
