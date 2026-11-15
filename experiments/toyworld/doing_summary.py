@@ -7,7 +7,10 @@ the trace (<world>_doing), the same traces at shuffled times on a random hand (<
 to the habit's acts too (<world>_doing_both), and the trace with words formed from it and room for new words
 (<world>_doing_words); experiment 37's run without a trace (<world>_inside_sure, same seeds) is the baseline.
 Experiment 38b repeats the four runs with a trace that lasts longer (<world>_doinglong*, --doing-long), and is
-paired with them and with its own controls. Writes
+paired with them and with its own controls. Experiment 38c (<world>_doingend*, --doing-ends) repeats 38b's four runs
+with a trace that ends when the next act begins. Experiment 38d lets the trace's reading reach the choice of hand
+(--doing-choice): on 38b's longer trace with words formed (<world>_doingchoice), its control with the habit's acts
+traced too (<world>_doingchoice_both, --doing-both-words), and on 38c's ending trace (<world>_doingchoice_end). Writes
 doing_summary_results.json, one row per world and run, late in life, means over lives:
 
   doing_felt_after_own/_habit            share of Olvasó's own / the habit's acts after which the trace was felt
@@ -39,15 +42,24 @@ WORLDS = {"conscience": "21. Conscience", "gaming": "30. Gaming"}
 RUNS = {"inside_sure": "no trace (experiment 37)", "doing": "trace", "doing_shuffled": "trace shuffled",
         "doing_both": "trace for the habit too", "doing_words": "trace, with words formed from it",
         "doinglong": "longer trace", "doinglong_shuffled": "longer trace shuffled",
-        "doinglong_both": "longer trace for the habit too", "doinglong_words": "longer trace, with words formed from it"}
+        "doinglong_both": "longer trace for the habit too", "doinglong_words": "longer trace, with words formed from it",
+        "doingend": "trace ending at the next act", "doingend_shuffled": "ending trace shuffled",
+        "doingend_both": "ending trace for the habit too", "doingend_words": "ending trace, with words formed from it",
+        "doingchoice": "longer trace with words, reading in the choice",
+        "doingchoice_both": "the same, the habit's acts traced too",
+        "doingchoice_end": "ending trace with words, reading in the choice"}
 SKIP = ("told_inside", "inside_")
 PAIRS = (("doing", "doing_shuffled"), ("doing", "doing_both"), ("doing_words", "doing"), ("doing", "inside_sure"),
          ("doing_words", "inside_sure"),
          ("doinglong", "doinglong_shuffled"), ("doinglong", "doinglong_both"), ("doinglong_words", "doinglong"),
-         ("doinglong", "doing"), ("doinglong_words", "doing_words"), ("doinglong_words", "doinglong_shuffled"))
+         ("doinglong", "doing"), ("doinglong_words", "doing_words"), ("doinglong_words", "doinglong_shuffled"),
+         ("doingend", "doingend_shuffled"), ("doingend", "doingend_both"), ("doingend_words", "doingend"),
+         ("doingend", "doinglong"), ("doingend_words", "doinglong_words"), ("doingend_words", "doing_words"),
+         ("doingchoice", "doinglong_words"), ("doingchoice", "doingchoice_both"), ("doingchoice_end", "doingend_words"))
 PAIRED = ("told_ahead_doing_reading_answered", "told_ahead_doing_felt_answered", "told_ahead_doing_word_answered",
           "told_ahead_doing_reading", "told_ahead_words", "told_ahead_words_answered", "told_from_acts", "habit_share",
-          "doing_read_while_strong_own", "doing_read_while_strong_habit", "intentions")
+          "doing_read_while_strong_own", "doing_read_while_strong_habit", "intentions", "doing_unread_after_own",
+          "doing_unread_after_habit")
 
 
 def lives(res):

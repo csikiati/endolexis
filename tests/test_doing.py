@@ -89,3 +89,11 @@ def test_both_words_feels_the_habits_acts_and_forms_words_from_the_trace():
     assert any(w[4] > 0.05 for w in m.doing_watch if w[2])
     with pytest.raises(ValueError):
         mind(True, doing_choice=True)
+
+
+def test_doing_choice_also_works_when_the_hand_is_chosen_from_the_words():
+    a = mind(True, feel_doing="words", context="felt+words")
+    b = mind(True, feel_doing="words", context="felt+words", doing_choice=True)
+    assert b.n_in == a.n_in + len(b.hands) + b.total_words
+    live(b, n=3000)
+    assert b.requests and np.isfinite(b.W).all()

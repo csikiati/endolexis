@@ -381,7 +381,7 @@ class ActingReaders(ManyReaders):
         if self.context == "felt+senses":
             x = np.r_[x, np.clip(s_z, -3, 3)]
         elif self.context == "felt+words":
-            hot = np.zeros(self.n_in - len(x))
+            hot = np.zeros(self.n_in - self.n_choice_doing - len(x))
             for w in self.words_now():
                 if w >= 0:
                     hot[w] = 1.0
