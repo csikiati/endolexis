@@ -183,6 +183,8 @@ class ActingReaders(ManyReaders):
             raise ValueError("feel_doing and a felt habit act are not combined")
         self.feel_doing, self.doing_mode = bool(feel_doing), feel_doing
         self.doing_fade = float(doing_fade)
+        # how long an act's trace is watched (observer only): the usual 8 moments, longer for a slower fade
+        self.doing_watch_for = max(8, int(np.ceil(np.log(0.5) / np.log(min(self.doing_fade, 0.999)))))
         self.doing_delayed = []      # with "shuffled": (due, hand, level)
         self.doing_watch = []        # observer only: [t, kind, by the habit, answered, level felt, its first reading
         #                              (word, -1 unread, -2 disregarded), read while strong, seen while strong]
@@ -572,8 +574,8 @@ class ActingReaders(ManyReaders):
     def _watch_doing(self, readings):
         """Observer only: in the moments after an act's answer was due, how hand k's trace of doing is read: its
         first reading (a word, -1 unread, -2 disregarded), and how often it is read while strong (0.3 or more)."""
-        for w in self.doing_watch[-6:]:
-            if 0 < self.t - w[0] <= self.watch_for:
+        for w in self.doing_watch[-12:]:
+            if 0 < self.t - w[0] <= self.doing_watch_for:
                 c = self.doing_columns(w[1])[0]
                 if w[5] is None:
                     w[5] = int(readings[c])

@@ -52,7 +52,8 @@ Experiment 38, a trace that comes with the doing (with the autopilot and --habit
 an answer Olvasó expected of its own act arrives, that is felt on the hand, fading (the habit sends no expectation, so
 its acts leave none); --doing-shuffled, the control, the same traces 50-500 moments later on a random hand;
 --doing-both, the control, the habit's acts leave the trace too; --doing-words, the trace with words formed from it and
-room for new words. The results file is named by ENDOLEXIS_RESULTS_TAG (<experiment>_doing_results.json and so on).
+room for new words; with --doing-long added to any of them the trace fades by 0.97 a moment in place of 0.8 (strong
+for about twenty moments, not three). The results file is named by ENDOLEXIS_RESULTS_TAG (<experiment>_doing_results.json and so on).
 """
 import os
 import sys
@@ -121,6 +122,10 @@ if DOING is None and os.environ.get("ENDOLEXIS_FEEL_DOING"):
 if DOING:
     os.environ["ENDOLEXIS_FEEL_DOING"] = "1" if DOING is True else DOING
     sys.argv = [a for a in sys.argv if a not in ("--doing", "--doing-shuffled", "--doing-both", "--doing-words")]
+LONG = "--doing-long" in sys.argv or os.environ.get("ENDOLEXIS_DOING_LONG") == "1"    # a trace that lasts longer
+if LONG:
+    os.environ["ENDOLEXIS_DOING_LONG"] = "1"
+    sys.argv = [a for a in sys.argv if a != "--doing-long"]
 BASELINE = "--mind-baseline" in sys.argv                # a run without the feeling, kept for the comparison
 if BASELINE:
     sys.argv = [a for a in sys.argv if a != "--mind-baseline"]
@@ -132,7 +137,8 @@ def mind_kw():
             **({"autopilot": "sleepwalk" if SLEEPWALK else True} if AUTOPILOT else {}),
             **({"habit_teaches": TEACHES} if TEACHES else {}), **({"word_room": True} if ROOM else {}),
             **({"habit_detail": VARIES} if VARIES else {}), **({"habit_hand": HAND} if HAND else {}),
-            **({"feel_doing": DOING, **({"word_room": True} if DOING == "words" else {})} if DOING else {})}
+            **({"feel_doing": DOING, **({"word_room": True} if DOING == "words" else {}),
+                **({"doing_fade": 0.97} if LONG else {})} if DOING else {})}
 
 
 def results_name(name):
