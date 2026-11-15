@@ -47,6 +47,12 @@ proportion to how often each was answered (<experiment>_habitvariesanswered_resu
 Experiment 36, the habit varies its hand too (with the detail varied as Olvasó): --habit-varies-hand, a hand drawn as
 Olvasó draws its own (<experiment>_habithand_results.json); --habit-varies-hand-confident, the control, evenly among
 the hands the habit is sure of (<experiment>_habithandconfident_results.json).
+
+Experiment 38, a trace that comes with the doing (with the autopilot and --habit-varies-hand-confident): --doing, when
+an answer Olvasó expected of its own act arrives, that is felt on the hand, fading (the habit sends no expectation, so
+its acts leave none); --doing-shuffled, the control, the same traces 50-500 moments later on a random hand;
+--doing-both, the control, the habit's acts leave the trace too; --doing-words, the trace with words formed from it and
+room for new words. The results file is named by ENDOLEXIS_RESULTS_TAG (<experiment>_doing_results.json and so on).
 """
 import os
 import sys

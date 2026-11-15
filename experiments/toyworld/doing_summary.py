@@ -54,6 +54,13 @@ def numbers(ls):
     return {k: v for k, v in r.items() if v is not None}
 
 
+def world_measures(res):
+    """What the world shows late in life (harm, avoidance, edge...), the mean over conditions of each one's mean."""
+    keys = sorted({k for v in res.values() for k in v["mean"] if k.startswith("late_")})
+    r = {k[5:]: mean([v["mean"].get(k) for v in res.values()]) for k in keys}
+    return {f"world_{k}": v for k, v in r.items() if v is not None}
+
+
 def main():
     out = {}
     for world, label in WORLDS.items():
@@ -62,11 +69,13 @@ def main():
             path = HERE / f"{world}_{run}_results.json"
             if not path.exists():
                 continue
-            got[run] = ls = lives(json.loads(path.read_text()))
+            res = json.loads(path.read_text())
+            got[run] = ls = lives(res)
             r = numbers(ls)
             r["lives"] = len(ls)
+            r.update(world_measures(res))
             out[f"{label} · {what}"] = {"mean": r}
-            show = {k: round(v, 3) for k, v in r.items() if k.startswith(("doing_", "told_", "habit_share"))}
+            show = {k: round(v, 3) for k, v in r.items() if k.startswith(("doing_", "told_ahead_doing", "told_from_acts", "told_ahead_words", "habit_share", "world_", "intentions", "body_read"))}
             print(f"{label:16} {what:34} lives={len(ls)}", show)
         for a, b in PAIRS:
             if a not in got or b not in got or len(got[a]) != len(got[b]):

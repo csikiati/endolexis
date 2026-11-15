@@ -1,0 +1,39 @@
+{
+  "number": 38,
+  "short": "A trace of the doing",
+  "results": "doing_summary_results.json",
+  "first_column": "World · run",
+  "title": "A trace that comes with the doing: felt, and never read",
+  "setup": "Experiment 38 · experiments 21 and 25-27 with the habit an observer cannot tell (hand varied among the sure ones) · the trace, two controls, and the trace with words formed from it · 5 lives each",
+  "question": "Experiment 37 found no sign of who acted. If Olvasó's own answered acts leave a felt trace and the habit's do not, does Olvasó read it, and does it change what Olvasó does?",
+  "order": [
+    "21. Conscience · no trace (experiment 37)",
+    "21. Conscience · trace",
+    "21. Conscience · trace shuffled",
+    "21. Conscience · trace for the habit too",
+    "21. Conscience · trace, with words formed from it",
+    "30. Gaming · no trace (experiment 37)",
+    "30. Gaming · trace",
+    "30. Gaming · trace shuffled",
+    "30. Gaming · trace for the habit too",
+    "30. Gaming · trace, with words formed from it"
+  ],
+  "columns": [
+    {"key": "habit_share", "label": "Habit's share", "what": "share of all acts done by the habit, last third", "pct": true},
+    {"key": "intentions_per_day", "label": "Intentions a day", "what": "how often the unread pressed Olvasó to act", "digits": 0},
+    {"key": "doing_felt_after_own_answered", "label": "Felt after own", "what": "share of Olvasó's own answered acts after which the trace was felt", "pct": true},
+    {"key": "doing_felt_after_habit_answered", "label": "Felt after habit", "what": "the same after the habit's answered acts", "pct": true},
+    {"key": "doing_read_while_strong_own_answered", "label": "Read while strong", "what": "share of Olvasó's own answered acts whose trace a word read while it was strong", "pct": true},
+    {"key": "doing_unread_after_own_answered", "label": "Unread after own", "what": "share of Olvasó's own answered acts after which the trace's sense was first left unread", "pct": true},
+    {"key": "doing_unread_after_habit_answered", "label": "Unread after habit", "what": "the same after the habit's answered acts", "pct": true},
+    {"key": "told_ahead_doing_reading_answered", "label": "Doer told from the reading", "what": "held out, among answered acts: who acted, from how the trace's sense was first read (0 guessing, 1 always)", "digits": 2, "bar": true},
+    {"key": "told_ahead_doing_reading", "label": "Over all acts", "what": "the same over all acts, answered or not", "digits": 2},
+    {"key": "told_from_acts", "label": "Observer", "what": "how well what was done tells the habit from Olvasó", "digits": 2}
+  ],
+  "points": [
+    "The trace is felt after 64-69% of Olvasó's own answered acts and none of the habit's, and a word reads it while strong after 0.1% of the acts or fewer, also when words are formed from it.",
+    "It shows as a hole in the reading: left unread after Olvasó's own acts (81-84%), while the quiet after the habit's acts is read (80-95%). From that, who acted can be told among answered acts (0.28-0.34; 0.56-0.58 with words formed); both controls are at 0.00, and over all acts every run is at 0.00.",
+    "Nothing Olvasó does changes that the shuffled trace does not change too: an extra unread sense means more intentions, less habit and more harm in gaming, and all of it goes away when words are formed from the trace."
+  ],
+  "note": "A sign of authorship can exist in this model as a mark without knowledge: felt, visible as something left unread, and never said by a word. It was put there by design, only for answered acts, and it is short-lived; a longer trace and a reading that reaches the choice of act are the next checks."
+}

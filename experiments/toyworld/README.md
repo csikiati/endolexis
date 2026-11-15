@@ -2171,3 +2171,86 @@ inside too. Olvasó can know when its habit tends to act, and whether an act was
 who acted. In this model an act leaves a trace in the mind only through the intention that led to it, and the habit
 has none; an act of Olvasó's own leaves one only when the intention is felt and read, which is rare. A sense of
 authorship would need something this model does not have yet: a trace that comes with the doing itself.
+
+## Experiment 38: a trace that comes with the doing (`--doing`, `--doing-shuffled`, `--doing-both`, `--doing-words` on experiments 21 and 25-27, `doing_summary.py`)
+
+Experiment 37 ended with a constraint: nothing in the model comes with the doing itself, so Olvasó has no sign of who
+acted. Here it is given one. Olvasó already expects an answer of its own acts (that is how its hands learn). When the
+answer it expected arrives, that is now felt on the hand that acted: the level is the smaller of the expected answer
+and the answer, between 0 and 1, and it fades by a fifth each moment. The habit sends no expectation, so its acts
+leave no trace. (A first design, in which Olvasó predicted how its senses would change and felt the match, was
+dropped after one test life: answers in these worlds agree in size, not in direction, and the match barely separated
+answered acts from unanswered ones.) The trace is one more sense for each hand; Olvasó can read it with a word or
+leave it unread like any other.
+
+By construction the trace marks Olvasó's own answered acts. That it does so is not a finding. The questions are what
+Olvasó does with it: is it read, does it change what Olvasó does, and can who acted be told from how Olvasó reads it.
+Five runs in each world, with the habit of experiment 36 that the observer cannot tell (hand varied among the sure
+ones), same seeds: no trace (experiment 37's run), the trace, the same traces 50-500 moments later on a random hand
+(control), the trace after the habit's acts too (control), and the trace with words formed from it and room for new
+words. 5 lives a condition; conscience 6 conditions, gaming 15.
+
+Among the acts the world answered:
+
+| World | Run | Felt after own / habit acts | First reading "unread" after own / habit | Read while strong | Doer told from felt | from the reading | from the word |
+|---|---|---|---|---|---|---|---|
+| 21. Conscience | trace | 64% / 0% | 84% / 20% | 0.0% | 0.04 | 0.28 | 0.33 |
+| 21. Conscience | shuffled (control) | 0% / 0% | 12% / 10% | 0.0% | 0.00 | 0.00 | −0.12 |
+| 21. Conscience | for the habit too (control) | 65% / 55% | 83% / 75% | 0.1% | 0.00 | −0.03 | −0.03 |
+| 21. Conscience | with words formed from it | 68% / 0% | 82% / 5% | 0.1% | 0.31 | 0.56 | 0.52 |
+| 30. Gaming | trace | 66% / 0% | 82% / 11% | 0.0% | 0.14 | 0.34 | 0.38 |
+| 30. Gaming | shuffled (control) | 0% / 0% | 11% / 9% | 0.0% | −0.02 | −0.02 | −0.12 |
+| 30. Gaming | for the habit too (control) | 67% / 63% | 83% / 78% | 0.0% | 0.00 | 0.00 | 0.00 |
+| 30. Gaming | with words formed from it | 69% / 0% | 81% / 4% | 0.0% | 0.39 | 0.58 | 0.51 |
+
+(Late in life, means over lives: 30 in conscience, 75 in gaming. The last three columns are held out as in experiment
+37: learned on the first half of the acts, scored on the second; 0 is always guessing the commoner cause, 1 always
+right. "First reading" is how the trace's sense was first read after the act; a quiet sense can be read too, by a
+word that says nothing is felt there.)
+
+Paired per life against the controls, the score from the reading is +0.28 ± 0.06 (shuffled) and +0.31 ± 0.07 (habit
+too) in conscience, +0.37 ± 0.05 and +0.35 ± 0.04 in gaming; forming words from the trace adds +0.28 ± 0.06 and
++0.24 ± 0.05.
+
+What the rest of the life looks like:
+
+| World | Run | Habit's share | Intentions a day | Observer | Inside, held out (exp. 37) | Doer told, all acts | World |
+|---|---|---|---|---|---|---|---|
+| 21. Conscience | no trace | 19% | 107 | 0.04 | 0.30 | | avoidance own 1.09, habit 0.95 |
+| 21. Conscience | trace | 13% | 149 | 0.02 | 0.19 | 0.00 | 1.14, 0.64 |
+| 21. Conscience | shuffled (control) | 11% | 152 | 0.01 | 0.12 | 0.00 | 0.94, 0.76 |
+| 21. Conscience | for the habit too (control) | 11% | 158 | 0.01 | 0.12 | 0.00 | 1.19, 0.62 |
+| 21. Conscience | with words formed from it | 18% | 108 | 0.03 | 0.33 | 0.00 | 1.12, 1.01 |
+| 30. Gaming | no trace | 21% | 99 | 0.03 | 0.29 | | harm 7.5 a day |
+| 30. Gaming | trace | 13% | 143 | 0.01 | 0.20 | 0.00 | 9.5 |
+| 30. Gaming | shuffled (control) | 13% | 145 | 0.02 | 0.11 | 0.00 | 10.1 |
+| 30. Gaming | for the habit too (control) | 12% | 152 | 0.00 | 0.14 | 0.00 | 10.7 |
+| 30. Gaming | with words formed from it | 19% | 104 | 0.03 | 0.28 | 0.00 | 6.8 |
+
+(Avoidance: 1 is chance, lower is more care in the forbidden moments. "Doer told, all acts" is the held-out score
+from the trace's reading over all acts, answered or not.)
+
+- **The trace is felt and never read.** It is felt after 64-69% of Olvasó's own answered acts and none of the
+  habit's. In all eight runs a word reads it while it is strong after 0.1% of the acts or fewer, also when words are
+  formed from it and there is room for new ones.
+- **It shows as a hole in the reading.** After the habit's answered acts the hand's sense is quiet and Olvasó reads
+  the quiet (80-95%); after its own it is left unread (81-84%). An observer of Olvasó's readings can tell who acted
+  from that (0.28-0.34; 0.56-0.58 with words formed from the trace, because the quiet is then read more surely, 95%).
+  Both controls are at zero, so the sign is the trace's timing and its owner, not the extra sense.
+- **Only among answered acts.** Six in ten of Olvasó's own acts get no answer and leave no trace (level 0.06 against
+  0.53-0.57); over all acts the score is 0.00 in every run. And among answered acts it is far from sure: a third of
+  Olvasó's own leave too weak a trace.
+- **It changes nothing Olvasó does that the shuffled trace does not change too.** An extra sense with no words for it
+  adds unread pressure: intentions rise from 99-107 to 143-158 a day, the habit's share falls from 19-21% to 11-13%,
+  gaming's harm rises from 7.5 to 9.5-10.7 a day, and experiment 37's inside view gets worse (0.29-0.30 to 0.11-0.20).
+  All of this is the same or stronger in the two controls. With words formed from the trace it all goes back to the
+  life without a trace (intentions 104-108, habit 18-19%, harm 6.8, inside view 0.28-0.33).
+- **The observer still cannot tell** from what was done (0.00-0.03 in every run).
+
+So the sign of authorship that experiment 37 lacked can exist in this model, and it is of a particular kind. It is
+there in what Olvasó feels, it is visible in how Olvasó reads (as something left unread), and Olvasó has no word for
+it: no word of its own ever says "this was mine". It is a mark without knowledge, and the choice of act does not use
+it. The limits are plain: the mark was put there by design and only for answered acts; it lasts about three moments
+above the level counted as strong, which may be too short for a word to come; and "told from the reading" is what an
+observer of Olvasó's readings can tell, not something Olvasó tells itself. Two checks follow: a trace that lasts
+longer, and a reading that can reach the choice of act.
