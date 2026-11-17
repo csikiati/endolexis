@@ -19,7 +19,7 @@ The later experiments in this folder are reported in four more papers (each in E
 - *The hand that rides by itself: Olvasó's autopilot* (experiments 32, 33 and 35-37),
   [doi:10.5281/zenodo.24251618](https://doi.org/10.5281/zenodo.24251618)
 
-Experiments 16-38d came after version 0.3.0 and are archived as version 0.4.0: [doi:10.5281/zenodo.24259066](https://doi.org/10.5281/zenodo.24259066).
+Experiments 16-38d came after version 0.3.0 and are archived as version 0.4.0: [doi:10.5281/zenodo.24259066](https://doi.org/10.5281/zenodo.24259066). Experiment 34 (the singer) was run after that release and will be archived with the next one.
 
 Every script below runs from a clone without installing (`python experiments/toyworld/<script>.py`), or after
 `pip install -e .`. Each takes about one to five minutes on a laptop and writes its results as JSON beside itself;
@@ -1999,6 +1999,55 @@ The sensed sign with room for new words, paired the same way:
   this model a read state changes when Olvasó acts, never which act. Letting the words into the choice did not
   help: chosen from words, which gather the scene more coarsely than the guard draws its line, the conscience was
   lost altogether, the read felt act with it.
+
+## Experiment 34: the singer (`singer.py`, 5 lives × 30 days a condition)
+
+Toy world v1 with a voice that sings (`hands=["sing"]`): each act is one note of three octaves (C3 to B5) or a pause,
+a whole to a sixteenth long (16 to 1 moments). Olvasó is the auditory mirror's mind (experiment 14), learning from
+whether the world answered; with one hand it learns only *when* to sing, and its notes and lengths are drawn at random.
+The microphone hears its singing (`mirror`) or does not (`deaf`); the controls of experiment 14 are now there for the
+song too (`room.py`): a `stranger` sings yesterday's notes at random moments, a `recording` sings them again at the same
+moments of the day. Two more conditions give it the other five hands as well (`KINDS + ["sing"]`), hearing itself or
+deaf, so that it can choose whether to sing. A *song word* is a hearing word that occurs mostly while a song is heard,
+its own or another's. Late in life is the last third (days 20-30), when it acts only about three times a day.
+
+| Condition | Song words (own) | A song word sounds while it sings | Expects an answer when it sings | Sings per 1,000 moments, someone there / alone | Share of acts that are singing, days 1-10 / last third |
+|---|---|---|---|---|---|
+| Mirror | 6.2 (6.2) | 40% (27-52%) | 0.19 (3 lives) | 3.6 / 2.2 | (one hand) |
+| Deaf | 0 | 0% | −0.24 (3 lives) | 3.5 / 1.9 | (one hand) |
+| Stranger | 7.2 (0) | 3% | −0.33 (3 lives) | 3.6 / 2.2 | (one hand) |
+| Recording | 8.2 (0) | 7% | −0.35 (3 lives) | 3.6 / 2.2 | (one hand) |
+| Mirror, all hands | 0 | – | **0.01** | 0.64 / 0.27 | **13.4%** / 11.3% |
+| Deaf, all hands | 0 | – | **−0.52** | 0.33 / 0.15 | 11.1% / 5.9% |
+
+(Means of 5 lives. Chance share of singing with six hands: 16.7%. With one hand, the expectation never steers a choice
+and in two of five lives (seeds 1 and 5) its learning ran away in every condition, to values in the thousands; the
+column gives the three lives where it stayed bounded.)
+
+- **Words for a song form for any song.** Hearing itself, Olvasó formed 4-8 words that occur mostly while it sings;
+  deaf, none. But the stranger's and the recording's songs gave it as many song words (5-10). What differs is when they
+  sound: with the mirror, a song word sounds in 40% of the moments it sings (27-52% in every life); with the stranger
+  3%, with the recording 7%. A song word is its own because it comes with its singing, as in experiment 14.
+- **It expects an answer only from a song it hears.** Where the expectation stayed bounded, it was higher with the
+  mirror than deaf in every life (3 of 3 alone, 5 of 5 with all hands), and the stranger and the recording were as low
+  as deaf.
+- **Hearing itself, it sings more when it can choose.** With all six hands, singing was 13.4% of its acts in
+  childhood against 11.1% deaf, more in all 5 paired lives (+0.024 ± 0.008); late in life 11.3% against 5.9% (4 of
+  5). Both stay below chance: singing costs a little charge and is answered only by its own sound. It did not test its
+  voice by singing again at once (17% after a song with the mirror, 18% deaf).
+- **It sings more when someone is in the room, but not to reach out.** It sings 60-85% more while a person is
+  there, and as much more when deaf, with the stranger or the recording: a person brings things to read and
+  so pressure to act; nothing in the room answers singing. With all hands the lean is the same with and without the
+  mirror.
+- **Its song is random, and it sounds it.** With one hand it learns when to sing, not what: notes spread over the three
+  octaves (from within the lowest seven semitones to within the top three, in every life) and the five lengths come
+  about equally often. `singer_mirror_1.wav` is a minute of its song from late
+  in life: sparse beeps of random pitch, mostly silence. A song that carries something would need a reason to pick a
+  note, which this mind does not have.
+
+So the singer repeats the auditory mirror with a richer voice: what becomes its own is what comes with its acting,
+not what sounds like it, and hearing itself makes it sing more when it can choose. It adds nothing new about the song
+itself: a mind that only learns when to act has nothing to put into what it sings.
 
 ## Experiment 35: a habit that varies its detail (`--habit-varies`, `--habit-varies-answered` on experiments 13, 17, 21, 25-27 and 26, `varies_summary.py`)
 

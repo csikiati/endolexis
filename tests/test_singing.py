@@ -48,3 +48,23 @@ def test_an_olvaso_can_have_the_voice_as_its_only_hand():
             reqs.append(req)
             m.outcome(True)
     assert reqs and all(k == "sing" and d in SONG for k, d in reqs)
+
+
+def test_the_recording_sings_yesterdays_song_at_the_same_moments_and_the_stranger_at_others():
+    for voice in ("recording", "stranger"):
+        room = Room(seed=1, hands=True, voice=voice, day_length=60)
+        acts = {3: ("sing", (5, 4)), 20: ("sing", (None, 2)), 30: ("sing", (30, 8))}
+        other, heard = [], []
+        for t in range(120):
+            _, _, truth = room.step(act=acts.get(t))
+            other.append(truth["other_song"])
+            heard.append(truth["heard_song"])
+        assert not any(heard) and not any(other[:60])                    # its own song is never heard
+        if voice == "recording":
+            assert [t for t in range(60, 120) if other[t]] == list(range(63, 67)) + list(range(90, 98))
+        else:
+            assert 0 < sum(other[60:]) <= 12                              # the same notes, at random moments (one may cut another)
+    mirror = Room(seed=1, hands=True, voice="mirror", day_length=60)
+    for t in range(80):
+        _, _, truth = mirror.step(act={3: ("sing", (5, 4))}.get(t))
+        assert not truth["other_song"]

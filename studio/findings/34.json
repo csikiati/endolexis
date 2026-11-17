@@ -1,0 +1,25 @@
+{
+  "number": 34,
+  "short": "The singer",
+  "results": "singer_results.json",
+  "first_column": "Condition",
+  "base": "deaf",
+  "title": "The singer: what becomes its own song is what comes with its singing",
+  "setup": "Experiment 34 · toy world v1 · a voice that sings notes of three octaves, a whole to a sixteenth long, chosen at random · mirror, deaf, stranger, recording; and with all six hands, mirror or deaf · 5 lives × 30 days each",
+  "question": "Does a mind whose voice sings come to have words for its own song, expect its song to be answered, and sing more when it hears itself or when someone is in the room?",
+  "order": ["mirror", "deaf", "stranger", "recording", "mirror, all hands", "deaf, all hands"],
+  "points": [
+    "Words for a song form for any song: 4-8 with the mirror, none deaf, 5-10 with a stranger or a recording of its own song. They are its own only with the mirror, where a song word sounds in 40% of its singing moments (stranger 3%, recording 7%).",
+    "Only a song it hears is expected to answer (where the expectation stayed bounded: higher with the mirror in every life).",
+    "Given all six hands, it sings more when it hears itself: 13.4% of its acts in childhood against 11.1% deaf, in 5 of 5 lives.",
+    "It sings 60-85% more with someone in the room in every condition, deaf too: pressure, not reaching out. Its song is random: it learns when to sing, not what."
+  ],
+  "columns": [
+    {"key": "song_words", "label": "Song words", "what": "hearing words that occur mostly while a song is heard, its own or another's"},
+    {"key": "song_word_while_singing", "label": "Song word while it sings", "what": "share of its own singing moments, last third, in which a song word sounds", "pct": true},
+    {"key": "expects_answer_bounded", "label": "Expects an answer", "what": "its expectation that singing is answered, in lives where it stayed bounded"},
+    {"key": "sing_share_young", "label": "Singing, days 1-10", "what": "share of its acts that are singing (1.0 with one hand)", "pct": true},
+    {"key": "sings_per_1000_present", "label": "Sings, someone there", "what": "notes begun per 1,000 moments with a person in the room, last third"},
+    {"key": "sings_per_1000_absent", "label": "Sings, alone", "what": "notes begun per 1,000 moments with nobody there, last third"}
+  ]
+}

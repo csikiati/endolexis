@@ -47,6 +47,8 @@ voice (experiment 14, the auditory mirror) decides what the microphone hears of 
               day before, of the same kinds, at random moments
   recording - its own tones are not heard; its own tones of the day before are played back,
               at the same moments of the day
+The same holds for its singing voice (experiment 34): a stranger sings yesterday's notes at random moments,
+a recording sings them again at the same moments of the day.
 Only Olvaso's own loud tones warm the body, whatever is heard.
 
 window (experiment 15, the mirror test) decides what the camera sees of painting. With window=None
@@ -95,6 +97,9 @@ class Room:
         self.tone_freq, self.tone_amp, self.paint_col = 440.0, 0.0, PAINTS[0]
         self.sing_pos, self.sing_len, self.sing_freq = 0, 0, None       # moments into the note, its length, None: a pause
         self.sung = {}                   # observer only: moment -> (semitone or None, length) of its song
+        self.other_sing_pos, self.other_sing_len, self.other_sing_freq = 0, 0, None   # the stranger's or the recording's song
+        self.song_stranger_at = {}
+        self.sing_rng = np.random.default_rng(seed + 999_000)
         self.pain = 0.0
         self.day_length, self.t = day_length, 0
         self.brightness = 0.5
@@ -240,6 +245,11 @@ class Room:
             x = (k + np.arange(NSAMP) / NSAMP) / self.sing_len                      # 0 .. 1 through the note
             env = np.minimum(1.0, x * self.sing_len * NSAMP / 80) * np.clip((0.85 - x) / 0.15, 0, 1) ** 2
             s += 0.15 * env * np.sin(2 * np.pi * self.sing_freq * (tt + k * NSAMP / FS))
+        if self.other_singing():                                                    # another's singing voice
+            k = self.other_sing_pos
+            x = (k + np.arange(NSAMP) / NSAMP) / self.other_sing_len
+            env = np.minimum(1.0, x * self.other_sing_len * NSAMP / 80) * np.clip((0.85 - x) / 0.15, 0, 1) ** 2
+            s += 0.15 * env * np.sin(2 * np.pi * self.other_sing_freq * (tt + k * NSAMP / FS))
         if self.note_left > 0:                                                      # the disk at work
             for i in self.hand_rng.integers(0, NSAMP - 20, 6):
                 s[i:i + 20] += 0.15 * np.sign(np.sin(np.arange(20)))
@@ -307,6 +317,27 @@ class Room:
         """True while a note (not a pause) of its song sounds."""
         return self.sing_pos < self.sing_len and self.sing_freq is not None
 
+    def other_singing(self):
+        """True while a note of the stranger's or the recording's song sounds."""
+        return self.other_sing_pos < self.other_sing_len and self.other_sing_freq is not None
+
+    def _other_singer(self):
+        """The stranger or the recording, for the singing voice (experiment 34): yesterday's song, sung again."""
+        D = self.day_length
+        if self.voice == "stranger" and self.t % D == 0:
+            prev = [v for t, v in self.sung.items() if self.t - D <= t < self.t]
+            starts = self.sing_rng.integers(self.t, self.t + D - 16, len(prev)) if prev else []
+            self.song_stranger_at = dict(zip([int(u) for u in starts], prev))
+        start = None
+        if self.voice == "recording":
+            start = self.sung.get(self.t - D)
+        elif self.voice == "stranger":
+            start = self.song_stranger_at.get(self.t)
+        if start is not None:
+            n, d = start
+            self.other_sing_pos, self.other_sing_len = 0, int(d)
+            self.other_sing_freq = None if n is None else note_freq(int(n))
+
     def _other_voice(self):
         """The stranger or the recording, for the auditory mirror."""
         D = self.day_length
@@ -352,8 +383,12 @@ class Room:
         if self.hands:
             refused, executed = self._hands(act)
             singing = self.singing()
+            other_song = False
             if self.voice != "mirror":
                 self._other_voice()
+                if self.voice in ("stranger", "recording") and self.sung:
+                    self._other_singer()
+                    other_song = self.other_singing()
             if self.window in ("stranger", "recording"):
                 self._other_painter()
         r = self.rng
@@ -375,6 +410,7 @@ class Room:
         image = self._image(day)
         sound = self._sound(typing, talking, music, fan)
         self.sing_pos += 1
+        self.other_sing_pos += 1
         touch = np.array([r.poisson(6) if typing else 0, (1.0 if mouse else 0.0) * r.uniform(0.5, 1.5)], float)
         felt = np.array([self.warmth + r.normal(0, 0.03), self.charge + r.normal(0, 0.01),
                          self.load + r.normal(0, 0.03), self.drift])
@@ -390,7 +426,7 @@ class Room:
                          own_paint=self.paint_left > 0,
                          seen_own=self.paint_left > 0 and self.window == "mirror",
                          other_paint=self.other_paint_left > 0, own_song=singing,
-                         heard_song=singing and self.voice == "mirror")
+                         heard_song=singing and self.voice == "mirror", other_song=other_song)
             truth.update(request=act, refused=refused, executed=executed, pain=self.pain,
                          own=bool(self.tone_left or self.paint_left or self.note_left or singing))
         self.t += 1
